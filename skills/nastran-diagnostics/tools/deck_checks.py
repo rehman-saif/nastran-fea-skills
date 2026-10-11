@@ -1,10 +1,13 @@
-"""Deterministic deck checks for a Nastran model - stdlib only (scipy optional).
+"""Deterministic deck checks for a Nastran model.
 
-    python tools/deck_checks.py model.bdf [-o outdir] [--cc case_control.txt]
+    python tools/deck_checks.py model.bdf [-o outdir] [-I include_dir]
 
-Builds a compact model from deck_reader, then runs checks that Nastran either
-does not do or reports only as a consequence (a singular matrix, a rigid-body
-mode) far from the cause. Each check emits findings:
+The deck is read by pyNastran (tools/model.py); cards pyNastran has no class
+for are tokenized by pyNastran and named from the QRG layouts in
+tools/card_specs.py. This module builds a compact model from those objects,
+then runs checks that Nastran either does not do or reports only as a
+consequence (a singular matrix, a rigid-body mode) far from the cause. Each
+check emits findings:
 
     {code, severity, title, detail, count, ids, locs, basis, route}
 
@@ -13,7 +16,7 @@ statement in references/answering-rules.md (neither catalogue text nor
 extrapolation). route names the nastran-reference entries and the apex-docs
 question that fix the finding.
 
-The checks never raise on a malformed deck: whatever cannot be interpreted is
+The checks never raise on a malformed card: whatever cannot be interpreted is
 counted and reported, so the rest of the report still arrives.
 """
 from __future__ import annotations
@@ -28,31 +31,26 @@ import sys
 import time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from deck_reader import read_sections, parse_case_control, to_int, to_float  # noqa: E402
+from deps import require  # noqa: E402
+
+require()
+
+import numpy as np  # noqa: E402
+from scipy.spatial import cKDTree  # noqa: E402
+
+from card_specs import expand_thru, to_float, to_int  # noqa: E402
+from model import CONTACT_CARDS, load_deck, parse_case_control  # noqa: E402
 
 # ----------------------------------------------------------------------------
-# card knowledge: which flattened fields hold grid IDs
-# fields[8k+n-1] = QRG field n on line k (see deck_reader)
+# element knowledge
 # ----------------------------------------------------------------------------
-R = range
-ELEM_NODES = {
-    # shells
-    "CQUAD4": R(3, 7), "CQUADR": R(3, 7), "CQUAD8": R(3, 11), "CQUAD": R(3, 12),
-    "CTRIA3": R(3, 6), "CTRIAR": R(3, 6), "CTRIA6": R(3, 9), "CSHEAR": R(3, 7),
-    # solids
-    "CHEXA": R(3, 23), "CPENTA": R(3, 18), "CTETRA": R(3, 13), "CPYRAM": R(3, 16),
-    # line elements
-    "CBAR": R(3, 5), "CBEAM": R(3, 5), "CBEND": R(3, 5), "CROD": R(3, 5), "CTUBE": R(3, 5),
-    "CONROD": R(2, 4), "CBUSH": R(3, 5), "CBUSH1D": R(3, 5), "CGAP": R(3, 5),
-    "CFAST": (), "CWELD": (),
-    # scalar-ish (grid positions only)
-    "CELAS1": (3, 5), "CELAS2": (3, 5), "CDAMP1": (3, 5), "CDAMP2": (3, 5),
-    "CVISC": R(3, 5),
-}
-MASS_NODES = {"CONM2": (2,), "CONM1": (2,), "CMASS1": (3, 5), "CMASS2": (3, 5)}
 SHELLS = {"CQUAD4", "CQUADR", "CQUAD8", "CQUAD", "CTRIA3", "CTRIAR", "CTRIA6", "CSHEAR"}
 SOLIDS = {"CHEXA", "CPENTA", "CTETRA", "CPYRAM"}
 LINES = {"CBAR", "CBEAM", "CBEND", "CROD", "CTUBE", "CONROD"}
+SPRINGS = {"CBUSH", "CBUSH1D", "CGAP", "CELAS1", "CELAS2", "CDAMP1", "CDAMP2", "CVISC"}
+# element types that join parts; CFAST/CWELD are kept but join nothing (see run-digest.md)
+ELEM_TYPES = SHELLS | SOLIDS | LINES | SPRINGS | {"CFAST", "CWELD"}
+MASS_TYPES = {"CONM2", "CONM1", "CMASS1", "CMASS2"}
 PROP_OK = {
     "shell": {"PSHELL", "PCOMP", "PCOMPG", "PSHEAR", "PLPLANE", "PSHLN1"},
     "solid": {"PSOLID", "PLSOLID", "PCOMPS", "PCOMPLS", "PSLDN1"},
@@ -66,19 +64,6 @@ ELEM_FAMILY = {**{e: "shell" for e in SHELLS}, **{e: "solid" for e in SOLIDS},
                "CBUSH1D": "bush1d", "CGAP": "gap", "CELAS1": "elas", "CDAMP1": "damp",
                "CVISC": "visc", "CBEND": "bend"}
 PROP_CARDS = set().union(*PROP_OK.values())
-MAT_CARDS = {"MAT1", "MAT2", "MAT3", "MAT8", "MAT9", "MAT10", "MATHE", "MATHP", "MATEP"}
-MAT_RHO = {"MAT1": 5, "MAT2": 8, "MAT8": 8, "MAT9": 23, "MAT3": 8}
-MAT_E = {"MAT1": 2, "MAT8": 2}
-CONTACT_CARDS = {"BCSURF", "BSURF", "BCPROP", "BCBODY", "BCBODY1", "BCONECT", "BCTABLE",
-                 "BCTABL1", "BCONPRG", "BCONPRP", "BGSET", "BCTSET", "BCTPARA", "BCTPARM",
-                 "BCPARA", "BGPARM", "BCRPARA", "BCTADD", "BGADD"}
-KNOWN_OTHER = {"GRID", "SPOINT", "EPOINT", "CORD2R", "CORD2C", "CORD2S", "CORD1R", "CORD1C",
-               "CORD1S", "RBE2", "RBE3", "RBAR", "RBAR1", "RROD", "RBE1", "RSPLINE", "RJOINT",
-               "MPC", "MPCADD", "SPC", "SPC1", "SPCADD", "SPCD", "FORCE", "MOMENT", "FORCE1",
-               "FORCE2", "MOMENT1", "MOMENT2", "GRAV", "ACCEL", "ACCEL1", "RFORCE", "LOAD",
-               "PLOAD", "PLOAD1", "PLOAD2", "PLOAD4", "TEMP", "TEMPD", "PARAM", "MDLPRM",
-               "SET1", "SET3", "EIGRL", "EIGR", "SUPORT", "SUPORT1", "INCLUDE", "ENDDATA",
-               "PLOTEL", "DOPTPRM", "TABLED1", "TABLEM1", "NLPARM", "NLPCI"}
 
 # faces for volume by the divergence theorem (outward, MSC node order)
 FACES = {
@@ -88,16 +73,6 @@ FACES = {
     "CPYRAM": ((0, 3, 2, 1), (0, 1, 4), (1, 2, 4), (2, 3, 4), (3, 0, 4)),
 }
 CORNERS = {"CHEXA": 8, "CPENTA": 6, "CTETRA": 4, "CPYRAM": 5}
-SECTION_AREA = {  # PBARL/PBEAML TYPE -> (ndim, area(d))
-    "ROD": (1, lambda d: math.pi * d[0] ** 2),
-    "TUBE": (2, lambda d: math.pi * (d[0] ** 2 - d[1] ** 2)),
-    "BAR": (2, lambda d: d[0] * d[1]),
-    "BOX": (4, lambda d: d[0] * d[1] - (d[0] - 2 * d[3]) * (d[1] - 2 * d[2])),
-    "I": (6, lambda d: d[1] * d[4] + d[2] * d[5] + (d[0] - d[4] - d[5]) * d[3]),
-    "CHAN": (4, lambda d: 2 * d[0] * d[3] + (d[1] - 2 * d[3]) * d[2]),
-    "T": (4, lambda d: d[0] * d[2] + (d[1] - d[2]) * d[3]),
-    "L": (4, lambda d: d[0] * d[2] + (d[1] - d[2]) * d[3]),
-}
 UNIT_LEN = {"M": 1.0, "MM": 1000.0, "CM": 100.0, "IN": 39.3701, "FT": 3.28084}
 UNIT_TIME = {"S": 1.0, "SEC": 1.0, "MS": 1000.0}
 
@@ -137,7 +112,7 @@ SEV_ORDER = {"error": 0, "warn": 1, "info": 2}
 
 
 # ----------------------------------------------------------------------------
-# small vector helpers (no numpy dependency)
+# small vector helpers
 # ----------------------------------------------------------------------------
 def sub(a, b): return (a[0] - b[0], a[1] - b[1], a[2] - b[2])
 def add(a, b): return (a[0] + b[0], a[1] + b[1], a[2] + b[2])
@@ -145,9 +120,6 @@ def mul(a, s): return (a[0] * s, a[1] * s, a[2] * s)
 def dot(a, b): return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
 def cross(a, b): return (a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0])
 def norm(a): return math.sqrt(dot(a, a))
-def unit(a):
-    n = norm(a)
-    return (a[0] / n, a[1] / n, a[2] / n) if n else (0.0, 0.0, 0.0)
 
 
 class UF:
@@ -173,38 +145,25 @@ class UF:
             self.p[rb] = ra
 
 
-def ints_with_thru(vals):
-    """SPC1/SET1/BSURF style lists with THRU [BY]."""
-    out, i = [], 0
-    vals = [v.strip().upper() for v in vals if v is not None]
-    while i < len(vals):
-        v = vals[i]
-        if v == "THRU" and out and i + 1 < len(vals):
-            a, b = out[-1], to_int(vals[i + 1])
-            step = 1
-            if i + 3 < len(vals) and vals[i + 2] == "BY":
-                step = to_int(vals[i + 3], 1) or 1
-                i += 2
-            if b is not None and b >= a and (b - a) // step < 5_000_000:
-                out.extend(range(a + step, b + 1, step))
-            i += 2
-            continue
-        n = to_int(v)
-        if n is not None:
-            out.append(n)
-        i += 1
-    return out
+def _comps(c):
+    """pyNastran component field -> '123456'-style string ('' when blank or 0)."""
+    s = "" if c is None else str(c).strip()
+    return "" if s in ("", "0") else s
+
+
+def _ids(xs):
+    return [x for x in (xs or []) if isinstance(x, (int, np.integer)) and x > 0]
 
 
 # ----------------------------------------------------------------------------
-# model
+# model: compact containers filled from the pyNastran BDF
 # ----------------------------------------------------------------------------
 class Model:
     def __init__(self):
         self.files = []
         self.grids = {}          # gid -> (cp, x, y, z, cd, ps, loc)
-        self.coords = {}         # cid -> dict
-        self.elems = {}          # eid -> (name, pid, nodes, loc)
+        self.coords = {}         # cid -> pyNastran coord
+        self.elems = {}          # eid -> (name, pid, nodes, loc, extra)  extra: CONROD (mid, A)
         self.rigids = {}         # eid -> (name, indep, dep, dep_comps, loc)  dep_comps: {gid: comps}
         self.masses = {}         # eid -> (name, gid, mass, loc)
         self.mpcs = collections.defaultdict(list)   # sid -> [(grids, loc)]
@@ -213,247 +172,40 @@ class Model:
         self.mpcadd = {}
         self.loads = collections.defaultdict(list)  # sid -> [dict]
         self.load_combo = {}     # sid -> (scale, [(s, lid)], loc)
-        self.props = {}          # pid -> Card
-        self.mats = {}           # mid -> Card
+        self.props = {}          # pid -> pyNastran property (.type)
+        self.mats = {}           # mid -> pyNastran material (.type)
         self.params = {}
-        self.contact = collections.defaultdict(list)  # name -> [Card]
+        self.contact = collections.defaultdict(list)  # name -> [card_specs.Card]
         self.card_count = collections.Counter()
         self.unknown = collections.Counter()
         self.dups = collections.defaultdict(list)  # family -> [(id, loc_first, loc_dup)]
-        self.id_seen = {"GRID": {}, "ELEMENT": {}, "PROPERTY": {}, "MATERIAL": {}, "COORD": {}}
         self.suport = []
-        self.deck = None
-        self.gravity = []
         self.problems = []
-        self._pos_cache = {}
-        self._csys_cache = {}
+        self.comments = []
+        self.case_control = []
+        self.executive = []
+        self.includes = []
+        self.sol = None
+        self.bdf = None
+        self.ld = None
+        self._pos = {}
 
-    # ---------------------------------------------------------------- build
-    def loc(self, card):
-        return "%s:%d" % (os.path.basename(card.file), card.line)
-
-    def _dup(self, family, id_, loc):
-        seen = self.id_seen[family]
-        if id_ in seen:
-            self.dups[family].append((id_, seen[id_], loc))
-        else:
-            seen[id_] = loc
-
-    def add(self, c):
-        n = c.name
-        self.card_count[n] += 1
-        f = c.fields
-        loc = None
-        try:
-            if n == "GRID":
-                gid = to_int(c.f(1))
-                if gid is None:
-                    self.problems.append((c.loc, "GRID without a valid ID"))
-                    return
-                loc = c.loc
-                self._dup("GRID", gid, loc)
-                self.grids[gid] = (to_int(c.f(2), 0), to_float(c.f(3), 0.0), to_float(c.f(4), 0.0),
-                                   to_float(c.f(5), 0.0), to_int(c.f(6), 0), c.f(7), loc)
-            elif n in ELEM_NODES:
-                eid = to_int(c.f(1))
-                loc = c.loc
-                self._dup("ELEMENT", eid, loc)
-                if n == "CONROD":
-                    nodes = tuple(x for x in (to_int(c.f(2)), to_int(c.f(3))) if x)
-                    self.elems[eid] = (n, None, nodes, loc, (to_int(c.f(4)), to_float(c.f(5), 0.0)))
-                    return
-                nodes = tuple(x for x in (to_int(c.f(i)) for i in ELEM_NODES[n] if i < len(f)) if x)
-                self.elems[eid] = (n, to_int(c.f(2)), nodes, loc, None)
-            elif n in MASS_NODES:
-                eid = to_int(c.f(1))
-                loc = c.loc
-                self._dup("ELEMENT", eid, loc)
-                gids = [to_int(c.f(i)) for i in MASS_NODES[n]]
-                m = to_float(c.f(4), 0.0) if n == "CONM2" else (to_float(c.f(2), 0.0) if n == "CMASS2" else 0.0)
-                self.masses[eid] = (n, gids[0], m, loc)
-            elif n in ("RBE2", "RBE3", "RBAR", "RBAR1", "RROD", "RBE1", "RJOINT", "RSPLINE"):
-                self._add_rigid(c)
-            elif n in ("CORD2R", "CORD2C", "CORD2S"):
-                cid = to_int(c.f(1))
-                self._dup("COORD", cid, c.loc)
-                self.coords[cid] = {"type": n[-1], "rid": to_int(c.f(2), 0),
-                                    "a": tuple(to_float(c.f(i), 0.0) for i in (3, 4, 5)),
-                                    "b": tuple(to_float(c.f(i), 0.0) for i in (6, 7, 8)),
-                                    "c": tuple(to_float(c.f(i), 0.0) for i in (9, 10, 11)), "loc": c.loc}
-            elif n in ("CORD1R", "CORD1C", "CORD1S"):
-                for k in (1, 5):
-                    cid = to_int(c.f(k))
-                    if cid:
-                        self._dup("COORD", cid, c.loc)
-                        self.coords[cid] = {"type": n[-1], "g": tuple(to_int(c.f(k + j)) for j in (1, 2, 3)),
-                                            "loc": c.loc}
-            elif n in PROP_CARDS or (n.startswith("P") and n not in ("PARAM", "PLOAD", "PLOAD1", "PLOAD2",
-                                                                      "PLOAD4", "PLOTEL")):
-                pid = to_int(c.f(1))
-                if pid is not None:
-                    self._dup("PROPERTY", pid, c.loc)
-                    self.props[pid] = c
-                if n not in PROP_CARDS:
-                    self.unknown[n] += 1
-            elif n in MAT_CARDS or re.match(r"^MAT", n):
-                mid = to_int(c.f(1))
-                if n in MAT_CARDS and mid is not None:
-                    self._dup("MATERIAL", mid, c.loc)
-                    self.mats[mid] = c
-            elif n == "SPC1":
-                sid = to_int(c.f(1))
-                self.spcs[sid].append((n, c.f(2), ints_with_thru(f[3:]), c.loc))
-            elif n == "SPC":
-                sid = to_int(c.f(1))
-                for gi, ci in ((2, 3), (5, 6)):
-                    g = to_int(c.f(gi))
-                    if g:
-                        self.spcs[sid].append((n, c.f(ci), [g], c.loc))
-            elif n in ("SPCADD", "MPCADD"):
-                (self.spcadd if n == "SPCADD" else self.mpcadd)[to_int(c.f(1))] = ints_with_thru(f[2:])
-            elif n == "MPC":
-                sid = to_int(c.f(1))
-                grids = [to_int(f[i]) for i in range(len(f)) if i % 8 in (2, 5) and to_int(f[i])]
-                self.mpcs[sid].append((grids, c.loc))
-            elif n in ("FORCE", "MOMENT"):
-                sid = to_int(c.f(1))
-                self.loads[sid].append({"type": n, "g": to_int(c.f(2)), "cid": to_int(c.f(3), 0),
-                                        "f": to_float(c.f(4), 0.0),
-                                        "n": tuple(to_float(c.f(i), 0.0) for i in (5, 6, 7)), "loc": c.loc})
-            elif n in ("GRAV", "ACCEL", "ACCEL1", "RFORCE"):
-                sid = to_int(c.f(1))
-                d = {"type": n, "loc": c.loc}
-                if n == "GRAV":
-                    d.update(cid=to_int(c.f(2), 0), a=to_float(c.f(3), 0.0),
-                             n=tuple(to_float(c.f(i), 0.0) for i in (4, 5, 6)))
-                self.loads[sid].append(d)
-            elif n in ("PLOAD", "PLOAD1", "PLOAD2", "PLOAD4", "FORCE1", "FORCE2", "MOMENT1", "MOMENT2",
-                       "SPCD", "TEMP", "TEMPD"):
-                sid = to_int(c.f(1))
-                g = to_int(c.f(2)) if n in ("FORCE1", "FORCE2", "MOMENT1", "MOMENT2", "SPCD") else None
-                self.loads[sid].append({"type": n, "g": g, "loc": c.loc})
-            elif n == "LOAD":
-                sid = to_int(c.f(1))
-                pairs = [(to_float(f[i], 0.0), to_int(f[i + 1])) for i in range(3, len(f) - 1, 2)
-                         if to_int(f[i + 1] if i + 1 < len(f) else "")]
-                self.load_combo[sid] = (to_float(c.f(2), 1.0), pairs, c.loc)
-            elif n == "PARAM":
-                self.params[c.f(1).upper()] = c.f(2).upper()
-            elif n in ("SUPORT", "SUPORT1"):
-                self.suport.append(c.loc)
-            elif n in CONTACT_CARDS:
-                self.contact[n].append(c)
-            elif n not in KNOWN_OTHER:
-                self.unknown[n] += 1
-        except Exception as e:  # noqa: BLE001 - never raise
-            self.problems.append((c.loc, "%s could not be interpreted: %s" % (n, e)))
-
-    def _add_rigid(self, c):
-        n, f = c.name, c.fields
-        eid = to_int(c.f(1))
-        self._dup("ELEMENT", eid, c.loc)
-        indep, dep, depc = [], [], {}
-        if n == "RBE2":
-            gn = to_int(c.f(2))
-            cm = c.f(3)
-            indep = [gn] if gn else []
-            for v in f[4:]:
-                if v and ("." in v or "E" in v.upper()):
-                    break                      # ALPHA / TREF
-                g = to_int(v)
-                if g:
-                    dep.append(g)
-                    depc[g] = cm
-        elif n == "RBE3":
-            ref = to_int(c.f(3))
-            dep = [ref] if ref else []
-            if ref:
-                depc[ref] = c.f(4)
-            i, mode = 5, "wt"
-            while i < len(f):
-                v = f[i].strip().upper()
-                if v in ("UM",):
-                    mode = "um"
-                    i += 1
-                    continue
-                if v in ("ALPHA", "TREF"):
-                    break
-                if mode == "um":
-                    g, cm = to_int(v), (f[i + 1] if i + 1 < len(f) else "")
-                    if g:
-                        dep.append(g)
-                        depc[g] = cm
-                        if g in indep:
-                            indep.remove(g)
-                    i += 2
-                    continue
-                if v and ("." in v or "E" in v):          # weight -> next is component
-                    i += 2
-                    continue
-                g = to_int(v)
-                if g:
-                    indep.append(g)
-                i += 1
-        elif n in ("RBAR", "RBAR1", "RROD", "RJOINT"):
-            ga, gb = to_int(c.f(2)), to_int(c.f(3))
-            indep = [x for x in (ga,) if x]
-            dep = [x for x in (gb,) if x]
-            if n == "RBAR":
-                cma = c.f(6)
-                if cma and not c.f(7):                    # CNA blank, CMA given: GB independent
-                    indep, dep = [gb], [ga]
-            for g in dep:
-                depc[g] = c.f(7) if n == "RBAR" else "123456"
-        elif n == "RBE1":
-            grids = [to_int(f[i]) for i in range(2, len(f)) if (i % 8) in (2, 4, 6) and to_int(f[i])]
-            indep = grids                               # approximate: all linked
-        else:  # RSPLINE
-            indep = [to_int(v) for v in f[3:] if to_int(v)]
-        self.rigids[eid] = (n, tuple(indep), tuple(dep), depc, c.loc)
+    def loc(self, family, id_):
+        return self.ld.loc(family, id_) if self.ld else "?"
 
     # ---------------------------------------------------------------- coords
-    def csys(self, cid, depth=0):
+    def csys(self, cid):
         """cid -> (type, origin, (ex, ey, ez)) in basic, or None."""
         if cid in (0, None):
             return ("R", (0.0, 0.0, 0.0), ((1.0, 0, 0), (0, 1.0, 0), (0, 0, 1.0)))
-        if cid in self._csys_cache:
-            return self._csys_cache[cid]
         c = self.coords.get(cid)
-        if c is None or depth > 20:
+        if c is None or getattr(c, "i", None) is None:
             return None
-        if "g" in c:  # CORD1x
-            pts = [self.pos(g, depth + 1) for g in c["g"]]
-            if any(p is None for p in pts):
-                return None
-            a, b, cc = pts
-        else:
-            a = self.to_basic(c["rid"], c["a"], depth + 1)
-            b = self.to_basic(c["rid"], c["b"], depth + 1)
-            cc = self.to_basic(c["rid"], c["c"], depth + 1)
-            if None in (a, b, cc):
-                return None
-        ez = unit(sub(b, a))
-        ey = unit(cross(ez, sub(cc, a)))
-        ex = cross(ey, ez)
-        out = (c["type"], a, (ex, ey, ez))
-        self._csys_cache[cid] = out
-        return out
-
-    def to_basic(self, cid, p, depth=0):
-        cs = self.csys(cid, depth)
-        if cs is None:
-            return None
-        t, o, (ex, ey, ez) = cs
-        if t == "C":
-            r, th = p[0], math.radians(p[1])
-            p = (r * math.cos(th), r * math.sin(th), p[2])
-        elif t == "S":
-            r, th, ph = p[0], math.radians(p[1]), math.radians(p[2])
-            p = (r * math.sin(th) * math.cos(ph), r * math.sin(th) * math.sin(ph), r * math.cos(th))
-        return add(o, add(add(mul(ex, p[0]), mul(ey, p[1])), mul(ez, p[2])))
+        return (c.type[-1], tuple(c.origin), (tuple(c.i), tuple(c.j), tuple(c.k)))
 
     def vec_to_basic(self, cid, v, at):
-        """Direction v given in cid, evaluated at basic point `at`."""
+        """Direction v given in cid, evaluated at basic point `at` (the local
+        r/theta/z or r/theta/phi basis at that point for C and S systems)."""
         cs = self.csys(cid)
         if cs is None:
             return None
@@ -474,18 +226,184 @@ class Model:
                 v = add(add(mul(er, v[0]), mul(et, v[1])), mul(ep, v[2]))
         return add(add(mul(ex, v[0]), mul(ey, v[1])), mul(ez, v[2]))
 
-    def pos(self, gid, depth=0):
-        g = self.grids.get(gid)
-        if g is None:
-            return None
-        if g[0] == 0:
-            return (g[1], g[2], g[3])
-        p = self._pos_cache.get(gid)
-        if p is None:
-            p = self.to_basic(g[0], (g[1], g[2], g[3]), depth)
-            if p is not None:
-                self._pos_cache[gid] = p
-        return p
+    def pos(self, gid):
+        return self._pos.get(gid)
+
+
+def _fill_positions(m, bdf):
+    """Basic-frame positions for every grid, from pyNastran's transforms."""
+    try:
+        _, icp, xyz_cp, nid_cp_cd = bdf.get_displacement_index_xyz_cp_cd()
+        xyz = bdf.transform_xyzcp_to_xyz_cid(xyz_cp, nid_cp_cd[:, 0], icp, cid=0)
+        m._pos = {int(n): (float(p[0]), float(p[1]), float(p[2])) for n, p in zip(nid_cp_cd[:, 0], xyz)}
+        return
+    except Exception as e:  # noqa: BLE001 - fall back node by node
+        m.problems.append(("coordinates", "vectorised transform failed (%s); positions per grid" % e))
+    for gid, n in bdf.nodes.items():
+        try:
+            m._pos[gid] = tuple(float(x) for x in n.get_position())
+        except Exception:  # noqa: BLE001 - grid in an unresolved coordinate system
+            if (n.cp or 0) == 0:
+                m._pos[gid] = tuple(float(x) for x in n.xyz)
+
+
+def _rigid(r):
+    """pyNastran rigid element -> (independent grids, dependent grids, {dep grid: comps})."""
+    t = r.type
+    indep, dep, depc = [], [], {}
+    if t == "RBE2":
+        indep = _ids([r.gn])
+        dep = _ids(r.Gmi)
+        depc = {g: _comps(r.cm) for g in dep}
+    elif t == "RBE3":
+        dep = _ids([r.refgrid])
+        depc = {g: _comps(r.refc) for g in dep}
+        um = _ids(r.Gmi)
+        for g, c in zip(r.Gmi or [], r.Cmi or []):
+            if g:
+                depc[g] = _comps(c)
+        dep += um
+        indep = [g for gs in (r.Gijs or []) for g in _ids(gs) if g not in um]
+    elif t == "RBAR":
+        ends = ((r.ga, r.cna, r.cma), (r.gb, r.cnb, r.cmb))
+        for g, cn, cm in ends:
+            if not g:
+                continue
+            if _comps(cm):
+                dep.append(g)
+                depc[g] = _comps(cm)
+            else:
+                indep.append(g)
+        if not dep and r.gb:  # all blank: GB dependent in all six
+            indep, dep, depc = _ids([r.ga]), [r.gb], {r.gb: "123456"}
+    elif t == "RBAR1":
+        indep, dep = _ids([r.ga]), _ids([r.gb])
+        depc = {g: _comps(r.cb) or "123456" for g in dep}
+    elif t == "RROD":
+        ga, gb = (list(r.nodes) + [None, None])[:2]
+        if _comps(r.cma):
+            indep, dep, depc = _ids([gb]), _ids([ga]), {ga: _comps(r.cma)}
+        else:
+            indep, dep, depc = _ids([ga]), _ids([gb]), {gb: _comps(r.cmb) or "123456"}
+    elif t == "RBE1":
+        indep = _ids(r.Gni)
+        dep = _ids(r.Gmi)
+        depc = {g: _comps(c) for g, c in zip(r.Gmi, r.Cmi) if g}
+    else:
+        try:
+            indep = _ids(r.independent_nodes)
+            dep = _ids(r.dependent_nodes)
+        except Exception:  # noqa: BLE001
+            indep, dep = [], []
+        depc = {g: "123456" for g in dep}
+    return tuple(indep), tuple(dep), depc
+
+
+def _fill(m, ld):
+    bdf = m.bdf = ld.bdf
+    m.ld = ld
+    m.files = ld.files
+    m.card_count = ld.card_count
+    m.dups = ld.dups
+    m.problems = list(ld.problems)
+    m.comments, m.case_control, m.executive = ld.comments, ld.case_control, ld.executive
+    m.includes, m.sol = ld.includes, (str(ld.sol) if ld.sol is not None else None)
+    m.unknown.update(ld.rejected)
+    first = ld.first_locs
+    L = ld.loc
+
+    for gid, n in bdf.nodes.items():
+        m.grids[gid] = (n.cp or 0, n.xyz[0], n.xyz[1], n.xyz[2], n.cd or 0, _comps(n.ps), L("GRID", gid))
+    m.coords = bdf.coords
+    _fill_positions(m, bdf)
+
+    for eid, e in bdf.elements.items():
+        t = e.type
+        if t not in ELEM_TYPES:
+            m.unknown[t] += 1
+            continue
+        if t in ("CFAST", "CWELD"):
+            m.elems[eid] = (t, getattr(e, "pid", None), (), L("ELEMENT", eid), None)
+            continue
+        try:
+            nodes = tuple(_ids(e.node_ids))
+        except Exception:  # noqa: BLE001
+            nodes = ()
+        if t == "CONROD":
+            m.elems[eid] = (t, None, nodes, L("ELEMENT", eid), (e.mid, e.A or 0.0))
+        else:
+            m.elems[eid] = (t, getattr(e, "pid", None), nodes, L("ELEMENT", eid), None)
+    for eid, e in bdf.masses.items():
+        t = e.type
+        if t not in MASS_TYPES:
+            m.unknown[t] += 1
+            continue
+        if t in ("CONM2", "CONM1"):
+            g, mass = e.nid, (e.mass if t == "CONM2" else 0.0)
+        else:
+            nid = _ids(e.node_ids)
+            g, mass = (nid[0] if nid else None), (e.mass if t == "CMASS2" else 0.0)
+        m.masses[eid] = (t, g, mass or 0.0, L("ELEMENT", eid))
+    for eid, r in bdf.rigid_elements.items():
+        try:
+            ind, dep, depc = _rigid(r)
+        except Exception as e:  # noqa: BLE001
+            m.problems.append((L("ELEMENT", eid), "%s %s could not be interpreted: %s" % (r.type, eid, e)))
+            continue
+        m.rigids[eid] = (r.type, ind, dep, depc, L("ELEMENT", eid))
+
+    for sid, cards in bdf.spcs.items():
+        for c in cards:
+            loc = first.get((c.type, sid), "?")
+            if c.type == "SPC1":
+                m.spcs[sid].append((c.type, _comps(c.components), _ids(c.nodes), loc))
+            elif c.type == "SPC":
+                for g, comp in zip(c.nodes, c.components):
+                    if g:
+                        m.spcs[sid].append((c.type, _comps(comp), [g], loc))
+            else:
+                m.unknown[c.type] += 1
+    for sid, cards in bdf.spcadds.items():
+        m.spcadd[sid] = [s for c in cards for s in c.sets]
+    for sid, cards in bdf.mpcadds.items():
+        m.mpcadd[sid] = [s for c in cards for s in c.sets]
+    for sid, cards in bdf.mpcs.items():
+        for c in cards:
+            m.mpcs[sid].append((_ids(getattr(c, "nodes", [])), first.get((c.type, sid), "?")))
+
+    for sid, cards in bdf.loads.items():
+        for c in cards:
+            t = c.type
+            loc = first.get((t, sid), "?")
+            if t in ("FORCE", "MOMENT"):
+                m.loads[sid].append({"type": t, "g": c.node, "cid": c.cid or 0, "f": c.mag or 0.0,
+                                     "n": tuple(float(x) for x in c.xyz), "loc": loc})
+            elif t == "GRAV":
+                m.loads[sid].append({"type": t, "cid": c.cid or 0, "a": c.scale or 0.0,
+                                     "n": tuple(float(x) for x in c.N), "loc": loc})
+            elif t in ("FORCE1", "FORCE2", "MOMENT1", "MOMENT2"):
+                m.loads[sid].append({"type": t, "g": c.node, "loc": loc})
+            elif t == "SPCD":
+                g = _ids(getattr(c, "nodes", []))
+                m.loads[sid].append({"type": t, "g": g[0] if g else None, "loc": loc})
+            else:
+                m.loads[sid].append({"type": t, "g": None, "loc": loc})
+    for sid, cards in bdf.load_combinations.items():
+        for c in cards:
+            if c.type == "LOAD":
+                m.load_combo[sid] = (c.scale, list(zip(c.scale_factors, c.load_ids)), first.get(("LOAD", sid), "?"))
+    m.props = dict(bdf.properties)
+    for pid, p in m.props.items():
+        if p.type not in PROP_CARDS:
+            m.unknown[p.type] += 1
+    m.mats = {**bdf.materials, **bdf.hyperelastic_materials}
+    for name, p in bdf.params.items():
+        v = p.values[0] if getattr(p, "values", None) else ""
+        m.params[name.upper()] = str(v).upper()
+    m.suport = [x for x in (bdf.suport or [])] + list((bdf.suport1 or {}).values())
+    for c in ld.contact:
+        m.contact[c.name].append(c)
+    return m
 
 
 # ----------------------------------------------------------------------------
@@ -527,55 +445,52 @@ def rho_of(m, mid):
     c = m.mats.get(mid)
     if c is None:
         return None
-    i = MAT_RHO.get(c.name)
-    return to_float(c.f(i), 0.0) if i else None
+    return getattr(c, "rho", None)
+
+
+def young_of(c):
+    return getattr(c, "e", None) if c.type == "MAT1" else (getattr(c, "e11", None) if c.type == "MAT8" else None)
+
+
+def mids_of(p):
+    """Material IDs a property references (raw plies, not SYM-doubled)."""
+    t = p.type
+    if t == "PSHELL":
+        return [p.mid1, p.mid2, p.mid3, p.mid4]
+    if t in ("PCOMP", "PCOMPG"):
+        return list(p.mids)
+    if t in ("PSOLID", "PBAR", "PBARL", "PBEAM", "PBEAML", "PROD", "PTUBE", "PSHEAR", "PLSOLID"):
+        return [p.mid]
+    return []
 
 
 def prop_mass_per_measure(m, pid, cache):
     """mass per unit area (shell) / volume (solid) / length (line); None if unknown."""
     if pid in cache:
         return cache[pid]
-    c = m.props.get(pid)
+    p = m.props.get(pid)
     out = None
     try:
-        if c is None:
+        if p is None:
             out = None
-        elif c.name == "PSHELL":
-            t = to_float(c.f(3), 0.0)
-            rho = rho_of(m, to_int(c.f(2))) or 0.0
-            out = rho * t + to_float(c.f(8), 0.0)
-        elif c.name == "PCOMP":
-            nsm = to_float(c.f(3), 0.0)
-            lam = c.f(8).upper()
-            tot, mid, t = 0.0, None, None
-            for j in range(9, len(c.fields), 4):
-                mid = to_int(c.f(j), mid)
-                t = to_float(c.f(j + 1), t)
-                if mid is None or t is None:
-                    continue
-                tot += (rho_of(m, mid) or 0.0) * t
-            out = tot * (2 if lam == "SYM" else 1) + nsm
-        elif c.name == "PCOMPG":
-            nsm = to_float(c.f(3), 0.0)
-            tot = 0.0
-            for k in range(1, (len(c.fields) - 1) // 8 + 1):
-                mid, t = to_int(c.f(8 * k + 2)), to_float(c.f(8 * k + 3), 0.0)
-                if mid:
-                    tot += (rho_of(m, mid) or 0.0) * t
-            out = tot + nsm
-        elif c.name in ("PSOLID", "PLSOLID"):
-            out = rho_of(m, to_int(c.f(2))) or 0.0
-        elif c.name in ("PBAR", "PBEAM", "PROD"):
-            a = to_float(c.f(4 if c.name != "PROD" else 3), 0.0)
-            out = (rho_of(m, to_int(c.f(2))) or 0.0) * a
-        elif c.name in ("PBARL", "PBEAML"):
-            typ = c.f(4).upper()
-            if typ in SECTION_AREA:
-                nd, fn = SECTION_AREA[typ]
-                d = [to_float(c.f(9 + i), 0.0) for i in range(nd)]
-                nsm = to_float(c.f(9 + nd), 0.0) if c.name == "PBARL" else 0.0
-                out = (rho_of(m, to_int(c.f(2))) or 0.0) * fn(d) + nsm
-    except Exception:  # noqa: BLE001
+        elif p.type == "PSHELL":
+            out = (rho_of(m, p.mid1) or 0.0) * (p.t or 0.0) + (p.nsm or 0.0)
+        elif p.type in ("PCOMP", "PCOMPG"):
+            tot = sum((rho_of(m, mid) or 0.0) * (t or 0.0) for mid, t in zip(p.mids, p.thicknesses))
+            sym = p.type == "PCOMP" and (p.lam or "").upper() == "SYM"
+            out = tot * (2 if sym else 1) + (p.nsm or 0.0)
+        elif p.type in ("PSOLID", "PLSOLID"):
+            out = rho_of(m, p.mid) or 0.0
+        elif p.type == "PROD":
+            out = (rho_of(m, p.mid) or 0.0) * (p.A or 0.0) + (p.nsm or 0.0)
+        elif p.type == "PBAR":
+            out = (rho_of(m, p.mid) or 0.0) * (p.A or 0.0) + (p.nsm or 0.0)
+        elif p.type == "PBEAM":
+            out = (rho_of(m, p.mid) or 0.0) * (p.A[0] or 0.0)
+        elif p.type in ("PBARL", "PBEAML"):
+            nsm = p.nsm if p.type == "PBARL" else 0.0
+            out = (rho_of(m, p.mid) or 0.0) * p.Area() + (nsm or 0.0)
+    except Exception:  # noqa: BLE001 - section pyNastran cannot size
         out = None
     cache[pid] = out
     return out
@@ -645,8 +560,7 @@ def run_checks(m, cc_lines, sol=None, unit_hint=None, coincident=True, log=print
     t0 = time.time()
     cc = parse_case_control(cc_lines) if cc_lines else {"global": {}, "subcases": {}, "params": []}
     have_cc = bool(cc_lines)
-    sol = sol or next((t.split()[1] for t, *_ in (m.deck.executive if m.deck else [])
-                       if t.upper().startswith("SOL ") and len(t.split()) > 1), None)
+    sol = sol or m.sol
     S["sol"] = sol
     S["cards"] = dict(m.card_count.most_common())
     S["grids"], S["elements"] = len(m.grids), len(m.elems)
@@ -658,8 +572,11 @@ def run_checks(m, cc_lines, sol=None, unit_hint=None, coincident=True, log=print
     S["params"] = m.params
 
     # ---------------- parse problems
-    probs = list(m.problems) + [("%s:%d" % (os.path.basename(f), n), msg)
-                                for f, n, msg in (m.deck.problems if m.deck else [])]
+    probs = list(m.problems)
+    rejected = m.ld.rejected if m.ld else {}
+    if rejected:
+        probs.append(("-", "card types pyNastran has no class for and card_specs does not name: %s"
+                      % ", ".join("%s (%d)" % kv for kv in rejected.most_common(8))))
     inc_missing = [p for p in probs if "INCLUDE not found" in p[1]]
     other = [p for p in probs if p not in inc_missing]
     if inc_missing:
@@ -714,8 +631,8 @@ def run_checks(m, cc_lines, sol=None, unit_hint=None, coincident=True, log=print
             miss_p[pid].append((eid, loc))
         else:
             fam = ELEM_FAMILY.get(n)
-            if fam and pc.name in PROP_CARDS and pc.name not in PROP_OK[fam]:
-                mismatch[(n, pc.name)].append((eid, loc))
+            if fam and pc.type in PROP_CARDS and pc.type not in PROP_OK[fam]:
+                mismatch[(n, pc.type)].append((eid, loc))
     if miss_p:
         F.add("MISSING_PROPERTY", "error", "Elements reference properties that do not exist",
               "; ".join("PID %s (%d elements, e.g. %s)" % (p, len(v), v[0][0]) for p, v in list(miss_p.items())[:5]),
@@ -725,18 +642,9 @@ def run_checks(m, cc_lines, sol=None, unit_hint=None, coincident=True, log=print
               ids=[x[0] for x in v], locs=[x[1] for x in v], count=len(v))
     used_mids = collections.defaultdict(list)
     for pid, c in m.props.items():
-        mids = []
-        if c.name == "PSHELL":
-            mids = [to_int(c.f(i)) for i in (2, 4, 6, 10)]
-        elif c.name == "PCOMP":
-            mids = [to_int(c.f(j)) for j in range(9, len(c.fields), 4)]
-        elif c.name == "PCOMPG":
-            mids = [to_int(c.f(8 * k + 2)) for k in range(1, (len(c.fields) - 1) // 8 + 1)]
-        elif c.name in ("PSOLID", "PBAR", "PBARL", "PBEAM", "PBEAML", "PROD", "PTUBE", "PSHEAR", "PLSOLID"):
-            mids = [to_int(c.f(2))]
-        for mid in mids:
+        for mid in mids_of(c):
             if mid:
-                used_mids[mid].append((pid, c.loc))
+                used_mids[mid].append((pid, m.loc("PROPERTY", pid)))
     for eid, e in m.elems.items():
         if e[0] == "CONROD" and e[4] and e[4][0]:
             used_mids[e[4][0]].append((eid, e[3]))
@@ -813,7 +721,7 @@ def run_checks(m, cc_lines, sol=None, unit_hint=None, coincident=True, log=print
         for s, d in expand_load(m, lid):
             if d.get("g"):
                 load_grids.add(d["g"])
-    coord_grids = {g for c in m.coords.values() if "g" in c for g in c["g"]}
+    coord_grids = {g for c in m.coords.values() if c.type.startswith("CORD1") for g in (c.g1, c.g2, c.g3) if g}
 
     # ---------------- orphans, floating masses, unattached spc/load
     referenced = stiff_grids | mass_grids | set(spc_grids) | load_grids | coord_grids
@@ -1077,10 +985,10 @@ def run_checks(m, cc_lines, sol=None, unit_hint=None, coincident=True, log=print
     # ---------------- materials / units
     mats = []
     for mid, c in m.mats.items():
-        e = to_float(c.f(MAT_E[c.name]), None) if c.name in MAT_E else None
+        e = young_of(c)
         rho = rho_of(m, mid)
         cw = math.sqrt(e / rho) if e and rho else None
-        mats.append({"mid": mid, "card": c.name, "E": e, "rho": rho, "wave_speed": cw, "loc": c.loc})
+        mats.append({"mid": mid, "card": c.type, "E": e, "rho": rho, "wave_speed": cw, "loc": m.loc("MATERIAL", mid)})
     S["materials"] = mats
     ws = [x["wave_speed"] for x in mats if x["wave_speed"] and x["card"] == "MAT1"]
     if len(ws) >= 2 and max(ws) / min(ws) > 10:
@@ -1108,7 +1016,7 @@ def run_checks(m, cc_lines, sol=None, unit_hint=None, coincident=True, log=print
 
 
 def detect_units(m, hint=None):
-    txt = " ".join(m.deck.comments if m.deck else []).upper() + " " + (hint or "").upper()
+    txt = " ".join(m.comments).upper() + " " + (hint or "").upper()
     L = re.search(r"LENGTH\s+(\w+)", txt)
     T = re.search(r"TIME\s+(\w+)", txt)
     M = re.search(r"MASS\s+(\w+)", txt)
@@ -1124,32 +1032,43 @@ def detect_units(m, hint=None):
             "system": sysname.group(0) if sysname else None, "source": "deck header comments"}
 
 
+
 def analyse_contact(m, F, comp_of, elem_size, label, bcontact, have_cc):
+    """Trace BCONECT pairs to elements and parts.
+
+    Surfaces: BCSURF (FACE/GRID forms; SET3 lists resolved), BCBODY/BCBODY1 to
+    BSURF or BCPROP. Rejected cards are named by card_specs (QRG layouts);
+    BSURF, BCBODY and SET3 come from pyNastran's own objects."""
     ctab = m.contact
     out = {"pairs": [], "summary": {}}
     if not ctab:
         return out
+    bdf = m.bdf
+    sets = getattr(bdf, "sets", {}) or {}
     surf = {}
     for c in ctab.get("BCSURF", []):
-        sid = to_int(c.f(1))
-        eids = [to_int(c.fields[i]) for i in range(2, len(c.fields) - 1)
-                if to_int(c.fields[i]) and re.fullmatch(r"S\d+|E\d+|F\d+", (c.fields[i + 1] or "").upper())]
-        if not eids:  # other layouts: every integer after the header line
-            eids = [to_int(v) for v in c.fields[9:] if to_int(v)]
-        surf[("BCSURF", sid)] = (eids, c.loc)
-    bsurf = {to_int(c.f(1)): (ints_with_thru(c.fields[2:]), c.loc) for c in ctab.get("BSURF", [])}
-    bcprop = {to_int(c.f(1)): (ints_with_thru(c.fields[2:]), c.loc) for c in ctab.get("BCPROP", [])}
+        eids = []
+        for it in c.get("ITEMS", []):
+            esid = it.get("ESID", it.get("EID"))
+            if it.get("IDTYPE") == "SET" and esid in sets:
+                eids += list(getattr(sets[esid], "ids", []))
+            elif isinstance(esid, int):
+                eids.append(esid)
+        surf[c.get("BID")] = (eids, c.loc, c.get("FORM") == "RIGID")
+    bsurf = {sid: (list(s.eids), m.ld.first_locs.get(("BSURF", sid), "?"))
+             for sid, s in (getattr(bdf, "bsurf", {}) or {}).items()}
+    bcprop = {c.get("ID"): (c.get("IPS", []), c.loc) for c in ctab.get("BCPROP", [])}
     body = {}
     for c in ctab.get("BCBODY1", []):
-        body[to_int(c.f(1))] = (to_int(c.f(5)), c.loc)
-    for c in ctab.get("BCBODY", []):
-        body[to_int(c.f(1))] = (to_int(c.f(4)), c.loc)
+        body[c.get("BID")] = (c.get("BSID"), c.loc)
+    for bid, b in (getattr(bdf, "bcbodys", {}) or {}).items():
+        body[bid] = (b.bsid, m.ld.first_locs.get(("BCBODY", bid), "?"))
     pid_elems = None
 
     def resolve(i):
         nonlocal pid_elems
-        if ("BCSURF", i) in surf:
-            return surf[("BCSURF", i)][0], "BCSURF %s" % i
+        if i in surf:
+            return surf[i][0], "BCSURF %s%s" % (i, " (rigid)" if surf[i][2] else "")
         if i in body:
             bsid = body[i][0]
             if bsid in bsurf:
@@ -1163,10 +1082,9 @@ def analyse_contact(m, F, comp_of, elem_size, label, bcontact, have_cc):
                 return [e for p in pids for e in pid_elems.get(p, [])], "BCBODY %s -> BCPROP %s" % (i, bsid)
         return None, None
 
-    # which BCONECTs are active
-    tables = {}
-    for c in ctab.get("BCTABL1", []):
-        tables[to_int(c.f(1))] = set(ints_with_thru(c.fields[2:]))
+    # which BCONECTs are active: BCONTACT selects a BCTABL1, or a BCONECT directly (BCTABL1 remark 1)
+    tables = {c.get("BCID"): set(c.get("IDS", [])) for c in ctab.get("BCTABL1", [])}
+    conect_ids = {c.get("ID") for c in ctab.get("BCONECT", [])}
     active = None
     note = []
     if have_cc:
@@ -1175,53 +1093,51 @@ def analyse_contact(m, F, comp_of, elem_size, label, bcontact, have_cc):
             bi = to_int(b)
             if bi is not None and bi in tables:
                 ids |= tables[bi]
-            elif bi is not None:
-                note.append("BCONTACT=%s is not a BCTABL1 - all BCONECT assumed active" % b)
-                ids = None
-                break
+            elif bi is not None and bi in conect_ids:
+                ids.add(bi)
             else:
-                note.append("BCONTACT=%s - all BCONECT assumed active" % b)
+                note.append("BCONTACT=%s selects no BCTABL1 or BCONECT - all BCONECT assumed active" % b)
                 ids = None
                 break
         active = ids if bcontact else set()
-    iglue = {}
-    for c in ctab.get("BCONPRG", []):
-        toks = [x.upper() for x in c.fields[2:]]
-        if "IGLUE" in toks:
-            iglue[to_int(c.f(1))] = to_int(toks[toks.index("IGLUE") + 1] if toks.index("IGLUE") + 1 < len(toks) else "", 0)
+    iglue = {c.get("BCGPID"): c.get("PARAMS", {}).get("IGLUE") for c in ctab.get("BCONPRG", [])}
     used_surf = set()
     pairs = []
+
+    def collect(ids):
+        es, desc = [], []
+        for x in ids:
+            e, d = resolve(x)
+            if e is None:
+                return None, None
+            es += e
+            desc.append(d)
+        return es, desc
+
+    def comps(es):
+        return sorted({label[comp_of[m.elems[e][2][0]]] for e in es if e in m.elems and m.elems[e][2]})
+
+    def size(es):
+        v = [elem_size[e] for e in es if e in elem_size]
+        return sum(v) / len(v) if v else None
+
     for c in ctab.get("BCONECT", []):
-        cid = to_int(c.f(1))
+        cid = c.get("ID")
         if active is not None and cid not in active:
             continue
-        sec = to_int(c.f(4))
-        mains = [to_int(v) for v in c.fields[5:] if to_int(v)]
-        sec_e, sec_desc = resolve(sec)
-        used_surf.add(sec)
-        main_e, main_desc = [], []
-        for mm in mains:
-            used_surf.add(mm)
-            e, d = resolve(mm)
-            if e is None:
-                main_e = None
-                break
-            main_e += e
-            main_desc.append(d)
-        if sec_e is None or main_e is None:
+        secs = [c.get("IDSCND")] if isinstance(c.get("IDSCND"), int) else list(c.get("IDSEC", []))
+        mains = [c.get("IDPRIM")] if isinstance(c.get("IDPRIM"), int) else list(c.get("IDPRIM_LIST", []))
+        used_surf.update(secs)
+        used_surf.update(mains)
+        sec_e, sec_desc = collect(secs)
+        main_e, main_desc = collect(mains)
+        if not secs or not mains or sec_e is None or main_e is None:
             F.add("GLUE_UNRESOLVED", "warn", "Contact pair %s: a surface could not be resolved to elements" % cid,
-                  "secondary %s, main %s" % (sec, mains), ids=[cid], locs=[c.loc])
+                  "secondary %s, main %s" % (secs, mains), ids=[cid], locs=[c.loc])
             continue
-
-        def comps(es):
-            return sorted({label[comp_of[m.elems[e][2][0]]] for e in es if e in m.elems and m.elems[e][2]})
-
-        def size(es):
-            v = [elem_size[e] for e in es if e in elem_size]
-            return sum(v) / len(v) if v else None
-        gp = to_int(c.f(2))
+        sec_desc = ", ".join(sec_desc)
         p = {"id": cid, "secondary": sec_desc, "main": main_desc, "sec_elems": len(sec_e), "main_elems": len(main_e),
-             "sec_size": size(sec_e), "main_size": size(main_e), "iglue": iglue.get(gp),
+             "sec_size": size(sec_e), "main_size": size(main_e), "iglue": iglue.get(c.get("BCGPID")),
              "sec_comps": [], "main_comps": [], "loc": c.loc}
         # comps as raw comp roots for graph use; labels for display
         p["sec_comps"] = sorted({comp_of[m.elems[e][2][0]] for e in sec_e if e in m.elems and m.elems[e][2]})
@@ -1239,7 +1155,7 @@ def analyse_contact(m, F, comp_of, elem_size, label, bcontact, have_cc):
         if set(p["sec_comps"]) & set(p["main_comps"]):
             F.add("GLUE_SAME_COMPONENT", "info",
                   "Contact pair %s joins surfaces that are already mesh-connected" % cid, ids=[cid], locs=[c.loc])
-    all_surf = {k[1] for k in surf} | set(body)
+    all_surf = set(surf) | set(body)
     unused = sorted(s for s in all_surf if s not in used_surf)
     if unused and ctab.get("BCONECT"):
         F.add("UNUSED_CONTACT_SURFACE", "info", "Contact surfaces/bodies not used by any active contact pair",
@@ -1259,29 +1175,12 @@ def coincident_nodes(m, F, comp_of, label, glue, S):
     lo, hi = S["bbox"]
     diag = math.sqrt(sum((hi[k] - lo[k]) ** 2 for k in range(3))) or 1.0
     tol = 1e-5 * diag
-    ids = [g for g in m.grids if g in comp_of]
+    ids = [g for g in m.grids if g in comp_of and m.pos(g) is not None]
     pairs = set()
-    try:
-        import numpy as np
-        from scipy.spatial import cKDTree
-        pts = np.array([m.pos(g) for g in ids], dtype=float)
-        tree = cKDTree(pts)
+    if ids:
+        tree = cKDTree(np.array([m.pos(g) for g in ids], dtype=float))
         for a, b in tree.query_pairs(tol):
             pairs.add((ids[a], ids[b]))
-    except Exception:  # noqa: BLE001 - pure python fallback: 8 offset hashes
-        h = 2 * tol
-        for off in [(i * tol, j * tol, k * tol) for i in (0, 1) for j in (0, 1) for k in (0, 1)]:
-            cells = collections.defaultdict(list)
-            for g in ids:
-                p = m.pos(g)
-                if p:
-                    cells[(int((p[0] + off[0]) // h), int((p[1] + off[1]) // h), int((p[2] + off[2]) // h))].append(g)
-            for lst in cells.values():
-                if len(lst) > 1:
-                    for i in range(len(lst)):
-                        for j in range(i + 1, len(lst)):
-                            if norm(sub(m.pos(lst[i]), m.pos(lst[j]))) <= tol:
-                                pairs.add((min(lst[i], lst[j]), max(lst[i], lst[j])))
     glued = set()
     for p in glue["pairs"]:
         for a in p["sec_comps"]:
@@ -1306,16 +1205,12 @@ def coincident_nodes(m, F, comp_of, label, glue, S):
 
 
 # ----------------------------------------------------------------------------
-def build_model(path, include_dirs=(), sink=None, log=print):
+def build_model(path, include_dirs=(), sink=None, log=print, workdir=None):
+    """Read the deck with pyNastran and fill the compact model the checks use."""
     t = time.time()
-    m = Model()
-    deck, it = read_sections(path, include_dirs)
-    m.deck = deck
-    for c in it:
-        m.add(c)
-        if sink:
-            sink(c)
-    log("  deck: %d cards read in %.1fs" % (sum(m.card_count.values()), time.time() - t))
+    ld = load_deck(path, include_dirs, sink=sink, workdir=workdir)
+    m = _fill(Model(), ld)
+    log("  deck: %d cards read in %.1fs (pyNastran)" % (sum(m.card_count.values()), time.time() - t))
     return m
 
 
@@ -1329,7 +1224,7 @@ def main():
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
     m = build_model(a.bdf, a.include_dir)
-    F, S, _ = run_checks(m, m.deck.case_control, a.sol, coincident=not a.no_coincident)
+    F, S, _ = run_checks(m, m.case_control, a.sol, coincident=not a.no_coincident)
     json.dump({"findings": F.sorted(), "summary": S}, open(os.path.join(a.out, "deck.json"), "w"),
               indent=1, default=str)
     for f in F.sorted():

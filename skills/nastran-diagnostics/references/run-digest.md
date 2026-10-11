@@ -26,9 +26,13 @@ python tools/run_digest.py --f06 RUN.f06 --f04 RUN.f04 --log RUN.log [--bdf DECK
   `-I DIR` adds INCLUDE search directories.
 - The output folder defaults to `<first file>_digest` next to the input. Work
   on the user's files where they are; never copy a 200 MB file into context.
-- Runtime is roughly 30–40 s per million cards. scipy is used when present for
-  the coincident-node search; without it a pure-Python search gives the same
-  answer.
+- Needs Python 3.12 with `requirements.txt` installed (pyNastran 1.4.1 pins
+  numpy < 2). Without them every tool exits 5 with the install line.
+- Runtime and memory, measured on a 1M-card shell deck: about 80 s to read
+  the deck with pyNastran and 10–15 s of checks, about 105 s in all, with a
+  peak of about 1.3 GB (pyNastran holds the whole model in memory). Both grow
+  with card count, so warn the user before digesting a deck of several
+  million cards on a small machine.
 - Stdout is the digest itself; progress goes to stderr.
 
 ## What the digest contains
@@ -83,7 +87,7 @@ Severity: **error** means the run will fail or its answer is invalid;
 | Code | Sev | Meaning | What usually caused it |
 |---|---|---|---|
 | `INCLUDE_MISSING` | error | an INCLUDE could not be found; the deck checked is incomplete | a relative path or another directory; rerun with `-I` |
-| `PARSE_PROBLEM` | warn | lines that are not cards, or cards that could not be interpreted | hand edits, tabs, truncated file |
+| `PARSE_PROBLEM` | warn | cards pyNastran could not interpret, or card types neither pyNastran nor `card_specs.py` reads | hand edits, tabs, truncated file; a card type new to these tools |
 | `DUPLICATE_ID` | error | same ID defined twice (grids; elements incl. rigid and mass; properties; materials; coords) | merged include files |
 | `MISSING_GRID` | error | element/rigid/mass/SPC/load uses a grid that does not exist | deleted geometry, partial export |
 | `MISSING_PROPERTY` | error | element PID not defined | property not exported or deleted |
@@ -120,7 +124,7 @@ the `apex-docs` question to ask. Use both before telling the user how to fix it.
 State these when they matter to the answer:
 
 - **Mass** is an estimate from geometry and density: thickness overrides,
-  offsets and beam sections other than ROD/TUBE/BAR/BOX/I/CHAN/T/L are
+  offsets and beam sections pyNastran cannot size are
   ignored (`not_estimated` lists what was skipped). Grid point weight output is
   authoritative.
 - **Contact** is traced for BCONECT with BCSURF, BCBODY/BCBODY1 → BSURF or
@@ -130,6 +134,12 @@ State these when they matter to the answer:
 - **Elements** outside the connectivity table (CWELD, CFAST, CSEAM, fluid,
   axisymmetric) don't join parts; `card types not interpreted` lists them.
   CFAST/CWELD-joined models will show extra parts.
+- **Deck reader**: pyNastran 1.4.1. Card types it has no class for are still
+  tokenized by pyNastran, but are interpreted only when `tools/card_specs.py`
+  holds their QRG layout (today BCONECT, BCTABL1, BCONPRG, BCBODY1, BCPROP,
+  BCSURF). Others are listed under `card types not interpreted` and in
+  `PARSE_PROBLEM`. `tools/build_card_specs.py --check` compares each layout
+  with its QRG page.
 - **Messages**: the digest shows each message as printed in this run. Its
   catalogue meaning still comes from `tools/fetch_message.py`.
 - **Deck from echo**: comments and INCLUDE structure are lost. The unit system

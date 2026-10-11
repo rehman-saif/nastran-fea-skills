@@ -1,0 +1,4 @@
+.venv/
+pyNastran_crash.bdf
+__pycache__/
+skills/*/cache/

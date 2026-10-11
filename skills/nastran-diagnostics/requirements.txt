@@ -1,0 +1,8 @@
+# nastran-diagnostics needs Python 3.12 (pyNastran 1.4.1 pins numpy<2, which has
+# no wheels for 3.13+). With uv:
+#   uv venv --python 3.12 .venv
+#   uv pip install --python .venv -r skills/nastran-diagnostics/requirements.txt
+pyNastran==1.4.1
+numpy>=1.24,<2
+scipy>=1.10,<2
+h5py>=3.10

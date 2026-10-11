@@ -87,7 +87,8 @@ part count) as if the solver printed it; say where it came from and its limits.
 | `tools/run_digest.py` | streams .f06/.f04/.log (+ deck) into `digest.md`, `findings.json`, `index.sqlite` |
 | `tools/nastran_query.py` | capped lookups into a digest: findings, grid/element dossiers, cards, parts, contact pairs, messages, sections |
 | `tools/deck_checks.py` | the deck checks on their own: `python tools/deck_checks.py DECK.bdf` |
-| `tools/deck_reader.py` | tolerant tokenizer: small/large/free field, continuations, INCLUDE |
+| `tools/model.py` | reads the deck with pyNastran, keeping file:line per card; resolves INCLUDEs |
+| `tools/card_specs.py` | QRG field layouts for cards pyNastran rejects (BCONECT, BCTABL1, BCSURF, ...) |
 | `tools/fetch_message.py` | the full cause/action prose for one message |
 | `index/messages-*.md` | every indexed message: number, severity, module, text |
 | `index/ranges.md` | which range file holds a number, and its source page |
@@ -95,7 +96,9 @@ part count) as if the solver printed it; say where it came from and its limits.
 | `references/f06-triage.md` | how to work through solver output |
 | `references/answering-rules.md` | the citation and extrapolation contract |
 
-The tools are stdlib-only Python 3; scipy is used when present.
+The tools need Python 3.12 with pyNastran 1.4.1, numpy, scipy and h5py
+(`requirements.txt`). If one is missing they stop with exit code 5 and print
+the install line; pass that line to the user rather than working around it.
 
 Severity codes: `UFM` user fatal, `SFM` system fatal, `UWM` user warning,
 `SWM` system warning, `UIM`/`SIM` information.

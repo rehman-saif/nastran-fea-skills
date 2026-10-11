@@ -113,6 +113,14 @@ def main():
         elif len(out) > 4000:
             err("fetch_message 740 returned %d chars - it should slice one "
                 "message, not the whole range file" % len(out))
+        r = subprocess.run([sys.executable, "tools/build_card_specs.py", "--check"],
+                           capture_output=True, text=True, encoding="utf-8", errors="replace",
+                           env=dict(os.environ, PYTHONIOENCODING="utf-8"))
+        for line in (r.stdout or "").splitlines():
+            if line.startswith("DIFF"):
+                err("card_specs does not match the QRG: %s" % line[5:].strip())
+            elif line.startswith("SKIP"):
+                warn("card_specs not checked against the QRG: %s" % line[5:].strip())
 
     check_digest_tools()
 
@@ -143,42 +151,68 @@ def check_digest_tools():
             err("missing test fixture tests/fixtures/%s" % f)
             return
     for f in ("references/run-digest.md", "tools/run_digest.py", "tools/nastran_query.py",
-              "tools/deck_checks.py", "tools/deck_reader.py"):
+              "tools/deck_checks.py", "tools/model.py", "tools/card_specs.py", "tools/deps.py"):
         if not os.path.exists(f):
             err("missing %s" % f)
             return
+    if os.path.exists("tools/deck_reader.py"):
+        err("tools/deck_reader.py is retired: pyNastran is the only deck reader")
     sys.path.insert(0, tools)
     try:
-        from deck_reader import read_deck, to_float
+        import importlib
+        for n in ("pyNastran", "numpy", "scipy"):
+            importlib.import_module(n)
+    except ImportError as e:
+        err("digest tools need pyNastran/numpy/scipy (see requirements.txt): %s" % e)
+        return
+    try:
+        from card_specs import SPECS
         from deck_checks import build_model, run_checks, ROUTES
+        from model import load_deck
     except Exception as e:  # noqa: BLE001
         err("digest tools do not import: %s" % e)
         return
+    for name, spec in SPECS.items():
+        if not spec.get("cite", "").startswith("https://"):
+            err("card_specs: %s has no QRG citation" % name)
     quiet = lambda *a: None  # noqa: E731
     tmp = tempfile.mkdtemp(prefix="ndiag_")
     try:
-        # ---- tokenizer: every field format lands in the same flattened layout
-        p = os.path.join(tmp, "fmt.bdf")
-        with open(p, "w") as fh:
-            fh.write("BEGIN BULK\n"
-                     "CORD2R  1               0.      0.      0.      0.      0.      1.      +C1\n"
-                     "+C1     1.      0.      0.\n"
-                     "GRID*   %16d%16s%16s%16s\n*       %16s\n" % (7, "", "1.5", "-2.5-3", "3.")
-                     + "RBE2,9,7,123456,1,2,3,4,5,6,+\n+,8,10\n"
-                     "ENDDATA\n")
-        cards = {c.name: c for c in read_deck(p)}
-        if cards.get("CORD2R") is None or cards["CORD2R"].f(9) != "1.":
-            err("deck_reader: small-field continuation misplaced")
-        g = cards.get("GRID")
-        if g is None or to_float(g.f(3)) != 1.5 or to_float(g.f(4)) != -2.5e-3 or to_float(g.f(5)) != 3.0:
-            err("deck_reader: large-field GRID* pair misread: %s" % (g.fields if g else None))
-        r = cards.get("RBE2")
-        if r is None or r.f(9) != "8" or r.f(10) != "10":
-            err("deck_reader: free-field continuation misplaced: %s" % (r.fields if r else None))
+        # ---- fallback parser: pyNastran-rejected cards named the same in every field format
+        def small(*f):
+            return "".join("%-8s" % x for x in f) + "\n"
+
+        def large(*f):
+            out = "%-8s" % (f[0] + "*") + "".join("%16s" % x for x in f[1:5]) + "\n"
+            return out + "%-8s" % "*" + "".join("%16s" % x for x in f[5:9]) + "\n"
+        tail = (small("BCONECT", 9, "", "", "", "", "", "", "", "+B9") + small("+B9", "SECNDRY", 30, 26)
+                + small("+", "PRIMARY", 294, 135))
+        layouts = {
+            "small": small("BCONECT", 5, 5, "", 2, 1) + small("BCTABL1", 7, 5, "THRU", 7, 12)
+            + small("BCONPRG", 5, "", "ICOORD", 1, "IGLUE", 3) + tail,
+            "large": large("BCONECT", 5, 5, "", 2, 1) + large("BCTABL1", 7, 5, "THRU", 7, 12)
+            + large("BCONPRG", 5, "", "ICOORD", 1, "IGLUE", 3) + tail,
+            "free": "BCONECT,5,5,,2,1\nBCTABL1,7,5,THRU,7,12\nBCONPRG,5,,ICOORD,1,IGLUE,3\n"
+                    "BCONECT,9,,,,,,,,+\n+,SECNDRY,30,26\n+,PRIMARY,294,135\n",
+        }
+        want = {("BCONECT", 5): {"ID": 5, "BCGPID": 5, "BCPPID": None, "IDSCND": 2, "IDPRIM": 1},
+                ("BCTABL1", 7): {"BCID": 7, "IDS": [5, 6, 7, 12]},
+                ("BCONPRG", 5): {"BCGPID": 5, "PARAMS": {"ICOORD": 1, "IGLUE": 3}},
+                ("BCONECT", 9): {"ID": 9, "BCGPID": None, "BCPPID": None, "IDSCND": None, "IDPRIM": None,
+                                 "IDSEC": [30, 26], "IDPRIM_LIST": [294, 135]}}
+        for fmt, body in layouts.items():
+            p = os.path.join(tmp, "fmt_%s.bdf" % fmt)
+            with open(p, "w") as fh:
+                fh.write("BEGIN BULK\nGRID    1               0.      0.      0.\n" + body + "ENDDATA\n")
+            got = {(c.name, c.named.get("ID", c.named.get("BCID", c.named.get("BCGPID")))): c.named
+                   for c in load_deck(p).contact}
+            for k, v in want.items():
+                if got.get(k) != v:
+                    err("card_specs: %s %s in %s field read as %s, expected %s" % (k[0], k[1], fmt, got.get(k), v))
 
         # ---- seeded faults
         m = build_model(os.path.join(fx, "faults.bdf"), log=quiet)
-        F, S, _ = run_checks(m, m.deck.case_control, log=quiet)
+        F, S, _ = run_checks(m, m.case_control, log=quiet)
         got = {f["code"] for f in F.items}
         for code in FAULTS_EXPECTED - got:
             err("deck_checks: seeded fault %s not detected in faults.bdf" % code)
@@ -188,7 +222,7 @@ def check_digest_tools():
         if S.get("coincident", {}).get("across_unconnected_components") != 3:
             err("deck_checks: expected 3 coincident unmerged pairs, got %s" % S.get("coincident"))
         m = build_model(os.path.join(fx, "glue.bdf"), log=quiet)
-        F, S, _ = run_checks(m, m.deck.case_control, log=quiet)
+        F, S, _ = run_checks(m, m.case_control, log=quiet)
         got2 = {f["code"] for f in F.items}
         for code in GLUE_EXPECTED - got2:
             err("deck_checks: %s not detected in glue.bdf" % code)

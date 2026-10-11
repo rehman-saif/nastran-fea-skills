@@ -18,7 +18,8 @@ conversation: this writes
 
 Deck source: --bdf if given, otherwise the SORTED BULK DATA ECHO in the f06.
 Case control: from the .bdf if it has one, otherwise from the f06 echo.
-Stdlib only; scipy is used for the coincident-node search when available.
+The deck is read by pyNastran (tools/model.py); needs Python 3.12 with the
+packages in requirements.txt.
 """
 from __future__ import annotations
 
@@ -32,6 +33,10 @@ import sys
 import time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from deps import require  # noqa: E402
+
+require()
+
 from deck_checks import build_model, run_checks  # noqa: E402
 
 DIGEST_CAP = 12000
@@ -363,7 +368,7 @@ def entity_dossier(db, kind, id_, m):
     if id_ in m.elems:
         n, pid, nodes, loc, _ = e
         p = m.props.get(pid)
-        return "%s %s (%s) PID %s %s, grids %s" % (n, id_, loc, pid, p.name if p else "MISSING", fmt_list(nodes, 8))
+        return "%s %s (%s) PID %s %s, grids %s" % (n, id_, loc, pid, p.type if p else "MISSING", fmt_list(nodes, 8))
     return "%s %s (%s)" % (e[0], id_, e[-1])
 
 
@@ -578,15 +583,18 @@ def main(argv=None):
         db = None if a.no_index else open_index(out)
         sink = CardSink(db) if db else None
         log("reading deck ...")
-        m = build_model(deck_path, a.include_dir, sink=sink, log=log)
+        try:
+            m = build_model(deck_path, a.include_dir, sink=sink, log=log)
+        except Exception as e:  # noqa: BLE001 - pyNastran could not read the deck at all
+            m = None
+            deck_info["reason"] = "pyNastran could not read the deck: %s: %s" % (type(e).__name__, str(e)[:300])
+            log("  deck not read: %s" % deck_info["reason"])
         if sink:
             sink.flush()
-        cc_lines = m.deck.case_control or (f06["case_control"] if f06 else [])
+    if m is not None:
+        cc_lines = m.case_control or (f06["case_control"] if f06 else [])
         hint = " ".join(f06["header_comments"]) if f06 else ""
-        sol = (f06 or {}).get("sol")
-        if not sol:
-            sol = next((t.split()[1] for t, *_ in m.deck.executive
-                        if t.upper().startswith("SOL ") and len(t.split()) > 1), None)
+        sol = (f06 or {}).get("sol") or m.sol
         F, S, aux = run_checks(m, cc_lines, sol, unit_hint=hint, coincident=not a.no_coincident, log=log)
         if db:
             fill_index(db, m, aux, F.sorted(), out)
