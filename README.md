@@ -1,157 +1,154 @@
-# fea-structural-help
+# Nastran FEA Skills
 
-Five skills covering structural FEA work in **MSC Apex** and **MSC Nastran**,
-organised around the engineering workflow rather than around document
-categories.
+**An AI assistant for structural FEA in MSC Apex and MSC Nastran. Every answer is cited from the official documentation.**
 
-| Stage | Skill | Answers |
+![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
+![Works with](https://img.shields.io/badge/works%20with-Claude%20%7C%20Codex%20%7C%20Gemini%20%7C%20Cursor%20%7C%20Copilot-6f42c1)
+
+General-purpose AI models guess about Apex and Nastran. They invent API calls,
+misread bulk data fields and give vague advice about fatal errors. The Hexagon
+documentation can't be searched, and Apex's step-by-step tool procedures aren't
+published online at all.
+
+This plugin gives your AI assistant those indexes and procedures, plus tools
+that fetch the exact documentation page, Nastran entry or error message it
+needs. Answers come with citations, and anything that is engineering judgement
+rather than documented fact is labelled as such.
+
+## What you can ask
+
+| | Skill | Example |
 |---|---|---|
-| Plan / interpret | `fea-modelling-strategy` | idealisation, joint representation, what to expect, is this believable |
-| Build | `apex-docs` | how to do it in the Apex GUI |
-| Automate | `apex-scripting` | write and debug Apex Python and custom tools |
-| Solve | `nastran-reference` | what a deck keyword, field or solution sequence does |
-| Debug | `nastran-diagnostics` | what a message means, why the run failed, what is wrong with the deck |
+| 🧭 **Plan** | `fea-modelling-strategy` | *"Shell or solid for this bracket? How should I model the bolts?"* |
+| 🛠️ **Build** | `apex-docs` | *"How do I create a cross section in Apex?"* |
+| 🐍 **Automate** | `apex-scripting` | *"Write a script that meshes every part and assigns materials."* |
+| 📖 **Solve** | `nastran-reference` | *"What does field 5 of PSHELL mean? RBE2 or RBE3?"* |
+| 🩺 **Debug** | `nastran-diagnostics` | *"My run failed with UFM 9050. Here's the .f06."* |
 
-Skills are namespaced: `/fea-structural-help:apex-docs`, and so on.
+`nastran-diagnostics` can digest a large `.f06`, `.log` or `.bdf` and check the
+deck for problems the solver reports late or not at all, such as unconstrained
+parts, floating masses, unmerged grids and missing references.
 
-## Install in Claude Code
+---
+
+## Install
+
+| Platform | Support |
+|---|---|
+| [Claude Code](#claude-code) | ✅ Full, as a plugin |
+| [Claude.ai and Claude Desktop](#claudeai-and-claude-desktop) | ✅ Full, as uploaded skills |
+| [Gemini CLI](#gemini-cli) | ✅ Full, as an extension |
+| [OpenAI Codex CLI](#openai-codex-cli) | ✅ Full |
+| [Cursor](#cursor) | ✅ Full |
+| [GitHub Copilot (VS Code)](#github-copilot-vs-code) | ✅ Full, in agent mode |
+| [ChatGPT and Gemini web apps](#chatgpt-and-gemini-web-apps) | ⚠️ Partial, no live lookups |
+
+"Full" means the assistant can read the skill files and run the bundled Python
+helpers. Those helpers need Python 3 (standard library only) and internet
+access to the Hexagon documentation site.
+
+### Claude Code
+
+Run this inside Claude Code:
 
 ```
 /plugin install fea-structural-help --marketplace rehman-saif/nastran-fea-skills
 ```
 
-On older Claude Code versions, add the marketplace first and then install:
+On older versions, add the marketplace first and then install:
 
 ```
 /plugin marketplace add rehman-saif/nastran-fea-skills
 /plugin install fea-structural-help@nastran-fea-skills
 ```
 
-The full GitHub URL (`https://github.com/rehman-saif/nastran-fea-skills`) also
-works in place of `rehman-saif/nastran-fea-skills`. Update later with
+The skills then work in every project. Claude picks the right one
+automatically, or you can call one directly, for example
+`/fea-structural-help:nastran-diagnostics`. To get updates, run
 `/plugin marketplace update nastran-fea-skills`.
 
-## Using it with other agents
+### Claude.ai and Claude Desktop
 
-The skills are plain Markdown and stdlib Python, so any coding agent that can
-read files and run commands can use them. Routing and the shared rules live in
-[`AGENTS.md`](AGENTS.md):
+1. Download this repository as a ZIP and extract it.
+2. Zip each folder inside `skills/` separately, for example `nastran-reference.zip`.
+3. In Claude, go to **Settings → Capabilities**, turn on code execution, and
+   upload each ZIP under **Skills**.
 
-| Agent | Picks up |
-|---|---|
-| Claude Code | `.claude-plugin/plugin.json` |
-| Codex CLI, Cursor, Copilot, and others that read `AGENTS.md` | `AGENTS.md` |
-| Gemini CLI | `GEMINI.md` (imports `AGENTS.md`), or install as an extension via `gemini-extension.json` |
-| Cursor | `.cursor/rules/fea-structural-help.mdc` |
-| GitHub Copilot | `.github/copilot-instructions.md` |
+Upload only the skills you need. They work independently.
 
-Open the repository as the agent's workspace, or install it as a Gemini CLI
-extension with `gemini extensions install <repo-url-or-path>`.
+### Gemini CLI
 
-## The rule every skill follows
+```
+gemini extensions install https://github.com/rehman-saif/nastran-fea-skills
+```
 
-Documentation is quoted and cited. Anything beyond it is labelled:
+The skills then work in every Gemini CLI session. To get updates, run
+`gemini extensions update fea-structural-help`.
+
+### OpenAI Codex CLI
+
+```
+git clone https://github.com/rehman-saif/nastran-fea-skills
+cd nastran-fea-skills
+codex
+```
+
+Codex reads [`AGENTS.md`](AGENTS.md), which tells it which skill to use for
+each question. To work from another folder, copy your model files into this
+folder, or point Codex at them with their full paths.
+
+### Cursor
+
+Clone the repository and open the folder in Cursor (**File → Open Folder**).
+Cursor loads the project rule in `.cursor/rules/` and `AGENTS.md`
+automatically. Ask your questions in Agent mode.
+
+To use the skills alongside your own project, add this folder to the same
+workspace (**File → Add Folder to Workspace**).
+
+### GitHub Copilot (VS Code)
+
+Clone the repository and open it in VS Code. Copilot reads
+`.github/copilot-instructions.md` and `AGENTS.md`. Use Copilot Chat in **Agent**
+mode so it can open files and run the helpers.
+
+### ChatGPT and Gemini web apps
+
+Custom GPTs and Gemini Gems can't run the bundled tools, and their upload
+limits are too small for the full API reference. You can still get the
+documentation rules and procedures:
+
+1. Create a Custom GPT (ChatGPT) or a Gem (Gemini).
+2. Paste the contents of [`AGENTS.md`](AGENTS.md) into its instructions.
+3. Upload the `SKILL.md` files for the skills you need, along with their
+   `references/` and `index/` files, as knowledge.
+4. Turn on web browsing.
+
+If you want full support in the OpenAI or Google ecosystem, use Codex CLI or
+Gemini CLI instead.
+
+---
+
+## How answers are grounded
+
+Documented facts are quoted with a citation. Anything else is marked:
 
 > **Not found in the documentation — general engineering knowledge:** …
 
-This matters because the Apex and Nastran documentation contain almost no
-engineering theory. Most "why" answers are necessarily reasoning, and you should
-always be able to tell which half of an answer is which.
+The Apex and Nastran manuals contain almost no engineering theory, so this label
+lets you see which parts of an answer are documented and which are reasoning.
 
-## How it gets its content
+Sources: Apex Help (current), MSC Nastran 2025.2 Quick Reference and Reference
+Guides, MSC Nastran 2025.1 error messages, and the Apex Python API (Iberian Lynx
+FP2).
 
-The Hexagon documentation portal is a JavaScript application: fetching a page URL
-returns an empty shell, there is no listing, and there is no full-text search. The
-portal reads its content from a raw backend that serves plain HTML, and that is
-what these skills fetch.
+## Contributing
 
-So each skill bundles **only what cannot be fetched or found** — indexes,
-procedures and generated references — and pulls page text live:
+To rebuild the indexes, run the validators, learn how content is fetched, or
+read the known limits, see [`docs/MAINTAINING.md`](docs/MAINTAINING.md).
 
-| Bundled locally | Why |
-|---|---|
-| Apex tool procedures (168 tools, 1,849 steps) | ship inside Apex; published nowhere online |
-| Apex keyword index (1,690 aliases) | the portal cannot be searched |
-| Apex Python API reference | the Doxygen pages 404 on every bundle |
-| Nastran keyword index | the portal cannot be crawled; topic pages have no links |
-| Nastran message index (5,552 messages) | source files are ~680 KB each; the index makes lookup cheap |
+## License
 
-Page prose is never stored. It is fetched, cited, and — for Nastran messages —
-sliced to the single message asked about, so reading one costs a few hundred
-characters rather than a whole page.
-
-## Documentation releases
-
-Set per skill in each `config.md`, because the best source differs by book:
-
-- Apex GUI — `msc_apex_help` (rolling)
-- Nastran QRG and Reference Guide — `MSC_Nastran_2025.2`
-- Nastran messages — `MSC_Nastran_2025.1` (the only release publishing them as HTML)
-- Apex Python API — Iberian Lynx FP2
-
-Every citation records its release, because bulk data fields and Apex API
-signatures both change between versions.
-
-## Installing
-
-```
-claude --plugin-dir ./fea-structural-help     # try it
-claude plugin validate ./fea-structural-help  # check the manifest
-```
-
-`cache/` directories are created at runtime by the fetch tools and are not part
-of the plugin. Clear them before packaging or uploading, or they inflate the
-file count:
-
-```
-find . -type d -name cache -exec rm -rf {} +
-```
-
-## Rebuilding
-
-Each skill has its own tools and validator:
-
-```
-python skills/nastran-reference/tools/build_index.py
-python skills/nastran-diagnostics/tools/build_messages.py --resume
-python skills/apex-scripting/tools/gen_api.py <path to ScriptingXML>
-```
-
-Then run every validator; each must exit 0:
-
-```
-python skills/apex-docs/tools/validate.py
-python skills/apex-scripting/tools/validate_references.py
-python skills/nastran-reference/tools/validate.py
-python skills/nastran-diagnostics/tools/validate.py
-```
-
-The portal refuses sustained request bursts, reporting it as a DNS or
-connection-reset error rather than an HTTP 429. The builders retry with backoff;
-`--resume` picks up ranges that still failed.
-
-## Diagnosing a run
-
-`nastran-diagnostics` never reads a raw `.f06` or deck into the conversation.
-`tools/run_digest.py` streams the .f06/.f04/.log (and the deck, or the deck
-rebuilt from the f06 echo) into a digest of ~2-3k tokens and a queryable index.
-It then checks the deck for faults the solver reports late or not at all:
-unconstrained parts, load paths that exist only through glue, coarse glue
-secondaries, floating masses, coincident unmerged grids, missing references,
-mixed units and point loads standing in for inertia. Each finding names the
-`nastran-reference` entries and the `apex-docs` question that fix it. A 191 MB
-f06 of a 3.5M-DOF model digests in about 35 s. The tools are stdlib-only Python;
-scipy is used when present.
-
-## Known limits
-
-- The raw documentation endpoint is undocumented and MSC Apex and Nastran are
-  moving from Hexagon to Cadence. If it goes away, the indexes, procedures and
-  API reference keep working; live page prose does not.
-- The Apex archive the indexes were built from is a ~2021.4 snapshot, while the
-  page text fetched is current. `apex-docs` flags the skew.
-- The deck checks trace contact only for BCONECT with BCSURF, BCBODY/BCBODY1
-  and BCTABL1. BGSET/BCTSET are reported but not traced; CWELD/CFAST don't join
-  parts. `skills/nastran-diagnostics/references/run-digest.md` lists every limit.
-- No element theory or solver theory exists in either corpus. That is what
-  `fea-modelling-strategy` is for, and why it marks its reasoning.
+[MIT](LICENSE) © Saif ur Rehman. MSC Apex and MSC Nastran are trademarks of
+their respective owners. This project is not affiliated with or endorsed by
+them.
