@@ -14,6 +14,40 @@ categories.
 
 Skills are namespaced: `/fea-structural-help:apex-docs`, and so on.
 
+## Install in Claude Code
+
+```
+/plugin install fea-structural-help --marketplace rehman-saif/nastran-fea-skills
+```
+
+On older Claude Code versions, add the marketplace first and then install:
+
+```
+/plugin marketplace add rehman-saif/nastran-fea-skills
+/plugin install fea-structural-help@nastran-fea-skills
+```
+
+The full GitHub URL (`https://github.com/rehman-saif/nastran-fea-skills`) also
+works in place of `rehman-saif/nastran-fea-skills`. Update later with
+`/plugin marketplace update nastran-fea-skills`.
+
+## Using it with other agents
+
+The skills are plain Markdown and stdlib Python, so any coding agent that can
+read files and run commands can use them. Routing and the shared rules live in
+[`AGENTS.md`](AGENTS.md):
+
+| Agent | Picks up |
+|---|---|
+| Claude Code | `.claude-plugin/plugin.json` |
+| Codex CLI, Cursor, Copilot, and others that read `AGENTS.md` | `AGENTS.md` |
+| Gemini CLI | `GEMINI.md` (imports `AGENTS.md`), or install as an extension via `gemini-extension.json` |
+| Cursor | `.cursor/rules/fea-structural-help.mdc` |
+| GitHub Copilot | `.github/copilot-instructions.md` |
+
+Open the repository as the agent's workspace, or install it as a Gemini CLI
+extension with `gemini extensions install <repo-url-or-path>`.
+
 ## The rule every skill follows
 
 Documentation is quoted and cited. Anything beyond it is labelled:
