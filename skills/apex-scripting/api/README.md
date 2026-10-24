@@ -4,13 +4,15 @@ Apex Python API for **Iberian Lynx FP2**, generated from the Doxygen XML by
 `tools/gen_api.py`. This is the authority on what exists and what its signature
 is. Do not write an Apex call that is not confirmed here.
 
-Coverage: 22 modules, 989 module functions, 237 enumerations, 733 classes.
+Coverage: 22 modules, 989 module functions, 5108 class methods, 237
+enumerations, 733 classes.
 
 ## Files
 
 | File | Contents | Use it to |
 |---|---|---|
 | `functions-index.md` | every module function as `module.name — brief` | find which module owns an operation |
+| `methods-index.md` | every class method as `module.Class.method — brief (inherited by ...)` | find a method when you don't know its class |
 | `enums.md` | every enum with its exact members | confirm an enum member |
 | `classes.md` | every class with base classes and brief | find which module owns an entity type |
 | `modules/<module>.md` | that module's enums and full function signatures | get argument names, types and defaults |
@@ -21,10 +23,20 @@ Coverage: 22 modules, 989 module functions, 237 enumerations, 733 classes.
 Start flat, then narrow. Do not open a module file before you know the module.
 
 ```
-grep -i "mesh"        api/functions-index.md
-grep -i "CADFormat"   api/enums.md
-grep -i "Solid"       api/classes.md
+grep -i "mesh"              api/functions-index.md
+grep "createScenarioNastran" api/methods-index.md
+grep -i "CADFormat"         api/enums.md
+grep -i "Solid"             api/classes.md
 ```
+
+A method is indexed on the class that declares it.
+`apex.studies.LoadCaseItem.getCommand` ends with "(inherited by
+`ScenarioNastran`, `StepNastran`, `SubcaseNastran`, `SubstepNastran`)", and
+that is where you find what a subcase can do.
+
+Enums with long member lists (`apex.EntityType` has 421) are wrapped over
+several lines, each starting with the enum name, so a grep for one member
+returns one short line.
 
 Then open the one relevant file:
 
@@ -39,6 +51,24 @@ than reading them whole**:
 ```
 grep -A15 '^## `apex.studies.Scenario`' api/classes/apex.studies.md
 ```
+
+Each class entry lists every method signature first, one line each with a
+short brief, then the full documentation under "Method details". So the first
+lines after the header are always the list of what the class can do.
+
+## Runtime notes
+
+A few calls do not behave on a real Apex 2024.1 install as the Iberian Lynx
+FP2 reference describes. Their index lines carry a tag:
+
+- **[raises at runtime in Apex 2024.1]**
+- **[fails silently at runtime in Apex 2024.1]**
+- **[runtime note in Apex 2024.1]**
+
+Each tagged block has a quoted note under its signature saying what happens and
+what to use instead. The notes come from `tools/runtime_overrides.json`, which
+is kept by hand; add an entry there when you observe a new case, then
+regenerate.
 
 ## Reading a signature
 
@@ -112,6 +142,10 @@ Paths come from the script's own location. Both are overridable:
 ```
 python tools/gen_api.py [source_xml_dir] [output_package_dir]
 ```
+
+The generator stops if `tools/runtime_overrides.json` names a call that is not
+in the reference, so a release that renames or removes a call forces the note
+to be revisited.
 
 To move the skill to a **new Apex release**, point the generator at that
 release's `ScriptingXML` folder:

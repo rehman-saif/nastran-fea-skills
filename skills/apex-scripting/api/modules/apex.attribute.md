@@ -1093,6 +1093,7 @@ Creates and returns one or more interaction based on an input collection of Geom
 - `allowSelfContactSide2` — Optional - Boolean to choose self Contact for secondary side of interaction pair. It is only available if interactionType = Glue or General contact. Omits it if interactionType = Self contact.
 
 ### `apex.attribute.createInteractionManualPair(name: str, description: str, targetSide1: apex.EntityCollection, targetSide2: apex.EntityCollection, body1Property: apex.attribute.ContactBodyProperty, body2Property: apex.attribute.ContactBodyProperty) -> apex.attribute.Interaction`
+> **Runtime behaviour (Apex 2024.1):** The new pair has no representation: `getActiveRep()` returns `None` until `createInteractionRep(...)` is called on it, so it is not yet a glue or a contact. **Instead:** `pair.createInteractionRep(name=..., interactionType=apex.attribute.InteractionType.Glue, interactionPropertyGeometric=geo)`. In SOL 101 the subcases also need `BCONTACT`; see pitfalls.md.
 Creates and returns an Interaction based on two inputs each representing opposite sides of the interaction.
 
 - `name` — Optional name for the interaction. If omitted, Apex will provide a default name by concatenating the prefix 'Interaction' with the lowest possible integer required to ensure name uniqueness within the scope of the Model.
@@ -1389,6 +1390,7 @@ Creates and returns a NSMCombination.
 - `NSM` — A collection of interactions for the NSM Combination.
 
 ### `apex.attribute.createNodeTie(referencePoint: apex.Entity = None, dependentDoF: str = "", dofDefinitionMode: apex.attribute.DOFDefinitionMode = apex.attribute.DOFDefinitionMode.All, attachmentRegions: apex.EntityCollection = None, DOFAndWeightFactors: {str:{str:float}} = {}, distributionType: apex.attribute.DistributionType = apex.attribute.DistributionType.Compliant, distributionMode: apex.attribute.DistributionMode = apex.attribute.DistributionMode.Auto, thermalExpansionCoeff: float = NAN) -> NodeTie`
+> **Runtime behaviour (Apex 2024.1):** The tie is created at assembly level as `Node Tie <id>`. It has `name` and `getName()` but no rename: no `setName`, and `update()` takes no `name`. With `distributionType=apex.attribute.DistributionType.Rigid` and `dependentDoF="123456"` it exported as an RBE2. **Instead:** Keep the returned `NodeTie` objects (or their ids) in a dict keyed by your own names.
 Create a new NodeTie entity.
 
 - `referencePoint` — of the new NodeTie

@@ -104,7 +104,7 @@ Answer them; do not write code.
 
 - **API surface** — arguments, modules, enum members — belongs to the
   `apex-scripting` skill, which carries the generated reference (989 functions,
-  237 enums, 733 classes, with per-argument documentation). It is not published
+  5108 class methods, 237 enums, 733 classes, with per-argument documentation). It is not published
   online, so do not try to fetch it. Hand the question over rather than
   answering from memory.
 - **How scripting works** — object model, custom tools, GUI SDK, macros, remote

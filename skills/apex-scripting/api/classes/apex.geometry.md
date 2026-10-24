@@ -9,6 +9,24 @@ Properties: `coordinateSystem`, `depth`, `height`, `length`, `origin`
 
 Methods:
 
+- `getCoordinateSystem() -> apex.construct.CoordinateSystem` — The CoordinateSystem that defines the origin and orientation of the Box.
+- `getDepth() -> float` — The depth of the Box. depth is defined parallel to the the X-axis of the Box orientation/external CoordinateSystem. depth represents a Length quantity and must ...
+- `getHeight() -> float` — The height of the Box. height is defined parallel to the the X-axis of the Box orientation/external CoordinateSystem. height represents a Length quantity and ...
+- `getLength() -> float` — The Length of the Box. length is defined parallel to the the X-axis of the Box orientation/external CoordinateSystem. length represents a Length quantity and ...
+- `getOrigin() -> Coordinate` — The origin of the Box as an ILocation.
+- `getReferenceSystem() -> ( apex.ILocation,apex.IOrientation )` — Gets A tuple to represent location and orientation to be used for reference system.
+- `setCoordinateSystem(coordinateSystem: apex.construct.CoordinateSystem) -> None` — Set the coordinateSystem of this Box.
+- `setDepth(depth: float) -> None` — Set the depth of this Box.
+- `setDescription(description: str) -> None` — Set the description of this Box.
+- `setHeight(height: float) -> None` — Set the height of this Box.
+- `setLength(length: float) -> None` — Set the length of this Box.
+- `setName(name: str) -> None` — Set the name of this Box.
+- `setOrientation(orientation: apex.IOrientation) -> None` — Set the orientation of this Box.
+- `setOrigin(origin: ILocation) -> None` — Set the origin of this Box.
+- `update(name: str = "", description: str = "", length: float = 0.0, height: float = 0.0, depth: float = 0.0, origin: apex.ILocation = None, orientation: apex.IOrientation = None, coordinateSystem: apex.construct.CoordinateSystem = None, parent: Entity = 0, color: [int] = [], renderStyle: apex.session.DisplayRenderStyle = apex.session.DisplayRenderStyle.Undefined, enableTransparency: apex.ApexBool = ApexBoolUndefined, transparencyLevel: int = -1, useLocalValue: bool = True) -> None` — Updates one or more modifiable properties of this Box.
+
+Method details:
+
 #### `getCoordinateSystem() -> apex.construct.CoordinateSystem`
 The CoordinateSystem that defines the origin and orientation of the Box. If the Box was created using an integrated Orientation this property return a None type.
 
@@ -34,7 +52,6 @@ The origin of the Box as an ILocation. The origin lies at a vertex of the Box. T
 
 Returns: the Box origin
 
-- `getReferenceSystem() -> ( apex.ILocation,apex.IOrientation )` — Gets A tuple to represent location and orientation to be used for reference system.
 #### `setCoordinateSystem(coordinateSystem: apex.construct.CoordinateSystem) -> None`
 Set the coordinateSystem of this Box.
 
@@ -106,6 +123,20 @@ Cell Class Object. extends GeometryTopology Class Object.
 Properties: `centroid`, `edges`, `faces`, `meshControlEdges`, `tessellation`, `vertices`, `volume`
 
 Methods:
+
+- `evaluateCoincidence(target: EntityCollection, tolerance: float = 0.001) -> EntityCollection` — Evaluates whether all locations in this Cell lie within the specified tolerance of the input Cells or Solids.
+- `findCoincidentObjects(target: EntityCollection = EntityCollection(), tolerance: float = 0.001) -> EntityCollection` — Finds all Vertices, Points, Edges, Curves, Faces, Surfaces, Cells and Solids that are coincident with this Cell, within the supplied tolerance, and returns ...
+- `getCentroid() -> apex.Coordinate` — The location of the centroid of the Cell.
+- `getEdges() -> apex.geometry.EdgeCollection` — get the edges for this cell.
+- `getFaces() -> apex.geometry.FaceCollection` — get the faces for this cell.
+- `getLocation() -> Coordinate` — The location of this Cell in 3D cartesian space as an apex.ILocation.
+- `getMeshControlEdges() -> MeshControlEdgeCollection` — A read only meshControlEdgeCollection contain all MeshControlEdge composed by the Faces of this Cell.
+- `getOrientation() -> apex.Orientation` — the orientation of this Cell as an apex.IOrientation
+- `getTessellation() -> apex.display.Tessellation2D` — returns the tessellation for this Cell as a Tesselation2D.
+- `getVertices() -> apex.geometry.VertexCollection` — get the vertices for this cell.
+- `getVolume() -> float` — get the volume of this cell.
+
+Method details:
 
 #### `evaluateCoincidence(target: EntityCollection, tolerance: float = 0.001) -> EntityCollection`
 Evaluates whether all locations in this Cell lie within the specified tolerance of the input Cells or Solids.
@@ -183,6 +214,15 @@ Iterable collection of Cells, based on EntityCollection.
 Methods:
 
 - `CellCollection() -> None` — Construct a new CellCollection.
+- `appendList(cellList: [apex.geometry.Cell]) -> None` — Add Cells from a list to the end of this collection.
+
+Method details:
+
+#### `CellCollection() -> None`
+Construct a new CellCollection.
+
+For example:
+
 #### `appendList(cellList: [apex.geometry.Cell]) -> None`
 Add Cells from a list to the end of this collection.
 
@@ -196,6 +236,31 @@ Curve Class Object. extends GeometryBody Class Object.
 Properties: `arcCenter`, `centroid`, `exteriorVertices`, `interiorVertices`, `length`, `massCenterNominal`, `massNominal`, `midPoint`, `parametricRange`, `principalInertiaFrameNominal`, `principalInertiaTensorNominal`, `tessellation`
 
 Methods:
+
+- `evaluateClosestLocation(inputLocation: apex.ILocation) -> ZResultEvaluateClosestLocation` — Given an input location in 3D space, evaluates and returns a result object containing the location on this Curve that is closest to the input location and the ...
+- `evaluateCoincidence(target: EntityCollection, tolerance: float = 0.001) -> EntityCollection` — Evaluates whether all locations on this Curve lie within the specified tolerance of the input Edges, Curves, Faces, Surfaces, Cells or Solids.
+- `evaluateCurveParametricCoordinate(u: float) -> apex.geometry.ZResultEvaluateCurveParametricCoordinate` — This method takes a parametric Curve coordinate (u) as input and returns the equivalent 3D cartesian coordinates as a List of Point3D objects.
+- `evaluateOrientationCurveParametricCoordinate(u: float) -> apex.Orientation` — This method takes a 1D parametric coordinate (u) as input and returns the default Orientation at that position on the Curve.
+- `evaluatePointOnCurve(point: apex.ILocation) -> apex.geometry.ZResultEvaluatePointOnCurve` — This method takes a point in space (as a Point3D object) as input and returns a result object containing the closest point on the Curve as a float value ...
+- `evaluateTangent(location: apex.ILocation) -> apex.construct.Vector3D` — Evaluates the tangent to this Curve at the input location and returns it as a Vector3D.
+- `findCoincidentObjects(target: EntityCollection = EntityCollection(), tolerance: float = 0.001) -> EntityCollection` — Finds all Vertices, Points, Edges and Curves that are coincident with this Curve, within the supplied tolerance, and returns them in an EntityCollection.
+- `getArcCenter() -> apex.Coordinate` — return the arcCenter of this Curve.
+- `getCentroid() -> apex.Coordinate` — The centroid of this Curve..
+- `getExteriorVertices() -> geometry.VertexCollection` — get the exterior verticies on this curve.
+- `getInteriorVertices() -> geometry.VertexCollection` — get the interior verticies on this curve.
+- `getLength() -> float` — get the length of this curve.
+- `getLocation() -> apex.Coordinate` — The location of this geometry Curve in 3D cartesian space as an apex.ILocation.
+- `getMassCenterNominal() -> apex.Coordinate` — get the center of mass on this curve as an apex.Coordinate object.
+- `getMassNominal(density: float = 1.0) -> float` — get the nominal mass on this curve.
+- `getMidPoint() -> apex.Coordinate` — The location of the midPoint of the Curve.
+- `getOrientation() -> apex.Orientation` — the orientation of this Curve as an apex.IOrientation.
+- `getParametricRange() -> {str:float}` — The range of the parametric space coordinates used by the Curve, Apex Curves compose one or more Edges and Edges are bounded by Vertices.
+- `getPrincipalInertiaFrameNominal() -> apex.construct.CoordinateSystem` — get the principal inertia frame on this curve as a rectangular CoordinateSystem.
+- `getPrincipalInertiaTensorNominal(density: float = 1.0) -> {str:float}` — get the nominal principal inertia tensor on this curve as a Dictionary.
+- `getTessellation() -> apex.display.Tessellation1D` — returns the tessellation for this Curve as a Tesselation1D.
+- `update(name: str, parent: Entity, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None` — Update one or more of this Curve properties.
+
+Method details:
 
 #### `evaluateClosestLocation(inputLocation: apex.ILocation) -> ZResultEvaluateClosestLocation`
 Given an input location in 3D space, evaluates and returns a result object containing the location on this Curve that is closest to the input location and the vector from the input location to the closest Curve location.
@@ -363,6 +428,15 @@ Iterable collection of Curves, based on EntityCollection.
 Methods:
 
 - `CurveCollection() -> None` — Construct a new CurveCollection.
+- `appendList(curveList: [apex.geometry.Curve]) -> None` — Add Curves from a list to the end of this collection.
+
+Method details:
+
+#### `CurveCollection() -> None`
+Construct a new CurveCollection.
+
+For example:
+
 #### `appendList(curveList: [apex.geometry.Curve]) -> None`
 Add Curves from a list to the end of this collection.
 
@@ -376,6 +450,24 @@ Class representing a parametric solid geometric cylinder. This class can also de
 Properties: `coordinateSystem`, `length`, `origin`, `radius`, `sweepangle`
 
 Methods:
+
+- `getCoordinateSystem() -> apex.construct.CoordinateSystem` — A CoordinateSystem that defines the origin and orientation of the Cylinder.
+- `getLength() -> float` — The Length of the Cylinder. length is defined parallel to the the Z-axis of the Cylinder orientation. length represents a Length quantity and must be supplied ...
+- `getOrigin() -> Coordinate` — The origin of the Cylinder as an ILocation.
+- `getRadius() -> float` — The radius of the Cylinder. radius represents an Length quantity and must be supplied in the units of Length that are active in the script unit system.
+- `getReferenceSystem() -> ( apex.ILocation,apex.IOrientation )` — Gets A tuple to represent location and orientation to be used for reference system.
+- `getSweepangle() -> float` — The angle used to define partial cylinders.
+- `setCoordinateSystem(coordinateSystem: apex.construct.CoordinateSystem) -> None` — Set the coordinateSystem of this Cylinder.
+- `setDescription(description: str) -> None` — Set the description of this Cylinder.
+- `setLength(length: float) -> None` — Set the length of this Cylinder.
+- `setName(name: str) -> None` — Set the name of this Cylinder.
+- `setOrientation(orientation: apex.IOrientation) -> None` — Set the orientation of this Cylinder.
+- `setOrigin(origin: ILocation) -> None` — Set the origin of this Cylinder.
+- `setRadius(radius: float) -> None` — Set the radius of this Cylinder.
+- `setSweepangle(sweepangle: float) -> None` — Set the sweepangle of this Cylinder.
+- `update(name: str = "", description: str = "", length: float = 0.0, radius: float = 0.0, sweepangle: float = 0.0, origin: apex.ILocation = None, orientation: apex.IOrientation = None, coordinateSystem: apex.construct.CoordinateSystem = None, parent: Entity = 0, color: [int] = [], renderStyle: apex.session.DisplayRenderStyle = apex.session.DisplayRenderStyle.Undefined, enableTransparency: apex.ApexBool = ApexBoolUndefined, transparencyLevel: int = -1, useLocalValue: bool = True) -> None` — Updates the properties of this Cylinder.
+
+Method details:
 
 #### `getCoordinateSystem() -> apex.construct.CoordinateSystem`
 A CoordinateSystem that defines the origin and orientation of the Cylinder. If the Cylinder was created using an integrated Orientation this coordinateSystem may not exist and will return a None type.
@@ -397,7 +489,6 @@ The radius of the Cylinder. radius represents an Length quantity and must be sup
 
 Returns: the Cylinder radius
 
-- `getReferenceSystem() -> ( apex.ILocation,apex.IOrientation )` — Gets A tuple to represent location and orientation to be used for reference system.
 #### `getSweepangle() -> float`
 The angle used to define partial cylinders. The default value of 360 degrees represents a complete cylinder. Angles less than 360 degrees represent a partial cylinder - for example an angle of 180 degrees represents a semi cylinder, 90 degrees a quarter cylinder etc. sweepangle must be greater than 0 degrees and less than 360 degrees (or equivalent limit when other Angle units are supplied) sweepangle represents an Angle quantity and must be defined in the Angle units of the active script unit system.
 
@@ -474,6 +565,30 @@ Edge Class Object. extends GeometryTopology Class Object.
 Properties: `arcCenter`, `centroid`, `connectedCells`, `connectedFaces`, `edgeSeed`, `length`, `midPoint`, `parametricRange`, `span`, `tessellation`, `vertices`, `verticesSuppressed`
 
 Methods:
+
+- `evaluateClosestLocation(inputLocation: apex.ILocation) -> ZResultEvaluateClosestLocation` — Given an input location in 3D space, evaluates and returns a result object containing the location on this Edge that is closest to the input location and the ...
+- `evaluateCoincidence(target: EntityCollection, tolerance: float = 0.001) -> EntityCollection` — Evaluates whether all locations on this Edge lie within the specified tolerance of the input Edges, Curves, Faces, Surfaces, Cells or Solids.
+- `evaluateEdgeParametricCoordinate(u: float) -> apex.Coordinate` — This method takes a parametric edge coordinate (u) as input and returns the equivalent 3D cartesian coordinates as a apex.Coordinate object.
+- `evaluateEdgeTangent(u: float) -> apex.construct.Vector3D` — Evaluates the tangent to this Edge at the input parametric location and returns it as a Vector3D.
+- `evaluateOrientationEdgeParametricCoordinate(u: float) -> apex.Orientation` — This method takes a parametric edge coordinate (u) as input and returns the default orientation at that position as an apex.Orientation.
+- `evaluatePointOnEdge(point: apex.ILocation) -> float` — evaluatePointOnEdge.
+- `findCoincidentObjects(target: EntityCollection = EntityCollection(), tolerance: float = 0.001) -> EntityCollection` — Finds all Vertices, Points, Edges and Curves that are coincident with this Edge, within the supplied tolerance, and returns them in an EntityCollection.
+- `getArcCenter() -> apex.Coordinate` — return the arcCenter of this Edge.
+- `getCentroid() -> apex.Coordinate` — returns the centroid of this Edge as a Coordinate
+- `getConnectedCells() -> apex.geometry.CellCollection` — get the connected cells for this edge.
+- `getConnectedFaces() -> apex.geometry.FaceCollection` — get the connected faces for this edge.
+- `getEdgeSeed() -> apex.mesh.EdgeSeed` — return the associated EdgeSeed.
+- `getLength() -> float` — get the length of this edge.
+- `getLocation() -> apex.Coordinate` — The location of this Edge in 3D cartesian space as an apex.ILocation.
+- `getMidPoint() -> apex.Coordinate` — The location of the midPoint of the Edge.
+- `getOrientation() -> apex.Orientation` — the orientation of this Edge as an apex.IOrientation.
+- `getParametricRange() -> {str:float}` — The range of the parametric space coordinates used by the edge (uStart, uEnd).
+- `getSpan() -> apex.attribute.BeamSpan` — returns the BeamSpan associated with this Edge or "None" if their is no associated BeamSpan.
+- `getTessellation() -> apex.display.Tessellation1D` — returns the tessellation for this Edge as a Tesselation1D.
+- `getVertices() -> apex.geometry.VertexCollection` — get the vertices for this edge.
+- `getVerticesSuppressed() -> apex.geometry.VertexCollection` — get the suppressed vertices for this edge.
+
+Method details:
 
 #### `evaluateClosestLocation(inputLocation: apex.ILocation) -> ZResultEvaluateClosestLocation`
 Given an input location in 3D space, evaluates and returns a result object containing the location on this Edge that is closest to the input location and the vector from the input location to the closest Edge location.
@@ -613,6 +728,15 @@ Iterable collection of Edges, based on EntityCollection.
 Methods:
 
 - `EdgeCollection() -> None` — Construct a new EdgeCollection.
+- `appendList(edgeList: [apex.geometry.Edge]) -> None` — Add Edges from a list to the end of this collection.
+
+Method details:
+
+#### `EdgeCollection() -> None`
+Construct a new EdgeCollection.
+
+For example:
+
 #### `appendList(edgeList: [apex.geometry.Edge]) -> None`
 Add Edges from a list to the end of this collection.
 
@@ -627,11 +751,33 @@ Properties: `edges`, `edgeSenses`, `length`, `nominalEnclosedArea`, `vertices`
 
 Methods:
 
-- `getEdgeSenses(: None) -> [bool]` — An ordered sequence (List) of Boolean values representing the senses of the Edges in this EdgeLoop. The number and order entries in this List matches the number and order of the Edges in the EdgeLoop.
-- `getEdges(: None) -> EdgeCollection` — An ordered sequence of geometry Edges that define the EdgeLoop. The Edges are contiguous, unbranched and form a closed loop.
+- `getEdgeSenses(: None) -> [bool]` — An ordered sequence (List) of Boolean values representing the senses of the Edges in this EdgeLoop.
+- `getEdges(: None) -> EdgeCollection` — An ordered sequence of geometry Edges that define the EdgeLoop.
 - `getLength(: None) -> float` — The total length of the Edge Loop determined by summing the length of all of the Edges that make up the EdgeLoop.
 - `getNominalEnclosedArea(: None) -> float` — An approximation of the area enclosed by this EdgeLoop.
-- `getVertices(: None) -> VertexCollection` — An ordered sequence of unique geometry Vertices extracted from the edges of the EdgeLoop such that the first Edge in the EdgeLoop connects the first and second vertices in this sequence, the second Edge connects vertices 2 and 3 and so on. Since the EdgeLoop is closed, the last Edge connects Vertex n-1 to the first Vertex in this sequence.
+- `getVertices(: None) -> VertexCollection` — An ordered sequence of unique geometry Vertices extracted from the edges of the EdgeLoop such that the first Edge in the EdgeLoop connects the first and second ...
+
+Method details:
+
+#### `getEdgeSenses(: None) -> [bool]`
+An ordered sequence (List) of Boolean values representing the senses of the Edges in this EdgeLoop. The number and order entries in this List matches the number and order of the Edges in the EdgeLoop.
+
+#### `getEdges(: None) -> EdgeCollection`
+An ordered sequence of geometry Edges that define the EdgeLoop. The Edges are contiguous, unbranched and form a closed loop.
+
+#### `getLength(: None) -> float`
+The total length of the Edge Loop determined by summing the length of all of the Edges that make up the EdgeLoop.
+
+This value represents a length quantity and is returned in the units of Length defined in the current ScriptUnitSystem.
+
+#### `getNominalEnclosedArea(: None) -> float`
+An approximation of the area enclosed by this EdgeLoop.
+
+If the EdgeLoop is an exterior EdgeLoop and the Face have no interior voids the area will be exact.If the EdgeLoop is an interior EdgeLoop the area will be approximate.
+
+#### `getVertices(: None) -> VertexCollection`
+An ordered sequence of unique geometry Vertices extracted from the edges of the EdgeLoop such that the first Edge in the EdgeLoop connects the first and second vertices in this sequence, the second Edge connects vertices 2 and 3 and so on. Since the EdgeLoop is closed, the last Edge connects Vertex n-1 to the first Vertex in this sequence.
+
 
 ## `apex.geometry.EdgeLoopCollection`  (extends `EntityCollection`)
 Iterable collection of EdgeLoops, based on EntityCollection.
@@ -639,6 +785,15 @@ Iterable collection of EdgeLoops, based on EntityCollection.
 Methods:
 
 - `EdgeLoopCollection() -> None` — Construct a new EdgeLoopCollection.
+- `appendList(edgeLoopList: [apex.geometry.EdgeLoop]) -> None` — Add EdgeLoops from a list to the end of this collection.
+
+Method details:
+
+#### `EdgeLoopCollection() -> None`
+Construct a new EdgeLoopCollection.
+
+For example:
+
 #### `appendList(edgeLoopList: [apex.geometry.EdgeLoop]) -> None`
 Add EdgeLoops from a list to the end of this collection.
 
@@ -653,6 +808,24 @@ Properties: `coordinateSystem`, `origin`, `xradius`, `yradius`, `zradius`
 
 Methods:
 
+- `getCoordinateSystem() -> apex.construct.CoordinateSystem` — A CoordinateSystem that defines the origin and orientation of the Ellipsoid.
+- `getOrigin() -> Coordinate` — The origin of the Ellipsoid as an ILocation.
+- `getReferenceSystem() -> ( apex.ILocation,apex.IOrientation )` — Gets A tuple to represent location and orientation to be used for reference system.
+- `getXradius() -> float` — The 'radius' of the Ellipsoid in the x direction. xradius represents an Length quantity and must be supplied in the units of Length that are active in the ...
+- `getYradius() -> float` — The 'radius' of the Ellipsoid in the y direction. yradius represents an Length quantity and must be supplied in the units of Length that are active in the ...
+- `getZradius() -> float` — The 'radius' of the Ellipsoid in the z direction. zradius represents a Length quantity and must be supplied in the units of Length that are active in the ...
+- `setCoordinateSystem(coordinateSystem: apex.construct.CoordinateSystem) -> None` — Set the coordinateSystem of this Ellipsoid.
+- `setDescription(description: str) -> None` — Set the description of this Ellipsoid.
+- `setName(name: str) -> None` — Set the name of this Ellipsoid.
+- `setOrientation(orientation: apex.IOrientation) -> None` — Set the orientation of this Ellipsoid.
+- `setOrigin(origin: ILocation) -> None` — Set the origin of this Ellipsoid.
+- `setXradius(xradius: float) -> None` — Set the xradius of this Ellipsoid.
+- `setYradius(yradius: float) -> None` — Set the yradius of this Ellipsoid.
+- `setZradius(zradius: float) -> None` — Set the zradius of this Ellipsoid.
+- `update(name: str = "", description: str = "", xradius: float = 0.0, yradius: float = 0.0, zradius: float = 0.0, origin: apex.ILocation = None, orientation: apex.IOrientation = None, coordinateSystem: apex.construct.CoordinateSystem = None, parent: Entity = 0, color: [int] = [], renderStyle: apex.session.DisplayRenderStyle = apex.session.DisplayRenderStyle.Undefined, enableTransparency: apex.ApexBool = ApexBoolUndefined, transparencyLevel: int = -1, useLocalValue: bool = True) -> None` — Updates the properties of this Ellipsoid.
+
+Method details:
+
 #### `getCoordinateSystem() -> apex.construct.CoordinateSystem`
 A CoordinateSystem that defines the origin and orientation of the Ellipsoid. If the Ellipsoid was created using an integrated Orientation this coordinateSystem will not exist and will return a None type.
 
@@ -663,7 +836,6 @@ The origin of the Ellipsoid as an ILocation.
 
 Returns: the Ellipsoid origin
 
-- `getReferenceSystem() -> ( apex.ILocation,apex.IOrientation )` — Gets A tuple to represent location and orientation to be used for reference system.
 #### `getXradius() -> float`
 The 'radius' of the Ellipsoid in the x direction. xradius represents an Length quantity and must be supplied in the units of Length that are active in the script unit system.
 
@@ -750,6 +922,40 @@ Face Class Object. extends GeometryTopology Class Object.
 Properties: `area`, `centroid`, `connectedCells`, `cylindricalAxis`, `cylindricalAxisEndPoint`, `cylindricalAxisMidPoint`, `cylindricalAxisStartPoint`, `edges`, `edgesSuppressed`, `exteriorEdgeLoops`, `interiorEdgeLoops`, `meshControlEdges`, `parametricRange`, `tessellation`, `vertices`, `verticesSuppressed`
 
 Methods:
+
+- `evaluateClosestLocation(inputLocation: apex.ILocation) -> ZResultEvaluateClosestLocation` — Given an input location in 3D space, evaluates and returns a result object containing the location on this Face that is closest to the input location and the ...
+- `evaluateClosestLocationOnFace(point: apex.ILocation) -> apex.geometry.ZResultEvaluateClosestLocationOnFace` — DEPRECATED: "THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE NEXT APEX RELEASE " This method has been superseded by the equivalent ...
+- `evaluateCoincidence(target: EntityCollection, tolerance: float = 0.001) -> EntityCollection` — Evaluates whether all locations on this Face lie within the specified tolerance of the input Faces, Surfaces, Cells or Solids.
+- `evaluateFaceCurvatureUV(u: float, v: float) -> apex.geometry.ZResultEvaluateFaceCurvature` — This method takes a parametric face coordinate (u, v) as input and returns normal, principal1, principal2 and curvature1, curvature2 to the surface at that ...
+- `evaluateFaceParametricCoordinate(u: float, v: float) -> apex.Coordinate` — evaluateFaceParametricCoordinate.
+- `evaluateFaceTangentUV(u: float, v: float) -> apex.geometry.ZResultEvaluateFaceTangent` — This method takes a parametric face coordinate (u, v) as input and returns two tangents to the surface at that location as apex.construct.Vector3D objects in a ...
+- `evaluateNormal(u: float, v: float) -> apex.construct.Vector3D` — This method takes a parametric face coordinate (u, v) as input and returns the normal to the face at that location as a apex.construct.Vector3D object.
+- `evaluateOrientationFaceParametricCoordinate(u: float, v: float) -> apex.Orientation` — This method takes a parametric face coordinate (u,v) as input and returns a default Orientation at that position as an apex.Orientation.
+- `evaluatePointOnFace(point: apex.ILocation) -> apex.geometry.ZResultEvaluatePointOnFace` — This method takes a point in space (as a apex.ILocation* object)as input and returns the equivalent position as parametric coordinates on the face..
+- `evaluateTangentInDirection(u: float, v: float, direction: apex.construct.Vector3D) -> apex.construct.Vector3D` — This method takes a parametric face coordinate (u, v) and a direction vector as input and returns the tangent to the surface at the input location as ...
+- `findCoincidentObjects(target: EntityCollection = EntityCollection(), tolerance: float = 0.001) -> EntityCollection` — Finds all Vertices, Points, Edges, Curves, Faces and Surfaces that are coincident with this Face, within the supplied tolerance, and returns them in an ...
+- `getArea() -> float` — get the area of this face.
+- `getCentroid() -> apex.Coordinate` — The location of the centroid of the Face.
+- `getConnectedCells() -> CellCollection` — get the connected Cells on this face.
+- `getCylindricalAxis() -> apex.construct.Vector3D` — return the cylindrical axis of this Face.
+- `getCylindricalAxisEndPoint() -> apex.Coordinate` — return the end point of the cylindrical axis of this Face.
+- `getCylindricalAxisMidPoint() -> apex.Coordinate` — return the mid point of the cylindrical axis of this Face.
+- `getCylindricalAxisStartPoint() -> apex.Coordinate` — return the start point of the cylindrical axis of this Face.
+- `getEdges() -> EdgeCollection` — get the edges on this face.
+- `getEdgesSuppressed() -> EdgeCollection` — get the suppressed edges on this face.
+- `getExteriorEdgeLoops() -> EdgeLoopCollection` — Returns the bounding EdgeLoops for this Face.
+- `getInteriorEdgeLoops() -> EdgeLoopCollection` — Returns all interior EdgeLoops that may exist for this Face.
+- `getLocation() -> apex.Coordinate` — The location of this Face in 3D cartesian space as an apex.ILocation.
+- `getMeshControlEdges() -> MeshControlEdgeCollection` — A read only meshControlEdgeCollection contain all MeshControlEdge composed by the Faces of this Cell.
+- `getOrientation() -> apex.Orientation` — the orientation of this Face as an apex.IOrientation.
+- `getParametricRange() -> {str:float}` — getParametricRange.
+- `getTessellation() -> apex.display.Tessellation2D` — returns the tessellation for this Face as a Tesselation2D.
+- `getVertices() -> VertexCollection` — get the verticies on this face.
+- `getVerticesSuppressed() -> VertexCollection` — get the suppressed verticies on this face.
+- `isMidsurface() -> bool` — Boolean value indicating whether this Face is part of an automatically extracted mid-surface.
+- `update(midsurfaceTopFaces: apex.geometry.FaceCollection = None, midsurfaceBottomFaces: apex.geometry.FaceCollection = None) -> None` — Updates one or more properties of this Face.
+
+Method details:
 
 #### `evaluateClosestLocation(inputLocation: apex.ILocation) -> ZResultEvaluateClosestLocation`
 Given an input location in 3D space, evaluates and returns a result object containing the location on this Face that is closest to the input location and the vector from the input location to the closest Face location.
@@ -937,7 +1143,6 @@ get the suppressed verticies on this face.
 
 Returns: collection of suppressed verticies
 
-- `isMidsurface() -> bool` — Boolean value indicating whether this Face is part of an automatically extracted mid-surface.
 #### `update(midsurfaceTopFaces: apex.geometry.FaceCollection = None, midsurfaceBottomFaces: apex.geometry.FaceCollection = None) -> None`
 Updates one or more properties of this Face. This method allows multiple properties of the Face to be updated using a single method call. All arguments are optional and the values of all properties associated with the omitted arguments are left unchanged.
 
@@ -951,6 +1156,15 @@ Iterable collection of Faces, based on EntityCollection.
 Methods:
 
 - `FaceCollection() -> None` — Construct a new FaceCollection.
+- `appendList(faceList: [apex.geometry.Face]) -> None` — Add Faces from a list to the end of this collection.
+
+Method details:
+
+#### `FaceCollection() -> None`
+Construct a new FaceCollection.
+
+For example:
+
 #### `appendList(faceList: [apex.geometry.Face]) -> None`
 Add Faces from a list to the end of this collection.
 
@@ -994,6 +1208,36 @@ Properties: `cells`, `constraints`, `edges`, `edgesSuppressed`, `elements`, `ext
 
 Methods:
 
+- `assignMaterial(pMat: apex.attribute.Material) -> bool` — assign a material to this GeometryBody.
+- `assignShellSection(pSection: apex.attribute.ShellSection) -> bool` — DEPRECATED: THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.PLEASE USE apex.attribute.createFieldThicknessOffsetConstant. assign a shell ...
+- `exportGeometry(filename: str, cadFormat: apex.geometry.CADFormat, unitSystem: str = "m", stlMergeCells: bool = True, exportVirtualFaces: bool = False, exportVirtualFaceMethod: apex.VirtualFaceExportMethod = apex.VirtualFaceExportMethod.NurbsOnly, exportBodyPositionInLocal: bool = False) -> None` — Export Geometry from this GeometryBody to a file using the supplied CAD format.
+- `getCell(id: int int int) -> apex.geometry.Cell` — get the cell for the specified id
+- `getCells(ids: str = "") -> apex.geometry.CellCollection` — get the cells for the specified ids.
+- `getConstraints() -> apex.EntityCollection` — Returns a collection of all Constraints that are applied to this GeometryBody.
+- `getEdge(id: int int int) -> apex.geometry.Edge` — get the edge for the specified id
+- `getEdges(ids: str = "") -> apex.geometry.EdgeCollection` — get the edges for the specified ids.
+- `getEdgesSuppressed(ids: str = "") -> apex.geometry.EdgeCollection` — get the suppressed edges for the specified ids.
+- `getElements() -> apex.mesh.ElementCollection` — get the elements on this geometry body.
+- `getExteriorNodes() -> apex.mesh.NodeCollection` — get the exterior nodes on this geometry body.
+- `getFace(id: int int int) -> apex.geometry.Face` — get the face for the specified id
+- `getFaces(ids: str = "") -> apex.geometry.FaceCollection` — get the faces for the specified ids.
+- `getInitialConditions() -> apex.EntityCollection` — Returns a collection of all InitialConditions that are applied to this GeometryBody.
+- `getInteriorNodes() -> apex.mesh.NodeCollection` — get the interior nodes on this geometry body.
+- `getLoads() -> apex.EntityCollection` — Returns a collection of all Loads that are applied to this GeometryBody.
+- `getMeshes() -> apex.mesh.MeshBodyCollection` — get the meshes on this geometry body.
+- `getNodes() -> apex.mesh.NodeCollection` — get the nodes on this geometry body.
+- `getParent() -> Part` — Get the parent Part for this GeometryBody.
+- `getReferenceSystem() -> ( apex.ILocation,apex.IOrientation )` — Gets A tuple to represent location and orientation to be used for reference system.
+- `getReferencedBy() -> apex.EntityCollection` — returns a collection of all entities that directly Reference this GeometryBody (Point, Curve, Surface, Solid)
+- `getVertex(id: int int int) -> apex.geometry.Vertex` — get the vertex for the specified id
+- `getVertices(ids: str = "") -> apex.geometry.VertexCollection` — get the vertices for the specified ids.
+- `getVerticesSuppressed(ids: str = "") -> apex.geometry.VertexCollection` — get the suppressed vertices for the specified ids.
+- `setParent(parent: Part) -> None` — Set a Part to be the new parent for this GeometryBody.
+- `setReferenceSystem(refSysPair: ( apex.ILocation,apex.IOrientation )) -> None`
+- `update(name: str, parent: Entity, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None` — Update one or more of this GeometryBody properties.
+
+Method details:
+
 #### `assignMaterial(pMat: apex.attribute.Material) -> bool`
 assign a material to this GeometryBody.
 
@@ -1029,7 +1273,9 @@ get the cells for the specified ids.
 
 Returns: the collection of cells
 
-- `getConstraints() -> apex.EntityCollection` — Returns a collection of all Constraints that are applied to this GeometryBody. The Constraints may be applied directly to the GeometryBody or to its Face, Edge, Vertex, or MeshBody. If no Constraints are associated with the GeometryBody the method will return an empty EntityCollection.
+#### `getConstraints() -> apex.EntityCollection`
+Returns a collection of all Constraints that are applied to this GeometryBody. The Constraints may be applied directly to the GeometryBody or to its Face, Edge, Vertex, or MeshBody. If no Constraints are associated with the GeometryBody the method will return an empty EntityCollection.
+
 #### `getEdge(id: int int int) -> apex.geometry.Edge`
 get the edge for the specified id
 
@@ -1075,13 +1321,17 @@ get the faces for the specified ids.
 
 Returns: the collection of faces
 
-- `getInitialConditions() -> apex.EntityCollection` — Returns a collection of all InitialConditions that are applied to this GeometryBody. The InitialConditions may be applied directly to the GeometryBody or to its Face, Edge, Vertex, or MeshBody. If no InitialConditions are associated with the GeometryBody the method will return an empty EntityCollection.
+#### `getInitialConditions() -> apex.EntityCollection`
+Returns a collection of all InitialConditions that are applied to this GeometryBody. The InitialConditions may be applied directly to the GeometryBody or to its Face, Edge, Vertex, or MeshBody. If no InitialConditions are associated with the GeometryBody the method will return an empty EntityCollection.
+
 #### `getInteriorNodes() -> apex.mesh.NodeCollection`
 get the interior nodes on this geometry body.
 
 Returns: collection of nodes
 
-- `getLoads() -> apex.EntityCollection` — Returns a collection of all Loads that are applied to this GeometryBody. The Loads may be applied directly to the GeometryBody or to its Face, Edge, Vertex, or MeshBody. If no Loads are associated with the GeometryBody the method will return an empty EntityCollection.
+#### `getLoads() -> apex.EntityCollection`
+Returns a collection of all Loads that are applied to this GeometryBody. The Loads may be applied directly to the GeometryBody or to its Face, Edge, Vertex, or MeshBody. If no Loads are associated with the GeometryBody the method will return an empty EntityCollection.
+
 #### `getMeshes() -> apex.mesh.MeshBodyCollection`
 get the meshes on this geometry body.
 
@@ -1092,9 +1342,6 @@ get the nodes on this geometry body.
 
 Returns: collection of nodes
 
-- `getParent() -> Part` — Get the parent Part for this GeometryBody.
-- `getReferenceSystem() -> ( apex.ILocation,apex.IOrientation )` — Gets A tuple to represent location and orientation to be used for reference system.
-- `getReferencedBy() -> apex.EntityCollection` — returns a collection of all entities that directly Reference this GeometryBody (Point, Curve, Surface, Solid)
 #### `getVertex(id: int int int) -> apex.geometry.Vertex`
 get the vertex for the specified id
 
@@ -1121,7 +1368,6 @@ Set a Part to be the new parent for this GeometryBody.
 
 - `parent` — to be assigned the new parent of this GeometryBody
 
-- `setReferenceSystem(refSysPair: ( apex.ILocation,apex.IOrientation )) -> None`
 #### `update(name: str, parent: Entity, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None`
 Update one or more of this GeometryBody properties.
 
@@ -1140,6 +1386,15 @@ Either the name, parent, or both can be updated in one update call.
 Methods:
 
 - `GeometryBodyCollection() -> None` — Construct a new GeometryBodyCollection.
+- `appendList(geometryBodyList: [apex.geometry.GeometryBody]) -> None` — Add GeometryBodies from a list to the end of this collection.
+
+Method details:
+
+#### `GeometryBodyCollection() -> None`
+Construct a new GeometryBodyCollection.
+
+For example:
+
 #### `appendList(geometryBodyList: [apex.geometry.GeometryBody]) -> None`
 Add GeometryBodies from a list to the end of this collection.
 
@@ -1154,9 +1409,15 @@ Properties: `featureDimension`, `featureType`, `topology`
 
 Methods:
 
-- `getFeatureDimension(: None) -> float` — Gets the leading dimension of this GeometryFeature The meaning of this property is dependent on the feature type as follows Hole2D - diameter of the hole Fillet2D - radius of the fillet Chamfer2D - width of the chamfer Hole3D - diameter of the Hole Fillet3D - radius of the Fillet Chamfer3D - width of the Chamfer featureDimension represents a Length quantity and must be interpreted in the units of Length from the active script unit system.
+- `getFeatureDimension(: None) -> float` — Gets the leading dimension of this GeometryFeature The meaning of this property is dependent on the feature type as follows Hole2D - diameter of the hole ...
 - `getFeatureType() -> apex.geometry.GeometryFeatureType` — Gets the type of this GeometryFeature as an apex.geometry.GeometryFeatureType.
 - `getTopology() -> apex.geometry.GeometryTopologyCollection` — Gets collection of geometry topologies (Faces, Edges) that represent this feature.
+
+Method details:
+
+#### `getFeatureDimension(: None) -> float`
+Gets the leading dimension of this GeometryFeature The meaning of this property is dependent on the feature type as follows Hole2D - diameter of the hole Fillet2D - radius of the fillet Chamfer2D - width of the chamfer Hole3D - diameter of the Hole Fillet3D - radius of the Fillet Chamfer3D - width of the Chamfer featureDimension represents a Length quantity and must be interpreted in the units of Length from the active script unit system.
+
 
 ## `apex.geometry.GeometryFeatureCollection`  (extends `EntityCollection`)
 Iterable collection of GeometryFeatures, based on EntityCollection.
@@ -1164,6 +1425,15 @@ Iterable collection of GeometryFeatures, based on EntityCollection.
 Methods:
 
 - `GeometryFeatureCollection() -> None` — Construct a new GeometryFeatureCollection.
+- `appendList(geometryFeatureList: [apex.geometry.GeometryFeature]) -> None` — Add GeometryFeatures from a list to the end of this collection.
+
+Method details:
+
+#### `GeometryFeatureCollection() -> None`
+Construct a new GeometryFeatureCollection.
+
+For example:
+
 #### `appendList(geometryFeatureList: [apex.geometry.GeometryFeature]) -> None`
 Add GeometryFeatures from a list to the end of this collection.
 
@@ -1179,12 +1449,26 @@ Properties: `body`, `constraints`, `elements`, `exteriorNodes`, `initialConditio
 Methods:
 
 - `asEntity() -> apex.Entity`
+- `getBody() -> GeometryBody` — Returns the Geometry Body that contains the topology.
+- `getConstraints() -> apex.EntityCollection` — Returns a collection of all Constraints that are applied to this GeometryTopology.
+- `getElements() -> apex.mesh.ElementCollection` — get the elements on this object.
+- `getExteriorNodes() -> apex.mesh.NodeCollection` — get the exterior nodes on this object.
+- `getInitialConditions() -> apex.EntityCollection` — Returns a collection of all InitialConditions that are applied to this GeometryTopology.
+- `getInteriorNodes() -> apex.mesh.NodeCollection` — get the interior nodes on this object.
+- `getLoads() -> apex.EntityCollection` — Returns a collection of all Loads that are applied to this GeometryBody.
+- `getNodes() -> apex.mesh.NodeCollection` — get the nodes on this object.
+- `getReferencedBy() -> apex.EntityCollection` — returns a collection of all entities that directly Reference this geometry Topology (Vertex, Edge, Face, Cell)
+
+Method details:
+
 #### `getBody() -> GeometryBody`
 Returns the Geometry Body that contains the topology.
 
 Returns: Geometry Body that contains the topology
 
-- `getConstraints() -> apex.EntityCollection` — Returns a collection of all Constraints that are applied to this GeometryTopology. If no Constraints are associated with the GeometryTopology the method will return an empty EntityCollection.
+#### `getConstraints() -> apex.EntityCollection`
+Returns a collection of all Constraints that are applied to this GeometryTopology. If no Constraints are associated with the GeometryTopology the method will return an empty EntityCollection.
+
 #### `getElements() -> apex.mesh.ElementCollection`
 get the elements on this object.
 
@@ -1195,19 +1479,22 @@ get the exterior nodes on this object.
 
 Returns: collection of nodes
 
-- `getInitialConditions() -> apex.EntityCollection` — Returns a collection of all InitialConditions that are applied to this GeometryTopology. If no InitialConditions are associated with the GeometryBody the method will return an empty EntityCollection.
+#### `getInitialConditions() -> apex.EntityCollection`
+Returns a collection of all InitialConditions that are applied to this GeometryTopology. If no InitialConditions are associated with the GeometryBody the method will return an empty EntityCollection.
+
 #### `getInteriorNodes() -> apex.mesh.NodeCollection`
 get the interior nodes on this object.
 
 Returns: collection of nodes
 
-- `getLoads() -> apex.EntityCollection` — Returns a collection of all Loads that are applied to this GeometryBody. The Loads may be applied directly to the GeometryBody or to its Face, Edge, Vertex, or MeshBody. If no Loads are associated with the GeometryBody the method will return an empty EntityCollection.
+#### `getLoads() -> apex.EntityCollection`
+Returns a collection of all Loads that are applied to this GeometryBody. The Loads may be applied directly to the GeometryBody or to its Face, Edge, Vertex, or MeshBody. If no Loads are associated with the GeometryBody the method will return an empty EntityCollection.
+
 #### `getNodes() -> apex.mesh.NodeCollection`
 get the nodes on this object.
 
 Returns: collection of nodes
 
-- `getReferencedBy() -> apex.EntityCollection` — returns a collection of all entities that directly Reference this geometry Topology (Vertex, Edge, Face, Cell)
 
 ## `apex.geometry.GeometryTopologyCollection`  (extends `IPhysicalCollection`)
 Iterable collection of GeometryTopologies, based on EntityCollection.
@@ -1215,6 +1502,15 @@ Iterable collection of GeometryTopologies, based on EntityCollection.
 Methods:
 
 - `GeometryTopologyCollection() -> None` — Construct a new GeometryTopologyCollection.
+- `appendList(geometryTopologyList: [apex.geometry.GeometryTopology]) -> None` — Add GeometryTopology Entities from a list to the end of this collection.
+
+Method details:
+
+#### `GeometryTopologyCollection() -> None`
+Construct a new GeometryTopologyCollection.
+
+For example:
+
 #### `appendList(geometryTopologyList: [apex.geometry.GeometryTopology]) -> None`
 Add GeometryTopology Entities from a list to the end of this collection.
 
@@ -1232,12 +1528,34 @@ Methods:
 - `getMidPoint() -> apex.Coordinate` — The location of the midPoint of MeshControlEdge, returned as a Coordinate.
 - `getParent() -> Face` — The parent Face of this MeshControlEdge.
 
+Method details:
+
+#### `getLength() -> float`
+The length of the MeshControlEdge.
+
+This length is returned in ScriptUnitSystem units.
+
+#### `getMidPoint() -> apex.Coordinate`
+The location of the midPoint of MeshControlEdge, returned as a Coordinate.
+
+The midPoint of a MeshControlEdge is the location on the edge where, if the edge was split, both halves would be of equal length.
+
+
 ## `apex.geometry.MeshControlEdgeCollection`  (extends `IPhysicalCollection`)
 Iterable collection of Mesh Control Edges, based on EntityCollection.
 
 Methods:
 
 - `MeshControlEdgeCollection() -> None` — Construct a new MeshControlEdgeCollection.
+- `appendList(meshControlEdgeList: [apex.geometry.MeshControlEdge]) -> None` — Add MeshControlEdges from a list to the end of this collection.
+
+Method details:
+
+#### `MeshControlEdgeCollection() -> None`
+Construct a new MeshControlEdgeCollection.
+
+For example:
+
 #### `appendList(meshControlEdgeList: [apex.geometry.MeshControlEdge]) -> None`
 Add MeshControlEdges from a list to the end of this collection.
 
@@ -1251,6 +1569,17 @@ Point Class Object. extends GeometryBody Class Object.
 Properties: `centroid`, `tessellation`
 
 Methods:
+
+- `evaluateCoincidence(target: EntityCollection, tolerance: float = 0.001) -> EntityCollection` — Evaluates whether the location of all Vertices in this Point lie within the specified tolerance of the input Vertices, Points, Edges, Curves, Faces, Surfaces ...
+- `findCoincidentObjects(target: EntityCollection = EntityCollection(), tolerance: float = 0.001) -> EntityCollection` — Finds all Vertices and Points that are coincident with this Point, within the supplied tolerance, and returns them in an EntityCollection.
+- `getAssociatedSeedPoint() -> apex.mesh.SeedPoint` — return the associated Seed Point.
+- `getCentroid() -> apex.Coordinate` — returns the centroid of this Point Body as a Coordinate
+- `getLocation() -> apex.Coordinate` — The location of this geometry Point in 3D cartesian space as an apex.ILocation.
+- `getOrientation() -> apex.Orientation` — the orientation of this Point as an apex.IOrientation
+- `getTessellation() -> apex.display.Tessellation0D` — returns the tessellation for this Point as a Tesselation0D.
+- `update(name: str, parent: Entity, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None` — Update one or more of this Point properties.
+
+Method details:
 
 #### `evaluateCoincidence(target: EntityCollection, tolerance: float = 0.001) -> EntityCollection`
 Evaluates whether the location of all Vertices in this Point lie within the specified tolerance of the input Vertices, Points, Edges, Curves, Faces, Surfaces, Cells or Solids.
@@ -1320,6 +1649,15 @@ Iterable collection of Points, based on EntityCollection.
 Methods:
 
 - `PointCollection() -> None` — Construct a new PointCollection.
+- `appendList(pointList: [apex.geometry.Point]) -> None` — Add Points from a list to the end of this collection.
+
+Method details:
+
+#### `PointCollection() -> None`
+Construct a new PointCollection.
+
+For example:
+
 #### `appendList(pointList: [apex.geometry.Point]) -> None`
 Add Points from a list to the end of this collection.
 
@@ -1333,6 +1671,31 @@ Solid Class Object. extends GeometryBody Class Object.
 Properties: `cells`, `centroid`, `exteriorEdges`, `exteriorFaces`, `exteriorVertices`, `interiorEdges`, `interiorFaces`, `interiorVertices`, `massCenterNominal`, `massNominal`, `meshControlEdges`, `principalInertiaFrameNominal`, `principalInertiaTensorNominal`, `tessellationExterior`, `tessellationInterior`, `volume`
 
 Methods:
+
+- `evaluateCoincidence(target: EntityCollection, tolerance: float = 0.001) -> EntityCollection` — Evaluates whether all locations on this Solid lie within the specified tolerance of the input Cells or Solids.
+- `findCoincidentObjects(target: EntityCollection = EntityCollection(), tolerance: float = 0.001) -> EntityCollection` — Finds all Vertices, Points, Edges, Curves, Faces, Surfaces, Cells and Solids that are coincident with this Solid, within the supplied tolerance, and returns ...
+- `getCells(ids: str = "") -> apex.geometry.CellCollection` — get the cells for the specified ids.
+- `getCentroid() -> apex.Coordinate` — The location of the centroid of the Solid.
+- `getExteriorEdges() -> EdgeCollection` — get the exterior Edges on this solid.
+- `getExteriorFaces() -> FaceCollection` — get the exterior Faces on this solid.
+- `getExteriorVertices() -> VertexCollection` — get the exterior Vertices on this solid.
+- `getInteriorEdges() -> EdgeCollection` — get the interior Edges on this solid.
+- `getInteriorFaces() -> FaceCollection` — get the interior Faces on this solid.
+- `getInteriorVertices() -> VertexCollection` — get the interior Vertices on this solid.
+- `getLocation() -> apex.Coordinate` — The location of this geometry Solid in 3D cartesian space as an apex.ILocation.
+- `getMassCenterNominal() -> apex.Coordinate` — get the center of mass on this solid as an apex.Coordinate object.
+- `getMassNominal(density: float = 1.0) -> float` — get the nominal mass on this solid.
+- `getMeshControlEdges() -> MeshControlEdgeCollection` — A read only meshControlEdgeCollection contain all MeshControlEdge composed by the Faces of this solid.
+- `getOrientation() -> apex.Orientation` — the orientation of this Solid as an apex.IOrientation.
+- `getPrincipalInertiaFrameNominal() -> apex.construct.CoordinateSystem` — get the principal inertia frame on this solid as a rectangular CoordinateSystem.
+- `getPrincipalInertiaTensorNominal(density: float = 1.0) -> {str:float}` — get the nominal principal inertia tensor on this solid as a Dictionary.
+- `getTessellationExterior() -> apex.display.Tessellation2D` — returns the exterior tessellation for this Solid as a Tesselation2D.
+- `getTessellationInterior() -> apex.display.Tessellation2D` — returns the interior tessellation for this Solid as a Tesselation2D.
+- `getVolume() -> float` — get the volume of this solid.
+- `identifyFeature() -> apex.geometry.ZResultSolidIdentifyFeature`
+- `update(name: str, parent: Entity, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None` — Update one or more of this Solid properties.
+
+Method details:
 
 #### `evaluateCoincidence(target: EntityCollection, tolerance: float = 0.001) -> EntityCollection`
 Evaluates whether all locations on this Solid lie within the specified tolerance of the input Cells or Solids.
@@ -1462,7 +1825,6 @@ get the volume of this solid.
 
 Returns: the solid volume
 
-- `identifyFeature() -> apex.geometry.ZResultSolidIdentifyFeature`
 #### `update(name: str, parent: Entity, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None`
 Update one or more of this Solid properties.
 
@@ -1482,6 +1844,15 @@ Iterable collection of Solids, based on EntityCollection.
 Methods:
 
 - `SolidCollection() -> None` — Construct a new SolidCollection.
+- `appendList(solidList: [apex.geometry.Solid]) -> None` — Add Solids from a list to the end of this collection.
+
+Method details:
+
+#### `SolidCollection() -> None`
+Construct a new SolidCollection.
+
+For example:
+
 #### `appendList(solidList: [apex.geometry.Solid]) -> None`
 Add Solids from a list to the end of this collection.
 
@@ -1495,6 +1866,20 @@ Class representing a parametric sphere. The Sphere size is parameterized by a si
 Properties: `coordinateSystem`, `origin`, `radius`
 
 Methods:
+
+- `getCoordinateSystem() -> apex.construct.CoordinateSystem` — A CoordinateSystem that defines the origin and orientation of the Sphere.
+- `getOrigin() -> ILocation` — the origin of the Sphere as an ILocation.
+- `getRadius() -> float` — The radius of the Sphere. radius represents an Length quantity and must be supplied in the units of Angle that are active in the script unit system.
+- `getReferenceSystem() -> ( apex.ILocation,apex.IOrientation )` — Gets A tuple to represent location and orientation to be used for reference system.
+- `setCoordinateSystem(coordinateSystem: apex.construct.CoordinateSystem) -> None` — Set the coordinateSystem of this Sphere.
+- `setDescription(description: str) -> None` — Set the description of this Sphere.
+- `setName(name: str) -> None` — Set the name of this Sphere.
+- `setOrientation(orientation: apex.IOrientation) -> None` — Set the orientation of this Sphere.
+- `setOrigin(origin: ILocation) -> None` — Set the origin of this Sphere.
+- `setRadius(radius: float) -> None` — Set the radius of this Sphere.
+- `update(name: str = "", description: str = "", radius: float = 0.0, origin: apex.ILocation = None, orientation: apex.IOrientation = None, coordinateSystem: apex.construct.CoordinateSystem = None, parent: Entity = 0, color: [int] = [], renderStyle: apex.session.DisplayRenderStyle = apex.session.DisplayRenderStyle.Undefined, enableTransparency: apex.ApexBool = ApexBoolUndefined, transparencyLevel: int = -1, useLocalValue: bool = True) -> None` — Updates the properties of this Sphere.
+
+Method details:
 
 #### `getCoordinateSystem() -> apex.construct.CoordinateSystem`
 A CoordinateSystem that defines the origin and orientation of the Sphere. If the Sphere was created using an integrated Orientation this coordinateSystem will not exist and will return a None type.
@@ -1511,7 +1896,6 @@ The radius of the Sphere. radius represents an Length quantity and must be suppl
 
 Returns: the Sphere length
 
-- `getReferenceSystem() -> ( apex.ILocation,apex.IOrientation )` — Gets A tuple to represent location and orientation to be used for reference system.
 #### `setCoordinateSystem(coordinateSystem: apex.construct.CoordinateSystem) -> None`
 Set the coordinateSystem of this Sphere.
 
@@ -1571,6 +1955,47 @@ Surface Class Object. extends GeometryBody Class Object.
 Properties: `area`, `centroid`, `cylindricalAxis`, `cylindricalAxisEndPoint`, `cylindricalAxisMidPoint`, `cylindricalAxisStartPoint`, `exteriorEdgeLoops`, `exteriorEdges`, `exteriorVertices`, `interiorEdgeLoops`, `interiorEdges`, `interiorVertices`, `isManifold`, `manifoldRegions`, `massCenterNominal`, `massNominal`, `meshControlEdges`, `parametricRange`, `principalInertiaFrameNominal`, `principalInertiaTensorNominal`, `tessellation`
 
 Methods:
+
+- `evaluateClosestLocation(inputLocation: apex.ILocation) -> ZResultEvaluateClosestLocation` — Given an input location in 3D space, evaluates and returns a result object containing the location on this Surface that is closest to the input location and ...
+- `evaluateClosestLocationOnSurface(point: apex.ILocation) -> apex.Coordinate` — DEPRECATED: "THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE NEXT APEX RELEASE " This method has been superseded by the equivalent ...
+- `evaluateCoincidence(target: EntityCollection, tolerance: float = 0.001) -> EntityCollection` — Evaluates whether all locations on this Surface lie within the specified tolerance of the input Faces, Surfaces, Cells or Solids.
+- `evaluateOrientationSurfaceParametricCoordinate(u: float, v: float) -> apex.Orientation` — This method takes a 2D parametric coordinate (u, v) as input and returns the default Orientation at that position on the Surface.
+- `evaluatePointOnSurface(point: apex.ILocation) -> apex.geometry.ZResultEvaluatePointOnSurface` — This method takes a point in space (as a Point3D object) as input and returns a result object containing the closest point on the Surface as a ...
+- `evaluateSurfaceNormal(location: apex.ILocation) -> apex.construct.Vector3D` — evaluateSurfaceNormal
+- `evaluateSurfaceParametricCoordinate(u: float, v: float) -> apex.geometry.ZResultEvaluateSurfaceParametricCoordinate` — This method takes a parametric Surface coordinate (u, v) as input and returns the equivalent 3D cartesian coordinates as a List of Point3D objects.
+- `evaluateTangentInDirection(location: apex.ILocation, direction: apex.construct.Vector3D) -> apex.construct.Vector3D` — evaluateTangentInDirection
+- `findCoincidentObjects(target: EntityCollection = EntityCollection(), tolerance: float = 0.001) -> EntityCollection` — Finds all Vertices, Points, Edges, Curves, Faces and Surfaces that are coincident with this Surface, within the supplied tolerance, and returns them in an ...
+- `findFaceAtPoint(pointOnSurface: apex.ILocation) -> Face` — findFaceAtPoint
+- `getArea() -> float` — get the area of this surface.
+- `getCentroid() -> apex.Coordinate` — The location of the centroid of the Surface.
+- `getCylindricalAxis() -> apex.construct.Vector3D` — return the cylindrical axis of this Surface.
+- `getCylindricalAxisEndPoint() -> apex.Coordinate` — return the end point of the cylindrical axis of this Surface.
+- `getCylindricalAxisMidPoint() -> apex.Coordinate` — return the mid point of the cylindrical axis of this Surface.
+- `getCylindricalAxisStartPoint() -> apex.Coordinate` — return the start point of the cylindrical axis of this Surface.
+- `getExteriorEdgeLoops() -> EdgeLoopCollection` — Returns the bounding EdgeLoops of this Surface.
+- `getExteriorEdges() -> EdgeCollection` — get the exterior Edges on this surface.
+- `getExteriorIds(ids: SCA.SCAInt32Sequence) -> None`
+- `getExteriorVertices() -> VertexCollection` — get the exterior Vertices on this surface.
+- `getInteriorEdgeLoops() -> EdgeLoopCollection` — Returns all interior EdgeLoops that may exist for this Surface.
+- `getInteriorEdges() -> EdgeCollection` — get the interior Edges on this surface.
+- `getInteriorIds(ids: SCA.SCAInt32Sequence) -> None`
+- `getInteriorVertices() -> VertexCollection` — get the interior Vertices on this surface.
+- `getIsManifold() -> bool` — A Boolean value that indicates whether this Surface is manifold or not.
+- `getLocation() -> apex.Coordinate` — The location of this Surface in 3D cartesian space as an apex.ILocation.
+- `getManifoldRegions() -> [FaceCollection]` — Returns a List of FaceCollections.
+- `getMassCenterNominal() -> apex.Coordinate` — get the center of mass on this surface as an apex.Coordinate object.
+- `getMassNominal(density: float = 1.0) -> float` — get the nominal mass on this surface.
+- `getMeshControlEdges() -> MeshControlEdgeCollection` — A read only meshControlEdgeCollection contain all MeshControlEdge composed by the Faces of this surface.
+- `getOrientation() -> apex.Orientation` — the orientation of this Surface as an apex.IOrientation.
+- `getParametricRange() -> {str:float}` — The range of the parametric space coordinates used by the Surface, Apex Surfaces compose one or more Faces bounded by Edges.
+- `getPrincipalInertiaFrameNominal() -> apex.construct.CoordinateSystem` — get the principal inertia frame on this surface as a rectangular CoordinateSystem.
+- `getPrincipalInertiaTensorNominal(density: float = 1.0) -> {str:float}` — get the nominal principal inertia tensor on this surface as a Dictionary.
+- `getTessellation() -> apex.display.Tessellation2D` — returns the tessellation for this Surface as a Tesselation2D.
+- `getType() -> str`
+- `identifyFeature(: None) -> [apex.geometry.GeometryFeature]`
+- `update(name: str, parent: Entity, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None` — Update one or more of this Surface properties.
+
+Method details:
 
 #### `evaluateClosestLocation(inputLocation: apex.ILocation) -> ZResultEvaluateClosestLocation`
 Given an input location in 3D space, evaluates and returns a result object containing the location on this Surface that is closest to the input location and the vector from the input location to the closest Surface location.
@@ -1697,7 +2122,6 @@ get the exterior Edges on this surface.
 
 Returns: collection of Edges
 
-- `getExteriorIds(ids: SCA.SCAInt32Sequence) -> None`
 #### `getExteriorVertices() -> VertexCollection`
 get the exterior Vertices on this surface.
 
@@ -1713,7 +2137,6 @@ get the interior Edges on this surface.
 
 Returns: collection of Edges
 
-- `getInteriorIds(ids: SCA.SCAInt32Sequence) -> None`
 #### `getInteriorVertices() -> VertexCollection`
 get the interior Vertices on this surface.
 
@@ -1792,8 +2215,6 @@ returns the tessellation for this Surface as a Tesselation2D. The Tesselation2D 
 
 Returns: Tessellation
 
-- `getType() -> str`
-- `identifyFeature(: None) -> [apex.geometry.GeometryFeature]`
 #### `update(name: str, parent: Entity, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None`
 Update one or more of this Surface properties.
 
@@ -1813,6 +2234,15 @@ Iterable collection of Surfaces, based on EntityCollection.
 Methods:
 
 - `SurfaceCollection() -> None` — Construct a new SurfaceCollection.
+- `appendList(surfaceList: [apex.geometry.Surface]) -> None` — Add Surfaces from a list to the end of this collection.
+
+Method details:
+
+#### `SurfaceCollection() -> None`
+Construct a new SurfaceCollection.
+
+For example:
+
 #### `appendList(surfaceList: [apex.geometry.Surface]) -> None`
 Add Surfaces from a list to the end of this collection.
 
@@ -1826,6 +2256,17 @@ Vertex Class Object. extends GeometryTopology Class Object.
 Properties: `axisAlignedBoundingBox`, `connectedCells`, `connectedEdges`, `connectedFaces`, `tessellation`
 
 Methods:
+
+- `evaluateCoincidence(target: EntityCollection, tolerance: float = 0.001) -> EntityCollection` — Evaluates whether this Vertex within the specified tolerance of the input Vertices, Points, Edges, Curves, Faces, Surfaces, Cells or Solids.
+- `findCoincidentObjects(target: EntityCollection = EntityCollection(), tolerance: float = 0.001) -> EntityCollection` — Finds all Vertices and Points that are coincident with this Vertex, within the supplied tolerance, and returns them in an EntityCollection.
+- `getConnectedCells() -> apex.geometry.CellCollection` — get the connected Cells on this vertex.
+- `getConnectedEdges() -> apex.geometry.EdgeCollection` — get the connected Edge on this vertex.
+- `getConnectedFaces() -> apex.geometry.FaceCollection` — get the connected Faces on this vertex.
+- `getLocation() -> apex.Coordinate` — The the location of the Vertex in global cartesian space as an apex.ILocation.
+- `getOrientation() -> apex.Orientation` — the orientation of this Vertex as an apex.IOrientation
+- `getTessellation() -> apex.display.Tessellation0D` — returns the tessellation for this Vertex as a Tesselation0D.
+
+Method details:
 
 #### `evaluateCoincidence(target: EntityCollection, tolerance: float = 0.001) -> EntityCollection`
 Evaluates whether this Vertex within the specified tolerance of the input Vertices, Points, Edges, Curves, Faces, Surfaces, Cells or Solids.
@@ -1886,6 +2327,15 @@ Iterable collection of Vertexs, based on EntityCollection.
 Methods:
 
 - `VertexCollection() -> None` — Construct a new VertexCollection.
+- `appendList(vertexList: [apex.geometry.Vertex]) -> None` — Add Verticies from a list to the end of this collection.
+
+Method details:
+
+#### `VertexCollection() -> None`
+Construct a new VertexCollection.
+
+For example:
+
 #### `appendList(vertexList: [apex.geometry.Vertex]) -> None`
 Add Verticies from a list to the end of this collection.
 
@@ -1898,6 +2348,14 @@ For example:
 Properties: `modifiedGeometryBodies`, `notRemovedFeatures`, `numFeaturesRemoved`, `seedPointIds`
 
 Methods:
+
+- `getModifiedGeometryBodies(: None) -> [apex.geometry.GeometryBody]` — getModifiedGeometryBodies return the list of modified bodies
+- `getNotRemovedFeatures(: None) -> GeometryFeatureListType` — getNotRemovedFeatures return the list of features not removed
+- `getNumFeaturesRemoved(: None) -> int` — getNumFeaturesRemoved return the number of removed features
+- `getSeedPointIds(: None) -> SCA.SCAInt32Sequence` — getSeedPointIds return the list of seed point Id
+- `getSeedPoints(seedPointIds: SCA.SCAInt32Sequence) -> apex.mesh.SeedPointCollection` — getSeedPoints return the list of seed point
+
+Method details:
 
 #### `getModifiedGeometryBodies(: None) -> [apex.geometry.GeometryBody]`
 getModifiedGeometryBodies return the list of modified bodies
@@ -1929,6 +2387,11 @@ Returns: the list of seed point
 Properties: `edgesOfFeatures`, `numberOfFeaturesFound`
 
 Methods:
+
+- `getEdgesOfFeatures(: None) -> [EdgeListType]` — return list of edge lists.
+- `getNumberOfFeaturesFound(: None) -> int` — return the number of features found.
+
+Method details:
 
 #### `getEdgesOfFeatures(: None) -> [EdgeListType]`
 return list of edge lists. Each list are the edges of the feature. Each list will be the same length of edges
@@ -1968,7 +2431,13 @@ Properties: `points`
 
 Methods:
 
-- `getPoints() -> apex.ILocationCollection` — The location(s) in 3D Space of the input Curve parametric coordinates as a List of apex.construct.Point3D. For simple Curves with a single underlying Curve the List will contain a single Point3D corresponding to the input parametric coordinates. For more complex Curves that have multiple underlying Curves, the parametric coordinate is evaluated on each underlying Curve and, if the parametric coordinate exists on the underlying Curve, a Point3D will be returned. The IDs of the underlying Curves that were used to generate these Point3D's are available in the "curveIDs" List.
+- `getPoints() -> apex.ILocationCollection` — The location(s) in 3D Space of the input Curve parametric coordinates as a List of apex.construct.Point3D.
+
+Method details:
+
+#### `getPoints() -> apex.ILocationCollection`
+The location(s) in 3D Space of the input Curve parametric coordinates as a List of apex.construct.Point3D. For simple Curves with a single underlying Curve the List will contain a single Point3D corresponding to the input parametric coordinates. For more complex Curves that have multiple underlying Curves, the parametric coordinate is evaluated on each underlying Curve and, if the parametric coordinate exists on the underlying Curve, a Point3D will be returned. The IDs of the underlying Curves that were used to generate these Point3D's are available in the "curveIDs" List.
+
 
 ## `apex.geometry.ZResultEvaluateFaceCurvature`
 Instances of this class are returned by the evaluateFaceCurvatureUV () method of the Face class.
@@ -1999,7 +2468,13 @@ Properties: `parametricCoordinates`
 
 Methods:
 
-- `getParametricCoordinates() -> [float]` — The parametric coordinates of input point as a floating point value representing the parametric location on the Curve. Note that this coordinate is extracted from underlying Curves of the Apex Curve that is being evaluated. If the Apex Curve is composed of multiple underlying Curves a location on the Apex Curve will map to just one of them and different Apex Curve locations may map to different underlying Curves. A future release of Apex will return the ID of the underlying Curve in this result object alongside the parametric coordinate - this will enable users to validate whether two parametric coordinates returned from different Apex Curve locations are derived from the same underlying Curve or not and use this information to determine whether comparison is meaningful.
+- `getParametricCoordinates() -> [float]` — The parametric coordinates of input point as a floating point value representing the parametric location on the Curve.
+
+Method details:
+
+#### `getParametricCoordinates() -> [float]`
+The parametric coordinates of input point as a floating point value representing the parametric location on the Curve. Note that this coordinate is extracted from underlying Curves of the Apex Curve that is being evaluated. If the Apex Curve is composed of multiple underlying Curves a location on the Apex Curve will map to just one of them and different Apex Curve locations may map to different underlying Curves. A future release of Apex will return the ID of the underlying Curve in this result object alongside the parametric coordinate - this will enable users to validate whether two parametric coordinates returned from different Apex Curve locations are derived from the same underlying Curve or not and use this information to determine whether comparison is meaningful.
+
 
 ## `apex.geometry.ZResultEvaluatePointOnFace`
 Instances of this class are returned by the evaluatePointOnFace () method of the Face class.
@@ -2017,7 +2492,13 @@ Properties: `parametricCoordinates`
 
 Methods:
 
-- `getParametricCoordinates() -> [apex.construct.ParametricCoordinate2D]` — The parametric coordinates of input point as an apex.construct.ParametricCoordinate2D. Note that this coordinate is extracted from underlying Surfaces of the Apex Surface that is being evaluated. If the Apex Surface is composed of multiple underlying Surfaces a location on the Apex Surface will map to just one of them and different Apex Surface locations may map to different underlying Surfaces. A future release of Apex will return the ID of the underlying surface in this result object alongside the parametric coordinate - this will enable users to validate whether two parametric coordinates returned from different Apex Surface locations are derived from the same underlying Surface or not and use this information to determine whether comparison is meaningful.
+- `getParametricCoordinates() -> [apex.construct.ParametricCoordinate2D]` — The parametric coordinates of input point as an apex.construct.ParametricCoordinate2D.
+
+Method details:
+
+#### `getParametricCoordinates() -> [apex.construct.ParametricCoordinate2D]`
+The parametric coordinates of input point as an apex.construct.ParametricCoordinate2D. Note that this coordinate is extracted from underlying Surfaces of the Apex Surface that is being evaluated. If the Apex Surface is composed of multiple underlying Surfaces a location on the Apex Surface will map to just one of them and different Apex Surface locations may map to different underlying Surfaces. A future release of Apex will return the ID of the underlying surface in this result object alongside the parametric coordinate - this will enable users to validate whether two parametric coordinates returned from different Apex Surface locations are derived from the same underlying Surface or not and use this information to determine whether comparison is meaningful.
+
 
 ## `apex.geometry.ZResultEvaluateSurfaceParametricCoordinate`
 Result object for the Surface.evaluateSurfaceParametricCoordinate() method. Simple Apex Surfaces may have one or more Faces and be supported by a single underlying Surface. In this case, the single underlying Surface will be used to evaluate the input parametric coordinate and a single location in 3D space will be returned as a single Point3D object in the "points" List For more complex Apex Surfaces, multiple underlying Surfaces may exist and in this case current Apex releases will throw an exception. A future release of Apex will support evaluation of surface parametric coordinates on complex Surfaces by evaluating the input parametric coordinate using each underlying Surface and returning one location in 3D space for each underlying Surface. (If the input parametric coordinate is outside of the parametric range of any underlying Surface, no 3D space location will be calculated.) In a future Apex release this result object provide access not only to the single Point3D associated with a valid Surface parametric coordinate, but to a List of locations that evaluate from the input parametric coordinates and a corresponding List of Surface ID's representing the ID of the underlying Surface from which the corresponding location was evaluated. Underlying Surfaces will not be accessible to Apex and the Surface ID is intended to be used only to compare with other Surface ID's within the same Apex Surface.
@@ -2025,12 +2506,24 @@ Properties: `points`
 
 Methods:
 
-- `getPoints() -> apex.ILocationCollection` — The location(s) in 3D Space of the input Surface parametric coordinate as a List of apex.construct.Point3D. For simple Surfaces with a single underlying Surface the List will contain a single Point3D corresponding to the input parametric coordinates. A future release of Apex will support complex Surfaces that have multiple underlying Surfaces, the parametric coordinate will be evaluated on each underlying Surfaces and, if the parametric coordinate exists on the underlying Surface, a Point3D will be returned. The IDs of the underlying Surfaces that were used to generate these Point3D's will be available in this result object.
+- `getPoints() -> apex.ILocationCollection` — The location(s) in 3D Space of the input Surface parametric coordinate as a List of apex.construct.Point3D.
+
+Method details:
+
+#### `getPoints() -> apex.ILocationCollection`
+The location(s) in 3D Space of the input Surface parametric coordinate as a List of apex.construct.Point3D. For simple Surfaces with a single underlying Surface the List will contain a single Point3D corresponding to the input parametric coordinates. A future release of Apex will support complex Surfaces that have multiple underlying Surfaces, the parametric coordinate will be evaluated on each underlying Surfaces and, if the parametric coordinate exists on the underlying Surface, a Point3D will be returned. The IDs of the underlying Surfaces that were used to generate these Point3D's will be available in this result object.
+
 
 ## `apex.geometry.ZResultFindGeometryFaults`
 Properties: `faults`, `faultTypes`, `numGeometryFaults`
 
 Methods:
+
+- `getFaultTypes(: None) -> [apex.geometry.GeometryFaultType]` — return a list of fault types of the faults matching Faults[0]
+- `getFaults(: None) -> [EntityListType]` — return Tuples containing Topology, GeometryBody and Parts of faults that were found.
+- `getNumGeometryFaults(: None) -> int` — return Total number of geometry faults found
+
+Method details:
 
 #### `getFaultTypes(: None) -> [apex.geometry.GeometryFaultType]`
 return a list of fault types of the faults matching Faults[0]
@@ -2053,6 +2546,11 @@ Properties: `numSmallFeaturesIdentified`, `smallFeatures`
 
 Methods:
 
+- `getNumSmallFeaturesIdentified(: None) -> int` — return Total number of small features identified
+- `getSmallFeatures(: None) -> [EntityListType]` — return Dictionaries containing Topology, GeometryBody and Parts of the small features that were found.
+
+Method details:
+
 #### `getNumSmallFeaturesIdentified(: None) -> int`
 return Total number of small features identified
 
@@ -2068,6 +2566,11 @@ Returns: List of Dictionaries containing information about the small features th
 Properties: `notSimplifiedGeometries`, `simplifiedGeometries`
 
 Methods:
+
+- `getNotSimplifiedGeometries(: None) -> EntityListType` — return the list of Not Simplified Geometries
+- `getSimplifiedGeometries(: None) -> EntityListType` — return the list of Simplified Geometries
+
+Method details:
 
 #### `getNotSimplifiedGeometries(: None) -> EntityListType`
 return the list of Not Simplified Geometries
@@ -2085,6 +2588,11 @@ Properties: `edgesOfFeatures`, `numberOfFeaturesFound`
 
 Methods:
 
+- `getEdgesOfFeatures(: None) -> [EdgeCollection]` — return list of edge lists.
+- `getNumberOfFeaturesFound(: None) -> int` — return the number of features found.
+
+Method details:
+
 #### `getEdgesOfFeatures(: None) -> [EdgeCollection]`
 return list of edge lists. Each list are the edges of the feature. Each list will be the same length of edges
 
@@ -2101,6 +2609,11 @@ Properties: `featureDimensions`, `featuresIdentified`
 
 Methods:
 
+- `getFeatureDimensions(: None) -> [float]` — return a list of the featureDimensions
+- `getFeaturesIdentified(: None) -> apex.geometry.GeometryFeatureCollection` — return the list of features identified
+
+Method details:
+
 #### `getFeatureDimensions(: None) -> [float]`
 return a list of the featureDimensions
 
@@ -2116,6 +2629,12 @@ Returns: collection of features identified
 Properties: `numFeaturesFixed`, `numFeaturesIdentified`, `smallFeatures`
 
 Methods:
+
+- `getNumFeaturesFixed(: None) -> int` — return Total number of small features that were changed by AutoFix.This will be 0 if AutoFix is FALSE
+- `getNumFeaturesIdentified(: None) -> int` — return Total number of small features identified
+- `getSmallFeatures(: None) -> [EntityListType]` — return Dictionaries containing information about the small features that were found.Features that were succesfully fixed are not included in this list Each ...
+
+Method details:
 
 #### `getNumFeaturesFixed(: None) -> int`
 return Total number of small features that were changed by AutoFix.This will be 0 if AutoFix is FALSE
@@ -2138,6 +2657,10 @@ Properties: `featuresIdentified`
 
 Methods:
 
+- `getFeaturesIdentified(: None) -> [GeometryFeatureDictionaryType]` — return the features identified
+
+Method details:
+
 #### `getFeaturesIdentified(: None) -> [GeometryFeatureDictionaryType]`
 return the features identified
 
@@ -2149,6 +2672,10 @@ a ResultObject containing a collection all of the new Edges that were created by
 Properties: `newEdges`
 
 Methods:
+
+- `getNewEdges(: None) -> apex.geometry.EdgeCollection` — return an EdgeCollection containing all of the new Edges that were introduced by the split operation.
+
+Method details:
 
 #### `getNewEdges(: None) -> apex.geometry.EdgeCollection`
 return an EdgeCollection containing all of the new Edges that were introduced by the split operation.
@@ -2163,6 +2690,10 @@ a ResultObject containing a collection of all of the new Faces that were created
 Properties: `newFaces`
 
 Methods:
+
+- `getNewFaces(: None) -> apex.geometry.FaceCollection` — return a FaceCollection containing all of the new Faces that were introduced by the split operation.
+
+Method details:
 
 #### `getNewFaces(: None) -> apex.geometry.FaceCollection`
 return a FaceCollection containing all of the new Faces that were introduced by the split operation. When a Face is split, the original Face is replaced by two (or more) new Faces. The new Faces that are created by the split will be returned in this collection.

@@ -20,11 +20,15 @@ Apex release: Iberian Lynx FP2. All arguments are keyword-only.
 `apex.session.MarkerSize`: `Small`, `Large`
   - Possible MarkerSize Options in Apex
 
-`apex.session.MaskableEntities`: `All`, `AllFEM`, `Nodes`, `Elements`, `Elements1D`, `Elements1DBeam2`, `Elements2D`, `Elements2DTria3`, `Elements2DTria6`, `Elements2DQuad4`, `Elements2DQuad8`, `Elements3D`, `Elements3DTetra4`, `Elements3DTetra10`, `Elements3DHex8`, `Elements3DPenta6`, `Elements3DHex20`, `Elements3DPenta15`, `Seeds`, `SeedsPointSeeds`, `SeedsEdgeSeeds`, `PointMasses`, `AllGeometry`, `GeometryVertices`, `GeometryPoints`, `GeometryCurves`, `GeometrySurfaces`, `GeometryNonManifoldSurfaces`, `GeometrySolids`
-  - Possible Maskable Entities in Apex
+`apex.session.MaskableEntities` — 29 members. Possible Maskable Entities in Apex
+  - `apex.session.MaskableEntities`: `All`, `AllFEM`, `Nodes`, `Elements`, `Elements1D`, `Elements1DBeam2`, `Elements2D`, `Elements2DTria3`, `Elements2DTria6`, `Elements2DQuad4`, `Elements2DQuad8`, `Elements3D`, `Elements3DTetra4`, `Elements3DTetra10`
+  - `apex.session.MaskableEntities`: `Elements3DHex8`, `Elements3DPenta6`, `Elements3DHex20`, `Elements3DPenta15`, `Seeds`, `SeedsPointSeeds`, `SeedsEdgeSeeds`, `PointMasses`, `AllGeometry`, `GeometryVertices`, `GeometryPoints`, `GeometryCurves`
+  - `apex.session.MaskableEntities`: `GeometrySurfaces`, `GeometryNonManifoldSurfaces`, `GeometrySolids`
 
-`apex.session.MaskableEntities_Apex`: `AllInteractions`, `InteractionsGluePairs`, `InteractionsGluePatches`, `InteractionsTies`, `AllConnections`, `ConnectionsSprings`, `ConnectionsSpringDampers`, `ConnectionsDampers`, `ConnectionsBushings`, `ConnectionsRigidLinks`, `ConnectionsFlexibleLinks`, `AllLBCs`, `LBCsForceMoments`, `LBCsGeneralConstraints`, `LBCsClampedConstraints`, `LBCsAxialConstraints`, `LBCsSphericalConstraints`, `LBCsSymmetryConstraints`, `LBCsPressures`, `LBCsGravities`, `LBCsEnforcedMotions`, `AllSensors`, `SensorsPointSensors`, `SensorsCrossSectionSensors`, `Spans_2D`, `Spans_3D`
-  - Possible Maskable Entities in Apex
+`apex.session.MaskableEntities_Apex` — 26 members. Possible Maskable Entities in Apex
+  - `apex.session.MaskableEntities_Apex`: `AllInteractions`, `InteractionsGluePairs`, `InteractionsGluePatches`, `InteractionsTies`, `AllConnections`, `ConnectionsSprings`, `ConnectionsSpringDampers`, `ConnectionsDampers`, `ConnectionsBushings`
+  - `apex.session.MaskableEntities_Apex`: `ConnectionsRigidLinks`, `ConnectionsFlexibleLinks`, `AllLBCs`, `LBCsForceMoments`, `LBCsGeneralConstraints`, `LBCsClampedConstraints`, `LBCsAxialConstraints`, `LBCsSphericalConstraints`, `LBCsSymmetryConstraints`
+  - `apex.session.MaskableEntities_Apex`: `LBCsPressures`, `LBCsGravities`, `LBCsEnforcedMotions`, `AllSensors`, `SensorsPointSensors`, `SensorsCrossSectionSensors`, `Spans_2D`, `Spans_3D`
 
 `apex.session.SuppressableEntities`: `AllEntities`, `EdgesAndCurves`, `Vertices`
   - Possible Suppressable Entities in Apex

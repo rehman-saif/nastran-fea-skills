@@ -18,6 +18,10 @@ Properties: `combinedConstraints`
 Methods:
 
 - `getCombinedConstraints() -> apex.EntityCollection` — the collection of constraints to be combined.
+- `update(name: str, description: str, id: int, combinedConstraints: apex.EntityCollection) -> None` — Update the constraintCombination.
+
+Method details:
+
 #### `update(name: str, description: str, id: int, combinedConstraints: apex.EntityCollection) -> None`
 Update the constraintCombination.
 
@@ -35,13 +39,38 @@ Methods:
 
 - `getConstraintType() -> apex.attribute.ConstraintType` — the constraintType.
 - `getOrientation() -> apex.IOrientation` — the orientation of the constraint, currently it must be a coordinate system.
-- `getRotationX() -> float` — the rotation value about X. It is an Angle quantity and must be defined using the units of Angle from the active script unit system.
-- `getRotationY() -> float` — the rotation value about Y. It is an Angle quantity and must be defined using the units of Angle from the active script unit system.
-- `getRotationZ() -> float` — the rotation value about Z. It is an Angle quantity and must be defined using the units of Angle from the active script unit system.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the constraint will be applied to. Constraints may be assigned to Solids, Cells, Faces, Curves, Edges and Nodes. Constraints assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
-- `getTranslationX() -> float` — the translation value in X. It is a Length quantity and must be defined using the units of Length from the active script unit system.
-- `getTranslationY() -> float` — the translation value in X. It is a Length quantity and must be defined using the units of Length from the active script unit system.
-- `getTranslationZ() -> float` — the translation value in X. It is a Length quantity and must be defined using the units of Length from the active script unit system.
+- `getRotationX() -> float` — the rotation value about X.
+- `getRotationY() -> float` — the rotation value about Y.
+- `getRotationZ() -> float` — the rotation value about Z.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the constraint will be applied to.
+- `getTranslationX() -> float` — the translation value in X.
+- `getTranslationY() -> float` — the translation value in X.
+- `getTranslationZ() -> float` — the translation value in X.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, translationX: float, translationY: float, translationZ: float, rotationX: float, rotationY: float, rotationZ: float, constraintType: apex.attribute.ConstraintType, orientation: apex.IOrientation) -> None` — Updates one or more properties of the constraint.
+
+Method details:
+
+#### `getRotationX() -> float`
+the rotation value about X. It is an Angle quantity and must be defined using the units of Angle from the active script unit system.
+
+#### `getRotationY() -> float`
+the rotation value about Y. It is an Angle quantity and must be defined using the units of Angle from the active script unit system.
+
+#### `getRotationZ() -> float`
+the rotation value about Z. It is an Angle quantity and must be defined using the units of Angle from the active script unit system.
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the constraint will be applied to. Constraints may be assigned to Solids, Cells, Faces, Curves, Edges and Nodes. Constraints assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+
+#### `getTranslationX() -> float`
+the translation value in X. It is a Length quantity and must be defined using the units of Length from the active script unit system.
+
+#### `getTranslationY() -> float`
+the translation value in X. It is a Length quantity and must be defined using the units of Length from the active script unit system.
+
+#### `getTranslationZ() -> float`
+the translation value in X. It is a Length quantity and must be defined using the units of Length from the active script unit system.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, translationX: float, translationY: float, translationZ: float, rotationX: float, rotationY: float, rotationZ: float, constraintType: apex.attribute.ConstraintType, orientation: apex.IOrientation) -> None`
 Updates one or more properties of the constraint. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -65,7 +94,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldConstraintDisplacement` — a DFEMFieldConstraintDisplacement that identifies nodes that represent the region to which this load is applied as well as the distribution of constraints across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldConstraintDisplacement` — a DFEMFieldConstraintDisplacement that identifies nodes that represent the region to which this load is applied as well as the distribution of constraints ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldConstraintDisplacement) -> None` — Update method.One or more properties may be updated in each call to update().
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldConstraintDisplacement`
+a DFEMFieldConstraintDisplacement that identifies nodes that represent the region to which this load is applied as well as the distribution of constraints across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldConstraintDisplacement) -> None`
 Update method.One or more properties may be updated in each call to update().
 
@@ -87,7 +123,14 @@ Methods:
 - `getExcludeTranslationX() -> bool` — the argument to indicate whether the translation X is excluded or not.
 - `getExcludeTranslationY() -> bool` — the argument to indicate whether the translation Y is excluded or not.
 - `getExcludeTranslationZ() -> bool` — the argument to indicate whether the translation Z is excluded or not.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the constraint will be applied to. Constraints may be assigned to Solids, Cells, Faces, Curves, Edges and Nodes. Constraints assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the constraint will be applied to.
+- `update(name: str, description: str, target: apex.EntityCollection, excludeTranslationX: bool, excludeTranslationY: bool, excludeTranslationZ: bool, excludeRotationX: bool, excludeRotationY: bool, excludeRotationZ: bool) -> None` — Updates one or more properties of the ConstraintExcludeAuto.
+
+Method details:
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the constraint will be applied to. Constraints may be assigned to Solids, Cells, Faces, Curves, Edges and Nodes. Constraints assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+
 #### `update(name: str, description: str, target: apex.EntityCollection, excludeTranslationX: bool, excludeTranslationY: bool, excludeTranslationZ: bool, excludeRotationX: bool, excludeRotationY: bool, excludeRotationZ: bool) -> None`
 Updates one or more properties of the ConstraintExcludeAuto. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -115,6 +158,10 @@ Methods:
 - `getExcludeTranslationY() -> bool` — the argument to indicate whether the translation Y is excluded or not.
 - `getExcludeTranslationZ() -> bool` — the argument to indicate whether the translation Z is excluded or not.
 - `getTarget() -> apex.EntityCollection` — the target entities that the ConstraintExcludeDofs1 is applied to.
+- `update(name: str, description: str, excludeTranslationX: bool, excludeTranslationY: bool, excludeTranslationZ: bool, excludeRotationX: bool, excludeRotationY: bool, excludeRotationZ: bool, target: apex.EntityCollection) -> None` — Update this ConstraintExcludeDof1.One or more properties may be updated in each call to update().
+
+Method details:
+
 #### `update(name: str, description: str, excludeTranslationX: bool, excludeTranslationY: bool, excludeTranslationZ: bool, excludeRotationX: bool, excludeRotationY: bool, excludeRotationZ: bool, target: apex.EntityCollection) -> None`
 Update this ConstraintExcludeDof1.One or more properties may be updated in each call to update().
 
@@ -136,6 +183,10 @@ Properties: `spatialTarget`
 Methods:
 
 - `getSpatialTarget() -> apex.environment.DFEMFieldConstraintExcludeAuto` — the field that defines the dof distribution.
+- `update(name: str, description: str, spatialTarget: apex.environment.DFEMFieldConstraintExcludeAuto) -> None` — Update method.One or more properties may be updated in each call to update().
+
+Method details:
+
 #### `update(name: str, description: str, spatialTarget: apex.environment.DFEMFieldConstraintExcludeAuto) -> None`
 Update method.One or more properties may be updated in each call to update().
 
@@ -150,7 +201,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldConstraintExcludeAuto` — a DFEMFieldExcludeDof that identifies nodes that represent the region to which this exclude is applied as well as the distribution of excludes across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldConstraintExcludeAuto` — a DFEMFieldExcludeDof that identifies nodes that represent the region to which this exclude is applied as well as the distribution of excludes across that ...
+- `update(name: str, description: str, spatialTarget: apex.environment.DFEMFieldConstraintExcludeAuto) -> None` — Updates one or more properties of the ConstraintExcludeAutoVariable.
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldConstraintExcludeAuto`
+a DFEMFieldExcludeDof that identifies nodes that represent the region to which this exclude is applied as well as the distribution of excludes across that region.
+
 #### `update(name: str, description: str, spatialTarget: apex.environment.DFEMFieldConstraintExcludeAuto) -> None`
 Updates one or more properties of the ConstraintExcludeAutoVariable. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -172,8 +230,18 @@ Methods:
 - `getConstrainTranslationY() -> bool` — a boolean argument to constrain the translation in Y.
 - `getConstrainTranslationZ() -> bool` — a boolean argument to constrain the translation in Z.
 - `getConstraintType() -> apex.attribute.ConstraintType` — the constraintType that pre-defines the constrained degrees of freedom.
-- `getOrientation() -> apex.IOrientation` — the orientation of the constraint. Currently it must be a coordinate system
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the constraint will be applied to. Constraints may be assigned to Solids, Cells, Faces, Curves, Edges and Nodes. Constraints assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+- `getOrientation() -> apex.IOrientation` — the orientation of the constraint.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the constraint will be applied to.
+- `update(name: str, description: str, id: int, constrainTranslationX: bool, constrainTranslationY: bool, constrainTranslationZ: bool, constrainRotationX: bool, constrainRotationY: bool, constrainRotationZ: bool, target: apex.EntityCollection, constraintType: apex.attribute.ConstraintType, orientation: apex.IOrientation) -> None` — Updates one or more properties of the constraint.
+
+Method details:
+
+#### `getOrientation() -> apex.IOrientation`
+the orientation of the constraint. Currently it must be a coordinate system
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the constraint will be applied to. Constraints may be assigned to Solids, Cells, Faces, Curves, Edges and Nodes. Constraints assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+
 #### `update(name: str, description: str, id: int, constrainTranslationX: bool, constrainTranslationY: bool, constrainTranslationZ: bool, constrainRotationX: bool, constrainRotationY: bool, constrainRotationZ: bool, target: apex.EntityCollection, constraintType: apex.attribute.ConstraintType, orientation: apex.IOrientation) -> None`
 Updates one or more properties of the constraint. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -197,7 +265,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldConstraintSinglePoint` — a DFEMFieldConstraintSinglePoint that identifies nodes that represent the region to which this load is applied as well as the distribution of constraints across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldConstraintSinglePoint` — a DFEMFieldConstraintSinglePoint that identifies nodes that represent the region to which this load is applied as well as the distribution of constraints ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldConstraintSinglePoint) -> None` — Updates one or more properties of the constraint.
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldConstraintSinglePoint`
+a DFEMFieldConstraintSinglePoint that identifies nodes that represent the region to which this load is applied as well as the distribution of constraints across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldConstraintSinglePoint) -> None`
 Updates one or more properties of the constraint. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -213,6 +288,20 @@ Properties: `accelerationVectorsX`, `accelerationVectorsY`, `accelerationVectors
 
 Methods:
 
+- `DFEMFieldAccelerationNodal(orientations: [int], scaleFactors: [float], accelerationVectorsX: [float], accelerationVectorsY: [float], accelerationVectorsZ: [float], nodeIds: [int], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldAccelerationNodal in this environment.
+- `getAccelerationVectorsX() -> [float]` — the X components of the acceleration vectors.
+- `getAccelerationVectorsY() -> [float]` — the Y components of the acceleration vectors.
+- `getAccelerationVectorsZ() -> [float]` — the Z components of the acceleration vectors.
+- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
+- `getOrientations() -> [int]` — the orientations used to define the direction of the acceleration vectors.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getScaleFactors() -> [float]` — a list of scale factors that will be applied to the acceleration vectors.
+- `removeTargets(ids: [int]) -> None` — Remove the target nodes from the field.
+- `update(orientations: [int], scaleFactors: [float], accelerationVectorsX: [float], accelerationVectorsY: [float], accelerationVectorsZ: [float], nodeIds: [int], pathNames: [str], pathIndices: [int]) -> None` — Updates one or more properties of the Acceleration load.
+
+Method details:
+
 #### `DFEMFieldAccelerationNodal(orientations: [int], scaleFactors: [float], accelerationVectorsX: [float], accelerationVectorsY: [float], accelerationVectorsZ: [float], nodeIds: [int], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldAccelerationNodal in this environment.
 
@@ -225,14 +314,27 @@ Create DFEMFieldAccelerationNodal in this environment.
 - `pathNames` — The full pathName of the target nodes. It can be one string to indicate that all nodes belong to one part or a list of strings to define different pathNames for each target node.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getAccelerationVectorsX() -> [float]` — the X components of the acceleration vectors. It is an Acceleration quantity and must be defined using the units of Acceleration from the active script unit system.
-- `getAccelerationVectorsY() -> [float]` — the Y components of the acceleration vectors. It is an Acceleration quantity and must be defined using the units of Acceleration from the active script unit system.
-- `getAccelerationVectorsZ() -> [float]` — the Z components of the acceleration vectors. It is an Acceleration quantity and must be defined using the units of Acceleration from the active script unit system.
-- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
-- `getOrientations() -> [int]` — the orientations used to define the direction of the acceleration vectors. Currently it only accepts coordinate system object.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getScaleFactors() -> [float]` — a list of scale factors that will be applied to the acceleration vectors. The magnitude of the acceleration load applied to each Node in the target is based on the product of the resultant of the provided acceleration vector and this scale factor.
+#### `getAccelerationVectorsX() -> [float]`
+the X components of the acceleration vectors. It is an Acceleration quantity and must be defined using the units of Acceleration from the active script unit system.
+
+#### `getAccelerationVectorsY() -> [float]`
+the Y components of the acceleration vectors. It is an Acceleration quantity and must be defined using the units of Acceleration from the active script unit system.
+
+#### `getAccelerationVectorsZ() -> [float]`
+the Z components of the acceleration vectors. It is an Acceleration quantity and must be defined using the units of Acceleration from the active script unit system.
+
+#### `getOrientations() -> [int]`
+the orientations used to define the direction of the acceleration vectors. Currently it only accepts coordinate system object.
+
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
+#### `getScaleFactors() -> [float]`
+a list of scale factors that will be applied to the acceleration vectors. The magnitude of the acceleration load applied to each Node in the target is based on the product of the resultant of the provided acceleration vector and this scale factor.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target nodes from the field.
 
@@ -257,6 +359,22 @@ Properties: `nodeIds`, `orientations`, `pathIndices`, `pathNames`, `rotationsX`,
 
 Methods:
 
+- `DFEMFieldConstraintDisplacement(nodeIds: [int], orientations: [int], translationsX: [float], translationsY: [float], translationsZ: [float], rotationsX: [float], rotationsY: [float], rotationsZ: [float], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldConstraintDisplacement in this environment.
+- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
+- `getOrientations() -> [int]` — a list of orientations for the displacement components.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getRotationsX() -> [float]` — a list of the rotation values about X axis.
+- `getRotationsY() -> [float]` — a list of the rotation values about Y axis.
+- `getRotationsZ() -> [float]` — a list of the rotation values about Z axis.
+- `getTranslationsX() -> [float]` — a list of the translation values in X axis.
+- `getTranslationsY() -> [float]` — a list of the translation values in Y axis.
+- `getTranslationsZ() -> [float]` — a list of the translation values in Z axis.
+- `removeTargets(ids: [int]) -> None` — Remove the target nodes from the field.
+- `update(nodeIds: [int], orientations: [int], translationsX: [float], translationsY: [float], translationsZ: [float], rotationsX: [float], rotationsY: [float], rotationsZ: [float], pathNames: [str], pathIndices: [int]) -> None` — Updates one or more properties of the constraint.
+
+Method details:
+
 #### `DFEMFieldConstraintDisplacement(nodeIds: [int], orientations: [int], translationsX: [float], translationsY: [float], translationsZ: [float], rotationsX: [float], rotationsY: [float], rotationsZ: [float], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldConstraintDisplacement in this environment.
 
@@ -271,16 +389,30 @@ Create DFEMFieldConstraintDisplacement in this environment.
 - `pathNames` — The full pathName of the target nodes. It can be one string to indicate that all nodes belong to one part or a list of strings to define different pathNames for each target node.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
-- `getOrientations() -> [int]` — a list of orientations for the displacement components.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getRotationsX() -> [float]` — a list of the rotation values about X axis. It is an Angle quantity and must be defined using the units of Angle from the active script unit system.
-- `getRotationsY() -> [float]` — a list of the rotation values about Y axis. It is an Angle quantity and must be defined using the units of Angle from the active script unit system.
-- `getRotationsZ() -> [float]` — a list of the rotation values about Z axis. It is an Angle quantity and must be defined using the units of Angle from the active script unit system.
-- `getTranslationsX() -> [float]` — a list of the translation values in X axis. It is a Length quantity and must be defined using the units of Length from the active script unit system.
-- `getTranslationsY() -> [float]` — a list of the translation values in Y axis. It is a Length quantity and must be defined using the units of Length from the active script unit system.
-- `getTranslationsZ() -> [float]` — a list of the translation values in Z axis. It is a Length quantity and must be defined using the units of Length from the active script unit system.
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
+#### `getRotationsX() -> [float]`
+a list of the rotation values about X axis. It is an Angle quantity and must be defined using the units of Angle from the active script unit system.
+
+#### `getRotationsY() -> [float]`
+a list of the rotation values about Y axis. It is an Angle quantity and must be defined using the units of Angle from the active script unit system.
+
+#### `getRotationsZ() -> [float]`
+a list of the rotation values about Z axis. It is an Angle quantity and must be defined using the units of Angle from the active script unit system.
+
+#### `getTranslationsX() -> [float]`
+a list of the translation values in X axis. It is a Length quantity and must be defined using the units of Length from the active script unit system.
+
+#### `getTranslationsY() -> [float]`
+a list of the translation values in Y axis. It is a Length quantity and must be defined using the units of Length from the active script unit system.
+
+#### `getTranslationsZ() -> [float]`
+a list of the translation values in Z axis. It is a Length quantity and must be defined using the units of Length from the active script unit system.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target nodes from the field.
 
@@ -307,6 +439,21 @@ Properties: `excludeRotationX`, `excludeRotationY`, `excludeRotationZ`, `exclude
 
 Methods:
 
+- `DFEMFieldConstraintExcludeAuto(excludeTranslationX: [bool], excludeTranslationY: [bool], excludeTranslationZ: [bool], excludeRotationX: [bool], excludeRotationY: [bool], excludeRotationZ: [bool], nodeIds: [int], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldConstraintExcludeAuto in this environment.
+- `getExcludeRotationX() -> [bool]` — a list of booleans to exclude the rotation X for each node in the field.
+- `getExcludeRotationY() -> [bool]` — a list of booleans to exclude the rotation Y for each node in the field.
+- `getExcludeRotationZ() -> [bool]` — a list of booleans to exclude the rotation Z for each node in the field.
+- `getExcludeTranslationX() -> [bool]` — a list of booleans to exclude the translation X for each node in the field.
+- `getExcludeTranslationY() -> [bool]` — a list of booleans to exclude the translation Y for each node in the field.
+- `getExcludeTranslationZ() -> [bool]` — a list of booleans to exclude the translation Z for each node in the field.
+- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `removeTargets(ids: [int]) -> None` — Remove the target nodes from the field.
+- `update(excludeTranslationX: [bool], excludeTranslationY: [bool], excludeTranslationZ: [bool], excludeRotationX: [bool], excludeRotationY: [bool], excludeRotationZ: [bool], nodeIds: [int], pathNames: [str], pathIndices: [int]) -> None` — Updates one or more properties of the field.
+
+Method details:
+
 #### `DFEMFieldConstraintExcludeAuto(excludeTranslationX: [bool], excludeTranslationY: [bool], excludeTranslationZ: [bool], excludeRotationX: [bool], excludeRotationY: [bool], excludeRotationZ: [bool], nodeIds: [int], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldConstraintExcludeAuto in this environment.
 
@@ -320,15 +467,30 @@ Create DFEMFieldConstraintExcludeAuto in this environment.
 - `pathNames` — The full pathName of the target nodes. It can be one string to indicate that all nodes belong to one part or a list of strings to define different pathNames for each target node.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getExcludeRotationX() -> [bool]` — a list of booleans to exclude the rotation X for each node in the field. For example, excludeRotationX = [False, True, True, False].
-- `getExcludeRotationY() -> [bool]` — a list of booleans to exclude the rotation Y for each node in the field. For example, excludeRotationY = [False, True, True, False].
-- `getExcludeRotationZ() -> [bool]` — a list of booleans to exclude the rotation Z for each node in the field. For example, excludeRotationZ = [False, True, True, False].
-- `getExcludeTranslationX() -> [bool]` — a list of booleans to exclude the translation X for each node in the field. For example, excludeTranslationX = [False, True, True, False].
-- `getExcludeTranslationY() -> [bool]` — a list of booleans to exclude the translation Y for each node in the field. For example, excludeTranslationY = [False, True, True, False].
-- `getExcludeTranslationZ() -> [bool]` — a list of booleans to exclude the translation Z for each node in the field. For example, excludeTranslationZ = [False, True, True, False].
-- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+#### `getExcludeRotationX() -> [bool]`
+a list of booleans to exclude the rotation X for each node in the field. For example, excludeRotationX = [False, True, True, False].
+
+#### `getExcludeRotationY() -> [bool]`
+a list of booleans to exclude the rotation Y for each node in the field. For example, excludeRotationY = [False, True, True, False].
+
+#### `getExcludeRotationZ() -> [bool]`
+a list of booleans to exclude the rotation Z for each node in the field. For example, excludeRotationZ = [False, True, True, False].
+
+#### `getExcludeTranslationX() -> [bool]`
+a list of booleans to exclude the translation X for each node in the field. For example, excludeTranslationX = [False, True, True, False].
+
+#### `getExcludeTranslationY() -> [bool]`
+a list of booleans to exclude the translation Y for each node in the field. For example, excludeTranslationY = [False, True, True, False].
+
+#### `getExcludeTranslationZ() -> [bool]`
+a list of booleans to exclude the translation Z for each node in the field. For example, excludeTranslationZ = [False, True, True, False].
+
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target nodes from the field.
 
@@ -354,6 +516,22 @@ Properties: `constrainRotationX`, `constrainRotationY`, `constrainRotationZ`, `c
 
 Methods:
 
+- `DFEMFieldConstraintSinglePoint(orientations: [int], constrainTranslationX: [bool], constrainTranslationY: [bool], constrainTranslationZ: [bool], constrainRotationX: [bool], constrainRotationY: [bool], constrainRotationZ: [bool], nodeIds: [int], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldConstraintSinglePoint in this environment.
+- `getConstrainRotationX() -> [bool]` — a list of booleans to indicate the whether the rotation X is constrained or not for each node in the field.
+- `getConstrainRotationY() -> [bool]` — a list of booleans to indicate the whether the rotation Y is constrained or not for each node in the field.
+- `getConstrainRotationZ() -> [bool]` — a list of booleans to indicate the whether the rotation Z is constrained or not for each node in the field.
+- `getConstrainTranslationX() -> [bool]` — a list of booleans to indicate the whether the translation X is constrained or not for each node in the field.
+- `getConstrainTranslationY() -> [bool]` — a list of booleans to indicate the whether the translation Y is constrained or not for each node in the field.
+- `getConstrainTranslationZ() -> [bool]` — a list of booleans to indicate the whether the translation Z is constrained or not for each node in the field.
+- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
+- `getOrientations() -> [int]` — a list of the orientations of the constraint.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `removeTargets(ids: [int]) -> None` — Remove the target nodes from the field.
+- `update(orientations: [int], constrainTranslationX: [bool], constrainTranslationY: [bool], constrainTranslationZ: [bool], constrainRotationX: [bool], constrainRotationY: [bool], constrainRotationZ: [bool], nodeIds: [int], pathNames: [str], pathIndices: [int]) -> None` — Updates one or more properties of the field.
+
+Method details:
+
 #### `DFEMFieldConstraintSinglePoint(orientations: [int], constrainTranslationX: [bool], constrainTranslationY: [bool], constrainTranslationZ: [bool], constrainRotationX: [bool], constrainRotationY: [bool], constrainRotationZ: [bool], nodeIds: [int], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldConstraintSinglePoint in this environment.
 
@@ -368,16 +546,30 @@ Create DFEMFieldConstraintSinglePoint in this environment.
 - `pathNames` — The full pathName of the target nodes. It can be one string to indicate that all nodes belong to one part or a list of strings to define different pathNames for each target node.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getConstrainRotationX() -> [bool]` — a list of booleans to indicate the whether the rotation X is constrained or not for each node in the field. For example, constrainRotationX = [False, True, True, False].
-- `getConstrainRotationY() -> [bool]` — a list of booleans to indicate the whether the rotation Y is constrained or not for each node in the field. For example, constrainRotationY = [False, True, True, False].
-- `getConstrainRotationZ() -> [bool]` — a list of booleans to indicate the whether the rotation Z is constrained or not for each node in the field. For example, constrainRotationZ = [False, True, True, False].
-- `getConstrainTranslationX() -> [bool]` — a list of booleans to indicate the whether the translation X is constrained or not for each node in the field. For example, constrainTranslationX = [False, True, True, False].
-- `getConstrainTranslationY() -> [bool]` — a list of booleans to indicate the whether the translation Y is constrained or not for each node in the field. For example, constrainTranslationY = [False, True, True, False].
-- `getConstrainTranslationZ() -> [bool]` — a list of booleans to indicate the whether the translation Z is constrained or not for each node in the field. For example, constrainTranslationZ = [False, True, True, False].
-- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
-- `getOrientations() -> [int]` — a list of the orientations of the constraint.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+#### `getConstrainRotationX() -> [bool]`
+a list of booleans to indicate the whether the rotation X is constrained or not for each node in the field. For example, constrainRotationX = [False, True, True, False].
+
+#### `getConstrainRotationY() -> [bool]`
+a list of booleans to indicate the whether the rotation Y is constrained or not for each node in the field. For example, constrainRotationY = [False, True, True, False].
+
+#### `getConstrainRotationZ() -> [bool]`
+a list of booleans to indicate the whether the rotation Z is constrained or not for each node in the field. For example, constrainRotationZ = [False, True, True, False].
+
+#### `getConstrainTranslationX() -> [bool]`
+a list of booleans to indicate the whether the translation X is constrained or not for each node in the field. For example, constrainTranslationX = [False, True, True, False].
+
+#### `getConstrainTranslationY() -> [bool]`
+a list of booleans to indicate the whether the translation Y is constrained or not for each node in the field. For example, constrainTranslationY = [False, True, True, False].
+
+#### `getConstrainTranslationZ() -> [bool]`
+a list of booleans to indicate the whether the translation Z is constrained or not for each node in the field. For example, constrainTranslationZ = [False, True, True, False].
+
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target nodes from the field.
 
@@ -404,6 +596,16 @@ Properties: `deformations`, `elementIds`, `pathIndices`, `pathNames`
 
 Methods:
 
+- `DFEMFieldDeformationAxial(elementIds: [int], deformations: [float], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldDeformationAxial in this environment.
+- `getDeformations() -> [float]` — a list of the deformation values along the element axis.
+- `getElementIds() -> [int]` — a list of integers to define target element IDs in the field.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `removeTargets(ids: [int]) -> None` — Remove the target elements from the field.
+- `update(elementIds: [int], deformations: [float], pathNames: [str], pathIndices: [int]) -> None` — Update method.
+
+Method details:
+
 #### `DFEMFieldDeformationAxial(elementIds: [int], deformations: [float], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldDeformationAxial in this environment.
 
@@ -412,10 +614,12 @@ Create DFEMFieldDeformationAxial in this environment.
 - `pathNames` — The full pathName of the target elements. It can be one string to indicate that all elements belong to one part or a list of strings to define different pathNames for each target element.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getDeformations() -> [float]` — a list of the deformation values along the element axis.
-- `getElementIds() -> [int]` — a list of integers to define target element IDs in the field.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target elements from the field.
 
@@ -436,6 +640,22 @@ Properties: `nodeIds`, `orientations`, `pathIndices`, `pathNames`, `rotationsX`,
 
 Methods:
 
+- `DFEMFieldEnforcedMotion(nodeIds: [int], orientations: [int], translationsX: [float], translationsY: [float], translationsZ: [float], rotationsX: [float], rotationsY: [float], rotationsZ: [float], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldEnforcedMotion in this environment.
+- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
+- `getOrientations() -> [int]` — an optional list of orientations for the load components.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getRotationsX() -> [float]` — a list of the motion values in rotation X.
+- `getRotationsY() -> [float]` — a list of the motion values in rotation Y.
+- `getRotationsZ() -> [float]` — a list of the motion values in rotation Z.
+- `getTranslationsX() -> [float]` — a list of the motion values in translation X.
+- `getTranslationsY() -> [float]` — a list of the motion values in translation Y.
+- `getTranslationsZ() -> [float]` — a list of the motion values in translation Z.
+- `removeTargets(ids: [int]) -> None` — Remove the target nodes from the field.
+- `update(nodeIds: [int], orientations: [int], translationsX: [float], translationsY: [float], translationsZ: [float], rotationsX: [float], rotationsY: [float], rotationsZ: [float], pathNames: [str], pathIndices: [int]) -> None` — Updates one or more properties of the enforced motion.
+
+Method details:
+
 #### `DFEMFieldEnforcedMotion(nodeIds: [int], orientations: [int], translationsX: [float], translationsY: [float], translationsZ: [float], rotationsX: [float], rotationsY: [float], rotationsZ: [float], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldEnforcedMotion in this environment. It can be used for both EnforcedMotionTotalVariable and EnforcedMotionRelativeVariable.
 
@@ -448,16 +668,33 @@ Create DFEMFieldEnforcedMotion in this environment. It can be used for both Enfo
 - `pathNames` — The full pathName of the target nodes. It can be one string to indicate that all nodes belong to one part or a list of strings to define different pathNames for each target node.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
-- `getOrientations() -> [int]` — an optional list of orientations for the load components. Each item in the list must be an id of a coordinate system. If all load components use the same orientation, the list must contain only one integer that points to the id of the coordinate system. If omitted, all load components are defined in the basic coordinate system.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getRotationsX() -> [float]` — a list of the motion values in rotation X. The value is an Angle quantity in static analysis, while it can be a Angle/Angle veloctity/Angle acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system. If all motion values are the same, the list should only contain a float value.
-- `getRotationsY() -> [float]` — a list of the motion values in rotation Y. The value is an Angle quantity in static analysis, while it can be a Angle/Angle veloctity/Angle acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system. If all motion values are the same, the list should only contain a float value.
-- `getRotationsZ() -> [float]` — a list of the motion values in rotation Z. The value is an Angle quantity in static analysis, while it can be a Angle/Angle veloctity/Angle acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system. If all motion values are the same, the list should only contain a float value.
-- `getTranslationsX() -> [float]` — a list of the motion values in translation X. The value is a length quantity in static analysis, while it can be a length/veloctity/acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system. If all motion values are the same, the list should only contain a float value.
-- `getTranslationsY() -> [float]` — a list of the motion values in translation Y. The value is a length quantity in static analysis, while it can be a length/veloctity/acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system. If all motion values are the same, the list should only contain a float value.
-- `getTranslationsZ() -> [float]` — a list of the motion values in translation Z. The value is a length quantity in static analysis, while it can be a length/veloctity/acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system. If all motion values are the same, the list should only contain a float value.
+#### `getOrientations() -> [int]`
+an optional list of orientations for the load components. Each item in the list must be an id of a coordinate system. If all load components use the same orientation, the list must contain only one integer that points to the id of the coordinate system. If omitted, all load components are defined in the basic coordinate system.
+
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
+#### `getRotationsX() -> [float]`
+a list of the motion values in rotation X. The value is an Angle quantity in static analysis, while it can be a Angle/Angle veloctity/Angle acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system. If all motion values are the same, the list should only contain a float value.
+
+#### `getRotationsY() -> [float]`
+a list of the motion values in rotation Y. The value is an Angle quantity in static analysis, while it can be a Angle/Angle veloctity/Angle acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system. If all motion values are the same, the list should only contain a float value.
+
+#### `getRotationsZ() -> [float]`
+a list of the motion values in rotation Z. The value is an Angle quantity in static analysis, while it can be a Angle/Angle veloctity/Angle acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system. If all motion values are the same, the list should only contain a float value.
+
+#### `getTranslationsX() -> [float]`
+a list of the motion values in translation X. The value is a length quantity in static analysis, while it can be a length/veloctity/acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system. If all motion values are the same, the list should only contain a float value.
+
+#### `getTranslationsY() -> [float]`
+a list of the motion values in translation Y. The value is a length quantity in static analysis, while it can be a length/veloctity/acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system. If all motion values are the same, the list should only contain a float value.
+
+#### `getTranslationsZ() -> [float]`
+a list of the motion values in translation Z. The value is a length quantity in static analysis, while it can be a length/veloctity/acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system. If all motion values are the same, the list should only contain a float value.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target nodes from the field.
 
@@ -484,6 +721,20 @@ Properties: `forcesX`, `forcesY`, `forcesZ`, `nodeIds`, `orientations`, `pathInd
 
 Methods:
 
+- `DFEMFieldForceComponent(nodeIds: [int], orientations: [int], scaleFactors: [float], forcesX: [float], forcesY: [float], forcesZ: [float], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldForceComponent in this environment.
+- `getForcesX() -> [float]` — a list to define the force X component values.
+- `getForcesY() -> [float]` — a list to define the force Y component values.
+- `getForcesZ() -> [float]` — a list to define the force Z component values.
+- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
+- `getOrientations() -> [int]` — an optional list of integers to represent the orientations for the load components.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getScaleFactors() -> [float]` — an optional list of scale factors for the loads.
+- `removeTargets(ids: [int]) -> None` — Remove the target nodes from the field.
+- `update(nodeIds: [int], orientations: [int], scaleFactors: [float], forcesX: [float], forcesY: [float], forcesZ: [float], pathNames: [str], pathIndices: [int]) -> None` — Updates one or more properties of the field.
+
+Method details:
+
 #### `DFEMFieldForceComponent(nodeIds: [int], orientations: [int], scaleFactors: [float], forcesX: [float], forcesY: [float], forcesZ: [float], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldForceComponent in this environment.
 
@@ -496,14 +747,27 @@ Create DFEMFieldForceComponent in this environment.
 - `pathNames` — The full pathName of the target nodes. It can be one string to indicate that all nodes belong to one part or a list of strings to define different pathNames for each target node.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getForcesX() -> [float]` — a list to define the force X component values. If all component values are the same, the list should only contain one float value.
-- `getForcesY() -> [float]` — a list to define the force Y component values. If all component values are the same, the list should only contain one float value.
-- `getForcesZ() -> [float]` — a list to define the force Z component values. If all component values are the same, the list should only contain one float value.
-- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
-- `getOrientations() -> [int]` — an optional list of integers to represent the orientations for the load components. Each element in the list must be the id of a coordinate system. If all load components use the same orientation, the list must contain only one integer that points to the id of the coordinate system. If omitted, all load components are defined in the basic coordinate system.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getScaleFactors() -> [float]` — an optional list of scale factors for the loads. If all loads in the field have the same scale factor, the list must contain only one float value. If omitted, the default value is 1.0 for all loads.
+#### `getForcesX() -> [float]`
+a list to define the force X component values. If all component values are the same, the list should only contain one float value.
+
+#### `getForcesY() -> [float]`
+a list to define the force Y component values. If all component values are the same, the list should only contain one float value.
+
+#### `getForcesZ() -> [float]`
+a list to define the force Z component values. If all component values are the same, the list should only contain one float value.
+
+#### `getOrientations() -> [int]`
+an optional list of integers to represent the orientations for the load components. Each element in the list must be the id of a coordinate system. If all load components use the same orientation, the list must contain only one integer that points to the id of the coordinate system. If omitted, all load components are defined in the basic coordinate system.
+
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
+#### `getScaleFactors() -> [float]`
+an optional list of scale factors for the loads. If all loads in the field have the same scale factor, the list must contain only one float value. If omitted, the default value is 1.0 for all loads.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target nodes from the field.
 
@@ -528,6 +792,20 @@ Properties: `forceMagnitudes`, `nodeIds`, `pathIndices`, `pathNames`, `points1`,
 
 Methods:
 
+- `DFEMFieldForceFollowerNormal(nodeIds: [int], forceMagnitudes: [float], points1: [int], points2: [int], points3: [int], points4: [int], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldForceFollowerNormal in this environment.
+- `getForceMagnitudes() -> [float]` — a list to define the force magnitudes, forceMagnitudes is a Force quantity and is defined using the units of Force from the active script unit system.
+- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getPoints1() -> [int]` — a list of starting points of the direction vectors.
+- `getPoints2() -> [int]` — a list of end points of the direction vectors.
+- `getPoints3() -> [int]` — a list of starting points of the direction vectors.
+- `getPoints4() -> [int]` — a list of end points of the direction vectors.
+- `removeTargets(ids: [int]) -> None` — Remove the target nodes from the field.
+- `update(nodeIds: [int], forceMagnitudes: [float], points1: [int], points2: [int], points3: [int], points4: [int], pathNames: [str], pathIndices: [int]) -> None` — Updates one or more properties of the field.
+
+Method details:
+
 #### `DFEMFieldForceFollowerNormal(nodeIds: [int], forceMagnitudes: [float], points1: [int], points2: [int], points3: [int], points4: [int], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldForceFollowerNormal in this environment.
 
@@ -540,14 +818,27 @@ Create DFEMFieldForceFollowerNormal in this environment.
 - `pathNames` — The full pathName of the target nodes. It can be one string to indicate that all nodes belong to one part or a list of strings to define different pathNames for each target node.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getForceMagnitudes() -> [float]` — a list to define the force magnitudes, forceMagnitudes is a Force quantity and is defined using the units of Force from the active script unit system. Each force direction is parallel to the cross product of two vectors defined by four points.
-- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getPoints1() -> [int]` — a list of starting points of the direction vectors. Each item in the list must be a node ID. If all starting points are the same, the list should only contain one node ID.
-- `getPoints2() -> [int]` — a list of end points of the direction vectors. Each item in the list must be a node ID. If all starting points are the same, the list should only contain one node ID.
-- `getPoints3() -> [int]` — a list of starting points of the direction vectors. Each item in the list must be a node ID. If all starting points are the same, the list should only contain one node ID.
-- `getPoints4() -> [int]` — a list of end points of the direction vectors. Each item in the list must be a node ID. If all starting points are the same, the list should only contain one node ID.
+#### `getForceMagnitudes() -> [float]`
+a list to define the force magnitudes, forceMagnitudes is a Force quantity and is defined using the units of Force from the active script unit system. Each force direction is parallel to the cross product of two vectors defined by four points.
+
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
+#### `getPoints1() -> [int]`
+a list of starting points of the direction vectors. Each item in the list must be a node ID. If all starting points are the same, the list should only contain one node ID.
+
+#### `getPoints2() -> [int]`
+a list of end points of the direction vectors. Each item in the list must be a node ID. If all starting points are the same, the list should only contain one node ID.
+
+#### `getPoints3() -> [int]`
+a list of starting points of the direction vectors. Each item in the list must be a node ID. If all starting points are the same, the list should only contain one node ID.
+
+#### `getPoints4() -> [int]`
+a list of end points of the direction vectors. Each item in the list must be a node ID. If all starting points are the same, the list should only contain one node ID.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target nodes from the field.
 
@@ -572,6 +863,18 @@ Properties: `forceMagnitudes`, `nodeIds`, `pathIndices`, `pathNames`, `points1`,
 
 Methods:
 
+- `DFEMFieldForceFollowerVector(nodeIds: [int], forceMagnitudes: [float], points1: [int], points2: [int], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldForceFollowerVector in this environment.
+- `getForceMagnitudes() -> [float]` — a list of floats to define the force magnitudes, forceMagnitudes is a Force quantity and is defined using the units of Force from the active script unit system.
+- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list of strings to define the pathNames of the mesh bodies that include target nodes.
+- `getPoints1() -> [int]` — a list of starting points of the direction vectors.
+- `getPoints2() -> [int]` — a list of end points of the direction vectors.
+- `removeTargets(ids: [int]) -> None` — Remove the target nodes from the field.
+- `update(nodeIds: [int], forceMagnitudes: [float], points1: [int], points2: [int], pathNames: [str], pathIndices: [int]) -> None` — Updates one or more properties of the field.
+
+Method details:
+
 #### `DFEMFieldForceFollowerVector(nodeIds: [int], forceMagnitudes: [float], points1: [int], points2: [int], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldForceFollowerVector in this environment.
 
@@ -582,12 +885,21 @@ Create DFEMFieldForceFollowerVector in this environment.
 - `pathNames` — The full pathName of the target nodes. It can be one string to indicate that all nodes belong to one part or a list of strings to define different pathNames for each target node.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getForceMagnitudes() -> [float]` — a list of floats to define the force magnitudes, forceMagnitudes is a Force quantity and is defined using the units of Force from the active script unit system. If all force magnitudes are the same, the list should only contain one float value. Each force direction is along the vector from point1 to point2.
-- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target node in the field. If only one pathName is existed in list of pathNames, this pathIndices only contains one integer of 0.
-- `getPathNames() -> [str]` — a list of strings to define the pathNames of the mesh bodies that include target nodes. If all pathNames are the same, then the list only contains one string.
-- `getPoints1() -> [int]` — a list of starting points of the direction vectors. Each item in the list must be a node or a vertex. If all starting points are the same, the list should contain only one node or vertex.
-- `getPoints2() -> [int]` — a list of end points of the direction vectors. Each item in the list must be a node or a vertex.If all end points are the same, the list should contain only one node or vertex.
+#### `getForceMagnitudes() -> [float]`
+a list of floats to define the force magnitudes, forceMagnitudes is a Force quantity and is defined using the units of Force from the active script unit system. If all force magnitudes are the same, the list should only contain one float value. Each force direction is along the vector from point1 to point2.
+
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target node in the field. If only one pathName is existed in list of pathNames, this pathIndices only contains one integer of 0.
+
+#### `getPathNames() -> [str]`
+a list of strings to define the pathNames of the mesh bodies that include target nodes. If all pathNames are the same, then the list only contains one string.
+
+#### `getPoints1() -> [int]`
+a list of starting points of the direction vectors. Each item in the list must be a node or a vertex. If all starting points are the same, the list should contain only one node or vertex.
+
+#### `getPoints2() -> [int]`
+a list of end points of the direction vectors. Each item in the list must be a node or a vertex.If all end points are the same, the list should contain only one node or vertex.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target nodes from the field.
 
@@ -610,6 +922,27 @@ Properties: `displacementsRx`, `displacementsRy`, `displacementsRz`, `displaceme
 
 Methods:
 
+- `DFEMFieldInitialDisplacementVelocity(nodeIds: [int], displacementsX: [float], displacementsY: [float], displacementsZ: [float], displacementsRx: [float], displacementsRy: [float], displacementsRz: [float], velocitiesX: [float], velocitiesY: [float], velocitiesZ: [float], velocitiesRx: [float], velocitiesRy: [float], velocitiesRz: [float], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldInitialDisplacementVelocity in this environment.
+- `getDisplacementsRx() -> [float]` — a list of the displacement values in the rotation X.
+- `getDisplacementsRy() -> [float]` — a list of the displacement values in the rotation Y.
+- `getDisplacementsRz() -> [float]` — a list of the displacement values in the rotation Z.
+- `getDisplacementsX() -> [float]` — a list of the displacement values in the translation X.
+- `getDisplacementsY() -> [float]` — a list of the displacement values in the translation Y.
+- `getDisplacementsZ() -> [float]` — a list of the displacement values in the translation Z.
+- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getVelocitiesRx() -> [float]` — a list of the velocity values in rotation X.
+- `getVelocitiesRy() -> [float]` — a list of the velocity values in rotation Y.
+- `getVelocitiesRz() -> [float]` — a list of the velocity values in rotation Z.
+- `getVelocitiesX() -> [float]` — a list of the velocity values in translation X.
+- `getVelocitiesY() -> [float]` — a list of the velocity values in translation Y.
+- `getVelocitiesZ() -> [float]` — a list of the velocity values in translation Z.
+- `removeTargets(ids: [int]) -> None` — Remove the target nodes from the field.
+- `update(nodeIds: [int], displacementsX: [float], displacementsY: [float], displacementsZ: [float], displacementsRx: [float], displacementsRy: [float], displacementsRz: [float], velocitiesX: [float], velocitiesY: [float], velocitiesZ: [float], velocitiesRx: [float], velocitiesRy: [float], velocitiesRz: [float], pathNames: [str], pathIndices: [int]) -> None` — Updates one or more properties of the field.
+
+Method details:
+
 #### `DFEMFieldInitialDisplacementVelocity(nodeIds: [int], displacementsX: [float], displacementsY: [float], displacementsZ: [float], displacementsRx: [float], displacementsRy: [float], displacementsRz: [float], velocitiesX: [float], velocitiesY: [float], velocitiesZ: [float], velocitiesRx: [float], velocitiesRy: [float], velocitiesRz: [float], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldInitialDisplacementVelocity in this environment.
 
@@ -629,21 +962,48 @@ Create DFEMFieldInitialDisplacementVelocity in this environment.
 - `pathNames` — The full pathName of the target nodes. It can be one string to indicate that all nodes belong to one part or a list of strings to define different pathNames for each target node.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getDisplacementsRx() -> [float]` — a list of the displacement values in the rotation X. It is an Angle quantity and is defined using the units of Angle from the active script unit system.
-- `getDisplacementsRy() -> [float]` — a list of the displacement values in the rotation Y. It is an Angle quantity and is defined using the units of Angle from the active script unit system.
-- `getDisplacementsRz() -> [float]` — a list of the displacement values in the rotation Z. It is an Angle quantity and is defined using the units of Angle from the active script unit system.
-- `getDisplacementsX() -> [float]` — a list of the displacement values in the translation X. It is a Length quantity and is defined using the units of Length from the active script unit system.
-- `getDisplacementsY() -> [float]` — a list of the displacement values in the translation Y. It is a Length quantity and is defined using the units of Length from the active script unit system.
-- `getDisplacementsZ() -> [float]` — a list of the displacement values in the translation Z. It is a Length quantity and is defined using the units of Length from the active script unit system.
-- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getVelocitiesRx() -> [float]` — a list of the velocity values in rotation X. It is a Rotation Velocity quantity and is defined using the units of Rotation Velocity from the active script unit system.
-- `getVelocitiesRy() -> [float]` — a list of the velocity values in rotation Y. It is a Rotation Velocity quantity and is defined using the units of Rotation Velocity from the active script unit system.
-- `getVelocitiesRz() -> [float]` — a list of the velocity values in rotation Z. It is a Rotation Velocity quantity and is defined using the units of Rotation Velocity from the active script unit system.
-- `getVelocitiesX() -> [float]` — a list of the velocity values in translation X. It is a Velocity quantity and is defined using the units of Velocity from the active script unit system.
-- `getVelocitiesY() -> [float]` — a list of the velocity values in translation Y. It is a Velocity quantity and is defined using the units of Velocity from the active script unit system.
-- `getVelocitiesZ() -> [float]` — a list of the velocity values in translation Z. It is a Velocity quantity and is defined using the units of Velocity from the active script unit system.
+#### `getDisplacementsRx() -> [float]`
+a list of the displacement values in the rotation X. It is an Angle quantity and is defined using the units of Angle from the active script unit system.
+
+#### `getDisplacementsRy() -> [float]`
+a list of the displacement values in the rotation Y. It is an Angle quantity and is defined using the units of Angle from the active script unit system.
+
+#### `getDisplacementsRz() -> [float]`
+a list of the displacement values in the rotation Z. It is an Angle quantity and is defined using the units of Angle from the active script unit system.
+
+#### `getDisplacementsX() -> [float]`
+a list of the displacement values in the translation X. It is a Length quantity and is defined using the units of Length from the active script unit system.
+
+#### `getDisplacementsY() -> [float]`
+a list of the displacement values in the translation Y. It is a Length quantity and is defined using the units of Length from the active script unit system.
+
+#### `getDisplacementsZ() -> [float]`
+a list of the displacement values in the translation Z. It is a Length quantity and is defined using the units of Length from the active script unit system.
+
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
+#### `getVelocitiesRx() -> [float]`
+a list of the velocity values in rotation X. It is a Rotation Velocity quantity and is defined using the units of Rotation Velocity from the active script unit system.
+
+#### `getVelocitiesRy() -> [float]`
+a list of the velocity values in rotation Y. It is a Rotation Velocity quantity and is defined using the units of Rotation Velocity from the active script unit system.
+
+#### `getVelocitiesRz() -> [float]`
+a list of the velocity values in rotation Z. It is a Rotation Velocity quantity and is defined using the units of Rotation Velocity from the active script unit system.
+
+#### `getVelocitiesX() -> [float]`
+a list of the velocity values in translation X. It is a Velocity quantity and is defined using the units of Velocity from the active script unit system.
+
+#### `getVelocitiesY() -> [float]`
+a list of the velocity values in translation Y. It is a Velocity quantity and is defined using the units of Velocity from the active script unit system.
+
+#### `getVelocitiesZ() -> [float]`
+a list of the velocity values in translation Z. It is a Velocity quantity and is defined using the units of Velocity from the active script unit system.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target nodes from the field.
 
@@ -675,6 +1035,21 @@ Properties: `element1Ids`, `element2Ids`, `ints1`, `intsN`, `layers1`, `layersN`
 
 Methods:
 
+- `DFEMFieldInitialStrain(element1Ids: [int], element2Ids: [int], ints1: [int], intsN: [int], layers1: [int], layersN: [int], strains: [float], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldInitialStrain in this environment.
+- `getElement1Ids() -> [int]` — a list of integers to define the starting element IDs in the field.
+- `getElement2Ids() -> [int]` — a list of integers to define the end element IDs in the field.
+- `getInts1() -> [int]` — a list of integers to define the first integration point number.
+- `getIntsN() -> [int]` — a list of integers to define the last integration point number.
+- `getLayers1() -> [int]` — a list of integers to define the first integration layer number.
+- `getLayersN() -> [int]` — a list of integers to define the last integration layer number.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getStrains() -> [float]`
+- `removeTargets(ids: [int]) -> None` — Remove the target elements from the field.
+- `update(element1Ids: [int], element2Ids: [int], ints1: [int], intsN: [int], layers1: [int], layersN: [int], strains: [float], pathNames: [str], pathIndices: [int]) -> None` — Updates one or more properties of the field.
+
+Method details:
+
 #### `DFEMFieldInitialStrain(element1Ids: [int], element2Ids: [int], ints1: [int], intsN: [int], layers1: [int], layersN: [int], strains: [float], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldInitialStrain in this environment.
 
@@ -687,15 +1062,12 @@ Create DFEMFieldInitialStrain in this environment.
 - `pathNames` — The full pathName of the target elements. It can be one string to indicate that all elements belong to one part or a list of strings to define different pathNames for each target element.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getElement1Ids() -> [int]` — a list of integers to define the starting element IDs in the field.
-- `getElement2Ids() -> [int]` — a list of integers to define the end element IDs in the field.
-- `getInts1() -> [int]` — a list of integers to define the first integration point number.
-- `getIntsN() -> [int]` — a list of integers to define the last integration point number.
-- `getLayers1() -> [int]` — a list of integers to define the first integration layer number.
-- `getLayersN() -> [int]` — a list of integers to define the last integration layer number.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getStrains() -> [float]`
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target elements from the field.
 
@@ -721,6 +1093,28 @@ Properties: `coordinateSystemFlags`, `element1Ids`, `element2Ids`, `ints1`, `int
 
 Methods:
 
+- `DFEMFieldInitialStress(element1Ids: [int], element2Ids: [int], ints1: [int], intsN: [int], layers1: [int], layersN: [int], stresses1: [float], stresses2: [float], stresses3: [float], stresses4: [float], stresses5: [float], stresses6: [float], stresses7: [float], coordinateSystemFlags: [int], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldInitialStress in this environment.
+- `getCoordinateSystemFlags() -> [int]` — a list of integers to indicate the coordinate system that the initial stress is evaluated.
+- `getElement1Ids() -> [int]` — a list of integers to define the starting element IDs in the field.
+- `getElement2Ids() -> [int]` — a list of integers to define the end element IDs in the field.
+- `getInts1() -> [int]` — a list of the first integration point number.
+- `getIntsN() -> [int]` — a list of the last integration point number.
+- `getLayers1() -> [int]` — a list of the first integration layer number.
+- `getLayersN() -> [int]` — a list of the last integration layer number.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getStresses1() -> [float]` — a list of the stress values of the first component.
+- `getStresses2() -> [float]` — a list of the stress values of the second component.
+- `getStresses3() -> [float]` — a list of the stress values of the third component.
+- `getStresses4() -> [float]` — a list of the stress values of the fourth component.
+- `getStresses5() -> [float]` — a list of the stress values of the fifth component.
+- `getStresses6() -> [float]` — a list of the stress values of the sixth component.
+- `getStresses7() -> [float]` — a list of the stress values of the seventh component.
+- `removeTargets(ids: [int]) -> None` — Remove the target elements from the field.
+- `update(element1Ids: [int], element2Ids: [int], ints1: [int], intsN: [int], layers1: [int], layersN: [int], stresses1: [float], stresses2: [float], stresses3: [float], stresses4: [float], stresses5: [float], stresses6: [float], stresses7: [float], coordinateSystemFlags: [int], pathNames: [str], pathIndices: [int]) -> None` — Updates one or more properties of the initial stress.
+
+Method details:
+
 #### `DFEMFieldInitialStress(element1Ids: [int], element2Ids: [int], ints1: [int], intsN: [int], layers1: [int], layersN: [int], stresses1: [float], stresses2: [float], stresses3: [float], stresses4: [float], stresses5: [float], stresses6: [float], stresses7: [float], coordinateSystemFlags: [int], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldInitialStress in this environment.
 
@@ -740,22 +1134,15 @@ Create DFEMFieldInitialStress in this environment.
 - `pathNames` — The full pathName of the target elements. It can be one string to indicate that all elements belong to one part or a list of strings to define different pathNames for each target element.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getCoordinateSystemFlags() -> [int]` — a list of integers to indicate the coordinate system that the initial stress is evaluated. It only accepts 0 (basic coordinate system) or -1 (element coordinate system).
-- `getElement1Ids() -> [int]` — a list of integers to define the starting element IDs in the field.
-- `getElement2Ids() -> [int]` — a list of integers to define the end element IDs in the field.
-- `getInts1() -> [int]` — a list of the first integration point number.
-- `getIntsN() -> [int]` — a list of the last integration point number.
-- `getLayers1() -> [int]` — a list of the first integration layer number.
-- `getLayersN() -> [int]` — a list of the last integration layer number.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getStresses1() -> [float]` — a list of the stress values of the first component.
-- `getStresses2() -> [float]` — a list of the stress values of the second component.
-- `getStresses3() -> [float]` — a list of the stress values of the third component.
-- `getStresses4() -> [float]` — a list of the stress values of the fourth component.
-- `getStresses5() -> [float]` — a list of the stress values of the fifth component.
-- `getStresses6() -> [float]` — a list of the stress values of the sixth component.
-- `getStresses7() -> [float]` — a list of the stress values of the seventh component.
+#### `getCoordinateSystemFlags() -> [int]`
+a list of integers to indicate the coordinate system that the initial stress is evaluated. It only accepts 0 (basic coordinate system) or -1 (element coordinate system).
+
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target elements from the field.
 
@@ -788,6 +1175,21 @@ Properties: `nodeIds`, `pathIndices`, `pathNames`, `scaleFactorsRx`, `scaleFacto
 
 Methods:
 
+- `DFEMFieldLoadAreaFactor(nodeIds: [int], scaleFactorsX: [float], scaleFactorsY: [float], scaleFactorsZ: [float], scaleFactorsRx: [float], scaleFactorsRy: [float], scaleFactorsRz: [float], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldLoadAreaFactor in this environment.
+- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getScaleFactorsRx() -> [float]` — a list of the load scale(area) factors in the rotation X axis, scaleFactorRx is a Moment quantity and must be defined using the units of Moment from the active ...
+- `getScaleFactorsRy() -> [float]` — a list of the load scale(area) factors in the rotation Y axis, scaleFactorRy is a Moment quantity and must be defined using the units of Moment from the active ...
+- `getScaleFactorsRz() -> [float]` — a list of the load scale(area) factors in the rotation Z axis, scaleFactorRz is a Moment quantity and must be defined using the units of Moment from the active ...
+- `getScaleFactorsX() -> [float]` — a list of the load scale(area) factors in the translation X axis, scaleFactorsX is a Force quantity and must be defined using the units of Force from the ...
+- `getScaleFactorsY() -> [float]` — a list of the load scale(area) factors in the translation Y axis, scaleFactorsY is a Force quantity and must be defined using the units of Force from the ...
+- `getScaleFactorsZ() -> [float]` — a list of the load scale(area) factors in the translation Z axis, scaleFactorZ is a Force quantity and must be defined using the units of Force from the active ...
+- `removeTargets(ids: [int]) -> None` — Remove the target nodes from the field.
+- `update(nodeIds: [int], scaleFactorsX: [float], scaleFactorsY: [float], scaleFactorsZ: [float], scaleFactorsRx: [float], scaleFactorsRy: [float], scaleFactorsRz: [float], pathNames: [str], pathIndices: [int]) -> None` — Updates one or more properties of the field.
+
+Method details:
+
 #### `DFEMFieldLoadAreaFactor(nodeIds: [int], scaleFactorsX: [float], scaleFactorsY: [float], scaleFactorsZ: [float], scaleFactorsRx: [float], scaleFactorsRy: [float], scaleFactorsRz: [float], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldLoadAreaFactor in this environment.
 
@@ -801,15 +1203,30 @@ Create DFEMFieldLoadAreaFactor in this environment.
 - `pathNames` — The full pathName of the target nodes. It can be one string to indicate that all nodes belong to one part or a list of strings to define different pathNames for each target node.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getScaleFactorsRx() -> [float]` — a list of the load scale(area) factors in the rotation X axis, scaleFactorRx is a Moment quantity and must be defined using the units of Moment from the active script unit system.If all load scale factors are the same, the list should only contain one float value.
-- `getScaleFactorsRy() -> [float]` — a list of the load scale(area) factors in the rotation Y axis, scaleFactorRy is a Moment quantity and must be defined using the units of Moment from the active script unit system. If all load scale factors are the same, the list should only contain one float value.
-- `getScaleFactorsRz() -> [float]` — a list of the load scale(area) factors in the rotation Z axis, scaleFactorRz is a Moment quantity and must be defined using the units of Moment from the active script unit system. If all load scale factors are the same, the list should only contain one float value.
-- `getScaleFactorsX() -> [float]` — a list of the load scale(area) factors in the translation X axis, scaleFactorsX is a Force quantity and must be defined using the units of Force from the active script unit system. If all load scale factors are the same, the list should only contain one float value.
-- `getScaleFactorsY() -> [float]` — a list of the load scale(area) factors in the translation Y axis, scaleFactorsY is a Force quantity and must be defined using the units of Force from the active script unit system. If all load scale factors are the same, the list should only contain one float value.
-- `getScaleFactorsZ() -> [float]` — a list of the load scale(area) factors in the translation Z axis, scaleFactorZ is a Force quantity and must be defined using the units of Force from the active script unit system. If all load scale factors are the same, the list should only contain one float value.
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
+#### `getScaleFactorsRx() -> [float]`
+a list of the load scale(area) factors in the rotation X axis, scaleFactorRx is a Moment quantity and must be defined using the units of Moment from the active script unit system.If all load scale factors are the same, the list should only contain one float value.
+
+#### `getScaleFactorsRy() -> [float]`
+a list of the load scale(area) factors in the rotation Y axis, scaleFactorRy is a Moment quantity and must be defined using the units of Moment from the active script unit system. If all load scale factors are the same, the list should only contain one float value.
+
+#### `getScaleFactorsRz() -> [float]`
+a list of the load scale(area) factors in the rotation Z axis, scaleFactorRz is a Moment quantity and must be defined using the units of Moment from the active script unit system. If all load scale factors are the same, the list should only contain one float value.
+
+#### `getScaleFactorsX() -> [float]`
+a list of the load scale(area) factors in the translation X axis, scaleFactorsX is a Force quantity and must be defined using the units of Force from the active script unit system. If all load scale factors are the same, the list should only contain one float value.
+
+#### `getScaleFactorsY() -> [float]`
+a list of the load scale(area) factors in the translation Y axis, scaleFactorsY is a Force quantity and must be defined using the units of Force from the active script unit system. If all load scale factors are the same, the list should only contain one float value.
+
+#### `getScaleFactorsZ() -> [float]`
+a list of the load scale(area) factors in the translation Z axis, scaleFactorZ is a Force quantity and must be defined using the units of Force from the active script unit system. If all load scale factors are the same, the list should only contain one float value.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target nodes from the field.
 
@@ -835,6 +1252,28 @@ Properties: `directionsX`, `directionsY`, `directionsZ`, `elementIds`, `inputTyp
 
 Methods:
 
+- `DFEMFieldLoadDistributed(elementIds: [int], pressuresCorner1: [float], pressuresCorner2: [float], pressuresCorner3: [float], pressuresCorner4: [float], orientations: [int], directionsX: [float], directionsY: [float], directionsZ: [float], node1Ids: [int], node2Ids: [int], node3Ids: [int], node4Ids: [int], pathNames: [str], pathIndices: [int], inputType: apex.attribute.InputType) -> None` — Create DFEMFieldLoadDistributed in this environment.
+- `getDirectionsX() -> [float]` — the X components of the direction vectors.
+- `getDirectionsY() -> [float]` — the Y components of the direction vectors.
+- `getDirectionsZ() -> [float]` — the Z components of the direction vectors.
+- `getElementIds() -> [int]` — a list of integers to define target element IDs in the field.
+- `getInputType() -> apex.attribute.InputType` — The argument to define the load distribution on a single element.
+- `getNode1Ids() -> [int]`
+- `getNode2Ids() -> [int]`
+- `getNode3Ids() -> [int]`
+- `getNode4Ids() -> [int]`
+- `getOrientations() -> [int]` — a list of orientations for the direction components.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getPressuresCorner1() -> [float]` — a list of pressures at the first corner.
+- `getPressuresCorner2() -> [float]` — a list of pressure pressure values at the second corner.
+- `getPressuresCorner3() -> [float]` — a list of pressure values at the third corner.
+- `getPressuresCorner4() -> [float]` — a list of pressure values at the fourth corner.
+- `removeTargets(ids: [int]) -> None` — Remove the target elements from the field.
+- `update(elementIds: [int], pressuresCorner1: [float], pressuresCorner2: [float], pressuresCorner3: [float], pressuresCorner4: [float], orientations: [int], directionsX: [float], directionsY: [float], directionsZ: [float], node1Ids: [int], node2Ids: [int], node3Ids: [int], node4Ids: [int], pathNames: [str], pathIndices: [int], inputType: apex.attribute.InputType) -> None` — Updates one or more properties of the field.
+
+Method details:
+
 #### `DFEMFieldLoadDistributed(elementIds: [int], pressuresCorner1: [float], pressuresCorner2: [float], pressuresCorner3: [float], pressuresCorner4: [float], orientations: [int], directionsX: [float], directionsY: [float], directionsZ: [float], node1Ids: [int], node2Ids: [int], node3Ids: [int], node4Ids: [int], pathNames: [str], pathIndices: [int], inputType: apex.attribute.InputType) -> None`
 Create DFEMFieldLoadDistributed in this environment.
 
@@ -851,22 +1290,18 @@ Create DFEMFieldLoadDistributed in this environment.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 - `inputType` — The argument to define the load distribution on a single element. If the inputType is element uniform, only pressure is necessary and it is automatically applied to pressureCorner2, pressureCorner3 and pressureCorner4. If the inputType is element variable, pressure is the applied to corner1 and other three corners must be defined as well.
 
-- `getDirectionsX() -> [float]` — the X components of the direction vectors.
-- `getDirectionsY() -> [float]` — the Y components of the direction vectors.
-- `getDirectionsZ() -> [float]` — the Z components of the direction vectors.
-- `getElementIds() -> [int]` — a list of integers to define target element IDs in the field.
-- `getInputType() -> apex.attribute.InputType` — The argument to define the load distribution on a single element. If the inputType is element uniform, only pressuresCorner1 is necessary and it is automatically applied to other corners so that the distributed pressure is uniform on a single element. If the inputType is element variable, the pressures on all corners are necessary so that the distributed pressure can be variable on a single element.
-- `getNode1Ids() -> [int]`
-- `getNode2Ids() -> [int]`
-- `getNode3Ids() -> [int]`
-- `getNode4Ids() -> [int]`
-- `getOrientations() -> [int]` — a list of orientations for the direction components.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getPressuresCorner1() -> [float]` — a list of pressures at the first corner. If the inputType is element uniform, it is the pressure on the whole element. If the inputType is variable, it is the pressure at the first corner.
-- `getPressuresCorner2() -> [float]` — a list of pressure pressure values at the second corner.
-- `getPressuresCorner3() -> [float]` — a list of pressure values at the third corner.
-- `getPressuresCorner4() -> [float]` — a list of pressure values at the fourth corner.
+#### `getInputType() -> apex.attribute.InputType`
+The argument to define the load distribution on a single element. If the inputType is element uniform, only pressuresCorner1 is necessary and it is automatically applied to other corners so that the distributed pressure is uniform on a single element. If the inputType is element variable, the pressures on all corners are necessary so that the distributed pressure can be variable on a single element.
+
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
+#### `getPressuresCorner1() -> [float]`
+a list of pressures at the first corner. If the inputType is element uniform, it is the pressure on the whole element. If the inputType is variable, it is the pressure at the first corner.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target elements from the field.
 
@@ -899,6 +1334,22 @@ Properties: `distancesX1`, `distancesX2`, `elementIds`, `inputType`, `loadFactor
 
 Methods:
 
+- `DFEMFieldLoadDistributedBeam2(elementIds: [int], loadTypes: [apex.attribute.LoadTypeDistributedBeam2], scaleTypes: [apex.attribute.ScaleTypeDistributedBeam2], distancesX1: [float], loadFactorsX1: [float], distancesX2: [float], loadFactorsX2: [float], pathNames: [str], pathIndices: [int], inputType: apex.attribute.InputType) -> None` — Create DFEMFieldLoadDistributedBeam2 in this environment.
+- `getDistancesX1() -> [float]` — the distances X1 along element axis from end A.
+- `getDistancesX2() -> [float]` — the distances X2 along element axis from end A.
+- `getElementIds() -> [int]` — a list of integers to define target element IDs in the field.
+- `getInputType() -> apex.attribute.InputType` — the optional argument to define the load distribution on a single element.
+- `getLoadFactorsX1() -> [float]` — a list of the load factors at the position of distance X1 from end A.
+- `getLoadFactorsX2() -> [float]` — a list of the load factors at the position of distance X2 from end A.
+- `getLoadTypes() -> [apex.attribute.LoadTypeDistributedBeam2]` — a list of the loadTypes of the beam distributed load applied to beam element with two nodes. apex.attribute.LoadTypeBeam2.ForceX, the load is concentrated ...
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getScaleTypes() -> [apex.attribute.ScaleTypeDistributedBeam2]` — a list of the scaleTypes of the load factors. apex.attribute.ScaleTypeBeam.Length, the distance values are actual distances along the element axis, and if ...
+- `removeTargets(ids: [int]) -> None` — Remove the target elements from the field.
+- `update(elementIds: [int], loadTypes: [apex.attribute.LoadTypeDistributedBeam2], scaleTypes: [apex.attribute.ScaleTypeDistributedBeam2], distancesX1: [float], loadFactorsX1: [float], distancesX2: [float], loadFactorsX2: [float], pathNames: [str], pathIndices: [int], inputType: apex.attribute.InputType) -> None` — Updates one or more properties of the Load.
+
+Method details:
+
 #### `DFEMFieldLoadDistributedBeam2(elementIds: [int], loadTypes: [apex.attribute.LoadTypeDistributedBeam2], scaleTypes: [apex.attribute.ScaleTypeDistributedBeam2], distancesX1: [float], loadFactorsX1: [float], distancesX2: [float], loadFactorsX2: [float], pathNames: [str], pathIndices: [int], inputType: apex.attribute.InputType) -> None`
 Create DFEMFieldLoadDistributedBeam2 in this environment.
 
@@ -913,16 +1364,33 @@ Create DFEMFieldLoadDistributedBeam2 in this environment.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 - `inputType` — The argument to define the load distribution on a single element. If the inputType is element uniform, loadfaxtorX1 and loadType are necessary and it is automatically applied to loadFactorX2. The distanceX1 is 0.0, the distanceX2 is 1.0, the scaleType is "Fractional". If the inputType is element variable, both loadfaxtorX1 and loadfaxtorX2 can be defined. While distanceX1, distanceX2 and scaleType can be defined.
 
-- `getDistancesX1() -> [float]` — the distances X1 along element axis from end A. The distance may be a fractional value of the element length or a length value, depending on the scaleTypes.
-- `getDistancesX2() -> [float]` — the distances X2 along element axis from end A. The distance may be a fractional value of the element length or a length value, depending on the scaleTypes.
-- `getElementIds() -> [int]` — a list of integers to define target element IDs in the field.
-- `getInputType() -> apex.attribute.InputType` — the optional argument to define the load distribution on a single element. If the inputType is element uniform, the loadFactorX2 is always equal to loa dFactorX1, distanceX1 is 0.0, distanceX2 is 1.0, scaleType is fractional. If omitted, the default value is element uniform.
-- `getLoadFactorsX1() -> [float]` — a list of the load factors at the position of distance X1 from end A. The unit of the load factor value depends on the loadTypes, it can be a force or a moment.
-- `getLoadFactorsX2() -> [float]` — a list of the load factors at the position of distance X2 from end A. The unit of the load factor value depends on the loadTypes, it can be a force or a moment.
-- `getLoadTypes() -> [apex.attribute.LoadTypeDistributedBeam2]` — a list of the loadTypes of the beam distributed load applied to beam element with two nodes. apex.attribute.LoadTypeBeam2.ForceX, the load is concentrated force in X direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.ForceY, the load is concentrated force in Y direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.ForceZ, the load is concentrated force in Z direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.MomentX, the load is moment in X direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.MomentY, the load is moment in Y direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.MomentZ, the load is moment in Z direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.ForceXE, the load is concentrated force in X direction of the element coordinate system. apex.attribute.LoadTypeBeam2.ForceYE, the load is concentrated force in Y direction of the element coordinate system. apex.attribute.LoadTypeBeam2.ForceZE, the load is concentrated force in Z direction of the element coordinate system. apex.attribute.LoadTypeBeam2.MomentXE, the load is moment in X direction of the element coordinate system. apex.attribute.LoadTypeBeam2.MomentYE, the load is moment in Y direction of the element coordinate system. apex.attribute.LoadTypeBeam2.MomentZE, the load is moment in Z direction of the element coordinate system.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getScaleTypes() -> [apex.attribute.ScaleTypeDistributedBeam2]` — a list of the scaleTypes of the load factors. apex.attribute.ScaleTypeBeam.Length, the distance values are actual distances along the element axis, and if distance1 != distance 2, then load factors are load intensities per unit length of the element. apex.attribute.ScaleTypeBeam.Fractional, the distance values are are ratios of the distance along the axis to the total length, and if distance1 != distance 2, then load factors are load intensities per unit length of the element. apex.attribute.ScaleTypeBeam.LengthProjected, the distance values are projected lengths along the element axis, and if distance1 != distance 2, then load factors are load intensities per unit length of the element. apex.attribute.ScaleTypeBeam.FractionalProjected, the distance values are ratios of the actual distance to the length of the bar (CBAR entry), and if distance1 != distance 2, then the distributed load is specified in terms of the projected length of the bar.
+#### `getDistancesX1() -> [float]`
+the distances X1 along element axis from end A. The distance may be a fractional value of the element length or a length value, depending on the scaleTypes.
+
+#### `getDistancesX2() -> [float]`
+the distances X2 along element axis from end A. The distance may be a fractional value of the element length or a length value, depending on the scaleTypes.
+
+#### `getInputType() -> apex.attribute.InputType`
+the optional argument to define the load distribution on a single element. If the inputType is element uniform, the loadFactorX2 is always equal to loa dFactorX1, distanceX1 is 0.0, distanceX2 is 1.0, scaleType is fractional. If omitted, the default value is element uniform.
+
+#### `getLoadFactorsX1() -> [float]`
+a list of the load factors at the position of distance X1 from end A. The unit of the load factor value depends on the loadTypes, it can be a force or a moment.
+
+#### `getLoadFactorsX2() -> [float]`
+a list of the load factors at the position of distance X2 from end A. The unit of the load factor value depends on the loadTypes, it can be a force or a moment.
+
+#### `getLoadTypes() -> [apex.attribute.LoadTypeDistributedBeam2]`
+a list of the loadTypes of the beam distributed load applied to beam element with two nodes. apex.attribute.LoadTypeBeam2.ForceX, the load is concentrated force in X direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.ForceY, the load is concentrated force in Y direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.ForceZ, the load is concentrated force in Z direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.MomentX, the load is moment in X direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.MomentY, the load is moment in Y direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.MomentZ, the load is moment in Z direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.ForceXE, the load is concentrated force in X direction of the element coordinate system. apex.attribute.LoadTypeBeam2.ForceYE, the load is concentrated force in Y direction of the element coordinate system. apex.attribute.LoadTypeBeam2.ForceZE, the load is concentrated force in Z direction of the element coordinate system. apex.attribute.LoadTypeBeam2.MomentXE, the load is moment in X direction of the element coordinate system. apex.attribute.LoadTypeBeam2.MomentYE, the load is moment in Y direction of the element coordinate system. apex.attribute.LoadTypeBeam2.MomentZE, the load is moment in Z direction of the element coordinate system.
+
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
+#### `getScaleTypes() -> [apex.attribute.ScaleTypeDistributedBeam2]`
+a list of the scaleTypes of the load factors. apex.attribute.ScaleTypeBeam.Length, the distance values are actual distances along the element axis, and if distance1 != distance 2, then load factors are load intensities per unit length of the element. apex.attribute.ScaleTypeBeam.Fractional, the distance values are are ratios of the distance along the axis to the total length, and if distance1 != distance 2, then load factors are load intensities per unit length of the element. apex.attribute.ScaleTypeBeam.LengthProjected, the distance values are projected lengths along the element axis, and if distance1 != distance 2, then load factors are load intensities per unit length of the element. apex.attribute.ScaleTypeBeam.FractionalProjected, the distance values are ratios of the actual distance to the length of the bar (CBAR entry), and if distance1 != distance 2, then the distributed load is specified in terms of the projected length of the bar.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target elements from the field.
 
@@ -949,6 +1417,25 @@ Properties: `elementIds`, `inputType`, `loadScaleFactors`, `loadTypes`, `loadVec
 
 Methods:
 
+- `DFEMFieldLoadDistributedBeam3(elementIds: [int], orientations: [int], loadVectorsX: [float], loadVectorsY: [float], loadVectorsZ: [float], loadTypes: [apex.attribute.LoadTypeDistributedBeam3], loadScaleFactors: [float], magnitudesEndA: [float], magnitudesEndB: [float], magnitudesMidC: [float], pathNames: [str], pathIndices: [int], inputType: apex.attribute.InputType) -> None` — Create DFEMFieldLoadDistributedBeam3 in this environment.
+- `getElementIds() -> [int]` — a list of integers to define target element IDs in the field.
+- `getInputType() -> apex.attribute.InputType` — The argument to define the load distribution on a single element.
+- `getLoadScaleFactors() -> [float]` — a list of values to define the load scale factors.
+- `getLoadTypes() -> [apex.attribute.LoadTypeDistributedBeam3]` — the loadTypes of the load.
+- `getLoadVectorsX() -> [float]` — a list of values to define the X components of the load vectors.
+- `getLoadVectorsY() -> [float]` — a list of values to define the Y components of the load vectors.
+- `getLoadVectorsZ() -> [float]` — a list of values to define the Z components of the load vectors.
+- `getMagnitudesEndA() -> [float]` — the load magnitudes at end A.
+- `getMagnitudesEndB() -> [float]` — the load magnitudes at end B.
+- `getMagnitudesMidC() -> [float]` — the load magnitude at the point C.
+- `getOrientations() -> [int]`
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames
+- `getPathNames() -> [str]` — the full pathName of the target elements.
+- `removeTargets(ids: [int]) -> None` — Remove the target elements from the field.
+- `update(elementIds: [int], orientations: [int], loadVectorsX: [float], loadVectorsY: [float], loadVectorsZ: [float], loadTypes: [apex.attribute.LoadTypeDistributedBeam3], loadScaleFactors: [float], magnitudesEndA: [float], magnitudesEndB: [float], magnitudesMidC: [float], pathNames: [str], pathIndices: [int], inputType: apex.attribute.InputType) -> None` — Updates one or more properties of the field.
+
+Method details:
+
 #### `DFEMFieldLoadDistributedBeam3(elementIds: [int], orientations: [int], loadVectorsX: [float], loadVectorsY: [float], loadVectorsZ: [float], loadTypes: [apex.attribute.LoadTypeDistributedBeam3], loadScaleFactors: [float], magnitudesEndA: [float], magnitudesEndB: [float], magnitudesMidC: [float], pathNames: [str], pathIndices: [int], inputType: apex.attribute.InputType) -> None`
 Create DFEMFieldLoadDistributedBeam3 in this environment.
 
@@ -965,19 +1452,24 @@ Create DFEMFieldLoadDistributedBeam3 in this environment.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 - `inputType` — The argument to define the load distribution on a single element. If the inputType is element uniform, the magnitudes on end A, end B and end C are always 1.0 and load scale factor is 1.0. These four arguments should be omitted. If the inputType is element variable, all parameters can be defined.
 
-- `getElementIds() -> [int]` — a list of integers to define target element IDs in the field.
-- `getInputType() -> apex.attribute.InputType` — The argument to define the load distribution on a single element. If the inputType is element uniform, the loadScaleFactor is 1.0, magnitudes on end A, end B and mid C are 1.0. If the inputType is element variable, above parameters are defined by user.
-- `getLoadScaleFactors() -> [float]` — a list of values to define the load scale factors.
-- `getLoadTypes() -> [apex.attribute.LoadTypeDistributedBeam3]` — the loadTypes of the load. Each load can be different load types for associated element.
-- `getLoadVectorsX() -> [float]` — a list of values to define the X components of the load vectors. The unit can be Force or Moment quantity(depending on loadTypes), which is defined by the units of Force/Moment from the active script unit system.
-- `getLoadVectorsY() -> [float]` — a list of values to define the Y components of the load vectors. The unit can be Force or Moment quantity(depending on loadTypes), which is defined by the units of Force/Moment from the active script unit system.
-- `getLoadVectorsZ() -> [float]` — a list of values to define the Z components of the load vectors. The unit can be Force or Moment quantity(depending on loadTypes), which is defined by the units of Force/Moment from the active script unit system.
-- `getMagnitudesEndA() -> [float]` — the load magnitudes at end A.
-- `getMagnitudesEndB() -> [float]` — the load magnitudes at end B.
-- `getMagnitudesMidC() -> [float]` — the load magnitude at the point C.
-- `getOrientations() -> [int]`
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames
-- `getPathNames() -> [str]` — the full pathName of the target elements. It can be one string to indicate that all elements belong to one part or a list of strings to define different pathNames for each target element.
+#### `getInputType() -> apex.attribute.InputType`
+The argument to define the load distribution on a single element. If the inputType is element uniform, the loadScaleFactor is 1.0, magnitudes on end A, end B and mid C are 1.0. If the inputType is element variable, above parameters are defined by user.
+
+#### `getLoadTypes() -> [apex.attribute.LoadTypeDistributedBeam3]`
+the loadTypes of the load. Each load can be different load types for associated element.
+
+#### `getLoadVectorsX() -> [float]`
+a list of values to define the X components of the load vectors. The unit can be Force or Moment quantity(depending on loadTypes), which is defined by the units of Force/Moment from the active script unit system.
+
+#### `getLoadVectorsY() -> [float]`
+a list of values to define the Y components of the load vectors. The unit can be Force or Moment quantity(depending on loadTypes), which is defined by the units of Force/Moment from the active script unit system.
+
+#### `getLoadVectorsZ() -> [float]`
+a list of values to define the Z components of the load vectors. The unit can be Force or Moment quantity(depending on loadTypes), which is defined by the units of Force/Moment from the active script unit system.
+
+#### `getPathNames() -> [str]`
+the full pathName of the target elements. It can be one string to indicate that all elements belong to one part or a list of strings to define different pathNames for each target element.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target elements from the field.
 
@@ -1007,6 +1499,20 @@ Properties: `momentsX`, `momentsY`, `momentsZ`, `nodeIds`, `orientations`, `path
 
 Methods:
 
+- `DFEMFieldMomentComponent(nodeIds: [int], orientations: [int], scaleFactors: [float], momentsX: [float], momentsY: [float], momentsZ: [float], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldMomentComponent in this environment.
+- `getMomentsX() -> [float]` — a list to define the X component values.
+- `getMomentsY() -> [float]` — a list to define the Y component values.
+- `getMomentsZ() -> [float]` — a list to define the Z component values.
+- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
+- `getOrientations() -> [int]` — an optional list of orientations for the load components.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getScaleFactors() -> [float]` — an optional list of scale factors for the loads.
+- `removeTargets(ids: [int]) -> None` — Remove the target nodes from the field.
+- `update(nodeIds: [int], orientations: [int], scaleFactors: [float], momentsX: [float], momentsY: [float], momentsZ: [float], pathNames: [str], pathIndices: [int]) -> None` — Updates one or more properties of the field.
+
+Method details:
+
 #### `DFEMFieldMomentComponent(nodeIds: [int], orientations: [int], scaleFactors: [float], momentsX: [float], momentsY: [float], momentsZ: [float], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldMomentComponent in this environment.
 
@@ -1019,14 +1525,27 @@ Create DFEMFieldMomentComponent in this environment.
 - `pathNames` — The full pathName of the target nodes. It can be one string to indicate that all nodes belong to one part or a list of strings to define different pathNames for each target node.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getMomentsX() -> [float]` — a list to define the X component values. If all component values are the same, the list should only contain one float value. momentsX is a Moment quantity and must be defined using the units of Moment from the active script unit system.
-- `getMomentsY() -> [float]` — a list to define the Y component values. If all component values are the same, the list should only contain one float value. momentsY is a Moment quantity and must be defined using the units of Moment from the active script unit system.
-- `getMomentsZ() -> [float]` — a list to define the Z component values. If all component values are the same, the list should only contain one float value. momentsZ is a Moment quantity and must be defined using the units of Moment from the active script unit system.
-- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
-- `getOrientations() -> [int]` — an optional list of orientations for the load components. Each item in the list must be an id of a coordinate system. If all load components use the same orientation, the list must contain only one integer that points to the id of the coordinate system. If omitted, all load components are defined in the basic coordinate system.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getScaleFactors() -> [float]` — an optional list of scale factors for the loads. If all loads in the field have the same scale factor, the list must contain only one float value. If omitted, the default value is 1.0 for all loads.
+#### `getMomentsX() -> [float]`
+a list to define the X component values. If all component values are the same, the list should only contain one float value. momentsX is a Moment quantity and must be defined using the units of Moment from the active script unit system.
+
+#### `getMomentsY() -> [float]`
+a list to define the Y component values. If all component values are the same, the list should only contain one float value. momentsY is a Moment quantity and must be defined using the units of Moment from the active script unit system.
+
+#### `getMomentsZ() -> [float]`
+a list to define the Z component values. If all component values are the same, the list should only contain one float value. momentsZ is a Moment quantity and must be defined using the units of Moment from the active script unit system.
+
+#### `getOrientations() -> [int]`
+an optional list of orientations for the load components. Each item in the list must be an id of a coordinate system. If all load components use the same orientation, the list must contain only one integer that points to the id of the coordinate system. If omitted, all load components are defined in the basic coordinate system.
+
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
+#### `getScaleFactors() -> [float]`
+an optional list of scale factors for the loads. If all loads in the field have the same scale factor, the list must contain only one float value. If omitted, the default value is 1.0 for all loads.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target nodes from the field.
 
@@ -1051,6 +1570,20 @@ Properties: `momentMagnitudes`, `nodeIds`, `pathIndices`, `pathNames`, `points1`
 
 Methods:
 
+- `DFEMFieldMomentFollowerNormal(nodeIds: [int], momentMagnitudes: [float], points1: [int], points2: [int], points3: [int], points4: [int], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldMomentFollowerComponent in this environment.
+- `getMomentMagnitudes() -> [float]` — a list to define the moment magnitudes.
+- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getPoints1() -> [int]` — a list of starting points of the direction vectors.
+- `getPoints2() -> [int]` — a list of end points of the direction vectors.
+- `getPoints3() -> [int]` — a list of starting points of the direction vectors.
+- `getPoints4() -> [int]` — a list of end points of the direction vectors.
+- `removeTargets(ids: [int]) -> None` — Remove the target nodes from the field.
+- `update(nodeIds: [int], momentMagnitudes: [float], points1: [int], points2: [int], points3: [int], points4: [int], pathNames: [str], pathIndices: [int]) -> None` — Updates one or more properties of the field.
+
+Method details:
+
 #### `DFEMFieldMomentFollowerNormal(nodeIds: [int], momentMagnitudes: [float], points1: [int], points2: [int], points3: [int], points4: [int], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldMomentFollowerComponent in this environment.
 
@@ -1063,14 +1596,27 @@ Create DFEMFieldMomentFollowerComponent in this environment.
 - `pathNames` — The full pathName of the target nodes. It can be one string to indicate that all nodes belong to one part or a list of strings to define different pathNames for each target node.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getMomentMagnitudes() -> [float]` — a list to define the moment magnitudes. Each moment direction is parallel to the cross product of two vectors defined by four points. If all moment magnitudes are the same, the list should only contain one float value. momentMagnitudes is a Moment quantity and is defined using the units of Force from the active script unit system.
-- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getPoints1() -> [int]` — a list of starting points of the direction vectors. Each item in the list must be a node or a vertex. If all starting points are the same, the list should only contain one node or vertex.
-- `getPoints2() -> [int]` — a list of end points of the direction vectors. Each item in the list must be a node or a vertex. If all end points are the same, the list should only contain one node or vertex.
-- `getPoints3() -> [int]` — a list of starting points of the direction vectors. Each item in the list must be a node or a vertex. If all starting points are the same, the list should only contain one node or vertex.
-- `getPoints4() -> [int]` — a list of end points of the direction vectors. Each item in the list must be a node or a vertex. If all starting points are the same, the list should only contain one node or vertex.
+#### `getMomentMagnitudes() -> [float]`
+a list to define the moment magnitudes. Each moment direction is parallel to the cross product of two vectors defined by four points. If all moment magnitudes are the same, the list should only contain one float value. momentMagnitudes is a Moment quantity and is defined using the units of Force from the active script unit system.
+
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
+#### `getPoints1() -> [int]`
+a list of starting points of the direction vectors. Each item in the list must be a node or a vertex. If all starting points are the same, the list should only contain one node or vertex.
+
+#### `getPoints2() -> [int]`
+a list of end points of the direction vectors. Each item in the list must be a node or a vertex. If all end points are the same, the list should only contain one node or vertex.
+
+#### `getPoints3() -> [int]`
+a list of starting points of the direction vectors. Each item in the list must be a node or a vertex. If all starting points are the same, the list should only contain one node or vertex.
+
+#### `getPoints4() -> [int]`
+a list of end points of the direction vectors. Each item in the list must be a node or a vertex. If all starting points are the same, the list should only contain one node or vertex.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target nodes from the field.
 
@@ -1095,6 +1641,18 @@ Properties: `momentMagnitudes`, `nodeIds`, `pathIndices`, `pathNames`, `points1`
 
 Methods:
 
+- `DFEMFieldMomentFollowerVector(nodeIds: [int], momentMagnitudes: [float], points1: [int], points2: [int], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldMomentFollowerVector in this environment.
+- `getMomentMagnitudes() -> [float]` — a list to define the moment magnitudes, each moment direction is defined by the vector from point1 to point2.
+- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getPoints1() -> [int]` — a list of starting points of the direction vectors.
+- `getPoints2() -> [int]` — a list of end points of the direction vectors.
+- `removeTargets(ids: [int]) -> None` — Remove the target nodes from the field.
+- `update(nodeIds: [int], momentMagnitudes: [float], points1: [int], points2: [int], pathNames: [str], pathIndices: [int]) -> None` — Updates one or more properties of the field.
+
+Method details:
+
 #### `DFEMFieldMomentFollowerVector(nodeIds: [int], momentMagnitudes: [float], points1: [int], points2: [int], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldMomentFollowerVector in this environment.
 
@@ -1105,12 +1663,21 @@ Create DFEMFieldMomentFollowerVector in this environment.
 - `pathNames` — The full pathName of the target elements. It can be one string to indicate that all elements belong to one part or a list of strings to define different pathNames for each target element.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getMomentMagnitudes() -> [float]` — a list to define the moment magnitudes, each moment direction is defined by the vector from point1 to point2. If all moment magnitudes are the same, the list should only contain one float value. momentMagnitudes is a Moment quantity and must be defined using the units of Moment from the active script unit system
-- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getPoints1() -> [int]` — a list of starting points of the direction vectors. Each item in the list must be a node or a vertex. If all starting points is the same, then the list contains one node or vertex.
-- `getPoints2() -> [int]` — a list of end points of the direction vectors. Each item in the list must be a node or a vertex. If all end points is the same, then the list contains one node or vertex.
+#### `getMomentMagnitudes() -> [float]`
+a list to define the moment magnitudes, each moment direction is defined by the vector from point1 to point2. If all moment magnitudes are the same, the list should only contain one float value. momentMagnitudes is a Moment quantity and must be defined using the units of Moment from the active script unit system
+
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
+#### `getPoints1() -> [int]`
+a list of starting points of the direction vectors. Each item in the list must be a node or a vertex. If all starting points is the same, then the list contains one node or vertex.
+
+#### `getPoints2() -> [int]`
+a list of end points of the direction vectors. Each item in the list must be a node or a vertex. If all end points is the same, then the list contains one node or vertex.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target nodes from the field.
 
@@ -1133,6 +1700,21 @@ Properties: `nodeIds`, `pathIndices`, `pathNames`, `phaseLeadsRx`, `phaseLeadsRy
 
 Methods:
 
+- `DFEMFieldPhaseLead(nodeIds: [int], phaseLeadsX: [float], phaseLeadsY: [float], phaseLeadsZ: [float], phaseLeadsRx: [float], phaseLeadsRy: [float], phaseLeadsRz: [float], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldPhaseLead in this environment.
+- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getPhaseLeadsRx() -> [float]` — a list of the phase lead values in the rotation X component.
+- `getPhaseLeadsRy() -> [float]` — a list of the phase lead values in the rotation Y component.
+- `getPhaseLeadsRz() -> [float]` — a list of the phase lead values in the rotation Z component.
+- `getPhaseLeadsX() -> [float]` — a list of the phase lead values in the X component.
+- `getPhaseLeadsY() -> [float]` — a list of the phase lead values in the Y component.
+- `getPhaseLeadsZ() -> [float]` — a list of the phase lead values in the component.
+- `removeTargets(ids: [int]) -> None` — Remove the target nodes from the field.
+- `update(nodeIds: [int], phaseLeadsX: [float], phaseLeadsY: [float], phaseLeadsZ: [float], phaseLeadsRx: [float], phaseLeadsRy: [float], phaseLeadsRz: [float], pathNames: [str], pathIndices: [int]) -> None` — Update method.
+
+Method details:
+
 #### `DFEMFieldPhaseLead(nodeIds: [int], phaseLeadsX: [float], phaseLeadsY: [float], phaseLeadsZ: [float], phaseLeadsRx: [float], phaseLeadsRy: [float], phaseLeadsRz: [float], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldPhaseLead in this environment.
 
@@ -1146,15 +1728,12 @@ Create DFEMFieldPhaseLead in this environment.
 - `pathNames` — The full pathName of the target nodes. It can be one string to indicate that all nodes belong to one part or a list of strings to define different pathNames for each target node.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getPhaseLeadsRx() -> [float]` — a list of the phase lead values in the rotation X component.
-- `getPhaseLeadsRy() -> [float]` — a list of the phase lead values in the rotation Y component.
-- `getPhaseLeadsRz() -> [float]` — a list of the phase lead values in the rotation Z component.
-- `getPhaseLeadsX() -> [float]` — a list of the phase lead values in the X component.
-- `getPhaseLeadsY() -> [float]` — a list of the phase lead values in the Y component.
-- `getPhaseLeadsZ() -> [float]` — a list of the phase lead values in the component.
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target nodes from the field.
 
@@ -1180,6 +1759,24 @@ Properties: `elementIds`, `inputType`, `node1Ids`, `node2Ids`, `node3Ids`, `node
 
 Methods:
 
+- `DFEMFieldPressure(elementIds: [int], pressuresCorner1: [float], pressuresCorner2: [float], pressuresCorner3: [float], pressuresCorner4: [float], node1Ids: [int], node2Ids: [int], node3Ids: [int], node4Ids: [int], pathNames: [str], pathIndices: [int], inputType: apex.attribute.InputType) -> None` — Create DFEMFieldPressure in this environment.
+- `getElementIds() -> [int]` — a list of integers to define target element IDs in the field.
+- `getInputType() -> apex.attribute.InputType` — The argument to define the load distribution on a single element.
+- `getNode1Ids() -> [int]`
+- `getNode2Ids() -> [int]`
+- `getNode3Ids() -> [int]`
+- `getNode4Ids() -> [int]`
+- `getPathIndices() -> [int]` — Missing.
+- `getPathNames() -> [str]` — Missing.
+- `getPressuresCorner1() -> [float]`
+- `getPressuresCorner2() -> [float]`
+- `getPressuresCorner3() -> [float]`
+- `getPressuresCorner4() -> [float]`
+- `removeTargets(ids: [int]) -> None` — Remove the target elements from the field.
+- `update(elementIds: [int], pressuresCorner1: [float], pressuresCorner2: [float], pressuresCorner3: [float], pressuresCorner4: [float], node1Ids: [int], node2Ids: [int], node3Ids: [int], node4Ids: [int], pathNames: [str], pathIndices: [int], inputType: apex.attribute.InputType) -> None` — Updates one or more properties of the Pressure.
+
+Method details:
+
 #### `DFEMFieldPressure(elementIds: [int], pressuresCorner1: [float], pressuresCorner2: [float], pressuresCorner3: [float], pressuresCorner4: [float], node1Ids: [int], node2Ids: [int], node3Ids: [int], node4Ids: [int], pathNames: [str], pathIndices: [int], inputType: apex.attribute.InputType) -> None`
 Create DFEMFieldPressure in this environment.
 
@@ -1192,18 +1789,9 @@ Create DFEMFieldPressure in this environment.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 - `inputType` — The argument to define the load distribution on a single element. If the inputType is element uniform, only pressure is necessary and it is automatically applied to pressureCorner2, pressureCorner3 and pressureCorner4. If the inputType is element variable, pressure is the applied to corner1 and other three corners must be defined as well.
 
-- `getElementIds() -> [int]` — a list of integers to define target element IDs in the field.
-- `getInputType() -> apex.attribute.InputType` — The argument to define the load distribution on a single element. If the inputType is element uniform, only "pressures" is necessary and it is automatically applied to other corners so that the pressure is uniform on a single element. If the inputType is element variable, the pressures on all corners are necessary so that the pressure can be variable on a single element.
-- `getNode1Ids() -> [int]`
-- `getNode2Ids() -> [int]`
-- `getNode3Ids() -> [int]`
-- `getNode4Ids() -> [int]`
-- `getPathIndices() -> [int]` — Missing.
-- `getPathNames() -> [str]` — Missing.
-- `getPressuresCorner1() -> [float]`
-- `getPressuresCorner2() -> [float]`
-- `getPressuresCorner3() -> [float]`
-- `getPressuresCorner4() -> [float]`
+#### `getInputType() -> apex.attribute.InputType`
+The argument to define the load distribution on a single element. If the inputType is element uniform, only "pressures" is necessary and it is automatically applied to other corners so that the pressure is uniform on a single element. If the inputType is element variable, the pressures on all corners are necessary so that the pressure can be variable on a single element.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target elements from the field.
 
@@ -1234,9 +1822,23 @@ Methods:
 
 - `DFEMFieldPressure2D(pressureMagnitudes: [float], elementIds: [int], pathNames: [str], pathIndices: [int]) -> None`
 - `getElementIds() -> [int]` — a list of integers to define target element IDs in the field.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getPressureMagnitudes() -> [float]` — a list of pressure magnitudes. It is a Pressure quantity and is defined using the units of Pressure from the active script unit system. Each pressure direction is perpendicular to the element.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getPressureMagnitudes() -> [float]` — a list of pressure magnitudes.
+- `removeTargets(ids: [int]) -> None` — Remove the target elements from the field.
+- `update(pressureMagnitudes: [float], elementIds: [int], pathNames: [str], pathIndices: [int]) -> None` — Updates one or more properties of the Pressure.
+
+Method details:
+
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
+#### `getPressureMagnitudes() -> [float]`
+a list of pressure magnitudes. It is a Pressure quantity and is defined using the units of Pressure from the active script unit system. Each pressure direction is perpendicular to the element.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target elements from the field.
 
@@ -1257,6 +1859,19 @@ Properties: `pathIndices`, `pathNames`, `pressureMagnitudes`, `vertices1`, `vert
 
 Methods:
 
+- `DFEMFieldPressureArea(pressureMagnitudes: [float], vertices1: [int], vertices2: [int], vertices3: [int], vertices4: [int], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldPressureArea in this environment.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getPressureMagnitudes() -> [float]` — a list of pressure magnitudes.
+- `getVertices1() -> [int]`
+- `getVertices2() -> [int]`
+- `getVertices3() -> [int]`
+- `getVertices4() -> [int]`
+- `removeTargets(ids: [[int]]) -> None` — Remove the target nodes from the field.
+- `update(pressureMagnitudes: [float], vertices1: [int], vertices2: [int], vertices3: [int], vertices4: [int], pathNames: [str], pathIndices: [int]) -> None` — Updates one or more properties of the Pressure.
+
+Method details:
+
 #### `DFEMFieldPressureArea(pressureMagnitudes: [float], vertices1: [int], vertices2: [int], vertices3: [int], vertices4: [int], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldPressureArea in this environment.
 
@@ -1264,13 +1879,15 @@ Create DFEMFieldPressureArea in this environment.
 - `pathNames` — The full pathName of the target nodes. It can be one string to indicate that all nodes belong to one part or a list of strings to define different pathNames for each target node.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getPressureMagnitudes() -> [float]` — a list of pressure magnitudes. The magnitude is a Pressure quantity and is defined using the units of Pressure from the active script unit system.
-- `getVertices1() -> [int]`
-- `getVertices2() -> [int]`
-- `getVertices3() -> [int]`
-- `getVertices4() -> [int]`
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
+#### `getPressureMagnitudes() -> [float]`
+a list of pressure magnitudes. The magnitude is a Pressure quantity and is defined using the units of Pressure from the active script unit system.
+
 #### `removeTargets(ids: [[int]]) -> None`
 Remove the target nodes from the field.
 
@@ -1294,6 +1911,22 @@ Properties: `constrainRotationX`, `constrainRotationY`, `constrainRotationZ`, `c
 
 Methods:
 
+- `DFEMFieldSupportFreeBody(nodeIds: [int], orientations: [int], constrainTranslationX: [bool], constrainTranslationY: [bool], constrainTranslationZ: [bool], constrainRotationX: [bool], constrainRotationY: [bool], constrainRotationZ: [bool], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldSupportFreeBody in this environment.
+- `getConstrainRotationX() -> [bool]` — a list of booleans to indicate the whether the rotation X is constrained or not for each node in the field.
+- `getConstrainRotationY() -> [bool]` — a list of booleans to indicate the whether the rotation Y is constrained or not for each node in the field.
+- `getConstrainRotationZ() -> [bool]` — a list of booleans to indicate the whether the rotation Z is constrained or not for each node in the field.
+- `getConstrainTranslationX() -> [bool]` — a list of booleans to indicate the whether the translation X is constrained or not for each node in the field.
+- `getConstrainTranslationY() -> [bool]` — a list of booleans to indicate the whether the translation Y is constrained or not for each node in the field.
+- `getConstrainTranslationZ() -> [bool]` — a list of booleans to indicate the whether the translation Z is constrained or not for each node in the field.
+- `getNodeIds() -> [int]` — a list of integers to indicate the target nodes in the field.
+- `getOrientations() -> [int]` — a list of the orientations of the constraint.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `removeTargets(ids: [int]) -> None` — Remove the target nodes from the field.
+- `update(nodeIds: [int], orientations: [int], constrainTranslationX: [bool], constrainTranslationY: [bool], constrainTranslationZ: [bool], constrainRotationX: [bool], constrainRotationY: [bool], constrainRotationZ: [bool], pathNames: [str], pathIndices: [int]) -> None` — Update this ConstraintGeneral.
+
+Method details:
+
 #### `DFEMFieldSupportFreeBody(nodeIds: [int], orientations: [int], constrainTranslationX: [bool], constrainTranslationY: [bool], constrainTranslationZ: [bool], constrainRotationX: [bool], constrainRotationY: [bool], constrainRotationZ: [bool], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldSupportFreeBody in this environment.
 
@@ -1308,16 +1941,33 @@ Create DFEMFieldSupportFreeBody in this environment.
 - `pathNames` — The full pathName of the target nodes. It can be one string to indicate that all nodes belong to one part or a list of strings to define different pathNames for each target node.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getConstrainRotationX() -> [bool]` — a list of booleans to indicate the whether the rotation X is constrained or not for each node in the field. For example, constrainRotationX = [False, True, True, False].
-- `getConstrainRotationY() -> [bool]` — a list of booleans to indicate the whether the rotation Y is constrained or not for each node in the field. For example, constrainRotationY = [False, True, True, False].
-- `getConstrainRotationZ() -> [bool]` — a list of booleans to indicate the whether the rotation Z is constrained or not for each node in the field. For example, constrainRotationZ = [False, True, True, False].
-- `getConstrainTranslationX() -> [bool]` — a list of booleans to indicate the whether the translation X is constrained or not for each node in the field. For example, constrainTranslationX = [False, True, True, False].
-- `getConstrainTranslationY() -> [bool]` — a list of booleans to indicate the whether the translation Y is constrained or not for each node in the field. For example, constrainTranslationY = [False, True, True, False].
-- `getConstrainTranslationZ() -> [bool]` — a list of booleans to indicate the whether the translation Z is constrained or not for each node in the field. For example, constrainTranslationZ = [False, True, True, False].
-- `getNodeIds() -> [int]` — a list of integers to indicate the target nodes in the field.
-- `getOrientations() -> [int]` — a list of the orientations of the constraint. Currently it must be a coordinate system
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+#### `getConstrainRotationX() -> [bool]`
+a list of booleans to indicate the whether the rotation X is constrained or not for each node in the field. For example, constrainRotationX = [False, True, True, False].
+
+#### `getConstrainRotationY() -> [bool]`
+a list of booleans to indicate the whether the rotation Y is constrained or not for each node in the field. For example, constrainRotationY = [False, True, True, False].
+
+#### `getConstrainRotationZ() -> [bool]`
+a list of booleans to indicate the whether the rotation Z is constrained or not for each node in the field. For example, constrainRotationZ = [False, True, True, False].
+
+#### `getConstrainTranslationX() -> [bool]`
+a list of booleans to indicate the whether the translation X is constrained or not for each node in the field. For example, constrainTranslationX = [False, True, True, False].
+
+#### `getConstrainTranslationY() -> [bool]`
+a list of booleans to indicate the whether the translation Y is constrained or not for each node in the field. For example, constrainTranslationY = [False, True, True, False].
+
+#### `getConstrainTranslationZ() -> [bool]`
+a list of booleans to indicate the whether the translation Z is constrained or not for each node in the field. For example, constrainTranslationZ = [False, True, True, False].
+
+#### `getOrientations() -> [int]`
+a list of the orientations of the constraint. Currently it must be a coordinate system
+
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target nodes from the field.
 
@@ -1344,6 +1994,19 @@ Properties: `elementIds`, `pathIndices`, `pathNames`, `temperaturesLowerSurface`
 
 Methods:
 
+- `DFEMFieldTemperatureGradient2D(elementIds: [int], temperaturesReferencePlane: [float], thermalGradients: [float], temperaturesLowerSurface: [float], temperaturesUpperSurface: [float], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldTemperatureGradient2D in this environment.
+- `getElementIds() -> [int]` — a list of integers to define target element IDs in the field.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getTemperaturesLowerSurface() -> [float]` — a list of temperature values defined on lower surface.
+- `getTemperaturesReferencePlane() -> [float]` — a list of temperature values defined on the element reference plane.
+- `getTemperaturesUpperSurface() -> [float]` — a list of temperature values defined on upper surface.
+- `getThermalGradients() -> [float]` — a list of thermal gradients.
+- `removeTargets(ids: [int]) -> None` — Remove the target elements from the field.
+- `update(elementIds: [int], temperaturesReferencePlane: [float], thermalGradients: [float], temperaturesLowerSurface: [float], temperaturesUpperSurface: [float], pathNames: [str], pathIndices: [int]) -> None` — Updates one or more properties of the field.
+
+Method details:
+
 #### `DFEMFieldTemperatureGradient2D(elementIds: [int], temperaturesReferencePlane: [float], thermalGradients: [float], temperaturesLowerSurface: [float], temperaturesUpperSurface: [float], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldTemperatureGradient2D in this environment.
 
@@ -1355,13 +2018,24 @@ Create DFEMFieldTemperatureGradient2D in this environment.
 - `pathNames` — The full pathName of the target nodes. It can be one string to indicate that all nodes belong to one part or a list of strings to define different pathNames for each target node.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getElementIds() -> [int]` — a list of integers to define target element IDs in the field.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getTemperaturesLowerSurface() -> [float]` — a list of temperature values defined on lower surface. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesReferencePlane() -> [float]` — a list of temperature values defined on the element reference plane. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesUpperSurface() -> [float]` — a list of temperature values defined on upper surface. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getThermalGradients() -> [float]` — a list of thermal gradients. It represents a Thermal Gradient quantity and must be specified using units of Thermal Gradient from the active script unit system.
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
+#### `getTemperaturesLowerSurface() -> [float]`
+a list of temperature values defined on lower surface. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesReferencePlane() -> [float]`
+a list of temperature values defined on the element reference plane. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesUpperSurface() -> [float]`
+a list of temperature values defined on upper surface. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getThermalGradients() -> [float]`
+a list of thermal gradients. It represents a Thermal Gradient quantity and must be specified using units of Thermal Gradient from the active script unit system.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target elements from the field.
 
@@ -1385,6 +2059,18 @@ Properties: `nodeIds`, `pathIndices`, `pathNames`, `temperaturesBottom`, `temper
 
 Methods:
 
+- `DFEMFieldTemperatureGradient2DHeat(nodeIds: [int], temperaturesTop: [float], temperaturesBottom: [float], temperaturesMid: [float], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldTemperatureGradient2DHeat in this environment.
+- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getTemperaturesBottom() -> [float]` — a list of temperature values defined on bottom location across thickness direction.
+- `getTemperaturesMid() -> [float]` — a list of temperature values defined on the mid location across thickness direction.
+- `getTemperaturesTop() -> [float]` — a list of temperature values defined on the top location across thickness direction.
+- `removeTargets(ids: [int]) -> None` — Remove the target elements from the field.
+- `update(nodeIds: [int], temperaturesTop: [float], temperaturesBottom: [float], temperaturesMid: [float], pathNames: [str], pathIndices: [int]) -> None` — Updates one or more properties of the Temperature.
+
+Method details:
+
 #### `DFEMFieldTemperatureGradient2DHeat(nodeIds: [int], temperaturesTop: [float], temperaturesBottom: [float], temperaturesMid: [float], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldTemperatureGradient2DHeat in this environment.
 
@@ -1395,12 +2081,21 @@ Create DFEMFieldTemperatureGradient2DHeat in this environment.
 - `pathNames` — The full pathName of the target nodes. It can be one string to indicate that all nodes belong to one part or a list of strings to define different pathNames for each target node.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getTemperaturesBottom() -> [float]` — a list of temperature values defined on bottom location across thickness direction. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesMid() -> [float]` — a list of temperature values defined on the mid location across thickness direction. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesTop() -> [float]` — a list of temperature values defined on the top location across thickness direction. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
+#### `getTemperaturesBottom() -> [float]`
+a list of temperature values defined on bottom location across thickness direction. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesMid() -> [float]`
+a list of temperature values defined on the mid location across thickness direction. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesTop() -> [float]`
+a list of temperature values defined on the top location across thickness direction. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target elements from the field.
 
@@ -1422,6 +2117,30 @@ A class describing a table like data structure defining the spatially varying te
 Properties: `elementIds`, `inputType`, `pathIndices`, `pathNames`, `temperaturesEndA`, `temperaturesEndB`, `temperaturesPointCendA`, `temperaturesPointCendB`, `temperaturesPointDendA`, `temperaturesPointDendB`, `temperaturesPointEendA`, `temperaturesPointEendB`, `temperaturesPointFendA`, `temperaturesPointFendB`, `thermalGradients1A`, `thermalGradients1B`, `thermalGradients2A`, `thermalGradients2B`
 
 Methods:
+
+- `DFEMFieldTemperatureGradientBeam2(elementIds: [int], temperaturesEndA: [float], temperaturesEndB: [float], thermalGradients1A: [float], thermalGradients1B: [float], thermalGradients2A: [float], thermalGradients2B: [float], temperaturesPointCendA: [float], temperaturesPointDendA: [float], temperaturesPointEendA: [float], temperaturesPointFendA: [float], temperaturesPointCendB: [float], temperaturesPointDendB: [float], temperaturesPointEendB: [float], temperaturesPointFendB: [float], pathNames: [str], pathIndices: [int], inputType: apex.attribute.InputType) -> None` — Create DiFEMFieldTemperatureGradientBeam2 in this environment.
+- `getElementIds() -> [int]` — a list of integers to define target element IDs in the field.
+- `getInputType() -> apex.attribute.InputType` — The argument to define the load distribution on a single element.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getTemperaturesEndA() -> [float]` — a list of temperature values at end A on the neutral axis.
+- `getTemperaturesEndB() -> [float]` — a list of temperature values at end B on the neutral axis.
+- `getTemperaturesPointCendA() -> [float]` — a list of temperature values on point C at end A, used for stress recovery.
+- `getTemperaturesPointCendB() -> [float]` — a list of temperature values on point C at end B, used for stress recovery.
+- `getTemperaturesPointDendA() -> [float]` — a list of temperature values on point D at end A, used for stress recovery.
+- `getTemperaturesPointDendB() -> [float]` — a list of temperature values on point D at end B, used for stress recovery.
+- `getTemperaturesPointEendA() -> [float]` — a list of temperature values on point E at end A, used for stress recovery.
+- `getTemperaturesPointEendB() -> [float]` — a list of temperature values on point E at end B, used for stress recovery.
+- `getTemperaturesPointFendA() -> [float]` — a list of temperature values on point F at end A, used for stress recovery.
+- `getTemperaturesPointFendB() -> [float]` — a list of temperature values on point F at end B, used for stress recovery.
+- `getThermalGradients1A() -> [float]` — a list of effective linear thermal gradients in direction 1 on end A.
+- `getThermalGradients1B() -> [float]` — a list of effective linear thermal gradients in direction 1 on end B.
+- `getThermalGradients2A() -> [float]` — a list of effective linear thermal gradients in direction 2 on end A.
+- `getThermalGradients2B() -> [float]` — a list of effective linear thermal gradients in direction 2 on end B.
+- `removeTargets(ids: [int]) -> None` — Remove the target elements from the field.
+- `update(elementIds: [int], temperaturesEndA: [float], temperaturesEndB: [float], thermalGradients1A: [float], thermalGradients1B: [float], thermalGradients2A: [float], thermalGradients2B: [float], temperaturesPointCendA: [float], temperaturesPointDendA: [float], temperaturesPointEendA: [float], temperaturesPointFendA: [float], temperaturesPointCendB: [float], temperaturesPointDendB: [float], temperaturesPointEendB: [float], temperaturesPointFendB: [float], pathNames: [str], pathIndices: [int], inputType: apex.attribute.InputType) -> None` — Updates one or more properties of the Temperature.
+
+Method details:
 
 #### `DFEMFieldTemperatureGradientBeam2(elementIds: [int], temperaturesEndA: [float], temperaturesEndB: [float], thermalGradients1A: [float], thermalGradients1B: [float], thermalGradients2A: [float], thermalGradients2B: [float], temperaturesPointCendA: [float], temperaturesPointDendA: [float], temperaturesPointEendA: [float], temperaturesPointFendA: [float], temperaturesPointCendB: [float], temperaturesPointDendB: [float], temperaturesPointEendB: [float], temperaturesPointFendB: [float], pathNames: [str], pathIndices: [int], inputType: apex.attribute.InputType) -> None`
 Create DiFEMFieldTemperatureGradientBeam2 in this environment.
@@ -1445,24 +2164,57 @@ Create DiFEMFieldTemperatureGradientBeam2 in this environment.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathName. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 - `inputType` — The argument to define the load distribution on a single element. If the inputType is element uniform, only temperature value and thermal gradient at end A are necessary and they are automatically applied to end B. If the inputType is element variable, all temperature values and thermal gradients can be defined.
 
-- `getElementIds() -> [int]` — a list of integers to define target element IDs in the field.
-- `getInputType() -> apex.attribute.InputType` — The argument to define the load distribution on a single element. If the inputType is element uniform, only temperature value and thermal gradient at end A are necessary and they are automatically applied to end B. If the inputType is element variable, all temperature values and thermal gradients can be defined.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getTemperaturesEndA() -> [float]` — a list of temperature values at end A on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesEndB() -> [float]` — a list of temperature values at end B on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesPointCendA() -> [float]` — a list of temperature values on point C at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesPointCendB() -> [float]` — a list of temperature values on point C at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesPointDendA() -> [float]` — a list of temperature values on point D at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesPointDendB() -> [float]` — a list of temperature values on point D at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesPointEendA() -> [float]` — a list of temperature values on point E at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesPointEendB() -> [float]` — a list of temperature values on point E at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesPointFendA() -> [float]` — a list of temperature values on point F at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesPointFendB() -> [float]` — a list of temperature values on point F at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getThermalGradients1A() -> [float]` — a list of effective linear thermal gradients in direction 1 on end A. It represents a Thermal Gradient quantity and must be specified using units of Thermal Gradient from the active script unit system.
-- `getThermalGradients1B() -> [float]` — a list of effective linear thermal gradients in direction 1 on end B. It represents a Thermal Gradient quantity and must be specified using units of Thermal Gradient from the active script unit system.
-- `getThermalGradients2A() -> [float]` — a list of effective linear thermal gradients in direction 2 on end A. It represents a Thermal Gradient quantity and must be specified using units of Thermal Gradient from the active script unit system.
-- `getThermalGradients2B() -> [float]` — a list of effective linear thermal gradients in direction 2 on end B. It represents a Thermal Gradient quantity and must be specified using units of Thermal Gradient from the active script unit system.
+#### `getInputType() -> apex.attribute.InputType`
+The argument to define the load distribution on a single element. If the inputType is element uniform, only temperature value and thermal gradient at end A are necessary and they are automatically applied to end B. If the inputType is element variable, all temperature values and thermal gradients can be defined.
+
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
+#### `getTemperaturesEndA() -> [float]`
+a list of temperature values at end A on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesEndB() -> [float]`
+a list of temperature values at end B on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesPointCendA() -> [float]`
+a list of temperature values on point C at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesPointCendB() -> [float]`
+a list of temperature values on point C at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesPointDendA() -> [float]`
+a list of temperature values on point D at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesPointDendB() -> [float]`
+a list of temperature values on point D at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesPointEendA() -> [float]`
+a list of temperature values on point E at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesPointEendB() -> [float]`
+a list of temperature values on point E at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesPointFendA() -> [float]`
+a list of temperature values on point F at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesPointFendB() -> [float]`
+a list of temperature values on point F at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getThermalGradients1A() -> [float]`
+a list of effective linear thermal gradients in direction 1 on end A. It represents a Thermal Gradient quantity and must be specified using units of Thermal Gradient from the active script unit system.
+
+#### `getThermalGradients1B() -> [float]`
+a list of effective linear thermal gradients in direction 1 on end B. It represents a Thermal Gradient quantity and must be specified using units of Thermal Gradient from the active script unit system.
+
+#### `getThermalGradients2A() -> [float]`
+a list of effective linear thermal gradients in direction 2 on end A. It represents a Thermal Gradient quantity and must be specified using units of Thermal Gradient from the active script unit system.
+
+#### `getThermalGradients2B() -> [float]`
+a list of effective linear thermal gradients in direction 2 on end B. It represents a Thermal Gradient quantity and must be specified using units of Thermal Gradient from the active script unit system.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target elements from the field.
 
@@ -1497,6 +2249,37 @@ Properties: `elementIds`, `inputType`, `pathIndices`, `pathNames`, `temperatures
 
 Methods:
 
+- `DFEMFieldTemperatureGradientBeam3(elementIds: [int], temperaturesEndA: [float], temperaturesEndB: [float], temperaturesMidC: [float], thermalGradientsYA: [float], thermalGradientsZA: [float], thermalGradientsYB: [float], thermalGradientsZB: [float], thermalGradientsYC: [float], thermalGradientsZC: [float], temperaturesPointCendA: [float], temperaturesPointDendA: [float], temperaturesPointEendA: [float], temperaturesPointFendA: [float], temperaturesPointCendB: [float], temperaturesPointDendB: [float], temperaturesPointEendB: [float], temperaturesPointFendB: [float], temperaturesPointCmidC: [float], temperaturesPointDmidC: [float], temperaturesPointEmidC: [float], temperaturesPointFmidC: [float], pathNames: [str], pathIndices: [int], inputType: apex.attribute.InputType) -> None` — Create DFEMFieldTemperatureGradientBeam3 in this environment.
+- `getElementIds() -> [int]` — a list of integers to define target element IDs in the field.
+- `getInputType() -> apex.attribute.InputType` — The argument to define the load distribution on a single element.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getTemperaturesEndA() -> [float]` — a list of temperature values at end A on the neutral axis.
+- `getTemperaturesEndB() -> [float]` — a list of temperature values at end B on the neutral axis.
+- `getTemperaturesMidC() -> [float]` — a list of temperature values at a point C between end A and end B.
+- `getTemperaturesPointCendA() -> [float]` — a list of temperature values on point C at end A, used for stress recovery.
+- `getTemperaturesPointCendB() -> [float]` — a list of temperature values on point C at end B, used for stress recovery.
+- `getTemperaturesPointCmidC() -> [float]` — a list of temperature values on point C at mid C, used for stress recovery.
+- `getTemperaturesPointDendA() -> [float]` — a list of temperature values on point D at end A, used for stress recovery.
+- `getTemperaturesPointDendB() -> [float]` — a list of temperature values on point D at end B, used for stress recovery.
+- `getTemperaturesPointDmidC() -> [float]` — a list of temperature values on point D at mid C, used for stress recovery.
+- `getTemperaturesPointEendA() -> [float]` — a list of temperature values on point E at end A, used for stress recovery.
+- `getTemperaturesPointEendB() -> [float]` — a list of temperature values on point E at end B, used for stress recovery.
+- `getTemperaturesPointEmidC() -> [float]` — a list of temperature values on point E at mid C, used for stress recovery.
+- `getTemperaturesPointFendA() -> [float]` — a list of temperature values on point F at end A, used for stress recovery.
+- `getTemperaturesPointFendB() -> [float]` — a list of temperature values on point F at end B, used for stress recovery.
+- `getTemperaturesPointFmidC() -> [float]` — a list of temperature values on point F at mid C, used for stress recovery.
+- `getThermalGradientsYA() -> [float]` — a list of effective linear thermal gradients in local direction y on end A.
+- `getThermalGradientsYB() -> [float]` — a list of effective linear thermal gradients in direction y on end B.
+- `getThermalGradientsYC() -> [float]` — a list of effective linear thermal gradients in direction y on mid C.
+- `getThermalGradientsZA() -> [float]` — a list of effective linear thermal gradients in direction z on end A.
+- `getThermalGradientsZB() -> [float]` — a list of effective linear thermal gradients in direction z on end B.
+- `getThermalGradientsZC() -> [float]` — a list of effective linear thermal gradients in direction z on mid C.
+- `removeTargets(ids: [int]) -> None` — Remove the target elements from the field.
+- `update(elementIds: [int], temperaturesEndA: [float], temperaturesEndB: [float], temperaturesMidC: [float], thermalGradientsYA: [float], thermalGradientsZA: [float], thermalGradientsYB: [float], thermalGradientsZB: [float], thermalGradientsYC: [float], thermalGradientsZC: [float], temperaturesPointCendA: [float], temperaturesPointDendA: [float], temperaturesPointEendA: [float], temperaturesPointFendA: [float], temperaturesPointCendB: [float], temperaturesPointDendB: [float], temperaturesPointEendB: [float], temperaturesPointFendB: [float], temperaturesPointCmidC: [float], temperaturesPointDmidC: [float], temperaturesPointEmidC: [float], temperaturesPointFmidC: [float], pathNames: [str], pathIndices: [int], inputType: apex.attribute.InputType) -> None` — Updates one or more properties of the field.
+
+Method details:
+
 #### `DFEMFieldTemperatureGradientBeam3(elementIds: [int], temperaturesEndA: [float], temperaturesEndB: [float], temperaturesMidC: [float], thermalGradientsYA: [float], thermalGradientsZA: [float], thermalGradientsYB: [float], thermalGradientsZB: [float], thermalGradientsYC: [float], thermalGradientsZC: [float], temperaturesPointCendA: [float], temperaturesPointDendA: [float], temperaturesPointEendA: [float], temperaturesPointFendA: [float], temperaturesPointCendB: [float], temperaturesPointDendB: [float], temperaturesPointEendB: [float], temperaturesPointFendB: [float], temperaturesPointCmidC: [float], temperaturesPointDmidC: [float], temperaturesPointEmidC: [float], temperaturesPointFmidC: [float], pathNames: [str], pathIndices: [int], inputType: apex.attribute.InputType) -> None`
 Create DFEMFieldTemperatureGradientBeam3 in this environment.
 
@@ -1526,31 +2309,78 @@ Create DFEMFieldTemperatureGradientBeam3 in this environment.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 - `inputType` — The argument to define the load distribution on a single element. If the inputType is element uniform, only temperature value and thermal gradient at end A are necessary and they are automatically applied to end B. If the inputType is element variable, all temperature values and thermal gradients can be defined.
 
-- `getElementIds() -> [int]` — a list of integers to define target element IDs in the field.
-- `getInputType() -> apex.attribute.InputType` — The argument to define the load distribution on a single element. If the inputType is element uniform, only temperature value and thermal gradient at end A are necessary and they are automatically applied to end B and mid C. If the inputType is element variable, all temperature values and thermal gradients can be defined.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getTemperaturesEndA() -> [float]` — a list of temperature values at end A on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesEndB() -> [float]` — a list of temperature values at end B on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesMidC() -> [float]` — a list of temperature values at a point C between end A and end B. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesPointCendA() -> [float]` — a list of temperature values on point C at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesPointCendB() -> [float]` — a list of temperature values on point C at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesPointCmidC() -> [float]` — a list of temperature values on point C at mid C, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesPointDendA() -> [float]` — a list of temperature values on point D at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesPointDendB() -> [float]` — a list of temperature values on point D at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesPointDmidC() -> [float]` — a list of temperature values on point D at mid C, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesPointEendA() -> [float]` — a list of temperature values on point E at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesPointEendB() -> [float]` — a list of temperature values on point E at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesPointEmidC() -> [float]` — a list of temperature values on point E at mid C, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesPointFendA() -> [float]` — a list of temperature values on point F at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesPointFendB() -> [float]` — a list of temperature values on point F at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturesPointFmidC() -> [float]` — a list of temperature values on point F at mid C, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getThermalGradientsYA() -> [float]` — a list of effective linear thermal gradients in local direction y on end A. It represents a Thermal Gradient quantity and must be specified using units of Thermal Gradient from the active script unit system.
-- `getThermalGradientsYB() -> [float]` — a list of effective linear thermal gradients in direction y on end B. It represents a Thermal Gradient quantity and must be specified using units of Thermal Gradient from the active script unit system.
-- `getThermalGradientsYC() -> [float]` — a list of effective linear thermal gradients in direction y on mid C. It represents a Thermal Gradient quantity and must be specified using units of Thermal Gradient from the active script unit system.
-- `getThermalGradientsZA() -> [float]` — a list of effective linear thermal gradients in direction z on end A. It represents a Thermal Gradient quantity and must be specified using units of Thermal Gradient from the active script unit system.
-- `getThermalGradientsZB() -> [float]` — a list of effective linear thermal gradients in direction z on end B. It represents a Thermal Gradient quantity and must be specified using units of Thermal Gradient from the active script unit system.
-- `getThermalGradientsZC() -> [float]` — a list of effective linear thermal gradients in direction z on mid C. It represents a Thermal Gradient quantity and must be specified using units of Thermal Gradient from the active script unit system.
+#### `getInputType() -> apex.attribute.InputType`
+The argument to define the load distribution on a single element. If the inputType is element uniform, only temperature value and thermal gradient at end A are necessary and they are automatically applied to end B and mid C. If the inputType is element variable, all temperature values and thermal gradients can be defined.
+
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
+#### `getTemperaturesEndA() -> [float]`
+a list of temperature values at end A on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesEndB() -> [float]`
+a list of temperature values at end B on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesMidC() -> [float]`
+a list of temperature values at a point C between end A and end B. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesPointCendA() -> [float]`
+a list of temperature values on point C at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesPointCendB() -> [float]`
+a list of temperature values on point C at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesPointCmidC() -> [float]`
+a list of temperature values on point C at mid C, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesPointDendA() -> [float]`
+a list of temperature values on point D at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesPointDendB() -> [float]`
+a list of temperature values on point D at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesPointDmidC() -> [float]`
+a list of temperature values on point D at mid C, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesPointEendA() -> [float]`
+a list of temperature values on point E at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesPointEendB() -> [float]`
+a list of temperature values on point E at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesPointEmidC() -> [float]`
+a list of temperature values on point E at mid C, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesPointFendA() -> [float]`
+a list of temperature values on point F at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesPointFendB() -> [float]`
+a list of temperature values on point F at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturesPointFmidC() -> [float]`
+a list of temperature values on point F at mid C, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getThermalGradientsYA() -> [float]`
+a list of effective linear thermal gradients in local direction y on end A. It represents a Thermal Gradient quantity and must be specified using units of Thermal Gradient from the active script unit system.
+
+#### `getThermalGradientsYB() -> [float]`
+a list of effective linear thermal gradients in direction y on end B. It represents a Thermal Gradient quantity and must be specified using units of Thermal Gradient from the active script unit system.
+
+#### `getThermalGradientsYC() -> [float]`
+a list of effective linear thermal gradients in direction y on mid C. It represents a Thermal Gradient quantity and must be specified using units of Thermal Gradient from the active script unit system.
+
+#### `getThermalGradientsZA() -> [float]`
+a list of effective linear thermal gradients in direction z on end A. It represents a Thermal Gradient quantity and must be specified using units of Thermal Gradient from the active script unit system.
+
+#### `getThermalGradientsZB() -> [float]`
+a list of effective linear thermal gradients in direction z on end B. It represents a Thermal Gradient quantity and must be specified using units of Thermal Gradient from the active script unit system.
+
+#### `getThermalGradientsZC() -> [float]`
+a list of effective linear thermal gradients in direction z on mid C. It represents a Thermal Gradient quantity and must be specified using units of Thermal Gradient from the active script unit system.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target elements from the field.
 
@@ -1592,6 +2422,16 @@ Properties: `nodeIds`, `pathIndices`, `pathNames`, `temperatureValues`
 
 Methods:
 
+- `DFEMFieldTemperatureNodal(nodeIds: [int], temperatureValues: [float], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldTemperatureNodal in this environment.
+- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getTemperatureValues() -> [float]` — a list of temperature values associated with the target nodes.
+- `removeTargets(ids: [int]) -> None` — Remove the target nodes from the field.
+- `update(nodeIds: [int], temperatureValues: [float], pathNames: [str], pathIndices: [int]) -> None` — Updates one or more properties of the Temperature.
+
+Method details:
+
 #### `DFEMFieldTemperatureNodal(nodeIds: [int], temperatureValues: [float], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldTemperatureNodal in this environment.
 
@@ -1600,10 +2440,15 @@ Create DFEMFieldTemperatureNodal in this environment.
 - `pathNames` — The full pathName of the target nodes. It can be one string to indicate that all nodes belong to one part or a list of strings to define different pathNames for each target node.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getTemperatureValues() -> [float]` — a list of temperature values associated with the target nodes. Each value represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
+#### `getTemperatureValues() -> [float]`
+a list of temperature values associated with the target nodes. Each value represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target nodes from the field.
 
@@ -1624,6 +2469,21 @@ Properties: `nodeIds`, `pathIndices`, `pathNames`, `timeDelaysRx`, `timeDelaysRy
 
 Methods:
 
+- `DFEMFieldTimeDelay(nodeIds: [int], timeDelaysX: [float], timeDelaysY: [float], timeDelaysZ: [float], timeDelaysRx: [float], timeDelaysRy: [float], timeDelaysRz: [float], pathNames: [str], pathIndices: [int]) -> None` — Create DFEMFieldTimeDelay in this environment.
+- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field.
+- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames.
+- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `getTimeDelaysRx() -> [float]` — a list of the time delay values in the rotation X component.
+- `getTimeDelaysRy() -> [float]` — a list of the time delay values in the rotation Y component.
+- `getTimeDelaysRz() -> [float]` — a list of the time delay values in the rotation Z component.
+- `getTimeDelaysX() -> [float]` — a list of the time delay values in the X component.
+- `getTimeDelaysY() -> [float]` — a list of the time delay value in the Y component.
+- `getTimeDelaysZ() -> [float]` — a list of the time delay values in the Z component.
+- `removeTargets(ids: [int]) -> None` — Remove the target nodes from the field.
+- `update(nodeIds: [int], timeDelaysX: [float], timeDelaysY: [float], timeDelaysZ: [float], timeDelaysRx: [float], timeDelaysRy: [float], timeDelaysRz: [float], pathNames: [str], pathIndices: [int]) -> None` — Updates one or more properties of the field.
+
+Method details:
+
 #### `DFEMFieldTimeDelay(nodeIds: [int], timeDelaysX: [float], timeDelaysY: [float], timeDelaysZ: [float], timeDelaysRx: [float], timeDelaysRy: [float], timeDelaysRz: [float], pathNames: [str], pathIndices: [int]) -> None`
 Create DFEMFieldTimeDelay in this environment.
 
@@ -1637,15 +2497,33 @@ Create DFEMFieldTimeDelay in this environment.
 - `pathNames` — The full pathName of the target nodes. It can be one string to indicate that all nodes belong to one part or a list of strings to define different pathNames for each target node.
 - `pathIndices` — An optional list of integers mapped to the string indices in the pathNames. Each integer in the list indicates the full pathName of the target node/element in the field, so that system can find the unique node/element id in the model. This argument can be omitted when only one pathName is existed.
 
-- `getNodeIds() -> [int]` — a list of integers to define target node IDs in the field. It is a Time quantity and must be defined using the units of Time from the active script unit system.
-- `getPathIndices() -> [int]` — a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
-- `getPathNames() -> [str]` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
-- `getTimeDelaysRx() -> [float]` — a list of the time delay values in the rotation X component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
-- `getTimeDelaysRy() -> [float]` — a list of the time delay values in the rotation Y component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
-- `getTimeDelaysRz() -> [float]` — a list of the time delay values in the rotation Z component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
-- `getTimeDelaysX() -> [float]` — a list of the time delay values in the X component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
-- `getTimeDelaysY() -> [float]` — a list of the time delay value in the Y component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
-- `getTimeDelaysZ() -> [float]` — a list of the time delay values in the Z component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+#### `getNodeIds() -> [int]`
+a list of integers to define target node IDs in the field. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+
+#### `getPathIndices() -> [int]`
+a list of integers mapped to the string indices in the pathNames. Each item in the list indicates the pathName of the target FEM entity in the field. So the number of indices equals to the number of target FEM entities in the field.
+
+#### `getPathNames() -> [str]`
+a list to provide the unique pathNames of the mesh bodies that include target FEM entities. For example, pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1"] indicates that all target FEM entities is associated with the mesh body "/Part 1/Mesh 1" in the model. pathNames = [ apex.currentModel().name + "/Part 1/Mesh 1", apex.currentModel().name + "/Part 1/Mesh 2", apex.currentModel().name + "/Part 1/Mesh 3"] indicates that all target nodes/elements belong to the three mesh bodies.
+
+#### `getTimeDelaysRx() -> [float]`
+a list of the time delay values in the rotation X component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+
+#### `getTimeDelaysRy() -> [float]`
+a list of the time delay values in the rotation Y component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+
+#### `getTimeDelaysRz() -> [float]`
+a list of the time delay values in the rotation Z component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+
+#### `getTimeDelaysX() -> [float]`
+a list of the time delay values in the X component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+
+#### `getTimeDelaysY() -> [float]`
+a list of the time delay value in the Y component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+
+#### `getTimeDelaysZ() -> [float]`
+a list of the time delay values in the Z component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+
 #### `removeTargets(ids: [int]) -> None`
 Remove the target nodes from the field.
 
@@ -1674,13 +2552,38 @@ Properties: `applicationMethod`, `attachmentDistributionType`, `attachmentRegion
 
 Methods:
 
-- `getApplicationMethod() -> apex.attribute.ApplicationMethod` — Returns ApplicationMethod of the DisplacementConstraint. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: ConstraintDisplacement.
-- `getAttachmentDistributionType() -> apex.attribute.DistributionType` — Returns AttachmentDistributionType of the DisplacementConstraint. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: ConstraintDisplacement.
-- `getAttachmentRegion() -> apex.EntityCollection` — Returns AttachmentRegion of the DisplacementConstraint. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: ConstraintDisplacement.
-- `getConstraintType() -> apex.attribute.ConstraintType` — Returns ConstraintType of the DisplacementConstraint. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: ConstraintDisplacement.
-- `getDisplacementConstraintProperties() -> apex.attribute.DisplacementConstraintProperty` — Returns DisplacementConstraintProperties of the DisplacementConstraint. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: ConstraintDisplacement.
-- `getOrientation() -> apex.construct.Orientation` — Returns Orientation of the DisplacementConstraint. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: ConstraintDisplacement.
-- `getTarget() -> apex.EntityCollection` — Returns a read only collection of the entities that the DisplacementConstraint is applied to. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: ConstraintDisplacement.
+- `getApplicationMethod() -> apex.attribute.ApplicationMethod` — DEPRECATED. Returns ApplicationMethod of the DisplacementConstraint.
+- `getAttachmentDistributionType() -> apex.attribute.DistributionType` — DEPRECATED. Returns AttachmentDistributionType of the DisplacementConstraint.
+- `getAttachmentRegion() -> apex.EntityCollection` — DEPRECATED. Returns AttachmentRegion of the DisplacementConstraint.
+- `getConstraintType() -> apex.attribute.ConstraintType` — DEPRECATED. Returns ConstraintType of the DisplacementConstraint.
+- `getDisplacementConstraintProperties() -> apex.attribute.DisplacementConstraintProperty` — DEPRECATED. Returns DisplacementConstraintProperties of the DisplacementConstraint.
+- `getOrientation() -> apex.construct.Orientation` — DEPRECATED. Returns Orientation of the DisplacementConstraint.
+- `getTarget() -> apex.EntityCollection` — DEPRECATED. Returns a read only collection of the entities that the DisplacementConstraint is applied to.
+- `update(name: str, description: str, constraintType: apex.attribute.ConstraintType, constraintProperties: apex.attribute.DisplacementConstraintProperty, applicationMethod: apex.attribute.ApplicationMethod, target: apex.EntityCollection, attachmentRegion: apex.EntityCollection, attachmentDistributionType: apex.attribute.DistributionType, orientation: apex.construct.Orientation) -> None` — DEPRECATED. Update this DisplacementConstraint.
+
+Method details:
+
+#### `getApplicationMethod() -> apex.attribute.ApplicationMethod`
+Returns ApplicationMethod of the DisplacementConstraint. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: ConstraintDisplacement.
+
+#### `getAttachmentDistributionType() -> apex.attribute.DistributionType`
+Returns AttachmentDistributionType of the DisplacementConstraint. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: ConstraintDisplacement.
+
+#### `getAttachmentRegion() -> apex.EntityCollection`
+Returns AttachmentRegion of the DisplacementConstraint. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: ConstraintDisplacement.
+
+#### `getConstraintType() -> apex.attribute.ConstraintType`
+Returns ConstraintType of the DisplacementConstraint. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: ConstraintDisplacement.
+
+#### `getDisplacementConstraintProperties() -> apex.attribute.DisplacementConstraintProperty`
+Returns DisplacementConstraintProperties of the DisplacementConstraint. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: ConstraintDisplacement.
+
+#### `getOrientation() -> apex.construct.Orientation`
+Returns Orientation of the DisplacementConstraint. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: ConstraintDisplacement.
+
+#### `getTarget() -> apex.EntityCollection`
+Returns a read only collection of the entities that the DisplacementConstraint is applied to. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: ConstraintDisplacement.
+
 #### `update(name: str, description: str, constraintType: apex.attribute.ConstraintType, constraintProperties: apex.attribute.DisplacementConstraintProperty, applicationMethod: apex.attribute.ApplicationMethod, target: apex.EntityCollection, attachmentRegion: apex.EntityCollection, attachmentDistributionType: apex.attribute.DistributionType, orientation: apex.construct.Orientation) -> None`
 Update this DisplacementConstraint. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: ConstraintDisplacement.
 
@@ -1703,14 +2606,45 @@ Methods:
 
 - `DisplacementConstraintCollection() -> None` — Construct a new DisplacementConstraintCollection.
 
+Method details:
+
+#### `DisplacementConstraintCollection() -> None`
+Construct a new DisplacementConstraintCollection.
+
+For example:
+
+
 ## `apex.environment.EnforcedMotion`  (extends `Entity`, `IDisplayable`, `IUserHighlightable`, `IUserAttributes`, `IName`)
 class EnforcedMotion. THIS CLASS IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
 Properties: `applicationMethod`, `attachmentDistributionType`, `attachmentRegion`, `constraintReference`, `orientation`, `target`
 
 Methods:
 
-- `addEnforcedMotionRep(rep: EnforcedMotionRep) -> None` — Add a EnforcedMotionRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `clearConstraint() -> None` — Remove referenced constraint of the EnforcedMotion. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+- `addEnforcedMotionRep(rep: EnforcedMotionRep) -> None` — DEPRECATED. Add a EnforcedMotionRep.
+- `clearConstraint() -> None` — DEPRECATED. Remove referenced constraint of the EnforcedMotion.
+- `createEnforcedMotionDynamicRepByComponent(name: str, description: str, motionType: apex.attribute.EnforcedMotionType, approach: apex.attribute.Approach, translationX: apex.DataTable3Col = None, translationY: apex.DataTable3Col = None, translationZ: apex.DataTable3Col = None, rotationX: apex.DataTable3Col = None, rotationY: apex.DataTable3Col = None, rotationZ: apex.DataTable3Col = None) -> EnforcedMotionDynamicRep` — DEPRECATED. Get a new EnforcedMotionRep in this environment.
+- `createEnforcedMotionStaticRepByComponent(name: str, description: str, translationX: float = NAN, translationY: float = NAN, translationZ: float = NAN, rotationX: float = NAN, rotationY: float = NAN, rotationZ: float = NAN) -> EnforcedMotionRep` — DEPRECATED. Get a new EnforcedMotionRep in this environment.
+- `createEnforcedMotionStaticRepByResultant(name: str, description: str, forceMagnitude: float, momentMagnitude: float, forceOrientation: apex.construct.Orientation = None, momentOrientation: apex.construct.Orientation = None) -> EnforcedMotionRep` — DEPRECATED. Get a new EnforcedMotionRep in this environment.
+- `getApplicationMethod() -> apex.attribute.ApplicationMethod` — DEPRECATED. Returns ApplicationMethod of the EnforcedMotion.
+- `getAttachmentDistributionType() -> apex.attribute.DistributionType` — DEPRECATED. Returns AttachmentRegion of the EnforcedMotion.
+- `getAttachmentRegion() -> apex.EntityCollection` — DEPRECATED. Returns AttachmentRegion of the EnforcedMotion.
+- `getConstraintReference() -> DisplacementConstraint` — DEPRECATED. Returns ConstraintReference of the EnforcedMotion.
+- `getEnforcedMotionDynamicRep(name: str = "#####") -> EnforcedMotionDynamicRep` — DEPRECATED. Returns EnforcedMotionDynamicRep of the EnforcedMotion.
+- `getEnforcedMotionRep(name: str = "#####") -> EnforcedMotionRep` — DEPRECATED. Returns EnforcedMotionRep of the EnforcedMotion.
+- `getEnforcedMotionRepIndex(name: str = "#####") -> SCA.SCAUInt64` — DEPRECATED. Returns EnforcedMotionRep index of the EnforcedMotion.
+- `getOrientation() -> apex.construct.Orientation` — DEPRECATED. Returns apex.construct.Orientation of the EnforcedMotion.
+- `getTarget() -> apex.EntityCollection` — DEPRECATED. Returns a read only collection of the entities that the EnforcedMotion is applied to.
+- `removeRep(name: str) -> None` — DEPRECATED. Remove a EnforcedMotionRep by name.
+- `update(name: str, description: str, enforcedMotionRep: EnforcedMotionRep, applicationMethod: apex.attribute.ApplicationMethod, target: apex.EntityCollection, attachmentRegion: apex.EntityCollection, attachmentDistributionType: apex.attribute.DistributionType, orientation: apex.construct.Orientation, constraintReference: DisplacementConstraint) -> None` — DEPRECATED. Update this EnforcedMotion.
+
+Method details:
+
+#### `addEnforcedMotionRep(rep: EnforcedMotionRep) -> None`
+Add a EnforcedMotionRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `clearConstraint() -> None`
+Remove referenced constraint of the EnforcedMotion. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
 #### `createEnforcedMotionDynamicRepByComponent(name: str, description: str, motionType: apex.attribute.EnforcedMotionType, approach: apex.attribute.Approach, translationX: apex.DataTable3Col = None, translationY: apex.DataTable3Col = None, translationZ: apex.DataTable3Col = None, rotationX: apex.DataTable3Col = None, rotationY: apex.DataTable3Col = None, rotationZ: apex.DataTable3Col = None) -> EnforcedMotionDynamicRep`
 Get a new EnforcedMotionRep in this environment. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
 
@@ -1747,16 +2681,36 @@ Get a new EnforcedMotionRep in this environment. THIS FUNCTION IS DEPRECATED AND
 - `forceOrientation` — of the EnforcedMotionRep.
 - `momentOrientation` — of the EnforcedMotionRep.
 
-- `getApplicationMethod() -> apex.attribute.ApplicationMethod` — Returns ApplicationMethod of the EnforcedMotion. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `getAttachmentDistributionType() -> apex.attribute.DistributionType` — Returns AttachmentRegion of the EnforcedMotion. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `getAttachmentRegion() -> apex.EntityCollection` — Returns AttachmentRegion of the EnforcedMotion. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `getConstraintReference() -> DisplacementConstraint` — Returns ConstraintReference of the EnforcedMotion. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `getEnforcedMotionDynamicRep(name: str = "#####") -> EnforcedMotionDynamicRep` — Returns EnforcedMotionDynamicRep of the EnforcedMotion. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `getEnforcedMotionRep(name: str = "#####") -> EnforcedMotionRep` — Returns EnforcedMotionRep of the EnforcedMotion. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `getEnforcedMotionRepIndex(name: str = "#####") -> SCA.SCAUInt64` — Returns EnforcedMotionRep index of the EnforcedMotion. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `getOrientation() -> apex.construct.Orientation` — Returns apex.construct.Orientation of the EnforcedMotion. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `getTarget() -> apex.EntityCollection` — Returns a read only collection of the entities that the EnforcedMotion is applied to. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `removeRep(name: str) -> None` — Remove a EnforcedMotionRep by name. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+#### `getApplicationMethod() -> apex.attribute.ApplicationMethod`
+Returns ApplicationMethod of the EnforcedMotion. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `getAttachmentDistributionType() -> apex.attribute.DistributionType`
+Returns AttachmentRegion of the EnforcedMotion. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `getAttachmentRegion() -> apex.EntityCollection`
+Returns AttachmentRegion of the EnforcedMotion. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `getConstraintReference() -> DisplacementConstraint`
+Returns ConstraintReference of the EnforcedMotion. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `getEnforcedMotionDynamicRep(name: str = "#####") -> EnforcedMotionDynamicRep`
+Returns EnforcedMotionDynamicRep of the EnforcedMotion. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `getEnforcedMotionRep(name: str = "#####") -> EnforcedMotionRep`
+Returns EnforcedMotionRep of the EnforcedMotion. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `getEnforcedMotionRepIndex(name: str = "#####") -> SCA.SCAUInt64`
+Returns EnforcedMotionRep index of the EnforcedMotion. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `getOrientation() -> apex.construct.Orientation`
+Returns apex.construct.Orientation of the EnforcedMotion. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `getTarget() -> apex.EntityCollection`
+Returns a read only collection of the entities that the EnforcedMotion is applied to. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `removeRep(name: str) -> None`
+Remove a EnforcedMotionRep by name. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
 #### `update(name: str, description: str, enforcedMotionRep: EnforcedMotionRep, applicationMethod: apex.attribute.ApplicationMethod, target: apex.EntityCollection, attachmentRegion: apex.EntityCollection, attachmentDistributionType: apex.attribute.DistributionType, orientation: apex.construct.Orientation, constraintReference: DisplacementConstraint) -> None`
 Update this EnforcedMotion. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
 
@@ -1779,20 +2733,66 @@ Properties: `approach`, `motionType`, `rotationX`, `rotationY`, `rotationZ`, `tr
 
 Methods:
 
-- `getApproach() -> apex.attribute.Approach` — Returns Approach of the EnforcedMotionDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `getMotionType() -> apex.attribute.EnforcedMotionType` — Returns EnforcedMotionType of the EnforcedMotionDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `getRotationX() -> DataTable3Col` — Returns MomentX value of the EnforcedMotionDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `getRotationY() -> DataTable3Col` — Returns MomentY value of the EnforcedMotionDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `getRotationZ() -> DataTable3Col` — Returns MomentZ value of the EnforcedMotionDynamicRep.THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `getTranslationX() -> DataTable3Col` — Returns ForceX value of the EnforcedMotionDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `getTranslationY() -> DataTable3Col` — Returns ForceY value of the EnforcedMotionDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `getTranslationZ() -> DataTable3Col` — Returns ForceZ value of the EnforcedMotionDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `removeDRX() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `removeDRY() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `removeDRZ() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `removeDTX() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `removeDTY() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `removeDTZ() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+- `getApproach() -> apex.attribute.Approach` — DEPRECATED. Returns Approach of the EnforcedMotionDynamicRep.
+- `getMotionType() -> apex.attribute.EnforcedMotionType` — DEPRECATED. Returns EnforcedMotionType of the EnforcedMotionDynamicRep.
+- `getRotationX() -> DataTable3Col` — DEPRECATED. Returns MomentX value of the EnforcedMotionDynamicRep.
+- `getRotationY() -> DataTable3Col` — DEPRECATED. Returns MomentY value of the EnforcedMotionDynamicRep.
+- `getRotationZ() -> DataTable3Col` — Returns MomentZ value of the EnforcedMotionDynamicRep.THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `getTranslationX() -> DataTable3Col` — DEPRECATED. Returns ForceX value of the EnforcedMotionDynamicRep.
+- `getTranslationY() -> DataTable3Col` — DEPRECATED. Returns ForceY value of the EnforcedMotionDynamicRep.
+- `getTranslationZ() -> DataTable3Col` — DEPRECATED. Returns ForceZ value of the EnforcedMotionDynamicRep.
+- `removeDRX() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `removeDRY() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `removeDRZ() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `removeDTX() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `removeDTY() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `removeDTZ() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `update(name: str, description: str, motionType: apex.attribute.EnforcedMotionType, approach: apex.attribute.Approach, translationX: apex.DataTable3Col, translationY: apex.DataTable3Col, translationZ: apex.DataTable3Col, rotationX: apex.DataTable3Col, rotationY: apex.DataTable3Col, rotationZ: apex.DataTable3Col, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None` — DEPRECATED. Update this EnforcedMotionDynamicRep.
+
+Method details:
+
+#### `getApproach() -> apex.attribute.Approach`
+Returns Approach of the EnforcedMotionDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `getMotionType() -> apex.attribute.EnforcedMotionType`
+Returns EnforcedMotionType of the EnforcedMotionDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `getRotationX() -> DataTable3Col`
+Returns MomentX value of the EnforcedMotionDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `getRotationY() -> DataTable3Col`
+Returns MomentY value of the EnforcedMotionDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `getRotationZ() -> DataTable3Col`
+Returns MomentZ value of the EnforcedMotionDynamicRep.THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `getTranslationX() -> DataTable3Col`
+Returns ForceX value of the EnforcedMotionDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `getTranslationY() -> DataTable3Col`
+Returns ForceY value of the EnforcedMotionDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `getTranslationZ() -> DataTable3Col`
+Returns ForceZ value of the EnforcedMotionDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `removeDRX() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `removeDRY() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `removeDRZ() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `removeDTX() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `removeDTY() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `removeDTZ() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
 #### `update(name: str, description: str, motionType: apex.attribute.EnforcedMotionType, approach: apex.attribute.Approach, translationX: apex.DataTable3Col, translationY: apex.DataTable3Col, translationZ: apex.DataTable3Col, rotationX: apex.DataTable3Col, rotationY: apex.DataTable3Col, rotationZ: apex.DataTable3Col, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None`
 Update this EnforcedMotionDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
 
@@ -1820,20 +2820,66 @@ Properties: `rotationMagnitude`, `rotationX`, `rotationY`, `rotationZ`, `transla
 
 Methods:
 
-- `getRotationMagnitude() -> float` — Returns MMagnitude value of the EnforcedMotionRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `getRotationX() -> float` — Returns MomentX value of the EnforcedMotionRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `getRotationY() -> float` — Returns MomentY value of the EnforcedMotionRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `getRotationZ() -> float` — Returns MomentZ value of the EnforcedMotionRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `getTranslationMagnitude() -> float` — Returns FMagnitude value of the EnforcedMotionRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `getTranslationX() -> float` — Returns ForceX value of the EnforcedMotionRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `getTranslationY() -> float` — Returns ForceY value of the EnforcedMotionRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `getTranslationZ() -> float` — Returns ForceZ value of the EnforcedMotionRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `removeRX() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `removeRY() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `removeRZ() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `removeTX() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `removeTY() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
-- `removeTZ() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+- `getRotationMagnitude() -> float` — DEPRECATED. Returns MMagnitude value of the EnforcedMotionRep.
+- `getRotationX() -> float` — DEPRECATED. Returns MomentX value of the EnforcedMotionRep.
+- `getRotationY() -> float` — DEPRECATED. Returns MomentY value of the EnforcedMotionRep.
+- `getRotationZ() -> float` — DEPRECATED. Returns MomentZ value of the EnforcedMotionRep.
+- `getTranslationMagnitude() -> float` — DEPRECATED. Returns FMagnitude value of the EnforcedMotionRep.
+- `getTranslationX() -> float` — DEPRECATED. Returns ForceX value of the EnforcedMotionRep.
+- `getTranslationY() -> float` — DEPRECATED. Returns ForceY value of the EnforcedMotionRep.
+- `getTranslationZ() -> float` — DEPRECATED. Returns ForceZ value of the EnforcedMotionRep.
+- `removeRX() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `removeRY() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `removeRZ() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `removeTX() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `removeTY() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `removeTZ() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `update(name: str, description: str, translationX: float, translationY: float, translationZ: float, rotationX: float, rotationY: float, rotationZ: float, translationMagnitude: float, translationOrientation: apex.construct.Orientation, rotationMagnitude: float, rotationOrientation: apex.construct.Orientation, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None` — DEPRECATED. Update this EnforcedMotionRep.
+
+Method details:
+
+#### `getRotationMagnitude() -> float`
+Returns MMagnitude value of the EnforcedMotionRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `getRotationX() -> float`
+Returns MomentX value of the EnforcedMotionRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `getRotationY() -> float`
+Returns MomentY value of the EnforcedMotionRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `getRotationZ() -> float`
+Returns MomentZ value of the EnforcedMotionRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `getTranslationMagnitude() -> float`
+Returns FMagnitude value of the EnforcedMotionRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `getTranslationX() -> float`
+Returns ForceX value of the EnforcedMotionRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `getTranslationY() -> float`
+Returns ForceY value of the EnforcedMotionRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `getTranslationZ() -> float`
+Returns ForceZ value of the EnforcedMotionRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `removeRX() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `removeRY() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `removeRZ() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `removeTX() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `removeTY() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
+#### `removeTZ() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
+
 #### `update(name: str, description: str, translationX: float, translationY: float, translationZ: float, rotationX: float, rotationY: float, rotationZ: float, translationMagnitude: float, translationOrientation: apex.construct.Orientation, rotationMagnitude: float, rotationOrientation: apex.construct.Orientation, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None`
 Update this EnforcedMotionRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadEnforcedMotionTotal.
 
@@ -1863,8 +2909,31 @@ Properties: `applicationMethod`, `attachmentDistributionType`, `attachmentRegion
 
 Methods:
 
-- `addForceMomentRep(rep: ForceMomentRep) -> None` — Add a ForceMomentRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `clearConstraint() -> None` — Remove referenced constraint of the ForceMoment. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+- `addForceMomentRep(rep: ForceMomentRep) -> None` — DEPRECATED. Add a ForceMomentRep.
+- `clearConstraint() -> None` — DEPRECATED. Remove referenced constraint of the ForceMoment.
+- `createForceMomentDynamicRepByComponent(name: str, description: str, approach: apex.attribute.Approach, forceX: apex.DataTable3Col = None, forceY: apex.DataTable3Col = None, forceZ: apex.DataTable3Col = None, momentX: apex.DataTable3Col = None, momentY: apex.DataTable3Col = None, momentZ: apex.DataTable3Col = None) -> ForceMomentDynamicRep` — DEPRECATED. Get a new ForceMomentRep in this environment.
+- `createForceMomentStaticRepByComponent(name: str, description: str, forceX: float = NAN, forceY: float = NAN, forceZ: float = NAN, momentX: float = NAN, momentY: float = NAN, momentZ: float = NAN) -> ForceMomentRep` — DEPRECATED. Get a new ForceMomentRep in this environment.
+- `createForceMomentStaticRepByResultant(name: str, description: str, forceMagnitude: float, momentMagnitude: float, forceOrientation: apex.construct.Orientation = None, momentOrientation: apex.construct.Orientation = None) -> ForceMomentRep` — DEPRECATED. Get a new ForceMomentRep in this environment.
+- `getApplicationMethod() -> apex.attribute.ApplicationMethod` — DEPRECATED. Returns ApplicationMethod of the ForceMoment.
+- `getAttachmentDistributionType() -> apex.attribute.DistributionType` — DEPRECATED. Returns AttachmentRegion of the ForceMoment.
+- `getAttachmentRegion() -> apex.EntityCollection` — DEPRECATED. Returns AttachmentRegion of the ForceMoment.
+- `getConstraintReference() -> DisplacementConstraint` — DEPRECATED. Returns ConstraintReference of the ForceMoment.
+- `getForceMomentDynamicRep(name: str = "#####") -> ForceMomentDynamicRep` — DEPRECATED. Returns ForceMomentDynamicRep of the ForceMoment.
+- `getForceMomentRep(name: str = "#####") -> ForceMomentRep` — DEPRECATED. Returns ForceMomentRep of the ForceMoment.
+- `getForceMomentRepIndex(name: str = "#####") -> SCA.SCAUInt64` — DEPRECATED. Returns ForceMomentRep index of the ForceMoment.
+- `getOrientation() -> apex.construct.Orientation` — DEPRECATED. Returns apex.construct.Orientation of the ForceMoment.
+- `getTarget() -> apex.EntityCollection` — DEPRECATED. Returns a read only collection of the entities that the ForceMoment is applied to.
+- `removeRep(name: str) -> None` — DEPRECATED. Remove a ForceMomentRep by name.
+- `update(name: str, description: str, forceMomentRep: ForceMomentRep, applicationMethod: apex.attribute.ApplicationMethod, target: apex.EntityCollection, attachmentRegion: apex.EntityCollection, attachmentDistributionType: apex.attribute.DistributionType, orientation: apex.construct.Orientation, constraintReference: DisplacementConstraint) -> None` — DEPRECATED. Update this ForceMoment.
+
+Method details:
+
+#### `addForceMomentRep(rep: ForceMomentRep) -> None`
+Add a ForceMomentRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `clearConstraint() -> None`
+Remove referenced constraint of the ForceMoment. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
 #### `createForceMomentDynamicRepByComponent(name: str, description: str, approach: apex.attribute.Approach, forceX: apex.DataTable3Col = None, forceY: apex.DataTable3Col = None, forceZ: apex.DataTable3Col = None, momentX: apex.DataTable3Col = None, momentY: apex.DataTable3Col = None, momentZ: apex.DataTable3Col = None) -> ForceMomentDynamicRep`
 Get a new ForceMomentRep in this environment. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
 
@@ -1900,16 +2969,36 @@ Get a new ForceMomentRep in this environment. THIS FUNCTION IS DEPRECATED AND WI
 - `forceOrientation` — of the ForceMomentRep.
 - `momentOrientation` — of the ForceMomentRep.
 
-- `getApplicationMethod() -> apex.attribute.ApplicationMethod` — Returns ApplicationMethod of the ForceMoment. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `getAttachmentDistributionType() -> apex.attribute.DistributionType` — Returns AttachmentRegion of the ForceMoment. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `getAttachmentRegion() -> apex.EntityCollection` — Returns AttachmentRegion of the ForceMoment. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `getConstraintReference() -> DisplacementConstraint` — Returns ConstraintReference of the ForceMoment. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `getForceMomentDynamicRep(name: str = "#####") -> ForceMomentDynamicRep` — Returns ForceMomentDynamicRep of the ForceMoment. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `getForceMomentRep(name: str = "#####") -> ForceMomentRep` — Returns ForceMomentRep of the ForceMoment. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `getForceMomentRepIndex(name: str = "#####") -> SCA.SCAUInt64` — Returns ForceMomentRep index of the ForceMoment. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `getOrientation() -> apex.construct.Orientation` — Returns apex.construct.Orientation of the ForceMoment. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `getTarget() -> apex.EntityCollection` — Returns a read only collection of the entities that the ForceMoment is applied to. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `removeRep(name: str) -> None` — Remove a ForceMomentRep by name. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+#### `getApplicationMethod() -> apex.attribute.ApplicationMethod`
+Returns ApplicationMethod of the ForceMoment. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `getAttachmentDistributionType() -> apex.attribute.DistributionType`
+Returns AttachmentRegion of the ForceMoment. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `getAttachmentRegion() -> apex.EntityCollection`
+Returns AttachmentRegion of the ForceMoment. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `getConstraintReference() -> DisplacementConstraint`
+Returns ConstraintReference of the ForceMoment. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `getForceMomentDynamicRep(name: str = "#####") -> ForceMomentDynamicRep`
+Returns ForceMomentDynamicRep of the ForceMoment. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `getForceMomentRep(name: str = "#####") -> ForceMomentRep`
+Returns ForceMomentRep of the ForceMoment. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `getForceMomentRepIndex(name: str = "#####") -> SCA.SCAUInt64`
+Returns ForceMomentRep index of the ForceMoment. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `getOrientation() -> apex.construct.Orientation`
+Returns apex.construct.Orientation of the ForceMoment. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `getTarget() -> apex.EntityCollection`
+Returns a read only collection of the entities that the ForceMoment is applied to. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `removeRep(name: str) -> None`
+Remove a ForceMomentRep by name. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
 #### `update(name: str, description: str, forceMomentRep: ForceMomentRep, applicationMethod: apex.attribute.ApplicationMethod, target: apex.EntityCollection, attachmentRegion: apex.EntityCollection, attachmentDistributionType: apex.attribute.DistributionType, orientation: apex.construct.Orientation, constraintReference: DisplacementConstraint) -> None`
 Update this ForceMoment. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
 
@@ -1932,19 +3021,62 @@ Properties: `approach`, `forceX`, `forceY`, `forceZ`, `momentX`, `momentY`, `mom
 
 Methods:
 
-- `getApproach() -> apex.attribute.Approach` — Returns Approach of the ForceMomentDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `getForceX() -> DataTable3Col` — Returns ForceX value of the ForceMomentDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `getForceY() -> DataTable3Col` — Returns ForceY value of the ForceMomentDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `getForceZ() -> DataTable3Col` — Returns ForceZ value of the ForceMomentDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `getMomentX() -> DataTable3Col` — Returns MomentX value of the ForceMomentDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `getMomentY() -> DataTable3Col` — Returns MomentY value of the ForceMomentDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `getMomentZ() -> DataTable3Col` — Returns MomentZ value of the ForceMomentDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `removeDFX() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `removeDFY() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `removeDFZ() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `removeDMX() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `removeDMY() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `removeDMZ() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+- `getApproach() -> apex.attribute.Approach` — DEPRECATED. Returns Approach of the ForceMomentDynamicRep.
+- `getForceX() -> DataTable3Col` — DEPRECATED. Returns ForceX value of the ForceMomentDynamicRep.
+- `getForceY() -> DataTable3Col` — DEPRECATED. Returns ForceY value of the ForceMomentDynamicRep.
+- `getForceZ() -> DataTable3Col` — DEPRECATED. Returns ForceZ value of the ForceMomentDynamicRep.
+- `getMomentX() -> DataTable3Col` — DEPRECATED. Returns MomentX value of the ForceMomentDynamicRep.
+- `getMomentY() -> DataTable3Col` — DEPRECATED. Returns MomentY value of the ForceMomentDynamicRep.
+- `getMomentZ() -> DataTable3Col` — DEPRECATED. Returns MomentZ value of the ForceMomentDynamicRep.
+- `removeDFX() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `removeDFY() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `removeDFZ() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `removeDMX() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `removeDMY() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `removeDMZ() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `update(name: str, description: str, approach: apex.attribute.Approach, forceX: apex.DataTable3Col, forceY: apex.DataTable3Col, forceZ: apex.DataTable3Col, momentX: apex.DataTable3Col, momentY: apex.DataTable3Col, momentZ: apex.DataTable3Col, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None` — DEPRECATED. Update this ForceMomentDynamicRep.
+
+Method details:
+
+#### `getApproach() -> apex.attribute.Approach`
+Returns Approach of the ForceMomentDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `getForceX() -> DataTable3Col`
+Returns ForceX value of the ForceMomentDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `getForceY() -> DataTable3Col`
+Returns ForceY value of the ForceMomentDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `getForceZ() -> DataTable3Col`
+Returns ForceZ value of the ForceMomentDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `getMomentX() -> DataTable3Col`
+Returns MomentX value of the ForceMomentDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `getMomentY() -> DataTable3Col`
+Returns MomentY value of the ForceMomentDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `getMomentZ() -> DataTable3Col`
+Returns MomentZ value of the ForceMomentDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `removeDFX() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `removeDFY() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `removeDFZ() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `removeDMX() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `removeDMY() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `removeDMZ() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
 #### `update(name: str, description: str, approach: apex.attribute.Approach, forceX: apex.DataTable3Col, forceY: apex.DataTable3Col, forceZ: apex.DataTable3Col, momentX: apex.DataTable3Col, momentY: apex.DataTable3Col, momentZ: apex.DataTable3Col, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None`
 Update this ForceMomentDynamicRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
 
@@ -1971,18 +3103,58 @@ Properties: `forceX`, `forceY`, `forceZ`, `momentX`, `momentY`, `momentZ`
 
 Methods:
 
-- `getForceX() -> float` — Returns ForceX value of the ForceMomentRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `getForceY() -> float` — Returns ForceY value of the ForceMomentRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `getForceZ() -> float` — Returns ForceZ value of the ForceMomentRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `getMomentX() -> float` — Returns MomentX value of the ForceMomentRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `getMomentY() -> float` — Returns MomentY value of the ForceMomentRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `getMomentZ() -> float` — Returns MomentZ value of the ForceMomentRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `removeFX() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `removeFY() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `removeFZ() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `removeMX() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `removeMY() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
-- `removeMZ() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+- `getForceX() -> float` — DEPRECATED. Returns ForceX value of the ForceMomentRep.
+- `getForceY() -> float` — DEPRECATED. Returns ForceY value of the ForceMomentRep.
+- `getForceZ() -> float` — DEPRECATED. Returns ForceZ value of the ForceMomentRep.
+- `getMomentX() -> float` — DEPRECATED. Returns MomentX value of the ForceMomentRep.
+- `getMomentY() -> float` — DEPRECATED. Returns MomentY value of the ForceMomentRep.
+- `getMomentZ() -> float` — DEPRECATED. Returns MomentZ value of the ForceMomentRep.
+- `removeFX() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `removeFY() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `removeFZ() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `removeMX() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `removeMY() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `removeMZ() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `update(name: str, description: str, forceX: float, forceY: float, forceZ: float, momentX: float, momentY: float, momentZ: float, forceMagnitude: float, forceOrientation: apex.construct.Orientation, momentMagnitude: float, momentOrientation: apex.construct.Orientation, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None` — DEPRECATED. Update this ForceMomentRep.
+
+Method details:
+
+#### `getForceX() -> float`
+Returns ForceX value of the ForceMomentRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `getForceY() -> float`
+Returns ForceY value of the ForceMomentRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `getForceZ() -> float`
+Returns ForceZ value of the ForceMomentRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `getMomentX() -> float`
+Returns MomentX value of the ForceMomentRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `getMomentY() -> float`
+Returns MomentY value of the ForceMomentRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `getMomentZ() -> float`
+Returns MomentZ value of the ForceMomentRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `removeFX() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `removeFY() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `removeFZ() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `removeMX() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `removeMY() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
+#### `removeMZ() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
+
 #### `update(name: str, description: str, forceX: float, forceY: float, forceZ: float, momentX: float, momentY: float, momentZ: float, forceMagnitude: float, forceOrientation: apex.construct.Orientation, momentMagnitude: float, momentOrientation: apex.construct.Orientation, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None`
 Update this ForceMomentRep. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadForceComponent, LoadMomentComponent.
 
@@ -2013,12 +3185,21 @@ Properties: `coordinateSystem`, `coordinateSystemDefinition`, `gravConstant`, `g
 Methods:
 
 - `getCoordinateSystem() -> apex.construct.CoordinateSystem` — Returns CoordinateSystem of the gravity.
-- `getCoordinateSystemDefinition() -> int` — the coordinate system definition of the gravity: "apex.attribute.CoordinateSystemDefinition.SuperElement", the coordinate system is defined in the super-element and will be translated, rotated with the super-element. "apex.attribute.CoordinateSystemDefinition.Residual", the coordinate system is defined in the residual structure and stationary with the basic coordinate system.
+- `getCoordinateSystemDefinition() -> int` — the coordinate system definition of the gravity: "apex.attribute.CoordinateSystemDefinition.SuperElement", the coordinate system is defined in the ...
 - `getGravConstant() -> float` — Returns GravConstant of the gravity.
 - `getGravConstantMultiplier() -> float` — Returns GravConstantMultiplier of the gravity.
 - `getMagnitudeAccel() -> float` — Returns MagnitudeAccel of the gravity.
 - `getOrientation() -> apex.construct.Orientation` — Returns Orientation of the gravity.
 - `isValid() -> bool`
+- `setDescription(description: str) -> None` — Set the gravity description.
+- `setName(name: str) -> None` — Set the gravity name.
+- `update(name: str, description: str, orientation: apex.construct.Orientation, gravConstant: float, magnitude: float, gravConstantMultiplier: float, vector_x_component: float, vector_y_component: float, vector_z_component: float, coordinateSystem: apex.construct.CoordinateSystem, coordinateSystemDefinition: int) -> None` — Update this Gravity.
+
+Method details:
+
+#### `getCoordinateSystemDefinition() -> int`
+the coordinate system definition of the gravity: "apex.attribute.CoordinateSystemDefinition.SuperElement", the coordinate system is defined in the super-element and will be translated, rotated with the super-element. "apex.attribute.CoordinateSystemDefinition.Residual", the coordinate system is defined in the residual structure and stationary with the basic coordinate system.
+
 #### `setDescription(description: str) -> None`
 Set the gravity description.
 
@@ -2061,19 +3242,62 @@ Properties: `displacementRx`, `displacementRy`, `displacementRz`, `displacementX
 
 Methods:
 
-- `getDisplacementRx() -> float` — the displacement value in the rotation X. It is an Angle quantity and is defined using the units of Angle from the active script unit system.
-- `getDisplacementRy() -> float` — the displacement value in the rotation Y. It is an Angle quantity and is defined using the units of Angle from the active script unit system.
-- `getDisplacementRz() -> float` — the displacement value in the rotation Z. It is an Angle quantity and is defined using the units of Angle from the active script unit system.
-- `getDisplacementX() -> float` — the displacement value in the translation X. It is a Length quantity and is defined using the units of Length from the active script unit system.
-- `getDisplacementY() -> float` — the displacement value in the translation Y. It is a Length quantity and is defined using the units of Length from the active script unit system.
-- `getDisplacementZ() -> float` — the displacement value in the translation Z. It is a Length quantity and is defined using the units of Length from the active script unit system.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the initial displacement and velocity will be applied to. Initial displacement and velocity may be assigned to Solids, Cells, Surfaces, Faces, Curves, Edges, Points, Vertices, 1D and 2D Mesh Bodies and Nodes. Initial displacement and velocity assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
-- `getVelocityRx() -> float` — the velocity value in rotation X. It is a Rotation Velocity quantity and is defined using the units of Rotation Velocity from the active script unit system.
-- `getVelocityRy() -> float` — the velocity value in rotation Y. It is a Rotation Velocity quantity and is defined using the units of Rotation Velocity from the active script unit system.
-- `getVelocityRz() -> float` — the velocity value in rotation Z. It is a Rotation Velocity quantity and is defined using the units of Rotation Velocity from the active script unit system.
-- `getVelocityX() -> float` — the velocity value in translation X. It is a Velocity quantity and is defined using the units of Velocity from the active script unit system.
-- `getVelocityY() -> float` — the velocity value in translation Y. It is a Velocity quantity and is defined using the units of Velocity from the active script unit system.
-- `getVelocityZ() -> float` — the velocity value in translation Z. It is a Velocity quantity and is defined using the units of Velocity from the active script unit system.
+- `getDisplacementRx() -> float` — the displacement value in the rotation X.
+- `getDisplacementRy() -> float` — the displacement value in the rotation Y.
+- `getDisplacementRz() -> float` — the displacement value in the rotation Z.
+- `getDisplacementX() -> float` — the displacement value in the translation X.
+- `getDisplacementY() -> float` — the displacement value in the translation Y.
+- `getDisplacementZ() -> float` — the displacement value in the translation Z.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the initial displacement and velocity will be applied to.
+- `getVelocityRx() -> float` — the velocity value in rotation X.
+- `getVelocityRy() -> float` — the velocity value in rotation Y.
+- `getVelocityRz() -> float` — the velocity value in rotation Z.
+- `getVelocityX() -> float` — the velocity value in translation X.
+- `getVelocityY() -> float` — the velocity value in translation Y.
+- `getVelocityZ() -> float` — the velocity value in translation Z.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, displacementX: float, displacementY: float, displacementZ: float, displacementRx: float, displacementRy: float, displacementRz: float, velocityX: float, velocityY: float, velocityZ: float, velocityRx: float, velocityRy: float, velocityRz: float) -> None` — Updates one or more properties of the initial displacement and velocity.
+
+Method details:
+
+#### `getDisplacementRx() -> float`
+the displacement value in the rotation X. It is an Angle quantity and is defined using the units of Angle from the active script unit system.
+
+#### `getDisplacementRy() -> float`
+the displacement value in the rotation Y. It is an Angle quantity and is defined using the units of Angle from the active script unit system.
+
+#### `getDisplacementRz() -> float`
+the displacement value in the rotation Z. It is an Angle quantity and is defined using the units of Angle from the active script unit system.
+
+#### `getDisplacementX() -> float`
+the displacement value in the translation X. It is a Length quantity and is defined using the units of Length from the active script unit system.
+
+#### `getDisplacementY() -> float`
+the displacement value in the translation Y. It is a Length quantity and is defined using the units of Length from the active script unit system.
+
+#### `getDisplacementZ() -> float`
+the displacement value in the translation Z. It is a Length quantity and is defined using the units of Length from the active script unit system.
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the initial displacement and velocity will be applied to. Initial displacement and velocity may be assigned to Solids, Cells, Surfaces, Faces, Curves, Edges, Points, Vertices, 1D and 2D Mesh Bodies and Nodes. Initial displacement and velocity assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+
+#### `getVelocityRx() -> float`
+the velocity value in rotation X. It is a Rotation Velocity quantity and is defined using the units of Rotation Velocity from the active script unit system.
+
+#### `getVelocityRy() -> float`
+the velocity value in rotation Y. It is a Rotation Velocity quantity and is defined using the units of Rotation Velocity from the active script unit system.
+
+#### `getVelocityRz() -> float`
+the velocity value in rotation Z. It is a Rotation Velocity quantity and is defined using the units of Rotation Velocity from the active script unit system.
+
+#### `getVelocityX() -> float`
+the velocity value in translation X. It is a Velocity quantity and is defined using the units of Velocity from the active script unit system.
+
+#### `getVelocityY() -> float`
+the velocity value in translation Y. It is a Velocity quantity and is defined using the units of Velocity from the active script unit system.
+
+#### `getVelocityZ() -> float`
+the velocity value in translation Z. It is a Velocity quantity and is defined using the units of Velocity from the active script unit system.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, displacementX: float, displacementY: float, displacementZ: float, displacementRx: float, displacementRy: float, displacementRz: float, velocityX: float, velocityY: float, velocityZ: float, velocityRx: float, velocityRy: float, velocityRz: float) -> None`
 Updates one or more properties of the initial displacement and velocity. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2101,7 +3325,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldInitialDisplacementVelocity` — a DFEMFieldInitialDisplacementVelocity that identifies nodes that represent the region to which this initial condition is applied as well as the distribution of displacement and velocity values across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldInitialDisplacementVelocity` — a DFEMFieldInitialDisplacementVelocity that identifies nodes that represent the region to which this initial condition is applied as well as the distribution ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldInitialDisplacementVelocity) -> None` — Updates one or more properties of the initial displacement and velocity.
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldInitialDisplacementVelocity`
+a DFEMFieldInitialDisplacementVelocity that identifies nodes that represent the region to which this initial condition is applied as well as the distribution of displacement and velocity values across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldInitialDisplacementVelocity) -> None`
 Updates one or more properties of the initial displacement and velocity. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2121,8 +3352,15 @@ Methods:
 - `getIntN() -> int` — the last integration point number.
 - `getLayer1() -> int` — the first integration layer number.
 - `getLayerN() -> int` — the last integration layer number.
-- `getStrain() -> float` — the initial strain value. It is a Strain quantity and is defined using the units of Strain from the active script unit system.
+- `getStrain() -> float` — the initial strain value.
 - `getTarget() -> apex.EntityCollection` — the target entities that the InitialStrain is applied to.
+- `update(name: str, description: str, target: apex.EntityCollection, int1: int, intN: int, layer1: int, layerN: int, strain: float) -> None` — Updates one or more properties of the initial strain.
+
+Method details:
+
+#### `getStrain() -> float`
+the initial strain value. It is a Strain quantity and is defined using the units of Strain from the active script unit system.
+
 #### `update(name: str, description: str, target: apex.EntityCollection, int1: int, intN: int, layer1: int, layerN: int, strain: float) -> None`
 Updates one or more properties of the initial strain. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2142,7 +3380,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldInitialStrain` — a DFEMFieldInitialStrain that identifies elements that represent the region to which this stress is applied as well as the distribution of stresses across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldInitialStrain` — a DFEMFieldInitialStrain that identifies elements that represent the region to which this stress is applied as well as the distribution of stresses across that ...
+- `update(name: str, description: str, spatialTarget: apex.environment.DFEMFieldInitialStrain) -> None` — Updates one or more properties of the initial stress.
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldInitialStrain`
+a DFEMFieldInitialStrain that identifies elements that represent the region to which this stress is applied as well as the distribution of stresses across that region.
+
 #### `update(name: str, description: str, spatialTarget: apex.environment.DFEMFieldInitialStrain) -> None`
 Updates one or more properties of the initial stress. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2157,19 +3402,50 @@ Properties: `coordinateSystemFlag`, `int1`, `intN`, `layer1`, `layerN`, `stress1
 
 Methods:
 
-- `getCoordinateSystemFlag() -> int` — an integer to indicate the coordinate system that the initial stress is evaluated. -1 points to the element coordinate system and 0 points to the global coordinate system. If omitted, the default value is -1. Note that for CQUAD4 and CTRIA3 elements, only element coordinate system makes sense - even the label is 0, the initial stress will be transformed from global coordinate system to element coordinate system.
+- `getCoordinateSystemFlag() -> int` — an integer to indicate the coordinate system that the initial stress is evaluated. -1 points to the element coordinate system and 0 points to the global ...
 - `getInt1() -> int` — the first integration point number.
 - `getIntN() -> int` — the last integration point number.
 - `getLayer1() -> int` — the first integration layer number.
 - `getLayerN() -> int` — the last integration layer number.
-- `getStress1() -> float` — the stress value of the first component, for example, stress in X component for both solid and shell element, axial stress for beam element. It is a Pressure(Stress) quantity and is defined using the units of Pressure(Stress) from the active script unit system.
-- `getStress2() -> float` — the stress value of the second component, for example, stress in Y component for both solid and shell element, twist stress for beam element. It is a Pressure(Stress) quantity and is defined using the units of Pressure(Stress) from the active script unit system.
-- `getStress3() -> float` — the stress value of the third component, for example, stress in Z component for both solid and shell element. It is a Pressure(Stress) quantity and is defined using the units of Pressure(Stress) from the active script unit system.
-- `getStress4() -> float` — the stress value of the fourth component, for example, stress in XY component for both solid and shell element. It is a Pressure(Stress) quantity and is defined using the units of Pressure(Stress) from the active script unit system.
-- `getStress5() -> float` — the stress value of the fifth component, for example, stress in YZ component for both solid and shell element. It is a Pressure(Stress) quantity and is defined using the units of Pressure(Stress) from the active script unit system.
-- `getStress6() -> float` — the stress value of the sixth component, for example, stress in ZX component for both solid and shell element. It is a Pressure(Stress) quantity and is defined using the units of Pressure(Stress) from the active script unit system.
-- `getStress7() -> float` — the stress value of the seventh component, hydrostatic pressure for Herrmann elements only. It is a Pressure(Stress) quantity and is defined using the units of Pressure(Stress) from the active script unit system.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the initial stress will be applied to. Initial stresses may be assigned to solid, cell, surface, face, 3d/2d/1d mesh bodies and 3d/2d/1d elements. Initial stresses assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
+- `getStress1() -> float` — the stress value of the first component, for example, stress in X component for both solid and shell element, axial stress for beam element.
+- `getStress2() -> float` — the stress value of the second component, for example, stress in Y component for both solid and shell element, twist stress for beam element.
+- `getStress3() -> float` — the stress value of the third component, for example, stress in Z component for both solid and shell element.
+- `getStress4() -> float` — the stress value of the fourth component, for example, stress in XY component for both solid and shell element.
+- `getStress5() -> float` — the stress value of the fifth component, for example, stress in YZ component for both solid and shell element.
+- `getStress6() -> float` — the stress value of the sixth component, for example, stress in ZX component for both solid and shell element.
+- `getStress7() -> float` — the stress value of the seventh component, hydrostatic pressure for Herrmann elements only.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the initial stress will be applied to.
+- `update(name: str, description: str, target: apex.EntityCollection, int1: int, intN: int, layer1: int, layerN: int, stress1: float, stress2: float, stress3: float, stress4: float, stress5: float, stress6: float, stress7: float, coordinateSystemFlag: int) -> None` — Updates one or more properties of the initial stress.
+
+Method details:
+
+#### `getCoordinateSystemFlag() -> int`
+an integer to indicate the coordinate system that the initial stress is evaluated. -1 points to the element coordinate system and 0 points to the global coordinate system. If omitted, the default value is -1. Note that for CQUAD4 and CTRIA3 elements, only element coordinate system makes sense - even the label is 0, the initial stress will be transformed from global coordinate system to element coordinate system.
+
+#### `getStress1() -> float`
+the stress value of the first component, for example, stress in X component for both solid and shell element, axial stress for beam element. It is a Pressure(Stress) quantity and is defined using the units of Pressure(Stress) from the active script unit system.
+
+#### `getStress2() -> float`
+the stress value of the second component, for example, stress in Y component for both solid and shell element, twist stress for beam element. It is a Pressure(Stress) quantity and is defined using the units of Pressure(Stress) from the active script unit system.
+
+#### `getStress3() -> float`
+the stress value of the third component, for example, stress in Z component for both solid and shell element. It is a Pressure(Stress) quantity and is defined using the units of Pressure(Stress) from the active script unit system.
+
+#### `getStress4() -> float`
+the stress value of the fourth component, for example, stress in XY component for both solid and shell element. It is a Pressure(Stress) quantity and is defined using the units of Pressure(Stress) from the active script unit system.
+
+#### `getStress5() -> float`
+the stress value of the fifth component, for example, stress in YZ component for both solid and shell element. It is a Pressure(Stress) quantity and is defined using the units of Pressure(Stress) from the active script unit system.
+
+#### `getStress6() -> float`
+the stress value of the sixth component, for example, stress in ZX component for both solid and shell element. It is a Pressure(Stress) quantity and is defined using the units of Pressure(Stress) from the active script unit system.
+
+#### `getStress7() -> float`
+the stress value of the seventh component, hydrostatic pressure for Herrmann elements only. It is a Pressure(Stress) quantity and is defined using the units of Pressure(Stress) from the active script unit system.
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the initial stress will be applied to. Initial stresses may be assigned to solid, cell, surface, face, 3d/2d/1d mesh bodies and 3d/2d/1d elements. Initial stresses assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
+
 #### `update(name: str, description: str, target: apex.EntityCollection, int1: int, intN: int, layer1: int, layerN: int, stress1: float, stress2: float, stress3: float, stress4: float, stress5: float, stress6: float, stress7: float, coordinateSystemFlag: int) -> None`
 Updates one or more properties of the initial stress. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2196,7 +3472,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldInitialStress` — a DFEMFieldInitialStress that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldInitialStress` — a DFEMFieldInitialStress that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that ...
+- `update(name: str, description: str, spatialTarget: apex.environment.DFEMFieldInitialStress) -> None` — Updates one or more properties of the initial stress.
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldInitialStress`
+a DFEMFieldInitialStress that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+
 #### `update(name: str, description: str, spatialTarget: apex.environment.DFEMFieldInitialStress) -> None`
 Updates one or more properties of the initial stress. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2211,9 +3494,22 @@ Properties: `id`, `initialTemperatureValue`, `target`
 
 Methods:
 
-- `getId() -> int` — The ID of the InitialTemperature. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: InitialTemperatureNodal.
-- `getInitialTemperatureValue() -> float` — The initial temperature value. Default value is 20 degrees centigrade in the standard SI unit system. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: InitialTemperatureNodal.
-- `getTarget() -> apex.EntityCollection` — The target entities that the InitialTemperature is applied to. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: InitialTemperatureNodal.
+- `getId() -> int` — DEPRECATED. The ID of the InitialTemperature.
+- `getInitialTemperatureValue() -> float` — DEPRECATED. The initial temperature value.
+- `getTarget() -> apex.EntityCollection` — DEPRECATED. The target entities that the InitialTemperature is applied to.
+- `update(name: str, description: str, target: apex.EntityCollection, initialTemperatureValue: float, id: int) -> None` — DEPRECATED. Update this Initial Temperature condition.
+
+Method details:
+
+#### `getId() -> int`
+The ID of the InitialTemperature. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: InitialTemperatureNodal.
+
+#### `getInitialTemperatureValue() -> float`
+The initial temperature value. Default value is 20 degrees centigrade in the standard SI unit system. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: InitialTemperatureNodal.
+
+#### `getTarget() -> apex.EntityCollection`
+The target entities that the InitialTemperature is applied to. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: InitialTemperatureNodal.
+
 #### `update(name: str, description: str, target: apex.EntityCollection, initialTemperatureValue: float, id: int) -> None`
 Update this Initial Temperature condition. One or more properties may be updated in each call to update(). THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: InitialTemperatureNodal.
 
@@ -2230,7 +3526,14 @@ Properties: `defaultTemperature`
 
 Methods:
 
-- `getDefaultTemperature() -> float` — the default temperature value. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+- `getDefaultTemperature() -> float` — the default temperature value.
+- `update(name: str, description: str, id: int, defaultTemperature: float) -> None` — Updates one or more properties of the Temperature.
+
+Method details:
+
+#### `getDefaultTemperature() -> float`
+the default temperature value. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
 #### `update(name: str, description: str, id: int, defaultTemperature: float) -> None`
 Updates one or more properties of the Temperature. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2246,11 +3549,30 @@ Properties: `target`, `temperatureLowerSurface`, `temperatureReferencePlane`, `t
 
 Methods:
 
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Temperature will be applied to. Forces may be assigned to Surfaces, Faces, 2D Mesh Bodies and 2D Elements. Temperatures assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
-- `getTemperatureLowerSurface() -> float` — the temperature for stress calculation at points on the lower surface. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperatureReferencePlane() -> float` — the temperature applied on the element reference plane. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperatureUpperSurface() -> float` — the temperature for stress calculation at points on the upper surface. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getThermalGradient() -> float` — the effective linear thermal gradient. It represents a quantity and must be specified using units of thermal gradient from the active script unit system.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Temperature will be applied to.
+- `getTemperatureLowerSurface() -> float` — the temperature for stress calculation at points on the lower surface.
+- `getTemperatureReferencePlane() -> float` — the temperature applied on the element reference plane.
+- `getTemperatureUpperSurface() -> float` — the temperature for stress calculation at points on the upper surface.
+- `getThermalGradient() -> float` — the effective linear thermal gradient.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, temperatureReferencePlane: float, thermalGradient: float, temperatureLowerSurface: float, temperatureUpperSurface: float) -> None` — Updates one or more properties of the Temperature.
+
+Method details:
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the Temperature will be applied to. Forces may be assigned to Surfaces, Faces, 2D Mesh Bodies and 2D Elements. Temperatures assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
+
+#### `getTemperatureLowerSurface() -> float`
+the temperature for stress calculation at points on the lower surface. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperatureReferencePlane() -> float`
+the temperature applied on the element reference plane. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperatureUpperSurface() -> float`
+the temperature for stress calculation at points on the upper surface. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getThermalGradient() -> float`
+the effective linear thermal gradient. It represents a quantity and must be specified using units of thermal gradient from the active script unit system.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, temperatureReferencePlane: float, thermalGradient: float, temperatureLowerSurface: float, temperatureUpperSurface: float) -> None`
 Updates one or more properties of the Temperature. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2270,10 +3592,26 @@ Properties: `target`, `temperatureBottom`, `temperatureMid`, `temperatureTop`
 
 Methods:
 
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Temperature will be applied to. Temperatures may be assigned to Surfaces, Faces, 2D Mesh Bodies and Nodes. Temperatures assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
-- `getTemperatureBottom() -> float` — the temperature at bottom location through the thickness. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperatureMid() -> float` — the temperature at mid location through the thickness. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperatureTop() -> float` — the temperature at top location through the thickness. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Temperature will be applied to.
+- `getTemperatureBottom() -> float` — the temperature at bottom location through the thickness.
+- `getTemperatureMid() -> float` — the temperature at mid location through the thickness.
+- `getTemperatureTop() -> float` — the temperature at top location through the thickness.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, temperatureTop: float, temperatureBottom: float, temperatureMid: float) -> None` — Updates one or more properties of the Temperature.
+
+Method details:
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the Temperature will be applied to. Temperatures may be assigned to Surfaces, Faces, 2D Mesh Bodies and Nodes. Temperatures assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+
+#### `getTemperatureBottom() -> float`
+the temperature at bottom location through the thickness. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperatureMid() -> float`
+the temperature at mid location through the thickness. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperatureTop() -> float`
+the temperature at top location through the thickness. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, temperatureTop: float, temperatureBottom: float, temperatureMid: float) -> None`
 Updates one or more properties of the Temperature. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2292,7 +3630,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradient2DHeat` — a DFEMFieldTemperatureGradient2DHeat that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradient2DHeat` — a DFEMFieldTemperatureGradient2DHeat that identifies elements that represent the region to which this load is applied as well as the distribution of loads ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldTemperatureGradient2DHeat) -> None` — Updates one or more properties of the Temperature.
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradient2DHeat`
+a DFEMFieldTemperatureGradient2DHeat that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldTemperatureGradient2DHeat) -> None`
 Updates one or more properties of the Temperature. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2308,7 +3653,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradient2D` — a DFEMFieldTemperatureGradient2D that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradient2D` — a DFEMFieldTemperatureGradient2D that identifies elements that represent the region to which this load is applied as well as the distribution of loads across ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldTemperatureGradient2D) -> None` — Updates one or more properties of the Temperature.
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradient2D`
+a DFEMFieldTemperatureGradient2D that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldTemperatureGradient2D) -> None`
 Updates one or more properties of the Temperature. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2324,22 +3676,62 @@ Properties: `inputType`, `target`, `temperatureEndA`, `temperatureEndB`, `temper
 
 Methods:
 
-- `getInputType() -> apex.attribute.InputType` — The argument to define the load distribution on a single element. If the inputType is element uniform, only temperature value and thermal gradient at end A are necessary and they are automatically applied to end B. If the inputType is element variable, all temperature values and thermal gradients can be defined.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Temperature will be applied to. Temperatures may be assigned to Curves, Edges, 1D Mesh Bodies and 1D Elements. Temperatures assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
-- `getTemperatureEndA() -> float` — the temperature value at end A on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperatureEndB() -> float` — the temperature value at end B on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointCendA() -> float` — the temperature value on point C at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointCendB() -> float` — the temperature value on point C at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointDendA() -> float` — the temperature value on point D at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointDendB() -> float` — the temperature value on point D at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointEendA() -> float` — the temperature value on point E at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointEendB() -> float` — the temperature value on point E at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointFendA() -> float` — the temperature value on point F at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointFendB() -> float` — the temperature value on point F at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+- `getInputType() -> apex.attribute.InputType` — The argument to define the load distribution on a single element.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Temperature will be applied to.
+- `getTemperatureEndA() -> float` — the temperature value at end A on the neutral axis.
+- `getTemperatureEndB() -> float` — the temperature value at end B on the neutral axis.
+- `getTemperaturePointCendA() -> float` — the temperature value on point C at end A, used for stress recovery.
+- `getTemperaturePointCendB() -> float` — the temperature value on point C at end B, used for stress recovery.
+- `getTemperaturePointDendA() -> float` — the temperature value on point D at end A, used for stress recovery.
+- `getTemperaturePointDendB() -> float` — the temperature value on point D at end B, used for stress recovery.
+- `getTemperaturePointEendA() -> float` — the temperature value on point E at end A, used for stress recovery.
+- `getTemperaturePointEendB() -> float` — the temperature value on point E at end B, used for stress recovery.
+- `getTemperaturePointFendA() -> float` — the temperature value on point F at end A, used for stress recovery.
+- `getTemperaturePointFendB() -> float` — the temperature value on point F at end B, used for stress recovery.
 - `getThermalGradient1A() -> float` — the effective linear thermal gradient in direction 1 on end A.
 - `getThermalGradient1B() -> float` — the effective linear thermal gradient in direction 1 on end B.
 - `getThermalGradient2A() -> float` — the effective linear thermal gradient in direction 2 on end A.
 - `getThermalGradient2B() -> float` — the effective linear thermal gradient in direction 2 on end B.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, temperatureEndA: float, temperatureEndB: float, thermalGradient1A: float, thermalGradient1B: float, thermalGradient2A: float, thermalGradient2B: float, temperaturePointCendA: float, temperaturePointDendA: float, temperaturePointEendA: float, temperaturePointFendA: float, temperaturePointCendB: float, temperaturePointDendB: float, temperaturePointEendB: float, temperaturePointFendB: float, inputType: apex.attribute.InputType) -> None` — Updates one or more properties of the Temperature.
+
+Method details:
+
+#### `getInputType() -> apex.attribute.InputType`
+The argument to define the load distribution on a single element. If the inputType is element uniform, only temperature value and thermal gradient at end A are necessary and they are automatically applied to end B. If the inputType is element variable, all temperature values and thermal gradients can be defined.
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the Temperature will be applied to. Temperatures may be assigned to Curves, Edges, 1D Mesh Bodies and 1D Elements. Temperatures assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
+
+#### `getTemperatureEndA() -> float`
+the temperature value at end A on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperatureEndB() -> float`
+the temperature value at end B on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointCendA() -> float`
+the temperature value on point C at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointCendB() -> float`
+the temperature value on point C at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointDendA() -> float`
+the temperature value on point D at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointDendB() -> float`
+the temperature value on point D at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointEendA() -> float`
+the temperature value on point E at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointEendB() -> float`
+the temperature value on point E at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointFendA() -> float`
+the temperature value on point F at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointFendB() -> float`
+the temperature value on point F at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, temperatureEndA: float, temperatureEndB: float, thermalGradient1A: float, thermalGradient1B: float, thermalGradient2A: float, thermalGradient2B: float, temperaturePointCendA: float, temperaturePointDendA: float, temperaturePointEendA: float, temperaturePointFendA: float, temperaturePointCendB: float, temperaturePointDendB: float, temperaturePointEendB: float, temperaturePointFendB: float, inputType: apex.attribute.InputType) -> None`
 Updates one or more properties of the Temperature. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2370,7 +3762,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradientBeam2` — a DFEMFieldTemperatureBeam2 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradientBeam2` — a DFEMFieldTemperatureBeam2 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldTemperatureGradientBeam2) -> None` — Update method.One or more properties may be updated in each call to update().
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradientBeam2`
+a DFEMFieldTemperatureBeam2 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldTemperatureGradientBeam2) -> None`
 Update method.One or more properties may be updated in each call to update().
 
@@ -2386,29 +3785,84 @@ Properties: `inputType`, `target`, `temperatureEndA`, `temperatureEndB`, `temper
 
 Methods:
 
-- `getInputType() -> apex.attribute.InputType` — The argument to define the load distribution on a single element. If the inputType is element uniform, only temperature value and thermal gradient at end A are necessary and they are automatically applied to end B and mid C. If the inputType is element variable, all temperature values and thermal gradients can be defined.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Temperature will be applied to. Temperatures may be assigned to Curves, Edges, 1D Mesh Bodies and 1D Elements. Temperatures assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
-- `getTemperatureEndA() -> float` — the temperature value at end A on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperatureEndB() -> float` — the temperature value at end B on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperatureMidC() -> float` — the temperature value at a point C between end A and end B. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointCendA() -> float` — the temperature value on point C at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointCendB() -> float` — the temperature value on point C at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointCmidC() -> float` — the temperature value on point C at mid A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointDendA() -> float` — the temperature value on point D at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointDendB() -> float` — the temperature value on point D at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointDmidC() -> float` — the temperature value on point D at mid C, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointEendA() -> float` — the temperature value on point E at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointEendB() -> float` — the temperature value on point E at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointEmidC() -> float` — the temperature value on point E at mid C, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointFendA() -> float` — the temperature value on point F at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointFendB() -> float` — the temperature value on point F at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointFmidC() -> float` — the temperature value on point F at mid C, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+- `getInputType() -> apex.attribute.InputType` — The argument to define the load distribution on a single element.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Temperature will be applied to.
+- `getTemperatureEndA() -> float` — the temperature value at end A on the neutral axis.
+- `getTemperatureEndB() -> float` — the temperature value at end B on the neutral axis.
+- `getTemperatureMidC() -> float` — the temperature value at a point C between end A and end B.
+- `getTemperaturePointCendA() -> float` — the temperature value on point C at end A, used for stress recovery.
+- `getTemperaturePointCendB() -> float` — the temperature value on point C at end B, used for stress recovery.
+- `getTemperaturePointCmidC() -> float` — the temperature value on point C at mid A, used for stress recovery.
+- `getTemperaturePointDendA() -> float` — the temperature value on point D at end A, used for stress recovery.
+- `getTemperaturePointDendB() -> float` — the temperature value on point D at end B, used for stress recovery.
+- `getTemperaturePointDmidC() -> float` — the temperature value on point D at mid C, used for stress recovery.
+- `getTemperaturePointEendA() -> float` — the temperature value on point E at end A, used for stress recovery.
+- `getTemperaturePointEendB() -> float` — the temperature value on point E at end B, used for stress recovery.
+- `getTemperaturePointEmidC() -> float` — the temperature value on point E at mid C, used for stress recovery.
+- `getTemperaturePointFendA() -> float` — the temperature value on point F at end A, used for stress recovery.
+- `getTemperaturePointFendB() -> float` — the temperature value on point F at end B, used for stress recovery.
+- `getTemperaturePointFmidC() -> float` — the temperature value on point F at mid C, used for stress recovery.
 - `getThermalGradientYA() -> float` — the effective linear thermal gradient in local direction y on end A.
 - `getThermalGradientYB() -> float` — the effective linear thermal gradient in direction y on end B.
 - `getThermalGradientYC() -> float` — the effective linear thermal gradient in direction y on mid C.
 - `getThermalGradientZA() -> float` — the effective linear thermal gradient in direction z on end A.
 - `getThermalGradientZB() -> float` — the effective linear thermal gradient in direction z on end B.
 - `getThermalGradientZC() -> float` — the effective linear thermal gradient in direction z on mid C.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, temperatureEndA: float, temperatureEndB: float, temperatureMidC: float, thermalGradientYA: float, thermalGradientZA: float, thermalGradientYB: float, thermalGradientZB: float, thermalGradientYC: float, thermalGradientZC: float, temperaturePointCendA: float, temperaturePointDendA: float, temperaturePointEendA: float, temperaturePointFendA: float, temperaturePointCendB: float, temperaturePointDendB: float, temperaturePointEendB: float, temperaturePointFendB: float, temperaturePointCmidC: float, temperaturePointDmidC: float, temperaturePointEmidC: float, temperaturePointFmidC: float, inputType: apex.attribute.InputType) -> None` — Updates one or more properties of the Temperature.
+
+Method details:
+
+#### `getInputType() -> apex.attribute.InputType`
+The argument to define the load distribution on a single element. If the inputType is element uniform, only temperature value and thermal gradient at end A are necessary and they are automatically applied to end B and mid C. If the inputType is element variable, all temperature values and thermal gradients can be defined.
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the Temperature will be applied to. Temperatures may be assigned to Curves, Edges, 1D Mesh Bodies and 1D Elements. Temperatures assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
+
+#### `getTemperatureEndA() -> float`
+the temperature value at end A on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperatureEndB() -> float`
+the temperature value at end B on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperatureMidC() -> float`
+the temperature value at a point C between end A and end B. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointCendA() -> float`
+the temperature value on point C at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointCendB() -> float`
+the temperature value on point C at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointCmidC() -> float`
+the temperature value on point C at mid A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointDendA() -> float`
+the temperature value on point D at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointDendB() -> float`
+the temperature value on point D at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointDmidC() -> float`
+the temperature value on point D at mid C, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointEendA() -> float`
+the temperature value on point E at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointEendB() -> float`
+the temperature value on point E at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointEmidC() -> float`
+the temperature value on point E at mid C, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointFendA() -> float`
+the temperature value on point F at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointFendB() -> float`
+the temperature value on point F at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointFmidC() -> float`
+the temperature value on point F at mid C, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, temperatureEndA: float, temperatureEndB: float, temperatureMidC: float, thermalGradientYA: float, thermalGradientZA: float, thermalGradientYB: float, thermalGradientZB: float, thermalGradientYC: float, thermalGradientZC: float, temperaturePointCendA: float, temperaturePointDendA: float, temperaturePointEendA: float, temperaturePointFendA: float, temperaturePointCendB: float, temperaturePointDendB: float, temperaturePointEendB: float, temperaturePointFendB: float, temperaturePointCmidC: float, temperaturePointDmidC: float, temperaturePointEmidC: float, temperaturePointFmidC: float, inputType: apex.attribute.InputType) -> None`
 Updates one or more properties of the Temperature. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2446,7 +3900,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradientBeam3` — a DFEMFieldTemperatureBeam3 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradientBeam3` — a DFEMFieldTemperatureBeam3 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldTemperatureGradientBeam3) -> None` — Update method.
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradientBeam3`
+a DFEMFieldTemperatureBeam3 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldTemperatureGradientBeam3) -> None`
 Update method. One or more properties may be updated in each call to update().
 
@@ -2462,8 +3923,18 @@ Properties: `target`, `temperatureValue`
 
 Methods:
 
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Temperature will be applied to. Temperatures may be assigned to Solids, Cells, Surfaces, Faces, Curves, Edges, Points, Vertices, 1D, 2D and 3D Mesh Bodies and Nodes. Temperatures assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
-- `getTemperatureValue() -> float` — the temperature value. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Temperature will be applied to.
+- `getTemperatureValue() -> float` — the temperature value.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, temperatureValue: float) -> None` — Updates one or more properties of the Temperature.
+
+Method details:
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the Temperature will be applied to. Temperatures may be assigned to Solids, Cells, Surfaces, Faces, Curves, Edges, Points, Vertices, 1D, 2D and 3D Mesh Bodies and Nodes. Temperatures assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+
+#### `getTemperatureValue() -> float`
+the temperature value. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, temperatureValue: float) -> None`
 Updates one or more properties of the Temperature. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2480,7 +3951,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureNodal` — a DFEMFieldLoadDistributed that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureNodal` — a DFEMFieldLoadDistributed that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldTemperatureNodal) -> None` — Update method.One or more properties may be updated in each call to update().
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureNodal`
+a DFEMFieldLoadDistributed that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldTemperatureNodal) -> None`
 Update method.One or more properties may be updated in each call to update().
 
@@ -2504,12 +3982,34 @@ Properties: `accelerationVectorX`, `accelerationVectorY`, `accelerationVectorZ`,
 
 Methods:
 
-- `getAccelerationVectorX() -> float` — the X component of the acceleration vector. It is an Acceleration quantity and must be defined using the units of Acceleration from the active script unit system.
-- `getAccelerationVectorY() -> float` — the Y component of the acceleration vector. It is an Acceleration quantity and must be defined using the units of Acceleration from the active script unit system.
-- `getAccelerationVectorZ() -> float` — the Z component of the acceleration vector. It is an Acceleration quantity and must be defined using the units of Acceleration from the active script unit system.
-- `getOrientation() -> apex.IOrientation` — the orientation used to define the direction of the acceleration vector. Currently it only accepts a coordinate system object.
-- `getScaleFactor() -> float` — an optional scale factor that will be applied to the acceleration vectors. The magnitude of the acceleration load applied to each Node in the target is based on the product of the resultant of the provided acceleration vector and this scale factor.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Acceleration load will be applied to. Acceleration loads may be assigned to Solids, Cells, Surfaces, Faces, Curves, Edges, Points, Vertices, 1D, 2D and 3D Mesh Bodies and Nodes. Acceleration loads assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+- `getAccelerationVectorX() -> float` — the X component of the acceleration vector.
+- `getAccelerationVectorY() -> float` — the Y component of the acceleration vector.
+- `getAccelerationVectorZ() -> float` — the Z component of the acceleration vector.
+- `getOrientation() -> apex.IOrientation` — the orientation used to define the direction of the acceleration vector.
+- `getScaleFactor() -> float` — an optional scale factor that will be applied to the acceleration vectors.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Acceleration load will be applied to.
+- `update(name: str, description: str, id: int, orientation: apex.IOrientation, scaleFactor: float, accelerationVectorX: float, accelerationVectorY: float, accelerationVectorZ: float, target: apex.EntityCollection) -> None` — Updates one or more properties of the Acceleration.
+
+Method details:
+
+#### `getAccelerationVectorX() -> float`
+the X component of the acceleration vector. It is an Acceleration quantity and must be defined using the units of Acceleration from the active script unit system.
+
+#### `getAccelerationVectorY() -> float`
+the Y component of the acceleration vector. It is an Acceleration quantity and must be defined using the units of Acceleration from the active script unit system.
+
+#### `getAccelerationVectorZ() -> float`
+the Z component of the acceleration vector. It is an Acceleration quantity and must be defined using the units of Acceleration from the active script unit system.
+
+#### `getOrientation() -> apex.IOrientation`
+the orientation used to define the direction of the acceleration vector. Currently it only accepts a coordinate system object.
+
+#### `getScaleFactor() -> float`
+an optional scale factor that will be applied to the acceleration vectors. The magnitude of the acceleration load applied to each Node in the target is based on the product of the resultant of the provided acceleration vector and this scale factor.
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the Acceleration load will be applied to. Acceleration loads may be assigned to Solids, Cells, Surfaces, Faces, Curves, Edges, Points, Vertices, 1D, 2D and 3D Mesh Bodies and Nodes. Acceleration loads assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+
 #### `update(name: str, description: str, id: int, orientation: apex.IOrientation, scaleFactor: float, accelerationVectorX: float, accelerationVectorY: float, accelerationVectorZ: float, target: apex.EntityCollection) -> None`
 Updates one or more properties of the Acceleration. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2530,7 +4030,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldAccelerationNodal` — a DFEMFieldAccelerationNodal that identifies nodes that represent the region to which this load is applied as well as the distribution of loads across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldAccelerationNodal` — a DFEMFieldAccelerationNodal that identifies nodes that represent the region to which this load is applied as well as the distribution of loads across that ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldAccelerationNodal) -> None` — Updates one or more properties of the Acceleration load.
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldAccelerationNodal`
+a DFEMFieldAccelerationNodal that identifies nodes that represent the region to which this load is applied as well as the distribution of loads across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldAccelerationNodal) -> None`
 Updates one or more properties of the Acceleration load. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2546,12 +4053,28 @@ Properties: `accelerationVectorX`, `accelerationVectorY`, `accelerationVectorZ`,
 
 Methods:
 
-- `getAccelerationVectorX() -> float` — the X component of the acceleration vector. It is an Acceleration quantity and must be defined using the units of Acceleration from the active script unit system.
-- `getAccelerationVectorY() -> float` — the Y component of the acceleration vector. It is an Acceleration quantity and must be defined using the units of Acceleration from the active script unit system.
-- `getAccelerationVectorZ() -> float` — the Z component of the acceleration vector. It is an Acceleration quantity and must be defined using the units of Acceleration from the active script unit system.
+- `getAccelerationVectorX() -> float` — the X component of the acceleration vector.
+- `getAccelerationVectorY() -> float` — the Y component of the acceleration vector.
+- `getAccelerationVectorZ() -> float` — the Z component of the acceleration vector.
 - `getComponentDirection() -> apex.attribute.ComponentDirectionAcceleration` — the component direction of the acceleration variation in the specified coordinate system.
-- `getLoadVariation() -> dict` — The load variation along the component direction of the coordinate system. It is a dictionary with only two elements to represent the load variation along the axis: the value of the first element is a list of locations along the load direction, the value of the second element is a list of load scale factors associated with the locations. For example, loadVariation = {"locations": [0.00,1.00,2.00], "scale_factors": [1.00, 1.26, 2.37]} Note that both the lists of direction and scale factor require at least two values.
+- `getLoadVariation() -> dict` — The load variation along the component direction of the coordinate system.
 - `getOrientation() -> apex.IOrientation` — an optional CoordinateSystem used to define the orientation of the Acceleration components.
+- `update(name: str, description: str, id: int, orientation: apex.IOrientation, accelerationVectorX: float, accelerationVectorY: float, accelerationVectorZ: float, componentDirection: apex.attribute.ComponentDirectionAcceleration, loadVariation: dict) -> None` — Update method.
+
+Method details:
+
+#### `getAccelerationVectorX() -> float`
+the X component of the acceleration vector. It is an Acceleration quantity and must be defined using the units of Acceleration from the active script unit system.
+
+#### `getAccelerationVectorY() -> float`
+the Y component of the acceleration vector. It is an Acceleration quantity and must be defined using the units of Acceleration from the active script unit system.
+
+#### `getAccelerationVectorZ() -> float`
+the Z component of the acceleration vector. It is an Acceleration quantity and must be defined using the units of Acceleration from the active script unit system.
+
+#### `getLoadVariation() -> dict`
+The load variation along the component direction of the coordinate system. It is a dictionary with only two elements to represent the load variation along the axis: the value of the first element is a list of locations along the load direction, the value of the second element is a list of load scale factors associated with the locations. For example, loadVariation = {"locations": [0.00,1.00,2.00], "scale_factors": [1.00, 1.26, 2.37]} Note that both the lists of direction and scale factor require at least two values.
+
 #### `update(name: str, description: str, id: int, orientation: apex.IOrientation, accelerationVectorX: float, accelerationVectorY: float, accelerationVectorZ: float, componentDirection: apex.attribute.ComponentDirectionAcceleration, loadVariation: dict) -> None`
 Update method. One or more properties may be updated in each call to update().
 
@@ -2572,13 +4095,38 @@ Properties: `scaleFactorRx`, `scaleFactorRy`, `scaleFactorRz`, `scaleFactorX`, `
 
 Methods:
 
-- `getScaleFactorRx() -> float` — the load scale(area) factor in the rotation X axis, scaleFactorRx is a Moment quantity and must be defined using the units of Moment from the active script unit system.
-- `getScaleFactorRy() -> float` — the load scale(area) factor in the rotation Y axis, scaleFactorRy is a Moment quantity and must be defined using the units of Moment from the active script unit system.
-- `getScaleFactorRz() -> float` — the load scale(area) factor in the rotation Z axis, scaleFactorRz is a Moment quantity and must be defined using the units of Moment from the active script unit system.
-- `getScaleFactorX() -> float` — the load scale(area) factor in the translation X axis, scaleFactorX is a Force quantity and must be defined using the units of Force from the active script unit system.
-- `getScaleFactorY() -> float` — the load scale(area) factor in the translation Y axis, scaleFactorY is a Force quantity and must be defined using the units of Force from the active script unit system.
-- `getScaleFactorZ() -> float` — the load scale(area) factor in the translation Z axis, scaleFactorZ is a Force quantity and must be defined using the units of Force from the active script unit system.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the load area factor will be applied to. Load area factors may be assigned to Surfaces, Faces, Curves, Edges, Points, Vertices, 1D and 2D Mesh Bodies and Nodes. Load area factors assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+- `getScaleFactorRx() -> float` — the load scale(area) factor in the rotation X axis, scaleFactorRx is a Moment quantity and must be defined using the units of Moment from the active script ...
+- `getScaleFactorRy() -> float` — the load scale(area) factor in the rotation Y axis, scaleFactorRy is a Moment quantity and must be defined using the units of Moment from the active script ...
+- `getScaleFactorRz() -> float` — the load scale(area) factor in the rotation Z axis, scaleFactorRz is a Moment quantity and must be defined using the units of Moment from the active script ...
+- `getScaleFactorX() -> float` — the load scale(area) factor in the translation X axis, scaleFactorX is a Force quantity and must be defined using the units of Force from the active script ...
+- `getScaleFactorY() -> float` — the load scale(area) factor in the translation Y axis, scaleFactorY is a Force quantity and must be defined using the units of Force from the active script ...
+- `getScaleFactorZ() -> float` — the load scale(area) factor in the translation Z axis, scaleFactorZ is a Force quantity and must be defined using the units of Force from the active script ...
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the load area factor will be applied to.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, scaleFactorX: float, scaleFactorY: float, scaleFactorZ: float, scaleFactorRx: float, scaleFactorRy: float, scaleFactorRz: float) -> None` — Updates one or more properties of the load area factor.
+
+Method details:
+
+#### `getScaleFactorRx() -> float`
+the load scale(area) factor in the rotation X axis, scaleFactorRx is a Moment quantity and must be defined using the units of Moment from the active script unit system.
+
+#### `getScaleFactorRy() -> float`
+the load scale(area) factor in the rotation Y axis, scaleFactorRy is a Moment quantity and must be defined using the units of Moment from the active script unit system.
+
+#### `getScaleFactorRz() -> float`
+the load scale(area) factor in the rotation Z axis, scaleFactorRz is a Moment quantity and must be defined using the units of Moment from the active script unit system.
+
+#### `getScaleFactorX() -> float`
+the load scale(area) factor in the translation X axis, scaleFactorX is a Force quantity and must be defined using the units of Force from the active script unit system.
+
+#### `getScaleFactorY() -> float`
+the load scale(area) factor in the translation Y axis, scaleFactorY is a Force quantity and must be defined using the units of Force from the active script unit system.
+
+#### `getScaleFactorZ() -> float`
+the load scale(area) factor in the translation Z axis, scaleFactorZ is a Force quantity and must be defined using the units of Force from the active script unit system.
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the load area factor will be applied to. Load area factors may be assigned to Surfaces, Faces, Curves, Edges, Points, Vertices, 1D and 2D Mesh Bodies and Nodes. Load area factors assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, scaleFactorX: float, scaleFactorY: float, scaleFactorZ: float, scaleFactorRx: float, scaleFactorRy: float, scaleFactorRz: float) -> None`
 Updates one or more properties of the load area factor. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2600,7 +4148,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldLoadAreaFactor` — a DFEMFieldForceComponent that identifies nodes that represent the region to which this load area factor is applied as well as the distribution of load area factors across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldLoadAreaFactor` — a DFEMFieldForceComponent that identifies nodes that represent the region to which this load area factor is applied as well as the distribution of load area ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldLoadAreaFactor) -> None` — Updates one or more properties of the load area factor.
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldLoadAreaFactor`
+a DFEMFieldForceComponent that identifies nodes that represent the region to which this load area factor is applied as well as the distribution of load area factors across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldLoadAreaFactor) -> None`
 Updates one or more properties of the load area factor. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2616,8 +4171,15 @@ Properties: `combinedLoads`, `overallScaleFactor`
 
 Methods:
 
-- `getCombinedLoads() -> dict` — a dictionary to define the combined loads and the scale factor for each load. For each element, the key is the load name, the value is the scale factor associated with the load. For example, combinedLoads = {"Dynamic Load 1": 1.0, "Dynamic Load 2": 2.0, "Dynamic Load 3": 1.2}
+- `getCombinedLoads() -> dict` — a dictionary to define the combined loads and the scale factor for each load.
 - `getOverallScaleFactor() -> float` — the overall scale factor applied to all the loads to be combined.
+- `update(name: str, description: str, id: int, overallScaleFactor: float, combinedLoads: dict) -> None` — Update method.
+
+Method details:
+
+#### `getCombinedLoads() -> dict`
+a dictionary to define the combined loads and the scale factor for each load. For each element, the key is the load name, the value is the scale factor associated with the load. For example, combinedLoads = {"Dynamic Load 1": 1.0, "Dynamic Load 2": 2.0, "Dynamic Load 3": 1.2}
+
 #### `update(name: str, description: str, id: int, overallScaleFactor: float, combinedLoads: dict) -> None`
 Update method. One or more properties may be updated in each call to update().
 
@@ -2634,8 +4196,15 @@ Properties: `combinedLoads`, `overallScaleFactor`
 
 Methods:
 
-- `getCombinedLoads() -> dict` — a dictionary to define the combined loads and the scale factor for each load. For each element, the key is the load name, the value is the scale factor associated with the load. For example, combinedLoads = {"Force 1": 1.0, "Force 2": 2.0, "Pressure 3": 1.2}
+- `getCombinedLoads() -> dict` — a dictionary to define the combined loads and the scale factor for each load.
 - `getOverallScaleFactor() -> float` — the overall scale factor applied to all the loads to be combined.
+- `update(name: str, description: str, id: int, overallScaleFactor: float, combinedLoads: dict) -> None` — Update method.
+
+Method details:
+
+#### `getCombinedLoads() -> dict`
+a dictionary to define the combined loads and the scale factor for each load. For each element, the key is the load name, the value is the scale factor associated with the load. For example, combinedLoads = {"Force 1": 1.0, "Force 2": 2.0, "Pressure 3": 1.2}
+
 #### `update(name: str, description: str, id: int, overallScaleFactor: float, combinedLoads: dict) -> None`
 Update method. One or more properties may be updated in each call to update().
 
@@ -2652,8 +4221,18 @@ Properties: `deformation`, `target`
 
 Methods:
 
-- `getDeformation() -> float` — the deformation value along the element axis. It is a Length quantity and must be defined using the units of Length from the active script unit system.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Deformation will be applied to. Deformations may be assigned to Curves, Edges, 1D Mesh Bodies and Elements. Deformations assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
+- `getDeformation() -> float` — the deformation value along the element axis.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Deformation will be applied to.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, deformation: float) -> None` — Updates one or more properties of the Deformation.
+
+Method details:
+
+#### `getDeformation() -> float`
+the deformation value along the element axis. It is a Length quantity and must be defined using the units of Length from the active script unit system.
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the Deformation will be applied to. Deformations may be assigned to Curves, Edges, 1D Mesh Bodies and Elements. Deformations assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, deformation: float) -> None`
 Updates one or more properties of the Deformation. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2671,6 +4250,10 @@ Properties: `spatialTarget`
 Methods:
 
 - `getSpatialTarget() -> apex.environment.DFEMFieldDeformationAxial` — the field that defines the load distribution.
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldDeformationAxial) -> None` — Update method.One or more properties may be updated in each call to update().
+
+Method details:
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldDeformationAxial) -> None`
 Update method.One or more properties may be updated in each call to update().
 
@@ -2689,9 +4272,22 @@ Methods:
 - `getDirectionX() -> float` — the X component of the direction vector.
 - `getDirectionY() -> float` — the Y component of the direction vector.
 - `getDirectionZ() -> float` — the Z component of the direction vector.
-- `getOrientation() -> apex.IOrientation` — the orientation used to define the direction of the pressure. Currently it only accepts a coordinate system object.
-- `getPressure() -> float` — the pressure magnitude value. It is a Pressure quantity and is defined using the units of Pressure from the active script unit system.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the load will be applied to. Loads may be assigned to Faces, 2D Mesh Bodies, 2D Elements and Element Faces. Loads assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
+- `getOrientation() -> apex.IOrientation` — the orientation used to define the direction of the pressure.
+- `getPressure() -> float` — the pressure magnitude value.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the load will be applied to.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, pressure: float, orientation: apex.IOrientation, directionX: float, directionY: float, directionZ: float) -> None` — Updates one or more properties of the load.
+
+Method details:
+
+#### `getOrientation() -> apex.IOrientation`
+the orientation used to define the direction of the pressure. Currently it only accepts a coordinate system object.
+
+#### `getPressure() -> float`
+the pressure magnitude value. It is a Pressure quantity and is defined using the units of Pressure from the active script unit system.
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the load will be applied to. Loads may be assigned to Faces, 2D Mesh Bodies, 2D Elements and Element Faces. Loads assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, pressure: float, orientation: apex.IOrientation, directionX: float, directionY: float, directionZ: float) -> None`
 Updates one or more properties of the load. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2712,14 +4308,42 @@ Properties: `distanceX1`, `distanceX2`, `inputType`, `loadFactorX1`, `loadFactor
 
 Methods:
 
-- `getDistanceX1() -> float` — the distance X1 along element axis from end A. The distance may be a fractional value of the element length or a length value, depending on the scaleType.
-- `getDistanceX2() -> float` — the distance X2 along element axis from end A. The distance may be a fractional value of the element length or a length value, depending on the scaleType.
-- `getInputType() -> apex.attribute.InputType` — an optional argument to define the load distribution on a single element. If the inputType is element uniform, the loadFactorX2 is always equal to loa dFactorX1, distanceX1 is 0.0, distanceX2 is 1.0, scaleType is fractional. If omitted, the default value is element uniform.
-- `getLoadFactorX1() -> float` — the load factor at the position of distance X1 from end A. The unit of the load factor value depends on the loadType, it can be a force or a moment.
-- `getLoadFactorX2() -> float` — the load factor at the position of distance X2 from end A. The unit of the load factor value depends on the loadType, it can be a force or a moment.
-- `getLoadType() -> apex.attribute.LoadTypeDistributedBeam2` — the loadType of the beam distributed load applied to beam element with two nodes. apex.attribute.LoadTypeBeam2.ForceX, the load is concentrated force in X direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.ForceY, the load is concentrated force in Y direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.ForceZ, the load is concentrated force in Z direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.MomentX, the load is moment in X direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.MomentY, the load is moment in Y direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.MomentZ, the load is moment in Z direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.ForceXE, the load is concentrated force in X direction of the element coordinate system. apex.attribute.LoadTypeBeam2.ForceYE, the load is concentrated force in Y direction of the element coordinate system. apex.attribute.LoadTypeBeam2.ForceZE, the load is concentrated force in Z direction of the element coordinate system. apex.attribute.LoadTypeBeam2.MomentXE, the load is moment in X direction of the element coordinate system. apex.attribute.LoadTypeBeam2.MomentYE, the load is moment in Y direction of the element coordinate system. apex.attribute.LoadTypeBeam2.MomentZE, the load is moment in Z direction of the element coordinate system.
-- `getScaleType() -> apex.attribute.ScaleTypeDistributedBeam2` — the scaleType of the load factors. apex.attribute.ScaleTypeBeam.Length, the distance values are actual distances along the element axis, and if distance1 != distance 2, then load factors are load intensities per unit length of the element. apex.attribute.ScaleTypeBeam.Fractional, the distance values are are ratios of the distance along the axis to the total length, and if distance1 != distance 2, then load factors are load intensities per unit length of the element. apex.attribute.ScaleTypeBeam.LengthProjected, the distance values are projected lengths along the element axis, and if distance1 != distance 2, then load factors are load intensities per unit length of the element. apex.attribute.ScaleTypeBeam.FractionalProjected, the distance values are ratios of the actual distance to the length of the bar (CBAR entry), and if distance1 != distance 2, then the distributed load is specified in terms of the projected length of the bar.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the load will be applied to. Loads may be assigned to Curve, Edge, 1D Mesh Bodies and 1D Elements. Loads assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
+- `getDistanceX1() -> float` — the distance X1 along element axis from end A.
+- `getDistanceX2() -> float` — the distance X2 along element axis from end A.
+- `getInputType() -> apex.attribute.InputType` — an optional argument to define the load distribution on a single element.
+- `getLoadFactorX1() -> float` — the load factor at the position of distance X1 from end A.
+- `getLoadFactorX2() -> float` — the load factor at the position of distance X2 from end A.
+- `getLoadType() -> apex.attribute.LoadTypeDistributedBeam2` — the loadType of the beam distributed load applied to beam element with two nodes. apex.attribute.LoadTypeBeam2.ForceX, the load is concentrated force in X ...
+- `getScaleType() -> apex.attribute.ScaleTypeDistributedBeam2` — the scaleType of the load factors. apex.attribute.ScaleTypeBeam.Length, the distance values are actual distances along the element axis, and if distance1 != ...
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the load will be applied to.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, loadType: apex.attribute.LoadTypeDistributedBeam2, scaleType: apex.attribute.ScaleTypeDistributedBeam2, distanceX1: float, loadFactorX1: float, distanceX2: float, loadFactorX2: float, inputType: apex.attribute.InputType) -> None` — Updates one or more properties of the Load.
+
+Method details:
+
+#### `getDistanceX1() -> float`
+the distance X1 along element axis from end A. The distance may be a fractional value of the element length or a length value, depending on the scaleType.
+
+#### `getDistanceX2() -> float`
+the distance X2 along element axis from end A. The distance may be a fractional value of the element length or a length value, depending on the scaleType.
+
+#### `getInputType() -> apex.attribute.InputType`
+an optional argument to define the load distribution on a single element. If the inputType is element uniform, the loadFactorX2 is always equal to loa dFactorX1, distanceX1 is 0.0, distanceX2 is 1.0, scaleType is fractional. If omitted, the default value is element uniform.
+
+#### `getLoadFactorX1() -> float`
+the load factor at the position of distance X1 from end A. The unit of the load factor value depends on the loadType, it can be a force or a moment.
+
+#### `getLoadFactorX2() -> float`
+the load factor at the position of distance X2 from end A. The unit of the load factor value depends on the loadType, it can be a force or a moment.
+
+#### `getLoadType() -> apex.attribute.LoadTypeDistributedBeam2`
+the loadType of the beam distributed load applied to beam element with two nodes. apex.attribute.LoadTypeBeam2.ForceX, the load is concentrated force in X direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.ForceY, the load is concentrated force in Y direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.ForceZ, the load is concentrated force in Z direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.MomentX, the load is moment in X direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.MomentY, the load is moment in Y direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.MomentZ, the load is moment in Z direction of the basic coordinate system. apex.attribute.LoadTypeBeam2.ForceXE, the load is concentrated force in X direction of the element coordinate system. apex.attribute.LoadTypeBeam2.ForceYE, the load is concentrated force in Y direction of the element coordinate system. apex.attribute.LoadTypeBeam2.ForceZE, the load is concentrated force in Z direction of the element coordinate system. apex.attribute.LoadTypeBeam2.MomentXE, the load is moment in X direction of the element coordinate system. apex.attribute.LoadTypeBeam2.MomentYE, the load is moment in Y direction of the element coordinate system. apex.attribute.LoadTypeBeam2.MomentZE, the load is moment in Z direction of the element coordinate system.
+
+#### `getScaleType() -> apex.attribute.ScaleTypeDistributedBeam2`
+the scaleType of the load factors. apex.attribute.ScaleTypeBeam.Length, the distance values are actual distances along the element axis, and if distance1 != distance 2, then load factors are load intensities per unit length of the element. apex.attribute.ScaleTypeBeam.Fractional, the distance values are are ratios of the distance along the axis to the total length, and if distance1 != distance 2, then load factors are load intensities per unit length of the element. apex.attribute.ScaleTypeBeam.LengthProjected, the distance values are projected lengths along the element axis, and if distance1 != distance 2, then load factors are load intensities per unit length of the element. apex.attribute.ScaleTypeBeam.FractionalProjected, the distance values are ratios of the actual distance to the length of the bar (CBAR entry), and if distance1 != distance 2, then the distributed load is specified in terms of the projected length of the bar.
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the load will be applied to. Loads may be assigned to Curve, Edge, 1D Mesh Bodies and 1D Elements. Loads assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, loadType: apex.attribute.LoadTypeDistributedBeam2, scaleType: apex.attribute.ScaleTypeDistributedBeam2, distanceX1: float, loadFactorX1: float, distanceX2: float, loadFactorX2: float, inputType: apex.attribute.InputType) -> None`
 Updates one or more properties of the Load. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2742,7 +4366,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldLoadDistributedBeam2` — a DFEMFieldLoadDistributedBeam2 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldLoadDistributedBeam2` — a DFEMFieldLoadDistributedBeam2 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldLoadDistributedBeam2) -> None` — Updates one or more properties of the Load.
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldLoadDistributedBeam2`
+a DFEMFieldLoadDistributedBeam2 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldLoadDistributedBeam2) -> None`
 Updates one or more properties of the Load. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2758,18 +4389,55 @@ Properties: `coordinateSystem`, `inputType`, `loadScaleFactor`, `loadType`, `loa
 
 Methods:
 
-- `getCoordinateSystem() -> apex.IOrientation` — the user defined coordinate system in which the load vector is defined. This argument must be provided when the orientationType is "apex.attribute.OrientationTypeBeam3.Local". This argument will be ignored when the orientationType is "apex.attribute.OrientationTypeBeam3.Basic" or "apex.attribute.OrientationTypeBeam3.Element".
-- `getInputType() -> apex.attribute.InputType` — The argument to define the load distribution on a single element. If the inputType is element uniform, the loadScaleFactor is 1.0, magnitudes on end A, end B and mid C are 1.0. If the inputType is element variable, above parameters are defined by user.
-- `getLoadScaleFactor() -> float` — the load scale factor. The load vector is scaled by the factor on all locations on a single element.
-- `getLoadType() -> apex.attribute.LoadTypeDistributedBeam3` — the loadType of the beam distributed load. apex.attribute.LoadTypeBeam3.Force, the load is a force. apex.attribute.LoadTypeBeam3.Moment, the load is a moment. apex.attribute.LoadTypeBeam3.Bimoment, the load is bimoment.
-- `getLoadVectorX() -> float` — the X component of the load vector. The unit can be Force or Moment quantity(depending on loadType), which is defined by the units of Force/Moment from the active script unit system.
-- `getLoadVectorY() -> float` — the Y component of the load vector. The unit can be Force or Moment quantity(depending on loadType), which is defined by the units of Force/Moment from the active script unit system.
-- `getLoadVectorZ() -> float` — the Z component of the load vector. The unit can be Force or Moment quantity(depending on loadType), which is defined by the units of Force/Moment from the active script unit system.
-- `getMagnitudeEndA() -> float` — the load magnitude at end A. The load vector is scaled by magnitude on end A.
-- `getMagnitudeEndB() -> float` — the load magnitude at end B. The load vector is scaled by magnitude on end B.
-- `getMagnitudeMidC() -> float` — the load magnitude at the point C which is between end A and end B. The load vector is scaled by magnitude on mid C.
-- `getOrientationType() -> apex.attribute.OrientationTypeDistributedBeam3` — the orientation type of the load. apex.attribute.OrientationTypeBeam3.Basic, the load is defined in the basic coordinate system. apex.attribute.OrientationTypeBeam3.Element, the load is defined in the element coordinate system. apex.attribute.OrientationTypeBeam3.Local, the load is defined in the local coordinate system of the beam cross section. If the load is defined in a user defined local coordinate system, then this argument should be None and coordinateSystem is used.
+- `getCoordinateSystem() -> apex.IOrientation` — the user defined coordinate system in which the load vector is defined.
+- `getInputType() -> apex.attribute.InputType` — The argument to define the load distribution on a single element.
+- `getLoadScaleFactor() -> float` — the load scale factor.
+- `getLoadType() -> apex.attribute.LoadTypeDistributedBeam3` — the loadType of the beam distributed load. apex.attribute.LoadTypeBeam3.Force, the load is a force. apex.attribute.LoadTypeBeam3.Moment, the load is a moment. ...
+- `getLoadVectorX() -> float` — the X component of the load vector.
+- `getLoadVectorY() -> float` — the Y component of the load vector.
+- `getLoadVectorZ() -> float` — the Z component of the load vector.
+- `getMagnitudeEndA() -> float` — the load magnitude at end A.
+- `getMagnitudeEndB() -> float` — the load magnitude at end B.
+- `getMagnitudeMidC() -> float` — the load magnitude at the point C which is between end A and end B.
+- `getOrientationType() -> apex.attribute.OrientationTypeDistributedBeam3` — the orientation type of the load. apex.attribute.OrientationTypeBeam3.Basic, the load is defined in the basic coordinate system. ...
 - `getTarget() -> apex.EntityCollection` — the entityCollection that the load is applied to.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, coordinateSystem: apex.IOrientation, orientationType: apex.attribute.OrientationTypeDistributedBeam3, loadVectorX: float, loadVectorY: float, loadVectorZ: float, loadType: apex.attribute.LoadTypeDistributedBeam3, loadScaleFactor: float, magnitudeEndA: float, magnitudeEndB: float, magnitudeMidC: float, inputType: apex.attribute.InputType) -> None` — Updates one or more properties of the load.
+
+Method details:
+
+#### `getCoordinateSystem() -> apex.IOrientation`
+the user defined coordinate system in which the load vector is defined. This argument must be provided when the orientationType is "apex.attribute.OrientationTypeBeam3.Local". This argument will be ignored when the orientationType is "apex.attribute.OrientationTypeBeam3.Basic" or "apex.attribute.OrientationTypeBeam3.Element".
+
+#### `getInputType() -> apex.attribute.InputType`
+The argument to define the load distribution on a single element. If the inputType is element uniform, the loadScaleFactor is 1.0, magnitudes on end A, end B and mid C are 1.0. If the inputType is element variable, above parameters are defined by user.
+
+#### `getLoadScaleFactor() -> float`
+the load scale factor. The load vector is scaled by the factor on all locations on a single element.
+
+#### `getLoadType() -> apex.attribute.LoadTypeDistributedBeam3`
+the loadType of the beam distributed load. apex.attribute.LoadTypeBeam3.Force, the load is a force. apex.attribute.LoadTypeBeam3.Moment, the load is a moment. apex.attribute.LoadTypeBeam3.Bimoment, the load is bimoment.
+
+#### `getLoadVectorX() -> float`
+the X component of the load vector. The unit can be Force or Moment quantity(depending on loadType), which is defined by the units of Force/Moment from the active script unit system.
+
+#### `getLoadVectorY() -> float`
+the Y component of the load vector. The unit can be Force or Moment quantity(depending on loadType), which is defined by the units of Force/Moment from the active script unit system.
+
+#### `getLoadVectorZ() -> float`
+the Z component of the load vector. The unit can be Force or Moment quantity(depending on loadType), which is defined by the units of Force/Moment from the active script unit system.
+
+#### `getMagnitudeEndA() -> float`
+the load magnitude at end A. The load vector is scaled by magnitude on end A.
+
+#### `getMagnitudeEndB() -> float`
+the load magnitude at end B. The load vector is scaled by magnitude on end B.
+
+#### `getMagnitudeMidC() -> float`
+the load magnitude at the point C which is between end A and end B. The load vector is scaled by magnitude on mid C.
+
+#### `getOrientationType() -> apex.attribute.OrientationTypeDistributedBeam3`
+the orientation type of the load. apex.attribute.OrientationTypeBeam3.Basic, the load is defined in the basic coordinate system. apex.attribute.OrientationTypeBeam3.Element, the load is defined in the element coordinate system. apex.attribute.OrientationTypeBeam3.Local, the load is defined in the local coordinate system of the beam cross section. If the load is defined in a user defined local coordinate system, then this argument should be None and coordinateSystem is used.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, coordinateSystem: apex.IOrientation, orientationType: apex.attribute.OrientationTypeDistributedBeam3, loadVectorX: float, loadVectorY: float, loadVectorZ: float, loadType: apex.attribute.LoadTypeDistributedBeam3, loadScaleFactor: float, magnitudeEndA: float, magnitudeEndB: float, magnitudeMidC: float, inputType: apex.attribute.InputType) -> None`
 Updates one or more properties of the load. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2796,7 +4464,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldLoadDistributedBeam3` — a DFEMFieldLoadDistributedBeam3 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldLoadDistributedBeam3` — a DFEMFieldLoadDistributedBeam3 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldLoadDistributedBeam3) -> None` — Updates one or more properties of the load.
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldLoadDistributedBeam3`
+a DFEMFieldLoadDistributedBeam3 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldLoadDistributedBeam3) -> None`
 Updates one or more properties of the load. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2812,7 +4487,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldLoadDistributed` — a DFEMFieldLoadDistributed that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldLoadDistributed` — a DFEMFieldLoadDistributed that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldLoadDistributed) -> None` — Updates one or more properties of the load.
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldLoadDistributed`
+a DFEMFieldLoadDistributed that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldLoadDistributed) -> None`
 Updates one or more properties of the load. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2829,14 +4511,27 @@ Properties: `excitationLoads`, `fluidBulkModulus`, `fluidDensity`, `phaseLead`, 
 Methods:
 
 - `getExcitationLoads() -> apex.EntityCollection` — A collection of loads that will be used as the excitation loads of the dynamic load.
-- `getFluidBulkModulus() -> float` — the bulk modulus of fluid. It is a Pressure(Stress) quantity and must be defined using the units of Pressure(Stress) from the active script unit system.
-- `getFluidDensity() -> float` — the density of fluid. It is a Density quantity and must be defined using the units of Density from the active script unit system.
+- `getFluidBulkModulus() -> float` — the bulk modulus of fluid.
+- `getFluidDensity() -> float` — the density of fluid.
 - `getPhaseLead() -> apex.environment.Load` — a PhaseLead or PhaseLeadVariable object to define the phase lead in different dofs.
 - `getPhaseLeadValue() -> float` — a phase lead value used for all dofs.
 - `getPowerTable() -> apex.chart.Table` — the table to define the power versus frequency.
-- `getPowerValue() -> float` — the power value used for all frequencies. It is a Heat Transfer Rate(power) quantity and must be defined using the units of Heat Transfer Rate from the active script unit system.
+- `getPowerValue() -> float` — the power value used for all frequencies.
 - `getTimeDelay() -> apex.environment.Load` — a TimeDelay or TimeDelayVariable object to define the time delay in different dofs.
 - `getTimeDelayValue() -> float` — a time delay value used for all dofs.
+- `update(name: str, description: str, id: int, excitationLoads: apex.EntityCollection, timeDelay: apex.environment.Load, timeDelayValue: float, phaseLead: apex.environment.Load, phaseLeadValue: float, powerTable: apex.chart.Table, powerValue: float, fluidDensity: float, fluidBulkModulus: float) -> None` — Update method.
+
+Method details:
+
+#### `getFluidBulkModulus() -> float`
+the bulk modulus of fluid. It is a Pressure(Stress) quantity and must be defined using the units of Pressure(Stress) from the active script unit system.
+
+#### `getFluidDensity() -> float`
+the density of fluid. It is a Density quantity and must be defined using the units of Density from the active script unit system.
+
+#### `getPowerValue() -> float`
+the power value used for all frequencies. It is a Heat Transfer Rate(power) quantity and must be defined using the units of Heat Transfer Rate from the active script unit system.
+
 #### `update(name: str, description: str, id: int, excitationLoads: apex.EntityCollection, timeDelay: apex.environment.Load, timeDelayValue: float, phaseLead: apex.environment.Load, phaseLeadValue: float, powerTable: apex.chart.Table, powerValue: float, fluidDensity: float, fluidBulkModulus: float) -> None`
 Update method. One or more properties may be updated in each call to update().
 
@@ -2865,11 +4560,21 @@ Methods:
 - `getImagValue() -> float` — the imaginary value used for all frequencies.
 - `getLoadType() -> apex.attribute.DynamicLoadType` — the argument to define the dynamic excitation type.
 - `getPhaseLead() -> apex.environment.Load` — the PhaseLead or PhaseLeadVariable object.
-- `getPhaseLeadValue() -> float` — The phase lead value used for all frequencies. It is an Angle quantity and must be defined using the units of Angle from the active script unit system.
+- `getPhaseLeadValue() -> float` — The phase lead value used for all frequencies.
 - `getRealPartTable() -> apex.chart.Table` — a table to define the real part value versus frequency.
 - `getRealPartValue() -> float` — a constant value as the real part used for all frequencies.
 - `getTimeDelay() -> apex.environment.Load` — the TimeDelay or TimeDelayVariable object.
-- `getTimeDelayValue() -> float` — the time delay value used for all frequencies. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+- `getTimeDelayValue() -> float` — the time delay value used for all frequencies.
+- `update(name: str, description: str, id: int, excitationLoads: apex.EntityCollection, timeDelay: apex.environment.Load, timeDelayValue: float, phaseLead: apex.environment.Load, phaseLeadValue: float, realPartTable: apex.chart.Table, realPartValue: float, imagTable: apex.chart.Table, imagValue: float, loadType: apex.attribute.DynamicLoadType) -> None` — Updates one or more properties of the load.
+
+Method details:
+
+#### `getPhaseLeadValue() -> float`
+The phase lead value used for all frequencies. It is an Angle quantity and must be defined using the units of Angle from the active script unit system.
+
+#### `getTimeDelayValue() -> float`
+the time delay value used for all frequencies. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+
 #### `update(name: str, description: str, id: int, excitationLoads: apex.EntityCollection, timeDelay: apex.environment.Load, timeDelayValue: float, phaseLead: apex.environment.Load, phaseLeadValue: float, realPartTable: apex.chart.Table, realPartValue: float, imagTable: apex.chart.Table, imagValue: float, loadType: apex.attribute.DynamicLoadType) -> None`
 Updates one or more properties of the load. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2898,12 +4603,22 @@ Methods:
 - `getLoadType() -> apex.attribute.DynamicLoadType` — the argument to define the dynamic excitation type.
 - `getMagnitude() -> float` — the magnitude value used for all frequencies.
 - `getMagnitudeTable() -> apex.chart.Table` — a table to define the magnitude value versus frequency.
-- `getPhaseAngle() -> float` — a phase angle value used for all frequencies. It is an Angle quantity and must be defined using the units of Angle from the active script unit system.
+- `getPhaseAngle() -> float` — a phase angle value used for all frequencies.
 - `getPhaseAngleTable() -> apex.chart.Table` — a table to define the phase angle versus frequency.
 - `getPhaseLead() -> apex.environment.Load` — a PhaseLead or PhaseLeadVariable object to define the phase lead in different dofs.
 - `getPhaseLeadValue() -> float` — a phase lead value used for all dofs.It is an Angle quantity and must be defined using the units of Angle from the active script unit system.
 - `getTimeDelay() -> apex.environment.Load` — a TimeDelay or TimeDelayVariable to define the time delay in different dofs.
-- `getTimeDelayValue() -> float` — a time delay value used for all dofs. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+- `getTimeDelayValue() -> float` — a time delay value used for all dofs.
+- `update(name: str, description: str, id: int, excitationLoads: apex.EntityCollection, timeDelay: apex.environment.Load, timeDelayValue: float, phaseLead: apex.environment.Load, phaseLeadValue: float, magnitudeTable: apex.chart.Table, magnitude: float, phaseAngleTable: apex.chart.Table, phaseAngle: float, loadType: apex.attribute.DynamicLoadType) -> None` — Updates one or more properties of the load.
+
+Method details:
+
+#### `getPhaseAngle() -> float`
+a phase angle value used for all frequencies. It is an Angle quantity and must be defined using the units of Angle from the active script unit system.
+
+#### `getTimeDelayValue() -> float`
+a time delay value used for all dofs. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+
 #### `update(name: str, description: str, id: int, excitationLoads: apex.EntityCollection, timeDelay: apex.environment.Load, timeDelayValue: float, phaseLead: apex.environment.Load, phaseLeadValue: float, magnitudeTable: apex.chart.Table, magnitude: float, phaseAngleTable: apex.chart.Table, phaseAngle: float, loadType: apex.attribute.DynamicLoadType) -> None`
 Updates one or more properties of the load. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2930,16 +4645,41 @@ Methods:
 
 - `getExcitationLoads() -> apex.EntityCollection` — A collection of loads that will be used as the excitation loads of the dynamic load.
 - `getExponentialCoefficient() -> float` — exponential coefficient.
-- `getFrequency() -> float` — frequency in cycles per unit time. It is a Frequency quantity and must be defined using the units of Frequency from the active script unit system.
+- `getFrequency() -> float` — frequency in cycles per unit time.
 - `getGrowthCoefficient() -> float` — growth coefficient.
-- `getInitialDisplacement() -> float` — the initial displacement of the dynamic load. It is a Length quantity and must be defined using the units of Length from the active script unit system.
-- `getInitialVelocity() -> float` — the initial velocity of the dynamic load. It is a Velocity quantity and must be defined using the units of Velocity from the active script unit system.
+- `getInitialDisplacement() -> float` — the initial displacement of the dynamic load.
+- `getInitialVelocity() -> float` — the initial velocity of the dynamic load.
 - `getLoadType() -> apex.attribute.DynamicLoadType` — the load type to define the dynamic excitation type.
-- `getPhaseAngle() -> float` — phase angle in degrees. It is an Angle quantity and must be defined using the units of Angle from the active script unit system.
-- `getTimeConstant1() -> float` — time constant 1. It is a Time quantity and must be defined using the units of Time from the active script unit system.
-- `getTimeConstant2() -> float` — time constant 2, must be >=time constant 1. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+- `getPhaseAngle() -> float` — phase angle in degrees.
+- `getTimeConstant1() -> float` — time constant 1.
+- `getTimeConstant2() -> float` — time constant 2, must be >=time constant 1.
 - `getTimeDelay() -> apex.environment.Load` — a TimeDelay or TimeDelayVariable object to define the time delay in different dofs.
-- `getTimeDelayValue() -> float` — a time delay value used for all dofs. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+- `getTimeDelayValue() -> float` — a time delay value used for all dofs.
+- `update(name: str, description: str, id: int, excitationLoads: apex.EntityCollection, timeDelay: apex.environment.Load, timeDelayValue: float, timeConstant1: float, timeConstant2: float, frequency: float, phaseAngle: float, exponentialCoefficient: float, growthCoefficient: float, initialDisplacement: float, initialVelocity: float, loadType: apex.attribute.DynamicLoadType) -> None` — Update method.
+
+Method details:
+
+#### `getFrequency() -> float`
+frequency in cycles per unit time. It is a Frequency quantity and must be defined using the units of Frequency from the active script unit system.
+
+#### `getInitialDisplacement() -> float`
+the initial displacement of the dynamic load. It is a Length quantity and must be defined using the units of Length from the active script unit system.
+
+#### `getInitialVelocity() -> float`
+the initial velocity of the dynamic load. It is a Velocity quantity and must be defined using the units of Velocity from the active script unit system.
+
+#### `getPhaseAngle() -> float`
+phase angle in degrees. It is an Angle quantity and must be defined using the units of Angle from the active script unit system.
+
+#### `getTimeConstant1() -> float`
+time constant 1. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+
+#### `getTimeConstant2() -> float`
+time constant 2, must be >=time constant 1. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+
+#### `getTimeDelayValue() -> float`
+a time delay value used for all dofs. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+
 #### `update(name: str, description: str, id: int, excitationLoads: apex.EntityCollection, timeDelay: apex.environment.Load, timeDelayValue: float, timeConstant1: float, timeConstant2: float, frequency: float, phaseAngle: float, exponentialCoefficient: float, growthCoefficient: float, initialDisplacement: float, initialVelocity: float, loadType: apex.attribute.DynamicLoadType) -> None`
 Update method. One or more properties may be updated in each call to update().
 
@@ -2969,11 +4709,24 @@ Methods:
 - `getExcitationLoads() -> apex.EntityCollection` — A collection of loads that will be used as the excitation loads of the dynamic load.
 - `getFunctionTable() -> apex.chart.Table` — a table to define the function value versus time.
 - `getFunctionValue() -> float` — the function value used for all times.
-- `getInitialDisplacement() -> float` — the initial displacement of the dynamic load. It is a Length quantity and must be defined using the units of Length from the active script unit system.
-- `getInitialVelocity() -> float` — the initial velocity of the dynamic load. It is a Velocity quantity and must be defined using the units of Velocity from the active script unit system.
+- `getInitialDisplacement() -> float` — the initial displacement of the dynamic load.
+- `getInitialVelocity() -> float` — the initial velocity of the dynamic load.
 - `getLoadType() -> apex.attribute.DynamicLoadType` — the load type to define the dynamic excitation type.
 - `getTimeDelay() -> apex.environment.Load` — a TimeDelay or TimeDelayVariable object to define the time delay in different dofs.
-- `getTimeDelayValue() -> float` — a time delay value used for all dofs. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+- `getTimeDelayValue() -> float` — a time delay value used for all dofs.
+- `update(name: str, description: str, id: int, excitationLoads: apex.EntityCollection, timeDelay: apex.environment.Load, timeDelayValue: float, functionTable: apex.chart.Table, functionValue: float, initialDisplacement: float, initialVelocity: float, loadType: apex.attribute.DynamicLoadType) -> None` — Updates one or more properties of the load.
+
+Method details:
+
+#### `getInitialDisplacement() -> float`
+the initial displacement of the dynamic load. It is a Length quantity and must be defined using the units of Length from the active script unit system.
+
+#### `getInitialVelocity() -> float`
+the initial velocity of the dynamic load. It is a Velocity quantity and must be defined using the units of Velocity from the active script unit system.
+
+#### `getTimeDelayValue() -> float`
+a time delay value used for all dofs. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+
 #### `update(name: str, description: str, id: int, excitationLoads: apex.EntityCollection, timeDelay: apex.environment.Load, timeDelayValue: float, functionTable: apex.chart.Table, functionValue: float, initialDisplacement: float, initialVelocity: float, loadType: apex.attribute.DynamicLoadType) -> None`
 Updates one or more properties of the load. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -2996,14 +4749,42 @@ Properties: `orientation`, `rotationX`, `rotationY`, `rotationZ`, `target`, `tra
 
 Methods:
 
-- `getOrientation() -> apex.IOrientation` — an optional CoordinateSystem used to define the orientation of the motion components. If omitted, the default is the basic coordinate system.
-- `getRotationX() -> float` — the motion value in rotation X. The value is an Angle quantity in static analysis, while it can be a Angle/Angle veloctity/Angle acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
-- `getRotationY() -> float` — the motion value in rotation Y. The value is an Angle quantity in static analysis, while it can be a Angle/Angle veloctity/Angle acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
-- `getRotationZ() -> float` — the motion value in rotation Z. The value is an Angle quantity in static analysis, while it can be a Angle/Angle veloctity/Angle acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the enforced motion will be applied to. Enforced motions may be assigned to Surfaces, Faces, Curves, Edges, Points, Vertices, 1D and 2D Mesh Bodies and Nodes. Enforced motions assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
-- `getTranslationX() -> float` — the motion value in translation X. The value is a length quantity in static analysis, while it can be a length/veloctity/acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
-- `getTranslationY() -> float` — the motion value in translation Y. The value is a length quantity in static analysis, while it can be a length/veloctity/acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
-- `getTranslationZ() -> float` — the motion value in translation Z. The value is a length quantity in static analysis, while it can be a length/veloctity/acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
+- `getOrientation() -> apex.IOrientation` — an optional CoordinateSystem used to define the orientation of the motion components.
+- `getRotationX() -> float` — the motion value in rotation X.
+- `getRotationY() -> float` — the motion value in rotation Y.
+- `getRotationZ() -> float` — the motion value in rotation Z.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the enforced motion will be applied to.
+- `getTranslationX() -> float` — the motion value in translation X.
+- `getTranslationY() -> float` — the motion value in translation Y.
+- `getTranslationZ() -> float` — the motion value in translation Z.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, translationX: float, translationY: float, translationZ: float, rotationX: float, rotationY: float, rotationZ: float, orientation: apex.IOrientation) -> None` — Updates one or more properties of the enforced motion.
+
+Method details:
+
+#### `getOrientation() -> apex.IOrientation`
+an optional CoordinateSystem used to define the orientation of the motion components. If omitted, the default is the basic coordinate system.
+
+#### `getRotationX() -> float`
+the motion value in rotation X. The value is an Angle quantity in static analysis, while it can be a Angle/Angle veloctity/Angle acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
+
+#### `getRotationY() -> float`
+the motion value in rotation Y. The value is an Angle quantity in static analysis, while it can be a Angle/Angle veloctity/Angle acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
+
+#### `getRotationZ() -> float`
+the motion value in rotation Z. The value is an Angle quantity in static analysis, while it can be a Angle/Angle veloctity/Angle acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the enforced motion will be applied to. Enforced motions may be assigned to Surfaces, Faces, Curves, Edges, Points, Vertices, 1D and 2D Mesh Bodies and Nodes. Enforced motions assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+
+#### `getTranslationX() -> float`
+the motion value in translation X. The value is a length quantity in static analysis, while it can be a length/veloctity/acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
+
+#### `getTranslationY() -> float`
+the motion value in translation Y. The value is a length quantity in static analysis, while it can be a length/veloctity/acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
+
+#### `getTranslationZ() -> float`
+the motion value in translation Z. The value is a length quantity in static analysis, while it can be a length/veloctity/acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, translationX: float, translationY: float, translationZ: float, rotationX: float, rotationY: float, rotationZ: float, orientation: apex.IOrientation) -> None`
 Updates one or more properties of the enforced motion. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3026,7 +4807,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldEnforcedMotion` — a DFEMFieldEnforcedMotion that identifies nodes that represent the region to which this load is applied as well as the distribution of enforced motions across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldEnforcedMotion` — a DFEMFieldEnforcedMotion that identifies nodes that represent the region to which this load is applied as well as the distribution of enforced motions across ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldEnforcedMotion) -> None` — Updates one or more properties of the enforced motion.
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldEnforcedMotion`
+a DFEMFieldEnforcedMotion that identifies nodes that represent the region to which this load is applied as well as the distribution of enforced motions across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldEnforcedMotion) -> None`
 Updates one or more properties of the enforced motion. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3042,14 +4830,42 @@ Properties: `orientation`, `rotationX`, `rotationY`, `rotationZ`, `target`, `tra
 
 Methods:
 
-- `getOrientation() -> apex.IOrientation` — an optional CoordinateSystem used to define the orientation of the motion components. If omitted, the default is the basic coordinate system.
-- `getRotationX() -> float` — the motion value in rotation X. The value is an Angle quantity in static analysis, while it can be a Angle/Angle veloctity/Angle acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
-- `getRotationY() -> float` — the motion value in rotation Y. The value is an Angle quantity in static analysis, while it can be a Angle/Angle veloctity/Angle acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
-- `getRotationZ() -> float` — the motion value in rotation Z. The value is an Angle quantity in static analysis, while it can be a Angle/Angle veloctity/Angle acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the enforced motion will be applied to. Enforced motions may be assigned to Surfaces, Faces, Curves, Edges, Points, Vertices, 1D and 2D Mesh Bodies and Nodes. Enforced motions assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
-- `getTranslationX() -> float` — the motion value in translation X. The value is a length quantity in static analysis, while it can be a length/veloctity/acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
-- `getTranslationY() -> float` — the motion value in translation Y. The value is a length quantity in static analysis, while it can be a length/veloctity/acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
-- `getTranslationZ() -> float` — the motion value in translation Z. The value is a length quantity in static analysis, while it can be a length/veloctity/acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
+- `getOrientation() -> apex.IOrientation` — an optional CoordinateSystem used to define the orientation of the motion components.
+- `getRotationX() -> float` — the motion value in rotation X.
+- `getRotationY() -> float` — the motion value in rotation Y.
+- `getRotationZ() -> float` — the motion value in rotation Z.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the enforced motion will be applied to.
+- `getTranslationX() -> float` — the motion value in translation X.
+- `getTranslationY() -> float` — the motion value in translation Y.
+- `getTranslationZ() -> float` — the motion value in translation Z.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, translationX: float, translationY: float, translationZ: float, rotationX: float, rotationY: float, rotationZ: float, orientation: apex.IOrientation) -> None` — Updates one or more properties of the enforced motion.
+
+Method details:
+
+#### `getOrientation() -> apex.IOrientation`
+an optional CoordinateSystem used to define the orientation of the motion components. If omitted, the default is the basic coordinate system.
+
+#### `getRotationX() -> float`
+the motion value in rotation X. The value is an Angle quantity in static analysis, while it can be a Angle/Angle veloctity/Angle acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
+
+#### `getRotationY() -> float`
+the motion value in rotation Y. The value is an Angle quantity in static analysis, while it can be a Angle/Angle veloctity/Angle acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
+
+#### `getRotationZ() -> float`
+the motion value in rotation Z. The value is an Angle quantity in static analysis, while it can be a Angle/Angle veloctity/Angle acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the enforced motion will be applied to. Enforced motions may be assigned to Surfaces, Faces, Curves, Edges, Points, Vertices, 1D and 2D Mesh Bodies and Nodes. Enforced motions assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+
+#### `getTranslationX() -> float`
+the motion value in translation X. The value is a length quantity in static analysis, while it can be a length/veloctity/acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
+
+#### `getTranslationY() -> float`
+the motion value in translation Y. The value is a length quantity in static analysis, while it can be a length/veloctity/acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
+
+#### `getTranslationZ() -> float`
+the motion value in translation Z. The value is a length quantity in static analysis, while it can be a length/veloctity/acceleration quantity in a dynamic analysis. The unit is defined from the active script unit system.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, translationX: float, translationY: float, translationZ: float, rotationX: float, rotationY: float, rotationZ: float, orientation: apex.IOrientation) -> None`
 Updates one or more properties of the enforced motion. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3072,7 +4888,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldEnforcedMotion` — a DFEMFieldEnforcedMotion that identifies nodes that represent the region to which this load is applied as well as the distribution of enforced motions across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldEnforcedMotion` — a DFEMFieldEnforcedMotion that identifies nodes that represent the region to which this load is applied as well as the distribution of enforced motions across ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldEnforcedMotion) -> None` — Update method.One or more properties may be updated in each call to update().
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldEnforcedMotion`
+a DFEMFieldEnforcedMotion that identifies nodes that represent the region to which this load is applied as well as the distribution of enforced motions across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldEnforcedMotion) -> None`
 Update method.One or more properties may be updated in each call to update().
 
@@ -3088,12 +4911,34 @@ Properties: `forceX`, `forceY`, `forceZ`, `orientation`, `scaleFactor`, `target`
 
 Methods:
 
-- `getForceX() -> float` — the value of the X component of the Force. The component direction is relative to the orientation. forceX is a Force quantity and must be defined using the units of Force from the active script unit system.
-- `getForceY() -> float` — the value of the Y component of the Force. The component direction is relative to the orientation. forceY is a Force quantity and must be defined using the units of Force from the active script unit system.
-- `getForceZ() -> float` — the value of the Z component of the Force. The component direction is relative to the orientation. forceZ is a Force quantity and is defined using the units of Force from the active script unit system.
-- `getOrientation() -> apex.IOrientation` — an optional CoordinateSystem used to define the orientation of the Force components. If omitted, the default is the basic coordinate system.
-- `getScaleFactor() -> float` — an optional scale factor that will be applied to the force vectors. The magnitude of the Force applied to each Node in the target is based on the product of the resultant of the provided Force vector and this scale factor.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Force will be applied to. Forces may be assigned to Solids, Cells, Surfaces, Faces, Curves, Edges, Points, Vertices, 1D and 2D Mesh Bodies and Nodes. Forces assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution .
+- `getForceX() -> float` — the value of the X component of the Force.
+- `getForceY() -> float` — the value of the Y component of the Force.
+- `getForceZ() -> float` — the value of the Z component of the Force.
+- `getOrientation() -> apex.IOrientation` — an optional CoordinateSystem used to define the orientation of the Force components.
+- `getScaleFactor() -> float` — an optional scale factor that will be applied to the force vectors.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Force will be applied to.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, orientation: apex.IOrientation, scaleFactor: float, forceX: float, forceY: float, forceZ: float) -> None` — Update method.One or more properties may be updated in each call to update().
+
+Method details:
+
+#### `getForceX() -> float`
+the value of the X component of the Force. The component direction is relative to the orientation. forceX is a Force quantity and must be defined using the units of Force from the active script unit system.
+
+#### `getForceY() -> float`
+the value of the Y component of the Force. The component direction is relative to the orientation. forceY is a Force quantity and must be defined using the units of Force from the active script unit system.
+
+#### `getForceZ() -> float`
+the value of the Z component of the Force. The component direction is relative to the orientation. forceZ is a Force quantity and is defined using the units of Force from the active script unit system.
+
+#### `getOrientation() -> apex.IOrientation`
+an optional CoordinateSystem used to define the orientation of the Force components. If omitted, the default is the basic coordinate system.
+
+#### `getScaleFactor() -> float`
+an optional scale factor that will be applied to the force vectors. The magnitude of the Force applied to each Node in the target is based on the product of the resultant of the provided Force vector and this scale factor.
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the Force will be applied to. Forces may be assigned to Solids, Cells, Surfaces, Faces, Curves, Edges, Points, Vertices, 1D and 2D Mesh Bodies and Nodes. Forces assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution .
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, orientation: apex.IOrientation, scaleFactor: float, forceX: float, forceY: float, forceZ: float) -> None`
 Update method.One or more properties may be updated in each call to update().
 
@@ -3114,7 +4959,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldForceComponent` — a DFEMFieldForceComponent that identifies nodes that represent the region to which this load is applied as well as the distribution of forces across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldForceComponent` — a DFEMFieldForceComponent that identifies nodes that represent the region to which this load is applied as well as the distribution of forces across that ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldForceComponent) -> None` — Updates one or more properties of the Force.
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldForceComponent`
+a DFEMFieldForceComponent that identifies nodes that represent the region to which this load is applied as well as the distribution of forces across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldForceComponent) -> None`
 Updates one or more properties of the Force. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3130,12 +4982,34 @@ Properties: `forceMagnitude`, `point1`, `point2`, `point3`, `point4`, `target`
 
 Methods:
 
-- `getForceMagnitude() -> float` — the magnitude of the force, forceMagnitude is a Force quantity and must be defined using the units of Force from the active script unit system. The force direction is parallel to the cross product of two vectors defined by four points.
-- `getPoint1() -> apex.Entity` — the starting point of the first vector. It can be a vertex or a node.
-- `getPoint2() -> apex.Entity` — the end point of the first vector. It can be a vertex or a node.
-- `getPoint3() -> apex.Entity` — the starting point of the second vector. It can be a vertex or a node.
-- `getPoint4() -> apex.Entity` — the end point of the second vector. It can be a vertex or a node.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Force will be applied to. Forces may be assigned to Solids, Cells, Surfaces, Faces, Curves, Edges, Points, Vertices, 1D and 2D Mesh Bodies and Nodes. Forces assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution
+- `getForceMagnitude() -> float` — the magnitude of the force, forceMagnitude is a Force quantity and must be defined using the units of Force from the active script unit system.
+- `getPoint1() -> apex.Entity` — the starting point of the first vector.
+- `getPoint2() -> apex.Entity` — the end point of the first vector.
+- `getPoint3() -> apex.Entity` — the starting point of the second vector.
+- `getPoint4() -> apex.Entity` — the end point of the second vector.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Force will be applied to.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, forceMagnitude: float, point1: apex.Entity, point2: apex.Entity, point3: apex.Entity, point4: apex.Entity) -> None` — Updates one or more properties of the Force.
+
+Method details:
+
+#### `getForceMagnitude() -> float`
+the magnitude of the force, forceMagnitude is a Force quantity and must be defined using the units of Force from the active script unit system. The force direction is parallel to the cross product of two vectors defined by four points.
+
+#### `getPoint1() -> apex.Entity`
+the starting point of the first vector. It can be a vertex or a node.
+
+#### `getPoint2() -> apex.Entity`
+the end point of the first vector. It can be a vertex or a node.
+
+#### `getPoint3() -> apex.Entity`
+the starting point of the second vector. It can be a vertex or a node.
+
+#### `getPoint4() -> apex.Entity`
+the end point of the second vector. It can be a vertex or a node.
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the Force will be applied to. Forces may be assigned to Solids, Cells, Surfaces, Faces, Curves, Edges, Points, Vertices, 1D and 2D Mesh Bodies and Nodes. Forces assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, forceMagnitude: float, point1: apex.Entity, point2: apex.Entity, point3: apex.Entity, point4: apex.Entity) -> None`
 Updates one or more properties of the Force. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3157,6 +5031,10 @@ Properties: `spatialTarget`
 Methods:
 
 - `getSpatialTarget() -> apex.environment.DFEMFieldForceFollowerNormal` — a DFEMFieldForceNormal that identifies nodes that represent the region to which this load is applied as well as the distribution of forces across that region.
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldForceFollowerNormal) -> None` — Updates one or more properties of the Force.
+
+Method details:
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldForceFollowerNormal) -> None`
 Updates one or more properties of the Force. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3172,10 +5050,20 @@ Properties: `forceMagnitude`, `point1`, `point2`, `target`
 
 Methods:
 
-- `getForceMagnitude() -> float` — the magnitude of the Force, forceMagnitude is a Force quantity and must be defined using the units of Force from the active script unit system. The force direction is along the vector from point1 to point2.
+- `getForceMagnitude() -> float` — the magnitude of the Force, forceMagnitude is a Force quantity and must be defined using the units of Force from the active script unit system.
 - `getPoint1() -> apex.Entity` — The starting point of the force vector.
 - `getPoint2() -> apex.Entity` — the end point of the force vector.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Force will be applied to. Forces may be assigned to Solids, Cells, Surfaces, Faces, Curves, Edges, Points, Vertices, 1D and 2D Mesh Bodies and Nodes. Forces assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution .
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Force will be applied to.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, forceMagnitude: float, point1: apex.Entity, point2: apex.Entity) -> None` — Updates one or more properties of the Force.
+
+Method details:
+
+#### `getForceMagnitude() -> float`
+the magnitude of the Force, forceMagnitude is a Force quantity and must be defined using the units of Force from the active script unit system. The force direction is along the vector from point1 to point2.
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the Force will be applied to. Forces may be assigned to Solids, Cells, Surfaces, Faces, Curves, Edges, Points, Vertices, 1D and 2D Mesh Bodies and Nodes. Forces assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution .
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, forceMagnitude: float, point1: apex.Entity, point2: apex.Entity) -> None`
 Updates one or more properties of the Force. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3195,6 +5083,10 @@ Properties: `spatialTarget`
 Methods:
 
 - `getSpatialTarget() -> apex.environment.DFEMFieldForceFollowerVector` — a DFEMFieldForceVector that identifies nodes that represent the region to which this load is applied as well as the distribution of forces across that region.
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldForceFollowerVector) -> None` — Updates one or more properties of the load scale factor.
+
+Method details:
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldForceFollowerVector) -> None`
 Updates one or more properties of the load scale factor. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3210,15 +5102,37 @@ Properties: `coordinateSystemDefinition`, `loadMethod`, `orientation`, `rotation
 
 Methods:
 
-- `getCoordinateSystemDefinition() -> apex.attribute.CoordinateSystemDefinition` — the coordinate system definition of the rotational force: apex.attribute.CoordinateSystemDefinition.SuperElement, the coordinate system is defined in the super-element and will be translated, rotated with the super-element. apex.attribute.CoordinateSystemDefinition.Residual, the coordinate system is defined in the residual structure and stationary with the basic coordinate system.
-- `getLoadMethod() -> apex.attribute.LoadMethodRotational` — the load method of the rotational force. apex.attribute.LoadMethod.Centrifugal should be used when there is no coupling in mass matrix - the lumped mass is used with or without element offset. apex.attribute.LoadMethod.RotationInertia should be used when lumped or consistent mass matrix is used without element offset.
-- `getOrientation() -> apex.IOrientation` — the orientation used to define the direction of the RotationalForce. Currently it only accepts a coordinate system object.
-- `getRotationCenter() -> apex.Entity` — the rotation center of the rotational force. If omitted, the rotation center is the origin of the basic coordinate system.
+- `getCoordinateSystemDefinition() -> apex.attribute.CoordinateSystemDefinition` — the coordinate system definition of the rotational force: apex.attribute.CoordinateSystemDefinition.SuperElement, the coordinate system is defined in the ...
+- `getLoadMethod() -> apex.attribute.LoadMethodRotational` — the load method of the rotational force. apex.attribute.LoadMethod.Centrifugal should be used when there is no coupling in mass matrix - the lumped mass is ...
+- `getOrientation() -> apex.IOrientation` — the orientation used to define the direction of the RotationalForce.
+- `getRotationCenter() -> apex.Entity` — the rotation center of the rotational force.
 - `getRotationVectorX() -> float` — the X component of the rotation vector.
 - `getRotationVectorY() -> float` — the Y component of the rotation vector.
 - `getRotationVectorZ() -> float` — the Z component of the rotation vector.
-- `getScaleFactorAcc() -> float` — the scale factor of the angular acceleration. The unit is Rotation Acceleration and must be defined using the units of Rotation Acceleration from the active script unit system.
-- `getScaleFactorVel() -> float` — the scale factor for angular velocity in revolutions per unit time. The unit is Rotation Velocity and must be defined using the units of Rotation Velocity from the active script unit system.
+- `getScaleFactorAcc() -> float` — the scale factor of the angular acceleration.
+- `getScaleFactorVel() -> float` — the scale factor for angular velocity in revolutions per unit time.
+- `update(name: str, description: str, id: int, rotationCenter: apex.Entity, orientation: apex.IOrientation, scaleFactorVel: float, rotationVectorX: float, rotationVectorY: float, rotationVectorZ: float, loadMethod: apex.attribute.LoadMethodRotational, scaleFactorAcc: float, coordinateSystemDefinition: apex.attribute.CoordinateSystemDefinition) -> None` — Update method.
+
+Method details:
+
+#### `getCoordinateSystemDefinition() -> apex.attribute.CoordinateSystemDefinition`
+the coordinate system definition of the rotational force: apex.attribute.CoordinateSystemDefinition.SuperElement, the coordinate system is defined in the super-element and will be translated, rotated with the super-element. apex.attribute.CoordinateSystemDefinition.Residual, the coordinate system is defined in the residual structure and stationary with the basic coordinate system.
+
+#### `getLoadMethod() -> apex.attribute.LoadMethodRotational`
+the load method of the rotational force. apex.attribute.LoadMethod.Centrifugal should be used when there is no coupling in mass matrix - the lumped mass is used with or without element offset. apex.attribute.LoadMethod.RotationInertia should be used when lumped or consistent mass matrix is used without element offset.
+
+#### `getOrientation() -> apex.IOrientation`
+the orientation used to define the direction of the RotationalForce. Currently it only accepts a coordinate system object.
+
+#### `getRotationCenter() -> apex.Entity`
+the rotation center of the rotational force. If omitted, the rotation center is the origin of the basic coordinate system.
+
+#### `getScaleFactorAcc() -> float`
+the scale factor of the angular acceleration. The unit is Rotation Acceleration and must be defined using the units of Rotation Acceleration from the active script unit system.
+
+#### `getScaleFactorVel() -> float`
+the scale factor for angular velocity in revolutions per unit time. The unit is Rotation Velocity and must be defined using the units of Rotation Velocity from the active script unit system.
+
 #### `update(name: str, description: str, id: int, rotationCenter: apex.Entity, orientation: apex.IOrientation, scaleFactorVel: float, rotationVectorX: float, rotationVectorY: float, rotationVectorZ: float, loadMethod: apex.attribute.LoadMethodRotational, scaleFactorAcc: float, coordinateSystemDefinition: apex.attribute.CoordinateSystemDefinition) -> None`
 Update method. One or more properties may be updated in each call to update().
 
@@ -3242,10 +5156,23 @@ Properties: `angle`, `lugProperty`, `target`
 
 Methods:
 
-- `getAngle() -> float` — The span angle of the selected target in the LoadLug.This is automatically determined by the selected edges or faces.In future release, user can manually define the distribution angle.
-- `getDescription() -> str` — An optional description for the LoadLug that will be created. If omitted, the description will be left blank.
+- `getAngle() -> float` — The span angle of the selected target in the LoadLug.This is automatically determined by the selected edges or faces.In future release, user can manually ...
+- `getDescription() -> str` — An optional description for the LoadLug that will be created.
 - `getLugProperty() -> LoadLugProperty` — The property of the LoadLug.
-- `getTarget() -> apex.EntityCollection` — Returns the target entities that the LoadLug is applied to. The supported target types are face and edge.
+- `getTarget() -> apex.EntityCollection` — Returns the target entities that the LoadLug is applied to.
+- `update(name: str, description: str, target: apex.EntityCollection, lugProperty: LoadLugProperty) -> None` — Update this LoadLug.
+
+Method details:
+
+#### `getAngle() -> float`
+The span angle of the selected target in the LoadLug.This is automatically determined by the selected edges or faces.In future release, user can manually define the distribution angle.
+
+#### `getDescription() -> str`
+An optional description for the LoadLug that will be created. If omitted, the description will be left blank.
+
+#### `getTarget() -> apex.EntityCollection`
+Returns the target entities that the LoadLug is applied to. The supported target types are face and edge.
+
 #### `update(name: str, description: str, target: apex.EntityCollection, lugProperty: LoadLugProperty) -> None`
 Update this LoadLug.
 
@@ -3264,6 +5191,14 @@ Methods:
 
 - `LoadLugCollection() -> None` — Construct a new LoadLugCollection.
 
+Method details:
+
+#### `LoadLugCollection() -> None`
+Construct a new LoadLugCollection.
+
+For example:
+
+
 ## `apex.environment.LoadLugProperty`  (extends `Entity`)
 Base Class LoadLugProperty. In the first release, Apex only support LoadLugPropertyStatic.
 
@@ -3277,7 +5212,14 @@ Methods:
 - `getDistributionOrientation() -> apex.attribute.DistributionOrientation` — Returns the distribution orientation of the LoadLugPropertyStatic.
 - `getId() -> int` — Returns the load id of the LoadLugPropertyStatic.
 - `getLoadMagnitude() -> float` — Returns the magnitude of the LoadLugPropertyStatic.
-- `getOrientation() -> apex.construct.Orientation` — Returns the orientation of the LoadLugPropertyStatic. For parallel distribution, the X axis of the orientation is the distributed load direction. For normal distribution, the X axis is the total load direction. In 2021.2 release, the orientation is automatically determined by the selected entities.
+- `getOrientation() -> apex.construct.Orientation` — Returns the orientation of the LoadLugPropertyStatic.
+- `update(loadMagnitude: float, distribution: apex.attribute.Distribution, distributionOrientation: apex.attribute.DistributionOrientation, id: int) -> None` — Update this LoadLugPropertyStatic.
+
+Method details:
+
+#### `getOrientation() -> apex.construct.Orientation`
+Returns the orientation of the LoadLugPropertyStatic. For parallel distribution, the X axis of the orientation is the distributed load direction. For normal distribution, the X axis is the total load direction. In 2021.2 release, the orientation is automatically determined by the selected entities.
+
 #### `update(loadMagnitude: float, distribution: apex.attribute.Distribution, distributionOrientation: apex.attribute.DistributionOrientation, id: int) -> None`
 Update this LoadLugPropertyStatic. One or more properties may be updated in each call to update().
 
@@ -3293,12 +5235,34 @@ Properties: `momentX`, `momentY`, `momentZ`, `orientation`, `scaleFactor`, `targ
 
 Methods:
 
-- `getMomentX() -> float` — the value of the X component of the Moment. The component direction is relative to the orientation. momentX is a Moment quantity and must be defined using the units of Moment from the active script unit system.
-- `getMomentY() -> float` — the value of the Y component of the Moment. The component direction is relative to the orientation. momentY is a Moment quantity and must be defined using the units of Moment from the active script unit system.
-- `getMomentZ() -> float` — the value of the Z component of the Moment. The component direction is relative to the orientation. momentZ is a Moment quantity and must be defined using the units of Moment from the active script unit system.
-- `getOrientation() -> apex.IOrientation` — an optional CoordinateSystem used to define the orientation of the Moment components. If omitted, the default is the basic coordinate system.
-- `getScaleFactor() -> float` — an optional scale factor that will be applied to the moment vectors. The magnitude of the Moment applied to each Node in the target is based on the product of the resultant of the provided Moment vector and this scale factor.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Moment will be applied to. Moments may be assigned to Solids, Cells, Surfaces, Faces, Curves, Edges, Points, Vertices, 1D and 2D Mesh Bodies and Nodes. Moments assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution
+- `getMomentX() -> float` — the value of the X component of the Moment.
+- `getMomentY() -> float` — the value of the Y component of the Moment.
+- `getMomentZ() -> float` — the value of the Z component of the Moment.
+- `getOrientation() -> apex.IOrientation` — an optional CoordinateSystem used to define the orientation of the Moment components.
+- `getScaleFactor() -> float` — an optional scale factor that will be applied to the moment vectors.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Moment will be applied to.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, orientation: apex.IOrientation, scaleFactor: float, momentX: float, momentY: float, momentZ: float) -> None` — Updates one or more properties of the Moment.
+
+Method details:
+
+#### `getMomentX() -> float`
+the value of the X component of the Moment. The component direction is relative to the orientation. momentX is a Moment quantity and must be defined using the units of Moment from the active script unit system.
+
+#### `getMomentY() -> float`
+the value of the Y component of the Moment. The component direction is relative to the orientation. momentY is a Moment quantity and must be defined using the units of Moment from the active script unit system.
+
+#### `getMomentZ() -> float`
+the value of the Z component of the Moment. The component direction is relative to the orientation. momentZ is a Moment quantity and must be defined using the units of Moment from the active script unit system.
+
+#### `getOrientation() -> apex.IOrientation`
+an optional CoordinateSystem used to define the orientation of the Moment components. If omitted, the default is the basic coordinate system.
+
+#### `getScaleFactor() -> float`
+an optional scale factor that will be applied to the moment vectors. The magnitude of the Moment applied to each Node in the target is based on the product of the resultant of the provided Moment vector and this scale factor.
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the Moment will be applied to. Moments may be assigned to Solids, Cells, Surfaces, Faces, Curves, Edges, Points, Vertices, 1D and 2D Mesh Bodies and Nodes. Moments assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, orientation: apex.IOrientation, scaleFactor: float, momentX: float, momentY: float, momentZ: float) -> None`
 Updates one or more properties of the Moment. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3319,7 +5283,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldMomentComponent` — a DFEMFieldMomentComponent that identifies nodes that represent the region to which this load is applied as well as the distribution of moments across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldMomentComponent` — a DFEMFieldMomentComponent that identifies nodes that represent the region to which this load is applied as well as the distribution of moments across that ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldMomentComponent) -> None` — Updates one or more properties of the Moment.
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldMomentComponent`
+a DFEMFieldMomentComponent that identifies nodes that represent the region to which this load is applied as well as the distribution of moments across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldMomentComponent) -> None`
 Updates one or more properties of the Moment. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3335,12 +5306,19 @@ Properties: `momentMagnitude`, `point1`, `point2`, `point3`, `point4`, `target`
 
 Methods:
 
-- `getMomentMagnitude() -> float` — the magnitude of the moment, momentMagnitude is a Moment quantity and must be defined using the units of Moment from the active script unit system. The moment direction is parallel to the cross product of the two vectors defined by four points.
+- `getMomentMagnitude() -> float` — the magnitude of the moment, momentMagnitude is a Moment quantity and must be defined using the units of Moment from the active script unit system.
 - `getPoint1() -> apex.Entity` — the starting point of the first vector.
 - `getPoint2() -> apex.Entity` — the end point of the first vector.
 - `getPoint3() -> apex.Entity` — the starting point of the second vector.
 - `getPoint4() -> apex.Entity` — the end point of the second vector.
 - `getTarget() -> apex.EntityCollection` — the entityCollection that the load is applied to.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, momentMagnitude: float, point1: apex.Entity, point2: apex.Entity, point3: apex.Entity, point4: apex.Entity) -> None` — Updates one or more properties of the Moment.
+
+Method details:
+
+#### `getMomentMagnitude() -> float`
+the magnitude of the moment, momentMagnitude is a Moment quantity and must be defined using the units of Moment from the active script unit system. The moment direction is parallel to the cross product of the two vectors defined by four points.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, momentMagnitude: float, point1: apex.Entity, point2: apex.Entity, point3: apex.Entity, point4: apex.Entity) -> None`
 Updates one or more properties of the Moment. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3362,6 +5340,10 @@ Properties: `spatialTarget`
 Methods:
 
 - `getSpatialTarget() -> apex.environment.DFEMFieldMomentFollowerNormal` — a DFEMFieldMomentNormal that identifies nodes that represent the region to which this load is applied as well as the distribution of moments across that region.
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldMomentFollowerNormal) -> None` — Update method.One or more properties may be updated in each call to update().
+
+Method details:
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldMomentFollowerNormal) -> None`
 Update method.One or more properties may be updated in each call to update().
 
@@ -3380,7 +5362,14 @@ Methods:
 - `getMomentMagnitude() -> float` — the moment magnitude. momentMagnitude is a Moment quantity and must be defined using the units of Moment from the active script unit system.
 - `getPoint1() -> apex.Entity` — The starting point of the moment vector.
 - `getPoint2() -> apex.Entity` — the end point of the moment vector.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Moment will be applied to. Moments may be assigned to Solids, Cells, Surfaces, Faces, Curves, Edges, Points, Vertices, 1D and 2D Mesh Bodies and Nodes. Moments assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Moment will be applied to.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, momentMagnitude: float, point1: apex.Entity, point2: apex.Entity) -> None` — Updates one or more properties of the Moment.
+
+Method details:
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the Moment will be applied to. Moments may be assigned to Solids, Cells, Surfaces, Faces, Curves, Edges, Points, Vertices, 1D and 2D Mesh Bodies and Nodes. Moments assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, momentMagnitude: float, point1: apex.Entity, point2: apex.Entity) -> None`
 Updates one or more properties of the Moment. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3400,6 +5389,10 @@ Properties: `spatialTarget`
 Methods:
 
 - `getSpatialTarget() -> apex.environment.DFEMFieldMomentFollowerVector` — a DFEMFieldMomentVector that identifies nodes that represent the region to which this load is applied as well as the distribution of moments across that region.
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldMomentFollowerVector) -> None` — Updates one or more properties of the Moment.
+
+Method details:
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldMomentFollowerVector) -> None`
 Updates one or more properties of the Moment. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3415,13 +5408,38 @@ Properties: `phaseLeadRx`, `phaseLeadRy`, `phaseLeadRz`, `phaseLeadX`, `phaseLea
 
 Methods:
 
-- `getPhaseLeadRx() -> float` — the phase lead value in the rotation X component. It is a Angle quantity and must be defined using the units of Angle from the active script unit system.
-- `getPhaseLeadRy() -> float` — the phase lead value in the rotation Y component. It is a Angle quantity and must be defined using the units of Angle from the active script unit system.
-- `getPhaseLeadRz() -> float` — the phase lead value in the rotation Z component. It is a Angle quantity and must be defined using the units of Angle from the active script unit system.
-- `getPhaseLeadX() -> float` — the phase lead value in the X component. It is a Angle quantity and must be defined using the units of Angle from the active script unit system.
-- `getPhaseLeadY() -> float` — the phase lead value in the Y component. It is a Angle quantity and must be defined using the units of Angle from the active script unit system.
-- `getPhaseLeadZ() -> float` — the phase lead value in the component. It is a Angle quantity and must be defined using the units of Angle from the active script unit system.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the phase lead will be applied to. Phase leads may be assigned to Surfaces, Faces, Curves, Edges, Points, Vertices, 1D and 2D Mesh Bodies and Nodes. Phase leads assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+- `getPhaseLeadRx() -> float` — the phase lead value in the rotation X component.
+- `getPhaseLeadRy() -> float` — the phase lead value in the rotation Y component.
+- `getPhaseLeadRz() -> float` — the phase lead value in the rotation Z component.
+- `getPhaseLeadX() -> float` — the phase lead value in the X component.
+- `getPhaseLeadY() -> float` — the phase lead value in the Y component.
+- `getPhaseLeadZ() -> float` — the phase lead value in the component.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the phase lead will be applied to.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, phaseLeadX: float, phaseLeadY: float, phaseLeadZ: float, phaseLeadRx: float, phaseLeadRy: float, phaseLeadRz: float) -> None` — Updates one or more properties of the phase lead.
+
+Method details:
+
+#### `getPhaseLeadRx() -> float`
+the phase lead value in the rotation X component. It is a Angle quantity and must be defined using the units of Angle from the active script unit system.
+
+#### `getPhaseLeadRy() -> float`
+the phase lead value in the rotation Y component. It is a Angle quantity and must be defined using the units of Angle from the active script unit system.
+
+#### `getPhaseLeadRz() -> float`
+the phase lead value in the rotation Z component. It is a Angle quantity and must be defined using the units of Angle from the active script unit system.
+
+#### `getPhaseLeadX() -> float`
+the phase lead value in the X component. It is a Angle quantity and must be defined using the units of Angle from the active script unit system.
+
+#### `getPhaseLeadY() -> float`
+the phase lead value in the Y component. It is a Angle quantity and must be defined using the units of Angle from the active script unit system.
+
+#### `getPhaseLeadZ() -> float`
+the phase lead value in the component. It is a Angle quantity and must be defined using the units of Angle from the active script unit system.
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the phase lead will be applied to. Phase leads may be assigned to Surfaces, Faces, Curves, Edges, Points, Vertices, 1D and 2D Mesh Bodies and Nodes. Phase leads assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, phaseLeadX: float, phaseLeadY: float, phaseLeadZ: float, phaseLeadRx: float, phaseLeadRy: float, phaseLeadRz: float) -> None`
 Updates one or more properties of the phase lead. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3444,6 +5462,10 @@ Properties: `spatialTarget`
 Methods:
 
 - `getSpatialTarget() -> apex.environment.DFEMFieldPhaseLead` — the field that defines the phase lead distribution.
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldPhaseLead) -> None` — Update method.One or more properties may be updated in each call to update().
+
+Method details:
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldPhaseLead) -> None`
 Update method.One or more properties may be updated in each call to update().
 
@@ -3459,8 +5481,18 @@ Properties: `loadPressureProperty`, `target`
 
 Methods:
 
-- `getLoadPressureProperty() -> LoadPressureProperty` — the property used to define one load pressure, it contains ID and pressureValue(s). THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: Pressure, PressureVariable.
-- `getTarget() -> apex.EntityCollection` — The entities which the pressure load is assigned to. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: Pressure, PressureVariable.
+- `getLoadPressureProperty() -> LoadPressureProperty` — DEPRECATED. the property used to define one load pressure, it contains ID and pressureValue(s).
+- `getTarget() -> apex.EntityCollection` — DEPRECATED. The entities which the pressure load is assigned to.
+- `update(name: str, description: str, target: apex.EntityCollection, loadPressureProperty: LoadPressureProperty) -> None` — DEPRECATED. Update this LoadPressure.
+
+Method details:
+
+#### `getLoadPressureProperty() -> LoadPressureProperty`
+the property used to define one load pressure, it contains ID and pressureValue(s). THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: Pressure, PressureVariable.
+
+#### `getTarget() -> apex.EntityCollection`
+The entities which the pressure load is assigned to. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: Pressure, PressureVariable.
+
 #### `update(name: str, description: str, target: apex.EntityCollection, loadPressureProperty: LoadPressureProperty) -> None`
 Update this LoadPressure. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: Pressure, PressureVariable.
 
@@ -3478,8 +5510,18 @@ Properties: `pressureMagnitude`, `target`
 
 Methods:
 
-- `getPressureMagnitude() -> float` — the magnitude of the pressure, pressureMagnitude is a Pressure quantity and is defined using the units of Pressure from the active script unit system. The pressure direction is perpendicular to the element.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the pressure will be applied to. Pressures may be assigned to Face, Surface Mesh and 2D element. Pressures assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
+- `getPressureMagnitude() -> float` — the magnitude of the pressure, pressureMagnitude is a Pressure quantity and is defined using the units of Pressure from the active script unit system.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the pressure will be applied to.
+- `update(name: str, description: str, id: int, pressureMagnitude: float, target: apex.EntityCollection) -> None` — Updates one or more properties of the Pressure.
+
+Method details:
+
+#### `getPressureMagnitude() -> float`
+the magnitude of the pressure, pressureMagnitude is a Pressure quantity and is defined using the units of Pressure from the active script unit system. The pressure direction is perpendicular to the element.
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the pressure will be applied to. Pressures may be assigned to Face, Surface Mesh and 2D element. Pressures assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
+
 #### `update(name: str, description: str, id: int, pressureMagnitude: float, target: apex.EntityCollection) -> None`
 Updates one or more properties of the Pressure. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3496,7 +5538,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldPressure2D` — a DFEMFieldPressure2DSurface that identifies elements that represent the region to which this load is applied as well as the distribution of pressures across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldPressure2D` — a DFEMFieldPressure2DSurface that identifies elements that represent the region to which this load is applied as well as the distribution of pressures across ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldPressure2D) -> None` — Updates one or more properties of the Pressure.
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldPressure2D`
+a DFEMFieldPressure2DSurface that identifies elements that represent the region to which this load is applied as well as the distribution of pressures across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldPressure2D) -> None`
 Updates one or more properties of the Pressure. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3512,11 +5561,21 @@ Properties: `pressureMagnitude`, `vertex1`, `vertex2`, `vertex3`, `vertex4`
 
 Methods:
 
-- `getPressureMagnitude() -> float` — the magnitude of the pressure, pressureMagnitude is a Pressure quantity and is defined using the units of Pressure from the active script unit system. The pressure direction is normal to the face defined by the vertices.
+- `getPressureMagnitude() -> float` — the magnitude of the pressure, pressureMagnitude is a Pressure quantity and is defined using the units of Pressure from the active script unit system.
 - `getVertex1() -> apex.Entity` — the first vertex of the face.
 - `getVertex2() -> apex.Entity` — the second vertex of the face.
 - `getVertex3() -> apex.Entity` — the third vertex of the face.
-- `getVertex4() -> apex.Entity` — the fourth vertex of the face. This argument can be "None" if the face only has three vertices.
+- `getVertex4() -> apex.Entity` — the fourth vertex of the face.
+- `update(name: str, description: str, id: int, pressureMagnitude: float, vertex1: apex.Entity, vertex2: apex.Entity, vertex3: apex.Entity, vertex4: apex.Entity) -> None` — Updates one or more properties of the Pressure.
+
+Method details:
+
+#### `getPressureMagnitude() -> float`
+the magnitude of the pressure, pressureMagnitude is a Pressure quantity and is defined using the units of Pressure from the active script unit system. The pressure direction is normal to the face defined by the vertices.
+
+#### `getVertex4() -> apex.Entity`
+the fourth vertex of the face. This argument can be "None" if the face only has three vertices.
+
 #### `update(name: str, description: str, id: int, pressureMagnitude: float, vertex1: apex.Entity, vertex2: apex.Entity, vertex3: apex.Entity, vertex4: apex.Entity) -> None`
 Updates one or more properties of the Pressure. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3536,7 +5595,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldPressureArea` — a DFEMFieldPressureArea that identifies nodes that represent the region to which this load is applied as well as the distribution of pressures across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldPressureArea` — a DFEMFieldPressureArea that identifies nodes that represent the region to which this load is applied as well as the distribution of pressures across that ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldPressureArea) -> None` — Updates one or more properties of the Pressure.
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldPressureArea`
+a DFEMFieldPressureArea that identifies nodes that represent the region to which this load is applied as well as the distribution of pressures across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldPressureArea) -> None`
 Updates one or more properties of the Pressure. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3553,6 +5619,14 @@ Methods:
 
 - `LoadPressureCollection() -> None` — Construct a new LoadPressureCollection.
 
+Method details:
+
+#### `LoadPressureCollection() -> None`
+Construct a new LoadPressureCollection.
+
+For example:
+
+
 ## `apex.environment.LoadPressureProperty`  (extends `Entity`)
 Base Class of LoadPressureProperty. In the first release, Apex will support the derived classes: LoadPressurePropertyStaticConstant LoadPressurePropertyStaticVariable In future releases, Apex will support: LoadPressurePropDynamic LoadPressurePropRandom LoadPressurePropBuckling THIS CLASS IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: Pressure, PressureVariable.
 
@@ -3562,8 +5636,18 @@ Properties: `id`, `pressureValue`
 
 Methods:
 
-- `getId() -> int` — an optional load ID defined in PressurePropertyStaticConstant and assigned to the associated LoadPressure. If omitted, the system will assign a default load ID which is the smallest and unique among all existing loads IDs. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: Pressure.
-- `getPressureValue() -> float` — value of static constant pressure property. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: Pressure.
+- `getId() -> int` — DEPRECATED. an optional load ID defined in PressurePropertyStaticConstant and assigned to the associated LoadPressure.
+- `getPressureValue() -> float` — DEPRECATED. value of static constant pressure property.
+- `update(pressureValue: float, id: int) -> None` — DEPRECATED. Update this LoadPressurePropertyStaticConstant.
+
+Method details:
+
+#### `getId() -> int`
+an optional load ID defined in PressurePropertyStaticConstant and assigned to the associated LoadPressure. If omitted, the system will assign a default load ID which is the smallest and unique among all existing loads IDs. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: Pressure.
+
+#### `getPressureValue() -> float`
+value of static constant pressure property. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: Pressure.
+
 #### `update(pressureValue: float, id: int) -> None`
 Update this LoadPressurePropertyStaticConstant. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: Pressure.
 
@@ -3579,8 +5663,18 @@ Properties: `id`
 
 Methods:
 
-- `getId() -> int` — an optional load ID defined in LoadPressurePropertyStaticVariable and assigned to the associated LoadPressure. If omitted, the system will assign a default load ID which is the smallest and unique among all existing loads IDs. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: PressureVariable.
-- `getPressureValues() -> {str:{dict}}` — returns a nested Dictionary containing the pathNames of the MeshBody on which the pressure is applied and the element IDs/element face IDs/node IDs and associated pressure values. The key of the top level dictionary is a string type that represents the pathName of a MeshBody and the associated value is a secondary dictionary containing the individual elements/faces/pressures. Each MeshBody that has one or more elements referenced by the variable pressure load will be included in the top level dictionary. For example, is a pressure is applied to elements on two different MeshBodies the top level dictionary will include two items - {"Model_1/Part 1/Mesh 1?: {dict1}, "Model_1/Part 2/Mesh 2": {dict2}} The secondary dictionary contains the information about which elements/element faces are included in the variable pressure load and the pressure values applied to each. A variable pressure load may have a single constant value per 2D element or 3D element face or may have different values defined at each corner node of 2D elements or 3D element faces. The type of distribution is identified in the secondary dictionary by the "identifier_type"key which is a string type. The associated value is a string type that must be one of the following values, "ELEMENT_ID", "ELEMENT_ID_FACE_INDEX", "ELEMENT_ID_FACE_NODE_ID" If identifier_type is ELEMENT_ID, the pressure field is defined using a single pressure value per 2D element and the secondary dictionary items with "element_ids" and "pressures" keys identify the 2D elements and pressure values. The value associated with the element_ids key is a List of integers, each integer identifying the element id. The value associated with the pressures key is a List of floats, each integer identifying the single pressure value associated with the corresponding element. The element_ids and pressure lists must be of equal length with the pressure value indices aligned with the element ids indices. If identifier_type is ELEMENT_ID_FACE_INDEX, the remainder of the pressure field is defined using a single pressure value per 3D element face and the secondary dictionary items with "element_ids" "face_identifiers" and "pressures" identify the 3D element faces and pressure values. The value associated with the element_ids key is a List of integers, each integer identifying the id of a 3D element. The value associated with the "face_identifiers" key is a List of integers, each integer identifying a face on the associated 3D element. (Face indices per 3D element type are documented elsewhere). The value associated with the pressures key is a List of floats, each integer identifying the single pressure value associated with the corresponding element face. The element_ids, identifiers and pressures lists must be of equal length with the pressure value indices aligned with the element ids/Element face indices. If identifier_type is ELEMENT_ID_FACE_NODE_ID, the remainder of the pressure field is defined using multiple pressure values per 2D element or 3D element face ?one pressure value for each corner node of the 2D element or 3D element face and the secondary dictionary items with "element_ids" "face_identifiers" and "pressures" identify the 2D Elements or 3D element faces and pressure values. The value associated with the element_ids key is a List of integers, each integer identifying the id of a 2D or 3D element. The value associated with the "face_identifiers" key is a List of Lists of integers. Each internal integer List identifies the corner nodes of the 2D element or 3D element face. There must be the same number of internal integer lists as there are IDs in element_ids, The value associated with the pressures key is a List of Lists of floats, Each internal list identifies the pressure values at the corner nodes of the associated 2D element or 3D element face. There must be the same number of internal float lists as there are IDs in element_ids and the pressure values must be aligned with the element corner node indices. Example : Pressure field defined on 3 2D elements with a single pressure per element { "identifier_type": "ELEMENT_ID" "element_ids": [1, 2, 6], "pressures": [15.0, 21.6, 35.9] } Example : Pressure field defined on 3 3D elements with a single pressure per element { "identifier_type": "ELEMENT_ID_FACE_INDEX" "element_ids": [11, 23, 915], "face_identifiers": [0, 3, 2], "pressures": [15.0, 21.6, 35.9] } Example : Pressure field defined on 3 elements with different pressures for one 2D element or 3D element face { "identifier_type": "ELEMENT_ID_FACE_NODE_ID" "element_ids": [11, 23, 915], "face_identifiers": [[15, 16, 18, 21], [17, 5, 89, 6], [99, 89, 70, 65]], "pressures": [[15.0, 17.6, 18.9, 17.2], [14.0, 17.2, 17.2], [13.2, 14.6, 15.9, 11.2]] } THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: PressureVariable.
+- `getId() -> int` — DEPRECATED. an optional load ID defined in LoadPressurePropertyStaticVariable and assigned to the associated LoadPressure.
+- `getPressureValues() -> {str:{dict}}` — DEPRECATED. returns a nested Dictionary containing the pathNames of the MeshBody on which the pressure is applied and the element IDs/element face IDs/node IDs and ...
+- `update(pressureValues: {str:{dict}}, id: int) -> None` — DEPRECATED. update a static variable pressure load property.
+
+Method details:
+
+#### `getId() -> int`
+an optional load ID defined in LoadPressurePropertyStaticVariable and assigned to the associated LoadPressure. If omitted, the system will assign a default load ID which is the smallest and unique among all existing loads IDs. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: PressureVariable.
+
+#### `getPressureValues() -> {str:{dict}}`
+returns a nested Dictionary containing the pathNames of the MeshBody on which the pressure is applied and the element IDs/element face IDs/node IDs and associated pressure values. The key of the top level dictionary is a string type that represents the pathName of a MeshBody and the associated value is a secondary dictionary containing the individual elements/faces/pressures. Each MeshBody that has one or more elements referenced by the variable pressure load will be included in the top level dictionary. For example, is a pressure is applied to elements on two different MeshBodies the top level dictionary will include two items - {"Model_1/Part 1/Mesh 1?: {dict1}, "Model_1/Part 2/Mesh 2": {dict2}} The secondary dictionary contains the information about which elements/element faces are included in the variable pressure load and the pressure values applied to each. A variable pressure load may have a single constant value per 2D element or 3D element face or may have different values defined at each corner node of 2D elements or 3D element faces. The type of distribution is identified in the secondary dictionary by the "identifier_type"key which is a string type. The associated value is a string type that must be one of the following values, "ELEMENT_ID", "ELEMENT_ID_FACE_INDEX", "ELEMENT_ID_FACE_NODE_ID" If identifier_type is ELEMENT_ID, the pressure field is defined using a single pressure value per 2D element and the secondary dictionary items with "element_ids" and "pressures" keys identify the 2D elements and pressure values. The value associated with the element_ids key is a List of integers, each integer identifying the element id. The value associated with the pressures key is a List of floats, each integer identifying the single pressure value associated with the corresponding element. The element_ids and pressure lists must be of equal length with the pressure value indices aligned with the element ids indices. If identifier_type is ELEMENT_ID_FACE_INDEX, the remainder of the pressure field is defined using a single pressure value per 3D element face and the secondary dictionary items with "element_ids" "face_identifiers" and "pressures" identify the 3D element faces and pressure values. The value associated with the element_ids key is a List of integers, each integer identifying the id of a 3D element. The value associated with the "face_identifiers" key is a List of integers, each integer identifying a face on the associated 3D element. (Face indices per 3D element type are documented elsewhere). The value associated with the pressures key is a List of floats, each integer identifying the single pressure value associated with the corresponding element face. The element_ids, identifiers and pressures lists must be of equal length with the pressure value indices aligned with the element ids/Element face indices. If identifier_type is ELEMENT_ID_FACE_NODE_ID, the remainder of the pressure field is defined using multiple pressure values per 2D element or 3D element face ?one pressure value for each corner node of the 2D element or 3D element face and the secondary dictionary items with "element_ids" "face_identifiers" and "pressures" identify the 2D Elements or 3D element faces and pressure values. The value associated with the element_ids key is a List of integers, each integer identifying the id of a 2D or 3D element. The value associated with the "face_identifiers" key is a List of Lists of integers. Each internal integer List identifies the corner nodes of the 2D element or 3D element face. There must be the same number of internal integer lists as there are IDs in element_ids, The value associated with the pressures key is a List of Lists of floats, Each internal list identifies the pressure values at the corner nodes of the associated 2D element or 3D element face. There must be the same number of internal float lists as there are IDs in element_ids and the pressure values must be aligned with the element corner node indices. Example : Pressure field defined on 3 2D elements with a single pressure per element { "identifier_type": "ELEMENT_ID" "element_ids": [1, 2, 6], "pressures": [15.0, 21.6, 35.9] } Example : Pressure field defined on 3 3D elements with a single pressure per element { "identifier_type": "ELEMENT_ID_FACE_INDEX" "element_ids": [11, 23, 915], "face_identifiers": [0, 3, 2], "pressures": [15.0, 21.6, 35.9] } Example : Pressure field defined on 3 elements with different pressures for one 2D element or 3D element face { "identifier_type": "ELEMENT_ID_FACE_NODE_ID" "element_ids": [11, 23, 915], "face_identifiers": [[15, 16, 18, 21], [17, 5, 89, 6], [99, 89, 70, 65]], "pressures": [[15.0, 17.6, 18.9, 17.2], [14.0, 17.2, 17.2], [13.2, 14.6, 15.9, 11.2]] } THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: PressureVariable.
+
 #### `update(pressureValues: {str:{dict}}, id: int) -> None`
 update a static variable pressure load property. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: PressureVariable.
 
@@ -3611,8 +5705,18 @@ Properties: `target`, `temperatureProperty`
 
 Methods:
 
-- `getTarget() -> apex.EntityCollection` — Returns the target entities that the LoadTemperature is applied to. The supported target types are: Solid, cell, surface, curve, face, edge, vertex, 3D mesh, 2D mesh, 1D mesh, node. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTemperatureNodal, LoadTemperatureNodalVariable.
-- `getTemperatureProperty() -> LoadTemperatureProperty` — Returns the property of the LoadTemperature. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTemperatureNodal, LoadTemperatureNodalVariable.
+- `getTarget() -> apex.EntityCollection` — DEPRECATED. Returns the target entities that the LoadTemperature is applied to.
+- `getTemperatureProperty() -> LoadTemperatureProperty` — DEPRECATED. Returns the property of the LoadTemperature.
+- `update(name: str, description: str, target: apex.EntityCollection, temperatureProperty: LoadTemperatureProperty) -> None` — DEPRECATED. Update this LoadTemperature.
+
+Method details:
+
+#### `getTarget() -> apex.EntityCollection`
+Returns the target entities that the LoadTemperature is applied to. The supported target types are: Solid, cell, surface, curve, face, edge, vertex, 3D mesh, 2D mesh, 1D mesh, node. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTemperatureNodal, LoadTemperatureNodalVariable.
+
+#### `getTemperatureProperty() -> LoadTemperatureProperty`
+Returns the property of the LoadTemperature. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTemperatureNodal, LoadTemperatureNodalVariable.
+
 #### `update(name: str, description: str, target: apex.EntityCollection, temperatureProperty: LoadTemperatureProperty) -> None`
 Update this LoadTemperature. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTemperatureNodal, LoadTemperatureNodalVariable.
 
@@ -3631,13 +5735,28 @@ Methods:
 
 - `LoadTemperatureCollection() -> None` — Construct a new LoadTemperatureCollection.
 
+Method details:
+
+#### `LoadTemperatureCollection() -> None`
+Construct a new LoadTemperatureCollection.
+
+For example:
+
+
 ## `apex.environment.LoadTemperatureDefault`  (extends `Load`)
 The default temperature automatically applied to the entities that are not associated with other temperature loads. So there is no target in the load. When used to generate a Nastran model this class will create a Nastran TEMPD entry.
 Properties: `defaultTemperature`
 
 Methods:
 
-- `getDefaultTemperature() -> float` — the default temperature value. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+- `getDefaultTemperature() -> float` — the default temperature value.
+- `update(name: str, description: str, id: int, defaultTemperature: float) -> None` — Updates one or more properties of the Temperature.
+
+Method details:
+
+#### `getDefaultTemperature() -> float`
+the default temperature value. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
 #### `update(name: str, description: str, id: int, defaultTemperature: float) -> None`
 Updates one or more properties of the Temperature. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3653,11 +5772,30 @@ Properties: `target`, `temperatureLowerSurface`, `temperatureReferencePlane`, `t
 
 Methods:
 
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Temperature will be applied to. Forces may be assigned to Surfaces, Faces, 2D Mesh Bodies and 2D Elements. Temperatures assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
-- `getTemperatureLowerSurface() -> float` — the temperature for stress calculation at points on the lower surface. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperatureReferencePlane() -> float` — the temperature applied on the element reference plane. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperatureUpperSurface() -> float` — the temperature for stress calculation at points on the upper surface. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getThermalGradient() -> float` — the effective linear thermal gradient. It represents a quantity and must be specified using units of thermal gradient from the active script unit system.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Temperature will be applied to.
+- `getTemperatureLowerSurface() -> float` — the temperature for stress calculation at points on the lower surface.
+- `getTemperatureReferencePlane() -> float` — the temperature applied on the element reference plane.
+- `getTemperatureUpperSurface() -> float` — the temperature for stress calculation at points on the upper surface.
+- `getThermalGradient() -> float` — the effective linear thermal gradient.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, temperatureReferencePlane: float, thermalGradient: float, temperatureLowerSurface: float, temperatureUpperSurface: float) -> None` — Updates one or more properties of the Temperature.
+
+Method details:
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the Temperature will be applied to. Forces may be assigned to Surfaces, Faces, 2D Mesh Bodies and 2D Elements. Temperatures assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
+
+#### `getTemperatureLowerSurface() -> float`
+the temperature for stress calculation at points on the lower surface. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperatureReferencePlane() -> float`
+the temperature applied on the element reference plane. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperatureUpperSurface() -> float`
+the temperature for stress calculation at points on the upper surface. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getThermalGradient() -> float`
+the effective linear thermal gradient. It represents a quantity and must be specified using units of thermal gradient from the active script unit system.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, temperatureReferencePlane: float, thermalGradient: float, temperatureLowerSurface: float, temperatureUpperSurface: float) -> None`
 Updates one or more properties of the Temperature. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3677,10 +5815,26 @@ Properties: `target`, `temperatureBottom`, `temperatureMid`, `temperatureTop`
 
 Methods:
 
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Temperature will be applied to. Temperatures may be assigned to Surfaces, Faces, 2D Mesh Bodies and Nodes. Temperatures assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
-- `getTemperatureBottom() -> float` — the temperature at bottom location through the thickness. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperatureMid() -> float` — the temperature at mid location through the thickness. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperatureTop() -> float` — the temperature at top location through the thickness. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Temperature will be applied to.
+- `getTemperatureBottom() -> float` — the temperature at bottom location through the thickness.
+- `getTemperatureMid() -> float` — the temperature at mid location through the thickness.
+- `getTemperatureTop() -> float` — the temperature at top location through the thickness.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, temperatureTop: float, temperatureBottom: float, temperatureMid: float) -> None` — Updates one or more properties of the Temperature.
+
+Method details:
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the Temperature will be applied to. Temperatures may be assigned to Surfaces, Faces, 2D Mesh Bodies and Nodes. Temperatures assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+
+#### `getTemperatureBottom() -> float`
+the temperature at bottom location through the thickness. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperatureMid() -> float`
+the temperature at mid location through the thickness. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperatureTop() -> float`
+the temperature at top location through the thickness. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, temperatureTop: float, temperatureBottom: float, temperatureMid: float) -> None`
 Updates one or more properties of the Temperature. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3699,7 +5853,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradient2DHeat` — a DFEMFieldTemperatureGradient2DHeat that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradient2DHeat` — a DFEMFieldTemperatureGradient2DHeat that identifies elements that represent the region to which this load is applied as well as the distribution of loads ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldTemperatureGradient2DHeat) -> None` — Updates one or more properties of the Temperature.
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradient2DHeat`
+a DFEMFieldTemperatureGradient2DHeat that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldTemperatureGradient2DHeat) -> None`
 Updates one or more properties of the Temperature. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3715,7 +5876,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradient2D` — a DFEMFieldTemperatureGradient2D that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradient2D` — a DFEMFieldTemperatureGradient2D that identifies elements that represent the region to which this load is applied as well as the distribution of loads across ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldTemperatureGradient2D) -> None` — Updates one or more properties of the Temperature.
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradient2D`
+a DFEMFieldTemperatureGradient2D that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldTemperatureGradient2D) -> None`
 Updates one or more properties of the Temperature. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3731,22 +5899,62 @@ Properties: `inputType`, `target`, `temperatureEndA`, `temperatureEndB`, `temper
 
 Methods:
 
-- `getInputType() -> apex.attribute.InputType` — The argument to define the load distribution on a single element. If the inputType is element uniform, only temperature value and thermal gradient at end A are necessary and they are automatically applied to end B. If the inputType is element variable, all temperature values and thermal gradients can be defined.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Temperature will be applied to. Temperatures may be assigned to Curves, Edges, 1D Mesh Bodies and 1D Elements. Temperatures assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
-- `getTemperatureEndA() -> float` — the temperature value at end A on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperatureEndB() -> float` — the temperature value at end B on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointCendA() -> float` — the temperature value on point C at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointCendB() -> float` — the temperature value on point C at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointDendA() -> float` — the temperature value on point D at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointDendB() -> float` — the temperature value on point D at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointEendA() -> float` — the temperature value on point E at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointEendB() -> float` — the temperature value on point E at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointFendA() -> float` — the temperature value on point F at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointFendB() -> float` — the temperature value on point F at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+- `getInputType() -> apex.attribute.InputType` — The argument to define the load distribution on a single element.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Temperature will be applied to.
+- `getTemperatureEndA() -> float` — the temperature value at end A on the neutral axis.
+- `getTemperatureEndB() -> float` — the temperature value at end B on the neutral axis.
+- `getTemperaturePointCendA() -> float` — the temperature value on point C at end A, used for stress recovery.
+- `getTemperaturePointCendB() -> float` — the temperature value on point C at end B, used for stress recovery.
+- `getTemperaturePointDendA() -> float` — the temperature value on point D at end A, used for stress recovery.
+- `getTemperaturePointDendB() -> float` — the temperature value on point D at end B, used for stress recovery.
+- `getTemperaturePointEendA() -> float` — the temperature value on point E at end A, used for stress recovery.
+- `getTemperaturePointEendB() -> float` — the temperature value on point E at end B, used for stress recovery.
+- `getTemperaturePointFendA() -> float` — the temperature value on point F at end A, used for stress recovery.
+- `getTemperaturePointFendB() -> float` — the temperature value on point F at end B, used for stress recovery.
 - `getThermalGradient1A() -> float` — the effective linear thermal gradient in direction 1 on end A.
 - `getThermalGradient1B() -> float` — the effective linear thermal gradient in direction 1 on end B.
 - `getThermalGradient2A() -> float` — the effective linear thermal gradient in direction 2 on end A.
 - `getThermalGradient2B() -> float` — the effective linear thermal gradient in direction 2 on end B.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, temperatureEndA: float, temperatureEndB: float, thermalGradient1A: float, thermalGradient1B: float, thermalGradient2A: float, thermalGradient2B: float, temperaturePointCendA: float, temperaturePointDendA: float, temperaturePointEendA: float, temperaturePointFendA: float, temperaturePointCendB: float, temperaturePointDendB: float, temperaturePointEendB: float, temperaturePointFendB: float, inputType: apex.attribute.InputType) -> None` — Updates one or more properties of the Temperature.
+
+Method details:
+
+#### `getInputType() -> apex.attribute.InputType`
+The argument to define the load distribution on a single element. If the inputType is element uniform, only temperature value and thermal gradient at end A are necessary and they are automatically applied to end B. If the inputType is element variable, all temperature values and thermal gradients can be defined.
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the Temperature will be applied to. Temperatures may be assigned to Curves, Edges, 1D Mesh Bodies and 1D Elements. Temperatures assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
+
+#### `getTemperatureEndA() -> float`
+the temperature value at end A on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperatureEndB() -> float`
+the temperature value at end B on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointCendA() -> float`
+the temperature value on point C at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointCendB() -> float`
+the temperature value on point C at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointDendA() -> float`
+the temperature value on point D at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointDendB() -> float`
+the temperature value on point D at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointEendA() -> float`
+the temperature value on point E at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointEendB() -> float`
+the temperature value on point E at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointFendA() -> float`
+the temperature value on point F at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointFendB() -> float`
+the temperature value on point F at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, temperatureEndA: float, temperatureEndB: float, thermalGradient1A: float, thermalGradient1B: float, thermalGradient2A: float, thermalGradient2B: float, temperaturePointCendA: float, temperaturePointDendA: float, temperaturePointEendA: float, temperaturePointFendA: float, temperaturePointCendB: float, temperaturePointDendB: float, temperaturePointEendB: float, temperaturePointFendB: float, inputType: apex.attribute.InputType) -> None`
 Updates one or more properties of the Temperature. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3777,7 +5985,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradientBeam2` — a DFEMFieldTemperatureBeam2 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradientBeam2` — a DFEMFieldTemperatureBeam2 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldTemperatureGradientBeam2) -> None` — Update method.One or more properties may be updated in each call to update().
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradientBeam2`
+a DFEMFieldTemperatureBeam2 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldTemperatureGradientBeam2) -> None`
 Update method.One or more properties may be updated in each call to update().
 
@@ -3793,29 +6008,84 @@ Properties: `inputType`, `target`, `temperatureEndA`, `temperatureEndB`, `temper
 
 Methods:
 
-- `getInputType() -> apex.attribute.InputType` — The argument to define the load distribution on a single element. If the inputType is element uniform, only temperature value and thermal gradient at end A are necessary and they are automatically applied to end B and mid C. If the inputType is element variable, all temperature values and thermal gradients can be defined.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Temperature will be applied to. Temperatures may be assigned to Curves, Edges, 1D Mesh Bodies and 1D Elements. Temperatures assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
-- `getTemperatureEndA() -> float` — the temperature value at end A on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperatureEndB() -> float` — the temperature value at end B on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperatureMidC() -> float` — the temperature value at a point C between end A and end B. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointCendA() -> float` — the temperature value on point C at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointCendB() -> float` — the temperature value on point C at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointCmidC() -> float` — the temperature value on point C at mid C, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointDendA() -> float` — the temperature value on point D at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointDendB() -> float` — the temperature value on point D at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointDmidC() -> float` — the temperature value on point D at mid C, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointEendA() -> float` — the temperature value on point E at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointEendB() -> float` — the temperature value on point E at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointEmidC() -> float` — the temperature value on point E at mid C, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointFendA() -> float` — the temperature value on point F at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointFendB() -> float` — the temperature value on point F at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
-- `getTemperaturePointFmidC() -> float` — the temperature value on point F at mid C, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+- `getInputType() -> apex.attribute.InputType` — The argument to define the load distribution on a single element.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Temperature will be applied to.
+- `getTemperatureEndA() -> float` — the temperature value at end A on the neutral axis.
+- `getTemperatureEndB() -> float` — the temperature value at end B on the neutral axis.
+- `getTemperatureMidC() -> float` — the temperature value at a point C between end A and end B.
+- `getTemperaturePointCendA() -> float` — the temperature value on point C at end A, used for stress recovery.
+- `getTemperaturePointCendB() -> float` — the temperature value on point C at end B, used for stress recovery.
+- `getTemperaturePointCmidC() -> float` — the temperature value on point C at mid C, used for stress recovery.
+- `getTemperaturePointDendA() -> float` — the temperature value on point D at end A, used for stress recovery.
+- `getTemperaturePointDendB() -> float` — the temperature value on point D at end B, used for stress recovery.
+- `getTemperaturePointDmidC() -> float` — the temperature value on point D at mid C, used for stress recovery.
+- `getTemperaturePointEendA() -> float` — the temperature value on point E at end A, used for stress recovery.
+- `getTemperaturePointEendB() -> float` — the temperature value on point E at end B, used for stress recovery.
+- `getTemperaturePointEmidC() -> float` — the temperature value on point E at mid C, used for stress recovery.
+- `getTemperaturePointFendA() -> float` — the temperature value on point F at end A, used for stress recovery.
+- `getTemperaturePointFendB() -> float` — the temperature value on point F at end B, used for stress recovery.
+- `getTemperaturePointFmidC() -> float` — the temperature value on point F at mid C, used for stress recovery.
 - `getThermalGradientYA() -> float` — the effective linear thermal gradient in local direction y on end A.
 - `getThermalGradientYB() -> float` — the effective linear thermal gradient in direction y on end B.
 - `getThermalGradientYC() -> float` — the effective linear thermal gradient in direction y on mid C.
 - `getThermalGradientZA() -> float` — the effective linear thermal gradient in direction z on end A.
 - `getThermalGradientZB() -> float` — the effective linear thermal gradient in direction z on end B.
 - `getThermalGradientZC() -> float` — the effective linear thermal gradient in direction z on mid C.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, temperatureEndA: float, temperatureEndB: float, temperatureMidC: float, thermalGradientYA: float, thermalGradientZA: float, thermalGradientYB: float, thermalGradientZB: float, thermalGradientYC: float, thermalGradientZC: float, temperaturePointCendA: float, temperaturePointDendA: float, temperaturePointEendA: float, temperaturePointFendA: float, temperaturePointCendB: float, temperaturePointDendB: float, temperaturePointEendB: float, temperaturePointFendB: float, temperaturePointCmidC: float, temperaturePointDmidC: float, temperaturePointEmidC: float, temperaturePointFmidC: float, inputType: apex.attribute.InputType) -> None` — Updates one or more properties of the Temperature.
+
+Method details:
+
+#### `getInputType() -> apex.attribute.InputType`
+The argument to define the load distribution on a single element. If the inputType is element uniform, only temperature value and thermal gradient at end A are necessary and they are automatically applied to end B and mid C. If the inputType is element variable, all temperature values and thermal gradients can be defined.
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the Temperature will be applied to. Temperatures may be assigned to Curves, Edges, 1D Mesh Bodies and 1D Elements. Temperatures assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
+
+#### `getTemperatureEndA() -> float`
+the temperature value at end A on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperatureEndB() -> float`
+the temperature value at end B on the neutral axis. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperatureMidC() -> float`
+the temperature value at a point C between end A and end B. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointCendA() -> float`
+the temperature value on point C at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointCendB() -> float`
+the temperature value on point C at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointCmidC() -> float`
+the temperature value on point C at mid C, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointDendA() -> float`
+the temperature value on point D at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointDendB() -> float`
+the temperature value on point D at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointDmidC() -> float`
+the temperature value on point D at mid C, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointEendA() -> float`
+the temperature value on point E at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointEendB() -> float`
+the temperature value on point E at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointEmidC() -> float`
+the temperature value on point E at mid C, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointFendA() -> float`
+the temperature value on point F at end A, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointFendB() -> float`
+the temperature value on point F at end B, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
+#### `getTemperaturePointFmidC() -> float`
+the temperature value on point F at mid C, used for stress recovery. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, temperatureEndA: float, temperatureEndB: float, temperatureMidC: float, thermalGradientYA: float, thermalGradientZA: float, thermalGradientYB: float, thermalGradientZB: float, thermalGradientYC: float, thermalGradientZC: float, temperaturePointCendA: float, temperaturePointDendA: float, temperaturePointEendA: float, temperaturePointFendA: float, temperaturePointCendB: float, temperaturePointDendB: float, temperaturePointEendB: float, temperaturePointFendB: float, temperaturePointCmidC: float, temperaturePointDmidC: float, temperaturePointEmidC: float, temperaturePointFmidC: float, inputType: apex.attribute.InputType) -> None`
 Updates one or more properties of the Temperature. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3853,7 +6123,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradientBeam3` — a DFEMFieldTemperatureBeam3 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradientBeam3` — a DFEMFieldTemperatureBeam3 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldTemperatureGradientBeam3) -> None` — Update method.
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureGradientBeam3`
+a DFEMFieldTemperatureBeam3 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldTemperatureGradientBeam3) -> None`
 Update method. One or more properties may be updated in each call to update().
 
@@ -3869,8 +6146,18 @@ Properties: `target`, `temperatureValue`
 
 Methods:
 
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Temperature will be applied to. Temperatures may be assigned to Solids, Cells, Surfaces, Faces, Curves, Edges, Points, Vertices, 1D, 2D and 3D Mesh Bodies and Nodes. Temperatures assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
-- `getTemperatureValue() -> float` — the temperature value. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the Temperature will be applied to.
+- `getTemperatureValue() -> float` — the temperature value.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, temperatureValue: float) -> None` — Updates one or more properties of the Temperature.
+
+Method details:
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the Temperature will be applied to. Temperatures may be assigned to Solids, Cells, Surfaces, Faces, Curves, Edges, Points, Vertices, 1D, 2D and 3D Mesh Bodies and Nodes. Temperatures assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+
+#### `getTemperatureValue() -> float`
+the temperature value. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system. You can specify other temperature unit by setting apex.createCustomUnitSystem.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, temperatureValue: float) -> None`
 Updates one or more properties of the Temperature. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3887,7 +6174,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureNodal` — a DFEMFieldLoadDistributed that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureNodal` — a DFEMFieldLoadDistributed that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldTemperatureNodal) -> None` — Update method.One or more properties may be updated in each call to update().
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldTemperatureNodal`
+a DFEMFieldLoadDistributed that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldTemperatureNodal) -> None`
 Update method.One or more properties may be updated in each call to update().
 
@@ -3906,8 +6200,18 @@ Properties: `id`, `temperatureValue`
 
 Methods:
 
-- `getId() -> int` — An optional load ID defined in TemperaturePropertyStaticConstant and assigned to the associated LoadTemperature. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTemperatureNodal.
-- `getTemperatureValue() -> float` — the temperature value. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system.You can specify other temperature unit by setting apex.createCustomUnitSystem. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTemperatureNodal.
+- `getId() -> int` — DEPRECATED. An optional load ID defined in TemperaturePropertyStaticConstant and assigned to the associated LoadTemperature.
+- `getTemperatureValue() -> float` — DEPRECATED. the temperature value.
+- `update(temperatureValue: float, id: int) -> None` — DEPRECATED. Update this LoadTemperaturePropertyStaticConstant.
+
+Method details:
+
+#### `getId() -> int`
+An optional load ID defined in TemperaturePropertyStaticConstant and assigned to the associated LoadTemperature. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTemperatureNodal.
+
+#### `getTemperatureValue() -> float`
+the temperature value. It represents a Temperature quantity and must be specified using units of Temperature from the active script unit system.You can specify other temperature unit by setting apex.createCustomUnitSystem. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTemperatureNodal.
+
 #### `update(temperatureValue: float, id: int) -> None`
 Update this LoadTemperaturePropertyStaticConstant. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTemperatureNodal.
 
@@ -3923,8 +6227,18 @@ Properties: `id`, `temperatureValues`
 
 Methods:
 
-- `getId() -> int` — An optional load ID defined in LoadTemperaturePropertyStaticVariable and assigned to the associated LoadTemperature. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTemperatureNodalVariable.
-- `getTemperatureValues() -> {str:{dict}}` — A nested Dictionary containing the pathName of the MeshBody on which the LoadTemperature is applied and the nodes IDs and the associated temperature values. The key of the top level dictionary is a string that represents the pathName of a MeshBody and the associated value is a secondary dictionary containing the individual nodes/temperatures. Each MeshBody that has one or more nodes referenced by the variable LoadTemperature will be included in the top level dictionary. For example, a LoadTemperature is applied to two different MeshBodies the top level dictionary will include two items - {"Model_1/Part 1/Mesh 1" : {dict1}, "Model_1/Part 2/Mesh 2": {dict2}} The secondary dictionary contains the information about which nodes are included in the variable LoadTemperature and the temperature values applied to each node. The type of distribution is identified in the secondary dictionary by the "identifier_type" key which is a string type. The associated value is a string type that must be "NODE_ID" as Apex only supports nodal temperature in 2021.1 release. For identifier type of NODE_ID, the temperature field is defined by the secondary dictionary items with "node_ids" and "temperatures" keys that identify the nodes IDs and temperature values. The value associated with the node_ids key is a List of integers, each integer identifying the node id. The value associated with the temperatures key is a List of floats, each float identifying the single temperature value associated with the corresponding node. The node_ids and temperatures lists must be of equal length with the temperature values indices aligned with the node ids indices. Example : LoadTemperature defined on three nodes of "Mesh 1" in "Model_1". {"Model_1/Part 1/Mesh 1" : { "identifier_type" : "NODE_ID", "node_ids" : [1000,1001,1002], "temperatures" : [301.52,302.78,303.92] } } THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTemperatureNodalVariable.
+- `getId() -> int` — DEPRECATED. An optional load ID defined in LoadTemperaturePropertyStaticVariable and assigned to the associated LoadTemperature.
+- `getTemperatureValues() -> {str:{dict}}` — DEPRECATED. A nested Dictionary containing the pathName of the MeshBody on which the LoadTemperature is applied and the nodes IDs and the associated temperature values.
+- `update(temperatureValues: {str:{dict}}, id: int) -> None` — DEPRECATED. Update this LoadTemperaturePropertyStaticVariable.
+
+Method details:
+
+#### `getId() -> int`
+An optional load ID defined in LoadTemperaturePropertyStaticVariable and assigned to the associated LoadTemperature. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTemperatureNodalVariable.
+
+#### `getTemperatureValues() -> {str:{dict}}`
+A nested Dictionary containing the pathName of the MeshBody on which the LoadTemperature is applied and the nodes IDs and the associated temperature values. The key of the top level dictionary is a string that represents the pathName of a MeshBody and the associated value is a secondary dictionary containing the individual nodes/temperatures. Each MeshBody that has one or more nodes referenced by the variable LoadTemperature will be included in the top level dictionary. For example, a LoadTemperature is applied to two different MeshBodies the top level dictionary will include two items - {"Model_1/Part 1/Mesh 1" : {dict1}, "Model_1/Part 2/Mesh 2": {dict2}} The secondary dictionary contains the information about which nodes are included in the variable LoadTemperature and the temperature values applied to each node. The type of distribution is identified in the secondary dictionary by the "identifier_type" key which is a string type. The associated value is a string type that must be "NODE_ID" as Apex only supports nodal temperature in 2021.1 release. For identifier type of NODE_ID, the temperature field is defined by the secondary dictionary items with "node_ids" and "temperatures" keys that identify the nodes IDs and temperature values. The value associated with the node_ids key is a List of integers, each integer identifying the node id. The value associated with the temperatures key is a List of floats, each float identifying the single temperature value associated with the corresponding node. The node_ids and temperatures lists must be of equal length with the temperature values indices aligned with the node ids indices. Example : LoadTemperature defined on three nodes of "Mesh 1" in "Model_1". {"Model_1/Part 1/Mesh 1" : { "identifier_type" : "NODE_ID", "node_ids" : [1000,1001,1002], "temperatures" : [301.52,302.78,303.92] } } THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTemperatureNodalVariable.
+
 #### `update(temperatureValues: {str:{dict}}, id: int) -> None`
 Update this LoadTemperaturePropertyStaticVariable. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTemperatureNodalVariable.
 
@@ -3940,13 +6254,38 @@ Properties: `target`, `timeDelayRx`, `timeDelayRy`, `timeDelayRz`, `timeDelayX`,
 
 Methods:
 
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the time delay will be applied to. Time delays may be assigned to Surfaces, Faces, Curves, Edges, Points, Vertices, 1D and 2D Mesh Bodies and Nodes. Time delays assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
-- `getTimeDelayRx() -> float` — the time delay value in the rotation X component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
-- `getTimeDelayRy() -> float` — the time delay value in the rotation Y component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
-- `getTimeDelayRz() -> float` — the time delay value in the rotation Z component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
-- `getTimeDelayX() -> float` — the time delay value in the translation X Component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
-- `getTimeDelayY() -> float` — the time delay value in the Y component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
-- `getTimeDelayZ() -> float` — the time delay value in the Z component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the time delay will be applied to.
+- `getTimeDelayRx() -> float` — the time delay value in the rotation X component.
+- `getTimeDelayRy() -> float` — the time delay value in the rotation Y component.
+- `getTimeDelayRz() -> float` — the time delay value in the rotation Z component.
+- `getTimeDelayX() -> float` — the time delay value in the translation X Component.
+- `getTimeDelayY() -> float` — the time delay value in the Y component.
+- `getTimeDelayZ() -> float` — the time delay value in the Z component.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, timeDelayX: float, timeDelayY: float, timeDelayZ: float, timeDelayRx: float, timeDelayRy: float, timeDelayRz: float) -> None` — Updates one or more properties of the time delay.
+
+Method details:
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the time delay will be applied to. Time delays may be assigned to Surfaces, Faces, Curves, Edges, Points, Vertices, 1D and 2D Mesh Bodies and Nodes. Time delays assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+
+#### `getTimeDelayRx() -> float`
+the time delay value in the rotation X component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+
+#### `getTimeDelayRy() -> float`
+the time delay value in the rotation Y component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+
+#### `getTimeDelayRz() -> float`
+the time delay value in the rotation Z component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+
+#### `getTimeDelayX() -> float`
+the time delay value in the translation X Component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+
+#### `getTimeDelayY() -> float`
+the time delay value in the Y component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+
+#### `getTimeDelayZ() -> float`
+the time delay value in the Z component. It is a Time quantity and must be defined using the units of Time from the active script unit system.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, timeDelayX: float, timeDelayY: float, timeDelayZ: float, timeDelayRx: float, timeDelayRy: float, timeDelayRz: float) -> None`
 Updates one or more properties of the time delay. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3968,7 +6307,14 @@ Properties: `spatialTarget`
 
 Methods:
 
-- `getSpatialTarget() -> apex.environment.DFEMFieldTimeDelay` — a DFEMFieldTimeDelay that identifies nodes that represent the region to which this time delay is applied as well as the distribution of delays across that region.
+- `getSpatialTarget() -> apex.environment.DFEMFieldTimeDelay` — a DFEMFieldTimeDelay that identifies nodes that represent the region to which this time delay is applied as well as the distribution of delays across that ...
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldTimeDelay) -> None` — Updates one or more properties of the time delay.
+
+Method details:
+
+#### `getSpatialTarget() -> apex.environment.DFEMFieldTimeDelay`
+a DFEMFieldTimeDelay that identifies nodes that represent the region to which this time delay is applied as well as the distribution of delays across that region.
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldTimeDelay) -> None`
 Updates one or more properties of the time delay. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -3987,8 +6333,18 @@ Methods:
 - `getForceX() -> float` — the total force in X component, it is a Force quantity and must be defined using the units of Force from the active script unit system.
 - `getForceY() -> float` — the total force in Y component, it is a Force quantity and must be defined using the units of Force from the active script unit system.
 - `getForceZ() -> float` — the total force in Z component, it is a Force quantity and must be defined using the units of Force from the active script unit system.
-- `getOrientation() -> apex.IOrientation` — the orientation used to define the direction of the pressure. Currently it only accepts a coordinate system object.
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the load will be applied to. Loads may be assigned to Faces, 2D Mesh Bodies, 2D Elements and Element Faces. Loads assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
+- `getOrientation() -> apex.IOrientation` — the orientation used to define the direction of the pressure.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the load will be applied to.
+- `update(name: str, description: str, id: int, orientation: apex.IOrientation, target: apex.EntityCollection, forceX: float, forceY: float, forceZ: float) -> None` — Updates one or more properties of the load.
+
+Method details:
+
+#### `getOrientation() -> apex.IOrientation`
+the orientation used to define the direction of the pressure. Currently it only accepts a coordinate system object.
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the load will be applied to. Loads may be assigned to Faces, 2D Mesh Bodies, 2D Elements and Element Faces. Loads assigned to geometry entities will be transferred to the Elements associated with these geometry entities when the model is exported for solution.
+
 #### `update(name: str, description: str, id: int, orientation: apex.IOrientation, target: apex.EntityCollection, forceX: float, forceY: float, forceZ: float) -> None`
 Updates one or more properties of the load. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -4008,9 +6364,22 @@ Properties: `orientation`, `target`, `tractionProperty`
 
 Methods:
 
-- `getOrientation() -> apex.construct.Orientation` — Returns Orientation of the LoadTraction. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed, LoadTotal.
-- `getTarget() -> apex.EntityCollection` — Returns the target entities that the LoadTraction is applied to. The supported target types are face, 2D mesh, 2D element and element face in 2021.2 release. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed, LoadTotal.
-- `getTractionProperty() -> LoadTractionProperty` — Returns the property of this LoadTraction. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed, LoadTotal.
+- `getOrientation() -> apex.construct.Orientation` — DEPRECATED. Returns Orientation of the LoadTraction.
+- `getTarget() -> apex.EntityCollection` — DEPRECATED. Returns the target entities that the LoadTraction is applied to.
+- `getTractionProperty() -> LoadTractionProperty` — DEPRECATED. Returns the property of this LoadTraction.
+- `update(name: str, description: str, target: apex.EntityCollection, tractionProperty: LoadTractionProperty, orientation: apex.construct.Orientation) -> None` — DEPRECATED. Update this LoadTraction.
+
+Method details:
+
+#### `getOrientation() -> apex.construct.Orientation`
+Returns Orientation of the LoadTraction. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed, LoadTotal.
+
+#### `getTarget() -> apex.EntityCollection`
+Returns the target entities that the LoadTraction is applied to. The supported target types are face, 2D mesh, 2D element and element face in 2021.2 release. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed, LoadTotal.
+
+#### `getTractionProperty() -> LoadTractionProperty`
+Returns the property of this LoadTraction. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed, LoadTotal.
+
 #### `update(name: str, description: str, target: apex.EntityCollection, tractionProperty: LoadTractionProperty, orientation: apex.construct.Orientation) -> None`
 Update this LoadTraction. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed, LoadTotal.
 
@@ -4030,6 +6399,14 @@ Methods:
 
 - `LoadTractionCollection() -> None` — Construct a new LoadTractionCollection.
 
+Method details:
+
+#### `LoadTractionCollection() -> None`
+Construct a new LoadTractionCollection.
+
+For example:
+
+
 ## `apex.environment.LoadTractionProperty`  (extends `Entity`)
 Base Class LoadTractionProperty. THIS CLASS IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed, LoadTotal.
 
@@ -4039,13 +6416,38 @@ Properties: `id`, `pressureX`, `pressureY`, `pressureZ`
 
 Methods:
 
-- `getId() -> int` — Gets the load ID of the LoadTractionPropertyStaticConstant. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed.
-- `getPressureX() -> float` — Gets Optional - the pressure value in X component. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed.
-- `getPressureY() -> float` — Gets Optional - the pressure value in Y component. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed.
-- `getPressureZ() -> float` — Gets Optional - the pressure value in Z component. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed.
-- `removePressureX() -> None` — Remove the X component of this TractionLoad. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed.
-- `removePressureY() -> None` — Remove the Y component of this TractionLoad. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed.
-- `removePressureZ() -> None` — Remove the Y component of this TractionLoad. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed.
+- `getId() -> int` — DEPRECATED. Gets the load ID of the LoadTractionPropertyStaticConstant.
+- `getPressureX() -> float` — DEPRECATED. Gets Optional - the pressure value in X component.
+- `getPressureY() -> float` — DEPRECATED. Gets Optional - the pressure value in Y component.
+- `getPressureZ() -> float` — DEPRECATED. Gets Optional - the pressure value in Z component.
+- `removePressureX() -> None` — DEPRECATED. Remove the X component of this TractionLoad.
+- `removePressureY() -> None` — DEPRECATED. Remove the Y component of this TractionLoad.
+- `removePressureZ() -> None` — DEPRECATED. Remove the Y component of this TractionLoad.
+- `update(pressureX: float, pressureY: float, pressureZ: float, id: int) -> None` — DEPRECATED. Update this LoadTractionPropertyStaticConstant.
+
+Method details:
+
+#### `getId() -> int`
+Gets the load ID of the LoadTractionPropertyStaticConstant. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed.
+
+#### `getPressureX() -> float`
+Gets Optional - the pressure value in X component. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed.
+
+#### `getPressureY() -> float`
+Gets Optional - the pressure value in Y component. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed.
+
+#### `getPressureZ() -> float`
+Gets Optional - the pressure value in Z component. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed.
+
+#### `removePressureX() -> None`
+Remove the X component of this TractionLoad. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed.
+
+#### `removePressureY() -> None`
+Remove the Y component of this TractionLoad. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed.
+
+#### `removePressureZ() -> None`
+Remove the Y component of this TractionLoad. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed.
+
 #### `update(pressureX: float, pressureY: float, pressureZ: float, id: int) -> None`
 Update this LoadTractionPropertyStaticConstant. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadDistributed.
 
@@ -4063,13 +6465,38 @@ Properties: `forceX`, `forceY`, `forceZ`, `id`
 
 Methods:
 
-- `getForceX() -> float` — Gets Optional - the force value in X component. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTotal.
-- `getForceY() -> float` — Gets Optional - the force value in Y component. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTotal.
-- `getForceZ() -> float` — Gets Optional - the force value in Z component. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTotal.
-- `getId() -> int` — Gets the load ID of the LoadTractionPropertyStaticTotal. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTotal.
-- `removeForceX() -> None` — Remove the X component of this TractionLoad. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTotal.
-- `removeForceY() -> None` — Remove the Y component of this TractionLoad. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTotal.
-- `removeForceZ() -> None` — Remove the Z component of this TractionLoad. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTotal.
+- `getForceX() -> float` — DEPRECATED. Gets Optional - the force value in X component.
+- `getForceY() -> float` — DEPRECATED. Gets Optional - the force value in Y component.
+- `getForceZ() -> float` — DEPRECATED. Gets Optional - the force value in Z component.
+- `getId() -> int` — DEPRECATED. Gets the load ID of the LoadTractionPropertyStaticTotal.
+- `removeForceX() -> None` — DEPRECATED. Remove the X component of this TractionLoad.
+- `removeForceY() -> None` — DEPRECATED. Remove the Y component of this TractionLoad.
+- `removeForceZ() -> None` — DEPRECATED. Remove the Z component of this TractionLoad.
+- `update(forceX: float, forceY: float, forceZ: float, id: int) -> None` — DEPRECATED. Update this LoadTractionPropertyStaticTotal.
+
+Method details:
+
+#### `getForceX() -> float`
+Gets Optional - the force value in X component. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTotal.
+
+#### `getForceY() -> float`
+Gets Optional - the force value in Y component. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTotal.
+
+#### `getForceZ() -> float`
+Gets Optional - the force value in Z component. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTotal.
+
+#### `getId() -> int`
+Gets the load ID of the LoadTractionPropertyStaticTotal. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTotal.
+
+#### `removeForceX() -> None`
+Remove the X component of this TractionLoad. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTotal.
+
+#### `removeForceY() -> None`
+Remove the Y component of this TractionLoad. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTotal.
+
+#### `removeForceZ() -> None`
+Remove the Z component of this TractionLoad. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTotal.
+
 #### `update(forceX: float, forceY: float, forceZ: float, id: int) -> None`
 Update this LoadTractionPropertyStaticTotal. THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadTotal.
 
@@ -4087,6 +6514,13 @@ Properties: `activeRep`, `target`
 
 Methods:
 
+- `createPreloadBoltRep(id: int = 0, name: str = "####", description: str = "####", repProperty: apex.environment.PreloadBoltProperty = None) -> apex.environment.PreloadBoltRep` — Create and add a new PreloadBoltRep to this Bolt preload.
+- `getActiveRep() -> apex.environment.PreloadBoltRep` — Get the currently used BoltPreloadRep in this bolt preload.
+- `getTarget() -> apex.EntityCollection` — Get the target entities that the PreloadBolt is applied to.
+- `update(name: str, description: str, target: apex.EntityCollection) -> None` — Update this bolt preload.
+
+Method details:
+
 #### `createPreloadBoltRep(id: int = 0, name: str = "####", description: str = "####", repProperty: apex.environment.PreloadBoltProperty = None) -> apex.environment.PreloadBoltRep`
 Create and add a new PreloadBoltRep to this Bolt preload.
 
@@ -4095,8 +6529,9 @@ Create and add a new PreloadBoltRep to this Bolt preload.
 - `description` — Optional-description of the bolt preload rep.
 - `repProperty` — Property of the Bolt Preload rep.
 
-- `getActiveRep() -> apex.environment.PreloadBoltRep` — Get the currently used BoltPreloadRep in this bolt preload.
-- `getTarget() -> apex.EntityCollection` — Get the target entities that the PreloadBolt is applied to. The supported target is 3D bolt object.
+#### `getTarget() -> apex.EntityCollection`
+Get the target entities that the PreloadBolt is applied to. The supported target is 3D bolt object.
+
 #### `update(name: str, description: str, target: apex.EntityCollection) -> None`
 Update this bolt preload.
 
@@ -4112,6 +6547,14 @@ Methods:
 
 - `PreloadBoltCollection() -> None` — Construct a new PreloadBoltCollection.
 
+Method details:
+
+#### `PreloadBoltCollection() -> None`
+Construct a new PreloadBoltCollection.
+
+For example:
+
+
 ## `apex.environment.PreloadBoltProperty`  (extends `Entity`)
 
 ## `apex.environment.PreloadBoltPropertyStatic`  (extends `PreloadBoltProperty`)
@@ -4123,6 +6566,10 @@ Methods:
 - `getForce() -> float` — Get the force of bolt preload, it is only available when preloadType = Force.
 - `getOverclosure() -> float` — Get the overclosure of bolt preload, it is only available when preloadType = Overclosure.
 - `getPreloadType() -> apex.environment.BoltPreloadType` — Get the bolt preload definition type.
+- `update(preloadType: apex.environment.BoltPreloadType, force: float, overclosure: float) -> None` — Update static bolt preload property.
+
+Method details:
+
 #### `update(preloadType: apex.environment.BoltPreloadType, force: float, overclosure: float) -> None`
 Update static bolt preload property.
 
@@ -4139,6 +6586,10 @@ Methods:
 
 - `getId() -> int` — Get the ID of the bolt preload rep.
 - `getRepProperty() -> apex.environment.PreloadBoltProperty` — Get the property of the Bolt preload rep.
+- `update(name: str, description: str, id: int, repProperty: PreloadBoltProperty) -> None` — Update the bolt preload rep.
+
+Method details:
+
 #### `update(name: str, description: str, id: int, repProperty: PreloadBoltProperty) -> None`
 Update the bolt preload rep.
 
@@ -4156,6 +6607,10 @@ Methods:
 
 - `getPressure() -> float` — the pressure value on the 1st corner of the element.
 - `getTarget() -> apex.EntityCollection` — the entityCollection that the load is applied to.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, pressure: float) -> None` — Update method.
+
+Method details:
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, pressure: float) -> None`
 Update method. One or more properties may be updated in each call to update().
 
@@ -4172,6 +6627,10 @@ Properties: `spatialTarget`
 Methods:
 
 - `getSpatialTarget() -> apex.environment.DFEMFieldPressure`
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldPressure) -> None`
+
+Method details:
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldPressure) -> None`
 
 - `id` — Update the id of this PressureVariable
@@ -4192,8 +6651,18 @@ Methods:
 - `getConstrainTranslationX() -> bool` — the argument to indicate whether the translation X is constrained or not.
 - `getConstrainTranslationY() -> bool` — the argument to indicate whether the translation Y is constrained or not.
 - `getConstrainTranslationZ() -> bool` — the argument to indicate whether the translation Z is constrained or not.
-- `getOrientation() -> apex.IOrientation` — the orientation of the constraint. Currently it must be a coordinate system
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the constraint will be applied to. Constraints may be assigned to Solids, Cells, Faces, Curves, Edges and Nodes. Constraints assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+- `getOrientation() -> apex.IOrientation` — the orientation of the constraint.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the constraint will be applied to.
+- `update(name: str, description: str, target: apex.EntityCollection, constrainTranslationX: bool, constrainTranslationY: bool, constrainTranslationZ: bool, constrainRotationX: bool, constrainRotationY: bool, constrainRotationZ: bool, orientation: apex.IOrientation) -> None` — Updates one or more properties of the constraint.
+
+Method details:
+
+#### `getOrientation() -> apex.IOrientation`
+the orientation of the constraint. Currently it must be a coordinate system
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the constraint will be applied to. Constraints may be assigned to Solids, Cells, Faces, Curves, Edges and Nodes. Constraints assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+
 #### `update(name: str, description: str, target: apex.EntityCollection, constrainTranslationX: bool, constrainTranslationY: bool, constrainTranslationZ: bool, constrainRotationX: bool, constrainRotationY: bool, constrainRotationZ: bool, orientation: apex.IOrientation) -> None`
 Updates one or more properties of the constraint. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -4221,8 +6690,18 @@ Methods:
 - `getConstrainTranslationX() -> bool` — the argument to indicate whether the translation X is constrained or not.
 - `getConstrainTranslationY() -> bool` — the argument to indicate whether the translation Y is constrained or not.
 - `getConstrainTranslationZ() -> bool` — the argument to indicate whether the translation Z is constrained or not.
-- `getOrientation() -> apex.IOrientation` — the orientation of the constraint. Currently it must be a coordinate system
-- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the constraint will be applied to. Constraints may be assigned to Solids, Cells, Faces, Curves, Edges and Nodes. Constraints assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+- `getOrientation() -> apex.IOrientation` — the orientation of the constraint.
+- `getTarget() -> apex.EntityCollection` — an EntityCollection identifying the entities that the constraint will be applied to.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, constrainTranslationX: bool, constrainTranslationY: bool, constrainTranslationZ: bool, constrainRotationX: bool, constrainRotationY: bool, constrainRotationZ: bool, orientation: apex.IOrientation) -> None` — Updates one or more properties of the support.
+
+Method details:
+
+#### `getOrientation() -> apex.IOrientation`
+the orientation of the constraint. Currently it must be a coordinate system
+
+#### `getTarget() -> apex.EntityCollection`
+an EntityCollection identifying the entities that the constraint will be applied to. Constraints may be assigned to Solids, Cells, Faces, Curves, Edges and Nodes. Constraints assigned to geometry entities will be transferred to the Nodes associated with these geometry entities when the model is exported for solution.
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, constrainTranslationX: bool, constrainTranslationY: bool, constrainTranslationZ: bool, constrainRotationX: bool, constrainRotationY: bool, constrainRotationZ: bool, orientation: apex.IOrientation) -> None`
 Updates one or more properties of the support. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -4246,6 +6725,10 @@ Properties: `spatialTarget`
 Methods:
 
 - `getSpatialTarget() -> apex.environment.DFEMFieldSupportFreeBody` — a DFEMFieldSupport that identifies nodes that represent the region to which this support is applied as well as the distribution of supports across that region.
+- `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldSupportFreeBody) -> None` — Updates one or more properties of the support.
+
+Method details:
+
 #### `update(id: int, name: str, description: str, spatialTarget: apex.environment.DFEMFieldSupportFreeBody) -> None`
 Updates one or more properties of the support. All property arguments are optional. Properties omitted from the argument list when this method is called will be unchanged by the method and will retain their original values.
 
@@ -4262,6 +6745,10 @@ Properties: `spatialTarget`
 Methods:
 
 - `getSpatialTarget() -> apex.environment.DFEMFieldSupportFreeBody` — a DFEMFieldSupport that identifies nodes that represent the region to which this support is applied as well as the distribution of supports across that region.
+- `update(name: str, description: str, spatialTarget: apex.environment.DFEMFieldSupportFreeBody) -> None` — Update method.One or more properties may be updated in each call to update().
+
+Method details:
+
 #### `update(name: str, description: str, spatialTarget: apex.environment.DFEMFieldSupportFreeBody) -> None`
 Update method.One or more properties may be updated in each call to update().
 

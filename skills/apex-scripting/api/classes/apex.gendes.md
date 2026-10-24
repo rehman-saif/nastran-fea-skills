@@ -13,6 +13,10 @@ Methods:
 - `getOffsetDistance() -> float` — returns the offsetDistance of this ClearanceRegion.
 - `getTargetFaces() -> apex.geometry.FaceCollection` — returns the targetFaces of this ClearanceRegion.
 - `setOffsetDistance(offsetDistance: float) -> None` — set the offsetDistance of this ClearanceRegion.
+- `update(name: str = "", description: str = "", offsetDistance: float = 0.0, targetFaces: apex.EntityCollection = None) -> None` — it's used to modify the created clearance region.
+
+Method details:
+
 #### `update(name: str = "", description: str = "", offsetDistance: float = 0.0, targetFaces: apex.EntityCollection = None) -> None`
 it's used to modify the created clearance region. Either the name, description, offsetDistance, targetFaces can be updated in one update call.
 
@@ -28,6 +32,15 @@ An iterable collection of Clearance Region objects, based on EntityCollection.
 Methods:
 
 - `ClearanceRegionCollection() -> None` — Construct a new ClearanceRegionCollection.
+- `appendList(clearanceRegionList: [apex.gendes.ClearanceRegion]) -> None` — Add ClearanceRegions from a list to the end of this collection.
+
+Method details:
+
+#### `ClearanceRegionCollection() -> None`
+Construct a new ClearanceRegionCollection.
+
+For example:
+
 #### `appendList(clearanceRegionList: [apex.gendes.ClearanceRegion]) -> None`
 Add ClearanceRegions from a list to the end of this collection.
 
@@ -46,6 +59,10 @@ Methods:
 - `getNonDesignSpaceThickness() -> float` — returns the nonDesignSpaceThickness of this CompoundInterface.
 - `getOffsetDistance() -> float` — returns the offsetDistance of this CompoundInterface.
 - `getTarget() -> apex.EntityCollection` — returns the target of this CompoundInterface.
+- `update(name: str = "####", description: str = "####", nonDesignSpaceThickness: float = NAN, machiningAllowance: float = NAN, offsetDistance: float = NAN, target: apex.EntityCollection = None) -> None` — Updates this interface.
+
+Method details:
+
 #### `update(name: str = "####", description: str = "####", nonDesignSpaceThickness: float = NAN, machiningAllowance: float = NAN, offsetDistance: float = NAN, target: apex.EntityCollection = None) -> None`
 Updates this interface. One or more properties may be updated in each call to update().
 
@@ -63,6 +80,15 @@ An iterable collection of CompoundInterface objects, based on EntityCollection.
 Methods:
 
 - `CompoundInterfaceCollection() -> None` — Construct a new CompoundInterfaceCollection.
+- `appendList(interfaceList: [apex.gendes.CompoundInterface]) -> None` — Add CompoundInterfaces from a list to the end of this collection.
+
+Method details:
+
+#### `CompoundInterfaceCollection() -> None`
+Construct a new CompoundInterfaceCollection.
+
+For example:
+
 #### `appendList(interfaceList: [apex.gendes.CompoundInterface]) -> None`
 Add CompoundInterfaces from a list to the end of this collection.
 
@@ -77,6 +103,21 @@ Properties: `colorRGB`, `designSpaceSolid`, `edgeWeight`, `highlighted`, `locati
 
 Methods:
 
+- `getDesignSpaceSolid() -> apex.geometry.Solid` — The solid body that defines the design space volume which is internally sent to the generative design solver.
+- `getFullSpaceSolidWithMA() -> apex.geometry.Solid` — Returns a newly created geometry equal to the original DesignSpace plus all attached MAs.
+- `getLocation() -> apex.Coordinate` — getLocation of DesignSpace is not supported yet, it will be supported in feature release.
+- `getNonDesignRegionAssociated() -> apex.gendes.NonDesignRegionCollection` — NonDesignRegionCollection associated with the DesignSpace, that cannot be modified or reduced by the generative design solver.
+- `getSymmetricXY() -> bool` — Boolean property indicating whether the DesignSpace supports symmetry about the XY plane or not.
+- `getSymmetricXZ() -> bool` — Boolean property indicating whether the DesignSpace supports symmetry about the XZ plane or not.
+- `getSymmetricYZ() -> bool` — Boolean property indicating whether the DesignSpace supports symmetry about the YZ plane or not.
+- `getSymmetryLocation() -> apex.ILocation` — The location of the origin of the DesignSpace as an ILocation.
+- `getSymmetryOrientation() -> apex.construct.Orientation` — The orientation of the DesignSpace symmetry planes as an Orientation.
+- `getTarget() -> apex.geometry.Cell`
+- `setParam(valParam: msc.apex.appfw.CmdParameter) -> None`
+- `update(name: str, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None` — Update this DesignSpace.
+
+Method details:
+
 #### `getDesignSpaceSolid() -> apex.geometry.Solid`
 The solid body that defines the design space volume which is internally sent to the generative design solver. It also includes non-design region cells. For symmetric DesignSpaces, the design space solid is the master region solid and the solver will mirror-copy the design space solid about the DesignSpace active symmetry planes to get the complete design space volume.
 
@@ -87,7 +128,6 @@ Returns a newly created geometry equal to the original DesignSpace plus all atta
 
 Returns: the FullSpaceSolidWithMA.
 
-- `getLocation() -> apex.Coordinate` — getLocation of DesignSpace is not supported yet, it will be supported in feature release.
 #### `getNonDesignRegionAssociated() -> apex.gendes.NonDesignRegionCollection`
 NonDesignRegionCollection associated with the DesignSpace, that cannot be modified or reduced by the generative design solver. The resulting shape generated by the solver will ALWAYS include these regions. It includes all NonDesignRegion objects associated with the DesignSpace.
 
@@ -118,8 +158,6 @@ The orientation of the DesignSpace symmetry planes as an Orientation. If the Des
 
 Returns: the SymmetryOrientation.
 
-- `getTarget() -> apex.geometry.Cell`
-- `setParam(valParam: msc.apex.appfw.CmdParameter) -> None`
 #### `update(name: str, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None`
 Update this DesignSpace. One or more properties may be updated in each call to update().
 
@@ -136,6 +174,15 @@ Iterable collection of DesignSpaces, based on EntityCollection.
 Methods:
 
 - `DesignSpaceCollection() -> None` — Construct a new DesignSpaceCollection.
+- `appendList(DesignSpaceList: [apex.gendes.DesignSpace]) -> None` — Add DesignSpaces from a list to the end of this collection.
+
+Method details:
+
+#### `DesignSpaceCollection() -> None`
+Construct a new DesignSpaceCollection.
+
+For example:
+
 #### `appendList(DesignSpaceList: [apex.gendes.DesignSpace]) -> None`
 Add DesignSpaces from a list to the end of this collection.
 
@@ -150,7 +197,22 @@ Properties: `accessRegions`, `clearanceRegions`, `compoundInterfaces`, `designSp
 
 Methods:
 
-- `applyConfiguration() -> None` — Perform the boolean operations based on the selected entities in the configuration. If it succeeds, then the final design space will be created and added into the updated configuration.
+- `applyConfiguration() -> None` — Perform the boolean operations based on the selected entities in the configuration.
+- `getAccessRegions() -> apex.EntityCollection` — An EntityCollection of parts/solids that are created for the fasteners assembling spaces.
+- `getClearanceRegions() -> apex.gendes.ClearanceRegionCollection` — The ClearanceRegions specified in the configuration.
+- `getCompoundInterfaces() -> apex.gendes.CompoundInterfaceCollection` — The compound interfaces specified in the configuration.
+- `getDesignSpaceFinal() -> DesignSpace` — The final design space derived from the configuration.
+- `getDesignSpaceInitial() -> DesignSpace` — The design space specified as the initialDesignSpace in this configuration.
+- `getExcludedVolumes() -> apex.EntityCollection` — An EntityCollection of parts/solids that excluded from the initial design space, while they are not the design target.
+- `getNondesignSpaces() -> apex.EntityCollection` — An EntityCollection containing all parts/solids that represent non-design regions in this GDConfiguration.
+- `getRetainedVolumes() -> apex.EntityCollection` — An EntityCollection of parts/solids that carry and transfer loads in the generative design optimization, they cannot be modified or reduced by the generative ...
+- `update(name: str = "#####", description: str = "#####", designSpaceInitial: apex.gendes.DesignSpace = None, nonDesignSpaces: apex.EntityCollection = None, retainedVolumes: apex.EntityCollection = None, excludedVolumes: apex.EntityCollection = None, accessRegions: apex.EntityCollection = None, clearanceRegions: apex.gendes.ClearanceRegionCollection = None, compoundInterfaces: apex.gendes.CompoundInterfaceCollection = None) -> None` — Update this GDConfiguration.
+
+Method details:
+
+#### `applyConfiguration() -> None`
+Perform the boolean operations based on the selected entities in the configuration. If it succeeds, then the final design space will be created and added into the updated configuration.
+
 #### `getAccessRegions() -> apex.EntityCollection`
 An EntityCollection of parts/solids that are created for the fasteners assembling spaces. They are not the existing parts of the model, but representing the void spaces that occupied by the fasteners or the extra volume used for assembling purpose.
 
@@ -211,6 +273,15 @@ Iterable collection of GDConfigurations, based on EntityCollection.
 Methods:
 
 - `GDConfigurationCollection() -> None` — Construct a new GDConfigurationCollection.
+- `appendList(GDConfigurationList: [apex.gendes.GDConfiguration]) -> None` — Add GDConfigurations from a list to the end of this collection.
+
+Method details:
+
+#### `GDConfigurationCollection() -> None`
+Construct a new GDConfigurationCollection.
+
+For example:
+
 #### `appendList(GDConfigurationList: [apex.gendes.GDConfiguration]) -> None`
 Add GDConfigurations from a list to the end of this collection.
 
@@ -234,6 +305,15 @@ Iterable collection of NonDesignRegions, based on EntityCollection.
 Methods:
 
 - `NonDesignRegionCollection() -> None` — Construct a new NonDesignRegionCollection.
+- `appendList(nonDesignRegionList: [apex.gendes.NonDesignRegion]) -> None` — Add NonDesignRegions from a list to the end of this collection.
+
+Method details:
+
+#### `NonDesignRegionCollection() -> None`
+Construct a new NonDesignRegionCollection.
+
+For example:
+
 #### `appendList(nonDesignRegionList: [apex.gendes.NonDesignRegion]) -> None`
 Add NonDesignRegions from a list to the end of this collection.
 

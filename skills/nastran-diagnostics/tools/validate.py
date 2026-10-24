@@ -194,6 +194,22 @@ def check_digest_tools():
             err("deck_checks: %s not detected in glue.bdf" % code)
         if "UNCONSTRAINED_GROUP" in got2:
             err("deck_checks: glue.bdf is constrained through its glue pair but was reported unconstrained")
+        if "CONTACT_INACTIVE" in got2:
+            err("deck_checks: glue.bdf selects its contact with BCONTACT but was reported inactive")
+        # the same deck with its BCONTACT removed, then set to NONE: the glue is ignored
+        for label, sub in (("removed", None), ("NONE", "  BCONTACT = NONE")):
+            cc = [(sub, *rest) if t.strip().upper().startswith("BCONTACT") else (t, *rest)
+                  for t, *rest in m.deck.case_control]
+            cc = [x for x in cc if x[0] is not None]
+            F3, _, _ = run_checks(m, cc, log=quiet)
+            got3 = {f["code"]: f["severity"] for f in F3.items}
+            if got3.get("CONTACT_INACTIVE") != "error":
+                err("deck_checks: glue.bdf with BCONTACT %s should raise CONTACT_INACTIVE (error), got %s"
+                    % (label, got3.get("CONTACT_INACTIVE")))
+            if "UNCONSTRAINED_GROUP" not in got3:
+                err("deck_checks: glue.bdf with BCONTACT %s has an inactive glue pair, so the loaded "
+                    "plate should be reported unconstrained" % label)
+            got2 |= set(got3)
         doc = open("references/run-digest.md", encoding="utf-8").read()
         for code in set(ROUTES) | got | got2:
             if code not in ROUTES:

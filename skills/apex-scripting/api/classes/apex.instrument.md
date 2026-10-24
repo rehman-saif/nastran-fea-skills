@@ -9,10 +9,17 @@ Properties: `maxDistance`, `modelAssociation`, `parts`, `useModelAssociation`
 
 Methods:
 
-- `getMaxDistance() -> float` — Gets maximum distance of clearance sensor. It is a read only value.
+- `getMaxDistance() -> float` — Gets maximum distance of clearance sensor.
 - `getModelAssociation() -> apex.ModelAssociation` — Gets optional argument to indicate the Model Association is used, it is needed ONLY when the argument of "useModelAssociation" is set as true.
 - `getParts() -> apex.PartCollection` — Gets a list contains 2 parts between which the clearance sensor is created.
 - `getUseModelAssociation() -> bool` — Gets optional argument to indicate if Model association is used.
+- `update(name: str, description: str) -> None` — update clearance sensor object.
+
+Method details:
+
+#### `getMaxDistance() -> float`
+Gets maximum distance of clearance sensor. It is a read only value.
+
 #### `update(name: str, description: str) -> None`
 update clearance sensor object.
 
@@ -27,6 +34,14 @@ Methods:
 
 - `ClearanceSensorCollection() -> None` — Construct a new ClearanceSensorCollection.
 
+Method details:
+
+#### `ClearanceSensorCollection() -> None`
+Construct a new ClearanceSensorCollection.
+
+For example:
+
+
 ## `apex.instrument.XSectionForceSensor`  (extends `Entity`, `IDisplayable`, `IUserHighlightable`, `IUserAttributes`, `IName`)
 Class XSectionForceSensor.
 Properties: `location`, `orientation`, `sensorCentroidLocation`, `target`
@@ -37,6 +52,10 @@ Methods:
 - `getOrientation() -> apex.Orientation` — Returns glef.Orientation of the XSectionForceSensor.
 - `getSensorCentroidLocation() -> apex.instrument.SensorLocationMethod` — Returns apex.instrument.SensorLocationMethod of the XSectionForceSensor.
 - `getTarget() -> apex.EntityCollection` — Returns select entities that the XSectionForceSensor is associated with.
+- `update(name: str, description: str, targetAll: bool, target: apex.EntityCollection, sensorCentroidLocation: apex.instrument.SensorLocationMethod, location: apex.ILocation, orientation: apex.construct.Orientation) -> None` — Update X-Section Force Sensor properties.
+
+Method details:
+
 #### `update(name: str, description: str, targetAll: bool, target: apex.EntityCollection, sensorCentroidLocation: apex.instrument.SensorLocationMethod, location: apex.ILocation, orientation: apex.construct.Orientation) -> None`
 Update X-Section Force Sensor properties.
 
@@ -59,6 +78,14 @@ Properties: `sensors`
 
 Methods:
 
+- `appendSensors(sensors: [apex.instrument.XSectionForceSensor]) -> [apex.instrument.XSectionForceSensor]` — Appends a List of XSectionForceSensors to this XSectionForceSensorArray.
+- `getSensors() -> [apex.instrument.XSectionForceSensor]` — Returns sensors that the XSectionForceSensorArray contains.
+- `insertSensors(sensors: [apex.instrument.XSectionForceSensor], index: int) -> [apex.instrument.XSectionForceSensor]` — Inserts a List of XSectionForceSensors into this XSectionForceSensorArray at a specified index.
+- `removeSensors(sensors: [apex.instrument.XSectionForceSensor]) -> [apex.instrument.XSectionForceSensor]` — Remove XSectionForceSensors from this XSectionForceSensorArray.
+- `update(name: str) -> None` — Update X-Section Force Sensor properties.
+
+Method details:
+
 #### `appendSensors(sensors: [apex.instrument.XSectionForceSensor]) -> [apex.instrument.XSectionForceSensor]`
 Appends a List of XSectionForceSensors to this XSectionForceSensorArray.
 
@@ -68,7 +95,6 @@ Returns: the ordered list of XSectionForceSensor in this XSectionForceSensorArra
 
 Appends a List XSectionForceSensors to this XSectionForceSensorArray and returns an ordered List of all sensors in the array. If any of the input XSectionForceSensors are already included in this array they will be silently ignored.
 
-- `getSensors() -> [apex.instrument.XSectionForceSensor]` — Returns sensors that the XSectionForceSensorArray contains.
 #### `insertSensors(sensors: [apex.instrument.XSectionForceSensor], index: int) -> [apex.instrument.XSectionForceSensor]`
 Inserts a List of XSectionForceSensors into this XSectionForceSensorArray at a specified index.
 
@@ -104,9 +130,25 @@ Methods:
 
 - `XSectionForceSensorArrayCollection() -> None` — Construct a new XSectionForceSensorArrayCollection.
 
+Method details:
+
+#### `XSectionForceSensorArrayCollection() -> None`
+Construct a new XSectionForceSensorArrayCollection.
+
+For example:
+
+
 ## `apex.instrument.XSectionForceSensorCollection`  (extends `EntityCollection`, `IUserHighlightable`)
 
 Methods:
 
 - `XSectionForceSensorCollection() -> None` — Construct a new XSectionForceSensorCollection.
+
+Method details:
+
+#### `XSectionForceSensorCollection() -> None`
+Construct a new XSectionForceSensorCollection.
+
+For example:
+
 

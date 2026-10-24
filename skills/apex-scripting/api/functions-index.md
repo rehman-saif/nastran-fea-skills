@@ -98,7 +98,7 @@ verb or noun, then open `api/modules/<module>.md` for the full signature.
 - `apex.attribute.createContactTable` — Creates and returns a contact table.
 - `apex.construct.createCoordinateSystemByEulerMethod` — create a coordinate system of either Rectangular, Cylindrical or Spherical type by using Euler angle method
 - `apex.construct.createCoordinateSystemByLocationOrientation` — create a coordinate system of either Rectangular, Cylindrical or Spherical type using a location and orientation
-- `apex.geometry.createCurve` — DEPRECATED: In releases of Apex prior to Iberian Lynx this argument was of type List Of apex.construct.Point3D. In the Iberian Lynx release the argument type has been changed to apex.ILocationCollection. For the Iberian Lynx release, users may continue to pass List Of Point3D objects however this capability may be deprecated in a future release therefore users are advised to transition their code to use apex.ILocationCollection as quickly as possible to avoid future problems. create curves.
+- `apex.geometry.createCurve` — DEPRECATED: In releases of Apex prior to Iberian Lynx this argument was of type List Of apex.construct.Point3D. In the Iberian Lynx release the argument type has been changed to apex.ILocationCollection. For the Iberian Lynx release, users may continue to pass List Of Point3D objects however this capability may be deprecated in a future release therefore users are advised to transition their code to use apex.ILocationCollection as quickly as possible to avoid future problems. create curves. **[runtime note in Apex 2024.1]**
 - `apex.geometry.createCurve3DNurb` — DEPRECATED: In releases of Apex prior to Iberian Lynx this argument was of type List Of apex.construct.Point3D. In the Iberian Lynx release the argument type has been changed to apex.ILocationCollection. For the Iberian Lynx release, users may continue to pass List Of Point3D objects however this capability may be deprecated in a future release therefore users are advised to transition their code to use apex.ILocationCollection as quickly as possible to avoid future problems. Creates a Curve in the current Part based on NURB mathematics.
 - `apex.geometry.createCurve3Pnt` — Creates an arc with three points.
 - `apex.geometry.createCurveIntersect` — Create one or more Curves from the intersection of two or more faces or planes. One curve is created from each contiguously connected set of intersections from the same pair of bodies.
@@ -240,7 +240,7 @@ verb or noun, then open `api/modules/<module>.md` for the full signature.
 - `apex.environment.createInitialTemperatureNodal` — Create InitialTemperatureNodal in this environment.
 - `apex.environment.createInitialTemperatureNodalVariable` — Create InitialTemperatureNodalVariable in this environment.
 - `apex.attribute.createInteractionAutoPair` — Creates and returns one or more interaction based on an input collection of Geometry and/or Mesh bodies and tolerance parameters.
-- `apex.attribute.createInteractionManualPair` — Creates and returns an Interaction based on two inputs each representing opposite sides of the interaction.
+- `apex.attribute.createInteractionManualPair` — Creates and returns an Interaction based on two inputs each representing opposite sides of the interaction. **[runtime note in Apex 2024.1]**
 - `apex.attribute.createInteractionPropertyGeometric` — Creates and returns an Interaction properties.
 - `apex.attribute.createInteractionPropertyPhysical` — Creates and returns an Interaction Physical properties.
 - `apex.attribute.createInterfacePoint` — Creates and returns an InterfacePoint.
@@ -332,7 +332,7 @@ verb or noun, then open `api/modules/<module>.md` for the full signature.
 - `apex.mesh.createNodeByCurveIntersection` — create a collection of nodes by Curve Intersection.
 - `apex.mesh.createNodeByLocation` — Create a node by 3D location.
 - `apex.mesh.createNodeByPickLocation` — DEPRECATED: In releases of Apex prior to Iberian Lynx this argument was of type apex.construct.Point3D. In the Iberian Lynx release the argument type has been changed to apex.ILocation. For the Iberian Lynx release, users may continue to pass Point3D objects however this capability may be deprecated in a future release therefore users are advised to transition their code to use apex.ILocation as quickly as possible to avoid future problems. create a collection of nodes by Pick Location.
-- `apex.attribute.createNodeTie` — Create a new NodeTie entity.
+- `apex.attribute.createNodeTie` — Create a new NodeTie entity. **[runtime note in Apex 2024.1]**
 - `apex.gendes.createNonDesignRegionDirectMethod` — Creates and returns a non design region for use in generative design simulations. The extent of the non-design region is based on the input geometry Cells.
 - `apex.gendes.createNonDesignRegionOffsetMethod` — Creates and returns a non design region for use in generative design simulations. The extent of the non-design region is based on the geometry Cell offsetting from faces.
 - `apex.attribute.createNonstructuralMassConstant` — Create a new constant NonstructuralMass.
@@ -361,7 +361,7 @@ verb or noun, then open `api/modules/<module>.md` for the full signature.
 - `apex.environment.createPressureVariable`
 - `apex.catalog.createPropertiesElement2D` — Creates and returns a PropertiesElement2D in the catalog.
 - `apex.catalog.createPropertiesElement3D` — Creates and returns a PropertiesElement3D in the catalog.
-- `apex.catalog.createPropertiesElement3DHomogeneous` — Creates a PropertiesElement3DHomogeneous and adds it to the CatalogElementProperty.
+- `apex.catalog.createPropertiesElement3DHomogeneous` — Creates a PropertiesElement3DHomogeneous and adds it to the CatalogElementProperty. **[raises at runtime in Apex 2024.1]**
 - `apex.utility.createProximitySearch` — This method creates an instance of a ProximitySearch class. ProximitySearch objects provide high performance methods to find an object within a collection of candidate objects that are physically closest to a point in space or to another object The method returns a ProximitySearch object.
 - `apex.attribute.createQuasiStaticScenarioFromKeyResults` — Creates and returns a Static Scenario based on the input of ModelAssociation and KeyResults. This method takes a ModelAssociation and one or more keyResults as the input. From this input the method will create, 1.One or more ForceMoments with one or more ForceMometReps. One ForceMoment will be created for each NodeTie that is associated to an InterfacePoint within the input ModelAssociation. A series of ForceMomentReps will be created within each ForceMoment, corresponding to the number of keyResults provided in the input. 2.A single Static Scenario that references the primary Assembly from the input ModelAssociation as its Scenario ModelRep. 3.One Event will be created for each keyResult provided in the input. Each Event will reference the ForceMoments associated with the KeyResults. Each Event will have InertiaRelief enabled and will include no constraints.
 - `apex.attribute.createRANDPS` — create RANDPS set object

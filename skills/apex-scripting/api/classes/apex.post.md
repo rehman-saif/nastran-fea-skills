@@ -10,6 +10,12 @@ Methods:
 
 - `activate() -> None` — Activate the ChartPlot.
 - `clearAllDataSeries() -> None` — Clear all curves on the ChartPlot.
+- `createSBMTChart(target: apex.EntityCollection, yResultQuantity: apex.post.ResultQuantity, yResultDerivation: apex.post.ResultDerivation) -> apex.post.SBMTChart` — Creates SBMTChart and adds it to the ChartPlot.
+- `deactivate() -> None` — Deactivate the ChartPlot.
+- `update(event: apex.studies.Event, bAddEvent: apex.ApexBool, showDataSeriesMarkers: apex.ApexBool, showLegend: apex.ApexBool, maxminMarkerVisibility: apex.ApexBool, annotations: apex.ApexBool, bReplaceMode: apex.ApexBool) -> None` — Updates one or more properties of the ChartPlot.
+
+Method details:
+
 #### `createSBMTChart(target: apex.EntityCollection, yResultQuantity: apex.post.ResultQuantity, yResultDerivation: apex.post.ResultDerivation) -> apex.post.SBMTChart`
 Creates SBMTChart and adds it to the ChartPlot. Use this method to add one or more SBMTChart curves to the ChartPlot.
 
@@ -17,7 +23,6 @@ Creates SBMTChart and adds it to the ChartPlot. Use this method to add one or mo
 - `yResultQuantity` — The ResultQuantity (e.g. ForceBeam) for the Y values that will be used to draw the curve.
 - `yResultDerivation` — The ResultDerivation for the Y values that will be used to draw the curve.
 
-- `deactivate() -> None` — Deactivate the ChartPlot.
 #### `update(event: apex.studies.Event, bAddEvent: apex.ApexBool, showDataSeriesMarkers: apex.ApexBool, showLegend: apex.ApexBool, maxminMarkerVisibility: apex.ApexBool, annotations: apex.ApexBool, bReplaceMode: apex.ApexBool) -> None`
 Updates one or more properties of the ChartPlot. This method allow multiple properties of the ChartPlot to be updated using a single method call. Arguments are optional and the values of all ChartPlot properties associated with the omitted arguments are left unchanged. This method allows the CharPlot to be associated to morethan one event. It allows an event to be added to the ChartPlot by setting the bAddEvent to true. It can also be used to remove an event by seeting the bAddEvent to false.
 
@@ -44,6 +49,10 @@ Methods:
 - `getTableValues() -> [apex.post.TableValue]` — Returns a list of TableValue - pair of (value, color).
 - `getUseOutOfRangeColors() -> apex.ApexBool` — Returns a boolean indicating if out of range colors are used.
 - `getisLocked() -> apex.ApexBool` — Returns a boolean indicating if the ColorMap is locked.
+- `update(name: str, colorMapSegmentMethod: apex.post.ColorMapSegmentMethod, start: float, end: float, tableValues: [apex.post.TableValue], isLocked: apex.ApexBool, useOutOfRangeColors: apex.ApexBool, displayContinuousColors: apex.ApexBool) -> None` — Updates one or more properties of the ColorMap.
+
+Method details:
+
 #### `update(name: str, colorMapSegmentMethod: apex.post.ColorMapSegmentMethod, start: float, end: float, tableValues: [apex.post.TableValue], isLocked: apex.ApexBool, useOutOfRangeColors: apex.ApexBool, displayContinuousColors: apex.ApexBool) -> None`
 Updates one or more properties of the ColorMap. This method allows multiple properties of the object to be updated using a single method call. All arguments are optional and the values of all properties associated with the omitted arguments are left unchanged.
 
@@ -64,7 +73,7 @@ Properties: `colorMap`, `compositeFailure`, `contourStyle`, `coordinateSystem`, 
 Methods:
 
 - `getColorMap() -> apex.post.ColorMap` — Returns the Color Map.
-- `getCompositeFailure() -> apex.post.CompositeFailure` — Returns the Composite Failure method. This is only applicable for Composite data.
+- `getCompositeFailure() -> apex.post.CompositeFailure` — Returns the Composite Failure method.
 - `getContourStyle() -> apex.post.ContourStyle` — Returns Contour Style.
 - `getCoordinateSystem() -> apex.construct.CoordinateSystem` — Returns the CoordinateSystem information, if defined.
 - `getCoordinateSystemMethod() -> apex.post.CoordinateSystemMethod` — Returns the System Type that the direction scalar data such as X-Component of Stress will be transformed to prior to display.
@@ -73,7 +82,17 @@ Methods:
 - `getElementNodalProcessing() -> apex.post.ElementNodalProcessing` — Returns the Element Nodal Processing method.
 - `getLayerEnvelopingMethod() -> apex.post.LayerEnvelopingMethod` — Returns the Layer Enveloping Methods which is applicable when multiple layers are specified.
 - `getLayerIdentificationMethod() -> apex.post.LayerIdentificationMethod` — Returns the Layer Identification Method.
-- `getLayers() -> [str]` — Returns a list of layers, if applicable. Specific layers are usually used for 2D elements.
+- `getLayers() -> [str]` — Returns a list of layers, if applicable.
+- `update(contourStyle: apex.post.ContourStyle, target: apex.EntityCollection, resultQuantity: apex.post.ResultQuantity, resultDerivation: apex.post.ResultDerivation, layerIdentificationMethod: apex.post.LayerIdentificationMethod, layers: [str], layerEnvelopingMethod: apex.post.LayerEnvelopingMethod, elementNodalProcessing: apex.post.ElementNodalProcessing, coordinateSystemMethod: apex.post.CoordinateSystemMethod, compositeFailure: apex.post.CompositeFailure, colorMap: apex.post.ColorMap, coordinateSystem: apex.construct.CoordinateSystem = None, displayUnit: str) -> None` — Update ContourVisualization.
+
+Method details:
+
+#### `getCompositeFailure() -> apex.post.CompositeFailure`
+Returns the Composite Failure method. This is only applicable for Composite data.
+
+#### `getLayers() -> [str]`
+Returns a list of layers, if applicable. Specific layers are usually used for 2D elements.
+
 #### `update(contourStyle: apex.post.ContourStyle, target: apex.EntityCollection, resultQuantity: apex.post.ResultQuantity, resultDerivation: apex.post.ResultDerivation, layerIdentificationMethod: apex.post.LayerIdentificationMethod, layers: [str], layerEnvelopingMethod: apex.post.LayerEnvelopingMethod, elementNodalProcessing: apex.post.ElementNodalProcessing, coordinateSystemMethod: apex.post.CoordinateSystemMethod, compositeFailure: apex.post.CompositeFailure, colorMap: apex.post.ColorMap, coordinateSystem: apex.construct.CoordinateSystem = None, displayUnit: str) -> None`
 Update ContourVisualization.
 
@@ -111,6 +130,14 @@ Methods:
 
 - `DataSeriesOverStepsCollection() -> None` — Construct a new DataSeriesOverStepsCollection.
 
+Method details:
+
+#### `DataSeriesOverStepsCollection() -> None`
+Construct a new DataSeriesOverStepsCollection.
+
+For example:
+
+
 ## `apex.post.DataSeriesTransient`  (extends `DataSeries`)
 Class representing the variation of a quantity over time Specifically intended to return quantities from transient dynamic/kinematic simulations and , since this class inherits apex.chart.DataSeries, enable display of such data in Apex XY charts. The X data in this class is expected to represent Time (the xunitquantiy property from apex.chart.DataSeries is overwritten with a read only "Time" value in this class) and the values are expected to be monotonically increasing across the domain.
 Properties: `event`, `resultDerivation`, `resultQuantity`, `target`
@@ -120,7 +147,13 @@ Methods:
 - `getEvent() -> apex.studies.Event` — Gets An event from which the transient data is extracted.
 - `getResultDerivation() -> ResultDerivation` — Returns the ResultDerivation for which the data in this DataSeries was extracted.
 - `getResultQuantity() -> ResultQuantity` — Returns the ResultQuantity for which the data in this DataSeries was extracted.
-- `getTarget() -> apex.Entity` — Gets Optional target, as an apex.Entity for this DataSeriesTime. The target typically defines the object with which the data is associated..
+- `getTarget() -> apex.Entity` — Gets Optional target, as an apex.Entity for this DataSeriesTime.
+
+Method details:
+
+#### `getTarget() -> apex.Entity`
+Gets Optional target, as an apex.Entity for this DataSeriesTime. The target typically defines the object with which the data is associated..
+
 
 ## `apex.post.DataSeriesVMTBeamSpan`  (extends `DataSeries`)
 Class holding pairs of data extracted from a BeamSpan. Primarily intended for use in the display of Shear, Bending Moment and Torsion diagrams. The class inherits from DataSeries. The X-data represents the distance from the start of the BeamSpan (End A) to each element node. The Y-data represents the Axial Force, Bending Moment, etc. data evaluated at the X-location.
@@ -129,10 +162,16 @@ Properties: `beamSpan`, `elementNodePositions`, `event`, `resultDerivation`, `re
 Methods:
 
 - `getBeamSpan() -> apex.attribute.BeamSpan` — Returns the BeamSpan from which the data in this DataSeries was extracted.
-- `getElementNodePositions() -> [str]` — Returns a list of string defining the element nodes from which the underlying data was extracted The data used to display VMT diagrams from BeamSpans is associated with the Element Nodes from the BeamSpan. Because connected elements within a BeamSpan will share a common node and give rise to two VMT values for each shared node, it is not feasible to use either element ids or node ids, therefore we use element node positions. The topology of each Beam element is defined by two nodes - position 1 (the start node) and position 2 (the end node). The notation used to identify element nodes is a concatenation of the element ID, a "." separator and the Node position as an integer - "<ELEMENT_ID>.<NODE_POSITION>" For example the start node of element 123 would be identified as "123.1" A BeamSpan consisting of three connected and similarly aligned elements in sequence will be identified as, "123.1, 123.2, 124.1, 124.2, 125.1, 125.2".
+- `getElementNodePositions() -> [str]` — Returns a list of string defining the element nodes from which the underlying data was extracted The data used to display VMT diagrams from BeamSpans is ...
 - `getEvent() -> apex.studies.Event` — Returns the Event from which the data in this DataSeries was extracted.
 - `getResultDerivation() -> ResultDerivation` — Returns the ResultDerivation for which the data in this DataSeries was extracted.
 - `getResultQuantity() -> ResultQuantity` — Returns the ResultQuantity for which the data in this DataSeries was extracted.
+
+Method details:
+
+#### `getElementNodePositions() -> [str]`
+Returns a list of string defining the element nodes from which the underlying data was extracted The data used to display VMT diagrams from BeamSpans is associated with the Element Nodes from the BeamSpan. Because connected elements within a BeamSpan will share a common node and give rise to two VMT values for each shared node, it is not feasible to use either element ids or node ids, therefore we use element node positions. The topology of each Beam element is defined by two nodes - position 1 (the start node) and position 2 (the end node). The notation used to identify element nodes is a concatenation of the element ID, a "." separator and the Node position as an integer - "<ELEMENT_ID>.<NODE_POSITION>" For example the start node of element 123 would be identified as "123.1" A BeamSpan consisting of three connected and similarly aligned elements in sequence will be identified as, "123.1, 123.2, 124.1, 124.2, 125.1, 125.2".
+
 
 ## `apex.post.DataSeriesVMTSensorArray`  (extends `DataSeries`)
 Class holding pairs of data extracted from a XSectionForceSensorArray. Primarily intended for use in the display of Shear, Bending Moment and Torsion diagrams. The class inherits from DataSeries. The X-data represents the distance from the first XSectionForceSensor to the last XSectionForceSensor in XSectionForceSensorArray. The Y-data represents the Cross Section Forces and Moments evaluated at the summation location.
@@ -166,6 +205,10 @@ Methods:
 - `getAbsoluteScalingFactor() -> float` — Returns the Absolute Scaling Factor.
 - `getDeformScalingMethod() -> apex.post.DeformScalingMethod` — Returns the Deform Scaling Method.
 - `getRelativeScalingFactor() -> float` — Returns the Relative Scaling Factor.
+- `update(target: apex.EntityCollection, deformScalingMethod: apex.post.DeformScalingMethod, relativeScalingFactor: float, absoluteScalingFactor: float) -> None` — Updates one or more properties of the DeformVisualization.
+
+Method details:
+
 #### `update(target: apex.EntityCollection, deformScalingMethod: apex.post.DeformScalingMethod, relativeScalingFactor: float, absoluteScalingFactor: float) -> None`
 Updates one or more properties of the DeformVisualization. This method allows multiple properties of the DeformVisualization to be updated using a single method call. All arguments are optional and the values of all DeformVisualization properties associated with the omitted arguments are left unchanged. If the DeformVisualization is active and the parent StatePlot is displayed when this method is called it will remain unchanged until all updates have been completed and then be replaced by the completely updated visualization.
 
@@ -181,6 +224,17 @@ Properties: `probeTargetEntities`, `units`
 
 Methods:
 
+- `addProbeTargetEntities(probeTarget: apex.EntityCollection, probeTargetUpdateMode: apex.post.ProbeTargetUpdateMode) -> None` — Modifies the set of target Entities at which the Probe will evaluate the results data, display on the viewport and add to the data grid.
+- `addProbeTargetEntity(probeTarget: apex.Entity, probeTargetUpdateMode: apex.post.ProbeTargetUpdateMode) -> None` — Modifies the set of target Entities at which the Probe will evaluate the results data, display on the viewport and add to the data grid.
+- `clearProbe() -> None` — Clears all Entities from this Probe causing all of its labels and the data grid to be cleared.
+- `deleteProbe() -> None` — When "exit probe tool" occurs.
+- `exportDataCSV(filename: str) -> None` — Exports the contents of the probe (Data Grid) to a named .csv file.
+- `getProbeTargetEntities() -> apex.EntityCollection` — Returns the target entitites associated with this ResultProbe0D..
+- `getUnits() -> str` — Returns the units associated with this ResultProbe0D.
+- `setProbeDataVisualization(dataVisualization: apex.post.DataVisualization) -> None` — Sets the DataVisualization that the probe will use to evaluate results data values.
+
+Method details:
+
 #### `addProbeTargetEntities(probeTarget: apex.EntityCollection, probeTargetUpdateMode: apex.post.ProbeTargetUpdateMode) -> None`
 Modifies the set of target Entities at which the Probe will evaluate the results data, display on the viewport and add to the data grid. The behavior of this method can be controlled by the optional probetargetUpdateMode argument to Add or Remove the supplied Entities to the Probe.
 
@@ -193,15 +247,11 @@ Modifies the set of target Entities at which the Probe will evaluate the results
 - `probeTarget` — : The Entity to Add or Remove.
 - `probeTargetUpdateMode` — : An optional argument that controls how the method operates on the supplied Entity. The default apex::post::ProbeTargetUpdateMode.Add will add all supplied Entities to any Entities that are already in the Probe target. The method will ensure that the Probe target does not contain duplicate entities. Setting to apex.post.ProbeTargetUpdateMode.Remove will remove all supplied Entities from the set of Entities that are already in the Probe target. Any supplied entities that are NOT already in the Probe target will be silently ignored.
 
-- `clearProbe() -> None` — Clears all Entities from this Probe causing all of its labels and the data grid to be cleared.
-- `deleteProbe() -> None` — When "exit probe tool" occurs.
 #### `exportDataCSV(filename: str) -> None`
 Exports the contents of the probe (Data Grid) to a named .csv file.
 
 - `filename` — : The path qualified name of the .csv file that the 0D probe data will be written to.
 
-- `getProbeTargetEntities() -> apex.EntityCollection` — Returns the target entitites associated with this ResultProbe0D..
-- `getUnits() -> str` — Returns the units associated with this ResultProbe0D.
 #### `setProbeDataVisualization(dataVisualization: apex.post.DataVisualization) -> None`
 Sets the DataVisualization that the probe will use to evaluate results data values. The supplied DataVisualization will replace any existing DataVisualization that exist in the Probe and will update all existing result data values to reflect the Result Quantity and Derivation that are set in the Probe.
 
@@ -215,12 +265,30 @@ Properties: `event`, `resultDataSetIndex`, `visualizations`
 Methods:
 
 - `activate() -> None` — activate the StatePlot.
+- `activateVisualization(dataVis: apex.post.DataVisualization) -> None` — Unmasks an existing DataVisualization within a StatePlot if it is currently masked.
+- `active() -> None`
+- `createContourVisualization(contourStyle: apex.post.ContourStyle = apex.post.ContourStyle.Fringe, target: apex.EntityCollection = None, resultQuantity: apex.post.ResultQuantity = apex.post.ResultQuantity.Stress, resultDerivation: apex.post.ResultDerivation = apex.post.ResultDerivation.VonMises, layerIdentificationMethod: apex.post.LayerIdentificationMethod = apex.post.LayerIdentificationMethod.Position, layers: [str] = std.vector< std.string >(1,"Z2"), layerEnvelopingMethod: apex.post.LayerEnvelopingMethod = apex.post.LayerEnvelopingMethod.Max, elementNodalProcessing: apex.post.ElementNodalProcessing = apex.post.ElementNodalProcessing.Averaged, coordinateSystemMethod: apex.post.CoordinateSystemMethod = apex.post.CoordinateSystemMethod.Global, compositeFailure: apex.post.CompositeFailure = apex.post.CompositeFailure.StrengthRatio, colorMap: apex.post.ColorMap = None, coordinateSystem: apex.construct.CoordinateSystem = None, displayUnit: str = "MPa") -> apex.post.ContourVisualization` — Creates a ContourVisualization and adds it to the StatePlot.
+- `createDeformVisualization(target: apex.EntityCollection = None, deformScalingMethod: apex.post.DeformScalingMethod = apex.post.DeformScalingMethod.Relative, relativeScalingFactor: float = 10.0, absoluteScalingFactor: float = 1.0, displayUnit: str = "mm") -> apex.post.DeformVisualization` — Creates a DeformVisualization and adds it to the StatePlot.
+- `createVectorVisualization(vectorColorMethod: apex.post.VectorColorMethod = apex.post.VectorColorMethod.VectorValue, targetEntityType: apex.post.TargetEntityType = apex.post.TargetEntityType.Node, target: apex.EntityCollection = None, resultQuantity: apex.post.ResultQuantity = apex.post.ResultQuantity.DisplacementTranslational, vectorComponentColors: {apex.post.VectorComponent:apex.ColorRGB} = {{apex.post.VectorComponent.Resultant, apex.ColorRGB(224, 224, 224)}}, coordinateSystemMethod: apex.post.CoordinateSystemMethod = apex.post.CoordinateSystemMethod.Global, vectorScalingMethod: apex.post.VectorScalingMethod = apex.post.VectorScalingMethod.Scaled, vectorDisplayScalingFactor: float = 30., enableVectorZoom: apex.ApexBool = ApexBoolTrue, originLocation: apex.post.VectorOriginLocation = apex.post.VectorOriginLocation.Tip, vectorDisplayStyle: apex.post.VectorDisplayStyle = apex.post.VectorDisplayStyle.Vector3D, enableApplyFilter: apex.ApexBool = ApexBoolFalse, arrowDisplayFilter: float = 0.01, colorMap: apex.post.ColorMap = None, coordinateSystem: apex.construct.CoordinateSystem = None, displayUnit: str = "mm") -> apex.post.VectorVisualization` — Creates a VectorVisualization and adds it to the StatePlot.
+- `deactivate() -> None` — deactivate the StatePlot.
+- `deactivateVisualization(dataVis: apex.post.DataVisualization) -> None` — Temporarily masks a DataVisualization within the StatePlot.
+- `getEvent() -> apex.studies.Event` — Returns the Scenario Event associated with this StatePlot.
+- `getResultDataSetIndex() -> [int]` — Returns the Result Data Set Index for Scenario Events that have multiple data sets such as Modes or Buckling events.
+- `getVisualization(entityType: apex.EntityType) -> apex.post.DataVisualization` — Returns DataVisualization in the StatePlot for the given entityType.
+- `getVisualizations() -> {apex.post.DataVisualization:bool}` — Returns a Dictionary of all DataVisualizations that are present in the StatePlot.
+- `hide() -> None` — Hides the StatePlot.
+- `removeAllVisualizations() -> None` — Removes all DataVisualizations from the StatePlot.
+- `removeVisualization(dataVis: apex.post.DataVisualization) -> None` — Removes a visualization from the StatePlot.
+- `show() -> None` — Displays the StatePlot.
+- `update(event: apex.studies.Event, resultDataSetIndex: [int]) -> None` — Updates one or more properties of the StatePlot.
+
+Method details:
+
 #### `activateVisualization(dataVis: apex.post.DataVisualization) -> None`
 Unmasks an existing DataVisualization within a StatePlot if it is currently masked.
 
 - `dataVis` — The DataVisualization to activate.
 
-- `active() -> None`
 #### `createContourVisualization(contourStyle: apex.post.ContourStyle = apex.post.ContourStyle.Fringe, target: apex.EntityCollection = None, resultQuantity: apex.post.ResultQuantity = apex.post.ResultQuantity.Stress, resultDerivation: apex.post.ResultDerivation = apex.post.ResultDerivation.VonMises, layerIdentificationMethod: apex.post.LayerIdentificationMethod = apex.post.LayerIdentificationMethod.Position, layers: [str] = std.vector< std.string >(1,"Z2"), layerEnvelopingMethod: apex.post.LayerEnvelopingMethod = apex.post.LayerEnvelopingMethod.Max, elementNodalProcessing: apex.post.ElementNodalProcessing = apex.post.ElementNodalProcessing.Averaged, coordinateSystemMethod: apex.post.CoordinateSystemMethod = apex.post.CoordinateSystemMethod.Global, compositeFailure: apex.post.CompositeFailure = apex.post.CompositeFailure.StrengthRatio, colorMap: apex.post.ColorMap = None, coordinateSystem: apex.construct.CoordinateSystem = None, displayUnit: str = "MPa") -> apex.post.ContourVisualization`
 Creates a ContourVisualization and adds it to the StatePlot. If a ContourVisualization already exists in the StatePlot it will be replaced by the new one. Use this method to create a fringe or fill contour visualization or add fringe/fill ContourVisualization to an existing deformation or VectorVisualization. The scope of the contour visualization (Parts, Assemblies) can be defined using the "target" argument. Other arguments enable initialization of the ContourVisualization parameters during construction.
 
@@ -269,24 +337,22 @@ Creates a VectorVisualization and adds it to the StatePlot.
 
 If a VectorVisualization already exists in the StatePlot it will be replaced by the new one. Use this method to create a vector visualization or add vector visualization to an existing deformation or contour visualization. The scope of the vector visualization (Parts, Assemblies) can be defined using the "target" argument. Other arguments enable initialization of the vector visualization parameters during construction.
 
-- `deactivate() -> None` — deactivate the StatePlot.
 #### `deactivateVisualization(dataVis: apex.post.DataVisualization) -> None`
 Temporarily masks a DataVisualization within the StatePlot.
 
 - `dataVis` — The DataVisualization to temporarily deactivate.
 
-- `getEvent() -> apex.studies.Event` — Returns the Scenario Event associated with this StatePlot.
-- `getResultDataSetIndex() -> [int]` — Returns the Result Data Set Index for Scenario Events that have multiple data sets such as Modes or Buckling events.
-- `getVisualization(entityType: apex.EntityType) -> apex.post.DataVisualization` — Returns DataVisualization in the StatePlot for the given entityType. If the DataVisualization for the given entityType doesn't exist then a null pointer will be returned.
-- `getVisualizations() -> {apex.post.DataVisualization:bool}` — Returns a Dictionary of all DataVisualizations that are present in the StatePlot. The Dictionary key type is DataVisualization and the value type is boolean. For each DataVisualization key in the Dictionary the value indicates wheter it is Active (True) or Inactive(False). If no DataVisualizations are present the Dictionary will be empty.
-- `hide() -> None` — Hides the StatePlot.
-- `removeAllVisualizations() -> None` — Removes all DataVisualizations from the StatePlot.
+#### `getVisualization(entityType: apex.EntityType) -> apex.post.DataVisualization`
+Returns DataVisualization in the StatePlot for the given entityType. If the DataVisualization for the given entityType doesn't exist then a null pointer will be returned.
+
+#### `getVisualizations() -> {apex.post.DataVisualization:bool}`
+Returns a Dictionary of all DataVisualizations that are present in the StatePlot. The Dictionary key type is DataVisualization and the value type is boolean. For each DataVisualization key in the Dictionary the value indicates wheter it is Active (True) or Inactive(False). If no DataVisualizations are present the Dictionary will be empty.
+
 #### `removeVisualization(dataVis: apex.post.DataVisualization) -> None`
 Removes a visualization from the StatePlot.
 
 - `dataVis` — The DataVisualization to remove from the StatePlot.
 
-- `show() -> None` — Displays the StatePlot.
 #### `update(event: apex.studies.Event, resultDataSetIndex: [int]) -> None`
 Updates one or more properties of the StatePlot. This method allows multiple properties of the StatePlot to be updated using a single method call. All arguments are optional and the values of all StatePlot properties associated with the omitted arguments are left unchanged. If the StatePlot is visible when this method is called it will remain unchanged until all updates have completed and then be replaced by the completely updated plot.
 
@@ -322,10 +388,20 @@ Methods:
 - `getVectorColorMethod() -> apex.post.VectorColorMethod` — Returns the Vector Color Method that defines how the vectors will be color coded.
 - `getVectorComponentColors() -> {apex.post.VectorComponent:apex.ColorRGB}` — Returns the Vector Components.
 - `getVectorDisplayScalingFactor() -> float` — Returns the Vector Display scaling factor.
-- `getVectorDisplayStyle() -> apex.post.VectorDisplayStyle` — Returns the Vector Display Style that specifies how the vector will be rendered. For example, if Vector3D is specified then a solid shaded vector is rendered.
-- `getVectorOriginLocation() -> apex.post.VectorOriginLocation` — Returns the Vector Origin Location. Origin location can be at the vector Tip or Tail.
+- `getVectorDisplayStyle() -> apex.post.VectorDisplayStyle` — Returns the Vector Display Style that specifies how the vector will be rendered.
+- `getVectorOriginLocation() -> apex.post.VectorOriginLocation` — Returns the Vector Origin Location.
 - `getVectorScalingMethod() -> apex.post.VectorScalingMethod` — Returns the Vector Scaling Method.
 - `getVectorZoom() -> apex.ApexBool` — Returns the Vector Zoom boolean that determines whether or not vectors will scaled with viewing distance.
+- `update(vectorColorMethod: apex.post.VectorColorMethod, targetEntityType: apex.post.TargetEntityType, target: apex.EntityCollection, resultQuantity: apex.post.ResultQuantity, vectorComponentColors: {apex.post.VectorComponent:apex.ColorRGB}, coordinateSystemMethod: apex.post.CoordinateSystemMethod, vectorScalingMethod: apex.post.VectorScalingMethod, vectorDisplayScalingFactor: float, enableVectorZoom: apex.ApexBool, originLocation: apex.post.VectorOriginLocation, vectorDisplayStyle: apex.post.VectorDisplayStyle, enableApplyFilter: apex.ApexBool, arrowDisplayFilter: float, colorMap: apex.post.ColorMap, coordinateSystem: apex.construct.CoordinateSystem, displayUnit: str) -> None` — Update VectorVisualization.
+
+Method details:
+
+#### `getVectorDisplayStyle() -> apex.post.VectorDisplayStyle`
+Returns the Vector Display Style that specifies how the vector will be rendered. For example, if Vector3D is specified then a solid shaded vector is rendered.
+
+#### `getVectorOriginLocation() -> apex.post.VectorOriginLocation`
+Returns the Vector Origin Location. Origin location can be at the vector Tip or Tail.
+
 #### `update(vectorColorMethod: apex.post.VectorColorMethod, targetEntityType: apex.post.TargetEntityType, target: apex.EntityCollection, resultQuantity: apex.post.ResultQuantity, vectorComponentColors: {apex.post.VectorComponent:apex.ColorRGB}, coordinateSystemMethod: apex.post.CoordinateSystemMethod, vectorScalingMethod: apex.post.VectorScalingMethod, vectorDisplayScalingFactor: float, enableVectorZoom: apex.ApexBool, originLocation: apex.post.VectorOriginLocation, vectorDisplayStyle: apex.post.VectorDisplayStyle, enableApplyFilter: apex.ApexBool, arrowDisplayFilter: float, colorMap: apex.post.ColorMap, coordinateSystem: apex.construct.CoordinateSystem, displayUnit: str) -> None`
 Update VectorVisualization.
 

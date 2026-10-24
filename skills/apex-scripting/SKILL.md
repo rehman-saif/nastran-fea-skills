@@ -1,6 +1,6 @@
 ---
 name: apex-scripting
-description: Write, review, debug or generate MSC Apex Python code. Use for requests to produce a script, utility, macro, custom tool or plugin, to fix or improve existing Apex Python, or to find the right apex module, function signature, enum member or entity property before writing code — covering model and part traversal, geometry, meshing, materials and attribution, loads and constraints, studies and scenarios, results, session and viewport control, import and export, and tool panels built with the apex_sdk GUI SDK. Carries the generated Apex API reference (989 functions, 237 enums, 733 classes) with per-argument documentation. For how to do something in the Apex GUI rather than in code, use apex-docs. For Nastran deck keywords use nastran-reference, and for solver messages use nastran-diagnostics.
+description: Write, review, debug or generate MSC Apex Python code. Use for requests to produce a script, utility, macro, custom tool or plugin, to fix or improve existing Apex Python, or to find the right apex module, function signature, enum member or entity property before writing code — covering model and part traversal, geometry, meshing, materials and attribution, loads and constraints, studies and scenarios, results, session and viewport control, import and export, and tool panels built with the apex_sdk GUI SDK. Carries the generated Apex API reference (989 functions, 5108 class methods, 237 enums, 733 classes) with per-argument documentation, a map from FE terms (glue, RBE2, SPC, subcase) to Apex calls, and verified SOL 101 model-building recipes. For how to do something in the Apex GUI rather than in code, use apex-docs. For Nastran deck keywords use nastran-reference, and for solver messages use nastran-diagnostics.
 ---
 
 # Apex scripting
@@ -25,9 +25,11 @@ fails at runtime.
    - a **custom tool (`batch_tool`)** — a palette button over a batch script
    - a **remote script** — drives Apex from an external interpreter
    - a **fix** to existing code
-2. **Read the conventions.** [references/scripting-model.md](references/scripting-model.md)
+2. **Read the conventions.** [references/cheat-sheet.md](references/cheat-sheet.md)
    before writing any Apex code. Keyword-only arguments, `update()` instead of
    setters, and `ZResult` returns account for most broken generated scripts.
+   [references/scripting-model.md](references/scripting-model.md) is the full
+   version, for when a rule needs its explanation.
 3. **Locate the functionality.** Follow the lookup order below. Do not write a
    call you have not found in `api/`.
 4. **Generate only once the API is grounded.** Confirm the module, function
@@ -39,20 +41,31 @@ fails at runtime.
 
 1. [references/documentation-index.md](references/documentation-index.md) — the
    full doc surface and navigation rules.
-2. [references/module-selection.md](references/module-selection.md) — map the
+2. [references/fe-vocabulary.md](references/fe-vocabulary.md) — when the task
+   is phrased in FE terms (glue, RBE2, spider, SPC, PSOLID, subcase, output
+   request), find the Apex name here first. The API never uses those words.
+3. [references/module-selection.md](references/module-selection.md) — map the
    task to one of the 22 modules.
-3. `api/functions-index.md` — grep for a verb or noun to find the function and
-   its module.
-4. `api/modules/<module>.md` — exact signature, argument names, defaults.
-5. `api/enums.md` — confirm every enum member. Never invent one.
-6. `api/classes/<module>.md` — entity properties and methods. Members shown are
-   those declared on the class; inherited ones are under the base classes named
-   in its `(extends ...)` header.
-7. Per-parameter documentation is inline in `api/modules/` and `api/classes/`
+4. `api/functions-index.md` — grep for a verb or noun to find a module function.
+5. `api/methods-index.md` — grep for a class method (`Study.createScenarioNastran`,
+   `LoadCaseItem.getCommand`). Scenarios, subcases and interactions are set up
+   almost entirely through methods.
+6. `api/modules/<module>.md` — exact signature, argument names, defaults.
+7. `api/enums.md` — confirm every enum member. Never invent one.
+8. `api/classes/<module>.md` — entity properties and methods. Each class lists
+   every signature first and the documentation under "Method details". Members
+   shown are those declared on the class; inherited ones are under the base
+   classes named in its `(extends ...)` header.
+9. Per-parameter documentation is inline in `api/modules/` and `api/classes/`
    under each signature — there is no separate source to drill into.
 
 Grep the flat indexes before opening a module file. `apex.environment` and
 `apex.studies` class files are large — grep those rather than reading them.
+
+An index line tagged **[raises at runtime in Apex 2024.1]**,
+**[fails silently at runtime in Apex 2024.1]** or **[runtime note in Apex
+2024.1]** means the call behaves differently from the reference on a real
+install. Read the note under its signature before using it.
 
 All documentation is inside this skill folder. The original 1.76 GB
 documentation set is not bundled and must not be searched.
@@ -74,6 +87,11 @@ documentation set is not bundled and must not be searched.
 11. Guard operations that can genuinely fail; let everything else raise.
 
 Start from [assets/template_batch_script.py](assets/template_batch_script.py).
+To build a linear static model (materials, PSOLID, mesh, glue, RBE2 spiders,
+beam bolts, constraints, loads, a SOL 101 scenario with subcases, export),
+build from section 12 of
+[references/patterns-and-recipes.md](references/patterns-and-recipes.md). Those
+steps ran in Apex 2024.1.
 
 ## Custom tool rules
 
@@ -114,6 +132,10 @@ point.
 4. A frozen Apex means model work on the UI thread.
 5. A terminated Apex means a missing `@apex_sdk.errorhandler`.
 6. A tool that never appears is a name mismatch in the palette/group/tool XML.
+7. A model or deck that is wrong although nothing raised is usually one of the
+   silent failures in sections 17–22 of [references/pitfalls.md](references/pitfalls.md):
+   an ignored `MID`, subcase case control that did not persist, glue without
+   `BCONTACT`.
 
 Use [references/debugging-playbook.md](references/debugging-playbook.md) for
 symptom-driven triage and [references/pitfalls.md](references/pitfalls.md) for
@@ -127,12 +149,18 @@ from Apex 2021.4 / Python 3.8.2 documentation; tool authoring and the GUI SDK
 have been stable across those releases. When a user names a specific Apex
 release and a signature could differ, say where the signature came from.
 
+Where Apex 2024.1 is known to behave differently from that reference, the
+difference is recorded in `tools/runtime_overrides.json` and stamped into
+`api/` by the generator.
+
 ## References
 
 - [references/documentation-index.md](references/documentation-index.md): full navigation and lookup order
-- [references/scripting-model.md](references/scripting-model.md): API conventions — keyword arguments, `update()`, ZResult, collections, exceptions
+- [references/cheat-sheet.md](references/cheat-sheet.md): the rules to read before writing any Apex code
+- [references/scripting-model.md](references/scripting-model.md): API conventions in full — keyword arguments, `update()`, ZResult, collections, exceptions
+- [references/fe-vocabulary.md](references/fe-vocabulary.md): FE terms (glue, RBE2, SPC, PSOLID, subcase) to Apex calls
 - [references/module-selection.md](references/module-selection.md): task-to-module mapping across the 22 Apex modules
-- [references/patterns-and-recipes.md](references/patterns-and-recipes.md): verified Apex code patterns
+- [references/patterns-and-recipes.md](references/patterns-and-recipes.md): verified Apex code patterns, including a SOL 101 model step by step
 - [references/custom-tool-authoring.md](references/custom-tool-authoring.md): plugin folder structure and palette/group/tool XML
 - [references/gui-sdk-reference.md](references/gui-sdk-reference.md): the `apex_sdk` API surface, including all pick filter types
 - [references/gui-sdk-patterns.md](references/gui-sdk-patterns.md): WPF panel layout recipes

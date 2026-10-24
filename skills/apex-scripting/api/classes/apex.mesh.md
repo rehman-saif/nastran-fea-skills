@@ -12,6 +12,10 @@ Methods:
 - `getElementOrder() -> apex.mesh.ElementOrder` — return the elementOrder of the curve mesh.
 - `getMeshSize() -> float` — return the meshsize of the curve mesh.
 - `getTarget() -> apex.EntityCollection` — return the list of edges which are meshed.
+- `update(name: str, meshSize: float, elementOrder: apex.mesh.ElementOrder) -> apex.mesh.ZResultCreateCurveMesh` — update one or more of this curve mesh properties.
+
+Method details:
+
 #### `update(name: str, meshSize: float, elementOrder: apex.mesh.ElementOrder) -> apex.mesh.ZResultCreateCurveMesh`
 update one or more of this curve mesh properties.
 
@@ -26,6 +30,15 @@ Iterable collection of Meshs, based on apex::EntityCollection.
 Methods:
 
 - `CurveMeshCollection() -> None` — Construct a new CurveMeshCollection.
+- `appendList(curveMeshList: [apex.mesh.CurveMesh]) -> None` — Add CurveMesh from a list to the end of this collection.
+
+Method details:
+
+#### `CurveMeshCollection() -> None`
+Construct a new CurveMeshCollection.
+
+For example:
+
 #### `appendList(curveMeshList: [apex.mesh.CurveMesh]) -> None`
 Add CurveMesh from a list to the end of this collection.
 
@@ -44,6 +57,26 @@ Methods:
 - `getEdge() -> apex.geometry.Edge`
 - `getElementEdgeLength() -> float`
 - `getNumElementEdges() -> int`
+- `update(numElementEdges: int, elementEdgeLength: float) -> None` — This methods is used to update one or more public attributes of the EdgeSeed.
+
+Method details:
+
+#### `getBiasType() -> apex.mesh.BiasType`
+
+Returns how the EdgeSeed is biased
+
+#### `getEdge() -> apex.geometry.Edge`
+
+Returns the geometry Edge that the EdgeSeed is associated with
+
+#### `getElementEdgeLength() -> float`
+
+Returns The target element size (determines how many seed points will be created).
+
+#### `getNumElementEdges() -> int`
+
+Returns The number of elements along the Edge. This value is only valid for Uniform seeding and will be ignored if a biased EdgeSeed is requested
+
 #### `update(numElementEdges: int, elementEdgeLength: float) -> None`
 This methods is used to update one or more public attributes of the EdgeSeed.
 
@@ -57,6 +90,15 @@ Iterable collection of EdgeSeed, based on EntityCollection.
 Methods:
 
 - `EdgeSeedCollection() -> None` — Construct a new EdgeSeedCollection.
+- `appendList(edgeSeedList: [apex.mesh.EdgeSeed]) -> None` — Add EdgeSeed from a list to the end of this collection.
+
+Method details:
+
+#### `EdgeSeedCollection() -> None`
+Construct a new EdgeSeedCollection.
+
+For example:
+
 #### `appendList(edgeSeedList: [apex.mesh.EdgeSeed]) -> None`
 Add EdgeSeed from a list to the end of this collection.
 
@@ -70,6 +112,34 @@ Element Class Object.
 Properties: `behavior`, `connectedElements`, `constraints`, `edges`, `elementProperty2D`, `elementProperty3D`, `faces`, `initialConditions`, `loads`, `material`, `nodeIds`, `nodes`, `normal`, `offset`, `parent`, `referencedBy`, `section`, `span`, `thickness`, `topology`
 
 Methods:
+
+- `assignMaterial(material: apex.attribute.Material) -> bool` — assign a material to this element.
+- `assignShellSection(section: apex.attribute.ShellSection) -> bool` — DEPRECATED: THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.PLEASE USE apex.attribute.createFieldThicknessOffsetConstant. assign a shell ...
+- `getBehavior() -> apex.attribute.ShellBehavior` — Returns the Behavior associated with this element.
+- `getConnectedElements() -> ElementCollection` — Returns a collection of all elements that are connected to this element by sharing one or more nodes.
+- `getConstraints() -> apex.EntityCollection` — Returns a collection of all Constraints that are applied to this Element.
+- `getEdges() -> ElementEdgeCollection` — Returns a read only ElementEdgeCollection of the edges of this element.
+- `getElementProperty2D() -> apex.attribute.PropertiesElement2D` — Returns the ElementProperty2D associated with this element.
+- `getElementProperty3D() -> apex.attribute.PropertiesElement3D` — Returns the ElementProperty3D associated with this element.
+- `getFaces() -> ElementFaceCollection` — Returns a read only ElementFaceCollection of the faces of this element.
+- `getFields() -> apex.attribute.DiscreteFEMFieldCollection` — Returns all fields associated with this element.
+- `getInitialConditions() -> apex.EntityCollection` — Returns a collection of all InitialConditions that are applied to this Element.
+- `getLoads() -> apex.EntityCollection` — Returns a collection of all Loads that are applied to this element.
+- `getMaterial() -> apex.attribute.Material` — Returns the material associated with this element.
+- `getNodeIds() -> [int int int]` — Returns an ordered List of the Node ID's that define the topology of the element.
+- `getNodes() -> NodeCollection` — A read only ordered collection of the nodes that define the element topology.
+- `getNormal() -> apex.construct.Vector3D` — returns a vector representing the outward normal of the element.
+- `getOffset() -> float` — Returns the offset of the element when the element is 2D element.
+- `getParent() -> MeshBody` — Returns the parent MeshBody for this element.
+- `getReferencedBy() -> apex.EntityCollection` — returns a collection of all entities that directly Reference this Element
+- `getSection() -> apex.attribute.ShellSection` — DEPRECATED: THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.PLEASE USE apex.mesh.element.getFields Returns the Section associated with ...
+- `getSpan() -> apex.attribute.BeamSpan` — Returns the BeamSpan associated with this element.
+- `getThickness() -> float` — Returns the thickness of the element when the element is 2D element.
+- `getTopology() -> ElementTopology` — Returns the topology of this element as an apex.mesh.ElementTopology enumeration.
+- `reverse() -> Element` — Reverses the Element Node order and returns the Element For example a linear Quadrilateral element with original node ordering of 1-2-3-4 will be modified to ...
+- `set12Edge(node_1: int int int, node_2: int int int) -> Element` — Sets the desired 1-2 edge of the element and returns the Element.
+
+Method details:
 
 #### `assignMaterial(material: apex.attribute.Material) -> bool`
 assign a material to this element.
@@ -86,15 +156,23 @@ Returns the Behavior associated with this element. The Behavior may be indirectl
 
 Returns: the Behavior associated with this element.
 
-- `getConnectedElements() -> ElementCollection` — Returns a collection of all elements that are connected to this element by sharing one or more nodes. Node Ties are not returned by this method.
-- `getConstraints() -> apex.EntityCollection` — Returns a collection of all Constraints that are applied to this Element. The Constraints may be applied directly to the Element or to its parent GeometryBody, Face, Edge, Vertex, or MeshBody. If no Constraints are associated with the Element the method will return an empty EntityCollection.
+#### `getConnectedElements() -> ElementCollection`
+Returns a collection of all elements that are connected to this element by sharing one or more nodes. Node Ties are not returned by this method.
+
+#### `getConstraints() -> apex.EntityCollection`
+Returns a collection of all Constraints that are applied to this Element. The Constraints may be applied directly to the Element or to its parent GeometryBody, Face, Edge, Vertex, or MeshBody. If no Constraints are associated with the Element the method will return an empty EntityCollection.
+
 #### `getEdges() -> ElementEdgeCollection`
 Returns a read only ElementEdgeCollection of the edges of this element. The element edges are ordered to reflect the edge ordering of Apex elements. This method will return an empty collection if called on 0D elements.
 
 Returns: a read only ElementEdgeCollection of the edges of this element.
 
-- `getElementProperty2D() -> apex.attribute.PropertiesElement2D` — Returns the ElementProperty2D associated with this element. Gets an instance of the ElementProperty2D associated with this element. The ElementProperty2D may be indirectly associated to the element through the parent Part, GeometryBody, Face or MeshBody. If no ElementProperty2D is associated with this element the method will return a None value.
-- `getElementProperty3D() -> apex.attribute.PropertiesElement3D` — Returns the ElementProperty3D associated with this element. The ElementProperty3D may be indirectly associated to the element through the parent Part, GeometryBody or MeshBody. If no ElementProperty3D is associated with this element the method will return a None value.
+#### `getElementProperty2D() -> apex.attribute.PropertiesElement2D`
+Returns the ElementProperty2D associated with this element. Gets an instance of the ElementProperty2D associated with this element. The ElementProperty2D may be indirectly associated to the element through the parent Part, GeometryBody, Face or MeshBody. If no ElementProperty2D is associated with this element the method will return a None value.
+
+#### `getElementProperty3D() -> apex.attribute.PropertiesElement3D`
+Returns the ElementProperty3D associated with this element. The ElementProperty3D may be indirectly associated to the element through the parent Part, GeometryBody or MeshBody. If no ElementProperty3D is associated with this element the method will return a None value.
+
 #### `getFaces() -> ElementFaceCollection`
 Returns a read only ElementFaceCollection of the faces of this element. The element faces are ordered to reflect the face ordering of Apex elements. This method will return an empty collection if called on 0D or 1D elements.
 
@@ -105,27 +183,33 @@ Returns all fields associated with this element. The Field may be indirectly ass
 
 Returns: all fields associated with this element.
 
-- `getInitialConditions() -> apex.EntityCollection` — Returns a collection of all InitialConditions that are applied to this Element. The InitialConditions may be applied directly to the Element or to its parent GeometryBody, Face, Edge, Vertex, or MeshBody. If no InitialConditions are associated with the Element the method will return an empty EntityCollection.
-- `getLoads() -> apex.EntityCollection` — Returns a collection of all Loads that are applied to this element. The Loads may be applied directly to the element or to its parent Surface, Face, Edge, Vertex, MeshBody or Part. If no Loads are associated with the element the method will return an empty LoadCollection.
+#### `getInitialConditions() -> apex.EntityCollection`
+Returns a collection of all InitialConditions that are applied to this Element. The InitialConditions may be applied directly to the Element or to its parent GeometryBody, Face, Edge, Vertex, or MeshBody. If no InitialConditions are associated with the Element the method will return an empty EntityCollection.
+
+#### `getLoads() -> apex.EntityCollection`
+Returns a collection of all Loads that are applied to this element. The Loads may be applied directly to the element or to its parent Surface, Face, Edge, Vertex, MeshBody or Part. If no Loads are associated with the element the method will return an empty LoadCollection.
+
 #### `getMaterial() -> apex.attribute.Material`
 Returns the material associated with this element. The Material may be indirectly associated to the element through the parent Part, GeometryBody, Face, Edge or MeshBody. If no material is associated with this element the method will return a None value.
 
 Returns: the material associated with this element.
 
-- `getNodeIds() -> [int int int]` — Returns an ordered List of the Node ID's that define the topology of the element.
-- `getNodes() -> NodeCollection` — A read only ordered collection of the nodes that define the element topology. Each element topology defines a fixed order for the nodes.
+#### `getNodes() -> NodeCollection`
+A read only ordered collection of the nodes that define the element topology. Each element topology defines a fixed order for the nodes.
+
 #### `getNormal() -> apex.construct.Vector3D`
 returns a vector representing the outward normal of the element. This method is only available on 2D elements and will throw an exception if called from 0D, 1D or 3D elements.
 
 Returns: a vector representing the outward normal of the element.
 
-- `getOffset() -> float` — Returns the offset of the element when the element is 2D element. The offset may come from the PropertiesElement2D or Section. This method will return an "NAN" when the element is 1D or 3D element. If the element is assigned with Layered Panel, element.offset should return the zone offset distance.
+#### `getOffset() -> float`
+Returns the offset of the element when the element is 2D element. The offset may come from the PropertiesElement2D or Section. This method will return an "NAN" when the element is 1D or 3D element. If the element is assigned with Layered Panel, element.offset should return the zone offset distance.
+
 #### `getParent() -> MeshBody`
 Returns the parent MeshBody for this element.
 
 Returns: the parent MeshBody for this element.
 
-- `getReferencedBy() -> apex.EntityCollection` — returns a collection of all entities that directly Reference this Element
 #### `getSection() -> apex.attribute.ShellSection`
 DEPRECATED: THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.PLEASE USE apex.mesh.element.getFields Returns the Section associated with this element. The Section may be indirectly associated to the element through the parent Part, GeometryBody, Face or MeshBody. If no Section is associated with this element the method will return a None value.
 
@@ -136,9 +220,12 @@ Returns the BeamSpan associated with this element. If the element is not associa
 
 Returns: the BeamSpan associated with this element.
 
-- `getThickness() -> float` — Returns the thickness of the element when the element is 2D element. The thickness may come from the PropertiesElement2D or Section. This method will return an "NAN" when the element is 1D or 3D element. If the element is assigned with Layered Panel, then element.thickness should return the zone thickness.
-- `getTopology() -> ElementTopology` — Returns the topology of this element as an apex.mesh.ElementTopology enumeration.
-- `reverse() -> Element` — Reverses the Element Node order and returns the Element For example a linear Quadrilateral element with original node ordering of 1-2-3-4 will be modified to have the node ordering 1-4-3-2.
+#### `getThickness() -> float`
+Returns the thickness of the element when the element is 2D element. The thickness may come from the PropertiesElement2D or Section. This method will return an "NAN" when the element is 1D or 3D element. If the element is assigned with Layered Panel, then element.thickness should return the zone thickness.
+
+#### `reverse() -> Element`
+Reverses the Element Node order and returns the Element For example a linear Quadrilateral element with original node ordering of 1-2-3-4 will be modified to have the node ordering 1-4-3-2.
+
 #### `set12Edge(node_1: int int int, node_2: int int int) -> Element`
 Sets the desired 1-2 edge of the element and returns the Element. The desired 1-2 edge is identified using the ID's of the Nodes that define the edge. Only corner nodes may be used to identify the 1-2 edge - if an ID is provided that represents a mid-side node the method will throw an exception. If a single Node ID is provided, the existing element edge that starts with that Node will become the 1-2 edge. If two nodes ID's are provided they must be associated with opposite ends of the same element edge, otherwise the method will throw an exception. If two nodes are used to define the 1-2, the first node will be used to define the starting end of the 1-2 edge and the second node will define the second end of the 1-2 edge. This can result in the element being reversed in addition to modifying the 1-2 edge.
 
@@ -152,6 +239,15 @@ Iterable collection of Elements, based on apex::EntityCollection.
 Methods:
 
 - `ElementCollection() -> None` — Construct a new ElementCollection.
+- `appendList(elemList: [apex.mesh.Element]) -> None` — Add Element from a list to the end of this collection.
+
+Method details:
+
+#### `ElementCollection() -> None`
+Construct a new ElementCollection.
+
+For example:
+
 #### `appendList(elemList: [apex.mesh.Element]) -> None`
 Add Element from a list to the end of this collection.
 
@@ -167,12 +263,27 @@ Properties: `connectedElements`, `constraints`, `initialConditions`, `loads`, `n
 Methods:
 
 - `getAxisAlignedBoundingBox() -> apex.AxisAlignedBoundingBox` — Returns the axis aligned bounding box around the object in space.
-- `getConnectedElements() -> ElementCollection` — Returns a collection of all elements that are connected to this element edge by sharing one or more nodes. The parent element will NOT be returned. To retreive the parent element from an ElementEdge use the ElementEdge.parent property. Node Ties are not returned by this method.
-- `getConstraints() -> apex.EntityCollection` — Returns a collection of all Constraints that are applied to this ElementEdge. The Constraints may be applied directly to the ElementEdge or to its parent Surface, Face, Edge,MeshBody or Part. If no Constraints are associated with the ElementEdge the method will return an empty ConstraintCollection.
-- `getInitialConditions() -> apex.EntityCollection` — Returns a collection of all InitialConditions that are applied to this ElementEdge. The InitialConditions may be applied directly to the ElementEdge or to its parent its parent Surface, Face, Edge, MeshBody or Part. If no InitialConditions are associated with the ElementEdge the method will return an empty EntityCollection.
-- `getLoads() -> apex.EntityCollection` — Returns a collection of all Loads that are applied to this ElementEdge. The Loads may be applied directly to the ElementEdge or to its parent its parent Surface, Face, Edge, MeshBody or Part. If no Loads are associated with the ElementEdge the method will return an empty LoadCollection.
+- `getConnectedElements() -> ElementCollection` — Returns a collection of all elements that are connected to this element edge by sharing one or more nodes.
+- `getConstraints() -> apex.EntityCollection` — Returns a collection of all Constraints that are applied to this ElementEdge.
+- `getInitialConditions() -> apex.EntityCollection` — Returns a collection of all InitialConditions that are applied to this ElementEdge.
+- `getLoads() -> apex.EntityCollection` — Returns a collection of all Loads that are applied to this ElementEdge.
 - `getNodes() -> NodeCollection` — Returns an ordered collection of the nodes that define this ElementEdge.
 - `getParent() -> Element` — Returns the parent element from this ElementEdge.
+
+Method details:
+
+#### `getConnectedElements() -> ElementCollection`
+Returns a collection of all elements that are connected to this element edge by sharing one or more nodes. The parent element will NOT be returned. To retreive the parent element from an ElementEdge use the ElementEdge.parent property. Node Ties are not returned by this method.
+
+#### `getConstraints() -> apex.EntityCollection`
+Returns a collection of all Constraints that are applied to this ElementEdge. The Constraints may be applied directly to the ElementEdge or to its parent Surface, Face, Edge,MeshBody or Part. If no Constraints are associated with the ElementEdge the method will return an empty ConstraintCollection.
+
+#### `getInitialConditions() -> apex.EntityCollection`
+Returns a collection of all InitialConditions that are applied to this ElementEdge. The InitialConditions may be applied directly to the ElementEdge or to its parent its parent Surface, Face, Edge, MeshBody or Part. If no InitialConditions are associated with the ElementEdge the method will return an empty EntityCollection.
+
+#### `getLoads() -> apex.EntityCollection`
+Returns a collection of all Loads that are applied to this ElementEdge. The Loads may be applied directly to the ElementEdge or to its parent its parent Surface, Face, Edge, MeshBody or Part. If no Loads are associated with the ElementEdge the method will return an empty LoadCollection.
+
 
 ## `apex.mesh.ElementEdgeCollection`  (extends `IPhysicalCollection`)
 Iterable collection of ElementEdges based on apex.EntityCollection.
@@ -180,6 +291,15 @@ Iterable collection of ElementEdges based on apex.EntityCollection.
 Methods:
 
 - `ElementEdgeCollection() -> None` — Construct a new ElementEdgeCollection.
+- `appendList(elemEdgeList: [apex.mesh.ElementEdge]) -> None` — Add ElementEdge from a list to the end of this collection.
+
+Method details:
+
+#### `ElementEdgeCollection() -> None`
+Construct a new ElementEdgeCollection.
+
+For example:
+
 #### `appendList(elemEdgeList: [apex.mesh.ElementEdge]) -> None`
 Add ElementEdge from a list to the end of this collection.
 
@@ -194,12 +314,12 @@ Properties: `connectedElements`, `displacementConstraints`, `edges`, `loads`, `n
 
 Methods:
 
-- `clearHighlight() -> None` — Removes highlighting from the object. The method has no effect if the object is not already highlighted.
+- `clearHighlight() -> None` — Removes highlighting from the object.
 - `getAxisAlignedBoundingBox() -> apex.AxisAlignedBoundingBox` — Returns the axis aligned bounding box around the object in space.
-- `getConnectedElements() -> ElementCollection` — Returns a collection of all elements that are connected to this element face by sharing one or more nodes. The parent element will NOT be returned. To determine the parent element from an ElementFace use the ElementFace.parent property. Node Ties are not returned by this method.
-- `getDisplacementConstraints() -> apex.environment.DisplacementConstraintCollection` — Returns a collection of all DisplacementConstraints that are applied to this ElementFace. The DisplacementConstraints may be applied directly to the ElementFace or to its parent Surface, Face, MeshBody or Part. If no DisplacementConstraints are associated with the ElementFace the method will return an empty DisplacementConstraintCollection.
+- `getConnectedElements() -> ElementCollection` — Returns a collection of all elements that are connected to this element face by sharing one or more nodes.
+- `getDisplacementConstraints() -> apex.environment.DisplacementConstraintCollection` — Returns a collection of all DisplacementConstraints that are applied to this ElementFace.
 - `getEdges() -> ElementEdgeCollection` — Returns the element edges that comprise this ElementFace as an ElementEdgeCollection.
-- `getLoads() -> apex.EntityCollection` — Returns a collection of all Loads that are applied to this ElementFace. The Loads may be applied directly to the element face or to its parent Surface, Face, Edge, MeshBody or Part. If no Loads are associated with the element face the method will return an empty LoadCollection.
+- `getLoads() -> apex.EntityCollection` — Returns a collection of all Loads that are applied to this ElementFace.
 - `getNodes() -> NodeCollection` — Returns an ordered collection of the nodes that define this ElementFace.
 - `getNormal() -> apex.construct.Vector3D` — Returns the outward normal of the element face using the right hand rule with respect to the face node order.
 - `getParent() -> Element` — Returns the parent element from this ElementFace.
@@ -209,6 +329,21 @@ Methods:
 - `highlightPointSize() -> int` — The highlight point size assigned to the object.
 - `isHighlighted() -> bool` — Boolean indicating whether the object is highlighted or not.
 
+Method details:
+
+#### `clearHighlight() -> None`
+Removes highlighting from the object. The method has no effect if the object is not already highlighted.
+
+#### `getConnectedElements() -> ElementCollection`
+Returns a collection of all elements that are connected to this element face by sharing one or more nodes. The parent element will NOT be returned. To determine the parent element from an ElementFace use the ElementFace.parent property. Node Ties are not returned by this method.
+
+#### `getDisplacementConstraints() -> apex.environment.DisplacementConstraintCollection`
+Returns a collection of all DisplacementConstraints that are applied to this ElementFace. The DisplacementConstraints may be applied directly to the ElementFace or to its parent Surface, Face, MeshBody or Part. If no DisplacementConstraints are associated with the ElementFace the method will return an empty DisplacementConstraintCollection.
+
+#### `getLoads() -> apex.EntityCollection`
+Returns a collection of all Loads that are applied to this ElementFace. The Loads may be applied directly to the element face or to its parent Surface, Face, Edge, MeshBody or Part. If no Loads are associated with the element face the method will return an empty LoadCollection.
+
+
 ## `apex.mesh.ElementFaceCollection`  (extends `IPhysicalCollection`)
 Iterable collection of ElementFaces, based on apex::EntityCollection.
 Properties: `elementFaceDictionary`
@@ -216,6 +351,16 @@ Properties: `elementFaceDictionary`
 Methods:
 
 - `ElementFaceCollection() -> None` — Construct a new ElementFaceCollection.
+- `appendList(elemFaceList: [apex.mesh.ElementFace]) -> None` — Add ElementFace from a list to the end of this collection.
+- `getElementFaceDictionary() -> {str:{apex.mesh.ElementTopologyNS.value:{str:[int int int int]}}}` — Gets the ID's and topologies of the element faces in the ElementFaceCollection using a nested dictionary.
+
+Method details:
+
+#### `ElementFaceCollection() -> None`
+Construct a new ElementFaceCollection.
+
+For example:
+
 #### `appendList(elemFaceList: [apex.mesh.ElementFace]) -> None`
 Add ElementFace from a list to the end of this collection.
 
@@ -223,7 +368,9 @@ Add ElementFace from a list to the end of this collection.
 
 For example:
 
-- `getElementFaceDictionary() -> {str:{apex.mesh.ElementTopologyNS.value:{str:[int int int int]}}}` — Gets the ID's and topologies of the element faces in the ElementFaceCollection using a nested dictionary. Apex supports Elements that may have duplicate ID's across Parts therefore an Element cannot be uniquely identified solely by its ID. elementFaceDictionary returns the element face ID's and topologies partitioned by MeshBody. elementFaceDictionary is the primary dictionary and uses a string type key to identify the MeshBody using its unique pathName. The associated value is a dictionary type referred to here as the secondary dictionary. The secondary dictionary further partitions data by element type and has key of type apex.mesh.ElementTopology. The value associated with this dictionary key is another dictionary referred to here as the tertiary dictionary. The tertiary dictionary contains the actual element face ID's and topologies. The tertiary dictionary supports three string type keys - 'ids', 'topologies_id' and 'topologies_index'. The values associated with these three keys are 'ids' - an Array/List of integers identifying the ids of the elements to which the element face is associated 'face_ids' - an Array/List of integers identifying the ids of the element faces 'topologies_id' - an Array/List of integers identifying the topology of the element faces using Node IDs 'topologies_index' - an Array/List of integers identifying the topology of the element faces using Node indices Example : ElementFaceDictionary defined on three nodes as follow {"Model_1/Part 1/Mesh 1" : {"12" : { 'face_ids': [0, 1, 2, 3, 4, 5], 'ids': [3567], 'topologies_id': [1427, 1428, 1458, 1468, 1559, 1560, 4331, 4341], 'topologies_index': [1426, 1427, 1457, 1467, 1558, 1559, 4330, 4340]} } }
+#### `getElementFaceDictionary() -> {str:{apex.mesh.ElementTopologyNS.value:{str:[int int int int]}}}`
+Gets the ID's and topologies of the element faces in the ElementFaceCollection using a nested dictionary. Apex supports Elements that may have duplicate ID's across Parts therefore an Element cannot be uniquely identified solely by its ID. elementFaceDictionary returns the element face ID's and topologies partitioned by MeshBody. elementFaceDictionary is the primary dictionary and uses a string type key to identify the MeshBody using its unique pathName. The associated value is a dictionary type referred to here as the secondary dictionary. The secondary dictionary further partitions data by element type and has key of type apex.mesh.ElementTopology. The value associated with this dictionary key is another dictionary referred to here as the tertiary dictionary. The tertiary dictionary contains the actual element face ID's and topologies. The tertiary dictionary supports three string type keys - 'ids', 'topologies_id' and 'topologies_index'. The values associated with these three keys are 'ids' - an Array/List of integers identifying the ids of the elements to which the element face is associated 'face_ids' - an Array/List of integers identifying the ids of the element faces 'topologies_id' - an Array/List of integers identifying the topology of the element faces using Node IDs 'topologies_index' - an Array/List of integers identifying the topology of the element faces using Node indices Example : ElementFaceDictionary defined on three nodes as follow {"Model_1/Part 1/Mesh 1" : {"12" : { 'face_ids': [0, 1, 2, 3, 4, 5], 'ids': [3567], 'topologies_id': [1427, 1428, 1458, 1468, 1559, 1560, 4331, 4341], 'topologies_index': [1426, 1427, 1457, 1467, 1558, 1559, 4330, 4340]} } }
+
 
 ## `apex.mesh.ElementIdSet`  (extends `Entity`)
 ElementIdSet Class Object. A set (list of unique) Element IDs .
@@ -234,6 +381,15 @@ Iterable collection of ElementIdSet objects, based on apex::EntityCollection.
 Methods:
 
 - `ElementIdSetCollection() -> None` — Construct a new ElementIdSetCollection.
+- `appendList(elemIdSetList: [apex.mesh.ElementIdSet]) -> None` — Add ElementIdSet from a list to the end of this collection.
+
+Method details:
+
+#### `ElementIdSetCollection() -> None`
+Construct a new ElementIdSetCollection.
+
+For example:
+
 #### `appendList(elemIdSetList: [apex.mesh.ElementIdSet]) -> None`
 Add ElementIdSet from a list to the end of this collection.
 
@@ -257,6 +413,10 @@ Methods:
 - `getMeshSize() -> float` — return the meshsize of the hex mesh.
 - `getRefineMeshUsingCurvature() -> bool` — return flag: enable/disable the curvature refinement option.
 - `getTarget() -> apex.geometry.Solid` — return solid which are meshed.
+- `update(name: str, meshSize: float, surfaceMeshMethod: apex.mesh.SurfaceMeshMethod, mappedMeshDominanceLevel: int, elementOrder: apex.mesh.ElementOrder, refineMeshUsingCurvature: apex.ApexBool, elementGeometryDeviationRatio: float, elementMinEdgeLengthRatio: float, createFeatureMeshOnWashers: apex.ApexBool, createFeatureMeshOnArbitraryHoles: apex.ApexBool, preserveWasherThroughMesh: apex.ApexBool, hexMeshMethod: apex.mesh.HexMeshMethod, projectMidsideNodesToGeometry: apex.ApexBool) -> apex.mesh.ZResultCreateHexMesh` — update one or more of this hex mesh properties.
+
+Method details:
+
 #### `update(name: str, meshSize: float, surfaceMeshMethod: apex.mesh.SurfaceMeshMethod, mappedMeshDominanceLevel: int, elementOrder: apex.mesh.ElementOrder, refineMeshUsingCurvature: apex.ApexBool, elementGeometryDeviationRatio: float, elementMinEdgeLengthRatio: float, createFeatureMeshOnWashers: apex.ApexBool, createFeatureMeshOnArbitraryHoles: apex.ApexBool, preserveWasherThroughMesh: apex.ApexBool, hexMeshMethod: apex.mesh.HexMeshMethod, projectMidsideNodesToGeometry: apex.ApexBool) -> apex.mesh.ZResultCreateHexMesh`
 update one or more of this hex mesh properties.
 
@@ -281,6 +441,15 @@ Iterable collection of Meshs, based on apex::EntityCollection.
 Methods:
 
 - `HexMeshCollection() -> None` — Construct a new HexMeshCollection.
+- `appendList(hexMeshList: [apex.mesh.HexMesh]) -> None` — Add HexMesh from a list to the end of this collection.
+
+Method details:
+
+#### `HexMeshCollection() -> None`
+Construct a new HexMeshCollection.
+
+For example:
+
 #### `appendList(hexMeshList: [apex.mesh.HexMesh]) -> None`
 Add HexMesh from a list to the end of this collection.
 
@@ -294,6 +463,41 @@ MeshBody Class Object.
 Properties: `associatedGeometry`, `elementConnectivities`, `elementEdges`, `elementFaces`, `elementIDs`, `elements`, `nodeCoordinates`, `nodeIDs`, `nodes`, `parent`, `referenceSystem`, `subMeshes`
 
 Methods:
+
+- `asEntity() -> apex.Entity` — return the (base) Entity Object of this MeshBody.
+- `assignMaterial(pMat: apex.attribute.Material) -> bool` — assign a material to this MeshBody.
+- `assignShellSection(pSection: apex.attribute.ShellSection) -> bool` — DEPRECATED: THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.PLEASE USE apex.attribute.createFieldThicknessOffsetConstant. assign a shell ...
+- `createElement(topologyType: apex.mesh.ElementTopology, nodes: [int int int]) -> apex.mesh.Element` — Creates an element in this MeshBody.
+- `createElements(topologyType: apex.mesh.ElementTopology, nodes: [int int int]) -> apex.mesh.ElementCollection` — Creates multiple Elements in this MeshBody.
+- `createNode(location: apex.ILocation, csys: int = 0) -> apex.mesh.Node` — Creates a Node in this MeshBody at the provided location and returns it.
+- `createNodes(locations: [float], csys: int = 0) -> apex.mesh.NodeCollection` — Creates and returns a series of Nodes at the provided locations in this MeshBody.
+- `deleteElements(elementIDs: [int int int], elementIDsEncoded: str, removeUnreferencedNodes: bool) -> None` — Deletes elements, and optionally any resulting unreferenced Nodes, from this MeshBody.
+- `deleteUnreferencedNodes() -> None` — Removes all Nodes in this MeshBody that are not referenced by any other Element or Node Tie in the Model.
+- `disassociateFromGeometry() -> MeshBody` — Disassociates this MeshBody from Geometry if it is in fact associated.
+- `exportFEModel(filename: str, unitSystem: str, exportWideFormat: bool = False, exportAbstractions: bool = False, writePropertyOnElement: bool = True, exportProperty: apex.ExportProperty = apex.ExportProperty.AsDefined) -> None` — Exports the contents of the MeshBody to a Nastran file.
+- `exportMarc(filename: str, unitSystem: str, exportWideFormat: bool = False, exportHierarchicalFiles: bool = False, inputType: apex.attribute.MarcInputType = apex.attribute.MarcInputType.Dat, renumberMethod: apex.attribute.ExportRenumberMethod = apex.attribute.ExportRenumberMethod.Internal, apexEngineeringAbstractions: bool = False) -> None` — Exports the contents of the MeshBody to a Marc file.
+- `getAssociatedGeometry() -> apex.geometry.GeometryBody` — returns the GeometryBody that this MeshBody is associated with or 'None' if the MeshBody is an orphan mesh and not associated to geometry.
+- `getElement(id: int, index: int) -> apex.mesh.Element` — Get the element in this MeshBody.
+- `getElementConnectivities() -> {ElementTopologyNS.value:[int]}` — Returns a Dictionary containing the Element connectivity for every element, by element topology type, in this MeshBody.
+- `getElementEdge(strElementEdge: str = "") -> apex.mesh.ElementEdge` — this method is used to search and return a specified ElementEdge by giving an element edge's combineID(ElementID + EdgeID) in string.
+- `getElementEdges(target: str = "") -> apex.mesh.ElementEdgeCollection` — Returns an ElementEdgeCollection of the element edges requested in the target argument.
+- `getElementFaces(target: {int int:[int]} = {}) -> apex.mesh.ElementFaceCollection` — get element face collection.
+- `getElementFacesById(target: {str:[int int int]}) -> apex.mesh.ElementFaceCollection` — get element face collection.
+- `getElementIDs() -> {ElementTopologyNS.value:[int int int int]}` — Returns a Dictionary containing the Element ID's for every element, by element topology type, in this MeshBody.
+- `getElements(ids: str, indices: str) -> apex.mesh.ElementCollection` — Get a collection of Element in this MeshBody.
+- `getNode(id: int, index: int) -> apex.mesh.Node` — Get the node in this MeshBody.
+- `getNodeCoordinates() -> [float]` — Returns an array of node coordinates for every Node in this MeshBody.
+- `getNodeIDs() -> [int int int int]` — Returns an array of Node ID's for all Nodes in this MeshBody.
+- `getNodes(ids: str, indices: str) -> apex.mesh.NodeCollection` — Get a collection of Node in this MeshBody.
+- `getParent() -> apex.Part` — Get the parent Part for this MeshBody.
+- `getReferenceSystem() -> ( apex.ILocation,apex.IOrientation )` — Gets A tuple to represent location and orientation to be used for reference system.
+- `getSubMesh(id: int) -> apex.mesh.SubMesh` — returns the subMesh in this MeshBody.
+- `getSubMeshes() -> apex.mesh.SubMeshCollection` — returns a collection of SubMeshes from this MeshBody as a SubMeshCollection.
+- `setParent(parent: apex.Part) -> None` — Set a Part to be the new parent for this MeshBody.
+- `setReferenceSystem(refSysPair: ( apex.ILocation,apex.IOrientation )) -> None`
+- `update(color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None` — Update one or more of this mesh body properties.
+
+Method details:
 
 #### `asEntity() -> apex.Entity`
 return the (base) Entity Object of this MeshBody.
@@ -349,8 +553,9 @@ Deletes elements, and optionally any resulting unreferenced Nodes, from this Mes
 - `elementIDsEncoded` — A run length encoded string defining the ID's of the elements to delete. Run length encoding enables ranges of consecutive ID;s to be defined in a compact form - "1, 3, 5, 7-1006, 1000-20000:2" If an ID is provided that does not exist in this MeshBody it will be silently ignored. This method supports two alternate ways to define the ID's of the elements to be deleted. This argument (run length encoded string) and the alternate elementIDs argument that supports identification of the elements using a List of Integer IDs. Only one or these two argument must be supplied otherwise the method will throw an exception
 - `removeUnreferencedNodes` — An optional boolean argument to control deletion of any Nodes that become unreferenced after deleti0on of the element. If True (default), any Nodes that were originally referenced by any of the Elements that were deleted by this method that are no longer referenced by any other element or NodeTie will also be deleted. If False, no Nodes will be deleted.
 
-- `deleteUnreferencedNodes() -> None` — Removes all Nodes in this MeshBody that are not referenced by any other Element or Node Tie in the Model.
-- `disassociateFromGeometry() -> MeshBody` — Disassociates this MeshBody from Geometry if it is in fact associated. If the MeshBody is not associated to Geometry the method will simply return the MeshBody. If the MeshBody is associated to Geometry and the Geometry is referenced by Materials, Sections, Behaviors, Loads, Constraints, MeshIndependentTies or NodeTies, these associations will NOT be transferred from the Geometry to the MeshBody. (This capability will be added in a future release). NOTE : If the parent Geometry is referenced by a MeshDependentTie or a BeamSpan these associations will NOT be transferred to the MeshBody since Apex does not currently support MeshDependentTies or BeamSpans on orphan meshes. This limitation will be removed in a future Apex release.
+#### `disassociateFromGeometry() -> MeshBody`
+Disassociates this MeshBody from Geometry if it is in fact associated. If the MeshBody is not associated to Geometry the method will simply return the MeshBody. If the MeshBody is associated to Geometry and the Geometry is referenced by Materials, Sections, Behaviors, Loads, Constraints, MeshIndependentTies or NodeTies, these associations will NOT be transferred from the Geometry to the MeshBody. (This capability will be added in a future release). NOTE : If the parent Geometry is referenced by a MeshDependentTie or a BeamSpan these associations will NOT be transferred to the MeshBody since Apex does not currently support MeshDependentTies or BeamSpans on orphan meshes. This limitation will be removed in a future Apex release.
+
 #### `exportFEModel(filename: str, unitSystem: str, exportWideFormat: bool = False, exportAbstractions: bool = False, writePropertyOnElement: bool = True, exportProperty: apex.ExportProperty = apex.ExportProperty.AsDefined) -> None`
 Exports the contents of the MeshBody to a Nastran file. All Nodes and Elements in the Part, plus all Materials and Properties that are associated by the MeshBody will be exported. Only bulk data entries are exported when this method is called from the MeshBody class - to export Case (and other Nastran file sections) use the equivalent method on the Scenario class instead. The method arguments provide control over export options.
 
@@ -383,8 +588,12 @@ Get the element in this MeshBody.
 - `id` — the id of element
 - `index` — the index of element
 
-- `getElementConnectivities() -> {ElementTopologyNS.value:[int]}` — Returns a Dictionary containing the Element connectivity for every element, by element topology type, in this MeshBody. The element connectivity is defined using Node indices, NOT Node ID's. The Dictionary key is of type apex.mesh.ElementTopology and the value type is an array of integers. The Dictionary will contain an item for every element topology type in this MeshBody. The item key identifies the element topology type and the item value contains the element node indices for every element of this type in this MeshBody. The number of node indices in this array will be equal to the number of elements of this type in the mesh times the number of nodes per element for this element topology type. The connectivity for each element is provided in element index order - the same element index order used to recover the element ID's using the elementIDs property of this MeshBody.
-- `getElementEdge(strElementEdge: str = "") -> apex.mesh.ElementEdge` — this method is used to search and return a specified ElementEdge by giving an element edge's combineID(ElementID + EdgeID) in string. Please note that the format of combineID is composed of ElementID and EdgeID, such as 10.1,
+#### `getElementConnectivities() -> {ElementTopologyNS.value:[int]}`
+Returns a Dictionary containing the Element connectivity for every element, by element topology type, in this MeshBody. The element connectivity is defined using Node indices, NOT Node ID's. The Dictionary key is of type apex.mesh.ElementTopology and the value type is an array of integers. The Dictionary will contain an item for every element topology type in this MeshBody. The item key identifies the element topology type and the item value contains the element node indices for every element of this type in this MeshBody. The number of node indices in this array will be equal to the number of elements of this type in the mesh times the number of nodes per element for this element topology type. The connectivity for each element is provided in element index order - the same element index order used to recover the element ID's using the elementIDs property of this MeshBody.
+
+#### `getElementEdge(strElementEdge: str = "") -> apex.mesh.ElementEdge`
+this method is used to search and return a specified ElementEdge by giving an element edge's combineID(ElementID + EdgeID) in string. Please note that the format of combineID is composed of ElementID and EdgeID, such as 10.1,
+
 #### `getElementEdges(target: str = "") -> apex.mesh.ElementEdgeCollection`
 Returns an ElementEdgeCollection of the element edges requested in the target argument.
 
@@ -406,7 +615,9 @@ get element face collection.
 
 Returns: element face collection.
 
-- `getElementIDs() -> {ElementTopologyNS.value:[int int int int]}` — Returns a Dictionary containing the Element ID's for every element, by element topology type, in this MeshBody. The Dictionary key is of type apex.mesh.ElementTopology and the value type is an array of integers. The Dictionary will contain an item for every element topology type in this MeshBody. The item key identifies the element topology type and the item value contains the element ids for every element of this type in this MeshBody. The element ID's are provided in Element index order - NOT element ID order. The order of Element ID's is the same order used to return the element Connectivity information form the elementConnectivities property of this MeshBody.
+#### `getElementIDs() -> {ElementTopologyNS.value:[int int int int]}`
+Returns a Dictionary containing the Element ID's for every element, by element topology type, in this MeshBody. The Dictionary key is of type apex.mesh.ElementTopology and the value type is an array of integers. The Dictionary will contain an item for every element topology type in this MeshBody. The item key identifies the element topology type and the item value contains the element ids for every element of this type in this MeshBody. The element ID's are provided in Element index order - NOT element ID order. The order of Element ID's is the same order used to return the element Connectivity information form the elementConnectivities property of this MeshBody.
+
 #### `getElements(ids: str, indices: str) -> apex.mesh.ElementCollection`
 Get a collection of Element in this MeshBody.
 
@@ -421,8 +632,12 @@ Get the node in this MeshBody.
 - `id` — the id of node
 - `index` — the index of node
 
-- `getNodeCoordinates() -> [float]` — Returns an array of node coordinates for every Node in this MeshBody. The coordinates are returned as 1D array of floats representing the x, y and z coordinates of each Node in this MeshBody in node index order [X1, Y1, Z1, X2, Y2, Z2, etc] where 1, 2 etc. represents the node index. This array will contain 3 times the number entries as there are Nodes in this MeshBody. The order of node coordinates in this array is the same as the order of the nodal ID's returned in the nodeIDs property of this MeshBody.
-- `getNodeIDs() -> [int int int int]` — Returns an array of Node ID's for all Nodes in this MeshBody. The Node ID's are returned in Node index order, NOT in Node ID order. The order of Node ID's in this array is the same as the order of the nodal coordinates returned in the nodeCoordinates property.
+#### `getNodeCoordinates() -> [float]`
+Returns an array of node coordinates for every Node in this MeshBody. The coordinates are returned as 1D array of floats representing the x, y and z coordinates of each Node in this MeshBody in node index order [X1, Y1, Z1, X2, Y2, Z2, etc] where 1, 2 etc. represents the node index. This array will contain 3 times the number entries as there are Nodes in this MeshBody. The order of node coordinates in this array is the same as the order of the nodal ID's returned in the nodeIDs property of this MeshBody.
+
+#### `getNodeIDs() -> [int int int int]`
+Returns an array of Node ID's for all Nodes in this MeshBody. The Node ID's are returned in Node index order, NOT in Node ID order. The order of Node ID's in this array is the same as the order of the nodal coordinates returned in the nodeCoordinates property.
+
 #### `getNodes(ids: str, indices: str) -> apex.mesh.NodeCollection`
 Get a collection of Node in this MeshBody.
 
@@ -431,20 +646,16 @@ Get a collection of Node in this MeshBody.
 
 Returns: a NodeCollection of the requested nodes in this MeshBody
 
-- `getParent() -> apex.Part` — Get the parent Part for this MeshBody.
-- `getReferenceSystem() -> ( apex.ILocation,apex.IOrientation )` — Gets A tuple to represent location and orientation to be used for reference system.
 #### `getSubMesh(id: int) -> apex.mesh.SubMesh`
 returns the subMesh in this MeshBody.
 
 - `id` — the id of subMesh
 
-- `getSubMeshes() -> apex.mesh.SubMeshCollection` — returns a collection of SubMeshes from this MeshBody as a SubMeshCollection.
 #### `setParent(parent: apex.Part) -> None`
 Set a Part to be the new parent for this MeshBody.
 
 - `parent` — to be assigned the new parent of this MeshBody
 
-- `setReferenceSystem(refSysPair: ( apex.ILocation,apex.IOrientation )) -> None`
 #### `update(color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None`
 Update one or more of this mesh body properties.
 
@@ -460,6 +671,15 @@ Iterable collection of MeshBodies, based on EntityCollection.
 Methods:
 
 - `MeshBodyCollection() -> None` — Construct a new MeshBodyCollection.
+- `appendList(meshBodyList: [apex.mesh.MeshBody]) -> None` — Add MeshBody from a list to the end of this collection.
+
+Method details:
+
+#### `MeshBodyCollection() -> None`
+Construct a new MeshBodyCollection.
+
+For example:
+
 #### `appendList(meshBodyList: [apex.mesh.MeshBody]) -> None`
 Add MeshBody from a list to the end of this collection.
 
@@ -473,6 +693,23 @@ Node Class Object.
 Properties: `analysisSystem`, `constraints`, `coordinates`, `displacementConstraints`, `elements`, `initialConditions`, `isInGlobal`, `loads`, `parent`, `referencedBy`, `referenceSystem`
 
 Methods:
+
+- `assignAnalysisSystem(coordinateSystem: apex.construct.CoordinateSystem) -> bool` — assign a coordinate system as analysis coordinate system to the target Node.
+- `getAnalysisSystem() -> apex.construct.CoordinateSystem` — The analysis coordinate system of the Node.
+- `getConstraints() -> apex.EntityCollection` — Returns a collection of all Constraints that are applied to this Node.
+- `getCoordinates() -> apex.Coordinate` — Returns the coordinates of this Node in 3D space as an apex.Coordinate.
+- `getDisplacementConstraints() -> apex.environment.DisplacementConstraintCollection` — Returns a collection of all Constraints that are applied to this Node.
+- `getElements() -> ElementCollection` — Returns a collection of all Elements that reference this Node.
+- `getInitialConditions() -> apex.EntityCollection` — Returns a collection of all InitialConditions that are applied to this Node.
+- `getIsInGlobal() -> bool` — Returns the True or False status if the node stored in global or not.
+- `getLoads() -> apex.EntityCollection` — Returns a collection of all Loads that are applied to this Node.
+- `getParent() -> MeshBody` — Returns the parent MeshBody for this Node.
+- `getReferenceSystem() -> apex.construct.CoordinateSystem` — CoordinateSystem in which the coordinates of the node is defined.
+- `getReferencedBy() -> apex.EntityCollection` — returns a collection of all entities that directly Reference this Node
+- `update(coordinates: apex.Coordinate, referenceSystem: apex.construct.CoordinateSystem, analysisSystem: apex.construct.CoordinateSystem, isInGlobal: bool = False, enableReferenceSystem: bool, enableAnalysisSystem: bool) -> Node` — Updates the node including location, definition location coordinate system and analysis coordinate system assigned to the node.
+- `updateCoordinates(coordinate: apex.ILocation) -> Node` — Updates the spatial coordinates of the Node.
+
+Method details:
 
 #### `assignAnalysisSystem(coordinateSystem: apex.construct.CoordinateSystem) -> bool`
 assign a coordinate system as analysis coordinate system to the target Node.
@@ -504,7 +741,9 @@ Returns a collection of all Elements that reference this Node. The returned elem
 
 Returns: a collection of all Elements that reference this Node.
 
-- `getInitialConditions() -> apex.EntityCollection` — Returns a collection of all InitialConditions that are applied to this Node. The InitialConditions may be applied directly to the Node or to its parent GeometryBody, Face, Edge, Vertex, or MeshBody. If no InitialConditions are associated with the Node the method will return an empty EntityCollection. Apex only supports initialTemperature in this release.
+#### `getInitialConditions() -> apex.EntityCollection`
+Returns a collection of all InitialConditions that are applied to this Node. The InitialConditions may be applied directly to the Node or to its parent GeometryBody, Face, Edge, Vertex, or MeshBody. If no InitialConditions are associated with the Node the method will return an empty EntityCollection. Apex only supports initialTemperature in this release.
+
 #### `getIsInGlobal() -> bool`
 Returns the True or False status if the node stored in global or not. If it is true, the 3D coordinates stores in global coordinate system. If it is false, the 3D coordinates stores in local coordinate system defined in referenceCoord.
 
@@ -525,7 +764,6 @@ CoordinateSystem in which the coordinates of the node is defined. Returns the re
 
 Returns: the reference coordinate system of the node.
 
-- `getReferencedBy() -> apex.EntityCollection` — returns a collection of all entities that directly Reference this Node
 #### `update(coordinates: apex.Coordinate, referenceSystem: apex.construct.CoordinateSystem, analysisSystem: apex.construct.CoordinateSystem, isInGlobal: bool = False, enableReferenceSystem: bool, enableAnalysisSystem: bool) -> Node`
 Updates the node including location, definition location coordinate system and analysis coordinate system assigned to the node.
 
@@ -550,6 +788,15 @@ Iterable collection of Nodes, based on apex::EntityCollection.
 Methods:
 
 - `NodeCollection() -> None` — Construct a new NodeCollection.
+- `appendList(nodeList: [apex.mesh.Node]) -> None` — Add Node from a list to the end of this collection.
+
+Method details:
+
+#### `NodeCollection() -> None`
+Construct a new NodeCollection.
+
+For example:
+
 #### `appendList(nodeList: [apex.mesh.Node]) -> None`
 Add Node from a list to the end of this collection.
 
@@ -567,6 +814,15 @@ Iterable collection of NodeIdSet objects, based on apex::EntityCollection.
 Methods:
 
 - `NodeIdSetCollection() -> None` — Construct a new NodeIdSetCollection.
+- `appendList(nodeIdSetList: [apex.mesh.NodeIdSet]) -> None` — Add NodeIdSet from a list to the end of this collection.
+
+Method details:
+
+#### `NodeIdSetCollection() -> None`
+Construct a new NodeIdSetCollection.
+
+For example:
+
 #### `appendList(nodeIdSetList: [apex.mesh.NodeIdSet]) -> None`
 Add NodeIdSet from a list to the end of this collection.
 
@@ -580,6 +836,10 @@ PointMesh Class Object. extends Mesh Class Object.
 
 Methods:
 
+- `update(name: str) -> None` — update name of this point mesh.
+
+Method details:
+
 #### `update(name: str) -> None`
 update name of this point mesh.
 
@@ -592,6 +852,15 @@ Iterable collection of Meshs, based on apex::EntityCollection.
 Methods:
 
 - `PointMeshCollection() -> None` — Construct a new PointMeshCollection.
+- `appendList(pointMeshList: [apex.mesh.PointMesh]) -> None` — Add PointMesh from a list to the end of this collection.
+
+Method details:
+
+#### `PointMeshCollection() -> None`
+Construct a new PointMeshCollection.
+
+For example:
+
 #### `appendList(pointMeshList: [apex.mesh.PointMesh]) -> None`
 Add PointMesh from a list to the end of this collection.
 
@@ -605,6 +874,13 @@ SeedPoint Class Object.
 Properties: `cleanupTolerance`, `searchDistance`, `source`, `target`
 
 Methods:
+
+- `getCleanupTolerance() -> float` — retrieve the cleanup tolerance of the Seed Point
+- `getSearchDistance() -> float` — retrieve the search distance of the Seed Point
+- `getSource() -> apex.geometry.Point` — retrieve the source body of the Seed Point
+- `getTarget() -> apex.geometry.GeometryTopology` — retrieve the target edge/face of the Seed Point
+
+Method details:
 
 #### `getCleanupTolerance() -> float`
 retrieve the cleanup tolerance of the Seed Point
@@ -633,6 +909,15 @@ Iterable collection of SeedPoints, based on EntityCollection.
 Methods:
 
 - `SeedPointCollection() -> None` — Construct a new SeedPointCollection.
+- `appendList(seedPointList: [apex.mesh.SeedPoint]) -> None` — Add SeedPoint from a list to the end of this collection.
+
+Method details:
+
+#### `SeedPointCollection() -> None`
+Construct a new SeedPointCollection.
+
+For example:
+
 #### `appendList(seedPointList: [apex.mesh.SeedPoint]) -> None`
 Add SeedPoint from a list to the end of this collection.
 
@@ -679,6 +964,10 @@ Methods:
 - `getTarget() -> apex.geometry.Solid` — return the Solid which are meshed.
 - `getThinSectionThreshold() -> float` — return the value of thinSectionThreshold.
 - `getUseMeshFlowOptimization() -> bool` — return flag: enable/disable enhance mesh flow to improve quality.
+- `update(name: str, meshSize: float, meshType: apex.mesh.SolidMeshElementShape, elementOrder: apex.mesh.ElementOrder, refineMeshUsingCurvature: apex.ApexBool, elementGeometryDeviationRatio: float, elementMinEdgeLengthRatio: float, autoimprove: apex.ApexBool, growFaceMeshSize: apex.ApexBool, faceMeshGrowthRatio: float, coarsenMeshInternally: apex.ApexBool, gradeFactor: float, interiorCoarseningFactor: float, ignoreBadEdges: apex.ApexBool, collapseShortElementEdges: apex.ApexBool, collapseElementEdgesShorterThan: float, edgeLengthCollapseLimit: float, createFeatureMeshes: apex.ApexBool, featureMeshTypes: [apex.mesh.FeatureMeshType], createFeatureMeshOnFillets: apex.ApexBool, createFeatureMeshOnChamfers: apex.ApexBool, createFeatureMeshOnCylinders: apex.ApexBool, createFeatureMeshOnSemiCylinders: apex.ApexBool, createFeatureMeshOnWashers: apex.ApexBool, createFeatureMeshOnQuadFaces: apex.ApexBool, createLayeredMesh: apex.ApexBool, thinSectionThreshold: float, numLayers: int, projectMidsideNodesToGeometry: apex.ApexBool, createMinLayers: bool, approximateNumLayers: float, coreType: HybridCoreType, skinType: HybridSkinType, useMeshFlowOptimization: apex.ApexBool, meshFlow: apex.mesh.MeshFlow) -> apex.mesh.ZResultCreateSolidMesh` — Updates one or more properties of this SolidMesh.
+
+Method details:
+
 #### `update(name: str, meshSize: float, meshType: apex.mesh.SolidMeshElementShape, elementOrder: apex.mesh.ElementOrder, refineMeshUsingCurvature: apex.ApexBool, elementGeometryDeviationRatio: float, elementMinEdgeLengthRatio: float, autoimprove: apex.ApexBool, growFaceMeshSize: apex.ApexBool, faceMeshGrowthRatio: float, coarsenMeshInternally: apex.ApexBool, gradeFactor: float, interiorCoarseningFactor: float, ignoreBadEdges: apex.ApexBool, collapseShortElementEdges: apex.ApexBool, collapseElementEdgesShorterThan: float, edgeLengthCollapseLimit: float, createFeatureMeshes: apex.ApexBool, featureMeshTypes: [apex.mesh.FeatureMeshType], createFeatureMeshOnFillets: apex.ApexBool, createFeatureMeshOnChamfers: apex.ApexBool, createFeatureMeshOnCylinders: apex.ApexBool, createFeatureMeshOnSemiCylinders: apex.ApexBool, createFeatureMeshOnWashers: apex.ApexBool, createFeatureMeshOnQuadFaces: apex.ApexBool, createLayeredMesh: apex.ApexBool, thinSectionThreshold: float, numLayers: int, projectMidsideNodesToGeometry: apex.ApexBool, createMinLayers: bool, approximateNumLayers: float, coreType: HybridCoreType, skinType: HybridSkinType, useMeshFlowOptimization: apex.ApexBool, meshFlow: apex.mesh.MeshFlow) -> apex.mesh.ZResultCreateSolidMesh`
 Updates one or more properties of this SolidMesh. All modifiable properties of the SolidMesh are supported as optional arguments and multiple properties may be updated in a single call. Any properties not included in the argument list are unchanged by this method.
 
@@ -725,6 +1014,15 @@ Iterable collection of Meshs, based on apex::EntityCollection.
 Methods:
 
 - `SolidMeshCollection() -> None` — Construct a new SolidMeshCollection.
+- `appendList(solidMeshList: [apex.mesh.SolidMesh]) -> None` — Add SolidMesh from a list to the end of this collection.
+
+Method details:
+
+#### `SolidMeshCollection() -> None`
+Construct a new SolidMeshCollection.
+
+For example:
+
 #### `appendList(solidMeshList: [apex.mesh.SolidMesh]) -> None`
 Add SolidMesh from a list to the end of this collection.
 
@@ -739,6 +1037,14 @@ Properties: `elements`, `nodes`, `parent`
 
 Methods:
 
+- `asEntity() -> apex.Entity` — return the (base) Entity Object of this SubMesh.
+- `getElements() -> apex.mesh.ElementCollection` — returns a collection of Elements composed by this submesh.
+- `getIndex() -> int` — SubMesh only has id, but does not have index.
+- `getNodes() -> apex.mesh.NodeCollection` — returns a collection of Nodes referenced by this submesh.
+- `getParent() -> apex.mesh.MeshBody` — returns the MeshBody that composes this submesh.
+
+Method details:
+
 #### `asEntity() -> apex.Entity`
 return the (base) Entity Object of this SubMesh.
 
@@ -749,7 +1055,9 @@ returns a collection of Elements composed by this submesh.
 
 Returns: ElementCollection
 
-- `getIndex() -> int` — SubMesh only has id, but does not have index. Index of zero will be returned always.
+#### `getIndex() -> int`
+SubMesh only has id, but does not have index. Index of zero will be returned always.
+
 #### `getNodes() -> apex.mesh.NodeCollection`
 returns a collection of Nodes referenced by this submesh.
 
@@ -766,7 +1074,13 @@ Class representing regions of a PointMesh. extends SubMesh Class Object.
 
 Methods:
 
-- `getIndex() -> int` — SubMesh only has id, but does not have index. Index of zero will be returned always.
+- `getIndex() -> int` — SubMesh only has id, but does not have index.
+
+Method details:
+
+#### `getIndex() -> int`
+SubMesh only has id, but does not have index. Index of zero will be returned always.
+
 
 ## `apex.mesh.SubMesh1D`  (extends `SubMesh`)
 Class representing regions of a CurveMesh. The topology of CurveMeshes that are associated with geometry Curves reflect the topology of the Curve. A Curve is composed of one or more Edges and the CurveMesh that is associated with this Curve will compose a corresponding Submesh1D for each Edge. extends SubMesh Class Object.
@@ -774,12 +1088,19 @@ Properties: `edge`
 
 Methods:
 
+- `getEdge() -> apex.geometry.Edge` — returns the Edge associated with this Submesh1D or 'None' if the Submesh is not associated to geometry (orphan mesh).
+- `getIndex() -> int` — SubMesh only has id, but does not have index.
+
+Method details:
+
 #### `getEdge() -> apex.geometry.Edge`
 returns the Edge associated with this Submesh1D or 'None' if the Submesh is not associated to geometry (orphan mesh).
 
 Returns: the Edge associated with this Submesh1D.
 
-- `getIndex() -> int` — SubMesh only has id, but does not have index. Index of zero will be returned always.
+#### `getIndex() -> int`
+SubMesh only has id, but does not have index. Index of zero will be returned always.
+
 
 ## `apex.mesh.SubMesh2D`  (extends `SubMesh`)
 Class representing regions of a SurfaceMesh. The topology of SurfaceMeshes that are associated with geometry Surfaces reflect the topology of the Surface. A Surface is composed of one or more Faces and the SurfaceMesh that is associated with this Surface will compose a corresponding Submesh2D for each Surface. extends SubMesh Class Object.
@@ -787,12 +1108,19 @@ Properties: `face`
 
 Methods:
 
+- `getFace() -> apex.geometry.Face` — returns the Face associated with this Submesh2D or 'None' if the submesh is not associated to geometry (orphan mesh).
+- `getIndex() -> int` — SubMesh only has id, but does not have index.
+
+Method details:
+
 #### `getFace() -> apex.geometry.Face`
 returns the Face associated with this Submesh2D or 'None' if the submesh is not associated to geometry (orphan mesh).
 
 Returns: the Face associated with this Submesh2D.
 
-- `getIndex() -> int` — SubMesh only has id, but does not have index. Index of zero will be returned always.
+#### `getIndex() -> int`
+SubMesh only has id, but does not have index. Index of zero will be returned always.
+
 
 ## `apex.mesh.SubMesh3D`  (extends `SubMesh`)
 Class representing regions of a SolidMesh or HexMesh. The topology of SolidMeshes and HexMeshes that are associated with geometry Solids reflect the topology of the Solid. A Solid is composed of one or more Cells and the SolidMesh or HexMesh that is associated with this Solid will compose a corresponding Submesh3D for each Cell. extends SubMesh Class Object.
@@ -800,12 +1128,19 @@ Properties: `cell`
 
 Methods:
 
+- `getCell() -> apex.geometry.Cell` — returns the Cell associated with this Submesh3D or 'None' if the submesh is not associated to geometry (orphan mesh).
+- `getIndex() -> int` — SubMesh only has id, but does not have index.
+
+Method details:
+
 #### `getCell() -> apex.geometry.Cell`
 returns the Cell associated with this Submesh3D or 'None' if the submesh is not associated to geometry (orphan mesh).
 
 Returns: the Cell associated with this Submesh3D.
 
-- `getIndex() -> int` — SubMesh only has id, but does not have index. Index of zero will be returned always.
+#### `getIndex() -> int`
+SubMesh only has id, but does not have index. Index of zero will be returned always.
+
 
 ## `apex.mesh.SubMeshCollection`  (extends `EntityCollection`)
 Iterable collection of SubMesh, based on EntityCollection.
@@ -813,6 +1148,15 @@ Iterable collection of SubMesh, based on EntityCollection.
 Methods:
 
 - `SubMeshCollection() -> None` — Construct a new SubMeshCollection.
+- `appendList(subMeshList: [apex.mesh.SubMesh]) -> None` — Add SubMesh from a list to the end of this collection.
+
+Method details:
+
+#### `SubMeshCollection() -> None`
+Construct a new SubMeshCollection.
+
+For example:
+
 #### `appendList(subMeshList: [apex.mesh.SubMesh]) -> None`
 Add SubMesh from a list to the end of this collection.
 
@@ -845,6 +1189,10 @@ Methods:
 - `getTarget() -> apex.EntityCollection` — return the list of faces which are meshed.
 - `getTriaReductionStrength() -> signed int int` — return the value of triaReductionStrength.
 - `getUseMeshFlowOptimization() -> bool` — return flag: enable/disable enhance mesh flow to improve quality.
+- `update(name: str, meshSize: float, meshType: apex.mesh.SurfaceMeshElementShape, meshMethod: apex.mesh.SurfaceMeshMethod, mappedMeshDominanceLevel: int, elementOrder: apex.mesh.ElementOrder, meshUsingPrincipalAxes: apex.ApexBool, allQuadBoundary: apex.ApexBool, applyTriaReduction: apex.ApexBool, triaReductionStrength: int, refineMeshUsingCurvature: apex.ApexBool, curvatureType: apex.mesh.CurvatureType, elementGeometryDeviationRatio: float, elementMinEdgeLengthRatio: float, proximityRefinement: apex.ApexBool, growFaceMeshSize: apex.ApexBool, faceMeshGrowthRatio: float, createFeatureMeshes: apex.ApexBool, featureMeshTypes: [apex.mesh.FeatureMeshType], createFeatureMeshOnFillets: apex.ApexBool, createFeatureMeshOnChamfers: apex.ApexBool, createFeatureMeshOnWashers: apex.ApexBool, createFeatureMeshOnArbitraryHoles: apex.ApexBool, createFeatureMeshOnQuadFaces: apex.ApexBool, projectMidsideNodesToGeometry: apex.ApexBool, useMeshFlowOptimization: apex.ApexBool, meshFlow: apex.mesh.MeshFlow) -> apex.mesh.ZResultCreateSurfaceMesh` — update one or more of this surface mesh properties.
+
+Method details:
+
 #### `update(name: str, meshSize: float, meshType: apex.mesh.SurfaceMeshElementShape, meshMethod: apex.mesh.SurfaceMeshMethod, mappedMeshDominanceLevel: int, elementOrder: apex.mesh.ElementOrder, meshUsingPrincipalAxes: apex.ApexBool, allQuadBoundary: apex.ApexBool, applyTriaReduction: apex.ApexBool, triaReductionStrength: int, refineMeshUsingCurvature: apex.ApexBool, curvatureType: apex.mesh.CurvatureType, elementGeometryDeviationRatio: float, elementMinEdgeLengthRatio: float, proximityRefinement: apex.ApexBool, growFaceMeshSize: apex.ApexBool, faceMeshGrowthRatio: float, createFeatureMeshes: apex.ApexBool, featureMeshTypes: [apex.mesh.FeatureMeshType], createFeatureMeshOnFillets: apex.ApexBool, createFeatureMeshOnChamfers: apex.ApexBool, createFeatureMeshOnWashers: apex.ApexBool, createFeatureMeshOnArbitraryHoles: apex.ApexBool, createFeatureMeshOnQuadFaces: apex.ApexBool, projectMidsideNodesToGeometry: apex.ApexBool, useMeshFlowOptimization: apex.ApexBool, meshFlow: apex.mesh.MeshFlow) -> apex.mesh.ZResultCreateSurfaceMesh`
 update one or more of this surface mesh properties.
 
@@ -883,6 +1231,15 @@ Iterable collection of Meshs, based on apex::EntityCollection.
 Methods:
 
 - `SurfaceMeshCollection() -> None` — Construct a new SurfaceMeshCollection.
+- `appendList(surfaceMeshList: [apex.mesh.SurfaceMesh]) -> None` — Add SurfaceMesh from a list to the end of this collection.
+
+Method details:
+
+#### `SurfaceMeshCollection() -> None`
+Construct a new SurfaceMeshCollection.
+
+For example:
+
 #### `appendList(surfaceMeshList: [apex.mesh.SurfaceMesh]) -> None`
 Add SurfaceMesh from a list to the end of this collection.
 
@@ -897,6 +1254,15 @@ Properties: `maxCoordinateSystemId`, `maxElementId`, `maxNodeId`, `minCoordinate
 Methods:
 
 - `ZRenumberByOffset() -> None`
+- `getMaxCoordinateSystemId(: None) -> int int int` — return the largest Coordinate System ID that was assigned during renumbering
+- `getMaxElementId(: None) -> int int int` — return the max element id
+- `getMaxNodeId(: None) -> int int int` — return the max node id
+- `getMinCoordinateSystemId(: None) -> int int int` — return the smallest Coordinate System ID that was assigned during renumbering
+- `getMinElementId(: None) -> int int int` — return the min element id
+- `getMinNodeId(: None) -> int int int` — return the min node id
+
+Method details:
+
 #### `getMaxCoordinateSystemId(: None) -> int int int`
 return the largest Coordinate System ID that was assigned during renumbering
 
@@ -934,6 +1300,12 @@ Properties: `endCoordinateSystemId`, `endElementId`, `endNodeId`
 Methods:
 
 - `ZRenumberByStartId() -> None`
+- `getEndCoordinateSystemId(: None) -> int int int` — return the highest Coordinate System ID that was assigned during the renumber operation
+- `getEndElementId(: None) -> int int int` — return the end element id
+- `getEndNodeId(: None) -> int int int` — return the end node id
+
+Method details:
+
 #### `getEndCoordinateSystemId(: None) -> int int int`
 return the highest Coordinate System ID that was assigned during the renumber operation
 
@@ -955,6 +1327,10 @@ Properties: `curveMeshes`
 
 Methods:
 
+- `getCurveMeshes(: None) -> CurveMeshCollection` — return a Collection of CurveMeshes that were succesfully created
+
+Method details:
+
 #### `getCurveMeshes(: None) -> CurveMeshCollection`
 return a Collection of CurveMeshes that were succesfully created
 
@@ -966,6 +1342,10 @@ Properties: `hexMeshes`
 
 Methods:
 
+- `getHexMeshes(: None) -> HexMeshCollection` — return a Collection of HexMeshes that were succesfully created
+
+Method details:
+
 #### `getHexMeshes(: None) -> HexMeshCollection`
 return a Collection of HexMeshes that were succesfully created
 
@@ -976,6 +1356,11 @@ Returns: Collection of HexMeshes that were succesfully created
 Properties: `numElementsCreated`, `unmeshedGeometry`
 
 Methods:
+
+- `getNumElementsCreated(: None) -> int` — return The total number of elements created
+- `getUnmeshedGeometry(: None) -> apex.EntityCollection` — return a Collection of Geometry (Surfaces/Solids/Faces) that failed to mesh
+
+Method details:
 
 #### `getNumElementsCreated(: None) -> int`
 return The total number of elements created
@@ -993,6 +1378,10 @@ Properties: `solidMeshes`
 
 Methods:
 
+- `getSolidMeshes(: None) -> SolidMeshCollection` — return a Collection of SolidMeshes that were succesfully created
+
+Method details:
+
 #### `getSolidMeshes(: None) -> SolidMeshCollection`
 return a Collection of SolidMeshes that were succesfully created
 
@@ -1003,6 +1392,10 @@ Returns: Collection of SolidMeshes that were succesfully created
 Properties: `surfaceMeshes`
 
 Methods:
+
+- `getSurfaceMeshes(: None) -> SurfaceMeshCollection` — return a Collection of SurfaceMeshes that were succesfully created
+
+Method details:
 
 #### `getSurfaceMeshes(: None) -> SurfaceMeshCollection`
 return a Collection of SurfaceMeshes that were succesfully created

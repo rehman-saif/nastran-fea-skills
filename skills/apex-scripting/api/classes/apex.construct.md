@@ -8,6 +8,15 @@ Properties: `angle`, `center`, `length`, `name`, `radius`
 
 Methods:
 
+- `getAngle() -> float` — get the angle of the arc
+- `getCenter() -> Point2D` — get the center of the arc
+- `getLength() -> float` — get the length of the arc
+- `getName() -> str` — get the name of the arc
+- `getRadius() -> float` — get the radius of the arc
+- `update(name: str, center: Point2D, radius: float, angle: float) -> bool`
+
+Method details:
+
 #### `getAngle() -> float`
 get the angle of the arc
 
@@ -33,7 +42,6 @@ get the radius of the arc
 
 Returns: the radius of the arc
 
-- `update(name: str, center: Point2D, radius: float, angle: float) -> bool`
 
 ## `apex.construct.Chamfer`  (extends `SketchPrimitive`)
 Properties: `end`, `length`, `name`, `start`
@@ -61,6 +69,18 @@ A scripting class that represents user defined or local coordinate system. The C
 Properties: `coordinateSystemType`, `id`, `orientation`, `origin`, `xAxis`, `yAxis`, `zAxis`
 
 Methods:
+
+- `getCoordinateSystemType() -> CoordinateSystemType` — returns the CoordinateSystem type
+- `getDescription() -> str` — Read-only string representing the description of this object.
+- `getId() -> int` — returns the id of the coordinate system.
+- `getName() -> str` — Read-only string representing the name of this object.
+- `getOrientation() -> apex.Orientation` — returns the orientation of the cooordinate system
+- `getOrientationMethod() -> OrientationMethod` — returns the orientation method
+- `getOrigin() -> apex.Coordinate` — returns the location of the origin of the Coordinate System
+- `getPath() -> str` — return this Entity path string.
+- `update(name: str, description: str, coordType: apex.construct.CoordinateSystemType, origin: apex.ILocation, orientation: apex.IOrientation, id: int) -> None` — create a coordinate system of either Rectangular, Cylindrical or Spherical type by using Euler angle method
+
+Method details:
 
 #### `getCoordinateSystemType() -> CoordinateSystemType`
 returns the CoordinateSystem type
@@ -134,10 +154,29 @@ Properties: `displayLength`, `displayWidth`, `normal`, `origin`
 
 Methods:
 
-- `getDisplayLength() -> float` — Although Planes are infinite, they are visualized using a rectangular planar glygh with finite demensions. displayWidth controls the width of this rectangular glyph.
-- `getDisplayWidth() -> float` — Although Planes are infinite, they are visualized using a rectangular planar glygh with finite demensions. displayLength controls the length of this rectangular glyph.
+- `getDisplayLength() -> float` — Although Planes are infinite, they are visualized using a rectangular planar glygh with finite demensions. displayWidth controls the width of this rectangular ...
+- `getDisplayWidth() -> float` — Although Planes are infinite, they are visualized using a rectangular planar glygh with finite demensions. displayLength controls the length of this ...
 - `getNormal() -> Vector3D` — The normal to the Plane as an apex.construct.Vector3D.
 - `getOrigin() -> Coordinate` — origin defines a location in space that Plane passes through.
+- `update(name: str, parent: Entity = 0) -> None` — Update one or more of this DatumPlane properties.
+
+Method details:
+
+#### `getDisplayLength() -> float`
+Although Planes are infinite, they are visualized using a rectangular planar glygh with finite demensions. displayWidth controls the width of this rectangular glyph.
+
+displayWidth represents a Length quantity and values must be interpreted in the current ScriptUnitSystem.
+
+#### `getDisplayWidth() -> float`
+Although Planes are infinite, they are visualized using a rectangular planar glygh with finite demensions. displayLength controls the length of this rectangular glyph.
+
+displayLength represents a Length quantity and values must be interpreted in the current ScriptUnitSystem.
+
+#### `getOrigin() -> Coordinate`
+origin defines a location in space that Plane passes through.
+
+Although Planes are infinite, they are visualized using a planar square glygh with finite demensions. The Plane origin also defines the origin this square glyph.origin represents a Length quantity and values must be interpreted in the current ScriptUnitSystem.
+
 #### `update(name: str, parent: Entity = 0) -> None`
 Update one or more of this DatumPlane properties.
 
@@ -153,6 +192,15 @@ Iterable collection of DatumPlanes, based on EntityCollection.
 Methods:
 
 - `DatumPlaneCollection() -> None` — Construct a new DatumPlaneCollection.
+- `appendList(datumPlaneList: [apex.construct.DatumPlane]) -> None` — Add DatumPlanes from a list to the end of this collection.
+
+Method details:
+
+#### `DatumPlaneCollection() -> None`
+Construct a new DatumPlaneCollection.
+
+For example:
+
 #### `appendList(datumPlaneList: [apex.construct.DatumPlane]) -> None`
 Add DatumPlanes from a list to the end of this collection.
 
@@ -203,6 +251,35 @@ Methods:
 - `getBeta() -> float`
 - `getCoordinateSystem() -> apex.construct.CoordinateSystem`
 - `getGamma() -> float`
+- `getGlobalNX() -> bool` — gets a boolean value that if True indicates the Orientation is aligned with the global Negative X-Axis
+- `getGlobalNY() -> bool` — gets a boolean value that if True indicates the Orientation is aligned with the global Negative Y-Axis
+- `getGlobalNZ() -> bool` — gets a boolean value that if True indicates the Orientation is aligned with the global Negative Z-Axis
+- `getGlobalPX() -> bool` — gets a boolean value that if True indicates the Orientation is aligned with the global Positive X-Axis
+- `getGlobalPY() -> bool` — gets a boolean value that if True indicates the Orientation is aligned with the global Positive Y-Axis
+- `getGlobalPZ() -> bool` — gets a boolean value that if True indicates the Orientation is aligned with the global Positive Z-Axis
+- `getUseCoordinateSystem() -> bool`
+- `getVector() -> bool`
+- `getXAxis() -> apex.construct.Vector3D`
+- `getYAxis() -> apex.construct.Vector3D`
+- `getZAxis() -> apex.construct.Vector3D`
+- `setAlpha(alpha: float) -> None`
+- `setBeta(beta: float) -> None`
+- `setCoordinateSystem(coordSystem: apex.construct.CoordinateSystem) -> None`
+- `setGamma(gamma: float) -> None`
+- `setGlobalNX(bVal: bool) -> None`
+- `setGlobalNY(bVal: bool) -> None`
+- `setGlobalNZ(bVal: bool) -> None`
+- `setGlobalPX(bVal: bool) -> None`
+- `setGlobalPY(bVal: bool) -> None`
+- `setGlobalPZ(bVal: bool) -> None`
+- `setVector(bVal: bool) -> None`
+- `setXAxis(vecVal: apex.construct.Vector3D) -> None`
+- `setYAxis(vecVal: apex.construct.Vector3D) -> None`
+- `setZAxis(vecVal: apex.construct.Vector3D) -> None`
+- `update(alpha: float = NAN, beta: float = NAN, gamma: float = NAN) -> None` — Update this Orientation.
+
+Method details:
+
 #### `getGlobalNX() -> bool`
 gets a boolean value that if True indicates the Orientation is aligned with the global Negative X-Axis
 
@@ -233,25 +310,6 @@ gets a boolean value that if True indicates the Orientation is aligned with the 
 
 Returns: a boolean value
 
-- `getUseCoordinateSystem() -> bool`
-- `getVector() -> bool`
-- `getXAxis() -> apex.construct.Vector3D`
-- `getYAxis() -> apex.construct.Vector3D`
-- `getZAxis() -> apex.construct.Vector3D`
-- `setAlpha(alpha: float) -> None`
-- `setBeta(beta: float) -> None`
-- `setCoordinateSystem(coordSystem: apex.construct.CoordinateSystem) -> None`
-- `setGamma(gamma: float) -> None`
-- `setGlobalNX(bVal: bool) -> None`
-- `setGlobalNY(bVal: bool) -> None`
-- `setGlobalNZ(bVal: bool) -> None`
-- `setGlobalPX(bVal: bool) -> None`
-- `setGlobalPY(bVal: bool) -> None`
-- `setGlobalPZ(bVal: bool) -> None`
-- `setVector(bVal: bool) -> None`
-- `setXAxis(vecVal: apex.construct.Vector3D) -> None`
-- `setYAxis(vecVal: apex.construct.Vector3D) -> None`
-- `setZAxis(vecVal: apex.construct.Vector3D) -> None`
 #### `update(alpha: float = NAN, beta: float = NAN, gamma: float = NAN) -> None`
 Update this Orientation.
 
@@ -281,11 +339,17 @@ Properties: `normal`, `origin`
 
 Methods:
 
-- `Plane(origin: apex.construct.Point3D, normal: Vector3D) -> None` — DEPRECATED: In releases of Apex prior to Iberian Lynx this argument was of type apex.construct.Point3D. In the Iberian Lynx release the argument type has been changed to apex.ILocation. For the Iberian Lynx release, users may continue to pass Point3D objects however this capability may be deprecated in a future release therefore users are advised to transition their code to use apex.ILocation as quickly as possible to avoid future problems.
+- `Plane(origin: apex.construct.Point3D, normal: Vector3D) -> None` — DEPRECATED: In releases of Apex prior to Iberian Lynx this argument was of type apex.construct.Point3D.
 - `Plane(origin: ILocation, normal: Vector3D) -> None`
 - `getNormal() -> Vector3D`
 - `getOrigin() -> Coordinate`
 - `update(origin: ILocation, normal: Vector3D) -> bool`
+
+Method details:
+
+#### `Plane(origin: apex.construct.Point3D, normal: Vector3D) -> None`
+DEPRECATED: In releases of Apex prior to Iberian Lynx this argument was of type apex.construct.Point3D. In the Iberian Lynx release the argument type has been changed to apex.ILocation. For the Iberian Lynx release, users may continue to pass Point3D objects however this capability may be deprecated in a future release therefore users are advised to transition their code to use apex.ILocation as quickly as possible to avoid future problems.
+
 
 ## `apex.construct.Point2D`
 object representing a 2D point in space. Used in apex.construct methods.
@@ -327,6 +391,13 @@ Methods:
 Properties: `description`, `name`
 
 Methods:
+
+- `getDescription() -> str` — retrieve the description of the profile
+- `getEdgeAnnotation(index: int) -> str` — retrieve the edge annotaion with the specified index
+- `getName() -> str` — retrieve the name of the profile
+- `getVertexAnnotation(index: int) -> str` — retrieve the vertex annotaion with the specified index
+
+Method details:
 
 #### `getDescription() -> str`
 retrieve the description of the profile
@@ -374,6 +445,42 @@ Methods:
 Properties: `name`, `orientation`, `origin`
 
 Methods:
+
+- `completeSketch(fillSketches: bool) -> apex.EntityCollection` — This controls how sketches are converted to geometry.
+- `createArc3Point(name: str, point1: Point2D, point2: Point2D, point3: Point2D) -> apex.construct.Arc` — adds an Arc to the Sketch by picking three points on circumference, like three point arc, but first two points mark the start and end of the arc.
+- `createArcCenterPoint(name: str, centerPoint: Point2D, point2: Point2D, point3: Point2D, arcDirection: apex.construct.ArcDirection) -> apex.construct.Arc` — adds an Arc to the Sketch by picking center point, then point 2 as radius and start of arc, point 3 as end of arc.
+- `createChamferEdge(name: str, edge1: apex.construct.SketchPrimitive, edge2: apex.construct.SketchPrimitive, point2: Point2D) -> apex.construct.Chamfer` — adds an Chamfer to the Sketch by selecting a pair of straight edges, then location to define chamfer depth.
+- `createChamferVertex(name: str, point1: apex.construct.SketchPrimitive, point2: Point2D) -> apex.construct.Chamfer` — adds an Chamfer to the Sketch by selecting a vertex connected to two straight edges, then location to define chamfer depth.
+- `createCircle3Point(name: str, point1: Point2D, point2: Point2D, point3: Point2D) -> apex.construct.Circle` — adds a Circle to the Sketch by picking three points on circumference
+- `createCircleCenterPoint(name: str, centerPoint: Point2D, pointOnCircle: Point2D) -> apex.construct.Circle` — adds a Circle to the Sketch by picking center point and location on radius.
+- `createEllipse3Point(name: str, centerPoint: Point2D, pointAxis1: Point2D, pointAxis2: Point2D) -> apex.construct.Ellipse` — adds a Ellipse to the Sketch by picking point 1 as center point, point 2 as on axis 1 radius and ellipse orientation, third point as axis 2 radius
+- `createFilletEdge(name: str, edge1: apex.construct.SketchPrimitive, edge2: apex.construct.SketchPrimitive, radiusPoint: Point2D) -> apex.construct.Fillet` — adds an Fillet to the Sketch by selecting a pair of straight edges, then location to define radius.
+- `createFilletVertex(name: str, vertex: apex.construct.SketchPrimitive, radiusPoint: Point2D) -> apex.construct.Fillet` — adds an Fillet to the Sketch by selecting a vertex corner, then location to define radius.
+- `createPoint(name: str, location: Point2D) -> apex.construct.SketchPoint` — adds a Point to the Sketch by selecting a location
+- `createPolyline(name: str, points: [Point2D]) -> apex.construct.Polyline` — adds a Polyline to the Sketch by inputting an unlimited list of 2d locations
+- `createRectangle2Point(name: str, location: Point2D, diagonal: Point2D) -> apex.construct.Rectangle` — adds a Rectangle to the Sketch by selecting two vertices of the rectangle diagonal
+- `createRectangle3Point(name: str, location: Point2D, orientationPoint: Point2D, heightPoint: Point2D) -> apex.construct.Rectangle` — adds a Rectangle to the Sketch by selecting two vertex along one edge to define the location and orientation, then a third for length.
+- `createSpline(name: str, points: [Point2D], asPolyline: bool) -> apex.construct.Spline` — adds a Spline to the Sketch by inputting an unlimited list of 2d locations
+- `getArc(id: int int int) -> apex.construct.Arc` — retrieve the sketch Arc with the specified id
+- `getChamfer(id: int int int) -> apex.construct.Chamfer` — retrieve the sketch Chamfer with the specified id
+- `getCircle(id: int int int) -> apex.construct.Circle` — retrieve the sketch Circle with the specified id
+- `getEdge(id: int int int = 0U, annotation: str = "#####") -> apex.construct.SketchEdge` — retrieve the sketch edge with the specified id
+- `getEllipse(id: int int int) -> apex.construct.Ellipse` — retrieve the ellipse with the specified id
+- `getFillet(id: int int int) -> apex.construct.Fillet` — retrieve the sketch Fillet with the specified id
+- `getName(: None) -> str` — retrieve the name of the sketch
+- `getOrientation(: None) -> Vector3D` — retrieve the orientation of the sketch
+- `getOrigin(: None) -> Coordinate` — retrieve the origin of the sketch
+- `getPolyline(id: int int int) -> apex.construct.Polyline` — retrieve the sketch Polyline with the specified id
+- `getRectangle(id: int int int) -> apex.construct.Rectangle` — retrieve the sketch Rectangle with the specified id
+- `getSketchPoint(id: int int int) -> apex.construct.SketchPoint` — retrieve the sketch Point with the specified id
+- `getVertex(id: int int int = 0U, annotation: str = "#####") -> SketchVertex` — retrieve the sketch vertex with the specified id
+- `projectEdge(name: str, curve: Entity) -> apex.EntityCollection` — adds a curve to a sketch projecting any selected 3d edge to the current sketch plane
+- `projectPoint(name: str, location: apex.ILocation) -> apex.construct.SketchPoint` — adds a point to a sketch projecting any selected vertex or node to the current sketch plane
+- `splitCurveByCurve(edge1: apex.construct.SketchPrimitive, edge2: apex.construct.SketchPrimitive) -> apex.construct.SketchPrimitive` — splits a pair of curves where they cross
+- `splitCurveByPoint(edge1: apex.construct.SketchPrimitive, point: Point2D) -> apex.construct.SketchPrimitive` — splits a pair of curves at a location on the curve
+- `trimCurve(edge1: apex.construct.SketchPrimitive, point: Point2D) -> None` — Deletes curve or curve segment terminated by crossing curves.
+
+Method details:
 
 #### `completeSketch(fillSketches: bool) -> apex.EntityCollection`
 This controls how sketches are converted to geometry.
@@ -645,6 +752,14 @@ Properties: `end`, `length`, `name`, `start`
 
 Methods:
 
+- `getEnd(: None) -> apex.construct.SketchVertex` — get end point of the edge
+- `getLength(: None) -> float` — get the length of the edge
+- `getName() -> str`
+- `getStart(: None) -> apex.construct.SketchVertex` — get start point of the edge
+- `update(length: float, startPoint: Point2D, endPoint: Point2D, annotation: str) -> bool` — Update the lenght, the start point, the end point or the annotation of an edge.
+
+Method details:
+
 #### `getEnd(: None) -> apex.construct.SketchVertex`
 get end point of the edge
 
@@ -655,7 +770,6 @@ get the length of the edge
 
 Returns: the length of the edge
 
-- `getName() -> str`
 #### `getStart(: None) -> apex.construct.SketchVertex`
 get start point of the edge
 
@@ -692,12 +806,19 @@ Methods:
 
 Methods:
 
+- `deleteProfile(name: str) -> None` — delete the profile
+- `exit() -> None` — exit the sketch profile
+- `openProfile(name: str) -> Profile1D` — open the profile
+- `saveAsProfile(name: str, description: str = "") -> Profile1D` — save as the profile
+- `saveProfile() -> Profile1D` — save the profile
+
+Method details:
+
 #### `deleteProfile(name: str) -> None`
 delete the profile
 
 - `name` — Name of the profile.
 
-- `exit() -> None` — exit the sketch profile
 #### `openProfile(name: str) -> Profile1D`
 open the profile
 
@@ -724,12 +845,17 @@ Properties: `location`, `name`
 
 Methods:
 
+- `getLocation(: None) -> Point2D` — get the location of the vertex
+- `getName() -> str`
+- `update(location: Point2D, annotation: str) -> bool` — Update the location (X or Y or both) or the annotation of the sketch vertex.
+
+Method details:
+
 #### `getLocation(: None) -> Point2D`
 get the location of the vertex
 
 Returns: the location of the vertex
 
-- `getName() -> str`
 #### `update(location: Point2D, annotation: str) -> bool`
 Update the location (X or Y or both) or the annotation of the sketch vertex.
 
@@ -744,20 +870,25 @@ Properties: `end`, `length`, `name`, `points`, `start`
 
 Methods:
 
+- `getEnd(: None) -> apex.construct.SketchVertex` — get end point of the spline
+- `getLength(: None) -> float`
+- `getName() -> str`
+- `getPoints(: None) -> [Point2D]`
+- `getStart(: None) -> apex.construct.SketchVertex` — get start point of the spline
+- `update(name: str) -> bool`
+
+Method details:
+
 #### `getEnd(: None) -> apex.construct.SketchVertex`
 get end point of the spline
 
 Returns: the end point
 
-- `getLength(: None) -> float`
-- `getName() -> str`
-- `getPoints(: None) -> [Point2D]`
 #### `getStart(: None) -> apex.construct.SketchVertex`
 get start point of the spline
 
 Returns: the start point
 
-- `update(name: str) -> bool`
 
 ## `apex.construct.Vector3D`
 object representing a 3D Vector in space.
@@ -766,6 +897,16 @@ Properties: `length`, `x`, `y`, `z`
 Methods:
 
 - `Vector3D(x: float = NAN, y: float = NAN, z: float = NAN) -> None`
+- `getLength() -> float` — get the length of this vector.
+- `getX() -> float`
+- `getY() -> float`
+- `getZ() -> float`
+- `setX(x: float) -> None`
+- `setY(y: float) -> None`
+- `setZ(z: float) -> None`
+
+Method details:
+
 #### `getLength() -> float`
 get the length of this vector.
 
@@ -773,10 +914,4 @@ Returns: the vector length
 
 This value represents a Length quantity and will be returned in the units of Length that are defined in the active ScriptUnitSystem.
 
-- `getX() -> float`
-- `getY() -> float`
-- `getZ() -> float`
-- `setX(x: float) -> None`
-- `setY(y: float) -> None`
-- `setZ(z: float) -> None`
 
