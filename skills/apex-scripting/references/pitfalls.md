@@ -1,7 +1,10 @@
 # Apex pitfalls
 
 Mistakes that produce plausible-looking Apex code that does not run, ordered by
-how often they appear in generated scripts.
+how often they appear in generated scripts. Sections 17–22 cover the worse
+case: code that runs, raises nothing, and leaves the model or the exported deck
+wrong. Those were observed in Apex 2024.1 while building a SOL 101 assembly
+model.
 
 ## 1. Positional arguments
 
@@ -143,3 +146,99 @@ and export, application settings, auto-thickness attribution, interface points,
 cross-section force sensors, and study/scenario definitions. A user reporting
 "the macro is empty" for one of these is hitting a documented limitation, not a
 bug.
+
+## 17. Calls the reference documents but the installed Apex rejects
+
+`api/` is generated from Iberian Lynx FP2. A few calls it lists raise in Apex
+2024.1, and a few accept arguments they then ignore. Known cases are kept in
+`tools/runtime_overrides.json` and stamped into the reference. An index line
+tagged **[raises at runtime in Apex 2024.1]** or **[fails silently at runtime in
+Apex 2024.1]** has a note under its signature with what to use instead.
+
+`apex.catalog.createPropertiesElement3DHomogeneous` is the common one. It raises
+`THIS FUNCTION IS DEPRECATED`. Build the PSOLID with
+`apex.catalog.createPropertiesElement3D` instead (section 12 of
+[patterns-and-recipes.md](patterns-and-recipes.md)).
+
+When you find a new case, add it to `tools/runtime_overrides.json` and
+regenerate.
+
+## 18. A property `MID` given the `Material` object
+
+```python
+pm = prop.getProperties3DModel(properties3DModel="PSOLID")
+pm.update(elementProperties3D={"MID": material.id})   # correct
+pm.update(elementProperties3D={"MID": material})      # accepted, ignored
+```
+
+The second form raises nothing, and `pm.getProperties()` afterwards has no
+`MID`. The exported PSOLID then has no material. Check with
+`prop.getReferenceMaterial()`, which returns the material once MID is set.
+
+## 19. Subcase case control that does not persist
+
+On a `SubcaseNastran`, a value set through `getCommand(...).setValue(...)`
+reads back correctly in the same script and is gone by the next one. The
+export then writes no `LOAD =` line. Only this order kept the value:
+
+```python
+cmd = subcase.getCommand(commandName="LOAD")
+cmd.setValue(load.id)
+subcase.setCommand(commandName="LOAD", activate=True)   # after setValue
+```
+
+Calling `setCommand` first and `setValue` second lost the value too. This was
+seen through a remote bridge that runs each script as a separate call, and has
+not been reproduced in the Apex script editor. Either way, confirm by reading
+the values back in a later script or in the exported deck's case control.
+
+Output requests are not subcase commands. `getCommand(commandName="DISPLACEMENT")`
+(and `STRESS`, `SPCFORCES`) raises `Command 'DISPLACEMENT' is UNSUPPORTED`. With
+the defaults, Apex 2024.1 wrote `DISPLACEMENT(PLOT) = ALL`,
+`STRESS(PLOT,VONMISES,CORNER) = ALL` and `SPCFORCES(PLOT) = ALL` above the first
+subcase.
+
+## 20. Glue or contact that exports but is never active
+
+A glue pair is created in two steps. `apex.attribute.createInteractionManualPair`
+makes a pair with no representation (`getActiveRep()` is `None`), and
+`createInteractionRep(interactionType=apex.attribute.InteractionType.Glue, ...)`
+makes it a glue.
+
+Even then, Apex 2024.1 exported the `BCONECT` glue cards **without a `BCONTACT`
+line in the case control**. In SOL 101 `BCONTACT` defaults to `NONE`, so the
+glue is ignored and the parts are disconnected. Nothing in Apex warns about it.
+Set it on every subcase, with the same order as section 19:
+
+```python
+cmd = subcase.getCommand(commandName="BCONTACT")
+cmd.setValue("1")
+subcase.setCommand(commandName="BCONTACT", activate=True)
+```
+
+The value is the ID of the contact set in the deck: `BCONECT` id 1 in the run
+this came from. Check the exported deck. The solver side of this is in
+`nastran-reference`'s
+[pre-run-checklist.md](../../nastran-reference/references/pre-run-checklist.md).
+
+## 21. Where new entities land
+
+| Call | Lands in | Control |
+|---|---|---|
+| `apex.geometry.createCurve` | the most recently created part, not the part of its input locations | none on the call; `Curve.update` lists a `parent` argument (untested) |
+| `apex.mesh.createNodeByLocation` | the part named by `pathName` | `pathName=part.getPathName()` |
+| `apex.attribute.createNodeTie` | the assembly, as `Node Tie <id>` | none |
+| loads and constraints | `/Environment/<name>` | `name=` |
+
+Check `entity.getPathName()` after creating anything you will look up again.
+
+## 22. Renaming is different on every class
+
+| Class | Rename with | Note |
+|---|---|---|
+| most `Entity` classes | `obj.update(name=...)` | e.g. `Curve.update(name=...)` |
+| `SubcaseNastran` | `subcase.setName(...)` | has no `update`: `subcase.update(name=...)` raises `AttributeError`. `setName` works in Apex 2024.1 but is **not in the reference**. `setLabel`, `setSubtitle`, `setTitle` are. |
+| `NodeTie` | cannot be renamed | keep the returned objects in a dict under your own names |
+
+Before renaming, check the class's `update` signature in `api/classes/`, or the
+class in `api/methods-index.md`.

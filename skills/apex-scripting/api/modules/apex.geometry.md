@@ -120,6 +120,7 @@ Creates and returns a parametric geometry Box using an input origin, orientation
 Returns: created Box
 
 ### `apex.geometry.createCurve(target: apex.ILocationCollection, behavior: CurveBehavior) -> apex.geometry.Curve`
+> **Runtime behaviour (Apex 2024.1):** There is no part argument. The curve was created in the part made most recently (a part created with `Assembly.createPart` just before), not in the part of the input locations. **Instead:** Create or activate the target part immediately before `createCurve`, and check `curve.getPathName()` afterwards.
 DEPRECATED: In releases of Apex prior to Iberian Lynx this argument was of type List Of apex.construct.Point3D. In the Iberian Lynx release the argument type has been changed to apex.ILocationCollection. For the Iberian Lynx release, users may continue to pass List Of Point3D objects however this capability may be deprecated in a future release therefore users are advised to transition their code to use apex.ILocationCollection as quickly as possible to avoid future problems. create curves.
 
 - `target` — locations to define a curve

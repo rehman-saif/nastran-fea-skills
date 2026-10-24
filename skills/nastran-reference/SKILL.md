@@ -63,6 +63,7 @@ Never invent a field name, a field position, or a default.
 | `index/nastran-statement.md` | the NASTRAN statement and system cells |
 | `index/reference-guide.md` | Reference Guide topics: elements, solution sequences, grid points |
 | `tools/fetch_page.py` | read a page by keyword |
+| `references/pre-run-checklist.md` | what to check in an exported deck before running it, with citations |
 
 Releases are set per book in `config.md`: the Quick Reference Guide and
 Reference Guide come from **2025.2**.
@@ -106,3 +107,4 @@ connection-reset errors rather than a 429; the builder retries with backoff.
 
 - [references/answering-rules.md](references/answering-rules.md): citation and extrapolation contract
 - [references/deck-anatomy.md](references/deck-anatomy.md): how a Nastran deck is structured, and which index covers each section
+- [references/pre-run-checklist.md](references/pre-run-checklist.md): checks for an exported deck before it is run — `BCONTACT` for glue and contact, RBE2 dependents, reading compressed HDF5 results

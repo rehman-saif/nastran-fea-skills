@@ -39,6 +39,7 @@ Creates and returns a PropertiesElement3D in the catalog.
 - `color` — of the new apex.attribute.PropertiesElement3D. 3 vector(list) specifying the Red, Green, and Blue component of the color. Each value should be in the range 0-255.
 
 ### `apex.catalog.createPropertiesElement3DHomogeneous(referenceMaterial: apex.attribute.Material, name: str = "#####", description: str = "#####", id: int = 0, orientationType: apex.attribute.OrientationType3D = apex.attribute.OrientationType3D.Unset, materialOrientation: apex.IOrientation = None, integrationNetwork: apex.attribute.IntegrationNetwork = apex.attribute.IntegrationNetwork.Automatic, integrationScheme: apex.attribute.IntegrationScheme = apex.attribute.IntegrationScheme.Automatic, outputLocation: apex.attribute.OutputLocation = apex.attribute.OutputLocation.Unset) -> apex.attribute.PropertiesElement3DHomogeneous`
+> **Raises at runtime (Apex 2024.1):** Raises `RuntimeError: ERROR: THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.` The reference does not mark it deprecated. **Instead:** `apex.catalog.createPropertiesElement3D(name=..., primaryProperties3D="PSOLID")`, then `prop.getProperties3DModel(properties3DModel="PSOLID").update(elementProperties3D={"MID": material.id})`.
 Creates a PropertiesElement3DHomogeneous and adds it to the CatalogElementProperty.
 
 - `referenceMaterial` — The material referenced by the PropertiesElement3D. It must be provided to create this PropertiesElement3D.

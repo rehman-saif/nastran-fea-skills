@@ -11,19 +11,43 @@ Methods:
 
 - `addSet(name: str, contents: apex.utility.PolyDataType, stringDictionary: {int:str}) -> None` — Defines a grouping of PolyData primitives.
 - `getSets() -> {str:{int:str}}` — Returns all groupings of PolyData primitives.
-- `getTopologyEdgeVertices() -> {int:str}` — Returns a Dictionary containing the topological edges and their associated topological vertices. The Dictionary key is of type integer and represent the ID of the topological edge. The associated value is of type string and holds the ID's of the topological vertices associated with the topological edge.
-- `getTopologyEdges() -> {int:str}` — A Dictionary containing all groups of cell edges in the object that represent higher level topological edges.The dictionary key is of type integer and represent the id of the topologyEdge. The dictionary value is of type string and identifies the set of cell edges associated with the toplogical edge identified by the key. Run length encoded ID's enable compact identification of multiple cell edges particullarly when the set of points contains consecutive ID's. The string "1.1, 4.2, 2001-5000.5" fro example identifies...
-- `getTopologyFaceEdges() -> {int:str}` — returns a Dictionary containing the topological faces and their associated topological edges. The Dictionary key is of type integer and represent the ID of the topological face. The associated value is of type string and holds the ID's of the topological edges associated with the topological face.
-- `getTopologyFaceVertices() -> {int:str}` — Returns a Dictionary containing the topological faces and their associated topological vertices. The Dictionary key is of type integer and represent the ID of the topological face. The associated value is of type string and holds the ID's of the topological vertices associated with the topological face.
-- `getTopologyFaces() -> {int:str}` — A Dictionary containing all groups of cells in the object that represent higher level topology faces. The dictionary key is of type integer and represent the id of the topological face. The dictionary value is of type string and identifies the set of 2D cells associated with the topologicalface identified by the key. Run length encoded ID's enable compact identification of multiple cells particularly when the set of points contains consecutive ID's. The string "1, 4, 2001-5000" for example identifies a total of 3,002 cells - cells with ID's 1, 4 and all cells with ID's from 2001 to 5,000 inclusive.
-- `getTopologyVertices() -> {int:str}` — A run length encoded string describing the IDs of all points in the object that represent higher level topological vertices Run length encoded ID's enable compact identification of multiple points particularly when the set of points contains consecutive ID's. The string "1, 4, 2001-5000" for example identifies a total of 3,002 points - points with ID's 1, 4 and all points with ID's from 2001 to 5,000 inclusive.
+- `getTopologyEdgeVertices() -> {int:str}` — Returns a Dictionary containing the topological edges and their associated topological vertices.
+- `getTopologyEdges() -> {int:str}` — A Dictionary containing all groups of cell edges in the object that represent higher level topological edges.The dictionary key is of type integer and ...
+- `getTopologyFaceEdges() -> {int:str}` — returns a Dictionary containing the topological faces and their associated topological edges.
+- `getTopologyFaceVertices() -> {int:str}` — Returns a Dictionary containing the topological faces and their associated topological vertices.
+- `getTopologyFaces() -> {int:str}` — A Dictionary containing all groups of cells in the object that represent higher level topology faces.
+- `getTopologyVertices() -> {int:str}` — A run length encoded string describing the IDs of all points in the object that represent higher level topological vertices Run length encoded ID's enable ...
+- `mergeTopologicalFaces(faceIDs: [int], vertexAngle: float) -> [int]` — Merge two or more topology faces into a single topology face.
+- `removeSets(names: [str]) -> bool` — Removes a grouping of PolyData primitives.
+- `updateToplogyEdges(edgeIDs: str, vertexAngle: float, addRemoveBehavior: apex.utility.AddRemoveBehavior) -> None` — modifies the contents of the object topologyEdges data structure This class maintains a list of cell edges that will be used to define high level topological ...
+- `updateToplogyVertices(pointIDs: str, addRemoveBehavior: apex.utility.AddRemoveBehavior) -> None` — modifies the set of points in the Tessellation that will be identified as Vertex points.
+
+Method details:
+
+#### `getTopologyEdgeVertices() -> {int:str}`
+Returns a Dictionary containing the topological edges and their associated topological vertices. The Dictionary key is of type integer and represent the ID of the topological edge. The associated value is of type string and holds the ID's of the topological vertices associated with the topological edge.
+
+#### `getTopologyEdges() -> {int:str}`
+A Dictionary containing all groups of cell edges in the object that represent higher level topological edges.The dictionary key is of type integer and represent the id of the topologyEdge. The dictionary value is of type string and identifies the set of cell edges associated with the toplogical edge identified by the key. Run length encoded ID's enable compact identification of multiple cell edges particullarly when the set of points contains consecutive ID's. The string "1.1, 4.2, 2001-5000.5" fro example identifies...
+
+#### `getTopologyFaceEdges() -> {int:str}`
+returns a Dictionary containing the topological faces and their associated topological edges. The Dictionary key is of type integer and represent the ID of the topological face. The associated value is of type string and holds the ID's of the topological edges associated with the topological face.
+
+#### `getTopologyFaceVertices() -> {int:str}`
+Returns a Dictionary containing the topological faces and their associated topological vertices. The Dictionary key is of type integer and represent the ID of the topological face. The associated value is of type string and holds the ID's of the topological vertices associated with the topological face.
+
+#### `getTopologyFaces() -> {int:str}`
+A Dictionary containing all groups of cells in the object that represent higher level topology faces. The dictionary key is of type integer and represent the id of the topological face. The dictionary value is of type string and identifies the set of 2D cells associated with the topologicalface identified by the key. Run length encoded ID's enable compact identification of multiple cells particularly when the set of points contains consecutive ID's. The string "1, 4, 2001-5000" for example identifies a total of 3,002 cells - cells with ID's 1, 4 and all cells with ID's from 2001 to 5,000 inclusive.
+
+#### `getTopologyVertices() -> {int:str}`
+A run length encoded string describing the IDs of all points in the object that represent higher level topological vertices Run length encoded ID's enable compact identification of multiple points particularly when the set of points contains consecutive ID's. The string "1, 4, 2001-5000" for example identifies a total of 3,002 points - points with ID's 1, 4 and all points with ID's from 2001 to 5,000 inclusive.
+
 #### `mergeTopologicalFaces(faceIDs: [int], vertexAngle: float) -> [int]`
 Merge two or more topology faces into a single topology face. This class internally manages groups of contiguous cells that represent higher level topological faces. The set of topological faces that are available with in the object are exposed via the topological faces atrributes, which returns a Dictionary containing all of the topological faces that exist within the object. The dictionary key is of type integer and represents the ID of the topological face. The dictionary value is of type string and identifies the set of cells that are associated with the named topological face. The two or more topological faces that are be merged are supplied to the method using their ID's. The method return a list of integers representing the ID's of all of the New(new,and any unchanged) topological faces that were created by the method.
 
 - `faceIDs` — A List of integers defining the ID's of the Faces that the method will attempt to merge
 - `vertexAngle` — An optional angle (default is 40 degrees) that will be used to automatically decide if one children vertex need to be removed when one topology edge is removed during face merge. This argument represents a measure of angle and must be supplied in the angle units defined in the active ScriptUnitSystem.
 
-- `removeSets(names: [str]) -> bool` — Removes a grouping of PolyData primitives.
 #### `updateToplogyEdges(edgeIDs: str, vertexAngle: float, addRemoveBehavior: apex.utility.AddRemoveBehavior) -> None`
 modifies the contents of the object topologyEdges data structure This class maintains a list of cell edges that will be used to define high level topological edges and this method modifies that list. This method accepts a list of cell edges and udpateBehavior argument and causes the supplied cell edges to be added to or removed from topologyEdges depending on the value provided for updateBehavior. The input cells are identified by ID and must exist within the object, otherwise the method will throw an exeption.
 
@@ -45,6 +69,18 @@ Properties: `candidates`
 Methods:
 
 - `ProximitySearch() -> None` — Construct a new ProximitySearch.
+- `clearCandidates() -> bool` — This method clears all candidate objects from the ProximitySearch object.
+- `findNearestObject(location: apex.ILocation) -> apex.utility.ZResultfindNearestObject` — DEPRECATED: In releases of Apex prior to Iberian Lynx this argument was of type apex.construct.Point3D.
+- `findNearestObjects(location: apex.ILocation, numObjects: int = 1) -> apex.utility.ZResultfindNearbyObjects` — DEPRECATED: In releases of Apex prior to Iberian Lynx this argument was of type apex.construct.Point3D.
+- `findObjectsAABoundingBox(corner1: apex.ILocation, corner2: apex.ILocation) -> IPhysicalCollection` — DEPRECATED: In releases of Apex prior to Iberian Lynx this argument was of type apex.construct.Point3D.
+- `findObjectsWithinDistance(location: apex.ILocation, distance: float) -> apex.utility.ZResultfindNearbyObjects` — DEPRECATED: In releases of Apex prior to Iberian Lynx this argument was of type apex.construct.Point3D.
+- `getCandidates() -> IPhysicalCollection` — This method returns collection of all of the candidate entities that have been added to the ProximitySearch object..
+- `insert(locationObject: apex.ILocation) -> bool` — This method adds an object to the ProximitySearch object.
+- `insertCollection(candidates: apex.ILocationCollection) -> bool` — This method adds a Collection of objects to the ProximitySearch object.
+- `insertList(candidates: [apex.ILocation]) -> bool` — This method adds a List of objects to the ProximitySearch object.
+
+Method details:
+
 #### `clearCandidates() -> bool`
 This method clears all candidate objects from the ProximitySearch object.
 
@@ -126,10 +162,22 @@ Properties: `distances`, `objects`, `vectors`
 
 Methods:
 
-- `foundObjects(: None) -> apex.IPhysicalCollection` — The objects from the ProximitySearch candidates that are closest to or within a specified distance of the target location. When returned from the getNearestObjects(numObjects = n) method, foundObjects contains the n nearest objects to the location. If there are less then n objects in the candidate object set foundObjects may contain less than n objects When returned from the getObjectsWithinDistance(distance = d) method, foundObjects contains all objects in the candidate objects set that lie within the specified distance d of the location. If no objects lie within this distance, foundObjects will be empty. this object.
-- `getDistances(: None) -> [float]` — This method returns a List of distances, as floats, between the target location and the found objects. These distance are based on the location attribute of the candidate objects - for 1D, 2D or 3D candidates some portions of the candidate objects may lie closer to or further away than this distance This List contains the same number of items as the foundObjects Collection and the distances are ordered with the shortest distance first and in increasing order. The order of the objects in foundObjects matches the ordering in this List.
-- `getVectors(: None) -> [apex.construct.Vector3D]` — This method returns a list of Vector3D objects that defines the vector between the target location and the location of the nearest object. a list of Vector3Ds that defines the global x, y, z vector between the location and the foundObjects. These vectors are based on the location attribute of the foundObjects - for 1D, 2D or 3D objects some portions of the foundObjects may lie closer to or further away than the distance defined by this vector. This list contains the same number of items as the foundObjects Collection and the vectors are ordered with the shortest distance first and in increasing order. The order of the objects in foundObjects matches the ordering in this list.
+- `foundObjects(: None) -> apex.IPhysicalCollection` — The objects from the ProximitySearch candidates that are closest to or within a specified distance of the target location.
+- `getDistances(: None) -> [float]` — This method returns a List of distances, as floats, between the target location and the found objects.
+- `getVectors(: None) -> [apex.construct.Vector3D]` — This method returns a list of Vector3D objects that defines the vector between the target location and the location of the nearest object. a list of Vector3Ds ...
 - `~ZResultfindNearbyObjects() -> None`
+
+Method details:
+
+#### `foundObjects(: None) -> apex.IPhysicalCollection`
+The objects from the ProximitySearch candidates that are closest to or within a specified distance of the target location. When returned from the getNearestObjects(numObjects = n) method, foundObjects contains the n nearest objects to the location. If there are less then n objects in the candidate object set foundObjects may contain less than n objects When returned from the getObjectsWithinDistance(distance = d) method, foundObjects contains all objects in the candidate objects set that lie within the specified distance d of the location. If no objects lie within this distance, foundObjects will be empty. this object.
+
+#### `getDistances(: None) -> [float]`
+This method returns a List of distances, as floats, between the target location and the found objects. These distance are based on the location attribute of the candidate objects - for 1D, 2D or 3D candidates some portions of the candidate objects may lie closer to or further away than this distance This List contains the same number of items as the foundObjects Collection and the distances are ordered with the shortest distance first and in increasing order. The order of the objects in foundObjects matches the ordering in this List.
+
+#### `getVectors(: None) -> [apex.construct.Vector3D]`
+This method returns a list of Vector3D objects that defines the vector between the target location and the location of the nearest object. a list of Vector3Ds that defines the global x, y, z vector between the location and the foundObjects. These vectors are based on the location attribute of the foundObjects - for 1D, 2D or 3D objects some portions of the foundObjects may lie closer to or further away than the distance defined by this vector. This list contains the same number of items as the foundObjects Collection and the vectors are ordered with the shortest distance first and in increasing order. The order of the objects in foundObjects matches the ordering in this list.
+
 
 ## `apex.utility.ZResultfindNearestObject`
 Instances of this class are returned by the findNearestObject() and findObjectsWithinDistance() methods of the ProximitySearch class.
@@ -137,7 +185,13 @@ Properties: `distance`, `nearestObject`, `vector`
 
 Methods:
 
-- `getDistance(: None) -> float` — This method returns the distance between the target location and the nearest neighbor. This distance is base on the location attribute of the candidate object - for 1D, 2D or 3D candidates some portions of the candidate objects may lie closer to or further away than this distance.
+- `getDistance(: None) -> float` — This method returns the distance between the target location and the nearest neighbor.
 - `getNearestObject(: None) -> apex.Entity` — This method returns the object from the ProximitySearch candidates that is closest to the target location.
 - `getVector(: None) -> apex.construct.Vector3D` — This method returns a apex.construct.Vector3D object that defines the vector between the target location and the location of the nearest object.
+
+Method details:
+
+#### `getDistance(: None) -> float`
+This method returns the distance between the target location and the nearest neighbor. This distance is base on the location attribute of the candidate object - for 1D, 2D or 3D candidates some portions of the candidate objects may lie closer to or further away than this distance.
+
 

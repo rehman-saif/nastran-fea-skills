@@ -1,0 +1,5115 @@
+# Method lookup index
+
+Flat, greppable list of every class method as `module.Class.method`, one
+line per method name. A method is listed on the class that declares it;
+"inherited by" names the classes that get it from there. Open
+`api/classes/<module>.md` for the signature and argument documentation.
+
+- `apex.Assembly.applyColorToChildren` — applies the color of this Assembly to all its children. (inherited by `Model`)
+- `apex.Assembly.applyRenderStyleToChildren` — applies the Render Style of this Assembly to all its children. (inherited by `Model`)
+- `apex.Assembly.applyTransparencyToChildren` — applies the Transparency setting of this Assembly to all its children. (inherited by `Model`)
+- `apex.Assembly.asEntity` — return the (base) Entity Object of this Assembly. (inherited by `Model`)
+- `apex.Assembly.createAssembly` — Create a new Assembly that is child of this Assembly. (inherited by `Model`)
+- `apex.Assembly.createAssemblyRep` — Create an Assembly Rep from this Assembly. (inherited by `Model`)
+- `apex.Assembly.createPart` — Create a new Part that is child of this Assembly. (inherited by `Model`)
+- `apex.Assembly.deleteAssemblyRep` — Deletes an Assembly Rep from an Assembly. (inherited by `Model`)
+- `apex.Assembly.delete_RENAMED_AFTER_SWIG` — Delete this Assembly. (inherited by `Model`)
+- `apex.Assembly.exportFEModel` — Exports the contents of the Assembly to a Nastran file. (inherited by `Model`)
+- `apex.Assembly.exportGeometry` — Export Geometry from this assembly to a file using the supplied CAD format. (inherited by `Model`)
+- `apex.Assembly.exportMarc` — Exports the contents of the Assembly to a Marc file. (inherited by `Model`)
+- `apex.Assembly.getAssemblies` — Get all Assemblies in this Assembly. (inherited by `Model`)
+- `apex.Assembly.getAssembly` — Get an Assembly in this Assembly. (inherited by `Model`)
+- `apex.Assembly.getAssemblyRep` — get an Assembly Rep by name (inherited by `Model`)
+- `apex.Assembly.getAssemblyReps` — get all Assembly Reps from this Assembly. (inherited by `Model`)
+- `apex.Assembly.getDatumPlane` — Retrieves a DatumPlane that is a direct child of this Assembly using the supplied name. (inherited by `Model`)
+- `apex.Assembly.getDatumPlanes` — Retrieves all DatumPlanes directly composed by this Assembly and returns them in a DatumPlaneCollection. (inherited by `Model`)
+- `apex.Assembly.getDisplayableEntities` — returns a collection of all entities in this Assembly that implement IDisplayable as an EntityCollection. (inherited by `Model`)
+- `apex.Assembly.getElements` — Get all elements in this Assembly. (inherited by `Model`)
+- `apex.Assembly.getExclusiveRegions` — returns a RegionCollection of all Regions that exclusively reference ONLY Entities composed by Parts within this Assembly hierarchy. (inherited by `Model`)
+- `apex.Assembly.getInterfacePoints` — returns a read only collection of all InterfacePoints composed by this Assembly (inherited by `Model`)
+- `apex.Assembly.getModel` — Return the parent Model of this Assembly. (inherited by `Model`)
+- `apex.Assembly.getNamedEntities` — returns a collection of all entities in this Assembly that implement IName as an EntityCollection. (inherited by `Model`)
+- `apex.Assembly.getNodes` — Get all nodes in this Assembly. (inherited by `Model`)
+- `apex.Assembly.getParent` — Get the parent Assembly for this Assembly. (inherited by `Model`)
+- `apex.Assembly.getPart` — Get a Part in this Assembly. (inherited by `Model`)
+- `apex.Assembly.getPartialRegions` — returns a RegionCollection of all Regions that reference at least one Entity that is composed by a Part within this Assembly hierarchy. (inherited by `Model`)
+- `apex.Assembly.getParts` — Get all Parts in this Assembly. (inherited by `Model`)
+- `apex.Assembly.getPhysicalEntities` — returns a collection of all entities in this Assembly that implement IName as an EntityCollection. (inherited by `Model`)
+- `apex.Assembly.importGeometryAsParts` — Imports a target CAD model from the input CAD files into the target assembly. (inherited by `Model`)
+- `apex.Assembly.importSTLAsParts` — Imports one or more STL files into this model and creates either mesh or geometry bodies depending on the supplied input values. (inherited by `Model`)
+- `apex.Assembly.setParent` — Set an Assembly to be the new parent for this Assembly. (inherited by `Model`)
+- `apex.Assembly.unsetColor` — unapplies the color of this Assembly to all its children. (inherited by `Model`)
+- `apex.Assembly.unsetRender` — unapplies the renderStyle of this Assembly to all its children. (inherited by `Model`)
+- `apex.Assembly.update` — Update one or more of this Assembly properties. (inherited by `Model`)
+- `apex.AssemblyCollection.AssemblyCollection` — Construct a new AssemblyCollection.
+- `apex.AssemblyCollection.appendList` — Add Assemblies from a list to the end of this collection.
+- `apex.AssemblyRep.add` — adds Assembly/ AssemblyRep/ Part/ apex.attribute.MeshDependentTie/ apex.attribute.DiscreteTie to an AssemblyRep
+- `apex.AssemblyRep.exportFEModel` — Exports the contents of the AssemblyRep to a Nastran file.
+- `apex.AssemblyRep.exportMarc` — Exports the contents of the AssemblyRep to a Marc file.
+- `apex.AssemblyRep.getExclusiveGroups` — returns a GroupCollection of all Groups that exclusively reference ONLY Entities composed by PartReps within this AssemblyRep hierarchy.
+- `apex.AssemblyRep.getExclusiveRegions` — returns a RegionCollection of all Regions that exclusively reference ONLY Entities composed by PartReps within this AssemblyRep hierarchy.
+- `apex.AssemblyRep.getPartialGroups` — returns a GroupCollection of all Groups that reference at least one Entity that is composed by a PartRep within this AssemblyRep hierarchy.
+- `apex.AssemblyRep.getPartialRegions` — returns a RegionCollection of all Regions that reference at least one Entity that is composed by a PartRep within this AssemblyRep hierarchy.
+- `apex.AssemblyRep.getParts` — get Parts in AssemblyRep.
+- `apex.AssemblyRep.getTargets` — get targets, Assembly/ AssemblyRep/ Part/ apex.attribute.MeshDependentTie/ apex.attribute.DiscreteTie from an AssemblyRep
+- `apex.AssemblyRep.remove` — remove Assembly/ AssemblyRep/ Part/ apex.attribute.MeshDependentTie/ apex.attribute.DiscreteTie from an AssemblyRep
+- `apex.AssemblyRep.update` — Update this AssemblyRep.
+- `apex.AssemblyRepCollection.AssemblyRepCollection` — Construct a new AssemblyRepCollection.
+- `apex.AxisAlignedBoundingBox.AxisAlignedBoundingBox` (3 overloads) — DEPRECATED: In releases of Apex prior to Iberian Lynx this argument was of type apex.construct.Point3D.
+- `apex.AxisAlignedBoundingBox.getPoint1`
+- `apex.AxisAlignedBoundingBox.getPoint2`
+- `apex.AxisAlignedBoundingBox.update`
+- `apex.ColorRGB.ColorRGB` (3 overloads)
+- `apex.ColorRGB.operator==`
+- `apex.ColorRGB.update` — update the color value
+- `apex.ColorRGB.updateInteger` — update the color value
+- `apex.Coordinate.Coordinate` (3 overloads) — Create a new 3d Coordinate with x, y, z = 0.
+- `apex.Coordinate.getAssociatedEntity` — Return the Entity associated with this Coordinate (may be None).
+- `apex.Coordinate.setAssociatedEntity` — Set the Entity associated with this Coordinate (may be None).
+- `apex.Coordinate.setX` — sets the x value of this Coordinate.
+- `apex.Coordinate.setY` — sets the y value of this Coordinate.
+- `apex.Coordinate.setZ` — sets the z value of this Coordinate.
+- `apex.DataTable2Col.getColumn1` (inherited by `DataTable3Col`)
+- `apex.DataTable2Col.getColumn2` (inherited by `DataTable3Col`)
+- `apex.DataTable2Col.update` (inherited by `DataTable3Col`)
+- `apex.DataTable3Col.getColumn3`
+- `apex.DataTable3Col.update`
+- `apex.DesignVariable.getAllowDesignStudyToIgnoreList` — Gets option to allow design study to ignore list or not, for Real or Integer type.
+- `apex.DesignVariable.getAllowOptimizationToIgnoreRange` — Gets option to allow optimization to ignore range or not for Real or Integer type.
+- `apex.DesignVariable.getDescription` — Gets description of the design variable.
+- `apex.DesignVariable.getDesignVariableType` — Gets one of types: Real, Integer, String, Expression or Object.
+- `apex.DesignVariable.getDiscreteValueIncludeMax` — Gets option to include max value in the discrete values list or not, for Real type.
+- `apex.DesignVariable.getDiscreteValueIncludeMin` — Gets option to include min value in the discrete values list or not, for Real type.
+- `apex.DesignVariable.getDiscreteValueList` — Gets list of discrete values, for Real or Integer type.
+- `apex.DesignVariable.getDiscreteValueMethod` — Gets discrete values method for design variable, either "Generate" or "EnterValues" for Real type, or "EnterValues" for Integer type.
+- `apex.DesignVariable.getDiscreteValueNumber` — Gets number of discrete values for Real type.
+- `apex.DesignVariable.getDiscreteValueRange` — Gets discrete value range, either "Equal spaced" or "MinStdMax", for Real type.
+- `apex.DesignVariable.getEnableOptimizationParams` — Gets option to enable optimization parameters for Real or Integer type.
+- `apex.DesignVariable.getId` — Gets id of design variable for Real type.
+- `apex.DesignVariable.getMaxValue` — Gets maximum value of design variable for Real or Integer type.
+- `apex.DesignVariable.getMinValue` — Gets minimum value of design variable for Real or Integer type.
+- `apex.DesignVariable.getMoveLimit` — Gets the move limit of design variable for Real or Integer type.
+- `apex.DesignVariable.getName` — Gets name of design variable.
+- `apex.DesignVariable.getNegativeDelta` — Gets negative delta for value of design variable for Real or Integer type.
+- `apex.DesignVariable.getNegativePercentage` — Gets negative percentage for value of design variable for Real or Integer type.
+- `apex.DesignVariable.getPath` — return this Entity path string.
+- `apex.DesignVariable.getPositiveDelta` — Gets positive delta for value of design variable for Real or Integer type.
+- `apex.DesignVariable.getPositivePercentage` — Gets positive percentage for value of design variable for Real or Integer type.
+- `apex.DesignVariable.getRangeType` — Gets one of 3 range types for Real or Integer type.
+- `apex.DesignVariable.getSpecifyAllowableDiscreteValues` — Gets boolean value to indicate specifying allowable discrete values or not for Real or Integer type.
+- `apex.DesignVariable.getUnit` — Gets unit of design variable for Real type.
+- `apex.DesignVariable.getValue` — Gets value for design variable.
+- `apex.DesignVariable.setAllowDesignStudyToIgnoreList` — Sets option to allow design study to ignore list or not, for Real or Integer type.
+- `apex.DesignVariable.setAllowOptimizationToIgnoreRange` — Sets option to allow optimization to ignore range or not for Real or Integer type.
+- `apex.DesignVariable.setDescription` — Sets description of the design variable.
+- `apex.DesignVariable.setDesignVariableType` — Sets one of types: Real, Integer, String, Expression or Object.
+- `apex.DesignVariable.setDiscreteValueIncludeMax` — Sets option to include max value in the discrete values list or not, for Real type.
+- `apex.DesignVariable.setDiscreteValueIncludeMin` — Sets option to include min value in the discrete values list or not, for Real type.
+- `apex.DesignVariable.setDiscreteValueList` — Sets list of discrete values, for Real or Integer type.
+- `apex.DesignVariable.setDiscreteValueMethod` — Sets discrete values method for design variable, either "Generate" or "EnterValues" for Real type, or "EnterValues" for Integer type.
+- `apex.DesignVariable.setDiscreteValueNumber` — Sets number of discrete values for Real type.
+- `apex.DesignVariable.setDiscreteValueRange` — Sets discrete value range, either "Equal spaced" or "MinStdMax", for Real type.
+- `apex.DesignVariable.setEnableOptimizationParams` — Sets option to enable optimization parameters for Real or Integer type.
+- `apex.DesignVariable.setId` — Sets id of design variable for Real type.
+- `apex.DesignVariable.setMaxValue` — Sets maximum value of design variable for Real or Integer type.
+- `apex.DesignVariable.setMinValue` — Sets minimum value of design variable for Real or Integer type.
+- `apex.DesignVariable.setMoveLimit` — Sets the move limit of design variable for Real or Integer type.
+- `apex.DesignVariable.setName` — Sets name of design variable.
+- `apex.DesignVariable.setNegativeDelta` — Sets negative delta for value of design variable for Real or Integer type.
+- `apex.DesignVariable.setNegativePercentage` — Sets negative percentage for value of design variable for Real or Integer type.
+- `apex.DesignVariable.setPositiveDelta` — Sets positive delta for value of design variable for Real or Integer type.
+- `apex.DesignVariable.setPositivePercentage` — Sets positive percentage for value of design variable for Real or Integer type.
+- `apex.DesignVariable.setRangeType` — Sets one of 3 range types for Real or Integer type.
+- `apex.DesignVariable.setSpecifyAllowableDiscreteValues` — Sets boolean value to indicate specifying allowable discrete values or not for Real or Integer type.
+- `apex.DesignVariable.setUnit` — Sets unit of design variable for Real type.
+- `apex.DesignVariable.setValue` — Sets value for design variable.
+- `apex.DesignVariable.update` — update the attributes of design variable.
+- `apex.DesignVariableCollection.DesignVariableCollection` — Construct a new UserAttributeCollection.
+- `apex.Entity.asAssembly` (inherited by 404 classes)
+- `apex.Entity.asBody` (inherited by 404 classes)
+- `apex.Entity.asBox` (inherited by 404 classes)
+- `apex.Entity.asBucklingStep` (inherited by 404 classes)
+- `apex.Entity.asCell` (inherited by 404 classes)
+- `apex.Entity.asCoordinate` (inherited by 404 classes)
+- `apex.Entity.asCoordinateSystem` (inherited by 404 classes)
+- `apex.Entity.asCurve` (inherited by 404 classes)
+- `apex.Entity.asCurveMesh` (inherited by 404 classes)
+- `apex.Entity.asCylinder` (inherited by 404 classes)
+- `apex.Entity.asCylindricalJoint` (inherited by 404 classes)
+- `apex.Entity.asDatumPlane` (inherited by 404 classes)
+- `apex.Entity.asEdge` (inherited by 404 classes)
+- `apex.Entity.asEdgeLoop` (inherited by 404 classes)
+- `apex.Entity.asEdgeSeed` (inherited by 404 classes)
+- `apex.Entity.asElement` (inherited by 404 classes)
+- `apex.Entity.asElementEdge` (inherited by 404 classes)
+- `apex.Entity.asElementFace` (inherited by 404 classes)
+- `apex.Entity.asElementIdSet` (inherited by 404 classes)
+- `apex.Entity.asEllipsoid` (inherited by 404 classes)
+- `apex.Entity.asEvent` (inherited by 404 classes)
+- `apex.Entity.asFace` (inherited by 404 classes)
+- `apex.Entity.asFacetedCurve` (inherited by 404 classes)
+- `apex.Entity.asFacetedSolid` (inherited by 404 classes)
+- `apex.Entity.asFacetedSurface` (inherited by 404 classes)
+- `apex.Entity.asGeometryFeature` (inherited by 404 classes)
+- `apex.Entity.asGeometryTopology` (inherited by 404 classes)
+- `apex.Entity.asHexMesh` (inherited by 404 classes)
+- `apex.Entity.asIDisplayable` (inherited by 404 classes)
+- `apex.Entity.asILocation` (inherited by 404 classes)
+- `apex.Entity.asIOrientation` (inherited by 404 classes)
+- `apex.Entity.asIPhysical` (inherited by 404 classes)
+- `apex.Entity.asInitialTemperature` (inherited by 404 classes)
+- `apex.Entity.asLoadCase` (inherited by 404 classes)
+- `apex.Entity.asMaterialCoverageRegion` (inherited by 404 classes)
+- `apex.Entity.asMesh` (inherited by 404 classes)
+- `apex.Entity.asMeshControlEdge` (inherited by 404 classes)
+- `apex.Entity.asMeshDependentTie` (inherited by 404 classes)
+- `apex.Entity.asMeshlessGenerativeDesignStep` (inherited by 404 classes)
+- `apex.Entity.asModalFrequencyStep` (inherited by 404 classes)
+- `apex.Entity.asModel` (inherited by 404 classes)
+- `apex.Entity.asModesStep` (inherited by 404 classes)
+- `apex.Entity.asNode` (inherited by 404 classes)
+- `apex.Entity.asNodeIdSet` (inherited by 404 classes)
+- `apex.Entity.asPart` (inherited by 404 classes)
+- `apex.Entity.asPartRep` (inherited by 404 classes)
+- `apex.Entity.asPlanarJoint` (inherited by 404 classes)
+- `apex.Entity.asPoint` (inherited by 404 classes)
+- `apex.Entity.asPointMesh` (inherited by 404 classes)
+- `apex.Entity.asPrismaticJoint` (inherited by 404 classes)
+- `apex.Entity.asRemotePointEntity` (inherited by 404 classes)
+- `apex.Entity.asRevoluteJoint` (inherited by 404 classes)
+- `apex.Entity.asShellBehavior` (inherited by 404 classes)
+- `apex.Entity.asSolid` (inherited by 404 classes)
+- `apex.Entity.asSolidMesh` (inherited by 404 classes)
+- `apex.Entity.asSphere` (inherited by 404 classes)
+- `apex.Entity.asSphericalJoint` (inherited by 404 classes)
+- `apex.Entity.asStaticStep` (inherited by 404 classes)
+- `apex.Entity.asStep` (inherited by 404 classes)
+- `apex.Entity.asSubMesh` (inherited by 404 classes)
+- `apex.Entity.asSubMesh1D` (inherited by 404 classes)
+- `apex.Entity.asSubMesh2D` (inherited by 404 classes)
+- `apex.Entity.asSubMesh3D` (inherited by 404 classes)
+- `apex.Entity.asSurface` (inherited by 404 classes)
+- `apex.Entity.asSurfaceMesh` (inherited by 404 classes)
+- `apex.Entity.asUserAttribute` (inherited by 404 classes)
+- `apex.Entity.asVertex` (inherited by 404 classes)
+- `apex.Entity.getEntityType` — DEPRECATED: THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. (inherited by 404 classes)
+- `apex.Entity.~Entity` (inherited by 404 classes)
+- `apex.EntityCollection.EntityCollection` — Construct a new EntityCollection. (inherited by 82 classes)
+- `apex.EntityCollection.append` — Add a new Entity to the end of this collection. (inherited by 82 classes)
+- `apex.EntityCollection.appendList` — Add the entities from a list to the end of this collection. (inherited by 82 classes)
+- `apex.EntityCollection.clear` — clear this collection. (inherited by 82 classes)
+- `apex.EntityCollection.extend` — Add a new EntityCollection to the end of this collection. (inherited by 82 classes)
+- `apex.EntityCollection.fromList` — This method inserts a List of Entities to the collection. (inherited by 82 classes)
+- `apex.EntityCollection.getCollectionType` — DEPRECATED. return the type of this Collection. (inherited by 82 classes)
+- `apex.EntityCollection.hide` — Hide the Entities in this collection. (inherited by 82 classes)
+- `apex.EntityCollection.index` — This method is to get the entity index. (inherited by 82 classes)
+- `apex.EntityCollection.insert` — This method is to insert an entity into the collection. (inherited by 82 classes)
+- `apex.EntityCollection.len` — return the length of this collection. (inherited by 82 classes)
+- `apex.EntityCollection.remove` — This method is to remove an entity from the collection. (inherited by 82 classes)
+- `apex.EntityCollection.show` — Show the Entities in this collection. (inherited by 82 classes)
+- `apex.EntityCollection.showOnly` — Show Only the Entities in this collection. (inherited by 82 classes)
+- `apex.EntityCollection.toList` — This method returns the members of the Entity Collection as a Python List. (inherited by 82 classes)
+- `apex.EntityCollection.unsetVisibility` — Set the Entities' visibility to "UnSet" status in this collection. (inherited by 82 classes)
+- `apex.Group.addEntities` — Add entities to this Group.
+- `apex.Group.addEntity` — Add entity to this Group.
+- `apex.Group.getCentroid` — returns the centroid of this Group as a Coordinate.
+- `apex.Group.getTarget` — A collection of ILocation objects that represent this Group.
+- `apex.Group.removeEntities` — Removes entities from this Group.
+- `apex.Group.removeEntity` — Removes an entity from this Group.
+- `apex.Group.update` — Update this group.
+- `apex.GroupCollection.GroupCollection` — Construct a new GroupCollection.
+- `apex.GroupCollection.hide` — Hide the Entities in this collection.
+- `apex.GroupCollection.show` — Show the Entities in this collection.
+- `apex.GroupCollection.showOnly` — Show Only the Entities in this collection.
+- `apex.IActivatable.activate` — Activates the Entity. (inherited by 24 classes)
+- `apex.IActivatable.deactivate` — Deactivates the Entity. (inherited by 24 classes)
+- `apex.IActivatable.getIsActive` — Returns True of this Entity is Active, False if it is Inactive. (inherited by 24 classes)
+- `apex.IDisplayable.applyVisibilityToChildren` — change the container Entity visibility and apply the new value to its children. (inherited by 198 classes)
+- `apex.IDisplayable.getColor` — gets the color of this Entity. (inherited by 198 classes)
+- `apex.IDisplayable.getDisplayRenderStyle` — gets the render style of this Entity. (inherited by 198 classes)
+- `apex.IDisplayable.getDisplayTransparency` — gets the transparency of this Entity. (inherited by 198 classes)
+- `apex.IDisplayable.getVisibility` — gets the visibility of this Entity. (inherited by 198 classes)
+- `apex.IDisplayable.hide` — Hide this Entity. (inherited by 198 classes)
+- `apex.IDisplayable.show` — Show this Entity. (inherited by 198 classes)
+- `apex.IDisplayable.showOnly` — Show Only this Entity. (inherited by 198 classes)
+- `apex.IDisplayable.unsetColor` — unapplies the color of this entity to all its children. (inherited by 198 classes)
+- `apex.IDisplayable.unsetRender` — unapplies the renderStyle of this entity to all its children. (inherited by 198 classes)
+- `apex.IDisplayable.unsetTransparency` — unapplies the Transparency of this entity to all its children. (inherited by 198 classes)
+- `apex.IDisplayable.unsetVisibility` — unset the visibility of this entity and all its children need to be displaied as their original visibility. (inherited by 198 classes)
+- `apex.IIdentifier.getId` — return the Id of this Entity. (inherited by 22 classes)
+- `apex.IIdentifier.getIndex` — return the index of this Entity. (inherited by 22 classes)
+- `apex.ILocation.getLocation` — Gets The location of the object. (inherited by 57 classes)
+- `apex.ILocation.getLocationCartesian` — Gets Returns the location of the object as List of three floats, representing the x, y and z coordinates of the location in the global cartesian coordinate ... (inherited by 57 classes)
+- `apex.ILocation.getLocationCartesianLocal` — Gets Returns the location of the object as List of three floats, representing the x, y and z coordinates of the location in the local Cartesian coordinate ... (inherited by 57 classes)
+- `apex.ILocation.getLocationCylindrical` — Gets Returns the location of the object as List of three floats, representing the r, theta and z coordinates of the location in the global cylindrical ... (inherited by 57 classes)
+- `apex.ILocation.getLocationCylindricalLocal` — Gets Returns the location of the object as List of three floats, representing the r, theta and z coordinates of the location in the local cylindrical ... (inherited by 57 classes)
+- `apex.ILocation.getLocationSpherical` — Returns the location of the object as List of three floats, representing the r, theta and phi coordinates of the location in the global spherical coordinate ... (inherited by 57 classes)
+- `apex.ILocation.getLocationSphericalLocal` — Gets Returns the location of the object as List of three floats, representing the r, theta and phi coordinates of the location in the local spherical ... (inherited by 57 classes)
+- `apex.ILocation.getX` — Gets The x coordinate of the object location in a global cartesian system. x represents a position quantity and will be returned in the units of Length form ... (inherited by 57 classes)
+- `apex.ILocation.getXLocal` — Gets The x coordinate of the object location in a local Cartesian system. x represents a position quantity and will be returned in the units of Length form the ... (inherited by 57 classes)
+- `apex.ILocation.getY` — Gets The y coordinate of the object location in a global Cartesian system. y represents a position quantity and will be returned in the units of Length form ... (inherited by 57 classes)
+- `apex.ILocation.getYLocal` — Gets The y coordinate of the object location in a local Cartesian system. y represents a position quantity and will be returned in the units of Length form the ... (inherited by 57 classes)
+- `apex.ILocation.getZ` — Gets The z coordinate of the object location in a global Cartesian/cylindrical system. z represents a position quantity and will be returned in the units of ... (inherited by 57 classes)
+- `apex.ILocation.getZLocal` — Gets The z coordinate of the object location in a local Cartesian/Cylindrical system. z represents a position quantity and will be returned in the units of ... (inherited by 57 classes)
+- `apex.ILocationCollection.ILocationCollection` — Construct a new ILocationCollection. (inherited by 38 classes)
+- `apex.ILocationCollection.appendList` — Add entities that implement ILocation interface from a list to the end of this collection. (inherited by 38 classes)
+- `apex.IName.getDescription` — Read-only string representing the description of this object. (inherited by 273 classes)
+- `apex.IName.getName` — Read-only string representing the name of this object. (inherited by 273 classes)
+- `apex.IName.getPathName` — Read-only string representing the pathName (combination of entity path and name) of this object. (inherited by 273 classes)
+- `apex.IOrientation.getAlpha` — Gets a float value representing the first Euler rotation angle based on the Euler 313 rotation convention. (inherited by 23 classes)
+- `apex.IOrientation.getAlphaLocal` — Gets a float value representing the first Euler rotation angle based on the Euler 313 rotation convention in local coordinate system. alpha represents an Angle ... (inherited by 23 classes)
+- `apex.IOrientation.getBeta` — Gets a float value representing the second Euler rotation angle based on the Euler 313 rotation convention. (inherited by 23 classes)
+- `apex.IOrientation.getBetaLocal` — Gets a float value representing the second Euler rotation angle based on the Euler 313 rotation convention in local coordinate system. beta represents an Angle ... (inherited by 23 classes)
+- `apex.IOrientation.getEuler121` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 121 rotation convention. (inherited by 23 classes)
+- `apex.IOrientation.getEuler121Local` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 121 rotation convention in local ... (inherited by 23 classes)
+- `apex.IOrientation.getEuler123` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 123 rotation convention. (inherited by 23 classes)
+- `apex.IOrientation.getEuler123Local` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 123 rotation convention in local ... (inherited by 23 classes)
+- `apex.IOrientation.getEuler131` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 131 rotation convention. (inherited by 23 classes)
+- `apex.IOrientation.getEuler131Local` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 131 rotation convention in local ... (inherited by 23 classes)
+- `apex.IOrientation.getEuler132` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 132 rotation convention. (inherited by 23 classes)
+- `apex.IOrientation.getEuler132Local` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 132 rotation convention in local ... (inherited by 23 classes)
+- `apex.IOrientation.getEuler212` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 212 rotation convention. (inherited by 23 classes)
+- `apex.IOrientation.getEuler212Local` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 212 rotation convention in local ... (inherited by 23 classes)
+- `apex.IOrientation.getEuler213` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 213 rotation convention. (inherited by 23 classes)
+- `apex.IOrientation.getEuler213Local` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 213 rotation convention in local ... (inherited by 23 classes)
+- `apex.IOrientation.getEuler231` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 231 rotation convention. (inherited by 23 classes)
+- `apex.IOrientation.getEuler231Local` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 231 rotation convention in local ... (inherited by 23 classes)
+- `apex.IOrientation.getEuler232` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 232 rotation convention. (inherited by 23 classes)
+- `apex.IOrientation.getEuler232Local` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 232 rotation convention in local ... (inherited by 23 classes)
+- `apex.IOrientation.getEuler313` — Returns the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 313 rotation convention. (inherited by 23 classes)
+- `apex.IOrientation.getEuler313Local` — Gets the orientation of the object as a List of three floats, each representing the rotation of the orientation using the Euler 313 rotation convention in ... (inherited by 23 classes)
+- `apex.IOrientation.getEuler323` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 323 rotation convention. (inherited by 23 classes)
+- `apex.IOrientation.getEuler323Local` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 323 rotation convention in local ... (inherited by 23 classes)
+- `apex.IOrientation.getGamma` — Gets a float value representing the third Euler rotation angle based on the Euler 313 rotation convention. (inherited by 23 classes)
+- `apex.IOrientation.getGammaLocal` — Gets a float value representing the third Euler rotation angle based on the Euler 313 rotation convention in local coordinate system. gamma represents an Angle ... (inherited by 23 classes)
+- `apex.IOrientation.getOrientation` — Gets the orientation of the object as an apex.Orientation. (inherited by 23 classes)
+- `apex.IOrientation.getXAxis` — Gets the direction of the x axis of the Orientation of this object as a Vector3D. (inherited by 23 classes)
+- `apex.IOrientation.getXAxisLocal` — Gets the direction of the x axis of the Orientation of this object as a Vector3D in local coordinate system. (inherited by 23 classes)
+- `apex.IOrientation.getYAxis` — Gets the direction of the y axis of the Orientation of this object as a Vector3D. (inherited by 23 classes)
+- `apex.IOrientation.getYAxisLocal` — Gets the direction of the y axis of the Orientation of this object as a Vector3D in local coordinate system. (inherited by 23 classes)
+- `apex.IOrientation.getZAxis` — Gets the direction of the z axis of the Orientation of this object as a Vector3D. (inherited by 23 classes)
+- `apex.IOrientation.getZAxisLocal` — Gets the direction of the z axis of the Orientation of this object as a Vector3D in local coordinate system. (inherited by 23 classes)
+- `apex.IOrientationCollection.IOrientationCollection` — Construct a new IOrientationCollection.
+- `apex.IOrientationCollection.appendList` — Add entities that implement IOrientation interface from a list to the end of this collection.
+- `apex.IPath.getPath` — return this Entity path string. (inherited by 274 classes)
+- `apex.IPhysical.getAxisAlignedBoundingBox` — Returns the axis aligned bounding box around the object in space. (inherited by 54 classes)
+- `apex.IPhysicalCollection.IPhysicalCollection` — Construct a new IPhysicalCollection. (inherited by 32 classes)
+- `apex.IPhysicalCollection.appendList` — Add entities that implement IPhysical interface from a list to the end of this collection. (inherited by 32 classes)
+- `apex.IPhysicalCollection.clearHighlight` — Removes highlighting from the object. (inherited by 32 classes)
+- `apex.IPhysicalCollection.getAverageCentroid` — The average location of the centroids of all of the Geometry and Topology entities in this IPhysicalCollection. (inherited by 32 classes)
+- `apex.IPhysicalCollection.getCentroid` — The location of the centroid of all of the geomety/topology entities in this IPhysicalCollection. (inherited by 32 classes)
+- `apex.IPhysicalCollection.highlight` — Highlights the object using the highlight parameters in the argument list. (inherited by 32 classes)
+- `apex.IPhysicalCollection.highlightColorRGB` — The highlight color assigned to the object as a ColorRGB object that support 8 bit RGB color definitions. (inherited by 32 classes)
+- `apex.IPhysicalCollection.highlightEdgeWeight` — The edge weight assigned to the object. (inherited by 32 classes)
+- `apex.IPhysicalCollection.highlightPointSize` — The highlight point size assigned to the object. (inherited by 32 classes)
+- `apex.IPhysicalCollection.isHighlighted` — Boolean indicating whether the object is highlighted or not. (inherited by 32 classes)
+- `apex.IUserAttributes.addUserAttribute` — add a UserAttribute object to this Entity. (inherited by 243 classes)
+- `apex.IUserAttributes.getUserAttributes` — get a UserAttribute from this Entity. (inherited by 243 classes)
+- `apex.IUserAttributes.removeUserAttributes` — delete a UserAttribute from this Entity. (inherited by 243 classes)
+- `apex.IUserHighlightable.clearHighlight` — Removes highlighting from the object. (inherited by 253 classes)
+- `apex.IUserHighlightable.highlight` — Highlights the object using the highlight parameters in the argument list. (inherited by 253 classes)
+- `apex.IUserHighlightable.highlightColorRGB` — The highlight color assigned to the object as a ColorRGB object that support 8 bit RGB color definitions. (inherited by 253 classes)
+- `apex.IUserHighlightable.highlightEdgeWeight` — The edge weight assigned to the object. (inherited by 253 classes)
+- `apex.IUserHighlightable.highlightPointSize` — The highlight point size assigned to the object. (inherited by 253 classes)
+- `apex.IUserHighlightable.isHighlighted` — Boolean indicating whether the object is highlighted or not. (inherited by 253 classes)
+- `apex.LocationInternal.LocationInternal`
+- `apex.LocationInternal.getByCoord`
+- `apex.LocationInternal.getEntity`
+- `apex.LocationInternal.getX` — get float x Value of the X coordinate of the location in 3D space in the Apex global coordinate system.
+- `apex.LocationInternal.getY` — get float y Value of the X coordinate of the location in 3D space in the Apex global coordinate system.
+- `apex.LocationInternal.getZ` — get float z Value of the X coordinate of the location in 3D space in the Apex global coordinate system.
+- `apex.LocationInternal.setByCoord`
+- `apex.LocationInternal.setEntity`
+- `apex.LocationInternal.setX`
+- `apex.LocationInternal.setY`
+- `apex.LocationInternal.setZ`
+- `apex.Model.close` — Closes the current Model and creates a new one.
+- `apex.Model.createAssembly` — Create a new Assembly in this Model.
+- `apex.Model.createMirrorPlane`
+- `apex.Model.createModelAssociation` — Creates and returns a ModelAssociation.
+- `apex.Model.createModelSet3Nastran` — Creates and returns a ModelSet3Nastran The ModelSet3Nastran may optionally be initialized with an id, set type and list of ids.
+- `apex.Model.createPart` — Create a new Part in this Model.
+- `apex.Model.deleteModelAssociation` — Deletes the input ModelAssociation from this Model.
+- `apex.Model.exportFEModel` — Exports the Model in Nastran bulk data file format.
+- `apex.Model.exportGeometry` — Export Geometry file from this model to a file using the supplied CAD format.
+- `apex.Model.exportMarc` — Exports the contents of the Model to a Marc file.
+- `apex.Model.getAssemblies` — Get all Assemblies in this Model.
+- `apex.Model.getAssembly` — Get an Assembly in this Model.
+- `apex.Model.getBeamSpan` — Retrieve a BeamSpan from this Model using the BeamSpan pathName "THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE NEXT APEX RELEASE" This method has been ...
+- `apex.Model.getBox` — Get a Box in this Model.
+- `apex.Model.getCoordinateSystem` — Get a CoordinateSystem in a Model.
+- `apex.Model.getCoordinateSystemById` — Get a CoordinateSystem in a Model.
+- `apex.Model.getCoordinateSystems` — Get CoordinateSystem objects in a Model.
+- `apex.Model.getCurrentPart` — Return the 'current' Part in this Model.
+- `apex.Model.getCurve` — Get a Curve in this Model.
+- `apex.Model.getCurveMesh` — Get a CurveMesh in this Model. "THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE NEXT APEX RELEASE" This method has been superseded by the equivalent ...
+- `apex.Model.getCylinder` — Get a Cylinder in a Model.
+- `apex.Model.getDatumPlanes` — Retrieves all DatumPlanes directly composed by the Model and return them in a DatumPlaneCollection.
+- `apex.Model.getDesignVariable` — Retrieves a design variable by using the input pathName.
+- `apex.Model.getDesignVariables` — return all design variables in the model.
+- `apex.Model.getDisplayableEntities` — returns a collection of all entities in the Model that implement IDisplayable as an EntityCollection.
+- `apex.Model.getElements` — Get a ElementCollection in multi Part.
+- `apex.Model.getEllipsoid` — Get a Ellipsoid in a Model.
+- `apex.Model.getEntities` — Get a collection of named Entities in this Model.
+- `apex.Model.getFacetedCurve` — Get a Faceted Curve in this Model.
+- `apex.Model.getFacetedSolid` — Get a Faceted Solid in this Model.
+- `apex.Model.getFacetedSurface` — Get a Faceted Surface in this Model.
+- `apex.Model.getGeometryBody` — Get a GeometryBody in this Model.
+- `apex.Model.getGroup` — Return a named Group identified from this Model.
+- `apex.Model.getGroups` — get all Groups from this Model.
+- `apex.Model.getHexMesh` — Get a HexMesh in this Model. "THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE NEXT APEX RELEASE" This method has been superseded by the equivalent ...
+- `apex.Model.getInterfacePoints` — Retrieves all of the apex.attribute.InterfacePoints InterfacePoints in this Model and returns them as an InterfacePointCollection.
+- `apex.Model.getMaterialCoverageRegions` — Retrieves all MaterialCoverageRegions directly composed by the Model and returns them in a MaterialCoverageRegionCollection.
+- `apex.Model.getMesh` — Get a MeshBody in this Model. "THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE NEXT APEX RELEASE" This method has been superseded by the equivalent ...
+- `apex.Model.getModelAssociation` — Get a ModelAssociation.
+- `apex.Model.getModelAssociations` — get modelAssociation collection from model.
+- `apex.Model.getModelSetNastran` — gets a ModelSetNastran from this Model using the ID provided in the argument The ModelSetNastran is returned as an instance of the actual type of the Set and ...
+- `apex.Model.getNamedEntities` — returns a collection of all entities in this Model that implement IName as an EntityCollection.
+- `apex.Model.getNodes` — Get a NodeCollection in multi Part.
+- `apex.Model.getPart` — Get a Part in this Model.
+- `apex.Model.getParts` — Get all Parts in this Model.
+- `apex.Model.getPhysicalEntities` — returns a collection of all entities in the Model that implement ILocation as an EntityCollection.
+- `apex.Model.getPoint` — Get a Point in this Model.
+- `apex.Model.getRegion` — Return a named Region identified from this Model.
+- `apex.Model.getRegions` — get all Regions from this Model.
+- `apex.Model.getSolid` — Get a Solid in this Model.
+- `apex.Model.getSolidMesh` — Get a SolidMesh in this Model. "THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE NEXT APEX RELEASE" This method has been superseded by the equivalent ...
+- `apex.Model.getSphere` — Get a Sphere in a Model.
+- `apex.Model.getSurface` — Get a Surface in this Model.
+- `apex.Model.getSurfaceMesh` — Get a SurfaceMesh in this Model. "THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE NEXT APEX RELEASE" This method has been superseded by the equivalent ...
+- `apex.Model.importApexModel` — Imports a target Apex database model from the input database files and returns the EntityCollection of Top Level of Part/Assembly.
+- `apex.Model.importFEModel` — Imports a finite element models, and optionally results data, into this Apex Model and returns (as an Entity) the top level Part, Assembly or Scenario that is ...
+- `apex.Model.importGendesResults` — Imports a Generative Design result file into this Apex Study and returns (as an Entity) the scenario that is created for the import results.
+- `apex.Model.importGeometry` — Imports a target CAD model from the input CAD files and returns a Dictionary representing the Part / Assembly structure of that CAD model.
+- `apex.Model.importGeometryPreview` — Previews a target CAD model from the input CAD files and returns a Dictionary representing the Part/Assembly structure of that CAD model.
+- `apex.Model.importMarc` — Imports the contents of the Model to a Marc file.
+- `apex.Model.importModelAssociation` — import ModelAssociation from file.
+- `apex.Model.importRegisteredAdamsCarAssembly` — Imports an Adams/Car assembly from an Adams/Car database when the database has previously been registered in the Adams/Car config file.
+- `apex.Model.importSTL` — Imports one or more STL files into this model and creates either mesh or geometry bodies depending on the supplied input values.
+- `apex.Model.importUnregisteredAdamsCarAssembly` — Imports and registers and Adams/Car assembly from an Adams/Car database when the database has NOT previously been registered in the Adams/Car config file.
+- `apex.Model.isCurrent` — Returns bool representing whether the model is current and can be operated on.
+- `apex.Model.save` — Save all changes to the Model since the last Save.
+- `apex.Model.saveAs` — Save the model to a new DB.
+- `apex.Model.setCurrentPart` — Set the 'current' Part in this Model.
+- `apex.ModelAssociation.ModelAssociation`
+- `apex.ModelAssociation.associateLoadTransferPoints` — Associates an InterfacePoints in the primary Assembly with a NodeTies in the secondary Assembly.
+- `apex.ModelAssociation.associatePartsAutomatic` — Automatically associates Parts and/or Assemblies from the secondary assembly to a Parts in the primary assembly using a proximity tolerance algorithm.
+- `apex.ModelAssociation.associatePartsManual` — Manually associates Parts and/or Assemblies from the secondary Assembly with a Part in the primary Assembly.
+- `apex.ModelAssociation.exportAssociationData` — Exports the model association data from this ModelAssociation to an external file in .txt format.
+- `apex.ModelAssociation.getDescription` — Read-only string representing the description of this object.
+- `apex.ModelAssociation.getInterfaceLoadAssociations` — a dictionary defining the association between InterfacePoints in the primary Assembly and NodeTies in the secondary Assembly.
+- `apex.ModelAssociation.getName` — Read-only string representing the name of this object.
+- `apex.ModelAssociation.getPartAssociations` — get part associations.
+- `apex.ModelAssociation.getPath` — return this Entity path string.
+- `apex.ModelAssociation.getPrimaryAssembly` — get primary assembly.
+- `apex.ModelAssociation.getSecondaryAssembly` — get secondary assembly.
+- `apex.ModelAssociation.removeLoadTransferPointAssociation` — Removes an existing load transfer point association from this ModelAssociation.
+- `apex.ModelAssociation.removePartAssociation` — Removes an existing Part Association from this ModelAssociation.
+- `apex.ModelAssociation.update` — Update this model association.
+- `apex.ModelAssociationCollection.ModelAssociationCollection` — Construct a new ModelAssociationCollection.
+- `apex.ModelRep.asAssemblyRep` (inherited by `AssemblyRep`)
+- `apex.ModelRep.asPartRep` (inherited by `AssemblyRep`)
+- `apex.ModelSet3Nastran.getSetIds` — Gets a property defining the IDs of the entity types specified by the set_type property This property may be assigned an iterable (List, Array etc) of ints.
+- `apex.ModelSet3Nastran.getSetType` — Gets a property used to define the type of entity that the IDs defined in this ModelSet3Nastran represnt This property may be assigned any one of the following ...
+- `apex.ModelSet3Nastran.setSetIds` — Sets a property defining the IDs of the entity types specified by the set_type property This property may be assigned an iterable (List, Array etc) of ints.
+- `apex.ModelSet3Nastran.setSetType` — Sets a property used to define the type of entity that the IDs defined in this ModelSet3Nastran represnt This property may be assigned any one of the following ...
+- `apex.ModelSetNastran.clone` — Creates a copy of this ModelSetNastran. (inherited by `ModelSet3Nastran`)
+- `apex.ModelSetNastran.getId` — Gets the ID of this SET. (inherited by `ModelSet3Nastran`)
+- `apex.ModelSetNastran.getName` — Gets the name of this SET. (inherited by `ModelSet3Nastran`)
+- `apex.ModelSetNastran.setId` — Sets the ID of this SET. (inherited by `ModelSet3Nastran`)
+- `apex.ModelSetNastran.setName` — Sets the name of this SET. (inherited by `ModelSet3Nastran`)
+- `apex.Orientation.Orientation` (2 overloads) — Orientation constructor.Optional arguments enable the Orientation to be constructed relative to the global Carteaisn coordinate system using Euler angles based ...
+- `apex.Orientation.getAlpha` — Float value representing the first Euler rotation angle based on the Euler 313 rotation convention. alpha represents an Angle value and is returned in the ...
+- `apex.Orientation.getBeta` — Float value representing the second Euler rotation angle based on the Euler 313 rotation convention. beta represents an Angle value and is returned in the ...
+- `apex.Orientation.getGamma` — Float value representing the third Euler rotation angle based on the Euler 313 rotation convention. beta represents an Angle value and is returned in the Angle ...
+- `apex.Orientation.getXAxis` — The direction of the x axis of this Orientation as a Vector3D.
+- `apex.Orientation.getYAxis` — The direction of the y axis of this Orientation as a Vector3D.
+- `apex.Orientation.getZAxis` — The direction of the z axis of this Orientation as a Vector3D.
+- `apex.Part.applyColorToChildren` — applies the color of this Part to all its children.
+- `apex.Part.applyRenderStyleToChildren` — applies the Render Style of this Part to all its children.
+- `apex.Part.applyTransparencyToChildren` — applies the Transparency setting of this Part to all its children.
+- `apex.Part.asEntity` — return the (base) Entity Object of this Part.
+- `apex.Part.assignMaterial` — assign a material to this Part.
+- `apex.Part.assignShellSection` — DEPRECATED: THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.PLEASE USE apex.attribute.createFieldThicknessOffsetConstant. assign a shell ...
+- `apex.Part.createImportedPartRepFlex` — create a Imported PartRep in this Part.
+- `apex.Part.createMeshBody` — Creates and returns a MeshBody in this Part.
+- `apex.Part.createNativePartRepFlex`
+- `apex.Part.createSketchOnDatumPlane` — Create and initialize a sketch on the input DatumPlane.
+- `apex.Part.createSketchOnGlobalPlane` — Create and initialize the sketch given a flat face.
+- `apex.Part.createSketchOnSurface` — Create and initialize the sketch given a face.
+- `apex.Part.delete_RENAMED_AFTER_SWIG` — Delete this Part.
+- `apex.Part.exportFEModel` — Exports this Part to a Nastran file.
+- `apex.Part.exportGeometry` — Export Geometry from this Part to a file using the supplied CAD format.
+- `apex.Part.exportMarc` — Exports the contents of the Part to a Marc file.
+- `apex.Part.getActivePartRep` — returns the active partRep.
+- `apex.Part.getBeamSpan` — Get a BeamSpan in this Part.
+- `apex.Part.getBeamSpans` — Returns read only collection of all BeamSpans contained by the Part.
+- `apex.Part.getBox` — Get a Box in this Part.
+- `apex.Part.getBoxes` — Get all Boxes in this Part.
+- `apex.Part.getCurve` — Get a Curve in this Part.
+- `apex.Part.getCurves` — Get all Curves in this Part.
+- `apex.Part.getCylinder` — Get a Cylinder in this Part.
+- `apex.Part.getCylinders` — Get all Cylinders in this Part.
+- `apex.Part.getDatumPlane` — Retrieves a named DatumPlane from this Part.
+- `apex.Part.getDatumPlanes` — Returns all DatumPlanes directly composed by this Part.
+- `apex.Part.getDisplayableEntities` — returns a collection of all entities in this Part that implement IDisplayable as an EntityCollection.
+- `apex.Part.getElements` — get the elements on this Entity (GeometryBody/GeometryTopology).
+- `apex.Part.getEllipsoid` — Get a Ellipsoid in this Part.
+- `apex.Part.getEllipsoids` — Get all Ellipsoids in this Part.
+- `apex.Part.getEntities` — Get all Entities in this Part.
+- `apex.Part.getExclusiveGroups` — returns a GroupCollection of all Groups that exclusively reference ONLY Entities composed by this Part.
+- `apex.Part.getExclusiveRegions` — returns a RegionCollection of all Regions that exclusively reference ONLY Entities composed by this Part.
+- `apex.Part.getFacetedCurve` — Get a Faceted Curve in this Part.
+- `apex.Part.getFacetedCurves` — Get all Faceted Curves in this Part.
+- `apex.Part.getFacetedSolid` — Get a Faceted Solid in this Part.
+- `apex.Part.getFacetedSolids` — Get all Faceted Solids in this Part.
+- `apex.Part.getFacetedSurface` — Get a Faceted Surface in this Part.
+- `apex.Part.getFacetedSurfaces` — Get all Faceted Surfaces in this Part.
+- `apex.Part.getGeometryBodies` — Get all Bodies in this Part.
+- `apex.Part.getGeometryBody` — Get a GeometryBody in this Part.
+- `apex.Part.getInterfacePoints` — returns a read only collection of all InterfacePoints composed by this Part
+- `apex.Part.getMesh` — Get a MeshBody in this Part.
+- `apex.Part.getMeshes` — Get all MesheBodies in this Part.
+- `apex.Part.getNamedEntities` — returns a collection of all entities in this Part that implement IName as an EntityCollection.
+- `apex.Part.getNodes` — get the nodes on this Entity (GeometryBody/GeometryTopology).
+- `apex.Part.getParent` — Get the parent Assembly for this Part.
+- `apex.Part.getPartProperties` — returns all entities in this PartProperty collection.
+- `apex.Part.getPartRep` — returns the specific partRep.
+- `apex.Part.getPartReps` — returns all entities in this PartRep collection.
+- `apex.Part.getPartialGroups` — returns a GroupCollection of all Groups that reference at least one Entity that is composed by this Part.
+- `apex.Part.getPartialRegions` — returns a RegionCollection of all Regions that reference at least one Entity that is composed by this Part.
+- `apex.Part.getPhysicalEntities` — returns a collection of all entities in this Part that implement ILocation as an EntityCollection.
+- `apex.Part.getPoint` — Get a Point in this Part.
+- `apex.Part.getPoints` — Get all Points in this Part.
+- `apex.Part.getReferenceSystem` — Gets A tuple to represent location and orientation to be used for reference system.
+- `apex.Part.getReferencedBy` — returns a collection of all entities that directly Reference this Part
+- `apex.Part.getSolid` — Get a Solid in this Part.
+- `apex.Part.getSolids` — Get all Solids in this Part.
+- `apex.Part.getSphere` — Get a Sphere in this Part.
+- `apex.Part.getSpheres` — Get all Spheres in this Part.
+- `apex.Part.getSurface` — Get a Surface in this Part.
+- `apex.Part.getSurfaces` — Get all Surfaces in this Part.
+- `apex.Part.importGeometry` — Imports a target CAD model from the input CAD files into target parts.
+- `apex.Part.importSTL` — Imports one or more STL files into this model and creates either mesh or geometry bodies depending on the supplied input values.
+- `apex.Part.setParent` — Set an Assembly to be the new parent for this Part.
+- `apex.Part.setReferenceSystem`
+- `apex.Part.unsetColor` — unapplies the color of this Part to all its children.
+- `apex.Part.unsetRender` — unapplies the renderStyle of this Part to all its children.
+- `apex.Part.update` — Update one or more of this Part properties.
+- `apex.PartCollection.PartCollection` — Construct a new PartCollection.
+- `apex.PartCollection.appendList` — Add Parts from a list to the end of this collection.
+- `apex.PartPropertyCollection.PartPropertyCollection` (2 overloads) — Construct a new PartPropertyCollection.
+- `apex.PartPropertyCollection.appendList` — Add reps from a list to the end of this collection.
+- `apex.PartPropertyRigid.getCM` — The Interface Point located at the Center of Mass for the Rigid Part Representation.
+- `apex.PartPropertyRigid.getCalculateProperties` — Returns Boolean of how the mass and inertia of the Rigid Part Representation is calculated.
+- `apex.PartPropertyRigid.getIM` — The Interface Point located at the Inertia Reference for the Rigid Part Representation.
+- `apex.PartPropertyRigid.getIxx` — The Ixx mass-inertial tensor component expressed in the im reference frame.
+- `apex.PartPropertyRigid.getIxy` — The Ixy mass-inertial tensor component expressed in the im reference frame.
+- `apex.PartPropertyRigid.getIyy` — The Iyy mass-inertial tensor component expressed in the im reference frame.
+- `apex.PartPropertyRigid.getIyz` — The Iyz mass-inertial tensor component expressed in the im reference frame.
+- `apex.PartPropertyRigid.getIzx` — The Izx mass-inertial tensor component expressed in the im reference frame.
+- `apex.PartPropertyRigid.getIzz` — The Izz mass-inertial tensor component expressed in the im reference frame.
+- `apex.PartPropertyRigid.getMass` — Mass of the Rigid Part Representation.
+- `apex.PartPropertyRigid.update` — One or more properties may be updated in each call to update().
+- `apex.PartRep.getRepProperty` — returns the part property of this PartRep
+- `apex.PartRep.getRepPropertyType` — returns Rep property type of this PartRep
+- `apex.PartRep.getTargets` — returns an EntityCollection of all entities directly composed by this PartRep.
+- `apex.PartRep.unsetColor` — unapplies the color of this Part Rep to all its children.
+- `apex.PartRep.unsetRender` — unapplies the renderStyle of this Part Rep to all its children.
+- `apex.PartRep.update` — update a rigid part rep.
+- `apex.PartRepCollection.PartRepCollection` (2 overloads) — Construct a new PartRepCollection.
+- `apex.PartRepCollection.appendList` — Add reps from a list to the end of this collection.
+- `apex.Region.addEntities` — Add entities to this Region.
+- `apex.Region.addEntity` — Add entity to this Region.
+- `apex.Region.getCentroid` — returns the centroid of this Region as a Coordinate.
+- `apex.Region.getTarget` — A collection of ILocation objects that represent this Region.
+- `apex.Region.removeEntities` — Removes entities from this Region.
+- `apex.Region.removeEntity` — Removes an entity from this Region.
+- `apex.RegionCollection.RegionCollection` — Construct a new RegionCollection.
+- `apex.UserAttribute.getAttributeName` — attribute name
+- `apex.UserAttribute.getAttributeType` — UserAttributeType.
+- `apex.UserAttribute.getBoolValue` — bool attribute (if type == Bool).
+- `apex.UserAttribute.getFloatValue` — float attribute (if type == Float).
+- `apex.UserAttribute.getIntValue` — integer attribute (if type == Int).
+- `apex.UserAttribute.getOwner` — Entity owner (if assigned).
+- `apex.UserAttribute.getStringValue` — string attribute (if type == Str).
+- `apex.UserAttributeCollection.UserAttributeCollection` — Construct a new UserAttributeCollection.
+- `apex.attribute.BeamShape.asBeamShape1DProfile` — cast to BeamShape1DProfile type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeC` — cast to BeamShapeC type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeCAlternate` — cast to BeamShapeCAlternate type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeCruciform` — cast to BeamShapeCruciform type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeH` — cast to BeamShapeH type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeHat` — cast to BeamShapeHat type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeHatClosed` — cast to BeamShapeHatClosed type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeHollowDoubleRectangular` — cast to BeamShapeHollowDoubleRectangular type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeHollowRectangularAsymmetric` — cast to BeamShapeHollowRectangularAsymmetric type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeHollowRectangularSymmetric` — cast to BeamShapeHollowRectangularSymmetric type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeHollowRound` — cast to BeamShapeHollowRound type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeHollowRoundByThickness` — cast to BeamShapeHollowRoundByThickness type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeIAsymmetric` — cast to BeamShapeIAsymmetric type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeISymmetric` — cast to BeamShapeISymmetric type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeL` — cast to BeamShapeL type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeNumeric` — cast to BeamShapeNumeric type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeSolidHexagon` — cast to BeamShapeSolidHexagon type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeSolidRectangle` — cast to BeamShapeSolidRectangle type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeSolidRound` — cast to BeamShapeSolidRound type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeT` — cast to BeamShapeT type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeTInverted` — cast to BeamShapeTInverted type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeTSideways` — cast to BeamShapeTSideways type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeU` — cast to BeamShapeU type (inherited by 24 classes)
+- `apex.attribute.BeamShape.asBeamShapeZ` — cast to BeamShapeZ type (inherited by 24 classes)
+- `apex.attribute.BeamShape.getBeamShapeArea` (inherited by 24 classes)
+- `apex.attribute.BeamShape.getBeamShapeAreaMomentAxis1` (inherited by 24 classes)
+- `apex.attribute.BeamShape.getBeamShapeAreaMomentAxis2` (inherited by 24 classes)
+- `apex.attribute.BeamShape.getBeamShapeProductAreaMoment` (inherited by 24 classes)
+- `apex.attribute.BeamShape.getBeamShapeTorsionalConstant` (inherited by 24 classes)
+- `apex.attribute.BeamShape.getCentroid` (inherited by 24 classes)
+- `apex.attribute.BeamShape.getPrincipalAxes` (inherited by 24 classes)
+- `apex.attribute.BeamShape.getShearCenter` (inherited by 24 classes)
+- `apex.attribute.BeamShape.update` — Update this Beam Shape properties. (inherited by 24 classes)
+- `apex.attribute.BeamShape1DProfile.getProfile`
+- `apex.attribute.BeamShape1DProfile.getSegmentThicknesses`
+- `apex.attribute.BeamShape1DProfile.update`
+- `apex.attribute.BeamShapeC.getFlangeThickness`
+- `apex.attribute.BeamShapeC.getOverallHeight`
+- `apex.attribute.BeamShapeC.getOverallWidth`
+- `apex.attribute.BeamShapeC.getWebThickness`
+- `apex.attribute.BeamShapeC.update`
+- `apex.attribute.BeamShapeCAlternate.getFlangeLength`
+- `apex.attribute.BeamShapeCAlternate.getFlangeSeparation`
+- `apex.attribute.BeamShapeCAlternate.getOverallHeight`
+- `apex.attribute.BeamShapeCAlternate.getWebThickness`
+- `apex.attribute.BeamShapeCAlternate.update`
+- `apex.attribute.BeamShapeCollection.BeamShapeCollection` — Construct a new BeamShapeCollection.
+- `apex.attribute.BeamShapeCruciform.getHorizontalSparExtension`
+- `apex.attribute.BeamShapeCruciform.getHorizontalSparWidth`
+- `apex.attribute.BeamShapeCruciform.getOverallHeight`
+- `apex.attribute.BeamShapeCruciform.getVerticalSparExtension`
+- `apex.attribute.BeamShapeCruciform.update`
+- `apex.attribute.BeamShapeH.getFlangeSeparation`
+- `apex.attribute.BeamShapeH.getFlangeThickness`
+- `apex.attribute.BeamShapeH.getOverallHeight`
+- `apex.attribute.BeamShapeH.getWebThickness`
+- `apex.attribute.BeamShapeH.update`
+- `apex.attribute.BeamShapeHat.getFlangeWidth`
+- `apex.attribute.BeamShapeHat.getHatWidth`
+- `apex.attribute.BeamShapeHat.getHeight`
+- `apex.attribute.BeamShapeHat.getThickness`
+- `apex.attribute.BeamShapeHat.update`
+- `apex.attribute.BeamShapeHatClosed.getHatThickness`
+- `apex.attribute.BeamShapeHatClosed.getHatWidth`
+- `apex.attribute.BeamShapeHatClosed.getHeadThickness`
+- `apex.attribute.BeamShapeHatClosed.getOverallHeight`
+- `apex.attribute.BeamShapeHatClosed.getOverallWidth`
+- `apex.attribute.BeamShapeHatClosed.update`
+- `apex.attribute.BeamShapeHollowDoubleRectangular.getBottomLeftWallThickness`
+- `apex.attribute.BeamShapeHollowDoubleRectangular.getBottomRightWallThickness`
+- `apex.attribute.BeamShapeHollowDoubleRectangular.getLeftWallThickness`
+- `apex.attribute.BeamShapeHollowDoubleRectangular.getOverallHeight`
+- `apex.attribute.BeamShapeHollowDoubleRectangular.getOverallWidth`
+- `apex.attribute.BeamShapeHollowDoubleRectangular.getRightWallThickness`
+- `apex.attribute.BeamShapeHollowDoubleRectangular.getTopLeftWallThickness`
+- `apex.attribute.BeamShapeHollowDoubleRectangular.getTopRightWallThickness`
+- `apex.attribute.BeamShapeHollowDoubleRectangular.getWebOffset`
+- `apex.attribute.BeamShapeHollowDoubleRectangular.getWebThickness`
+- `apex.attribute.BeamShapeHollowDoubleRectangular.update`
+- `apex.attribute.BeamShapeHollowRectangularAsymmetric.getCeilingThickness`
+- `apex.attribute.BeamShapeHollowRectangularAsymmetric.getFloorThickness`
+- `apex.attribute.BeamShapeHollowRectangularAsymmetric.getLeftSideThickness`
+- `apex.attribute.BeamShapeHollowRectangularAsymmetric.getOverallHeight`
+- `apex.attribute.BeamShapeHollowRectangularAsymmetric.getOverallWidth`
+- `apex.attribute.BeamShapeHollowRectangularAsymmetric.getRightSideThickness`
+- `apex.attribute.BeamShapeHollowRectangularAsymmetric.update`
+- `apex.attribute.BeamShapeHollowRectangularSymmetric.getFloorCeilingThickness`
+- `apex.attribute.BeamShapeHollowRectangularSymmetric.getOverallHeight`
+- `apex.attribute.BeamShapeHollowRectangularSymmetric.getOverallWidth`
+- `apex.attribute.BeamShapeHollowRectangularSymmetric.getSideWallThickness`
+- `apex.attribute.BeamShapeHollowRectangularSymmetric.update`
+- `apex.attribute.BeamShapeHollowRound.getInnerRadius`
+- `apex.attribute.BeamShapeHollowRound.getOuterRadius`
+- `apex.attribute.BeamShapeHollowRound.update`
+- `apex.attribute.BeamShapeHollowRoundByThickness.getOuterRadius`
+- `apex.attribute.BeamShapeHollowRoundByThickness.getThickness`
+- `apex.attribute.BeamShapeHollowRoundByThickness.update`
+- `apex.attribute.BeamShapeIAsymmetric.getBottomFlangeThickness`
+- `apex.attribute.BeamShapeIAsymmetric.getBottomFlangeWidth`
+- `apex.attribute.BeamShapeIAsymmetric.getOverallHeight`
+- `apex.attribute.BeamShapeIAsymmetric.getTopFlangeThickness`
+- `apex.attribute.BeamShapeIAsymmetric.getTopFlangeWidth`
+- `apex.attribute.BeamShapeIAsymmetric.getWebThickness`
+- `apex.attribute.BeamShapeIAsymmetric.update`
+- `apex.attribute.BeamShapeISymmetric.getFlangeExtension`
+- `apex.attribute.BeamShapeISymmetric.getFlangeSeparation`
+- `apex.attribute.BeamShapeISymmetric.getOverallHeight`
+- `apex.attribute.BeamShapeISymmetric.getWebThickness`
+- `apex.attribute.BeamShapeISymmetric.update`
+- `apex.attribute.BeamShapeL.getHorizontalLegThickness`
+- `apex.attribute.BeamShapeL.getOverallHeight`
+- `apex.attribute.BeamShapeL.getOverallWidth`
+- `apex.attribute.BeamShapeL.getVerticalLegThickness`
+- `apex.attribute.BeamShapeL.update`
+- `apex.attribute.BeamShapeNumeric.getAreaCrossSection`
+- `apex.attribute.BeamShapeNumeric.getAreaMomentOfInertia_I11`
+- `apex.attribute.BeamShapeNumeric.getAreaMomentOfInertia_I22`
+- `apex.attribute.BeamShapeNumeric.getAreaProductOfInertia_I12`
+- `apex.attribute.BeamShapeNumeric.getBeamBehaviorType`
+- `apex.attribute.BeamShapeNumeric.getShearCenterLocation`
+- `apex.attribute.BeamShapeNumeric.getShearStiffnessFactor_K1`
+- `apex.attribute.BeamShapeNumeric.getShearStiffnessFactor_K2`
+- `apex.attribute.BeamShapeNumeric.getStressRecoveryPoints`
+- `apex.attribute.BeamShapeNumeric.getTorsionalStiffness`
+- `apex.attribute.BeamShapeNumeric.getTorsionalStressCoefficient`
+- `apex.attribute.BeamShapeNumeric.update`
+- `apex.attribute.BeamShapeProperty.add`
+- `apex.attribute.BeamShapeProperty.get`
+- `apex.attribute.BeamShapeSolidHexagon.getHeight`
+- `apex.attribute.BeamShapeSolidHexagon.getOffset`
+- `apex.attribute.BeamShapeSolidHexagon.getWidth`
+- `apex.attribute.BeamShapeSolidHexagon.update`
+- `apex.attribute.BeamShapeSolidRectangle.getHeight`
+- `apex.attribute.BeamShapeSolidRectangle.getWidth`
+- `apex.attribute.BeamShapeSolidRectangle.update`
+- `apex.attribute.BeamShapeSolidRound.getRadius`
+- `apex.attribute.BeamShapeSolidRound.update`
+- `apex.attribute.BeamShapeT.getBaseThickness`
+- `apex.attribute.BeamShapeT.getOverallHeight`
+- `apex.attribute.BeamShapeT.getOverallWidth`
+- `apex.attribute.BeamShapeT.getSparThickness`
+- `apex.attribute.BeamShapeT.update`
+- `apex.attribute.BeamShapeTInverted.getBaseThickness`
+- `apex.attribute.BeamShapeTInverted.getOverallHeight`
+- `apex.attribute.BeamShapeTInverted.getOverallWidth`
+- `apex.attribute.BeamShapeTInverted.getSparThickness`
+- `apex.attribute.BeamShapeTInverted.update`
+- `apex.attribute.BeamShapeTSideways.getBaseThickness`
+- `apex.attribute.BeamShapeTSideways.getOverallHeight`
+- `apex.attribute.BeamShapeTSideways.getSparLength`
+- `apex.attribute.BeamShapeTSideways.getSparThickness`
+- `apex.attribute.BeamShapeTSideways.update`
+- `apex.attribute.BeamShapeU.getFlangeThickness`
+- `apex.attribute.BeamShapeU.getOverallHeight`
+- `apex.attribute.BeamShapeU.getOverallWidth`
+- `apex.attribute.BeamShapeU.getWebThickness`
+- `apex.attribute.BeamShapeU.update`
+- `apex.attribute.BeamShapeZ.getFlangeExtension`
+- `apex.attribute.BeamShapeZ.getFlangeSeparation`
+- `apex.attribute.BeamShapeZ.getOverallHeight`
+- `apex.attribute.BeamShapeZ.getWebThickness`
+- `apex.attribute.BeamShapeZ.update`
+- `apex.attribute.BeamSpan.getBeamShapeSide` — Returns the BeamShape side that touches the stiffened plate.
+- `apex.attribute.BeamSpan.getBeamSpanType` — Returns BeamSpanType of the BeamSpan.
+- `apex.attribute.BeamSpan.getBeamTarget` — Read only property that returns the apex.geometry.EdgeCollection that the BeamSpan is assigned to.
+- `apex.attribute.BeamSpan.getDistributionType`
+- `apex.attribute.BeamSpan.getFieldOffset1` — Field of offset from end A to end B in the "1" direction, the data type is one dictionary.
+- `apex.attribute.BeamSpan.getFieldOffset2` — Field of offset from end A to end B in the "2" direction, the data type is one dictionary.
+- `apex.attribute.BeamSpan.getFieldVector` — Field of vectors is used to define the orientation, the data type is one dictionary.
+- `apex.attribute.BeamSpan.getMaterial` — Returns the referenced Material object by the BeamSpan.
+- `apex.attribute.BeamSpan.getPathEdge` — DEPRECATED: THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `apex.attribute.BeamSpan.getPlateFace` — DEPRECATED: THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `apex.attribute.BeamSpan.getPlateSide` — Returns the side of the stiffened plate that is touched by the beam span.
+- `apex.attribute.BeamSpan.getPlateTarget` — Read only property that returns the apex.geometry.FaceCollection that the BeamSpan is associated with.
+- `apex.attribute.BeamSpan.getReferences` — returns a collection of all entities that this BeamSpan directly references
+- `apex.attribute.BeamSpan.getShapeBoundaryDistanceA` — Returns boundary distance of shape A of the BeamSpan.
+- `apex.attribute.BeamSpan.getShapeBoundaryDistanceB` — Returns boundary distance of shape B of the BeamSpan.
+- `apex.attribute.BeamSpan.getShapeEndADirection1` — Returns the direction of the "1" axis of the "End A" BeamShape as a Vector3D.
+- `apex.attribute.BeamSpan.getShapeEndADirection2` — Returns the direction of the "2" axis of the "End A" BeamShape as a Vector3D.
+- `apex.attribute.BeamSpan.getShapeEndAOffsetGlobal` — Returns the offset, in 3D space, of the origin of the BeamShape relative to the BeamSpan at end 'A' of the span.
+- `apex.attribute.BeamSpan.getShapeEndAShearCenterOffsetGlobal` — Returnsthe offset, in 3D space, of the shear center of the BeamShape relative to the BeamSpan at end 'A' of the span.
+- `apex.attribute.BeamSpan.getShapeEndBDirection1` — Returns the direction of the "1" axis of the "End B" BeamShape as a Vector3D.
+- `apex.attribute.BeamSpan.getShapeEndBDirection2` — Returns the direction of the "2" axis of the "End B" BeamShape as a Vector3D.
+- `apex.attribute.BeamSpan.getShapeEndBOffsetGlobal` — Returns the offset, in 3D space, of the origin of the BeamShape relative to the BeamSpan at end 'B' of the span.
+- `apex.attribute.BeamSpan.getShapeEndBShearCenterOffsetGlobal` — Returnsthe offset, in 3D space, of the shear center of the BeamShape relative to the BeamSpan at end 'B' of the span.
+- `apex.attribute.BeamSpan.getSpanOrientationA`
+- `apex.attribute.BeamSpan.getSpanOrientationB`
+- `apex.attribute.BeamSpan.getStationAOrientation` — Returns Station A shape orientation of the BeamSpan.
+- `apex.attribute.BeamSpan.getStationAShape` — Returns the referenced BeamShape object at station A by the BeamSpan.
+- `apex.attribute.BeamSpan.getStationAXoffset` — Returns Station A Xoffset of the BeamSpan.
+- `apex.attribute.BeamSpan.getStationAYOffset` — Returns Station A Yoffset of the BeamSpan.
+- `apex.attribute.BeamSpan.getStationBOrientation` — Returns Station B shape orientation of the BeamSpan.
+- `apex.attribute.BeamSpan.getStationBShape` — Returns the referenced BeamShape object at station B by the BeamSpan.
+- `apex.attribute.BeamSpan.getStationBXoffset` — Returns Station B Xoffset of the BeamSpan.
+- `apex.attribute.BeamSpan.getStationBYOffset` — Returns Station B Yoffset of the BeamSpan.
+- `apex.attribute.BeamSpan.isTaperSection` — check if the BeamSpan is tapered.
+- `apex.attribute.BeamSpan.reverse` — Reverses the orientation of the BeamSpan.
+- `apex.attribute.BeamSpan.update` — updates one or more of the BeamSpan properties.
+- `apex.attribute.BeamSpanCollection.BeamSpanCollection` — Construct a new BeamSpanCollection.
+- `apex.attribute.Bolt3D.getBoltAxisOrientation` — Get the Bolt axis orientation with a 3D vector.
+- `apex.attribute.Bolt3D.getBoltBody` — Get body of the 3D bolt object.
+- `apex.attribute.Bolt3D.getBoltPreloads` — Get A collection of bolt preload object applying to the bolt object.If bolt preload is not existing, returns None.
+- `apex.attribute.Bolt3D.getControlNode` — Get the Control node of the bolt.
+- `apex.attribute.Bolt3D.getControlNodeDefinitionMethod` — Get the control node definition method of bolt.
+- `apex.attribute.Bolt3D.getCrossSectionElements` — Get the Cross section elements opposites to bolt axis orientation.
+- `apex.attribute.Bolt3D.getCrossSectionFaces` — Get the Cross section Faces to detect cross section elements and nodes.
+- `apex.attribute.Bolt3D.getCrossSectionMethod` — Get the Cross section definition method of the 3D bolt object.
+- `apex.attribute.Bolt3D.getCrossSectionNodes` — Get the Nodes of the cross section of bolt.
+- `apex.attribute.Bolt3D.getCrossSectionOffset` — Get the Cross section offset of the bolt.
+- `apex.attribute.Bolt3D.getId` — Get the id of the bolt object.
+- `apex.attribute.Bolt3D.getScaleOfOffset` — Get the scale which used to determine the offset value from top or bottom.
+- `apex.attribute.Bolt3D.update` — Used to Update the 3D bolt object.
+- `apex.attribute.Bolt3DCollection.Bolt3DCollection` — Construct a new Bolt3DCollection.
+- `apex.attribute.BushingCollection.BushingCollection` — Construct a new BushingCollection.
+- `apex.attribute.BushingRepProperties.getEmbedded` — Returns embedded of the bushing.
+- `apex.attribute.BushingRepProperties.getId` — Returns id of the bushing.
+- `apex.attribute.BushingRepProperties.getLengthOfCoincidentGrids` — The coincidentGridsLengthof bushing.
+- `apex.attribute.BushingRepProperties.getMass` — The lumped mass of bushing.
+- `apex.attribute.BushingRepProperties.getReferenceTemperature` — The reference temperature of bushing.
+- `apex.attribute.BushingRepProperties.getRotationalDampingX` — The rotationalDamping in X direction.
+- `apex.attribute.BushingRepProperties.getRotationalDampingY` — The rotationalDamping in Y direction.
+- `apex.attribute.BushingRepProperties.getRotationalDampingZ` — The rotationalDamping in Z direction.
+- `apex.attribute.BushingRepProperties.getRotationalStiffnessX` — The rotationalStiffness in X direction.
+- `apex.attribute.BushingRepProperties.getRotationalStiffnessY` — The rotationalStiffness in Y direction.
+- `apex.attribute.BushingRepProperties.getRotationalStiffnessZ` — The rotationalStiffness in Z direction.
+- `apex.attribute.BushingRepProperties.getRotationalStrainRecovery` — The rotationalStrainRecovery of bushing.
+- `apex.attribute.BushingRepProperties.getRotationalStressRecovery` — The rotationalStressRecovery of bushing.
+- `apex.attribute.BushingRepProperties.getRotationalStructuralDampingX` — The structuralDampingRotation in X direction.
+- `apex.attribute.BushingRepProperties.getRotationalStructuralDampingY` — The structuralDampingRotation in Y direction.
+- `apex.attribute.BushingRepProperties.getRotationalStructuralDampingZ` — The structuralDampingRotation in Z direction.
+- `apex.attribute.BushingRepProperties.getThermalExpansionCoefficient` — The thermal expansion coefficient of bushing.
+- `apex.attribute.BushingRepProperties.getTranslationalDampingX` — The translationalDamping in X direction.
+- `apex.attribute.BushingRepProperties.getTranslationalDampingY` — The translationalDamping in Y direction.
+- `apex.attribute.BushingRepProperties.getTranslationalDampingZ` — The translationalDamping in Z direction.
+- `apex.attribute.BushingRepProperties.getTranslationalStiffnessX` — The translationalStiffness in X direction.
+- `apex.attribute.BushingRepProperties.getTranslationalStiffnessY` — The translationalStiffness in Y direction.
+- `apex.attribute.BushingRepProperties.getTranslationalStiffnessZ` — The translationalStiffness in Z direction.
+- `apex.attribute.BushingRepProperties.getTranslationalStrainRecovery` — The translationalStrainRecovery of bushing.
+- `apex.attribute.BushingRepProperties.getTranslationalStressRecovery` — The translationalStressRecovery of bushing.
+- `apex.attribute.BushingRepProperties.getTranslationalStructuralDampingX` — The structuralDampingDirection in X direction.
+- `apex.attribute.BushingRepProperties.getTranslationalStructuralDampingY` — The structuralDampingDirection in Y direction.
+- `apex.attribute.BushingRepProperties.getTranslationalStructuralDampingZ` — The structuralDampingDirection in Z direction.
+- `apex.attribute.BushingRepProperties.update` — Update this connector properties.
+- `apex.attribute.BushingRepPropertiesCollection.BushingRepPropertiesCollection` — Construct a new BushingRepPropertiesCollection.
+- `apex.attribute.Connector.getApplicationMethod1` — Returns ApplicationMethod1 of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getApplicationMethod2` — Returns ApplicationMethod2 of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getClosedStiffness` — Returns closedStiffness of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getConnectorProperties` — Returns ConnectorProperty of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getConnectorType` — Returns connectorType of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getDamping` — Returns Damping of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getDiameter` — Returns diameter of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getEnd1AttachmentRegion` — Returns end1AttachmentRegion of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getEnd1DistributionMethod` — Returns end1DistributionMethod of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getEnd1InterfacePoint` — Returns End1InterfacePoint of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getEnd2AttachmentRegion` — Returns end2AttachmentRegion of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getEnd2DistributionMethod` — Returns end2DistributionMethod of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getEnd2InterfacePoint` — Returns End2InterfacePoint of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getInitialOpening` — Returns initialOpening of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getKineticFriction` — Returns kineticFriction of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getLinkMaterial` — Returns the Referenced Material of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getOpenStiffness` — Returns openStiffness of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getOrientation` — Returns apex.construct.Orientation of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getPreload` — Returns preload of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getRotationalDampingX` — Returns rotationalDampingX of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getRotationalDampingY` — Returns rotationalDampingY of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getRotationalDampingZ` — Returns rotationalDampingZ of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getRotationalStiffnessX` — Returns rotationalStiffnessX of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getRotationalStiffnessY` — Returns rotationalStiffnessY of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getRotationalStiffnessZ` — Returns rotationalStiffnessZ of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getStaticFriction` — Returns staticFriction of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getStiffness` — Returns stiffness of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getTranslationalDampingX` — Returns translationalDampingX of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getTranslationalDampingY` — Returns translationalDampingY of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getTranslationalDampingZ` — Returns translationalDampingZ of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getTranslationalStiffnessX` — Returns translationalStiffnessX of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getTranslationalStiffnessY` — Returns translationalStiffnessY of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getTranslationalStiffnessZ` — Returns translationalStiffnessZ of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.getTransverseStiffness` — Returns transverseStiffness of the Connector. (inherited by 8 classes)
+- `apex.attribute.Connector.update` — Update this Connector properties. (inherited by 8 classes)
+- `apex.attribute.ConnectorCollection.ConnectorCollection` — Construct a new ConnectorCollection.
+- `apex.attribute.ConnectorDiscrete.getApplicationMethod1` — The application method for the 1st end of the connector.
+- `apex.attribute.ConnectorDiscrete.getApplicationMethod2` — The application method for the 2nd end of the connector.
+- `apex.attribute.ConnectorDiscrete.getConnectorDiscreteProperties` — The connectorProperties of the connector.
+- `apex.attribute.ConnectorDiscrete.getConnectorType` — The connectorType of ConnectorDiscrete.
+- `apex.attribute.ConnectorDiscrete.getCreateTypeForFastener` — Returns indicate the creation type as one of the enumerations : "ByElement" or "ByProperty".
+- `apex.attribute.ConnectorDiscrete.getEnd1AttachmentRegion` — DEPRECATED. The attachment region of the 1st end.
+- `apex.attribute.ConnectorDiscrete.getEnd1DOF` — Returns end1DOF of the ConnectorDiscrete.
+- `apex.attribute.ConnectorDiscrete.getEnd1DependentDOF` — Returns end1DependentDOF of the ConnectorDiscrete.
+- `apex.attribute.ConnectorDiscrete.getEnd1DistributionMethod` — The distribution type of the 1st end.
+- `apex.attribute.ConnectorDiscrete.getEnd1IndependentDOF` — Returns end1IndependentDOF of the ConnectorDiscrete.
+- `apex.attribute.ConnectorDiscrete.getEnd1InterfacePoint` — The location of the 1st end.
+- `apex.attribute.ConnectorDiscrete.getEnd2AttachmentRegion` — DEPRECATED. The attachment region of the 2nd end.
+- `apex.attribute.ConnectorDiscrete.getEnd2DOF` — Returns end2DOFof the ConnectorDiscrete.
+- `apex.attribute.ConnectorDiscrete.getEnd2DependentDOF` — Returns end2DependentDOF of the ConnectorDiscrete.
+- `apex.attribute.ConnectorDiscrete.getEnd2DistributionMethod` — The distribution type of the 2nd end.
+- `apex.attribute.ConnectorDiscrete.getEnd2IndependentDOF` — Returns end2IndependentDOF of the ConnectorDiscrete.
+- `apex.attribute.ConnectorDiscrete.getEnd2InterfacePoint` — The location of the 2nd end.
+- `apex.attribute.ConnectorDiscrete.getId` — Returns id of the ConnectorDiscrete.
+- `apex.attribute.ConnectorDiscrete.getLocationOffsetCoordinateSystem` — Returns locationOffsetCoordinateSystem of the ConnectorDiscrete.
+- `apex.attribute.ConnectorDiscrete.getLocationOffsetCoordinates` — Returns locationOffsetCoordinates of the ConnectorDiscrete.
+- `apex.attribute.ConnectorDiscrete.getLocationParametric` — Returns locationParametric of the ConnectorDiscrete.
+- `apex.attribute.ConnectorDiscrete.getMasterLocationForPatches` — Returns master location for patches.
+- `apex.attribute.ConnectorDiscrete.getMasterNodeForPatches` — Returns location of master node for two patches.
+- `apex.attribute.ConnectorDiscrete.getOrientation` — Returns apex.construct.Orientation of the ConnectorDiscrete.
+- `apex.attribute.ConnectorDiscrete.getOrientationByLocation` — Returns orientationByLocation of the ConnectorDiscrete.
+- `apex.attribute.ConnectorDiscrete.getOrientationByVector` — Returns orientationByVector of the ConnectorDiscrete.
+- `apex.attribute.ConnectorDiscrete.getPiercingNodeForPatchA` — Returns piercing point for patch A.
+- `apex.attribute.ConnectorDiscrete.getPiercingNodeForPatchB` — Returns piercing location for patch B.
+- `apex.attribute.ConnectorDiscrete.update` — Update this ConnectorDiscrete.
+- `apex.attribute.ConnectorDiscreteCollection.ConnectorDiscreteCollection` — Construct a new ConnectorDiscreteCollection.
+- `apex.attribute.ContactBody.getBodyProperty` — Contact body properties.
+- `apex.attribute.ContactBody.getBodyType` — Defines if the body is rigid or deformable.
+- `apex.attribute.ContactBody.getContactResultCalculation` — Calculate the global resultant contact force/moment in Origin or Estimated centroid.
+- `apex.attribute.ContactBody.getId` — ID of the contact body.
+- `apex.attribute.ContactBody.getTarget` — An entity collection for contact body.
+- `apex.attribute.ContactBody.update` — update the contact body.
+- `apex.attribute.ContactBodyCollection.ContactBodyCollection` — Construct a new ContactBodyCollection.
+- `apex.attribute.ContactBodyProperty.getDiscontinuityDefinition` — Discontinuity Definition for smoothing.
+- `apex.attribute.ContactBodyProperty.getDiscontinuityTarget` — the target discontinuities entities for smoothing.
+- `apex.attribute.ContactBodyProperty.getIgnoreShellThickness` — Consider or ignore shell thickness during detection of contact.
+- `apex.attribute.ContactBodyProperty.getProjectMidNode` — Optional - The mid-side grid of quadratic elements are projected onto the selected spline surfaces.
+- `apex.attribute.ContactBodyProperty.getShellLayer` — Shell layer to be used for contact detection.
+- `apex.attribute.ContactBodyProperty.getSmoothingFeatureAngle` — Optional - Angle to detect feature edges.
+- `apex.attribute.ContactBodyProperty.getSmoothingState` — Optional - enable to control geometric smoothing of boundary of deformable body.
+- `apex.attribute.ContactBodyProperty.update` — update contact body property.
+- `apex.attribute.ContactTable.getId` — Returns ID of the ContactTable.
+- `apex.attribute.ContactTable.getInteractions` — Returns A collection of Interaction for the ContactTable.
+- `apex.attribute.ContactTable.update` — Creates and returns a ContactTable.
+- `apex.attribute.ContactTableCollection.ContactTableCollection` — Construct a new ContactTableCollection.
+- `apex.attribute.CylindricalJoint.update` — Update this CylindricalJoint properties.
+- `apex.attribute.Damper1DCollection.Damper1DCollection` — Construct a new Damper1DCollection.
+- `apex.attribute.Damper1DRepProperties.getDamping` — The damping of the Damper1D connector.
+- `apex.attribute.Damper1DRepProperties.getEmbedded` — Returns embedded of the Damper1D connector.
+- `apex.attribute.Damper1DRepProperties.getId` — Returns id of the Damper1D connector.
+- `apex.attribute.Damper1DRepProperties.update` — Update this connector properties.
+- `apex.attribute.Damper1DRepPropertiesCollection.Damper1DRepPropertiesCollection` — Construct a new Damper1DRepPropertiesCollection.
+- `apex.attribute.DiscreteDataTable.getRegions` — get the discrete region list.
+- `apex.attribute.DiscreteDataTable.removeValueByElementFaceID` — remove element if DiscreteRegionType is ElementFace.
+- `apex.attribute.DiscreteDataTable.removeValueByElementID` — remove element if DiscreteRegionType is Element.
+- `apex.attribute.DiscreteDataTable.removeValueByElementNodeID` — remove element if DiscreteRegionType is ElementNode.
+- `apex.attribute.DiscreteDataTable.removeValueByFaceNodeID` — remove element if DiscreteRegionType is FaceNode.
+- `apex.attribute.DiscreteDataTable.updateValueByElementFaceID` — Update the value field if DiscreteRegionType is ElementFace.
+- `apex.attribute.DiscreteDataTable.updateValueByElementID` — Update the value field if DiscreteRegionType is Element.
+- `apex.attribute.DiscreteDataTable.updateValueByElementNodeID` — Update the value field if DiscreteRegionType is ElementNode.
+- `apex.attribute.DiscreteDataTable.updateValueByFaceNodeID` — Update the value field if DiscreteRegionType is FaceNode.
+- `apex.attribute.DiscreteDataTable.updateValueByNodeID` — Update the value field if DiscreteRegionType is Node.
+- `apex.attribute.DiscreteDataTable.updateVectorByElementID` — Update the vector in Field if DiscreteRegionType is Element.
+- `apex.attribute.DiscreteDataTable.updateVectorByElementNodeID` — update the vector field if DiscreteRegionType is ElementNode.
+- `apex.attribute.DiscreteFEMField.getDiscreteFEMFieldType` — Get the DiscreteFEMFieldType of DiscreteFEMField. (inherited by `MaterialOrientationField2D`, `MaterialOrientationField2DAlignCurve`, `MaterialOrientationField2DCoordinate`, `ThicknessOffsetField`, `ThicknessOffsetFieldConstant`, `ThicknessOffsetFieldMidsurface`)
+- `apex.attribute.DiscreteFEMField.getDiscreteValue` — Get the discrete value that this DiscreteFEMField has. (inherited by `MaterialOrientationField2D`, `MaterialOrientationField2DAlignCurve`, `MaterialOrientationField2DCoordinate`, `ThicknessOffsetField`, `ThicknessOffsetFieldConstant`, `ThicknessOffsetFieldMidsurface`)
+- `apex.attribute.DiscreteFEMField.updateDiscreteValue` — Used to update the attribute for DiscreteFEMField. (inherited by `MaterialOrientationField2D`, `MaterialOrientationField2DAlignCurve`, `MaterialOrientationField2DCoordinate`, `ThicknessOffsetField`, `ThicknessOffsetFieldConstant`, `ThicknessOffsetFieldMidsurface`)
+- `apex.attribute.DiscreteFEMFieldCollection.DiscreteFEMFieldCollection` — Construct a new DiscreteFEMFieldCollection.
+- `apex.attribute.DiscreteRegion.getDiscreteIDs1a`
+- `apex.attribute.DiscreteRegion.getDiscreteIDs1b`
+- `apex.attribute.DiscreteRegion.getDiscreteIDs2`
+- `apex.attribute.DiscreteRegion.getDiscreteRegionType`
+- `apex.attribute.DiscreteRegion.getMeshBodyIndices`
+- `apex.attribute.DiscreteRegion.getValues`
+- `apex.attribute.DiscreteTie.deleteNodeTies` — Remove NodeTies from this DiscreteTie.
+- `apex.attribute.DiscreteTie.getCount` — Returns Count (of NodeTies in) of the DiscreteTie.
+- `apex.attribute.DiscreteTie.getDependentDof` — Returns dependentDoF of the DiscreteTie.
+- `apex.attribute.DiscreteTie.getDistributionMode` — Returns distributionMode of the DiscreteTie.
+- `apex.attribute.DiscreteTie.getDistributionType` — Returns distributionType of the DiscreteTie.
+- `apex.attribute.DiscreteTie.getNodeTieByID` — get an existing NodeTie under Discrete Tie by ID
+- `apex.attribute.DiscreteTie.update` — Update this DiscreteTie properties.
+- `apex.attribute.DiscreteTieCollection.DiscreteTieCollection` — Construct a new DiscreteTieCollection.
+- `apex.attribute.DisplacementConstraintProperty.getConstrainRotationX`
+- `apex.attribute.DisplacementConstraintProperty.getConstrainRotationY`
+- `apex.attribute.DisplacementConstraintProperty.getConstrainRotationZ`
+- `apex.attribute.DisplacementConstraintProperty.getConstrainTranslationX`
+- `apex.attribute.DisplacementConstraintProperty.getConstrainTranslationY`
+- `apex.attribute.DisplacementConstraintProperty.getConstrainTranslationZ`
+- `apex.attribute.DisplacementConstraintProperty.setConstrainRotationX`
+- `apex.attribute.DisplacementConstraintProperty.setConstrainRotationY`
+- `apex.attribute.DisplacementConstraintProperty.setConstrainRotationZ`
+- `apex.attribute.DisplacementConstraintProperty.setConstrainTranslationX`
+- `apex.attribute.DisplacementConstraintProperty.setConstrainTranslationY`
+- `apex.attribute.DisplacementConstraintProperty.setConstrainTranslationZ`
+- `apex.attribute.ElasticityLinear2DAniso.ElasticityLinear2DAniso`
+- `apex.attribute.ElasticityLinear2DAniso.getMaterialMatrix11` — Returns Matrix11 of the constitutive model.
+- `apex.attribute.ElasticityLinear2DAniso.getMaterialMatrix12` — Returns Matrix12 of the constitutive model.
+- `apex.attribute.ElasticityLinear2DAniso.getMaterialMatrix13` — Returns Matrix13 of the constitutive model.
+- `apex.attribute.ElasticityLinear2DAniso.getMaterialMatrix22` — Returns Matrix22 of the constitutive model.
+- `apex.attribute.ElasticityLinear2DAniso.getMaterialMatrix23` — Returns Matrix23 of the constitutive model.
+- `apex.attribute.ElasticityLinear2DAniso.getMaterialMatrix33` — Returns Matrix33 of the constitutive model.
+- `apex.attribute.ElasticityLinear2DAniso.update` — Update properties of this ElasticityLinear2DAniso constitutive model.
+- `apex.attribute.ElasticityLinear2DOrtho.ElasticityLinear2DOrtho` — Create ElasticityLinear2DOrtho constitutive model.
+- `apex.attribute.ElasticityLinear2DOrtho.getElasticModulus11` — Returns Elastic Modulus 11 of the constitutive model.
+- `apex.attribute.ElasticityLinear2DOrtho.getElasticModulus22` — Returns Shear Modulus 22 of the constitutive model.
+- `apex.attribute.ElasticityLinear2DOrtho.getPoissonRatio` — Returns Poisson Ratio of the constitutive model.
+- `apex.attribute.ElasticityLinear2DOrtho.getShearModulus12` — Returns Shear Modulus 12 of the constitutive model.
+- `apex.attribute.ElasticityLinear2DOrtho.getShearModulus13` — Returns Shear Modulus 13 of the constitutive model.
+- `apex.attribute.ElasticityLinear2DOrtho.getShearModulus23` — Returns Shear Modulus 23 of the constitutive model.
+- `apex.attribute.ElasticityLinear2DOrtho.update` — Update properties of this ElasticityLinear2DOrtho constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.ElasticityLinear3DAniso` — Create ElasticityLinear2DOrtho constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.getMaterialMatrix11` — Returns Matrix11 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.getMaterialMatrix12` — Returns Matrix12 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.getMaterialMatrix13` — Returns Matrix13 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.getMaterialMatrix14` — Returns Matrix14 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.getMaterialMatrix15` — Returns Matrix15 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.getMaterialMatrix16` — Returns Matrix16 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.getMaterialMatrix22` — Returns Matrix22 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.getMaterialMatrix23` — Returns Matrix23 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.getMaterialMatrix24` — Returns Matrix24 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.getMaterialMatrix25` — Returns Matrix25 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.getMaterialMatrix26` — Returns Matrix26 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.getMaterialMatrix33` — Returns Matrix33 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.getMaterialMatrix34` — Returns Matrix34 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.getMaterialMatrix35` — Returns Matrix35 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.getMaterialMatrix36` — Returns Matrix36 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.getMaterialMatrix44` — Returns Matrix44 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.getMaterialMatrix45` — Returns Matrix45 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.getMaterialMatrix46` — Returns Matrix46 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.getMaterialMatrix55` — Returns Matrix55 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.getMaterialMatrix56` — Returns Matrix56 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.getMaterialMatrix66` — Returns Matrix66 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DAniso.update` — Update properties of this ElasticityLinear2DOrtho constitutive model.
+- `apex.attribute.ElasticityLinear3DOrtho.ElasticityLinear3DOrtho` — Create ElasticityLinear3DOrtho constitutive model.
+- `apex.attribute.ElasticityLinear3DOrtho.getElasticModulus11` — Returns ElasticModulus11 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DOrtho.getElasticModulus22` — Returns ElasticModulus22 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DOrtho.getElasticModulus33` — Returns ElasticModulus33 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DOrtho.getPoissonRatio12` — Returns PoissonRatio12 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DOrtho.getPoissonRatio13` — Returns PoissonRatio13 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DOrtho.getPoissonRatio23` — Returns PoissonRatio23 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DOrtho.getShearModulus12` — Returns ShearModulus12 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DOrtho.getShearModulus13` — Returns ShearModulus13 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DOrtho.getShearModulus23` — Returns ShearModulusc23 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DOrtho.update` — Update properties of this ElasticityLinear3DOrtho constitutive model.
+- `apex.attribute.ElasticityLinear3DTransvIso.ElasticityLinear3DTransvIso` — Create ElasticityLinear3DTransvIso constitutive model.
+- `apex.attribute.ElasticityLinear3DTransvIso.getElasticModulusAxial` — Returns ElasticModulus11 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DTransvIso.getElasticModulusPlan` — Returns ElasticModulus22 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DTransvIso.getPoissonRatioxy` — Returns ShearModulus12 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DTransvIso.getPoissonRatioyz` — Returns ShearModulusc23 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DTransvIso.getShearModulusxy` — Returns ElasticModulus33 of the constitutive model.
+- `apex.attribute.ElasticityLinear3DTransvIso.update` — Update properties of this ElasticityLinear3DTransvIso constitutive model.
+- `apex.attribute.ElasticityLinearIso.ElasticityLinearIso` — Create ElasticityLinearIso constitutive model.
+- `apex.attribute.ElasticityLinearIso.getElasticModulus` — Returns Elastic Modulus of the material.
+- `apex.attribute.ElasticityLinearIso.getPoissonRatio` — Returns Poisson Ratio of the material.
+- `apex.attribute.ElasticityLinearIso.getShearModulus` — Returns Shear Modulus of the material.
+- `apex.attribute.ElasticityLinearIso.update` — Update properties of this ElasticityLinearIso constitutive model.
+- `apex.attribute.Failure2DAniso.Failure2DAniso`
+- `apex.attribute.Failure2DAniso.getCompression` — Returns The compression Strength of the material.
+- `apex.attribute.Failure2DAniso.getShear` — Returns The shear Strength of the material.
+- `apex.attribute.Failure2DAniso.getTension` — Returns The Tensile Strength of the material.
+- `apex.attribute.Failure2DAniso.update` — Used to update a Failure2DAniso object.
+- `apex.attribute.Failure2DOrth.Failure2DOrth`
+- `apex.attribute.Failure2DOrth.getCompressionX` — Returns The X-axial compression Strength of the material.
+- `apex.attribute.Failure2DOrth.getCompressionY` — Returns The Y-axial compression Strength of the material.
+- `apex.attribute.Failure2DOrth.getInPlaneShear` — Returns The inPlane Shear Strength of the material.
+- `apex.attribute.Failure2DOrth.getTensionX` — Returns The X-axial Tensile Strength of the material.
+- `apex.attribute.Failure2DOrth.getTensionY` — Returns The Y-axial Tensile Strength of the material.
+- `apex.attribute.Failure2DOrth.update` — Used to update a Failure2DOrth object.
+- `apex.attribute.Failure3DOrth.Failure3DOrth`
+- `apex.attribute.Failure3DOrth.getAxisCompressive` — Returns the axis Compressive Strength of the material.
+- `apex.attribute.Failure3DOrth.getAxisTension` — Returns the axial Tensile Strength of the material.
+- `apex.attribute.Failure3DOrth.getInPlaneCompressive` — Returns the in Plane compressive Strength of the material.
+- `apex.attribute.Failure3DOrth.getInPlaneTension` — Returns the in Plane Tensile Strength of the material.
+- `apex.attribute.Failure3DOrth.getTransverseShear` — Returns the transverse Shear Strength of the material.
+- `apex.attribute.Failure3DOrth.update` — Used to update a Failure3DOrth object.
+- `apex.attribute.Failure3DTransvIso.Failure3DTransvIso`
+- `apex.attribute.Failure3DTransvIso.getAxisCompressive` — Returns the axis Compressive Strength of the material.
+- `apex.attribute.Failure3DTransvIso.getAxisTension` — Returns the axial Tensile Strength of the material.
+- `apex.attribute.Failure3DTransvIso.getInPlaneCompressive` — Returns the in Plane compressive Strength of the material.
+- `apex.attribute.Failure3DTransvIso.getInPlaneTension` — Returns the in Plane Tensile Strength of the material.
+- `apex.attribute.Failure3DTransvIso.getTransverseShear` — Returns the transverse Shear Strength of the material.
+- `apex.attribute.Failure3DTransvIso.update` — Used to update a Failure3DTransvIso object.
+- `apex.attribute.FailureIso.FailureIso`
+- `apex.attribute.FailureIso.getCompression` — Returns The compression Strength of the material.
+- `apex.attribute.FailureIso.getShear` — Returns The shear Strength of the material.
+- `apex.attribute.FailureIso.getTension` — Returns The Tensile Strength of the material.
+- `apex.attribute.FailureIso.update` — Used to update a FailureIso object.
+- `apex.attribute.FastenerCollection.FastenerCollection` — Construct a newFastenerCollection.
+- `apex.attribute.FastenerRepProperties.getDiameter` — Gets the diameter of fastener.
+- `apex.attribute.FastenerRepProperties.getEmbedded` — Returns embedded of the fastener.
+- `apex.attribute.FastenerRepProperties.getFlagOfCoordinateSystem` — Gets the flag of coordinate system either in "Relative" or "Absolute".
+- `apex.attribute.FastenerRepProperties.getId` — Returns id of the fastener.
+- `apex.attribute.FastenerRepProperties.getLengthWithCoincidentGrids` — Gets the length with coincident grids.
+- `apex.attribute.FastenerRepProperties.getMass` — Gets the mass of fastener.
+- `apex.attribute.FastenerRepProperties.getReferenceTemperature` — Gets the reference temperature of Gets the fastener.
+- `apex.attribute.FastenerRepProperties.getRotationalStiffnessX` — Gets the rotational stiffness about x axis.
+- `apex.attribute.FastenerRepProperties.getRotationalStiffnessY` — Gets the rotational stiffness about y axis.
+- `apex.attribute.FastenerRepProperties.getRotationalStiffnessZ` — Gets the rotational stiffness about z axis.
+- `apex.attribute.FastenerRepProperties.getStiffnessCoordinateSystem` — Gets the element stiffness coordinate system type.
+- `apex.attribute.FastenerRepProperties.getStructuralDamping` — Gets the structural damping of fastener.
+- `apex.attribute.FastenerRepProperties.getThermalExpansionCoefficient` — Gets the thermal expansion coefficient for Gets the fastener.
+- `apex.attribute.FastenerRepProperties.getTransverseStiffnessX` — Gets the transverse stiffness along x axis.
+- `apex.attribute.FastenerRepProperties.getTransverseStiffnessY` — Gets the transverse stiffness along y axis.
+- `apex.attribute.FastenerRepProperties.getTransverseStiffnessZ` — Gets the transverse stiffness along z axis.
+- `apex.attribute.FastenerRepProperties.getUserDefinedStiffnessCoordinateSystem` — Gets user defined element stiffness coordinate system, which takes effect only when the argument"stiffnessCoordinateSystem" is set as "userDefined.
+- `apex.attribute.FastenerRepProperties.update` — Update the property of fastener.
+- `apex.attribute.FastenerRepPropertiesCollection.FastenerRepPropertiesCollection` — Construct a new FastenerRepPropertiesCollection.
+- `apex.attribute.FlexibleLinkCollection.FlexibleLinkCollection` — Construct a new FlexibleLinkCollection.
+- `apex.attribute.FlexibleLinkRepProperties.getDiameter` — The diameter of the FlexibleLink connector.
+- `apex.attribute.FlexibleLinkRepProperties.getLinkMaterial` — The material assigned to the FlexibleLink connector.
+- `apex.attribute.FlexibleLinkRepProperties.update` — Update this connector properties.
+- `apex.attribute.GapCollection.GapCollection` — Construct a new GapCollection.
+- `apex.attribute.GapRepProperties.getClosedStiffness` — Axial stiffness for the closed gap.
+- `apex.attribute.GapRepProperties.getInitialOpening` — The initial gap opening.
+- `apex.attribute.GapRepProperties.getKineticFriction` — Coefficient of kinetic friction.
+- `apex.attribute.GapRepProperties.getOpenStiffness` — Axial stiffness for the open gap.
+- `apex.attribute.GapRepProperties.getPreload` — The preload applied on the gap.
+- `apex.attribute.GapRepProperties.getStaticFriction` — Coefficient of static friction.
+- `apex.attribute.GapRepProperties.getTransverseStiffness` — Transverse stiffness when the gap is closed.
+- `apex.attribute.GapRepProperties.update` — Update this connector properties.
+- `apex.attribute.Interaction.createInteractionRep` — Create an interaction rep.
+- `apex.attribute.Interaction.getActiveRep` — Gets The active interaction rep of current interaction.
+- `apex.attribute.Interaction.getBody1Property` — Gets Interaction body property of side1.
+- `apex.attribute.Interaction.getBody2Property` — Gets Interaction body property of side2.
+- `apex.attribute.Interaction.getContactBodies1` — Gets Primary Side Contact Bodies of an interaction pair.
+- `apex.attribute.Interaction.getContactBodies2` — Gets Secondary side Contact Bodies of an interaction pair.
+- `apex.attribute.Interaction.getTargetSide1` — Gets Primary side of an interaction pair.
+- `apex.attribute.Interaction.getTargetSide2` — Gets Secondary side of an interaction pair.
+- `apex.attribute.Interaction.update` — update the interaction object.
+- `apex.attribute.InteractionCollection.InteractionCollection` — Construct a new InteractionCollection.
+- `apex.attribute.InteractionPropertyGeometric.getAdjustedMagnitude` — Gets Optional - adjusted magnitude.
+- `apex.attribute.InteractionPropertyGeometric.getAdjustedSecondaryBodyClearance` — Gets Optional to define which Contact body to be adjust for Initial gap/overlap.
+- `apex.attribute.InteractionPropertyGeometric.getAdjustedSecondaryBodyInterferenceFit` — Gets Optional to define which Contact body to be adjust for interference fit.
+- `apex.attribute.InteractionPropertyGeometric.getAllowSeparation` — Gets Optional - enable to allow glue separation during simulation.
+- `apex.attribute.InteractionPropertyGeometric.getBiasFactor` — Gets Optional - Contact tolerance bias factor.
+- `apex.attribute.InteractionPropertyGeometric.getBreakingGlueCriteria` — Gets Optional - enable to use breaking blue parameters to define separation when allowSeparation = True.
+- `apex.attribute.InteractionPropertyGeometric.getClearanceSearchTolerance` — Gets Optional - Search tolerance of initial gap or overlap.
+- `apex.attribute.InteractionPropertyGeometric.getContactSearchOrder` — Gets Optional - contact search order for node to segment contact method.
+- `apex.attribute.InteractionPropertyGeometric.getContactTolerance` — Gets An optional distance tolerance value (default =0.005m) used to determine the subset of elements specified in targetSide1 and targetSide2 that will ...
+- `apex.attribute.InteractionPropertyGeometric.getContactToleranceCalculationMethod` — Gets An optional argument (default True) that controls whether the ContactTolerance should be calculated automatically by the system or defined manually via ...
+- `apex.attribute.InteractionPropertyGeometric.getCoordinateSystemWithVector` — Gets Optional - Coordinate system to define the interference fit vector.
+- `apex.attribute.InteractionPropertyGeometric.getCosinesVector` — Gets Optional - Cosines Vector[a1,a2,a3] of the interference fit direction. a1 will be the angle of x axis; a2 will be the angle of y axis; a3 will be the ...
+- `apex.attribute.InteractionPropertyGeometric.getDelayedSlideOff` — Gets Optional - Activate/Deactivate delay-slide off.
+- `apex.attribute.InteractionPropertyGeometric.getFlexibleGlue` — Gets Optional - Activate/Deactivate Flexible Glue.
+- `apex.attribute.InteractionPropertyGeometric.getHardSoftRatio` — Gets Optional - Hard soft ratio of the contact pair.
+- `apex.attribute.InteractionPropertyGeometric.getId` — Gets ID of Interaction geometric properties.
+- `apex.attribute.InteractionPropertyGeometric.getIgnoreShellThicknessSide1` — Gets Consider or ignore shell thickness during detection of contact side 1.
+- `apex.attribute.InteractionPropertyGeometric.getIgnoreShellThicknessSide2` — Gets Consider or ignore shell thickness during detection of contact side 2.
+- `apex.attribute.InteractionPropertyGeometric.getInitialClearance` — Gets Optional - active to Adjust Initial gap or overlap.
+- `apex.attribute.InteractionPropertyGeometric.getInterferenceClosure` — Gets Optional - Adjust gap(>0.0) or overlap(<0.0) based on the value The option will be available when InterferenceFitMethod = NormalDirection or ...
+- `apex.attribute.InteractionPropertyGeometric.getInterferenceFit` — Gets Optional - active to Adjust Interference Fit.
+- `apex.attribute.InteractionPropertyGeometric.getInterferenceFitMethod` — Gets Optional - Method to define Interference Fit.
+- `apex.attribute.InteractionPropertyGeometric.getName` — Gets Name of Interaction geometric properties.
+- `apex.attribute.InteractionPropertyGeometric.getNormalPenaltyFactor` — Gets Optional - Augmented Lagrange penalty factor in normal direction.
+- `apex.attribute.InteractionPropertyGeometric.getNormalStiffness` — Gets Optional - Normal Stiffness for flexible glue.
+- `apex.attribute.InteractionPropertyGeometric.getPenetrationDistance` — Gets Optional - Penetration distance beyond which an augmentation will be applied The argument is only available for segment to segment method, which will be ...
+- `apex.attribute.InteractionPropertyGeometric.getPenetrationSearchTolerance` — Gets Optional - Penetration Search Tolerance.
+- `apex.attribute.InteractionPropertyGeometric.getRetainMoment` — Gets Optional - enable to retain moment for shell glue.
+- `apex.attribute.InteractionPropertyGeometric.getScaleCenter` — Gets Optional - Scale Center[x,y,z] with interference fit.
+- `apex.attribute.InteractionPropertyGeometric.getScaleFactorVector` — Gets Optional - Scale Factor Vector [a1,a2,a3] of the interference fit.
+- `apex.attribute.InteractionPropertyGeometric.getShellLayerSide1` — Gets Shell layer to be used for contact detection in side 1.
+- `apex.attribute.InteractionPropertyGeometric.getShellLayerSide2` — Gets Shell layer to be used for contact detection in side 2.
+- `apex.attribute.InteractionPropertyGeometric.getSlideOffDistance` — Gets Optional - Slide Off Distance which is only available when "delayedSlideOff = True".
+- `apex.attribute.InteractionPropertyGeometric.getSlipDistance` — Gets Optional - Maximum allowable slip distance for sticking, beyond it there is no sticking, only sliding exists The argument is only available for segment to ...
+- `apex.attribute.InteractionPropertyGeometric.getStepGlue` — Gets Optional- Step Glue for Large Displacement and Rotation.
+- `apex.attribute.InteractionPropertyGeometric.getStressFreeInitialContact` — Gets Optional - Activate/Deactivate stress-free initial contact can be obtained.
+- `apex.attribute.InteractionPropertyGeometric.getTangentPenaltyFactor` — Gets Optional - Augmented Lagrange penalty factor in tangent direction The argument is only available for segment to segment method, which will be skipped in ...
+- `apex.attribute.InteractionPropertyGeometric.getTangentStiffness` — Gets Optional - Tangent Stiffness for flexible glue.
+- `apex.attribute.InteractionPropertyGeometric.update` — Update interaction geometric properties.
+- `apex.attribute.InteractionPropertyPhysical.getExponent1` — Gets Optional - Exponent of Max Normal Stress.
+- `apex.attribute.InteractionPropertyPhysical.getExponent2` — Gets Optional - Exponent of Max Tangent Stress.
+- `apex.attribute.InteractionPropertyPhysical.getFrictionCoefficient` — Gets Optional - Friction Coefficient of the contact pair.
+- `apex.attribute.InteractionPropertyPhysical.getFrictionStressLimit` — Gets Optional - Friction stress limit of the contact pair.
+- `apex.attribute.InteractionPropertyPhysical.getId` — Gets ID of interaction physical properties.
+- `apex.attribute.InteractionPropertyPhysical.getMaxNormalStress` — Gets Optional - it is only available when breakingGlueCriteria = True in InteractionPropertyGeometric.
+- `apex.attribute.InteractionPropertyPhysical.getMaxTangentStress` — Gets Optional - it is only available when breakingGlueCriteria = True in InteractionPropertyGeometric.
+- `apex.attribute.InteractionPropertyPhysical.getName` — Gets Name of interaction physical properties.
+- `apex.attribute.InteractionPropertyPhysical.getSeparationForce` — Gets Optional - max force of separation, which is only available when separation method define in scenario is based on "Force".
+- `apex.attribute.InteractionPropertyPhysical.getSeparationStress` — Gets Optional - max stress of separation, which is only available when separation method define in scenario is based on "Stress".
+- `apex.attribute.InteractionPropertyPhysical.update` — Update interaction physical properties.
+- `apex.attribute.InteractionRep.getAllowSelfContactSide1` — Optional - Boolean to choose self Contact for primary side of interaction pair.
+- `apex.attribute.InteractionRep.getAllowSelfContactSide2` — Optional - Boolean to choose self Contact for secondary side of interaction pair.
+- `apex.attribute.InteractionRep.getId` — Gets ID of this interaction rep.
+- `apex.attribute.InteractionRep.getInteractionPropertyGeometric` — Gets Interaction Geometric Properties.
+- `apex.attribute.InteractionRep.getInteractionPropertyPhysical` — Gets Interaction Physical Properties.
+- `apex.attribute.InteractionRep.getInteractionType` — Gets Interaction type of the interaction object: Glue, General Contact or Self Contact.
+- `apex.attribute.InteractionRep.update` — Update an interaction rep.
+- `apex.attribute.InterfacePoint.getActiveDofs` — Returns active DOFs of the Interface Point.
+- `apex.attribute.InterfacePoint.getApplicationMethod` — Returns application method of the Interface Point.
+- `apex.attribute.InterfacePoint.getDistributionType` — Returns distribution type of the Interface Point.
+- `apex.attribute.InterfacePoint.getGenerateASET` — Returns Boolean of generateASET of the Interface Point.
+- `apex.attribute.InterfacePoint.getLocation` — Returns location of the Interface Point as an ILocation.
+- `apex.attribute.InterfacePoint.getOrientation` — Returns orientation of the Interface Point as an IOrientation object.
+- `apex.attribute.InterfacePoint.getTarget` — Returns target of the Interface Point.
+- `apex.attribute.InterfacePoint.update` — Updates one or more properties of this InterfacePoint.
+- `apex.attribute.InterfacePointCollection.InterfacePointCollection` — Construct a new InterfacePointCollection.
+- `apex.attribute.Joint.getAxisLocationMode` — Returns AxisLocationMode of the Joint. (inherited by `CylindricalJoint`, `PlanarJoint`, `PrismaticJoint`, `RevoluteJoint`, `SphericalJoint`)
+- `apex.attribute.Joint.getJointAxis` — *Returns orientation of the Joint. (inherited by `CylindricalJoint`, `PlanarJoint`, `PrismaticJoint`, `RevoluteJoint`, `SphericalJoint`)
+- `apex.attribute.Joint.getJointOrientation` — Returns orientation of the Joint. (inherited by `CylindricalJoint`, `PlanarJoint`, `PrismaticJoint`, `RevoluteJoint`, `SphericalJoint`)
+- `apex.attribute.Joint.getJointOrigin` — Returns Origin of the Joint. (inherited by `CylindricalJoint`, `PlanarJoint`, `PrismaticJoint`, `RevoluteJoint`, `SphericalJoint`)
+- `apex.attribute.Joint.getJointRenderType` — Returns JointRenderType of the Joint. (inherited by `CylindricalJoint`, `PlanarJoint`, `PrismaticJoint`, `RevoluteJoint`, `SphericalJoint`)
+- `apex.attribute.Joint.getJointType` — Returns the joint Type of joint. (inherited by `CylindricalJoint`, `PlanarJoint`, `PrismaticJoint`, `RevoluteJoint`, `SphericalJoint`)
+- `apex.attribute.Joint.getSide1` — Returns side 1 attachment region of the Joint. (inherited by `CylindricalJoint`, `PlanarJoint`, `PrismaticJoint`, `RevoluteJoint`, `SphericalJoint`)
+- `apex.attribute.Joint.getSide1DistributionType` — Returns Side 1 Distribution Type of the Joint. (inherited by `CylindricalJoint`, `PlanarJoint`, `PrismaticJoint`, `RevoluteJoint`, `SphericalJoint`)
+- `apex.attribute.Joint.getSide2` — Returns side 2 attachment region of the Joint. (inherited by `CylindricalJoint`, `PlanarJoint`, `PrismaticJoint`, `RevoluteJoint`, `SphericalJoint`)
+- `apex.attribute.Joint.getSide2DistributionType` — Returns Sidde 2 Distribution Type of the Joint. (inherited by `CylindricalJoint`, `PlanarJoint`, `PrismaticJoint`, `RevoluteJoint`, `SphericalJoint`)
+- `apex.attribute.JointCollection.JointCollection` — Construct a new JointCollection.
+- `apex.attribute.LayeredPanel.addPanelMaterialOrientations` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `apex.attribute.LayeredPanel.clearAllPanelMaterialOrientations` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `apex.attribute.LayeredPanel.createAddPlyUsingProjectedVector` — Creates a Ply and adds it to the LayeredPanel using a projected vector approach to define the Ply Material orientation.
+- `apex.attribute.LayeredPanel.createPliesFromSheetStackUsingProjectedVector` — Creates and returns a sequence of plies within this LayeredPanel using an input MaterialSheetStack and orients the sheet stack relative to the panel axis using ...
+- `apex.attribute.LayeredPanel.createPlyFromSheetUsingProjectedVector` — Creates a ply within this LayeredPanel using an input MaterialSheet and orients the sheet relative to the panel axis using the input angle.
+- `apex.attribute.LayeredPanel.deletePlies` — Deletes Plies from this Layered Panel.
+- `apex.attribute.LayeredPanel.deletePly` — Deletes a Ply.
+- `apex.attribute.LayeredPanel.flip` — Flips the build direction of the layeredPanel, if the input target is a general surface, then flip will not perform as there is no uniform build direction for ...
+- `apex.attribute.LayeredPanel.getAlignmentType` — Gets an optional enum defining the default alignment type for the panel.If omitted, the offsetType is "apex.attribute.AlignmentType..Offset".
+- `apex.attribute.LayeredPanel.getAllowableInterLaminarBondStress` — Gets the allowable shear stress of the bonding material.
+- `apex.attribute.LayeredPanel.getFailureCriteria` — Gets the optional enum defining the failureCriteria of the panel.
+- `apex.attribute.LayeredPanel.getPanelCoordinateSystem` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `apex.attribute.LayeredPanel.getPanelMaterialOrientation` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `apex.attribute.LayeredPanel.getPanelMaterialOrientations` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `apex.attribute.LayeredPanel.getPanelOffset` — Gets the panel offset distance from the bottom plane.
+- `apex.attribute.LayeredPanel.getPlies` — Gets Plies of the LayeredPanel.
+- `apex.attribute.LayeredPanel.getPly` — Gets the ply of the LayeredPanel.
+- `apex.attribute.LayeredPanel.getPlyBehavior` — Gets the plyBehavior of the panel.If omitted, the plyBehavior is "apex.attribute.PlyBehavior.Default".
+- `apex.attribute.LayeredPanel.getPlyById` — Gets the ply of the LayeredPanel by id.
+- `apex.attribute.LayeredPanel.getPlyIdBehavior` — Gets the plyIdBehavior of the panel.If omitted, the plyBehavior is "apex.attribute.PlyIdBehavior.UseGlobal".
+- `apex.attribute.LayeredPanel.getReferenceTemperature` — Gets the optional referenceTemperature of the layeredPanel.
+- `apex.attribute.LayeredPanel.getStructuralDampingCoefficient` — Gets an optional structuralDampingCoefficient of the panel.
+- `apex.attribute.LayeredPanel.getTarget` — Gets the target that supports this LayeredPanel.
+- `apex.attribute.LayeredPanel.getZone` — Gets the zone of the LayeredPanel.
+- `apex.attribute.LayeredPanel.getZoneByID` — Gets the zone of the LayeredPanel by id.
+- `apex.attribute.LayeredPanel.getZones` — Gets Zones of the LayeredPanel.
+- `apex.attribute.LayeredPanel.highlightZone` — Highlight a Zone.
+- `apex.attribute.LayeredPanel.removePanelMaterialOrientations` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `apex.attribute.LayeredPanel.setAlignmentType` — Sets an optional enum defining the default alignment type for the panel.If omitted, the offsetType is "apex.attribute.AlignmentType..Offset".
+- `apex.attribute.LayeredPanel.setFailureCriteria` — Sets the optional enum defining the failureCriteria of the panel.
+- `apex.attribute.LayeredPanel.setPanelOffset` — Sets the panel offset distance from the bottom plane.
+- `apex.attribute.LayeredPanel.setPlyBehavior` — Sets the plyBehavior of the panel.If omitted, the plyBehavior is "apex.attribute.PlyBehavior.Default".
+- `apex.attribute.LayeredPanel.setPlyIdBehavior` — Sets the plyIdBehavior of the panel.If omitted, the plyBehavior is "apex.attribute.PlyIdBehavior.UseGlobal".
+- `apex.attribute.LayeredPanel.setReferenceTemperature` — Sets the optional referenceTemperature of the layeredPanel.
+- `apex.attribute.LayeredPanel.setStructuralDampingCoefficient` — Sets an optional structuralDampingCoefficient of the panel.
+- `apex.attribute.LayeredPanel.setTarget` — Sets the Surface that supports this LayeredPanel.
+- `apex.attribute.LayeredPanel.update` — Update this LayeredPanel properties.
+- `apex.attribute.LayeredPanelCollection.LayeredPanelCollection` — Construct a new LayeredPanelCollection.
+- `apex.attribute.Mass.Mass` — Create ElasticityLinear2DOrtho constitutive model.
+- `apex.attribute.Mass.getMassDensity` — Returns Elastic Modulus 11 of the constitutive model.
+- `apex.attribute.Mass.update` — Update properties of this ElasticityLinear2DOrtho constitutive model.
+- `apex.attribute.Material.addConstitutiveModel` — This Method is no longer supported in Apex.
+- `apex.attribute.Material.addSecondaryMaterialModel` — This method is used to add a secondary material model to a material object.
+- `apex.attribute.Material.getColor` — Returns Color (RGB Vector) of the material.
+- `apex.attribute.Material.getConstitutiveModel` — This Method is no longer supported in Apex.
+- `apex.attribute.Material.getConstitutiveModels` — This Method is no longer supported in Apex.
+- `apex.attribute.Material.getCoverageRegions` — Returns all MaterialCoverageRegions that this Material is associated with.
+- `apex.attribute.Material.getDampingCoefficient` — This Method is no longer supported in Apex.
+- `apex.attribute.Material.getDensity` — This Method is no longer supported in Apex.
+- `apex.attribute.Material.getElasticModulus` — This Method is no longer supported in Apex.
+- `apex.attribute.Material.getElasticityOrthotropic2D` — This Method is no longer supported in Apex.
+- `apex.attribute.Material.getId` — Returns id of the material.
+- `apex.attribute.Material.getMaterialModel` — Returns specific material model via material model name which is assigned to a material.
+- `apex.attribute.Material.getMaterialModels` — Returns all material models which are assigned to a material.
+- `apex.attribute.Material.getMaterialType` — This Method is no longer supported in Apex.
+- `apex.attribute.Material.getPoissonRatio` — This Method is no longer supported in Apex.
+- `apex.attribute.Material.getReferences` — returns a collection of all entities that this Material directly references
+- `apex.attribute.Material.getTarget` — Returns a read only collection of the entities that the Material is applied to.
+- `apex.attribute.Material.getThermalExpansionCoeff` — This Method is no longer supported in Apex.
+- `apex.attribute.Material.getThermalExpansionCoeffOrthotropic2D` — This Method is no longer supported in Apex.
+- `apex.attribute.Material.removeConstitutiveModel` — This method used to remove constitutive models from a material objects.
+- `apex.attribute.Material.removeMaterialModel` — This method is used to remove a material model (if exists) from a material object.
+- `apex.attribute.Material.setPrimaryMaterialModel` — This method is used to set the primary material model to a material object.
+- `apex.attribute.Material.update` — Update this Material properties.
+- `apex.attribute.MaterialCollection.MaterialCollection` — Construct a new MaterialCollection.
+- `apex.attribute.MaterialCoverageRegion.getAlignmentMethod` — An enumeration that indicates which method is used to define the material orientation in this MaterialCoverageRegion..
+- `apex.attribute.MaterialCoverageRegion.getDirector` — A collection of Curves and/or Edges that define how the Material is oriented across this MaterialCoverageRegion.
+- `apex.attribute.MaterialCoverageRegion.getMaterial` — The Material that is assigned to this coverage region.
+- `apex.attribute.MaterialCoverageRegion.getMaterialCoordinateSystem` — A apex.construct.CoordinateSystem whose X axis defines the Material orientation in this MaterialCoverageRegion.
+- `apex.attribute.MaterialCoverageRegion.getName` — The name of this MaterialCoverageRegion.
+- `apex.attribute.MaterialCoverageRegion.getTarget` — The entities that are included in this MaterialCoverageRegion as an EntityCollection.
+- `apex.attribute.MaterialCoverageRegion.update` — Update this MaterialCoverageRegion properties.
+- `apex.attribute.MaterialCoverageRegionCollection.MaterialCoverageRegionCollection` — Construct a new MaterialCoverageRegionCollection.
+- `apex.attribute.MaterialModel.MaterialModel` — Create Generic Constitutive Model.
+- `apex.attribute.MaterialModel.getProperties` — This function will return the whole dictionary which stores the Material properties.
+- `apex.attribute.MaterialModel.getProperty` — The function is passed with an attribute name (bdf filed name), Returns the corresponding value of the attribute.
+- `apex.attribute.MaterialModel.update` — Update the Generic Constitutive Model.
+- `apex.attribute.MaterialOrientationField2D.convertAlignmentMethod` — convert MaterialOrientationField2D (inherited by `MaterialOrientationField2DAlignCurve`, `MaterialOrientationField2DCoordinate`)
+- `apex.attribute.MaterialOrientationField2D.getAlignmentMethod` — An enumeration that indicates which method is used to define the material orientation in this MaterialOrientationField2D.. (inherited by `MaterialOrientationField2DAlignCurve`, `MaterialOrientationField2DCoordinate`)
+- `apex.attribute.MaterialOrientationField2D.getTarget` — Get a collection of all entities that this field directly references. (inherited by `MaterialOrientationField2DAlignCurve`, `MaterialOrientationField2DCoordinate`)
+- `apex.attribute.MaterialOrientationField2DAlignCurve.getDirector` — A entity of Curve and/or Edge that define how the Material is oriented across this MaterialOrientationField2DAlignCurve.
+- `apex.attribute.MaterialOrientationField2DAlignCurve.update` — Update this MaterialOrientationField2DAlignCurve properties.
+- `apex.attribute.MaterialOrientationField2DCoordinate.getCoordinateSystem` — A apex.construct.CoordinateSystem defines the Material orientation in this MaterialOrientationField2DCoordinate.
+- `apex.attribute.MaterialOrientationField2DCoordinate.update` — Update this MaterialOrientationField2DCoordinate properties.
+- `apex.attribute.MaterialSheet.getMaterial` — Gets the material from which this sheet is made and which, in conjunction with thickness, defines the mechanical properties of the sheet.
+- `apex.attribute.MaterialSheet.getThickness` — Gets the thickness of this SheetMaterial. thickness represents a Length quantity and is defined using the units of Length from the active script unit system.
+- `apex.attribute.MaterialSheet.setDescription` — Set the MaterialSheet description.
+- `apex.attribute.MaterialSheet.setMaterial` — Sets the material from which this sheet is made and which, in conjunction with thickness, defines the mechanical properties of the sheet.
+- `apex.attribute.MaterialSheet.setName` — Set the MaterialSheet name.
+- `apex.attribute.MaterialSheet.setThickness` — Sets the thickness of this SheetMaterial. thickness represents a Length quantity and is defined using the units of Length from the active script unit system.
+- `apex.attribute.MaterialSheet.update` — Updates one or more properties of this SheetMaterial This method allow multiple properties of the SheetMaterial to be updated using a single method call.
+- `apex.attribute.MaterialSheetCollection.MaterialSheetCollection` — Iterable collection of MaterialSheets.
+- `apex.attribute.MaterialSheetStack.getSheetStackDefinition` — Gets sheetStackDefinition defines an ordered List of oriented MaterialSheets.
+- `apex.attribute.MaterialSheetStack.getSymmetry` — Gets enumeration defining whether the provided sheet stack definition will be reflected to add additional sheets to the stack or not.
+- `apex.attribute.MaterialSheetStack.moveSheetDown` — Moves the sheet identified in the input down one position in the stack.
+- `apex.attribute.MaterialSheetStack.moveSheetUp` — Moves the sheet identified in the input up one position in the stack.
+- `apex.attribute.MaterialSheetStack.reverse` — Reverses the order of the MaterialSheets in this MaterialSheetStack.
+- `apex.attribute.MaterialSheetStack.setDescription` — Set the MaterialSheetStack description.
+- `apex.attribute.MaterialSheetStack.setName` — Set the MaterialSheetStack name.
+- `apex.attribute.MaterialSheetStack.setSheetStackDefinition` — Sets sheetStackDefinition defines an ordered List of oriented MaterialSheets.
+- `apex.attribute.MaterialSheetStack.setSymmetry` — Sets enumeration defining whether the provided sheet stack definition will be reflected to add additional sheets to the stack or not.
+- `apex.attribute.MaterialSheetStack.update` — Updates one or more properties of this SheetStack This method allow multiple properties of the SheetStack to be updated using a single method call.
+- `apex.attribute.MaterialSheetStackCollection.MaterialSheetStackCollection` — Iterable collection of MaterialSheetStacks.
+- `apex.attribute.MeshDependentTie.asEntity`
+- `apex.attribute.MeshDependentTie.getBodies` — a collection of all of the Bodies associated with this MeshDependentTie.
+- `apex.attribute.MeshDependentTie.getFacesEdges` — a collection of all of the Faces and/or Edges associated with this MeshDependentTie.
+- `apex.attribute.MeshDependentTie.removeBodies` — removes Geometry Bodies from the MeshDependentTie.
+- `apex.attribute.MeshDependentTie.update` — Update this MeshDependentTie.
+- `apex.attribute.MeshDependentTieCollection.MeshDependentTieCollection` — Construct a new MeshDependentTieCollection.
+- `apex.attribute.NSMCombination.getId` — Returns ID of the NSM Combination.
+- `apex.attribute.NSMCombination.getNSM` — Returns A collection of NSM for the NSM Combination.
+- `apex.attribute.NSMCombination.update` — Creates and returns a NSMCombination.
+- `apex.attribute.NSMCombinationCollection.NSMCombinationCollection` — Construct a new NSMCombinationCollection.
+- `apex.attribute.NodeTie.getAttachmentDOFAndWeights` — Returns a map of NodeIds, attachment DOF and attachment weights of the NodeTie.
+- `apex.attribute.NodeTie.getAttachmentRegions` — Returns attachment regions of the NodeTie.
+- `apex.attribute.NodeTie.getDOFDefinitionMode` — Returns DOF Definition Mode of the NodeTie.
+- `apex.attribute.NodeTie.getDependentDof` — Returns dependent DOF of the NodeTie.
+- `apex.attribute.NodeTie.getDistributionMode` — Returns Distribution Mode of the NodeTie.
+- `apex.attribute.NodeTie.getDistributionType` — Returns Distribution Type of the NodeTie.
+- `apex.attribute.NodeTie.getReferencePoint` — Returns reference point of the NodeTie.
+- `apex.attribute.NodeTie.getThermalExpansionCoeff` — Returns thermalExpansionCoeff of the NodeTie.
+- `apex.attribute.NodeTie.update` — Update this NodeTie properties.
+- `apex.attribute.NodeTieCollection.NodeTieCollection` — Construct a new NodeTieCollection.
+- `apex.attribute.NonstructuralMass.getConstantMass` — Returns constant mass of the NonstructuralMass.
+- `apex.attribute.NonstructuralMass.getID` — Returns ID of the NonstructuralMass.
+- `apex.attribute.NonstructuralMass.getMassDistribution` — Returns MassDistribution of the NonstructuralMass.
+- `apex.attribute.NonstructuralMass.getNonstructuralMassType` — Returns NonstructuralMassType of the NonstructuralMass.
+- `apex.attribute.NonstructuralMass.getTarget` — Returns target of the NonstructuralMass.
+- `apex.attribute.NonstructuralMass.getVariableMass` — Returns variable mass of the NonstructuralMass.
+- `apex.attribute.NonstructuralMass.update` — Update this NonstructuralMass properties.
+- `apex.attribute.NonstructuralMassCollection.NonstructuralMassCollection` — Construct a new NonstructuralMassCollection.
+- `apex.attribute.PerfectlyPlastic.PerfectlyPlastic` — Constructor.
+- `apex.attribute.PerfectlyPlastic.getInitialYieldStress`
+- `apex.attribute.PerfectlyPlastic.setInitialYieldStress`
+- `apex.attribute.PerfectlyPlastic.update` — the update method used to edit the Plasticity constitutive model
+- `apex.attribute.PlanarJoint.update` — Update this PlanarJoint properties.
+- `apex.attribute.Plasticity.getHardeningRule` — Gets There are 4 types of hardening method, they are Enumerated in HardeningRule, and each Plasticity Constitutive model should contain only one of the 4 ... (inherited by `PerfectlyPlastic`, `PlasticityHardeningSlope`, `PlasticityStressStrain`)
+- `apex.attribute.Plasticity.getYieldCriteria` — Gets There are six yield criteria rules, they are derived from the base class YieldCriteria. and each Plasticity Constitutive model should contain only one of ... (inherited by `PerfectlyPlastic`, `PlasticityHardeningSlope`, `PlasticityStressStrain`)
+- `apex.attribute.Plasticity.setHardeningRule` — Sets There are 4 types of hardening method, they are Enumerated in HardeningRule, and each Plasticity Constitutive model should contain only one of the 4 ... (inherited by `PerfectlyPlastic`, `PlasticityHardeningSlope`, `PlasticityStressStrain`)
+- `apex.attribute.Plasticity.setYieldCriteria` — Sets There are six yield criteria rules, they are derived from the base class YieldCriteria. and each Plasticity Constitutive model should contain only one of ... (inherited by `PerfectlyPlastic`, `PlasticityHardeningSlope`, `PlasticityStressStrain`)
+- `apex.attribute.PlasticityHardeningSlope.PlasticityHardeningSlope` — Constructor.
+- `apex.attribute.PlasticityHardeningSlope.getHardeningSlope`
+- `apex.attribute.PlasticityHardeningSlope.getInitialYieldStress`
+- `apex.attribute.PlasticityHardeningSlope.setHardeningSlope`
+- `apex.attribute.PlasticityHardeningSlope.setInitialYieldStress`
+- `apex.attribute.PlasticityHardeningSlope.update` — the update method
+- `apex.attribute.PlasticityStressStrain.PlasticityStressStrain` — Constructor.
+- `apex.attribute.PlasticityStressStrain.getStressStrainCurve` — Gets Used to define the stress-strain curve for Plasticity constitutive model.
+- `apex.attribute.PlasticityStressStrain.setStressStrainCurve` — Sets Used to define the stress-strain curve for Plasticity constitutive model.
+- `apex.attribute.PlasticityStressStrain.update` — the update method used to edit the Plasticity constitutive model
+- `apex.attribute.Ply.getAngle` — Gets the angle of this Ply.
+- `apex.attribute.Ply.getColor` — Gets the color associated with this Ply.
+- `apex.attribute.Ply.getCoverageArea` — Gets the area of the coverage region that this ply is associated with.
+- `apex.attribute.Ply.getCoverageRegion` — Gets the entities in the LayeredPanel that this Ply is associated with.
+- `apex.attribute.Ply.getId` — Gets the id of the ply, it's an external ply id that can be used in different zones and panels.
+- `apex.attribute.Ply.getMaterial` — Gets the material associated with this ply. material may be omitted only if materialSheet is provided in which case this property will be set to the Material ...
+- `apex.attribute.Ply.getName` — Gets the name of this Ply. name must be unique within a LayeredPanel.
+- `apex.attribute.Ply.getThickness` — Gets the thickness associated with this Ply thickness may be omitted only if materialSheet is provided in which case this property will be set to the thickness ...
+- `apex.attribute.Ply.setAngle` — Sets the angle of this Ply.
+- `apex.attribute.Ply.setColor` — Sets the color associated with this Ply.
+- `apex.attribute.Ply.setCoverageRegion` — Sets the entities in the LayeredPanel that this Ply is associated with.
+- `apex.attribute.Ply.setId` — Sets the id of the ply, it's an external ply id that can be used in different zones and panels.
+- `apex.attribute.Ply.setMaterial` — Sets the material associated with this ply. material may be omitted only if materialSheet is provided in which case this property will be set to the Material ...
+- `apex.attribute.Ply.setName` — Sets the name of this Ply. name must be unique within a LayeredPanel.
+- `apex.attribute.Ply.setThickness` — Sets the material associated with this ply. material may be omitted only if materialSheet is provided in which case this property will be set to the Material ...
+- `apex.attribute.Ply.update` — Update this Ply properties.
+- `apex.attribute.PlyCollection.PlyCollection` — Construct a new PlyCollection.
+- `apex.attribute.PointMass.getIxx` — Returns ixx of the PointMass.
+- `apex.attribute.PointMass.getIxy` — Returns ixy of the PointMass.
+- `apex.attribute.PointMass.getIxz` — Returns ixz of the PointMass.
+- `apex.attribute.PointMass.getIyy` — Returns iyy of the PointMass.
+- `apex.attribute.PointMass.getIyz` — Returns iyz of the PointMass.
+- `apex.attribute.PointMass.getIzz` — Returns izz of the PointMass.
+- `apex.attribute.PointMass.getLocation` — Returns Coordinate of the PointMass.
+- `apex.attribute.PointMass.getMass` — Returns mass of the PointMass.
+- `apex.attribute.PointMass.getMassMatrix` — Returns massMatrix of the PointMass.
+- `apex.attribute.PointMass.getOrientation` — Returns apex.construct.Orientation of the PointMass.
+- `apex.attribute.PointMass.getTarget` — Returns a read only collection of the entities that the PointMass is applied to.
+- `apex.attribute.PointMass.getUseMassMatrix` — Returns a bool value to indicate the PointMass use inertia matrix or not.
+- `apex.attribute.PointMass.update` — Update this PointMass properties.
+- `apex.attribute.PointMassCollection.PointMassCollection` — Construct a new PointMassCollection.
+- `apex.attribute.PointMassMatrix.getM11`
+- `apex.attribute.PointMassMatrix.getM21`
+- `apex.attribute.PointMassMatrix.getM22`
+- `apex.attribute.PointMassMatrix.getM31`
+- `apex.attribute.PointMassMatrix.getM32`
+- `apex.attribute.PointMassMatrix.getM33`
+- `apex.attribute.PointMassMatrix.getM41`
+- `apex.attribute.PointMassMatrix.getM42`
+- `apex.attribute.PointMassMatrix.getM43`
+- `apex.attribute.PointMassMatrix.getM44`
+- `apex.attribute.PointMassMatrix.getM51`
+- `apex.attribute.PointMassMatrix.getM52`
+- `apex.attribute.PointMassMatrix.getM53`
+- `apex.attribute.PointMassMatrix.getM54`
+- `apex.attribute.PointMassMatrix.getM55`
+- `apex.attribute.PointMassMatrix.getM61`
+- `apex.attribute.PointMassMatrix.getM62`
+- `apex.attribute.PointMassMatrix.getM63`
+- `apex.attribute.PointMassMatrix.getM64`
+- `apex.attribute.PointMassMatrix.getM65`
+- `apex.attribute.PointMassMatrix.getM66`
+- `apex.attribute.PointMassMatrix.setM11`
+- `apex.attribute.PointMassMatrix.setM21`
+- `apex.attribute.PointMassMatrix.setM22`
+- `apex.attribute.PointMassMatrix.setM31`
+- `apex.attribute.PointMassMatrix.setM32`
+- `apex.attribute.PointMassMatrix.setM33`
+- `apex.attribute.PointMassMatrix.setM41`
+- `apex.attribute.PointMassMatrix.setM42`
+- `apex.attribute.PointMassMatrix.setM43`
+- `apex.attribute.PointMassMatrix.setM44`
+- `apex.attribute.PointMassMatrix.setM51`
+- `apex.attribute.PointMassMatrix.setM52`
+- `apex.attribute.PointMassMatrix.setM53`
+- `apex.attribute.PointMassMatrix.setM54`
+- `apex.attribute.PointMassMatrix.setM55`
+- `apex.attribute.PointMassMatrix.setM61`
+- `apex.attribute.PointMassMatrix.setM62`
+- `apex.attribute.PointMassMatrix.setM63`
+- `apex.attribute.PointMassMatrix.setM64`
+- `apex.attribute.PointMassMatrix.setM65`
+- `apex.attribute.PointMassMatrix.setM66`
+- `apex.attribute.PointSensor.getActivateChannelMask` — Returns activateChannelMask of the PointSensor.
+- `apex.attribute.PointSensor.getOrientation` — Returns apex.construct.Orientation of the PointSensor.
+- `apex.attribute.PointSensor.getTarget` — "Returns a read only Entity identifying the entity that the PointSensor is associated with.
+- `apex.attribute.PointSensor.update` — Update this PointSensor properties.
+- `apex.attribute.PointSensorCollection.PointSensorCollection` — Construct a new PointSensorCollection.
+- `apex.attribute.PrismaticJoint.update` — Update this PrismaticJoint properties.
+- `apex.attribute.Properties2DModel.Properties2DModel` — Create Properties2DModel with Properties2D keyword name.
+- `apex.attribute.Properties2DModel.getProperties` — This function will return the whole dictionary which stores the PropertiesElement2D properties.
+- `apex.attribute.Properties2DModel.getProperty` — The function is passed with an attribute name (bdf filed name), Returns the corresponding value of the attribute.
+- `apex.attribute.Properties2DModel.update` — Update the Properties2DModel.
+- `apex.attribute.Properties3DModel.Properties3DModel` — Create Properties3DModel with Properties3D keyword name.
+- `apex.attribute.Properties3DModel.getProperties` — This function will return the whole dictionary which stores the PropertiesElement3D properties.
+- `apex.attribute.Properties3DModel.getProperty` — The function is passed with an attribute name (bdf filed name), Returns the corresponding value of the attribute.
+- `apex.attribute.Properties3DModel.update` — Update the Properties3DModel. **[fails silently at runtime in Apex 2024.1]**
+- `apex.attribute.PropertiesElement2D.addSecondaryProperties2DModel` — This method is used to add a secondary Properties2D model to a PropertiesElement2D object. (inherited by `ShearPanel`, `Shell`, `SimpleShell`)
+- `apex.attribute.PropertiesElement2D.asShearPanel` — Get ShearPanel entity when the type of 2D element property is apex.attribute.PropertiesElement2DType.ShearPanel. (inherited by `ShearPanel`, `Shell`, `SimpleShell`)
+- `apex.attribute.PropertiesElement2D.asShell` — Get Shell entity when the type of 2D element property is apex.attribute.PropertiesElement2DType.Shell. (inherited by `ShearPanel`, `Shell`, `SimpleShell`)
+- `apex.attribute.PropertiesElement2D.asSimpleShell` — Get SimpleShell entity when the type of 2D element property is apex.attribute.PropertiesElement2DType.SimpleShell. (inherited by `ShearPanel`, `Shell`, `SimpleShell`)
+- `apex.attribute.PropertiesElement2D.getCoverageRegion` — Get the Property2DCoverageRegion that this 2D element property is associated with. (inherited by `ShearPanel`, `Shell`, `SimpleShell`)
+- `apex.attribute.PropertiesElement2D.getField` — Get a field that this 2D element property. (inherited by `ShearPanel`, `Shell`, `SimpleShell`)
+- `apex.attribute.PropertiesElement2D.getID` — Get the Property identification number. (Integer > 0) If omitted, the system will assign a default ID which is the smallest and unique among all existing IDs. (inherited by `ShearPanel`, `Shell`, `SimpleShell`)
+- `apex.attribute.PropertiesElement2D.getProperties2DModel` — Returns specific Properties2D model via Properties2D model name which is assigned to a PropertiesElement2D. (inherited by `ShearPanel`, `Shell`, `SimpleShell`)
+- `apex.attribute.PropertiesElement2D.getProperties2DModels` — Returns all Properties2D models which are assigned to a PropertiesElement2D. (inherited by `ShearPanel`, `Shell`, `SimpleShell`)
+- `apex.attribute.PropertiesElement2D.getPropertyType` — Get the type of 2D element property that will be activated for elements that are associated with this class. (inherited by `ShearPanel`, `Shell`, `SimpleShell`)
+- `apex.attribute.PropertiesElement2D.getReferenceMaterial` — Get the material referenced in the PropertiesElement2D object. (inherited by `ShearPanel`, `Shell`, `SimpleShell`)
+- `apex.attribute.PropertiesElement2D.getReferences` — Get a collection of all entities that this 2D element property directly references. (inherited by `ShearPanel`, `Shell`, `SimpleShell`)
+- `apex.attribute.PropertiesElement2D.getTarget` — Get a collection of the entities that the PropertiesElement2D is applied to. (inherited by `ShearPanel`, `Shell`, `SimpleShell`)
+- `apex.attribute.PropertiesElement2D.removeProperties2DModel` — This method is used to remove a Properties2DModel model (if exists) from a PropertiesElement2D object. (inherited by `ShearPanel`, `Shell`, `SimpleShell`)
+- `apex.attribute.PropertiesElement2D.setID` — Set the Property identification number. (Integer > 0) If omitted, the system will assign a default ID which is the smallest and unique among all existing IDs. (inherited by `ShearPanel`, `Shell`, `SimpleShell`)
+- `apex.attribute.PropertiesElement2D.setPrimaryProperties2DModel` — This method is used to set the primary Properties2D model to a PropertiesElement2D object. (inherited by `ShearPanel`, `Shell`, `SimpleShell`)
+- `apex.attribute.PropertiesElement2D.setPropertyType` — Set the type of 2D element property that will be activated for elements that are associated with this class. (inherited by `ShearPanel`, `Shell`, `SimpleShell`)
+- `apex.attribute.PropertiesElement2D.setReferences` — Set a collection of all entities that this 2D element property directly references. (inherited by `ShearPanel`, `Shell`, `SimpleShell`)
+- `apex.attribute.PropertiesElement2D.update` — Update properties of this PropertiesElement2D. (inherited by `ShearPanel`, `Shell`, `SimpleShell`)
+- `apex.attribute.PropertiesElement2DCollection.PropertiesElement2DCollection` — Construct a new PropertiesElement2DCollection.
+- `apex.attribute.PropertiesElement3D.addSecondaryProperties3DModel` — This method is used to add a secondary Properties3D model to a PropertiesElement3D object. (inherited by `PropertiesElement3DHomogeneous`)
+- `apex.attribute.PropertiesElement3D.getAssociatedElements` — Gets the elements associated with this PropertiesElement3D. (inherited by `PropertiesElement3DHomogeneous`)
+- `apex.attribute.PropertiesElement3D.getID` — Get the ID of the PropertiesElement3D. (inherited by `PropertiesElement3DHomogeneous`)
+- `apex.attribute.PropertiesElement3D.getProperties3DModel` — Returns specific Properties3D model via Properties3D model name which is assigned to a PropertiesElement3D. (inherited by `PropertiesElement3DHomogeneous`)
+- `apex.attribute.PropertiesElement3D.getProperties3DModels` — Returns all Properties3D models which are assigned to a PropertiesElement3D. (inherited by `PropertiesElement3DHomogeneous`)
+- `apex.attribute.PropertiesElement3D.getReferenceMaterial` — Get the material referenced in the PropertiesElement3D object. (inherited by `PropertiesElement3DHomogeneous`)
+- `apex.attribute.PropertiesElement3D.getTarget` — Get a collection of the entities that the PropertiesElement3D is applied to. (inherited by `PropertiesElement3DHomogeneous`)
+- `apex.attribute.PropertiesElement3D.removeProperties3DModel` — This method is used to remove a Properties3DModel model (if exists) from a PropertiesElement3D object. (inherited by `PropertiesElement3DHomogeneous`)
+- `apex.attribute.PropertiesElement3D.setPrimaryProperties3DModel` — This method is used to set the primary Properties3D model to a PropertiesElement3D object. (inherited by `PropertiesElement3DHomogeneous`)
+- `apex.attribute.PropertiesElement3D.update` — Update properties of this PropertiesElement3D. (inherited by `PropertiesElement3DHomogeneous`)
+- `apex.attribute.PropertiesElement3DCollection.PropertiesElement3DCollection` — Construct a new PropertiesElement3DCollection.
+- `apex.attribute.PropertiesElement3DHomogeneous.getIntegrationNetwork` — Get the integration network of the elements associated with the PropertiesElement3D.
+- `apex.attribute.PropertiesElement3DHomogeneous.getIntegrationScheme` — Get the integration scheme of the elements associated with the PropertiesElement3D.
+- `apex.attribute.PropertiesElement3DHomogeneous.getMaterialOrientation` — Get the material orientation of the PropertiesElement3D when the orientationType is local.
+- `apex.attribute.PropertiesElement3DHomogeneous.getOrientationType` — Get the material orientation type of the PropertiesElement3D.
+- `apex.attribute.PropertiesElement3DHomogeneous.getOutputLocation` — Get the location of the stress output.
+- `apex.attribute.PropertiesElement3DHomogeneous.getReferenceMaterial` — Get the material used in the PropertiesElement3D.
+- `apex.attribute.PropertiesElement3DHomogeneous.update` — Updates this PropertiesElement3D.
+- `apex.attribute.Property2DCoverageRegion.getAlignmentMethod` — Get the enumeration that indicates which method is used to define the 2D property orientation in this Property2DCoverageRegion.
+- `apex.attribute.Property2DCoverageRegion.getCoordinateSystem` — Get the coordinate system whose X axis defines the 2D property orientation in this Property2DCoverageRegion.
+- `apex.attribute.Property2DCoverageRegion.getDirector` — Get the collection of Curves and/or Edges that define how the Property 2D is oriented across this Property2DCoverageRegion.
+- `apex.attribute.Property2DCoverageRegion.getName` — Get the name of this Property2DCoverageRegion.
+- `apex.attribute.Property2DCoverageRegion.getProperty2D` — Get the 2D property that is assigned to this coverage region.
+- `apex.attribute.Property2DCoverageRegion.getTarget` — Get the entities that are included in this Property2DCoverageRegion as an EntityCollection.
+- `apex.attribute.Property2DCoverageRegion.setCoordinateSystem` — Set the coordinate system whose X axis defines the 2D property orientation in this Property2DCoverageRegion.
+- `apex.attribute.Property2DCoverageRegion.setDirector` — Set the collection of Curves and/or Edges that define how the Property 2D is oriented across this Property2DCoverageRegion.
+- `apex.attribute.Property2DCoverageRegion.setName` — Set the name of this Property2DCoverageRegion.
+- `apex.attribute.Property2DCoverageRegion.setTarget` — Set the entities that are included in this Property2DCoverageRegion as an EntityCollection.
+- `apex.attribute.Property2DCoverageRegion.update` — Update the properties of this Property2DCoverageRegion.
+- `apex.attribute.Property2DCoverageRegionCollection.Property2DCoverageRegionCollection` — Construct a new Property2DCoverageRegionCollection.
+- `apex.attribute.RemotePointEntity.getX`
+- `apex.attribute.RemotePointEntity.getY`
+- `apex.attribute.RemotePointEntity.getZ`
+- `apex.attribute.RevoluteJoint.update` — Update this RevoluteJoint properties.
+- `apex.attribute.RigidFace.getCurveSubdivisions` — Int value to represent curve Subdivision number.
+- `apex.attribute.RigidFace.getId` — ID of the rigid face.
+- `apex.attribute.RigidFace.getReferenceBody` — Return Nurbs geometry body when rigidFacType = BCNURBS/BCNURB2 or patch mesh body when rigidFacType = BCPATCH.
+- `apex.attribute.RigidFace.getRigidFaceType` — Defines the rigid face type.
+- `apex.attribute.RigidFace.getSubdivisionsUdirection` — Returns subdivisions in U direction for a Nurbs surface when rigidFacType = BCNURBS.
+- `apex.attribute.RigidFace.getSubdivisionsVdirection` — Returns subdivisions in V direction for a Nurbs surface when rigidFacType = BCNURBS.
+- `apex.attribute.RigidFace.getTrimmingCurvesID` — A dictionary to represent trimming curves ID for Nurbs body.
+- `apex.attribute.RigidFace.getTrimmingCurvesSubdivisions` — A dictionary to represent trimming curves Subdivision for Nurbs body.
+- `apex.attribute.RigidFace.update` — update the rigid face.
+- `apex.attribute.RigidFaceCollection.RigidFaceCollection` — Construct a new RigidFaceCollection.
+- `apex.attribute.RigidLinkCollection.RigidLinkCollection` — Construct a new RigidLinkCollection.
+- `apex.attribute.RigidLinkRepProperties.getReferenceTemperature` — reference temperature of rigid link
+- `apex.attribute.RigidLinkRepProperties.getThermalExpansionCoefficient` — thermal expansion coefficient of rigid link
+- `apex.attribute.RigidLinkRepProperties.update` — Update this connector properties.
+- `apex.attribute.SectionCollection.SectionCollection` — Construct a new SectionCollection.
+- `apex.attribute.ShearPanel.getEffectiveFactor1` — Get the Effectiveness factor for extensional stiffness along edges 1-2 and 3-4.
+- `apex.attribute.ShearPanel.getEffectiveFactor2` — Get the Effectiveness factor for extensional stiffness along edges 1-2 and 3-4.
+- `apex.attribute.ShearPanel.getNonStructuralMass` — Get the Nonstructural mass per unit area.
+- `apex.attribute.ShearPanel.getShearMaterial` — Get the Material identification of a MAT1 entry.
+- `apex.attribute.ShearPanel.getThickness` — Get the Thickness value of shear panel.
+- `apex.attribute.ShearPanel.setEffectiveFactor1` — Set the Effectiveness factor for extensional stiffness along edges 1-2 and 3-4.
+- `apex.attribute.ShearPanel.setEffectiveFactor2` — Set the Effectiveness factor for extensional stiffness along edges 1-2 and 3-4.
+- `apex.attribute.ShearPanel.setNonStructuralMass` — Set the Nonstructural mass per unit area.
+- `apex.attribute.ShearPanel.setShearMaterial` — Set the Material identification of a MAT1 entry.
+- `apex.attribute.ShearPanel.setThickness` — Set the Thickness value of shear panel.
+- `apex.attribute.ShearPanel.update` — Used to update the attribute for shear panel.
+- `apex.attribute.Shell.getBendingMaterial` — Get the Bending Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the ...
+- `apex.attribute.Shell.getBendingRatio` — Get the bending moment of inertia (12I/T^3) ratio of the actual bending moment inertia of the shell, I, to the bending moment of inertia of a homogeneous shell ...
+- `apex.attribute.Shell.getBottomFiberDistance` — Get the BottomFiberDistance of this 2D element property.
+- `apex.attribute.Shell.getCouplingMaterial` — Get the CouplingMaterial of this 2D element property.
+- `apex.attribute.Shell.getEnableBendingStiffness` — Get the EnableBendingStiffness of this 2D element property.
+- `apex.attribute.Shell.getEnableCoupling` — Get the EnableCoupling of this 2D element property.
+- `apex.attribute.Shell.getEnableMembraneStiffness` — Get the EnableMembraneStiffness of this 2D element property.
+- `apex.attribute.Shell.getEnableTransverseShearStiffness` — Get the EnableTransverseShearStiffness of this 2D element property.
+- `apex.attribute.Shell.getMembraneMaterial` — Get the Membrane Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the ...
+- `apex.attribute.Shell.getNonStructuralMass` — Get the NonStructuralMass of this 2D element property.
+- `apex.attribute.Shell.getOffset` — Get the Offset from the surface of grid points to the element reference plane.
+- `apex.attribute.Shell.getThickness` — Get the membrane thickness of this 2D element property.
+- `apex.attribute.Shell.getTopFiberDistance` — Get the TopFiberDistance of this 2D element property.
+- `apex.attribute.Shell.getTransversMaterial` — Get the Transvers Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the ...
+- `apex.attribute.Shell.getTransverseShearRatio` — Get the transverse shear thickness ratio of this 2D element property.
+- `apex.attribute.Shell.setBendingMaterial` — Set the Bending Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the ...
+- `apex.attribute.Shell.setBendingRatio` — Set the bending moment of inertia (12I/T^3) ratio of the actual bending moment inertia of the shell, I, to the bending moment of inertia of a homogeneous shell ...
+- `apex.attribute.Shell.setBottomFiberDistance` — Set the BottomFiberDistance of this 2D element property.
+- `apex.attribute.Shell.setCouplingMaterial` — Set the CouplingMaterial of this 2D element property.
+- `apex.attribute.Shell.setEnableBendingStiffness` — Set the EnableBendingStiffness of this 2D element property.
+- `apex.attribute.Shell.setEnableCoupling` — Set the EnableCoupling of this 2D element property.
+- `apex.attribute.Shell.setEnableMembraneStiffness` — Set the EnableMembraneStiffness of this 2D element property.
+- `apex.attribute.Shell.setEnableTransverseShearStiffness` — Set the EnableTransverseShearStiffness of this 2D element property.
+- `apex.attribute.Shell.setMembraneMaterial` — Set the Membrane Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the ...
+- `apex.attribute.Shell.setNonStructuralMass` — Set the NonStructuralMass of this 2D element property.
+- `apex.attribute.Shell.setOffset` — Set the Offset from the surface of grid points to the element reference plane.
+- `apex.attribute.Shell.setThickness` — Set the membrane thickness of this 2D element property.
+- `apex.attribute.Shell.setTopFiberDistance` — Set the TopFiberDistance of this 2D element property.
+- `apex.attribute.Shell.setTransversMaterial` — Set the Transvers Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the ...
+- `apex.attribute.Shell.setTransverseShearRatio` — Set the transverse shear thickness ratio of this 2D element property.
+- `apex.attribute.Shell.update` — Used to update the attribute for shell.
+- `apex.attribute.ShellBehavior.getBendingRatio` — Bending momnet of inertia (12I/T^3) ratio of the actual bending moment inertia of the shell, I, to the bending moment of inertia of a homogeneous shell ...
+- `apex.attribute.ShellBehavior.getEnableBendingStiffness` — Boolean value (Default = True) that defines whether or not bending stiffness is activated.
+- `apex.attribute.ShellBehavior.getEnableMembraneStiffness` — Boolean value (Default = True) that defines whether or not membrane stiffness is activated.
+- `apex.attribute.ShellBehavior.getEnableTransverseShearStiffness` — Boolean value (Default = True) that defines whether or not tranverse shear stiffness is activated.
+- `apex.attribute.ShellBehavior.getReferences` — returns a collection of all entities that this ShellBehavior directly references.
+- `apex.attribute.ShellBehavior.getShellBehaviorType` — Selects the type of behavior that will be activated for elements that are associated with this class.
+- `apex.attribute.ShellBehavior.getTransverseShearRatio` — Transverse shear thickness ratio, Ts/T is the ratio of the shear thickness (Ts), to the membrane thickness (T) of the shell.
+- `apex.attribute.ShellBehavior.update` — Updates one or more properties of the ShellBehavior.
+- `apex.attribute.ShellBehaviorCollection.ShellBehaviorCollection` — Construct a new ShellBehaviorCollection.
+- `apex.attribute.ShellSection.getOffset` — Returns Offset of the ShellSection.
+- `apex.attribute.ShellSection.getReferences` — returns a collection of all entities that this ShellSection directly references
+- `apex.attribute.ShellSection.getTarget` — Returns a read only collection of the entities that the ShellSection is applied to.
+- `apex.attribute.ShellSection.getThickness` — Returns Thickness of the ShellSection.
+- `apex.attribute.ShellSection.recalculate` — recalculates the thickness and offset fields/values for this Section using the current locations of the pairs of Faces that were used to create the Section.
+- `apex.attribute.ShellSection.update` — Update this ShellSection properties.
+- `apex.attribute.SimpleShell.getBendingRatio` — Get the BendingRatio of this 2D element property.
+- `apex.attribute.SimpleShell.getBottomFiberDistance` — Get the BottomFiberDistance of this 2D element property.
+- `apex.attribute.SimpleShell.getEnableBendingStiffness` — Get the EnableBendingStiffness of this 2D element property.
+- `apex.attribute.SimpleShell.getEnableMembraneStiffness` — Get the EnableMembraneStiffness of this 2D element property.
+- `apex.attribute.SimpleShell.getEnableTransverseShearStiffness` — Get the EnableTransverseShearStiffness of this 2D element property.
+- `apex.attribute.SimpleShell.getNonStructuralMass` — Get the NonStructuralMass of this 2D element property.
+- `apex.attribute.SimpleShell.getOffset` — Get the Offset of this 2D element property.
+- `apex.attribute.SimpleShell.getReferMaterial` — Get the ReferMaterial of this 2D element property.
+- `apex.attribute.SimpleShell.getThickness` — Get the Thickness of this 2D element property.
+- `apex.attribute.SimpleShell.getTopFiberDistance` — Get the TopFiberDistance of this 2D element property.
+- `apex.attribute.SimpleShell.getTransverseShearRatio` — Get the TransverseShearRatio of this 2D element property.
+- `apex.attribute.SimpleShell.setBendingRatio` — Set the BendingRatio of this 2D element property.
+- `apex.attribute.SimpleShell.setBottomFiberDistance` — Set the BottomFiberDistance of this 2D element property.
+- `apex.attribute.SimpleShell.setEnableBendingStiffness` — Set the EnableBendingStiffness of this 2D element property.
+- `apex.attribute.SimpleShell.setEnableMembraneStiffness` — Set the EnableMembraneStiffness of this 2D element property.
+- `apex.attribute.SimpleShell.setEnableTransverseShearStiffness` — Set the EnableTransverseShearStiffness of this 2D element property.
+- `apex.attribute.SimpleShell.setNonStructuralMass` — Set the NonStructuralMass of this 2D element property.
+- `apex.attribute.SimpleShell.setOffset` — Set the Offset of this 2D element property.
+- `apex.attribute.SimpleShell.setReferMaterial` — Set the ReferMaterial of this 2D element property.
+- `apex.attribute.SimpleShell.setThickness` — Set the Thickness of this 2D element property.
+- `apex.attribute.SimpleShell.setTopFiberDistance` — Set the TopFiberDistance of this 2D element property.
+- `apex.attribute.SimpleShell.setTransverseShearRatio` — Set the TransverseShearRatio of this 2D element property.
+- `apex.attribute.SimpleShell.update` — Used to update the attribute for simple shell.
+- `apex.attribute.SphericalJoint.update` — Update this SphericalJoint properties.
+- `apex.attribute.Spring1DCollection.Spring1DCollection` — Construct a new Spring1DCollection.
+- `apex.attribute.Spring1DRepProperties.getDampingCoefficient` — The dampingCoefficient of Spring1D connector.
+- `apex.attribute.Spring1DRepProperties.getEmbedded` — Returns embedded of the Spring1D connector.
+- `apex.attribute.Spring1DRepProperties.getId` — Returns id of the Spring1D connector.
+- `apex.attribute.Spring1DRepProperties.getStiffness` — The stiffness of Spring1D connector.
+- `apex.attribute.Spring1DRepProperties.getStressCoefficient` — The stressCoefficient of Spring1D connector.
+- `apex.attribute.Spring1DRepProperties.update` — Update this connector properties.
+- `apex.attribute.Spring1DRepPropertiesCollection.Spring1DRepPropertiesCollection` — Construct a new Spring1DRepPropertiesCollection.
+- `apex.attribute.SpringDamper1DCollection.SpringDamper1DCollection` — Construct a new SpringDamper1DCollection.
+- `apex.attribute.SpringDamper1DRepProperties.getDamping` — The damping of the SpringDamper 1D connector.
+- `apex.attribute.SpringDamper1DRepProperties.getEmbedded` — Returns embedded of the SpringDamper1D connector.
+- `apex.attribute.SpringDamper1DRepProperties.getId` — Returns id of the SpringDamper1D connector.
+- `apex.attribute.SpringDamper1DRepProperties.getMass` — The mass of the SpringDamper1D connector.
+- `apex.attribute.SpringDamper1DRepProperties.getStiffness` — The stiffness of the SpringDamper1D connector.
+- `apex.attribute.SpringDamper1DRepProperties.getStrainRecoveryCoefficient` — The strainRecoveryCoefficient of the SpringDamper1D connector.
+- `apex.attribute.SpringDamper1DRepProperties.getStressRecoveryCoefficient` — The stressRecoveryCoefficient of the SpringDamper1D connector.
+- `apex.attribute.SpringDamper1DRepProperties.update` — Update this connector properties.
+- `apex.attribute.SpringDamper1DRepPropertiesCollection.SpringDamper1DRepPropertiesCollection` — Construct a new SpringDamper1DRepPropertiesCollection.
+- `apex.attribute.StressStrainCurve.getDescription` — Returns the description for this DataSeries.
+- `apex.attribute.StressStrainCurve.getName` — Returns the name for this DataSeries.
+- `apex.attribute.StressStrainCurve.getStrainType`
+- `apex.attribute.StressStrainCurve.getXUnit` — Returns the string defining the unit (e.g., "m") for the x-axis data.
+- `apex.attribute.StressStrainCurve.getXUnitQuantity` — Returns the string defining the type of unit quantity (e.g. "Length") for the x-data.
+- `apex.attribute.StressStrainCurve.getXValues` — Returns the list of scalar values representing the x-axis data.
+- `apex.attribute.StressStrainCurve.getYData` — Returns the list of scalar values representing the y-axis data.
+- `apex.attribute.StressStrainCurve.getYUnit` — Returns the string defining the unit for the y-axis data.
+- `apex.attribute.StressStrainCurve.getYUnitQuantity` — Returns the string defining the type of unit quantity for the y-data.
+- `apex.attribute.StressStrainCurve.setDescription`
+- `apex.attribute.StressStrainCurve.setName`
+- `apex.attribute.StressStrainCurve.setStrainType`
+- `apex.attribute.StressStrainCurve.setXunit`
+- `apex.attribute.StressStrainCurve.setXunitquantity`
+- `apex.attribute.StressStrainCurve.setXvalues`
+- `apex.attribute.StressStrainCurve.setYdata`
+- `apex.attribute.StressStrainCurve.setYunit`
+- `apex.attribute.StressStrainCurve.setYunitquantity`
+- `apex.attribute.StressStrainCurve.update`
+- `apex.attribute.TABDMP1.exportdata`
+- `apex.attribute.TABDMP1.getId` — Gets.
+- `apex.attribute.TABDMP1.getType` — Gets.
+- `apex.attribute.TABDMP1.getXdata` — Gets.
+- `apex.attribute.TABDMP1.getYdata` — Gets.
+- `apex.attribute.TABDMP1.importdata`
+- `apex.attribute.TABDMP1.update`
+- `apex.attribute.TABRND1.exportdata`
+- `apex.attribute.TABRND1.getId` — Gets.
+- `apex.attribute.TABRND1.getXInterpolation` — Gets.
+- `apex.attribute.TABRND1.getXdata` — Gets.
+- `apex.attribute.TABRND1.getYInterpolation` — Gets.
+- `apex.attribute.TABRND1.getYdata` — Gets.
+- `apex.attribute.TABRND1.importdata`
+- `apex.attribute.TABRND1.update`
+- `apex.attribute.ThermalExpansionLinear2DAnisotropic.ThermalExpansionLinear2DAnisotropic` — Create ThermalExpansionLinear2DAnisotropic constitutive model.
+- `apex.attribute.ThermalExpansionLinear2DAnisotropic.getExpansionCoefficient11` — Returns Expansion Coefficient11 of the constitutive model.
+- `apex.attribute.ThermalExpansionLinear2DAnisotropic.getExpansionCoefficient12` — Returns Expansion Coefficient12 of the constitutive model.
+- `apex.attribute.ThermalExpansionLinear2DAnisotropic.getExpansionCoefficient22` — Returns Expansion Coefficient22 of the constitutive model.
+- `apex.attribute.ThermalExpansionLinear2DAnisotropic.getReferenceTemp` — Gets Reference Temp property of the Material.
+- `apex.attribute.ThermalExpansionLinear2DAnisotropic.update` — Update properties of this ThermalExpansionLinear2DAnisotropic constitutive model.
+- `apex.attribute.ThermalExpansionLinear2DOrthotropic.ThermalExpansionLinear2DOrthotropic` — Create ThermalExpansionLinear2DOrthotropic constitutive model.
+- `apex.attribute.ThermalExpansionLinear2DOrthotropic.getExpansionCoefficient11` — Returns Expansion Coefficient11 of the constitutive model.
+- `apex.attribute.ThermalExpansionLinear2DOrthotropic.getExpansionCoefficient22` — Returns Expansion Coefficient22 of the constitutive model.
+- `apex.attribute.ThermalExpansionLinear2DOrthotropic.getReferenceTemp` — Gets Reference Temp property of the Material.
+- `apex.attribute.ThermalExpansionLinear2DOrthotropic.update` — Update properties of this ThermalExpansionLinear2DOrthotropic constitutive model.
+- `apex.attribute.ThermalExpansionLinear3DAnisotropic.ThermalExpansionLinear3DAnisotropic` — Create ThermalExpansionLinear3DAnisotropic constitutive model.
+- `apex.attribute.ThermalExpansionLinear3DAnisotropic.getExpansionCoefficient11` — Returns Expansion Coefficient11 of the constitutive model.
+- `apex.attribute.ThermalExpansionLinear3DAnisotropic.getExpansionCoefficient12` — Returns Expansion Coefficient12 of the constitutive model.
+- `apex.attribute.ThermalExpansionLinear3DAnisotropic.getExpansionCoefficient13` — Returns Expansion Coefficient13 of the constitutive model.
+- `apex.attribute.ThermalExpansionLinear3DAnisotropic.getExpansionCoefficient22` — Returns Expansion Coefficient22 of the constitutive model.
+- `apex.attribute.ThermalExpansionLinear3DAnisotropic.getExpansionCoefficient23` — Returns Expansion Coefficient23 of the constitutive model.
+- `apex.attribute.ThermalExpansionLinear3DAnisotropic.getExpansionCoefficient33` — Returns Expansion Coefficient33 of the constitutive model.
+- `apex.attribute.ThermalExpansionLinear3DAnisotropic.getReferenceTemp` — Gets Reference Temp property of the Material.
+- `apex.attribute.ThermalExpansionLinear3DAnisotropic.update` — Update properties of this ThermalExpansionLinear3DAnisotropic constitutive model.
+- `apex.attribute.ThermalExpansionLinear3DOrthotropic.ThermalExpansionLinear3DOrthotropic` — Create ThermalExpansionLinear3DOrthotropic constitutive model.
+- `apex.attribute.ThermalExpansionLinear3DOrthotropic.getExpansionCoefficient11` — Returns theCoefficient of linear thermal expansion in the material 11 direction.
+- `apex.attribute.ThermalExpansionLinear3DOrthotropic.getExpansionCoefficient22` — Returns the Coefficient of linear thermal expansion in the material 22 direction.
+- `apex.attribute.ThermalExpansionLinear3DOrthotropic.getExpansionCoefficient33` — Returns the Coefficient of linear thermal expansion in the material 33 direction.
+- `apex.attribute.ThermalExpansionLinear3DOrthotropic.getReferenceTemp` — Gets Reference Temp property of the Material.
+- `apex.attribute.ThermalExpansionLinear3DOrthotropic.update` — Update properties of this ThermalExpansionLinear3DOrthotropic constitutive model.
+- `apex.attribute.ThermalExpansionLinear3DTransvIso.ThermalExpansionLinear3DTransvIso` — Create ThermalExpansionLinear3DTransvIso constitutive model.
+- `apex.attribute.ThermalExpansionLinear3DTransvIso.getExpansionCoefficient11` — Returns the Axis Direction Thermal Expansion Coefficient.
+- `apex.attribute.ThermalExpansionLinear3DTransvIso.getExpansionCoefficient22` — Returns the in plan Thermal Expansion Coefficient.
+- `apex.attribute.ThermalExpansionLinear3DTransvIso.getReferenceTemp` — Gets Reference Temp property of the Material.
+- `apex.attribute.ThermalExpansionLinear3DTransvIso.update` — Update properties of this ThermalExpansionLinear3DTransvIso constitutive model.
+- `apex.attribute.ThermalExpansionLinearIsotropic.ThermalExpansionLinearIsotropic` — Create ThermalExpansionLinearIsotropic constitutive model.
+- `apex.attribute.ThermalExpansionLinearIsotropic.getExpansionCoefficient11` — Returns Expansion Coefficient11 of the constitutive model.
+- `apex.attribute.ThermalExpansionLinearIsotropic.getReferenceTemp` — Gets Reference Temp property of the Material.
+- `apex.attribute.ThermalExpansionLinearIsotropic.update` — Update properties of this ThermalExpansionLinearIsotropic constitutive model.
+- `apex.attribute.ThicknessOffsetField.getTarget` — Get a collection of all entities that this field directly references. (inherited by `ThicknessOffsetFieldConstant`, `ThicknessOffsetFieldMidsurface`)
+- `apex.attribute.ThicknessOffsetFieldConstant.getConstantValue` — Get the constant value of ThicknessOffsetFieldConstant.
+- `apex.attribute.ThicknessOffsetFieldConstant.update` — Used to update the attribute for ThicknessOffsetFieldConstant.
+- `apex.attribute.ThicknessOffsetFieldMidsurface.getOffset` — Get the offset value of ThicknessOffsetFieldMidsurface.
+- `apex.attribute.ThicknessOffsetFieldMidsurface.getThickness` — Get the thickness value of ThicknessOffsetFieldMidsurface.
+- `apex.attribute.ThicknessOffsetFieldMidsurface.recalculate` — recalculates the thickness and offset fields/values for this field using the current locations of the pairs of Faces that were used to create the field.
+- `apex.attribute.ThicknessOffsetFieldMidsurface.update` — Used to update the attribute for ThicknessOffsetFieldMidsurface.
+- `apex.attribute.ThicknessOffsetFieldMidsurfaceCollection.ThicknessOffsetFieldMidsurfaceCollection` — Construct a new ThicknessOffsetFieldMidsurfaceCollection.
+- `apex.attribute.ViscoElasticity.ViscoElasticity` — Create Structural Damping Coefficient. (inherited by `ViscoElasticity2DAniso`, `ViscoElasticity3DAniso`)
+- `apex.attribute.ViscoElasticity.getStrdampingCoefficient` — Returns Elastic Modulus 11 of the constitutive model. (inherited by `ViscoElasticity2DAniso`, `ViscoElasticity3DAniso`)
+- `apex.attribute.ViscoElasticity.update` — used to update the Structural Damping Coefficient (inherited by `ViscoElasticity2DAniso`, `ViscoElasticity3DAniso`)
+- `apex.attribute.ViscoElasticity2DAniso.ViscoElasticity2DAniso` — Create ViscoElasticity2DAniso constitutive model.
+- `apex.attribute.ViscoElasticity2DAniso.getGE11` — Returns Matrix11 of the constitutive model.
+- `apex.attribute.ViscoElasticity2DAniso.getGE12` — Returns Matrix12 of the constitutive model.
+- `apex.attribute.ViscoElasticity2DAniso.getGE13` — Returns Matrix13 of the constitutive model.
+- `apex.attribute.ViscoElasticity2DAniso.getGE22` — Returns Matrix22 of the constitutive model.
+- `apex.attribute.ViscoElasticity2DAniso.getGE23` — Returns Matrix23 of the constitutive model.
+- `apex.attribute.ViscoElasticity2DAniso.getGE33` — Returns Matrix33 of the constitutive model.
+- `apex.attribute.ViscoElasticity2DAniso.update` — Update properties of this ViscoElasticity2DAniso constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.ViscoElasticity3DAniso` — Create ViscoElasticity3DAniso constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.getGE11` — Returns Matrix11 of the constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.getGE12` — Returns Matrix12 of the constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.getGE13` — Returns Matrix13 of the constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.getGE14` — Returns Matrix14 of the constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.getGE15` — Returns Matrix15 of the constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.getGE16` — Returns Matrix16 of the constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.getGE22` — Returns Matrix22 of the constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.getGE23` — Returns Matrix23 of the constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.getGE24` — Returns Matrix24 of the constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.getGE25` — Returns Matrix25 of the constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.getGE26` — Returns Matrix6 of the constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.getGE33` — Returns Matrix33 of the constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.getGE34` — Returns Matrix34 of the constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.getGE35` — Returns Matrix35 of the constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.getGE36` — Returns Matrix36 of the constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.getGE44` — Returns Matrix44 of the constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.getGE45` — Returns Matrix45 of the constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.getGE46` — Returns Matrix46 of the constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.getGE55` — Returns Matrix55 of the constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.getGE56` — Returns Matrix56 of the constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.getGE66` — Returns Matrix66 of the constitutive model.
+- `apex.attribute.ViscoElasticity3DAniso.update` — Update properties of this ViscoElasticity3DAniso constitutive model.
+- `apex.attribute.YieldBarlat.getC1` — Gets Barlat C1 coefficient.
+- `apex.attribute.YieldBarlat.getC2` — Gets Barlat C2 coefficient.
+- `apex.attribute.YieldBarlat.getC3` — Gets Barlat C3 coefficient.
+- `apex.attribute.YieldBarlat.getC6` — Gets Barlat C6 coefficient.
+- `apex.attribute.YieldBarlat.getM` — Gets Barlat M coefficient.
+- `apex.attribute.YieldBarlat.setC1` — Sets Barlat C1 coefficient.
+- `apex.attribute.YieldBarlat.setC2` — Sets Barlat C2 coefficient.
+- `apex.attribute.YieldBarlat.setC3` — Sets Barlat C3 coefficient.
+- `apex.attribute.YieldBarlat.setC6` — Sets Barlat C6 coefficient.
+- `apex.attribute.YieldBarlat.setM` — Sets Barlat M coefficient.
+- `apex.attribute.YieldBarlat.update` — edit method Usage example: $$ Edit a Barlat yield criteria. myYieldCriteria.update(m = 1.0, c1 = 1.0, c2 = 1.0, c3 = 1.0, c6 = 1.0)
+- `apex.attribute.YieldCriteria.asYieldBarlat` (inherited by `YieldBarlat`, `YieldHill`, `YieldImpCreep`, `YieldLinearMohr`, `YieldParabolicMohr`, `YieldVonMises`)
+- `apex.attribute.YieldCriteria.asYieldHill` (inherited by `YieldBarlat`, `YieldHill`, `YieldImpCreep`, `YieldLinearMohr`, `YieldParabolicMohr`, `YieldVonMises`)
+- `apex.attribute.YieldCriteria.asYieldImpCreep` (inherited by `YieldBarlat`, `YieldHill`, `YieldImpCreep`, `YieldLinearMohr`, `YieldParabolicMohr`, `YieldVonMises`)
+- `apex.attribute.YieldCriteria.asYieldLinearMohr` (inherited by `YieldBarlat`, `YieldHill`, `YieldImpCreep`, `YieldLinearMohr`, `YieldParabolicMohr`, `YieldVonMises`)
+- `apex.attribute.YieldCriteria.asYieldParabolicMohr` (inherited by `YieldBarlat`, `YieldHill`, `YieldImpCreep`, `YieldLinearMohr`, `YieldParabolicMohr`, `YieldVonMises`)
+- `apex.attribute.YieldCriteria.asYieldVonMises` (inherited by `YieldBarlat`, `YieldHill`, `YieldImpCreep`, `YieldLinearMohr`, `YieldParabolicMohr`, `YieldVonMises`)
+- `apex.attribute.YieldHill.getR11` — Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `apex.attribute.YieldHill.getR12` — Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `apex.attribute.YieldHill.getR13` — Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `apex.attribute.YieldHill.getR22` — Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `apex.attribute.YieldHill.getR23` — Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `apex.attribute.YieldHill.getR33` — Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `apex.attribute.YieldHill.setR11` — Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `apex.attribute.YieldHill.setR12` — Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `apex.attribute.YieldHill.setR13` — Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `apex.attribute.YieldHill.setR22` — Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `apex.attribute.YieldHill.setR23` — Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `apex.attribute.YieldHill.setR33` — Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `apex.attribute.YieldHill.update` — edit method.
+- `apex.attribute.YieldImpCreep.getEqVonMises` — Gets Equivalent (von Mises) tensile yield stress. (Real, no Default)
+- `apex.attribute.YieldImpCreep.setEqVonMises` — Sets Equivalent (von Mises) tensile yield stress. (Real, no Default)
+- `apex.attribute.YieldImpCreep.update` — edit method Usage example: $$ Edit a Barlat yield criteria. myYieldCriteria.update(m = 1.0, c1 = 1.0, c2 = 1.0, c3 = 1.0, c6 = 1.0)
+- `apex.attribute.YieldLinearMohr.getAlpha` — Gets Specifies the parameter alpha for linear Mohr-Coulomb model.
+- `apex.attribute.YieldLinearMohr.setAlpha` — Sets Specifies the parameter alpha for linear Mohr-Coulomb model.
+- `apex.attribute.YieldLinearMohr.update` — update method Usage example: $$ edit a Linear Mohr-Coulomb yield criteria myYieldCriteria.update(alpha = 1.0)
+- `apex.attribute.YieldParabolicMohr.getAlpha` — Gets Specifies the parameter alpha for linear Mohr-Coulomb model.
+- `apex.attribute.YieldParabolicMohr.getBeta` — Gets Specifies the parameter beta for parabolic Mohr-Coulomb model. (Real > 0.
+- `apex.attribute.YieldParabolicMohr.setAlpha` — Sets Specifies the parameter alpha for linear Mohr-Coulomb model.
+- `apex.attribute.YieldParabolicMohr.setBeta` — Sets Specifies the parameter beta for parabolic Mohr-Coulomb model. (Real > 0.
+- `apex.attribute.YieldParabolicMohr.update` — Edit method Usage example: $$ edit a Parabolic Mohr-Coulomb model yield criteria myYieldCriteria.update(alpha = 1.0,beta = 1.0 )
+- `apex.attribute.Zone.getAlignmentType` — Gets the optional alignmentType of the zone offset.
+- `apex.attribute.Zone.getAllowableInterLaminarBondStress` — Gets the optional allowableInterlaminarBondStress of the zone.
+- `apex.attribute.Zone.getFailureCriteria` — Gets the optional failureCriteria of the zone.
+- `apex.attribute.Zone.getId` — Gets the id of the zone.
+- `apex.attribute.Zone.getNonStructuralMass` — Gets the nonstructural mass per unit area on the zone region.
+- `apex.attribute.Zone.getPlies` — Gets Plies of the Zone.
+- `apex.attribute.Zone.getPlyBehavior` — Gets the optional plyBehavior in zone.
+- `apex.attribute.Zone.getPlyIdBehavior` — Gets the optional plyIdBehavior in zone.
+- `apex.attribute.Zone.getReferenceTemperature` — Gets the optional reference temperature of the zone.
+- `apex.attribute.Zone.getRegions` — Gets regions of the zone.
+- `apex.attribute.Zone.getStructuralDampingCoefficient` — Gets the optional structuralDampingCoefficient of the zone.
+- `apex.attribute.Zone.getThickness` — Gets the total thickness of the zone.This thickness is derived from the total plies thickness within the zone.
+- `apex.attribute.Zone.getZoneOffset` — Gets the optional offset distance of the zone.
+- `apex.attribute.Zone.moveDownPly` — Move down the ply.
+- `apex.attribute.Zone.moveUpPly` — Move up the ply.
+- `apex.attribute.Zone.setAlignmentType` — Sets the optional alignmentType of the zone offset.
+- `apex.attribute.Zone.setAllowableInterLaminarBondStress` — Sets the optional allowableInterlaminarBondStress of the zone.
+- `apex.attribute.Zone.setFailureCriteria` — Sets the optional failureCriteria of the zone.
+- `apex.attribute.Zone.setId` — Sets the id of the zone.
+- `apex.attribute.Zone.setNonStructuralMass` — Sets the nonstructural mass per unit area on the zone region.
+- `apex.attribute.Zone.setPlyBehavior` — Sets the optional plyBehavior in zone.
+- `apex.attribute.Zone.setPlyIdBehavior` — Sets the optional plyIdBehavior in zone.
+- `apex.attribute.Zone.setReferenceTemperature` — Sets the optional reference temperature of the zone.
+- `apex.attribute.Zone.setStructuralDampingCoefficient` — Sets the optional structuralDampingCoefficient of the zone.
+- `apex.attribute.Zone.setZoneOffset` — Sets the optional offset distance of the zone.
+- `apex.attribute.Zone.update` — Update the Zone properties.
+- `apex.attribute.ZoneCollection.ZoneCollection` — Construct a new ZoneCollection.
+- `apex.catalog.CatalogElementProperty.getPropertiesElement2D` — Retrieves specified PropertiesElement2D object in the catalog.
+- `apex.catalog.CatalogElementProperty.getPropertiesElement2DDictionary` — A dictionary containing all apex.attribute.PropertiesElement2D objects in the catalog.
+- `apex.catalog.CatalogElementProperty.getPropertiesElement2Ds` — Get all of PropertiesElement2D objects in the catalog.
+- `apex.catalog.CatalogElementProperty.getPropertiesElement3D` — Retrieves specified PropertiesElement3D object in the catalog.
+- `apex.catalog.CatalogElementProperty.getPropertiesElement3DDictionary` — A dictionary containing all apex.attribute.PropertiesElement3D objects in the catalog.
+- `apex.catalog.CatalogElementProperty.getPropertiesElement3Ds` — Get all of PropertiesElement3D objects in the catalog.
+- `apex.catalog.CatalogMaterial.getMaterial` — retrieves specified material in this catalog.
+- `apex.catalog.CatalogMaterial.getMaterialSheet` — retrieves specified material sheet in this catalog.
+- `apex.catalog.CatalogMaterial.getMaterialSheetStack` — retrieves specified material sheet stack in this catalog.
+- `apex.catalog.CatalogMaterial.getMaterialSheetStacks` — retrieves all of the MaterialSheetStacks in this catalog.
+- `apex.catalog.CatalogMaterial.getMaterialSheets` — retrieves all of the MaterialSheets in this catalog.
+- `apex.catalog.CatalogMaterial.getMaterials` — retrieves all of the Materials in this catalog.
+- `apex.catalog.CatalogParameters.activeParametersSet` — activate one parameters set
+- `apex.catalog.CatalogParameters.createParamSet` — create a parameters set.
+- `apex.catalog.CatalogParameters.getActiveParametersSetBulkData` — get the active parameters set.
+- `apex.catalog.CatalogParameters.getParameterSet` — Return the parameter set by name.
+- `apex.catalog.CatalogParameters.getParametersSets` — Retrieves All available parameter sets in this catalog.
+- `apex.catalog.CatalogParameters.remove` — Remove parameter set from this parameters catalog.
+- `apex.catalog.CatalogSystemCells.activeSystemCellsSet` — Activate one system cells set.
+- `apex.catalog.CatalogSystemCells.createSystemCellsSet` — create a parameters set.
+- `apex.catalog.CatalogSystemCells.getActiveSystemCellsSet` — get the active system cells set.
+- `apex.catalog.CatalogSystemCells.getSystemCellsSet` — Return the system cells set by name.
+- `apex.catalog.CatalogSystemCells.getSystemCellsSets` — Retrieves All available system cells sets in this catalog.
+- `apex.catalog.CatalogSystemCells.remove` — Remove system cells set from this system cells catalog.
+- `apex.catalog.DAMPING.getHybridDamping` — Gets ID of HYBDAMP entry for hybrid damping.
+- `apex.catalog.DAMPING.getHybridStructuralDampingFrequency` — Gets Average frequency for calculation of hybrid structural damping in transient response.(Real ≥ 0.0; Default = 0.0)
+- `apex.catalog.DAMPING.getId` — Gets SID: Set identification number.
+- `apex.catalog.DAMPING.getMassScaleFactor` — Gets Scale factor for mass portion of Rayleigh damping.
+- `apex.catalog.DAMPING.getMaterialDampingFrequency` — Gets Average frequency for calculation of material damping in transient response.(Real ≥ 0.0; Default = 0.0)
+- `apex.catalog.DAMPING.getMaterialDampingScaleFactor` — Gets Scale factor for material damping.
+- `apex.catalog.DAMPING.getRemoveRotorStiffnessMassStructuralDamping` — Gets Remove rotor stiffness, mass, and structural damping from the hybrid damping calculation (Character: YES or NO; Default=YES)
+- `apex.catalog.DAMPING.getStiffnessScaleFactor` — Gets Scale factor for stiffness portion of Rayleigh damping.
+- `apex.catalog.DAMPING.getStructuralDampingCoefficient` — Gets Structural damping coefficient.
+- `apex.catalog.DAMPING.getStructuralDampingFrequency` — Gets Average frequency for calculation of structural damping in transient response.(Real ≥ 0.0; Default = 0.0)
+- `apex.catalog.DAMPING.update` — update the DAMPING
+- `apex.catalog.EIGB.getComponentNumber` — Gets C: Component number.
+- `apex.catalog.EIGB.getDesiredNumberOfNegativeRoots` — Gets NDN: Desired number of roots, Integer > 0, default =3NEP.
+- `apex.catalog.EIGB.getDesiredNumberOfPositiveRoots` — Gets NDP: Desired number of roots, Integer > 0, default =3NEP.
+- `apex.catalog.EIGB.getEigenvalueExtractionMethod` — Gets String to define Method of eigenvalue extraction. (Character: "INV" for inverse power method or "SINV" for enhanced inverse power method.)
+- `apex.catalog.EIGB.getEstimateNumberOfRoots` — Gets NEP: Estimate of number of roots, Integer > 0.
+- `apex.catalog.EIGB.getId` — Gets SID: Set identification number.
+- `apex.catalog.EIGB.getLowerFrequencyBound` — Gets L1: Lower Frequency Bound, Real ≥ 0.0.
+- `apex.catalog.EIGB.getNodeId` — Gets G: Required only if NORM = "POINT".(Integer > 0)
+- `apex.catalog.EIGB.getNormalizingEigenvectorsMethod` — Gets String to define Method for normalizing eigenvectors. (Character: "MAX" or "POINT"; Default ="MAX")
+- `apex.catalog.EIGB.getUpperFrequencyBound` — Gets L2: Upper Frequency Bound, Real ≥ 0.0.
+- `apex.catalog.EIGB.update` — update the EIGB
+- `apex.catalog.EIGR.getComponentNumber` — Gets C: Component number.
+- `apex.catalog.EIGR.getDesiredNumberOfRoots` — Gets ND: Desired number of roots, Integer > 0, default =3.
+- `apex.catalog.EIGR.getEigenvalueExtractionMethod` — Gets String to define extraction method.
+- `apex.catalog.EIGR.getEstimateNumberOfRoots` — Gets NE: Estimate of number of roots, Integer > 0.
+- `apex.catalog.EIGR.getId` — Gets SID: Set identification number.
+- `apex.catalog.EIGR.getLowerFrequencyBound` — Gets F1: Lower Frequency Bound, Real ≥ 0.0.
+- `apex.catalog.EIGR.getNodeId` — Gets G: Required only if NORM = "POINT".(Integer > 0)
+- `apex.catalog.EIGR.getNormalizingEigenvectorsMethod` — Gets String to define Method for normalizing eigenvectors.
+- `apex.catalog.EIGR.getUpperFrequencyBound` — Gets F2: Upper Frequency Bound, Real ≥ 0.0.
+- `apex.catalog.EIGR.update` — update the EIGR
+- `apex.catalog.EIGRL.getCalculationConstant` — Gets ALPH: Specifies a constant for the calculation of frequencies (Fi) at the upper boundary segments for the parallel method. (Real > 0.0; Default = 1.0)
+- `apex.catalog.EIGRL.getDesiredNumberOfRoots` — Gets ND: Desired number of roots.
+- `apex.catalog.EIGRL.getDiagnosticLevel` — Gets MSGLVL: Diagnostic level. (0 < Integer < 4; Default = 0)
+- `apex.catalog.EIGRL.getEstimatefFexibleModeFrequency` — Gets SHFSCL: Estimate of the first flexible mode natural frequency.
+- `apex.catalog.EIGRL.getFrequencySegmentValue` — Gets Fi: Frequency at the upper boundary of the i-th segment.
+- `apex.catalog.EIGRL.getId` — Gets SID: Set identification number.
+- `apex.catalog.EIGRL.getLowerFrequencyBound` — Gets V1: Lower Frequency Bound, Real ≥ 0.0.
+- `apex.catalog.EIGRL.getNormalizingEigenvectorsMethod` — Gets String to define Method for normalizing eigenvectors.
+- `apex.catalog.EIGRL.getNumberOfVectors` — Gets MAXSET: Number of vectors in block or set.
+- `apex.catalog.EIGRL.getRequencySegmentNumber` — Gets NUMS: Number of frequency segments for the parallel method. (Integer > 0; Default = 1)
+- `apex.catalog.EIGRL.getUpperFrequencyBound` — Gets V2: Upper Frequency Bound, Real ≥ 0.0.
+- `apex.catalog.EIGRL.update` — update the EIGRL
+- `apex.catalog.HYBDAMP.getId` — Gets the id of the HYBDAMP.
+- `apex.catalog.HYBDAMP.getModalDamping` — Gets SDAMP: the id of a modal damping table.
+- `apex.catalog.HYBDAMP.getModeMethod` — Gets METHOD: the id of the mode calculation method, should be the id of EIGR or EIGRL.
+- `apex.catalog.HYBDAMP.getPrintEigenSummary` — Gets PRTEIG: a string argument to define whether print eigen value summary from hybrid damping calculation.
+- `apex.catalog.HYBDAMP.getUseStructuralDamping` — Gets KDAMP: a string argument to define whether use the vicious damping as the structural damping.
+- `apex.catalog.HYBDAMP.update`
+- `apex.catalog.ITER.getConvergenceCriterion` — Gets Convergence criterion. (String:"AR","GE","AREX","GEEX"; Default = "AREX")
+- `apex.catalog.ITER.getExtractionLevel` — Gets Extraction level in reduced incomplete Cholesky preconditioning, Integer = 0 thought 7.
+- `apex.catalog.ITER.getId` — Gets SID: Set identification number.
+- `apex.catalog.ITER.getMaxNumberIterations` — Gets Maximum number of iterations,Integer>0.
+- `apex.catalog.ITER.getPaddingValue` — Gets Padding value for RIC, RICS, BIC, and BICCMPLX preconditioning. (Integer > 0)
+- `apex.catalog.ITER.getPreconditionerOption` — Gets String to define Preconditioner option J: Jacobi JS: Jacobi with diagonal scaling.
+- `apex.catalog.ITER.getPrintMessageForEachIteration` — Gets String to define Message flag.
+- `apex.catalog.ITER.getTerminationCriterion` — Gets String argument to control early termination of the iterative solver. 0: Runs to completion (Default). -1: Terminates after preface giving resource ...
+- `apex.catalog.ITER.getUserConvergenceParameter` — Gets User-given convergence parameter epsilon.
+- `apex.catalog.ITER.update` — update the ITER
+- `apex.catalog.KeyResultCatalog.append` — add keyresult in Catalog.
+- `apex.catalog.KeyResultCatalog.getKeyResults` — a List of all KeyResults in the KeyResultCatalog.
+- `apex.catalog.NLSTEP.getActivateArtificialDamping` — Gets IDAMP: the integer argument to activate artificial damping for static analysis. 0: No damping considered. 4: Artificial damping is always turned on. 5 ...
+- `apex.catalog.NLSTEP.getActivateCreep` — Gets CREEP: an integer flag to activate the creep. "1" will activate the creep while "0" will not activate the creep.
+- `apex.catalog.NLSTEP.getAdapt` — Gets a boolean argument to indicate that the adaptive load stepping procedure will be used.
+- `apex.catalog.NLSTEP.getArcln` — Gets a boolean argument to indicate that an arc length load stepping procedure will be used.
+- `apex.catalog.NLSTEP.getConstraintType` — Gets TYPE: The string argument to define the constraint type in the arc length load stepping procedure.
+- `apex.catalog.NLSTEP.getConvergeCriteriaContact` — Gets CONVC: Flag to select convergence criteria.
+- `apex.catalog.NLSTEP.getConvergeCriteriaHeat` — Gets CONVC: Flag to select convergence criteria.
+- `apex.catalog.NLSTEP.getConvergeCriteriaMech` — Gets CONVC: Flag to select convergence criteria.
+- `apex.catalog.NLSTEP.getConversionFactorHeatFric` — Gets HGENPLAS: Conversion factor for heat generated due to friction.
+- `apex.catalog.NLSTEP.getConversionFactorHeatPlastic` — Gets HGENPLAS: Conversion factor for heat generated due to plasticity.
+- `apex.catalog.NLSTEP.getCoup` — Gets a boolean argument to indicate that the parameters for the coupled analysis will be used.
+- `apex.catalog.NLSTEP.getDampingRatio` — Gets DAMP: damping ratio.
+- `apex.catalog.NLSTEP.getDesiredIterationsArcLength` — Gets NDESIRA: Desired number of iterations for convergence to be used for the adaptive arc-length adjustment(Integer > 0).
+- `apex.catalog.NLSTEP.getDesiredIterationsPerInc` — Gets NDESIR: Desired number of iterations per increment.
+- `apex.catalog.NLSTEP.getDisplacementTolerance` — Gets UTOL: Defines tolerance on displacement, .0001 < Real < 1.0.
+- `apex.catalog.NLSTEP.getDominantPeriodSteps` — Gets MSTEP: Number of steps to obtain the dominant period response(10 < Integer< 200 or = -1).
+- `apex.catalog.NLSTEP.getEffectiveStressFracton` — Gets FSTRESS: Fraction of effective stress used to limit the sub increment size in material routines(0.0 < float < 1.0).
+- `apex.catalog.NLSTEP.getErrorToleranceDispContact` — Gets EPSUC: Error tolerance for displacement (U) criterion (Float > 0.0).
+- `apex.catalog.NLSTEP.getErrorToleranceDispMech` — Gets EPSUC: Error tolerance for displacement (U) criterion (Float > 0.0).
+- `apex.catalog.NLSTEP.getErrorToleranceHeatFlux` — Gets EPSPH: Error tolerance for heat flux (P) criterion.
+- `apex.catalog.NLSTEP.getErrorToleranceLoadContact` — Gets EPSPC: Error tolerance for load (V) criterion(Float > 0.0).
+- `apex.catalog.NLSTEP.getErrorToleranceLoadMech` — Gets EPSPC: Error tolerance for load (V) criterion(Float > 0.0).
+- `apex.catalog.NLSTEP.getErrorToleranceTemperature` — Gets EPSUH: Error tolerance for temperature (U) criterion.
+- `apex.catalog.NLSTEP.getErrorToleranceWorkContact` — Gets EPSWC: Error tolerance for work (W) criterion (Float > 0.0).
+- `apex.catalog.NLSTEP.getErrorToleranceWorkHeat` — Gets EPSWH: Error tolerance for work (W) criterion.
+- `apex.catalog.NLSTEP.getErrorToleranceWorkMech` — Gets EPSWC: Error tolerance for work (W) criterion (Float > 0.0).
+- `apex.catalog.NLSTEP.getFactorStepSizeChange` — Gets SFACT: factor for increasing time steps due to number of iterations.
+- `apex.catalog.NLSTEP.getFixed` — Gets a boolean argument to indicate that fixed time stepping will be used.
+- `apex.catalog.NLSTEP.getFixedTimeStepIncrements` — Gets NINC: number of increments for fixed time stepping(integer > 0).
+- `apex.catalog.NLSTEP.getGeneral` — Gets a boolean argument to activate the parameters used for a variety of simulations.
+- `apex.catalog.NLSTEP.getHeat` — Gets a boolean argument to indicate that the parameters for heat transfer analysis will be used.
+- `apex.catalog.NLSTEP.getId` — Gets the id of the NLSTEP.
+- `apex.catalog.NLSTEP.getIncludeRotationsMoments` — Gets MRCONV: The integer argument to specify if rotations and moments should be included in the convergence testing when convergence criteria is set to UV, UN ...
+- `apex.catalog.NLSTEP.getInitLoadStepFraction` — Gets DTINITF: Initial time step defined as fraction of total load step time (TOTTIM).
+- `apex.catalog.NLSTEP.getInitTimeStepFraction` — Gets DTINITFA: Initial time step defined as a fraction of the load step time(TOTTIME) for the arc-length procedure.
+- `apex.catalog.NLSTEP.getIterationLimitBeforeDiverge` — Gets MAXDIVC: Limit on probable divergence conditions per iteration before the solution is assumed to diverge(Integer != 0).
+- `apex.catalog.NLSTEP.getItersBeforeStiffUpdateHeat` — Gets KSTEPH: Number of iterations before the stiffness update for the user defined(ITER) method.
+- `apex.catalog.NLSTEP.getItersBeforeStiffUpdateMech` — Gets KSTEP: Number of iterations before the stiffness update for the user defined(ITER) method.
+- `apex.catalog.NLSTEP.getLargesetRatio` — Gets RBIG: Largest ratio between time step changes due to user criteria.
+- `apex.catalog.NLSTEP.getLcnt` — Gets a boolean argument to indicate that the parameters in the contact analysis in SOL101 will be used.
+- `apex.catalog.NLSTEP.getLineToleranceHeat` — Gets LSTOLH: Line search tolerance(0.01 < float < 0.9).
+- `apex.catalog.NLSTEP.getLineToleranceMech` — Gets LSTOL: Line Search tolerance(0.01 < Float < 0.9).
+- `apex.catalog.NLSTEP.getMaxAdjustRatioArcLength` — Gets MAXALR: Maximum allowable arc-length adjustment ratio between increments for the adaptive arc-length method(float > 1.0).
+- `apex.catalog.NLSTEP.getMaxBisections` — Gets MAXBIS: the maximum number of bisections allowed in the current step.
+- `apex.catalog.NLSTEP.getMaxBisectionsPerInc` — Gets MAXBISC: Maximum number of bisections allowed for each load increment(-10 < Integer <10).
+- `apex.catalog.NLSTEP.getMaxCorrectionVectorsHeat` — Gets MAXQNH: Maximum number of quasi-Newton correction vectors to be saved on database.
+- `apex.catalog.NLSTEP.getMaxCorrectionVectorsMech` — Gets MAXQN: Maximum number of quasi-Newton correction vectors to be saved on the database.
+- `apex.catalog.NLSTEP.getMaxIncrementsLoadCase` — Gets NSMAX: Maximum number of increments in the current load case.
+- `apex.catalog.NLSTEP.getMaxIterations` — Gets MAXITER: the maximum iteration number allowed for each increment.
+- `apex.catalog.NLSTEP.getMaxIterationsLoadCase` — Gets NSMAXA: Maximum number of increments in the current load case(Integer).
+- `apex.catalog.NLSTEP.getMaxIterationsPerInc` — Gets MAXITERC: Limit on number of iterations for each load increment(Integer >= 0).
+- `apex.catalog.NLSTEP.getMaxLineSearchesHeat` — Gets MAXLSH: Maximum number of line searches allowed for each iteration.
+- `apex.catalog.NLSTEP.getMaxLineSearchesMech` — Gets MAXLS: Maximum number of line searches allowed for each iteration.
+- `apex.catalog.NLSTEP.getMaxTimeStepFraction` — Gets DTMAXF Maximum time step defined as fraction of total load step time (TOTTIM).
+- `apex.catalog.NLSTEP.getMech` — Gets a boolean argument to indicate that the parameters for the mechanical analysis will be used.
+- `apex.catalog.NLSTEP.getMinAdjustRatioArcLength` — Gets MINALR: Minimum allowable arc-length adjustment ratio between increments for the adaptive arc-length method(0.0 < Float < 1.0).
+- `apex.catalog.NLSTEP.getMinIterations` — Gets MINITER: the minimum iteration number needed for each increment (integer > 0).
+- `apex.catalog.NLSTEP.getMinIterationsPerInc` — Gets MINITERC: Minimum number of iterations of a load increment (Integer > 0).
+- `apex.catalog.NLSTEP.getMinTimeStepFraction` — Gets DTMINF: Minimum time step defined as fraction of total load step time (TOTTIM).
+- `apex.catalog.NLSTEP.getNumIncrements` — Gets NINCC: Number of increments.
+- `apex.catalog.NLSTEP.getOutputFrequency` — Gets INTOUT: an integer to control the output (integer >= -1). -1: Only the last increment of the step will be output. 0: Every computed load increment will be ...
+- `apex.catalog.NLSTEP.getOutputFrequencyControl` — Gets INTOUT: The control of the output frequency. -1: Only the last increment of the step will be output. 0: Every computed load increment will be output. > 0 ...
+- `apex.catalog.NLSTEP.getOutputInterval` — Gets NO: Interval for output.
+- `apex.catalog.NLSTEP.getPredefinedControlOptions` — Gets CTRLDEF: a string argument to define the predefined control options.
+- `apex.catalog.NLSTEP.getSetupType` — Gets a string argument to define the setup type of the control parameters: "SMART" or "MANUAL". "SMART" indicates a smart setup type, user only needs to ...
+- `apex.catalog.NLSTEP.getSkipFactorTimeStep` — Gets ADJUST: time step skip factor for automatic time step adjustment.
+- `apex.catalog.NLSTEP.getSmallestRatio` — Gets RSMALL: smallest ratio between time step changes due to user criteria.
+- `apex.catalog.NLSTEP.getStiffUpdateMethodHeat` — Gets KMETHODH: A string argument to define the method for controlling the stiffness updates.
+- `apex.catalog.NLSTEP.getStiffUpdateMethodMech` — Gets KMETHOD: A string argument to define the method for controlling the stiffness updates.
+- `apex.catalog.NLSTEP.getTimeStepBounds` — Gets RB: define bounds for maintaining the same time step for the stepping function during the adaptive process(0.1 < float <1.0).
+- `apex.catalog.NLSTEP.getTotalTimeLoadCase` — Gets TOTTIM: The total time for the load case.
+- `apex.catalog.NLSTEP.getTreatUserCriteria` — Gets LIMTAR: treat user criteria as limits or as targets.
+- `apex.catalog.NLSTEP.getUsePhysicalCriteria` — Gets IPHYS: An integer flag to determine if automatic physical criteria should be added and how analysis should proceed if a user criterion is not satisfied. ...
+- `apex.catalog.NLSTEP.getUserCriteria` — Gets CRITTID: The user criteria for loading stepping control.
+- `apex.catalog.NLSTEP.update`
+- `apex.catalog.ParametersSet.clone` — Clone the parameter set.
+- `apex.catalog.ParametersSet.getDescription` — description of parameters set.
+- `apex.catalog.ParametersSet.getName` — name of parameters set.
+- `apex.catalog.ParametersSet.getParametersType` — Parameter type to be used in case control or bulk data.
+- `apex.catalog.ParametersSet.getParams` — dictionary to specify a set of parameters, the key is name of PARAM, the value is the value of the PARAM, below is the example: {'AUTOMSET':"NO" ...
+- `apex.catalog.ParametersSet.setParams` — set parameters of parameters set.
+- `apex.catalog.ParametersSet.update` — Update parameters set name and description.
+- `apex.catalog.ParametersSet.updateParams` — Update params of the set.
+- `apex.catalog.ParametersSetCollection.ParametersSetCollection` — Construct a new ParametersSetCollection.
+- `apex.catalog.RANDPS.getAppliedLoadSubcase` — Gets K: Subcase identification number of the applied load set.
+- `apex.catalog.RANDPS.getExcitedLoadSubcase` — Gets J: Subcase identification number of the excited load set.
+- `apex.catalog.RANDPS.getId` — Gets Id of RANDPS set.
+- `apex.catalog.RANDPS.getImaginary` — Gets Y: imaginary component of complex number A list of float value.
+- `apex.catalog.RANDPS.getReal` — Gets X: real component of complex number A list of float value.
+- `apex.catalog.RANDPS.getTable` — Gets TID: Identification number of a TABRNDi entry that defines G(F).
+- `apex.catalog.RANDPS.update` — update the RANDPS set
+- `apex.catalog.RANDT1.getId` — Gets Id of RANDT1 set.
+- `apex.catalog.RANDT1.getMaxTimeLag` — Gets TMAX: Maximum time lag. (Real > T0) A list of float value.
+- `apex.catalog.RANDT1.getStartingTimeLag` — Gets T0： Starting time lag. (Real ≥ 0.0) A list of float value.
+- `apex.catalog.RANDT1.getTimeLagNumber` — Gets N: Number of time lag intervals. (Integer > 0) A list of int value.
+- `apex.catalog.RANDT1.update` — update the RANDT1 set
+- `apex.catalog.RCROSS.getComponentId1` — Gets COMP1: a list of component code ids of the first response quantity.
+- `apex.catalog.RCROSS.getComponentId2` — Gets COMP2: a list of the component code ids of the second response quantity.
+- `apex.catalog.RCROSS.getCurveId` — Gets CURID: a list of curve ids, it is used to identify the output.
+- `apex.catalog.RCROSS.getId` — Gets the id of the RCROSS.
+- `apex.catalog.RCROSS.getId1` — Gets ID1: a list of ids, each id points to element, node or scalar point.
+- `apex.catalog.RCROSS.getId2` — Gets ID2: a list of ids, each id points to element, node or scalar point.
+- `apex.catalog.RCROSS.getResponseQuantityType1` — Gets RTYPE1: a list of strings to define the first response quantity type.
+- `apex.catalog.RCROSS.getResponseQuantityType2` — Gets RTYPE2: a list of strings to define the second response quantity type.
+- `apex.catalog.RCROSS.update`
+- `apex.catalog.SystemCellsSet.clone` — Clone the system cells set.
+- `apex.catalog.SystemCellsSet.getDescription` — description of system cells set.
+- `apex.catalog.SystemCellsSet.getName` — name of a system cells set.
+- `apex.catalog.SystemCellsSet.getSystemCells` — dictionary to specify the values for system cells in the set, the key is the name of system cell, the value is the expression assigned to the system cell ...
+- `apex.catalog.SystemCellsSet.setSystemCells` — set systemCells of system cells set.
+- `apex.catalog.SystemCellsSet.update` — Update system cells set name and description.
+- `apex.catalog.SystemCellsSet.updateSystemCells` — update system cells set.
+- `apex.catalog.SystemCellsSetCollection.SystemCellsSetCollection` — Construct a new SystemCellsSetCollection.
+- `apex.catalog.TSTEP.getId` — Gets SID: Set identification number.
+- `apex.catalog.TSTEP.getOutputSkipFactor` — Gets A list of output skip factor.
+- `apex.catalog.TSTEP.getTimeIncrement` — Gets A list of time increment.
+- `apex.catalog.TSTEP.getTimeStepNumber` — Gets A list of time step number.
+- `apex.catalog.TSTEP.update` — update the TSTEP
+- `apex.chart.ChartPlotXY.activate` — Activates the ChartPlotXY.
+- `apex.chart.ChartPlotXY.addDataSeries` — Adds a DataSeries to this Chart.
+- `apex.chart.ChartPlotXY.addDataSeriesList` — Adds a list of DataSeries to this Chart.
+- `apex.chart.ChartPlotXY.clearAllDataSeries` — Removes all DataSeries from this Chart.
+- `apex.chart.ChartPlotXY.deactivate` — Deactivates the ChartPlotXY.
+- `apex.chart.ChartPlotXY.getDataSeriesLabelVisibility` — Returns a Boolean value indicating the visibility of the DataSeries labels on this chart.
+- `apex.chart.ChartPlotXY.getDataSeriesList` — Returns the List of all DataSeries in this Chart.
+- `apex.chart.ChartPlotXY.getDescription` — Read-only string representing the description of this object.
+- `apex.chart.ChartPlotXY.getLegendVisibility` — Returns a Boolean value indicating the visibility of this Chart Legend.
+- `apex.chart.ChartPlotXY.getMarkerVisibility` — Returns a Boolean value indicating the visibility of the DataSeries markers on this Chart.
+- `apex.chart.ChartPlotXY.getMaxMinMarkerVisibility` — Boolean property indicating the visibility of Max/Min markers on this ChartPlotXY.
+- `apex.chart.ChartPlotXY.getName` — Read-only string representing the name of this object.
+- `apex.chart.ChartPlotXY.getPath` — return this Entity path string.
+- `apex.chart.ChartPlotXY.hideDataSeriesLabels` — Hides the labels on the DataSeries points.
+- `apex.chart.ChartPlotXY.hideDataSeriesMarkers` — Hides markers at each data point on every visible DataSeries.
+- `apex.chart.ChartPlotXY.hideLegend` — Hides the Legend for this Chart.
+- `apex.chart.ChartPlotXY.hideMaxMinMarkers` — Hides the Max Min markers for this Chart.
+- `apex.chart.ChartPlotXY.removeDataSeries` — Removes a DataSeries from this Chart.
+- `apex.chart.ChartPlotXY.removeDataSeriesList` — Removes one ore more DataSeries from this chart.
+- `apex.chart.ChartPlotXY.setDataSeriesBehaviorAccumulate` — Causes all new DataSeries that are added to this Chart to be accumulated alongside any existing DataSeries.
+- `apex.chart.ChartPlotXY.setDataSeriesBehaviorReplace` — Causes all new DataSeries that are added to this Chart to replace any existing DataSeries.
+- `apex.chart.ChartPlotXY.showDataSeriesLabels` — Displays the labels on the DataSeries points.
+- `apex.chart.ChartPlotXY.showDataSeriesMarkers` — Displays markers at each data point on every visible DataSeries.
+- `apex.chart.ChartPlotXY.showLegend` — Displays the Legend for this Chart.
+- `apex.chart.ChartPlotXY.showMaxMinMarkers` — Displays the Max Min markers for this Chart.
+- `apex.chart.DataSeries.getDescription` — Returns the description for this DataSeries. (inherited by `StressStrainCurve`, `DataSeriesOverSteps`, `DataSeriesTransient`, `DataSeriesVMTBeamSpan`, `DataSeriesVMTSensorArray`)
+- `apex.chart.DataSeries.getName` — Returns the name for this DataSeries. (inherited by `StressStrainCurve`, `DataSeriesOverSteps`, `DataSeriesTransient`, `DataSeriesVMTBeamSpan`, `DataSeriesVMTSensorArray`)
+- `apex.chart.DataSeries.getXUnit` — Returns the string defining the unit (e.g., "m") for the x-axis data. (inherited by `StressStrainCurve`, `DataSeriesOverSteps`, `DataSeriesTransient`, `DataSeriesVMTBeamSpan`, `DataSeriesVMTSensorArray`)
+- `apex.chart.DataSeries.getXUnitQuantity` — Returns the string defining the type of unit quantity (e.g. "Length") for the x-data. (inherited by `StressStrainCurve`, `DataSeriesOverSteps`, `DataSeriesTransient`, `DataSeriesVMTBeamSpan`, `DataSeriesVMTSensorArray`)
+- `apex.chart.DataSeries.getXValues` — Returns the list of scalar values representing the x-axis data. (inherited by `StressStrainCurve`, `DataSeriesOverSteps`, `DataSeriesTransient`, `DataSeriesVMTBeamSpan`, `DataSeriesVMTSensorArray`)
+- `apex.chart.DataSeries.getYData` — Returns the list of scalar values representing the y-axis data. (inherited by `StressStrainCurve`, `DataSeriesOverSteps`, `DataSeriesTransient`, `DataSeriesVMTBeamSpan`, `DataSeriesVMTSensorArray`)
+- `apex.chart.DataSeries.getYUnit` — Returns the string defining the unit for the y-axis data. (inherited by `StressStrainCurve`, `DataSeriesOverSteps`, `DataSeriesTransient`, `DataSeriesVMTBeamSpan`, `DataSeriesVMTSensorArray`)
+- `apex.chart.DataSeries.getYUnitQuantity` — Returns the string defining the type of unit quantity for the y-data. (inherited by `StressStrainCurve`, `DataSeriesOverSteps`, `DataSeriesTransient`, `DataSeriesVMTBeamSpan`, `DataSeriesVMTSensorArray`)
+- `apex.chart.DataSeriesCollection.DataSeriesCollection` — Construct a new DataSeriesCollection. (inherited by `DataSeriesOverStepsCollection`)
+- `apex.chart.DataTable.DataTable` — DataTable constructor.
+- `apex.chart.DataTable.getDependentVariables` — Gets Dictionary to represent the dependent variables In each member, 1. the key is the name of dependent variable 2. the values is a list which pack the ...
+- `apex.chart.DataTable.getIndependentVariables` — Gets Dictionary to represent the independent variables, the max number of the member is 4, which means we allow to define 1-4 Independent variables.
+- `apex.chart.DataTable.update` — update DataTable.
+- `apex.chart.MatrixMN.MatrixMN` — MatrixMN constructor.
+- `apex.chart.MatrixMN.getMatrix` — Gets List of lists with scalar values representing the m*n matrix data. m is representing the column and n is representing row.For example, Matrix ...
+- `apex.chart.MatrixMN.setMatrix` — Sets List of lists with scalar values representing the m*n matrix data. m is representing the column and n is representing row.For example, Matrix ...
+- `apex.chart.TABLED1.getXInterpolation` — Specifies a linear or logarithmic interpolation for the x-axis.
+- `apex.chart.TABLED1.getXdata` — List of scalar values representing the x-axis data.
+- `apex.chart.TABLED1.getYInterpolation` — Specifies a linear or logarithmic interpolation for the y-axis.
+- `apex.chart.TABLED1.getYdata` — List of scalar values representing the y-axis data.
+- `apex.chart.TABLED1.setXInterpolation` — Specifies a linear or logarithmic interpolation for the x-axis.
+- `apex.chart.TABLED1.setXdata` — List of scalar values representing the x-axis data.
+- `apex.chart.TABLED1.setYInterpolation` — Specifies a linear or logarithmic interpolation for the y-axis.
+- `apex.chart.TABLED1.setYdata` — List of scalar values representing the y-axis data.
+- `apex.chart.TABLED1.update` — update TABLED1
+- `apex.chart.TABLED2.getX1` — Table parameter.
+- `apex.chart.TABLED2.getXdata` — List of scalar values representing the x-axis data.
+- `apex.chart.TABLED2.getYdata` — List of scalar values representing the y-axis data.
+- `apex.chart.TABLED2.setX1` — Table parameter.
+- `apex.chart.TABLED2.setXdata` — List of scalar values representing the x-axis data.
+- `apex.chart.TABLED2.setYdata` — List of scalar values representing the y-axis data.
+- `apex.chart.TABLED2.update` — update TABLED2
+- `apex.chart.TABLED3.getX1` — Table parameter.
+- `apex.chart.TABLED3.getX2` — Table parameter.
+- `apex.chart.TABLED3.getXdata` — List of scalar values representing the x-axis data.
+- `apex.chart.TABLED3.getYdata` — List of scalar values representing the y-axis data.
+- `apex.chart.TABLED3.setX1` — Table parameter.
+- `apex.chart.TABLED3.setX2` — Table parameter.
+- `apex.chart.TABLED3.setXdata` — List of scalar values representing the x-axis data.
+- `apex.chart.TABLED3.setYdata` — List of scalar values representing the y-axis data.
+- `apex.chart.TABLED3.update` — update TABLED3
+- `apex.chart.TABLED4.getCoefficients` — List of scalar values representing the coefficients data.
+- `apex.chart.TABLED4.getX1` — Table parameter.
+- `apex.chart.TABLED4.getX2` — Table parameter.
+- `apex.chart.TABLED4.getX3` — Table parameter.
+- `apex.chart.TABLED4.getX4` — Table parameter.
+- `apex.chart.TABLED4.setCoefficients` — List of scalar values representing the coefficients data.
+- `apex.chart.TABLED4.setX1` — Table parameter.
+- `apex.chart.TABLED4.setX2` — Table parameter.
+- `apex.chart.TABLED4.setX3` — Table parameter.
+- `apex.chart.TABLED4.setX4` — Table parameter.
+- `apex.chart.TABLED4.update` — update TABLED4
+- `apex.chart.Table.getId` — the id of the table. (inherited by `TABLED1`, `TABLED2`, `TABLED3`, `TABLED4`)
+- `apex.compute.ComputeEnvironment.addComputeEnvironmentNastran` — add a Nastran compute environment (inherited by `ComputeEnvironmentGenDes`, `LocalSolver`, `RemoteSolver`, `RemoteSolverGroup`)
+- `apex.compute.ComputeEnvironment.exportComputeEnvironmentNastran` — export all ComputeEnvironmentNastran settings to XML file (inherited by `ComputeEnvironmentGenDes`, `LocalSolver`, `RemoteSolver`, `RemoteSolverGroup`)
+- `apex.compute.ComputeEnvironment.exportEnv` (inherited by `ComputeEnvironmentGenDes`, `LocalSolver`, `RemoteSolver`, `RemoteSolverGroup`)
+- `apex.compute.ComputeEnvironment.getActiveComputeEnvironmentNastran` — the active compute environment for Nastran (inherited by `ComputeEnvironmentGenDes`, `LocalSolver`, `RemoteSolver`, `RemoteSolverGroup`)
+- `apex.compute.ComputeEnvironment.getComputeEnvironmentNastran` — returns a Nastran compute environment (inherited by `ComputeEnvironmentGenDes`, `LocalSolver`, `RemoteSolver`, `RemoteSolverGroup`)
+- `apex.compute.ComputeEnvironment.getComputeEnvironmentsNastran` — returns a list of Nastran compute environment (inherited by `ComputeEnvironmentGenDes`, `LocalSolver`, `RemoteSolver`, `RemoteSolverGroup`)
+- `apex.compute.ComputeEnvironment.getDescription` — a description for this ComputeEnvironment (inherited by `ComputeEnvironmentGenDes`, `LocalSolver`, `RemoteSolver`, `RemoteSolverGroup`)
+- `apex.compute.ComputeEnvironment.getName` — a name to identify this ComputeEnvironment (inherited by `ComputeEnvironmentGenDes`, `LocalSolver`, `RemoteSolver`, `RemoteSolverGroup`)
+- `apex.compute.ComputeEnvironment.importComputeEnvironmentNastran` — import all ComputeEnvironmentNastran settings form existing XML file (inherited by `ComputeEnvironmentGenDes`, `LocalSolver`, `RemoteSolver`, `RemoteSolverGroup`)
+- `apex.compute.ComputeEnvironment.removeComputeEnvironmentNastran` — remove a Nastran compute environment (inherited by `ComputeEnvironmentGenDes`, `LocalSolver`, `RemoteSolver`, `RemoteSolverGroup`)
+- `apex.compute.ComputeEnvironment.setActiveComputeEnvironmentNastran` — the active compute environment for Nastran (inherited by `ComputeEnvironmentGenDes`, `LocalSolver`, `RemoteSolver`, `RemoteSolverGroup`)
+- `apex.compute.ComputeEnvironment.setDescription` — a description for this ComputeEnvironment (inherited by `ComputeEnvironmentGenDes`, `LocalSolver`, `RemoteSolver`, `RemoteSolverGroup`)
+- `apex.compute.ComputeEnvironment.setName` — a name to identify this ComputeEnvironment (inherited by `ComputeEnvironmentGenDes`, `LocalSolver`, `RemoteSolver`, `RemoteSolverGroup`)
+- `apex.compute.ComputeEnvironmentGenDes.asLocalSolver` (inherited by `LocalSolver`, `RemoteSolver`, `RemoteSolverGroup`)
+- `apex.compute.ComputeEnvironmentGenDes.asRemoteSolver` (inherited by `LocalSolver`, `RemoteSolver`, `RemoteSolverGroup`)
+- `apex.compute.ComputeEnvironmentGenDes.asRemoteSolverGroup` (inherited by `LocalSolver`, `RemoteSolver`, `RemoteSolverGroup`)
+- `apex.compute.ComputeEnvironmentGenDes.getSolverType` — the property that controls whether Local or Remote solver to be used. (inherited by `LocalSolver`, `RemoteSolver`, `RemoteSolverGroup`)
+- `apex.compute.ComputeEnvironmentNastran.ComputeEnvironmentNastran` — Constructor for the nastran compute environment.
+- `apex.compute.ComputeEnvironmentNastran.getActiveExternalSolver` — Active External Nastran solver.
+- `apex.compute.ComputeEnvironmentNastran.getComputeEnvironmentNastranExternal` — External Nastran ComputeEnvironment.
+- `apex.compute.ComputeEnvironmentNastran.getComputeEnvironmentNastranIntegrated` — Integrated Nastran ComputeEnvironment.
+- `apex.compute.ComputeEnvironmentNastran.getName` — Name of the compute environment.
+- `apex.compute.ComputeEnvironmentNastran.thisSPtr`
+- `apex.compute.ComputeEnvironmentNastran.~ComputeEnvironmentNastran`
+- `apex.compute.ComputeEnvironmentNastranExternal.ComputeEnvironmentNastranExternal` — constructor for the compute environment.
+- `apex.compute.ComputeEnvironmentNastranExternal.getBufferpool` — bufferpool represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system
+- `apex.compute.ComputeEnvironmentNastranExternal.getBuffersize` — buffersize represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system
+- `apex.compute.ComputeEnvironmentNastranExternal.getCputhreads` — Define the cpu threads to be used in simulation.
+- `apex.compute.ComputeEnvironmentNastranExternal.getDeleteScratchOnCompletion` — Status of Scratch files on completion.
+- `apex.compute.ComputeEnvironmentNastranExternal.getFxphysical` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. fxphysical represents a fraction of physical memory ...
+- `apex.compute.ComputeEnvironmentNastranExternal.getInputFileFolder` — the fully qualified pathname of the folder where the Nastran input file(s) will be written
+- `apex.compute.ComputeEnvironmentNastranExternal.getMemory` — the amount of memory that will be allocated to Nastran for solution of jobs. memory is only required when memoryAllocationMehod is set to ...
+- `apex.compute.ComputeEnvironmentNastranExternal.getMemoryAllocationMethod` — enumeration specifying the method that will be used to allocate memory to Nastran for solution of jobs.
+- `apex.compute.ComputeEnvironmentNastranExternal.getMemorymax` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment.
+- `apex.compute.ComputeEnvironmentNastranExternal.getMemorymaxMethod` — Max memory definition method.
+- `apex.compute.ComputeEnvironmentNastranExternal.getResultFileFolder` — the fully qualified pathname of the folder where the Nastran result file(s) will be written.
+- `apex.compute.ComputeEnvironmentNastranExternal.getScratchFileFolder` — the fully qualified pathname of the folder where the Nastran scratch file(s) will be written
+- `apex.compute.ComputeEnvironmentNastranExternal.getSolverExecutionPreference` — Preference to set solver/parallel/memory.
+- `apex.compute.ComputeEnvironmentNastranExternal.getSolverPath` — fully qualified path to the Nastran installation folder.For example r"D:\MSC\Software\Nastran\2022.1\bin\nastranw.exe"
+- `apex.compute.ComputeEnvironmentNastranExternal.setBufferpool` — bufferpool represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system
+- `apex.compute.ComputeEnvironmentNastranExternal.setBuffersize` — buffersize represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system
+- `apex.compute.ComputeEnvironmentNastranExternal.setCputhreads` — Define the cpu threads to be used in simulation.
+- `apex.compute.ComputeEnvironmentNastranExternal.setDeleteScratchOnCompletion` — Status of Scratch files on completion.
+- `apex.compute.ComputeEnvironmentNastranExternal.setFxphysical` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. fxphysical represents a fraction of physical memory ...
+- `apex.compute.ComputeEnvironmentNastranExternal.setInputFileFolder` — the fully qualified pathname of the folder where the Nastran input file(s) will be written
+- `apex.compute.ComputeEnvironmentNastranExternal.setMemory` — the amount of memory that will be allocated to Nastran for solution of jobs. memory is only required when memoryAllocationMehod is set to ...
+- `apex.compute.ComputeEnvironmentNastranExternal.setMemoryAllocationMethod` — enumeration specifying the method that will be used to allocate memory to Nastran for solution of jobs.
+- `apex.compute.ComputeEnvironmentNastranExternal.setMemorymax` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment.
+- `apex.compute.ComputeEnvironmentNastranExternal.setMemorymaxMethod` — Max memory definition method.
+- `apex.compute.ComputeEnvironmentNastranExternal.setResultFileFolder` — the fully qualified pathname of the folder where the Nastran result file(s) will be written.
+- `apex.compute.ComputeEnvironmentNastranExternal.setScratchFileFolder` — the fully qualified pathname of the folder where the Nastran scratch file(s) will be written
+- `apex.compute.ComputeEnvironmentNastranExternal.setSolverExecutionPreference` — Preference to set solver/parallel/memory.
+- `apex.compute.ComputeEnvironmentNastranExternal.setSolverPath` — fully qualified path to the Nastran installation folder.For example r"D:\MSC\Software\Nastran\2022.1\bin\nastranw.exe"
+- `apex.compute.ComputeEnvironmentNastranIntegrated.ComputeEnvironmentNastranIntegrated` — Constructor of IntegratedSolverNastran.
+- `apex.compute.ComputeEnvironmentNastranIntegrated.getFxphysical` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. memorymax represents a quantity of Digital Storage and ...
+- `apex.compute.ComputeEnvironmentNastranIntegrated.getMatrixConditionLimit` — The matrix condition limit for analysis.
+- `apex.compute.ComputeEnvironmentNastranIntegrated.getMemorymax` — Max memory definition method.
+- `apex.compute.ComputeEnvironmentNastranIntegrated.getMemorymaxMethod` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. fxphysical represents a fraction of physical memory ...
+- `apex.compute.ComputeEnvironmentNastranIntegrated.getScratchFileFolder` — the fully qualified pathname of the folder where the Nastran scratch file(s) will be written
+- `apex.compute.ComputeEnvironmentNastranIntegrated.setFxphysical` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. memorymax represents a quantity of Digital Storage and ...
+- `apex.compute.ComputeEnvironmentNastranIntegrated.setMatrixConditionLimit` — The matrix condition limit for analysis.
+- `apex.compute.ComputeEnvironmentNastranIntegrated.setMemorymax` — Max memory definition method.
+- `apex.compute.ComputeEnvironmentNastranIntegrated.setMemorymaxMethod` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. fxphysical represents a fraction of physical memory ...
+- `apex.compute.ComputeEnvironmentNastranIntegrated.setScratchFileFolder` — the fully qualified pathname of the folder where the Nastran scratch file(s) will be written
+- `apex.compute.LocalSolver.getCPUThreads` — the number of cpu threads that will be used for generative design solution of jobs.
+- `apex.compute.LocalSolver.getEnableGPU` — enable if the GPU solver if the GPU and license are available.
+- `apex.compute.LocalSolver.getScratchFileFolder` — the fully qualified pathname of the folder where the generative design scratch file(s) will be written
+- `apex.compute.LocalSolver.setCPUThreads` — the number of cpu threads that will be used for generative design solution of jobs.
+- `apex.compute.LocalSolver.setEnableGPU` — enable if the GPU solver if the GPU and license are available.
+- `apex.compute.LocalSolver.setScratchFileFolder` — the fully qualified pathname of the folder where the generative design scratch file(s) will be written
+- `apex.compute.RemoteSolver.getCPUThreads` — the number of cpu threads that will be used for generative design solution of jobs.
+- `apex.compute.RemoteSolver.getComputerName` — the name of remote computer to be used for running
+- `apex.compute.RemoteSolver.getEnableGPU` — enable if the GPU solver if the GPU and license are available.
+- `apex.compute.RemoteSolver.getIP` — the ip of remote computer to be used for running
+- `apex.compute.RemoteSolver.getPort` — the port number of remote engine to be installed in remote computer
+- `apex.compute.RemoteSolver.setCPUThreads` — the number of cpu threads that will be used for generative design solution of jobs.
+- `apex.compute.RemoteSolver.setComputerName` — the name of remote computer to be used for running
+- `apex.compute.RemoteSolver.setEnableGPU` — enable if the GPU solver if the GPU and license are available.
+- `apex.compute.RemoteSolver.setIP` — the ip of remote computer to be used for running
+- `apex.compute.RemoteSolver.setPort` — the port number of remote engine to be installed in remote computer
+- `apex.compute.RemoteSolverGroup.addRemoteSolver` — activate the remote solver to be used in simulation from the remote solver collections by index.
+- `apex.compute.RemoteSolverGroup.exportRemoteSolver` — Export a collection of remote solvers to XML file.
+- `apex.compute.RemoteSolverGroup.getActiveSolver` — activate the remote solver to be used in simulation from the remote solver collections by index.
+- `apex.compute.RemoteSolverGroup.importRemoteSolver` — Import remote solvers form existing remote solvers defined in XML file.
+- `apex.compute.RemoteSolverGroup.removeRemoteSolver` — Remove a new remote solver from the remote solver collection by collection index.
+- `apex.compute.RemoteSolverGroup.setActiveSolver` — activate the remote solver to be used in simulation from the remote solver collections by index.
+- `apex.construct.Arc.getAngle` — get the angle of the arc
+- `apex.construct.Arc.getCenter` — get the center of the arc
+- `apex.construct.Arc.getLength` — get the length of the arc
+- `apex.construct.Arc.getName` — get the name of the arc
+- `apex.construct.Arc.getRadius` — get the radius of the arc
+- `apex.construct.Arc.update`
+- `apex.construct.Chamfer.getEnd`
+- `apex.construct.Chamfer.getLength`
+- `apex.construct.Chamfer.getName`
+- `apex.construct.Chamfer.getStart`
+- `apex.construct.Chamfer.update`
+- `apex.construct.Circle.getCenter`
+- `apex.construct.Circle.getName`
+- `apex.construct.Circle.getRadius`
+- `apex.construct.Circle.update`
+- `apex.construct.CoordinateSystem.getCoordinateSystemType` — returns the CoordinateSystem type
+- `apex.construct.CoordinateSystem.getDescription` — Read-only string representing the description of this object.
+- `apex.construct.CoordinateSystem.getId` — returns the id of the coordinate system.
+- `apex.construct.CoordinateSystem.getName` — Read-only string representing the name of this object.
+- `apex.construct.CoordinateSystem.getOrientation` — returns the orientation of the cooordinate system
+- `apex.construct.CoordinateSystem.getOrientationMethod` — returns the orientation method
+- `apex.construct.CoordinateSystem.getOrigin` — returns the location of the origin of the Coordinate System
+- `apex.construct.CoordinateSystem.getPath` — return this Entity path string.
+- `apex.construct.CoordinateSystem.update` — create a coordinate system of either Rectangular, Cylindrical or Spherical type by using Euler angle method
+- `apex.construct.CoordinateSystemCollection.CoordinateSystemCollection`
+- `apex.construct.DatumPlane.getDisplayLength` — Although Planes are infinite, they are visualized using a rectangular planar glygh with finite demensions. displayWidth controls the width of this rectangular ...
+- `apex.construct.DatumPlane.getDisplayWidth` — Although Planes are infinite, they are visualized using a rectangular planar glygh with finite demensions. displayLength controls the length of this ...
+- `apex.construct.DatumPlane.getNormal` — The normal to the Plane as an apex.construct.Vector3D.
+- `apex.construct.DatumPlane.getOrigin` — origin defines a location in space that Plane passes through.
+- `apex.construct.DatumPlane.update` — Update one or more of this DatumPlane properties.
+- `apex.construct.DatumPlaneCollection.DatumPlaneCollection` — Construct a new DatumPlaneCollection.
+- `apex.construct.DatumPlaneCollection.appendList` — Add DatumPlanes from a list to the end of this collection.
+- `apex.construct.Ellipse.getName`
+- `apex.construct.Ellipse.getRadiusAxis1`
+- `apex.construct.Ellipse.getRadiusAxis2`
+- `apex.construct.Ellipse.update`
+- `apex.construct.Fillet.getAngle`
+- `apex.construct.Fillet.getCenter`
+- `apex.construct.Fillet.getEnd`
+- `apex.construct.Fillet.getName`
+- `apex.construct.Fillet.getRadius`
+- `apex.construct.Fillet.getStart`
+- `apex.construct.Fillet.update`
+- `apex.construct.MirrorPlane.getNormal`
+- `apex.construct.MirrorPlane.getOrigin`
+- `apex.construct.Orientation.Orientation`
+- `apex.construct.Orientation.getAlpha`
+- `apex.construct.Orientation.getBeta`
+- `apex.construct.Orientation.getCoordinateSystem`
+- `apex.construct.Orientation.getGamma`
+- `apex.construct.Orientation.getGlobalNX` — gets a boolean value that if True indicates the Orientation is aligned with the global Negative X-Axis
+- `apex.construct.Orientation.getGlobalNY` — gets a boolean value that if True indicates the Orientation is aligned with the global Negative Y-Axis
+- `apex.construct.Orientation.getGlobalNZ` — gets a boolean value that if True indicates the Orientation is aligned with the global Negative Z-Axis
+- `apex.construct.Orientation.getGlobalPX` — gets a boolean value that if True indicates the Orientation is aligned with the global Positive X-Axis
+- `apex.construct.Orientation.getGlobalPY` — gets a boolean value that if True indicates the Orientation is aligned with the global Positive Y-Axis
+- `apex.construct.Orientation.getGlobalPZ` — gets a boolean value that if True indicates the Orientation is aligned with the global Positive Z-Axis
+- `apex.construct.Orientation.getUseCoordinateSystem`
+- `apex.construct.Orientation.getVector`
+- `apex.construct.Orientation.getXAxis`
+- `apex.construct.Orientation.getYAxis`
+- `apex.construct.Orientation.getZAxis`
+- `apex.construct.Orientation.setAlpha`
+- `apex.construct.Orientation.setBeta`
+- `apex.construct.Orientation.setCoordinateSystem`
+- `apex.construct.Orientation.setGamma`
+- `apex.construct.Orientation.setGlobalNX`
+- `apex.construct.Orientation.setGlobalNY`
+- `apex.construct.Orientation.setGlobalNZ`
+- `apex.construct.Orientation.setGlobalPX`
+- `apex.construct.Orientation.setGlobalPY`
+- `apex.construct.Orientation.setGlobalPZ`
+- `apex.construct.Orientation.setVector`
+- `apex.construct.Orientation.setXAxis`
+- `apex.construct.Orientation.setYAxis`
+- `apex.construct.Orientation.setZAxis`
+- `apex.construct.Orientation.update` — Update this Orientation.
+- `apex.construct.ParametricCoordinate2D.ParametricCoordinate2D`
+- `apex.construct.ParametricCoordinate3D.ParametricCoordinate3D`
+- `apex.construct.Plane.Plane` (2 overloads) — DEPRECATED: In releases of Apex prior to Iberian Lynx this argument was of type apex.construct.Point3D.
+- `apex.construct.Plane.getNormal`
+- `apex.construct.Plane.getOrigin`
+- `apex.construct.Plane.update`
+- `apex.construct.Point2D.Point2D`
+- `apex.construct.Point2D.getX`
+- `apex.construct.Point2D.getY`
+- `apex.construct.Point2D.setX`
+- `apex.construct.Point2D.setY`
+- `apex.construct.Point3D.Point3D`
+- `apex.construct.Point3D.getX`
+- `apex.construct.Point3D.getY`
+- `apex.construct.Point3D.getZ`
+- `apex.construct.Point3D.setX`
+- `apex.construct.Point3D.setY`
+- `apex.construct.Point3D.setZ`
+- `apex.construct.Polyline.getLength`
+- `apex.construct.Polyline.getName`
+- `apex.construct.Polyline.getPoints`
+- `apex.construct.Polyline.update`
+- `apex.construct.Profile1D.getDescription` — retrieve the description of the profile
+- `apex.construct.Profile1D.getEdgeAnnotation` — retrieve the edge annotaion with the specified index
+- `apex.construct.Profile1D.getName` — retrieve the name of the profile
+- `apex.construct.Profile1D.getVertexAnnotation` — retrieve the vertex annotaion with the specified index
+- `apex.construct.Profile1DCollection.Profile1DCollection`
+- `apex.construct.Rectangle.getHeight`
+- `apex.construct.Rectangle.getName`
+- `apex.construct.Rectangle.getWidth`
+- `apex.construct.Rectangle.update`
+- `apex.construct.Sketch.completeSketch` — This controls how sketches are converted to geometry. (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.createArc3Point` — adds an Arc to the Sketch by picking three points on circumference, like three point arc, but first two points mark the start and end of the arc. (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.createArcCenterPoint` — adds an Arc to the Sketch by picking center point, then point 2 as radius and start of arc, point 3 as end of arc. (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.createChamferEdge` — adds an Chamfer to the Sketch by selecting a pair of straight edges, then location to define chamfer depth. (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.createChamferVertex` — adds an Chamfer to the Sketch by selecting a vertex connected to two straight edges, then location to define chamfer depth. (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.createCircle3Point` — adds a Circle to the Sketch by picking three points on circumference (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.createCircleCenterPoint` — adds a Circle to the Sketch by picking center point and location on radius. (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.createEllipse3Point` — adds a Ellipse to the Sketch by picking point 1 as center point, point 2 as on axis 1 radius and ellipse orientation, third point as axis 2 radius (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.createFilletEdge` — adds an Fillet to the Sketch by selecting a pair of straight edges, then location to define radius. (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.createFilletVertex` — adds an Fillet to the Sketch by selecting a vertex corner, then location to define radius. (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.createPoint` — adds a Point to the Sketch by selecting a location (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.createPolyline` — adds a Polyline to the Sketch by inputting an unlimited list of 2d locations (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.createRectangle2Point` — adds a Rectangle to the Sketch by selecting two vertices of the rectangle diagonal (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.createRectangle3Point` — adds a Rectangle to the Sketch by selecting two vertex along one edge to define the location and orientation, then a third for length. (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.createSpline` — adds a Spline to the Sketch by inputting an unlimited list of 2d locations (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.getArc` — retrieve the sketch Arc with the specified id (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.getChamfer` — retrieve the sketch Chamfer with the specified id (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.getCircle` — retrieve the sketch Circle with the specified id (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.getEdge` — retrieve the sketch edge with the specified id (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.getEllipse` — retrieve the ellipse with the specified id (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.getFillet` — retrieve the sketch Fillet with the specified id (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.getName` — retrieve the name of the sketch (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.getOrientation` — retrieve the orientation of the sketch (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.getOrigin` — retrieve the origin of the sketch (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.getPolyline` — retrieve the sketch Polyline with the specified id (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.getRectangle` — retrieve the sketch Rectangle with the specified id (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.getSketchPoint` — retrieve the sketch Point with the specified id (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.getVertex` — retrieve the sketch vertex with the specified id (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.projectEdge` — adds a curve to a sketch projecting any selected 3d edge to the current sketch plane (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.projectPoint` — adds a point to a sketch projecting any selected vertex or node to the current sketch plane (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.splitCurveByCurve` — splits a pair of curves where they cross (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.splitCurveByPoint` — splits a pair of curves at a location on the curve (inherited by `SketchProfile1D`)
+- `apex.construct.Sketch.trimCurve` — Deletes curve or curve segment terminated by crossing curves. (inherited by `SketchProfile1D`)
+- `apex.construct.SketchEdge.getEnd` — get end point of the edge
+- `apex.construct.SketchEdge.getLength` — get the length of the edge
+- `apex.construct.SketchEdge.getName`
+- `apex.construct.SketchEdge.getStart` — get start point of the edge
+- `apex.construct.SketchEdge.update` — Update the lenght, the start point, the end point or the annotation of an edge.
+- `apex.construct.SketchPoint.getLocation`
+- `apex.construct.SketchPoint.getName`
+- `apex.construct.SketchPoint.update`
+- `apex.construct.SketchPrimitive.getName` (inherited by 11 classes)
+- `apex.construct.SketchProfile1D.deleteProfile` — delete the profile
+- `apex.construct.SketchProfile1D.exit` — exit the sketch profile
+- `apex.construct.SketchProfile1D.openProfile` — open the profile
+- `apex.construct.SketchProfile1D.saveAsProfile` — save as the profile
+- `apex.construct.SketchProfile1D.saveProfile` — save the profile
+- `apex.construct.SketchVertex.getLocation` — get the location of the vertex
+- `apex.construct.SketchVertex.getName`
+- `apex.construct.SketchVertex.update` — Update the location (X or Y or both) or the annotation of the sketch vertex.
+- `apex.construct.Spline.getEnd` — get end point of the spline
+- `apex.construct.Spline.getLength`
+- `apex.construct.Spline.getName`
+- `apex.construct.Spline.getPoints`
+- `apex.construct.Spline.getStart` — get start point of the spline
+- `apex.construct.Spline.update`
+- `apex.construct.Vector3D.Vector3D`
+- `apex.construct.Vector3D.getLength` — get the length of this vector.
+- `apex.construct.Vector3D.getX`
+- `apex.construct.Vector3D.getY`
+- `apex.construct.Vector3D.getZ`
+- `apex.construct.Vector3D.setX`
+- `apex.construct.Vector3D.setY`
+- `apex.construct.Vector3D.setZ`
+- `apex.datavis.LoadSummationPlot.getApplyFilterEnabled` — Returns the apply filter boolean that controls whether vectors should be filtered. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.getArrowDisplayFilter` — Returns arrow display filter value. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.getColorMap` — Returns the ColorMap for this LoadSummationPlot. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.getCoordinateSystemMethod` — Returns the System Type that the cross section force and/or moment data will be transformed to prior to display. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.getDiscreteSummedVectorDisplay` — Returns Discrete Summed Vector Display that controls the display of discrete and summed vectors. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.getForceMomentVectorDisplay` — Returns Force Moment Vector Display that controls the display of force and/or moment vectors. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.getSummationOrientations` — Returns the orientations used to display the cross section force and/or moment data. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.getUnitSystem` — Returns the name Unit System that will be used to display the forces and moments on this plot. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.getVectorComponentColors` — Gets the Vector Components that are displayed and their Colors. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.getVectorDisplayAnchorStyle` — Returns the Vector Display Anchor Style that controls whether the vector display arrows are anchored by their tips or tails to the locations where the ... (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.getVectorDisplayColorMethod` — Returns the Vector Display Color Method that defines how the vectors will be color coded. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.getVectorDisplayScalingFactor` — Returns the Vector Display scaling factor that controls the size of the arrows used to display the vectors. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.getVectorDisplayScalingMethod` — Returns the Vector Display Scaling Method that controls whether the arrows will be drawn at a constant size or scaled based on the value of the vector. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.getVectorDisplayStyle` — Returns the Vector Display Style that controls the style of the arrows used to display the vectors. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.getVectorDisplayZoomEnabled` — Returns the Vector Zoom boolean that controls whether the arrows used to display the vectors will change size as the view scale changes. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.setApplyFilterEnabled` — Sets the apply filter boolean that controls whether vectors should be filtered. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.setArrowDisplayFilter` — Sets arrow display filter value. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.setColorMap` — Sets the ColorMap for this LoadSummationPlot. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.setCoordinateSystemMethod` — Sets the System Type that the cross section force and/or moment data will be transformed to prior to display. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.setDiscreteSummedVectorDisplay` — Sets the Discrete Summed Vector Display that controls the display of discrete and summed vectors. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.setForceMomentVectorDisplay` — Sets the Force Moment Vector Display that controls the display of force and/or moment vectors. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.setSummationOrientations` — Sets the display orientations that the cross section force and/or moment data will be transformed to prior to display as an apex.Construct.CoordinateSystem. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.setUnitSystem` — Sets the name of Unit System that will be used to display the forces and moments on this plot. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.setVectorComponentColors` — Sets which Vector Components will be displayed and their Colors. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.setVectorDisplayAnchorStyle` — Sets the Vector Display Anchor Style that controls whether the vector display arrows are anchored by their tips or tails to the locations where the quantities ... (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.setVectorDisplayColorMethod` — Sets the Vector Display Color Method that defines how the vectors will be color coded. apex.datavis.VectorColorMethod.VectorValue should only be used if ... (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.setVectorDisplayScalingFactor` — Sets the Vector Display scaling factor that controls the size of the arrows used to display the vectors. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.setVectorDisplayScalingMethod` — Sets the Vector Display Scaling Method that controls whether the arrows will be drawn at a constant size or scaled based on the value of the vector. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.setVectorDisplayStyle` — Sets the Vector Display Style that controls the style of the arrows used to display the vectors. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.LoadSummationPlot.setVectorDisplayZoomEnabled` — Sets the Vector Zoom boolean that controls whether the arrows used to display the vectors will change size as the view scale changes. (inherited by `XSectionForceSensorPlot`)
+- `apex.datavis.XSectionForceSensorPlot.getLoadEvent` — Returns the Scenario Event from which the raw force data displayed on this plot is extracted.
+- `apex.datavis.XSectionForceSensorPlot.getXSectionForceSensorArray` — Returns the XSectionForceSensorArray that is displayed by this Plot.
+- `apex.datavis.XSectionForceSensorPlot.getXSectionForceSensors` — Returns the XSectionForceSensor collection that is displayed by this Plot.
+- `apex.datavis.XSectionForceSensorPlot.setXSectionForceSensorArray` — Sets the XSectionForceSensorArray that is displayed by this Plot.
+- `apex.datavis.XSectionForceSensorPlot.setXSectionForceSensors` — Sets the XSectionForceSensor collection that is displayed by this Plot.
+- `apex.display.Camera.dolly` — Moves the camera closer to or away from the focal point.
+- `apex.display.Camera.getDirectionOfProjection` — Gets a direction vector from the camera position to the focal point as a Vector3D.
+- `apex.display.Camera.getDistance` — Gets the distance from this camera to the focal point.
+- `apex.display.Camera.getFocalPoint` — Gets the focal point of the camera in global Cartesian coordinates.
+- `apex.display.Camera.getParallelScale` — Gets the scale used to determine what size objects in the scene appear on the screen when parallel projection is enabled.
+- `apex.display.Camera.getPosition` — Gets the position of this Camera in global Cartesian coordinates.
+- `apex.display.Camera.getViewUp` — Gets the view up direction vector for this camera.
+- `apex.display.Camera.pan` — pan the camera along the Camera viewUp and/or horizontal axis.
+- `apex.display.Camera.pitch` — Rotate this Camera about the camera 'horizontal" axis - an axis passing through the Camera position and perpendicular to both the viewUp and direction of ...
+- `apex.display.Camera.reset` — When parallel projection is enabled (this is the only projection mode currently supported) this method changes the parallel scale, focal point and direction of ...
+- `apex.display.Camera.roll` — Rotate the camera about the direction of projection axis.
+- `apex.display.Camera.rotate` — rotate Rotates the camera about the focal point Rotation about two axes passing through the focal point are supported The "Azimuth" axis is parallel to the ...
+- `apex.display.Camera.setDirectionOfProjection` — Sets a direction vector from the camera position to the focal point as a Vector3D.
+- `apex.display.Camera.setDistance` — Sets the distance from this camera to the focal point.
+- `apex.display.Camera.setFocalPoint` — Sets the position of this Camera in global Cartesian coordinates.
+- `apex.display.Camera.setParallelScale` — Sets the scale used to determine what size objects in the scene appear on the screen when parallel projection is enabled.
+- `apex.display.Camera.setPosition` — Sets the position of this Camera in global Cartesian coordinates.
+- `apex.display.Camera.setViewUp` — Sets the view up direction vector for this camera.
+- `apex.display.Camera.viewFromX` — Repositions the Camera such that it is looking along a vector parallel to the global X axis.
+- `apex.display.Camera.viewFromY` — Repositions the Camera such that it is looking along a vector parallel to the global Y axis.
+- `apex.display.Camera.viewFromZ` — Repositions the Camera such that it is looking along a vector parallel to the global Z axis.
+- `apex.display.Camera.viewIsometric_1` — Repositions the Camera such that it is looking along a vector from octant (+++) to octant () Optional arguments are provided to, reverse the view direction ...
+- `apex.display.Camera.viewIsometric_2` — Repositions the Camera such that it is looking along a vector from octant(-++) to octant(+) Optional arguments are provided to, reverse the view direction(from ...
+- `apex.display.Camera.viewIsometric_3` — Repositions the Camera such that it is looking along a vector from octant(+-+) to octant(-+-) Optional arguments are provided to, reverse the view ...
+- `apex.display.Camera.viewIsometric_4` — Repositions the Camera such that it is looking along a vector from octant( + ) to octant(+) Optional arguments are provided to, reverse the view direction(from ...
+- `apex.display.Camera.yaw` — Rotate this Camera about an axis passing through the Camera position and parallel to the Camera viewUp vector.
+- `apex.display.Camera.zoom` — When parallel projection is enabled (this is the only projection mode currently supported) this method changes the parallel scale by the specified factor.
+- `apex.display.CutView.getCutViewLocation` — Gets a location from the cut view as a apex.ILocation.
+- `apex.display.CutView.getCutViewOrientation` — Gets a orientation from the cut view as a apex.Orientation.
+- `apex.display.CutView.getCutViewSlideMode` — Gets a slide mode from cut view.
+- `apex.display.CutView.reverse` — Call this method will result to the reversed cut view, the attribute of "orientation" is changed to point to the opposite direction.
+- `apex.display.CutView.setCutViewLocation` — Sets a location to the cut view as a apex.ILocation.
+- `apex.display.CutView.setCutViewOrientation` — Sets a orientation to the cut view as a apex.Orientation.
+- `apex.display.CutView.setCutViewSlideMode` — Sets a slide mode to cut view.
+- `apex.display.CutView.update` — Boolean argument controls to show the UTM and cut tool or hide them.
+- `apex.display.GraphicsText.createText`
+- `apex.display.GraphicsText.setText` — Update text Location of this GraphicsText object.
+- `apex.display.Tessellation.getPoints` — An array of floats holding all of the tessellation point coordinates. (inherited by `Tessellation0D`, `Tessellation1D`, `Tessellation2D`)
+- `apex.display.Tessellation0D.getVertices` — returns a Dictionary containing the tessellations of all Vertices in this Tessellation. (inherited by `Tessellation1D`, `Tessellation2D`)
+- `apex.display.Tessellation1D.getEdges` — returns a Dictionary containing the tessellations of all Edges in this region. (inherited by `Tessellation2D`)
+- `apex.display.Tessellation2D.getFaces` — returns a Dictionary containing the tessellations of all Faces in this region.
+- `apex.environment.Constraint.getId` — the id of the constraint. (inherited by 13 classes)
+- `apex.environment.ConstraintCombination.getCombinedConstraints` — the collection of constraints to be combined.
+- `apex.environment.ConstraintCombination.update` — Update the constraintCombination.
+- `apex.environment.ConstraintDisplacement.getConstraintType` — the constraintType.
+- `apex.environment.ConstraintDisplacement.getOrientation` — the orientation of the constraint, currently it must be a coordinate system.
+- `apex.environment.ConstraintDisplacement.getRotationX` — the rotation value about X.
+- `apex.environment.ConstraintDisplacement.getRotationY` — the rotation value about Y.
+- `apex.environment.ConstraintDisplacement.getRotationZ` — the rotation value about Z.
+- `apex.environment.ConstraintDisplacement.getTarget` — an EntityCollection identifying the entities that the constraint will be applied to.
+- `apex.environment.ConstraintDisplacement.getTranslationX` — the translation value in X.
+- `apex.environment.ConstraintDisplacement.getTranslationY` — the translation value in X.
+- `apex.environment.ConstraintDisplacement.getTranslationZ` — the translation value in X.
+- `apex.environment.ConstraintDisplacement.update` — Updates one or more properties of the constraint.
+- `apex.environment.ConstraintDisplacementVariable.getSpatialTarget` — a DFEMFieldConstraintDisplacement that identifies nodes that represent the region to which this load is applied as well as the distribution of constraints ...
+- `apex.environment.ConstraintDisplacementVariable.update` — Update method.One or more properties may be updated in each call to update().
+- `apex.environment.ConstraintExcludeAuto.getExcludeRotationX` — the argument to indicate whether the rotation X is excluded or not.
+- `apex.environment.ConstraintExcludeAuto.getExcludeRotationY` — the argument to indicate whether the rotation Y is excluded or not.
+- `apex.environment.ConstraintExcludeAuto.getExcludeRotationZ` — the argument to indicate whether the rotation Z is excluded or not.
+- `apex.environment.ConstraintExcludeAuto.getExcludeTranslationX` — the argument to indicate whether the translation X is excluded or not.
+- `apex.environment.ConstraintExcludeAuto.getExcludeTranslationY` — the argument to indicate whether the translation Y is excluded or not.
+- `apex.environment.ConstraintExcludeAuto.getExcludeTranslationZ` — the argument to indicate whether the translation Z is excluded or not.
+- `apex.environment.ConstraintExcludeAuto.getTarget` — an EntityCollection identifying the entities that the constraint will be applied to.
+- `apex.environment.ConstraintExcludeAuto.update` — Updates one or more properties of the ConstraintExcludeAuto.
+- `apex.environment.ConstraintExcludeAuto1.getExcludeRotationX` — the argument to indicate whether the rotation X is excluded or not.
+- `apex.environment.ConstraintExcludeAuto1.getExcludeRotationY` — the argument to indicate whether the rotation Y is excluded or not.
+- `apex.environment.ConstraintExcludeAuto1.getExcludeRotationZ` — the argument to indicate whether the rotation Z is excluded or not.
+- `apex.environment.ConstraintExcludeAuto1.getExcludeTranslationX` — the argument to indicate whether the translation X is excluded or not.
+- `apex.environment.ConstraintExcludeAuto1.getExcludeTranslationY` — the argument to indicate whether the translation Y is excluded or not.
+- `apex.environment.ConstraintExcludeAuto1.getExcludeTranslationZ` — the argument to indicate whether the translation Z is excluded or not.
+- `apex.environment.ConstraintExcludeAuto1.getTarget` — the target entities that the ConstraintExcludeDofs1 is applied to.
+- `apex.environment.ConstraintExcludeAuto1.update` — Update this ConstraintExcludeDof1.One or more properties may be updated in each call to update().
+- `apex.environment.ConstraintExcludeAuto1Variable.getSpatialTarget` — the field that defines the dof distribution.
+- `apex.environment.ConstraintExcludeAuto1Variable.update` — Update method.One or more properties may be updated in each call to update().
+- `apex.environment.ConstraintExcludeAutoVariable.getSpatialTarget` — a DFEMFieldExcludeDof that identifies nodes that represent the region to which this exclude is applied as well as the distribution of excludes across that ...
+- `apex.environment.ConstraintExcludeAutoVariable.update` — Updates one or more properties of the ConstraintExcludeAutoVariable.
+- `apex.environment.ConstraintSinglePoint.getConstrainRotationX` — a boolean argument to constrain the rotation about X.
+- `apex.environment.ConstraintSinglePoint.getConstrainRotationY` — a boolean argument to constrain the rotation about Y.
+- `apex.environment.ConstraintSinglePoint.getConstrainRotationZ` — a boolean argument to constrain the rotation about Z.
+- `apex.environment.ConstraintSinglePoint.getConstrainTranslationX` — a boolean argument to constrain the translation in X.
+- `apex.environment.ConstraintSinglePoint.getConstrainTranslationY` — a boolean argument to constrain the translation in Y.
+- `apex.environment.ConstraintSinglePoint.getConstrainTranslationZ` — a boolean argument to constrain the translation in Z.
+- `apex.environment.ConstraintSinglePoint.getConstraintType` — the constraintType that pre-defines the constrained degrees of freedom.
+- `apex.environment.ConstraintSinglePoint.getOrientation` — the orientation of the constraint.
+- `apex.environment.ConstraintSinglePoint.getTarget` — an EntityCollection identifying the entities that the constraint will be applied to.
+- `apex.environment.ConstraintSinglePoint.update` — Updates one or more properties of the constraint.
+- `apex.environment.ConstraintSinglePointVariable.getSpatialTarget` — a DFEMFieldConstraintSinglePoint that identifies nodes that represent the region to which this load is applied as well as the distribution of constraints ...
+- `apex.environment.ConstraintSinglePointVariable.update` — Updates one or more properties of the constraint.
+- `apex.environment.DFEMFieldAccelerationNodal.DFEMFieldAccelerationNodal` — Create DFEMFieldAccelerationNodal in this environment.
+- `apex.environment.DFEMFieldAccelerationNodal.getAccelerationVectorsX` — the X components of the acceleration vectors.
+- `apex.environment.DFEMFieldAccelerationNodal.getAccelerationVectorsY` — the Y components of the acceleration vectors.
+- `apex.environment.DFEMFieldAccelerationNodal.getAccelerationVectorsZ` — the Z components of the acceleration vectors.
+- `apex.environment.DFEMFieldAccelerationNodal.getNodeIds` — a list of integers to define target node IDs in the field.
+- `apex.environment.DFEMFieldAccelerationNodal.getOrientations` — the orientations used to define the direction of the acceleration vectors.
+- `apex.environment.DFEMFieldAccelerationNodal.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldAccelerationNodal.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldAccelerationNodal.getScaleFactors` — a list of scale factors that will be applied to the acceleration vectors.
+- `apex.environment.DFEMFieldAccelerationNodal.removeTargets` — Remove the target nodes from the field.
+- `apex.environment.DFEMFieldAccelerationNodal.update` — Updates one or more properties of the Acceleration load.
+- `apex.environment.DFEMFieldConstraintDisplacement.DFEMFieldConstraintDisplacement` — Create DFEMFieldConstraintDisplacement in this environment.
+- `apex.environment.DFEMFieldConstraintDisplacement.getNodeIds` — a list of integers to define target node IDs in the field.
+- `apex.environment.DFEMFieldConstraintDisplacement.getOrientations` — a list of orientations for the displacement components.
+- `apex.environment.DFEMFieldConstraintDisplacement.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldConstraintDisplacement.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldConstraintDisplacement.getRotationsX` — a list of the rotation values about X axis.
+- `apex.environment.DFEMFieldConstraintDisplacement.getRotationsY` — a list of the rotation values about Y axis.
+- `apex.environment.DFEMFieldConstraintDisplacement.getRotationsZ` — a list of the rotation values about Z axis.
+- `apex.environment.DFEMFieldConstraintDisplacement.getTranslationsX` — a list of the translation values in X axis.
+- `apex.environment.DFEMFieldConstraintDisplacement.getTranslationsY` — a list of the translation values in Y axis.
+- `apex.environment.DFEMFieldConstraintDisplacement.getTranslationsZ` — a list of the translation values in Z axis.
+- `apex.environment.DFEMFieldConstraintDisplacement.removeTargets` — Remove the target nodes from the field.
+- `apex.environment.DFEMFieldConstraintDisplacement.update` — Updates one or more properties of the constraint.
+- `apex.environment.DFEMFieldConstraintExcludeAuto.DFEMFieldConstraintExcludeAuto` — Create DFEMFieldConstraintExcludeAuto in this environment.
+- `apex.environment.DFEMFieldConstraintExcludeAuto.getExcludeRotationX` — a list of booleans to exclude the rotation X for each node in the field.
+- `apex.environment.DFEMFieldConstraintExcludeAuto.getExcludeRotationY` — a list of booleans to exclude the rotation Y for each node in the field.
+- `apex.environment.DFEMFieldConstraintExcludeAuto.getExcludeRotationZ` — a list of booleans to exclude the rotation Z for each node in the field.
+- `apex.environment.DFEMFieldConstraintExcludeAuto.getExcludeTranslationX` — a list of booleans to exclude the translation X for each node in the field.
+- `apex.environment.DFEMFieldConstraintExcludeAuto.getExcludeTranslationY` — a list of booleans to exclude the translation Y for each node in the field.
+- `apex.environment.DFEMFieldConstraintExcludeAuto.getExcludeTranslationZ` — a list of booleans to exclude the translation Z for each node in the field.
+- `apex.environment.DFEMFieldConstraintExcludeAuto.getNodeIds` — a list of integers to define target node IDs in the field.
+- `apex.environment.DFEMFieldConstraintExcludeAuto.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldConstraintExcludeAuto.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldConstraintExcludeAuto.removeTargets` — Remove the target nodes from the field.
+- `apex.environment.DFEMFieldConstraintExcludeAuto.update` — Updates one or more properties of the field.
+- `apex.environment.DFEMFieldConstraintSinglePoint.DFEMFieldConstraintSinglePoint` — Create DFEMFieldConstraintSinglePoint in this environment.
+- `apex.environment.DFEMFieldConstraintSinglePoint.getConstrainRotationX` — a list of booleans to indicate the whether the rotation X is constrained or not for each node in the field.
+- `apex.environment.DFEMFieldConstraintSinglePoint.getConstrainRotationY` — a list of booleans to indicate the whether the rotation Y is constrained or not for each node in the field.
+- `apex.environment.DFEMFieldConstraintSinglePoint.getConstrainRotationZ` — a list of booleans to indicate the whether the rotation Z is constrained or not for each node in the field.
+- `apex.environment.DFEMFieldConstraintSinglePoint.getConstrainTranslationX` — a list of booleans to indicate the whether the translation X is constrained or not for each node in the field.
+- `apex.environment.DFEMFieldConstraintSinglePoint.getConstrainTranslationY` — a list of booleans to indicate the whether the translation Y is constrained or not for each node in the field.
+- `apex.environment.DFEMFieldConstraintSinglePoint.getConstrainTranslationZ` — a list of booleans to indicate the whether the translation Z is constrained or not for each node in the field.
+- `apex.environment.DFEMFieldConstraintSinglePoint.getNodeIds` — a list of integers to define target node IDs in the field.
+- `apex.environment.DFEMFieldConstraintSinglePoint.getOrientations` — a list of the orientations of the constraint.
+- `apex.environment.DFEMFieldConstraintSinglePoint.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldConstraintSinglePoint.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldConstraintSinglePoint.removeTargets` — Remove the target nodes from the field.
+- `apex.environment.DFEMFieldConstraintSinglePoint.update` — Updates one or more properties of the field.
+- `apex.environment.DFEMFieldDeformationAxial.DFEMFieldDeformationAxial` — Create DFEMFieldDeformationAxial in this environment.
+- `apex.environment.DFEMFieldDeformationAxial.getDeformations` — a list of the deformation values along the element axis.
+- `apex.environment.DFEMFieldDeformationAxial.getElementIds` — a list of integers to define target element IDs in the field.
+- `apex.environment.DFEMFieldDeformationAxial.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldDeformationAxial.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldDeformationAxial.removeTargets` — Remove the target elements from the field.
+- `apex.environment.DFEMFieldDeformationAxial.update` — Update method.
+- `apex.environment.DFEMFieldEnforcedMotion.DFEMFieldEnforcedMotion` — Create DFEMFieldEnforcedMotion in this environment.
+- `apex.environment.DFEMFieldEnforcedMotion.getNodeIds` — a list of integers to define target node IDs in the field.
+- `apex.environment.DFEMFieldEnforcedMotion.getOrientations` — an optional list of orientations for the load components.
+- `apex.environment.DFEMFieldEnforcedMotion.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldEnforcedMotion.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldEnforcedMotion.getRotationsX` — a list of the motion values in rotation X.
+- `apex.environment.DFEMFieldEnforcedMotion.getRotationsY` — a list of the motion values in rotation Y.
+- `apex.environment.DFEMFieldEnforcedMotion.getRotationsZ` — a list of the motion values in rotation Z.
+- `apex.environment.DFEMFieldEnforcedMotion.getTranslationsX` — a list of the motion values in translation X.
+- `apex.environment.DFEMFieldEnforcedMotion.getTranslationsY` — a list of the motion values in translation Y.
+- `apex.environment.DFEMFieldEnforcedMotion.getTranslationsZ` — a list of the motion values in translation Z.
+- `apex.environment.DFEMFieldEnforcedMotion.removeTargets` — Remove the target nodes from the field.
+- `apex.environment.DFEMFieldEnforcedMotion.update` — Updates one or more properties of the enforced motion.
+- `apex.environment.DFEMFieldForceComponent.DFEMFieldForceComponent` — Create DFEMFieldForceComponent in this environment.
+- `apex.environment.DFEMFieldForceComponent.getForcesX` — a list to define the force X component values.
+- `apex.environment.DFEMFieldForceComponent.getForcesY` — a list to define the force Y component values.
+- `apex.environment.DFEMFieldForceComponent.getForcesZ` — a list to define the force Z component values.
+- `apex.environment.DFEMFieldForceComponent.getNodeIds` — a list of integers to define target node IDs in the field.
+- `apex.environment.DFEMFieldForceComponent.getOrientations` — an optional list of integers to represent the orientations for the load components.
+- `apex.environment.DFEMFieldForceComponent.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldForceComponent.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldForceComponent.getScaleFactors` — an optional list of scale factors for the loads.
+- `apex.environment.DFEMFieldForceComponent.removeTargets` — Remove the target nodes from the field.
+- `apex.environment.DFEMFieldForceComponent.update` — Updates one or more properties of the field.
+- `apex.environment.DFEMFieldForceFollowerNormal.DFEMFieldForceFollowerNormal` — Create DFEMFieldForceFollowerNormal in this environment.
+- `apex.environment.DFEMFieldForceFollowerNormal.getForceMagnitudes` — a list to define the force magnitudes, forceMagnitudes is a Force quantity and is defined using the units of Force from the active script unit system.
+- `apex.environment.DFEMFieldForceFollowerNormal.getNodeIds` — a list of integers to define target node IDs in the field.
+- `apex.environment.DFEMFieldForceFollowerNormal.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldForceFollowerNormal.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldForceFollowerNormal.getPoints1` — a list of starting points of the direction vectors.
+- `apex.environment.DFEMFieldForceFollowerNormal.getPoints2` — a list of end points of the direction vectors.
+- `apex.environment.DFEMFieldForceFollowerNormal.getPoints3` — a list of starting points of the direction vectors.
+- `apex.environment.DFEMFieldForceFollowerNormal.getPoints4` — a list of end points of the direction vectors.
+- `apex.environment.DFEMFieldForceFollowerNormal.removeTargets` — Remove the target nodes from the field.
+- `apex.environment.DFEMFieldForceFollowerNormal.update` — Updates one or more properties of the field.
+- `apex.environment.DFEMFieldForceFollowerVector.DFEMFieldForceFollowerVector` — Create DFEMFieldForceFollowerVector in this environment.
+- `apex.environment.DFEMFieldForceFollowerVector.getForceMagnitudes` — a list of floats to define the force magnitudes, forceMagnitudes is a Force quantity and is defined using the units of Force from the active script unit system.
+- `apex.environment.DFEMFieldForceFollowerVector.getNodeIds` — a list of integers to define target node IDs in the field.
+- `apex.environment.DFEMFieldForceFollowerVector.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldForceFollowerVector.getPathNames` — a list of strings to define the pathNames of the mesh bodies that include target nodes.
+- `apex.environment.DFEMFieldForceFollowerVector.getPoints1` — a list of starting points of the direction vectors.
+- `apex.environment.DFEMFieldForceFollowerVector.getPoints2` — a list of end points of the direction vectors.
+- `apex.environment.DFEMFieldForceFollowerVector.removeTargets` — Remove the target nodes from the field.
+- `apex.environment.DFEMFieldForceFollowerVector.update` — Updates one or more properties of the field.
+- `apex.environment.DFEMFieldInitialDisplacementVelocity.DFEMFieldInitialDisplacementVelocity` — Create DFEMFieldInitialDisplacementVelocity in this environment.
+- `apex.environment.DFEMFieldInitialDisplacementVelocity.getDisplacementsRx` — a list of the displacement values in the rotation X.
+- `apex.environment.DFEMFieldInitialDisplacementVelocity.getDisplacementsRy` — a list of the displacement values in the rotation Y.
+- `apex.environment.DFEMFieldInitialDisplacementVelocity.getDisplacementsRz` — a list of the displacement values in the rotation Z.
+- `apex.environment.DFEMFieldInitialDisplacementVelocity.getDisplacementsX` — a list of the displacement values in the translation X.
+- `apex.environment.DFEMFieldInitialDisplacementVelocity.getDisplacementsY` — a list of the displacement values in the translation Y.
+- `apex.environment.DFEMFieldInitialDisplacementVelocity.getDisplacementsZ` — a list of the displacement values in the translation Z.
+- `apex.environment.DFEMFieldInitialDisplacementVelocity.getNodeIds` — a list of integers to define target node IDs in the field.
+- `apex.environment.DFEMFieldInitialDisplacementVelocity.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldInitialDisplacementVelocity.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldInitialDisplacementVelocity.getVelocitiesRx` — a list of the velocity values in rotation X.
+- `apex.environment.DFEMFieldInitialDisplacementVelocity.getVelocitiesRy` — a list of the velocity values in rotation Y.
+- `apex.environment.DFEMFieldInitialDisplacementVelocity.getVelocitiesRz` — a list of the velocity values in rotation Z.
+- `apex.environment.DFEMFieldInitialDisplacementVelocity.getVelocitiesX` — a list of the velocity values in translation X.
+- `apex.environment.DFEMFieldInitialDisplacementVelocity.getVelocitiesY` — a list of the velocity values in translation Y.
+- `apex.environment.DFEMFieldInitialDisplacementVelocity.getVelocitiesZ` — a list of the velocity values in translation Z.
+- `apex.environment.DFEMFieldInitialDisplacementVelocity.removeTargets` — Remove the target nodes from the field.
+- `apex.environment.DFEMFieldInitialDisplacementVelocity.update` — Updates one or more properties of the field.
+- `apex.environment.DFEMFieldInitialStrain.DFEMFieldInitialStrain` — Create DFEMFieldInitialStrain in this environment.
+- `apex.environment.DFEMFieldInitialStrain.getElement1Ids` — a list of integers to define the starting element IDs in the field.
+- `apex.environment.DFEMFieldInitialStrain.getElement2Ids` — a list of integers to define the end element IDs in the field.
+- `apex.environment.DFEMFieldInitialStrain.getInts1` — a list of integers to define the first integration point number.
+- `apex.environment.DFEMFieldInitialStrain.getIntsN` — a list of integers to define the last integration point number.
+- `apex.environment.DFEMFieldInitialStrain.getLayers1` — a list of integers to define the first integration layer number.
+- `apex.environment.DFEMFieldInitialStrain.getLayersN` — a list of integers to define the last integration layer number.
+- `apex.environment.DFEMFieldInitialStrain.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldInitialStrain.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldInitialStrain.getStrains`
+- `apex.environment.DFEMFieldInitialStrain.removeTargets` — Remove the target elements from the field.
+- `apex.environment.DFEMFieldInitialStrain.update` — Updates one or more properties of the field.
+- `apex.environment.DFEMFieldInitialStress.DFEMFieldInitialStress` — Create DFEMFieldInitialStress in this environment.
+- `apex.environment.DFEMFieldInitialStress.getCoordinateSystemFlags` — a list of integers to indicate the coordinate system that the initial stress is evaluated.
+- `apex.environment.DFEMFieldInitialStress.getElement1Ids` — a list of integers to define the starting element IDs in the field.
+- `apex.environment.DFEMFieldInitialStress.getElement2Ids` — a list of integers to define the end element IDs in the field.
+- `apex.environment.DFEMFieldInitialStress.getInts1` — a list of the first integration point number.
+- `apex.environment.DFEMFieldInitialStress.getIntsN` — a list of the last integration point number.
+- `apex.environment.DFEMFieldInitialStress.getLayers1` — a list of the first integration layer number.
+- `apex.environment.DFEMFieldInitialStress.getLayersN` — a list of the last integration layer number.
+- `apex.environment.DFEMFieldInitialStress.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldInitialStress.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldInitialStress.getStresses1` — a list of the stress values of the first component.
+- `apex.environment.DFEMFieldInitialStress.getStresses2` — a list of the stress values of the second component.
+- `apex.environment.DFEMFieldInitialStress.getStresses3` — a list of the stress values of the third component.
+- `apex.environment.DFEMFieldInitialStress.getStresses4` — a list of the stress values of the fourth component.
+- `apex.environment.DFEMFieldInitialStress.getStresses5` — a list of the stress values of the fifth component.
+- `apex.environment.DFEMFieldInitialStress.getStresses6` — a list of the stress values of the sixth component.
+- `apex.environment.DFEMFieldInitialStress.getStresses7` — a list of the stress values of the seventh component.
+- `apex.environment.DFEMFieldInitialStress.removeTargets` — Remove the target elements from the field.
+- `apex.environment.DFEMFieldInitialStress.update` — Updates one or more properties of the initial stress.
+- `apex.environment.DFEMFieldLoadAreaFactor.DFEMFieldLoadAreaFactor` — Create DFEMFieldLoadAreaFactor in this environment.
+- `apex.environment.DFEMFieldLoadAreaFactor.getNodeIds` — a list of integers to define target node IDs in the field.
+- `apex.environment.DFEMFieldLoadAreaFactor.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldLoadAreaFactor.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldLoadAreaFactor.getScaleFactorsRx` — a list of the load scale(area) factors in the rotation X axis, scaleFactorRx is a Moment quantity and must be defined using the units of Moment from the active ...
+- `apex.environment.DFEMFieldLoadAreaFactor.getScaleFactorsRy` — a list of the load scale(area) factors in the rotation Y axis, scaleFactorRy is a Moment quantity and must be defined using the units of Moment from the active ...
+- `apex.environment.DFEMFieldLoadAreaFactor.getScaleFactorsRz` — a list of the load scale(area) factors in the rotation Z axis, scaleFactorRz is a Moment quantity and must be defined using the units of Moment from the active ...
+- `apex.environment.DFEMFieldLoadAreaFactor.getScaleFactorsX` — a list of the load scale(area) factors in the translation X axis, scaleFactorsX is a Force quantity and must be defined using the units of Force from the ...
+- `apex.environment.DFEMFieldLoadAreaFactor.getScaleFactorsY` — a list of the load scale(area) factors in the translation Y axis, scaleFactorsY is a Force quantity and must be defined using the units of Force from the ...
+- `apex.environment.DFEMFieldLoadAreaFactor.getScaleFactorsZ` — a list of the load scale(area) factors in the translation Z axis, scaleFactorZ is a Force quantity and must be defined using the units of Force from the active ...
+- `apex.environment.DFEMFieldLoadAreaFactor.removeTargets` — Remove the target nodes from the field.
+- `apex.environment.DFEMFieldLoadAreaFactor.update` — Updates one or more properties of the field.
+- `apex.environment.DFEMFieldLoadDistributed.DFEMFieldLoadDistributed` — Create DFEMFieldLoadDistributed in this environment.
+- `apex.environment.DFEMFieldLoadDistributed.getDirectionsX` — the X components of the direction vectors.
+- `apex.environment.DFEMFieldLoadDistributed.getDirectionsY` — the Y components of the direction vectors.
+- `apex.environment.DFEMFieldLoadDistributed.getDirectionsZ` — the Z components of the direction vectors.
+- `apex.environment.DFEMFieldLoadDistributed.getElementIds` — a list of integers to define target element IDs in the field.
+- `apex.environment.DFEMFieldLoadDistributed.getInputType` — The argument to define the load distribution on a single element.
+- `apex.environment.DFEMFieldLoadDistributed.getNode1Ids`
+- `apex.environment.DFEMFieldLoadDistributed.getNode2Ids`
+- `apex.environment.DFEMFieldLoadDistributed.getNode3Ids`
+- `apex.environment.DFEMFieldLoadDistributed.getNode4Ids`
+- `apex.environment.DFEMFieldLoadDistributed.getOrientations` — a list of orientations for the direction components.
+- `apex.environment.DFEMFieldLoadDistributed.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldLoadDistributed.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldLoadDistributed.getPressuresCorner1` — a list of pressures at the first corner.
+- `apex.environment.DFEMFieldLoadDistributed.getPressuresCorner2` — a list of pressure pressure values at the second corner.
+- `apex.environment.DFEMFieldLoadDistributed.getPressuresCorner3` — a list of pressure values at the third corner.
+- `apex.environment.DFEMFieldLoadDistributed.getPressuresCorner4` — a list of pressure values at the fourth corner.
+- `apex.environment.DFEMFieldLoadDistributed.removeTargets` — Remove the target elements from the field.
+- `apex.environment.DFEMFieldLoadDistributed.update` — Updates one or more properties of the field.
+- `apex.environment.DFEMFieldLoadDistributedBeam2.DFEMFieldLoadDistributedBeam2` — Create DFEMFieldLoadDistributedBeam2 in this environment.
+- `apex.environment.DFEMFieldLoadDistributedBeam2.getDistancesX1` — the distances X1 along element axis from end A.
+- `apex.environment.DFEMFieldLoadDistributedBeam2.getDistancesX2` — the distances X2 along element axis from end A.
+- `apex.environment.DFEMFieldLoadDistributedBeam2.getElementIds` — a list of integers to define target element IDs in the field.
+- `apex.environment.DFEMFieldLoadDistributedBeam2.getInputType` — the optional argument to define the load distribution on a single element.
+- `apex.environment.DFEMFieldLoadDistributedBeam2.getLoadFactorsX1` — a list of the load factors at the position of distance X1 from end A.
+- `apex.environment.DFEMFieldLoadDistributedBeam2.getLoadFactorsX2` — a list of the load factors at the position of distance X2 from end A.
+- `apex.environment.DFEMFieldLoadDistributedBeam2.getLoadTypes` — a list of the loadTypes of the beam distributed load applied to beam element with two nodes. apex.attribute.LoadTypeBeam2.ForceX, the load is concentrated ...
+- `apex.environment.DFEMFieldLoadDistributedBeam2.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldLoadDistributedBeam2.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldLoadDistributedBeam2.getScaleTypes` — a list of the scaleTypes of the load factors. apex.attribute.ScaleTypeBeam.Length, the distance values are actual distances along the element axis, and if ...
+- `apex.environment.DFEMFieldLoadDistributedBeam2.removeTargets` — Remove the target elements from the field.
+- `apex.environment.DFEMFieldLoadDistributedBeam2.update` — Updates one or more properties of the Load.
+- `apex.environment.DFEMFieldLoadDistributedBeam3.DFEMFieldLoadDistributedBeam3` — Create DFEMFieldLoadDistributedBeam3 in this environment.
+- `apex.environment.DFEMFieldLoadDistributedBeam3.getElementIds` — a list of integers to define target element IDs in the field.
+- `apex.environment.DFEMFieldLoadDistributedBeam3.getInputType` — The argument to define the load distribution on a single element.
+- `apex.environment.DFEMFieldLoadDistributedBeam3.getLoadScaleFactors` — a list of values to define the load scale factors.
+- `apex.environment.DFEMFieldLoadDistributedBeam3.getLoadTypes` — the loadTypes of the load.
+- `apex.environment.DFEMFieldLoadDistributedBeam3.getLoadVectorsX` — a list of values to define the X components of the load vectors.
+- `apex.environment.DFEMFieldLoadDistributedBeam3.getLoadVectorsY` — a list of values to define the Y components of the load vectors.
+- `apex.environment.DFEMFieldLoadDistributedBeam3.getLoadVectorsZ` — a list of values to define the Z components of the load vectors.
+- `apex.environment.DFEMFieldLoadDistributedBeam3.getMagnitudesEndA` — the load magnitudes at end A.
+- `apex.environment.DFEMFieldLoadDistributedBeam3.getMagnitudesEndB` — the load magnitudes at end B.
+- `apex.environment.DFEMFieldLoadDistributedBeam3.getMagnitudesMidC` — the load magnitude at the point C.
+- `apex.environment.DFEMFieldLoadDistributedBeam3.getOrientations`
+- `apex.environment.DFEMFieldLoadDistributedBeam3.getPathIndices` — a list of integers mapped to the string indices in the pathNames
+- `apex.environment.DFEMFieldLoadDistributedBeam3.getPathNames` — the full pathName of the target elements.
+- `apex.environment.DFEMFieldLoadDistributedBeam3.removeTargets` — Remove the target elements from the field.
+- `apex.environment.DFEMFieldLoadDistributedBeam3.update` — Updates one or more properties of the field.
+- `apex.environment.DFEMFieldMomentComponent.DFEMFieldMomentComponent` — Create DFEMFieldMomentComponent in this environment.
+- `apex.environment.DFEMFieldMomentComponent.getMomentsX` — a list to define the X component values.
+- `apex.environment.DFEMFieldMomentComponent.getMomentsY` — a list to define the Y component values.
+- `apex.environment.DFEMFieldMomentComponent.getMomentsZ` — a list to define the Z component values.
+- `apex.environment.DFEMFieldMomentComponent.getNodeIds` — a list of integers to define target node IDs in the field.
+- `apex.environment.DFEMFieldMomentComponent.getOrientations` — an optional list of orientations for the load components.
+- `apex.environment.DFEMFieldMomentComponent.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldMomentComponent.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldMomentComponent.getScaleFactors` — an optional list of scale factors for the loads.
+- `apex.environment.DFEMFieldMomentComponent.removeTargets` — Remove the target nodes from the field.
+- `apex.environment.DFEMFieldMomentComponent.update` — Updates one or more properties of the field.
+- `apex.environment.DFEMFieldMomentFollowerNormal.DFEMFieldMomentFollowerNormal` — Create DFEMFieldMomentFollowerComponent in this environment.
+- `apex.environment.DFEMFieldMomentFollowerNormal.getMomentMagnitudes` — a list to define the moment magnitudes.
+- `apex.environment.DFEMFieldMomentFollowerNormal.getNodeIds` — a list of integers to define target node IDs in the field.
+- `apex.environment.DFEMFieldMomentFollowerNormal.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldMomentFollowerNormal.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldMomentFollowerNormal.getPoints1` — a list of starting points of the direction vectors.
+- `apex.environment.DFEMFieldMomentFollowerNormal.getPoints2` — a list of end points of the direction vectors.
+- `apex.environment.DFEMFieldMomentFollowerNormal.getPoints3` — a list of starting points of the direction vectors.
+- `apex.environment.DFEMFieldMomentFollowerNormal.getPoints4` — a list of end points of the direction vectors.
+- `apex.environment.DFEMFieldMomentFollowerNormal.removeTargets` — Remove the target nodes from the field.
+- `apex.environment.DFEMFieldMomentFollowerNormal.update` — Updates one or more properties of the field.
+- `apex.environment.DFEMFieldMomentFollowerVector.DFEMFieldMomentFollowerVector` — Create DFEMFieldMomentFollowerVector in this environment.
+- `apex.environment.DFEMFieldMomentFollowerVector.getMomentMagnitudes` — a list to define the moment magnitudes, each moment direction is defined by the vector from point1 to point2.
+- `apex.environment.DFEMFieldMomentFollowerVector.getNodeIds` — a list of integers to define target node IDs in the field.
+- `apex.environment.DFEMFieldMomentFollowerVector.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldMomentFollowerVector.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldMomentFollowerVector.getPoints1` — a list of starting points of the direction vectors.
+- `apex.environment.DFEMFieldMomentFollowerVector.getPoints2` — a list of end points of the direction vectors.
+- `apex.environment.DFEMFieldMomentFollowerVector.removeTargets` — Remove the target nodes from the field.
+- `apex.environment.DFEMFieldMomentFollowerVector.update` — Updates one or more properties of the field.
+- `apex.environment.DFEMFieldPhaseLead.DFEMFieldPhaseLead` — Create DFEMFieldPhaseLead in this environment.
+- `apex.environment.DFEMFieldPhaseLead.getNodeIds` — a list of integers to define target node IDs in the field.
+- `apex.environment.DFEMFieldPhaseLead.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldPhaseLead.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldPhaseLead.getPhaseLeadsRx` — a list of the phase lead values in the rotation X component.
+- `apex.environment.DFEMFieldPhaseLead.getPhaseLeadsRy` — a list of the phase lead values in the rotation Y component.
+- `apex.environment.DFEMFieldPhaseLead.getPhaseLeadsRz` — a list of the phase lead values in the rotation Z component.
+- `apex.environment.DFEMFieldPhaseLead.getPhaseLeadsX` — a list of the phase lead values in the X component.
+- `apex.environment.DFEMFieldPhaseLead.getPhaseLeadsY` — a list of the phase lead values in the Y component.
+- `apex.environment.DFEMFieldPhaseLead.getPhaseLeadsZ` — a list of the phase lead values in the component.
+- `apex.environment.DFEMFieldPhaseLead.removeTargets` — Remove the target nodes from the field.
+- `apex.environment.DFEMFieldPhaseLead.update` — Update method.
+- `apex.environment.DFEMFieldPressure.DFEMFieldPressure` — Create DFEMFieldPressure in this environment.
+- `apex.environment.DFEMFieldPressure.getElementIds` — a list of integers to define target element IDs in the field.
+- `apex.environment.DFEMFieldPressure.getInputType` — The argument to define the load distribution on a single element.
+- `apex.environment.DFEMFieldPressure.getNode1Ids`
+- `apex.environment.DFEMFieldPressure.getNode2Ids`
+- `apex.environment.DFEMFieldPressure.getNode3Ids`
+- `apex.environment.DFEMFieldPressure.getNode4Ids`
+- `apex.environment.DFEMFieldPressure.getPathIndices` — Missing.
+- `apex.environment.DFEMFieldPressure.getPathNames` — Missing.
+- `apex.environment.DFEMFieldPressure.getPressuresCorner1`
+- `apex.environment.DFEMFieldPressure.getPressuresCorner2`
+- `apex.environment.DFEMFieldPressure.getPressuresCorner3`
+- `apex.environment.DFEMFieldPressure.getPressuresCorner4`
+- `apex.environment.DFEMFieldPressure.removeTargets` — Remove the target elements from the field.
+- `apex.environment.DFEMFieldPressure.update` — Updates one or more properties of the Pressure.
+- `apex.environment.DFEMFieldPressure2D.DFEMFieldPressure2D`
+- `apex.environment.DFEMFieldPressure2D.getElementIds` — a list of integers to define target element IDs in the field.
+- `apex.environment.DFEMFieldPressure2D.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldPressure2D.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldPressure2D.getPressureMagnitudes` — a list of pressure magnitudes.
+- `apex.environment.DFEMFieldPressure2D.removeTargets` — Remove the target elements from the field.
+- `apex.environment.DFEMFieldPressure2D.update` — Updates one or more properties of the Pressure.
+- `apex.environment.DFEMFieldPressureArea.DFEMFieldPressureArea` — Create DFEMFieldPressureArea in this environment.
+- `apex.environment.DFEMFieldPressureArea.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldPressureArea.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldPressureArea.getPressureMagnitudes` — a list of pressure magnitudes.
+- `apex.environment.DFEMFieldPressureArea.getVertices1`
+- `apex.environment.DFEMFieldPressureArea.getVertices2`
+- `apex.environment.DFEMFieldPressureArea.getVertices3`
+- `apex.environment.DFEMFieldPressureArea.getVertices4`
+- `apex.environment.DFEMFieldPressureArea.removeTargets` — Remove the target nodes from the field.
+- `apex.environment.DFEMFieldPressureArea.update` — Updates one or more properties of the Pressure.
+- `apex.environment.DFEMFieldSupportFreeBody.DFEMFieldSupportFreeBody` — Create DFEMFieldSupportFreeBody in this environment.
+- `apex.environment.DFEMFieldSupportFreeBody.getConstrainRotationX` — a list of booleans to indicate the whether the rotation X is constrained or not for each node in the field.
+- `apex.environment.DFEMFieldSupportFreeBody.getConstrainRotationY` — a list of booleans to indicate the whether the rotation Y is constrained or not for each node in the field.
+- `apex.environment.DFEMFieldSupportFreeBody.getConstrainRotationZ` — a list of booleans to indicate the whether the rotation Z is constrained or not for each node in the field.
+- `apex.environment.DFEMFieldSupportFreeBody.getConstrainTranslationX` — a list of booleans to indicate the whether the translation X is constrained or not for each node in the field.
+- `apex.environment.DFEMFieldSupportFreeBody.getConstrainTranslationY` — a list of booleans to indicate the whether the translation Y is constrained or not for each node in the field.
+- `apex.environment.DFEMFieldSupportFreeBody.getConstrainTranslationZ` — a list of booleans to indicate the whether the translation Z is constrained or not for each node in the field.
+- `apex.environment.DFEMFieldSupportFreeBody.getNodeIds` — a list of integers to indicate the target nodes in the field.
+- `apex.environment.DFEMFieldSupportFreeBody.getOrientations` — a list of the orientations of the constraint.
+- `apex.environment.DFEMFieldSupportFreeBody.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldSupportFreeBody.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldSupportFreeBody.removeTargets` — Remove the target nodes from the field.
+- `apex.environment.DFEMFieldSupportFreeBody.update` — Update this ConstraintGeneral.
+- `apex.environment.DFEMFieldTemperatureGradient2D.DFEMFieldTemperatureGradient2D` — Create DFEMFieldTemperatureGradient2D in this environment.
+- `apex.environment.DFEMFieldTemperatureGradient2D.getElementIds` — a list of integers to define target element IDs in the field.
+- `apex.environment.DFEMFieldTemperatureGradient2D.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldTemperatureGradient2D.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldTemperatureGradient2D.getTemperaturesLowerSurface` — a list of temperature values defined on lower surface.
+- `apex.environment.DFEMFieldTemperatureGradient2D.getTemperaturesReferencePlane` — a list of temperature values defined on the element reference plane.
+- `apex.environment.DFEMFieldTemperatureGradient2D.getTemperaturesUpperSurface` — a list of temperature values defined on upper surface.
+- `apex.environment.DFEMFieldTemperatureGradient2D.getThermalGradients` — a list of thermal gradients.
+- `apex.environment.DFEMFieldTemperatureGradient2D.removeTargets` — Remove the target elements from the field.
+- `apex.environment.DFEMFieldTemperatureGradient2D.update` — Updates one or more properties of the field.
+- `apex.environment.DFEMFieldTemperatureGradient2DHeat.DFEMFieldTemperatureGradient2DHeat` — Create DFEMFieldTemperatureGradient2DHeat in this environment.
+- `apex.environment.DFEMFieldTemperatureGradient2DHeat.getNodeIds` — a list of integers to define target node IDs in the field.
+- `apex.environment.DFEMFieldTemperatureGradient2DHeat.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldTemperatureGradient2DHeat.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldTemperatureGradient2DHeat.getTemperaturesBottom` — a list of temperature values defined on bottom location across thickness direction.
+- `apex.environment.DFEMFieldTemperatureGradient2DHeat.getTemperaturesMid` — a list of temperature values defined on the mid location across thickness direction.
+- `apex.environment.DFEMFieldTemperatureGradient2DHeat.getTemperaturesTop` — a list of temperature values defined on the top location across thickness direction.
+- `apex.environment.DFEMFieldTemperatureGradient2DHeat.removeTargets` — Remove the target elements from the field.
+- `apex.environment.DFEMFieldTemperatureGradient2DHeat.update` — Updates one or more properties of the Temperature.
+- `apex.environment.DFEMFieldTemperatureGradientBeam2.DFEMFieldTemperatureGradientBeam2` — Create DiFEMFieldTemperatureGradientBeam2 in this environment.
+- `apex.environment.DFEMFieldTemperatureGradientBeam2.getElementIds` — a list of integers to define target element IDs in the field.
+- `apex.environment.DFEMFieldTemperatureGradientBeam2.getInputType` — The argument to define the load distribution on a single element.
+- `apex.environment.DFEMFieldTemperatureGradientBeam2.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldTemperatureGradientBeam2.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldTemperatureGradientBeam2.getTemperaturesEndA` — a list of temperature values at end A on the neutral axis.
+- `apex.environment.DFEMFieldTemperatureGradientBeam2.getTemperaturesEndB` — a list of temperature values at end B on the neutral axis.
+- `apex.environment.DFEMFieldTemperatureGradientBeam2.getTemperaturesPointCendA` — a list of temperature values on point C at end A, used for stress recovery.
+- `apex.environment.DFEMFieldTemperatureGradientBeam2.getTemperaturesPointCendB` — a list of temperature values on point C at end B, used for stress recovery.
+- `apex.environment.DFEMFieldTemperatureGradientBeam2.getTemperaturesPointDendA` — a list of temperature values on point D at end A, used for stress recovery.
+- `apex.environment.DFEMFieldTemperatureGradientBeam2.getTemperaturesPointDendB` — a list of temperature values on point D at end B, used for stress recovery.
+- `apex.environment.DFEMFieldTemperatureGradientBeam2.getTemperaturesPointEendA` — a list of temperature values on point E at end A, used for stress recovery.
+- `apex.environment.DFEMFieldTemperatureGradientBeam2.getTemperaturesPointEendB` — a list of temperature values on point E at end B, used for stress recovery.
+- `apex.environment.DFEMFieldTemperatureGradientBeam2.getTemperaturesPointFendA` — a list of temperature values on point F at end A, used for stress recovery.
+- `apex.environment.DFEMFieldTemperatureGradientBeam2.getTemperaturesPointFendB` — a list of temperature values on point F at end B, used for stress recovery.
+- `apex.environment.DFEMFieldTemperatureGradientBeam2.getThermalGradients1A` — a list of effective linear thermal gradients in direction 1 on end A.
+- `apex.environment.DFEMFieldTemperatureGradientBeam2.getThermalGradients1B` — a list of effective linear thermal gradients in direction 1 on end B.
+- `apex.environment.DFEMFieldTemperatureGradientBeam2.getThermalGradients2A` — a list of effective linear thermal gradients in direction 2 on end A.
+- `apex.environment.DFEMFieldTemperatureGradientBeam2.getThermalGradients2B` — a list of effective linear thermal gradients in direction 2 on end B.
+- `apex.environment.DFEMFieldTemperatureGradientBeam2.removeTargets` — Remove the target elements from the field.
+- `apex.environment.DFEMFieldTemperatureGradientBeam2.update` — Updates one or more properties of the Temperature.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.DFEMFieldTemperatureGradientBeam3` — Create DFEMFieldTemperatureGradientBeam3 in this environment.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getElementIds` — a list of integers to define target element IDs in the field.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getInputType` — The argument to define the load distribution on a single element.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getTemperaturesEndA` — a list of temperature values at end A on the neutral axis.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getTemperaturesEndB` — a list of temperature values at end B on the neutral axis.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getTemperaturesMidC` — a list of temperature values at a point C between end A and end B.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getTemperaturesPointCendA` — a list of temperature values on point C at end A, used for stress recovery.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getTemperaturesPointCendB` — a list of temperature values on point C at end B, used for stress recovery.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getTemperaturesPointCmidC` — a list of temperature values on point C at mid C, used for stress recovery.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getTemperaturesPointDendA` — a list of temperature values on point D at end A, used for stress recovery.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getTemperaturesPointDendB` — a list of temperature values on point D at end B, used for stress recovery.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getTemperaturesPointDmidC` — a list of temperature values on point D at mid C, used for stress recovery.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getTemperaturesPointEendA` — a list of temperature values on point E at end A, used for stress recovery.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getTemperaturesPointEendB` — a list of temperature values on point E at end B, used for stress recovery.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getTemperaturesPointEmidC` — a list of temperature values on point E at mid C, used for stress recovery.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getTemperaturesPointFendA` — a list of temperature values on point F at end A, used for stress recovery.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getTemperaturesPointFendB` — a list of temperature values on point F at end B, used for stress recovery.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getTemperaturesPointFmidC` — a list of temperature values on point F at mid C, used for stress recovery.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getThermalGradientsYA` — a list of effective linear thermal gradients in local direction y on end A.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getThermalGradientsYB` — a list of effective linear thermal gradients in direction y on end B.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getThermalGradientsYC` — a list of effective linear thermal gradients in direction y on mid C.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getThermalGradientsZA` — a list of effective linear thermal gradients in direction z on end A.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getThermalGradientsZB` — a list of effective linear thermal gradients in direction z on end B.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.getThermalGradientsZC` — a list of effective linear thermal gradients in direction z on mid C.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.removeTargets` — Remove the target elements from the field.
+- `apex.environment.DFEMFieldTemperatureGradientBeam3.update` — Updates one or more properties of the field.
+- `apex.environment.DFEMFieldTemperatureNodal.DFEMFieldTemperatureNodal` — Create DFEMFieldTemperatureNodal in this environment.
+- `apex.environment.DFEMFieldTemperatureNodal.getNodeIds` — a list of integers to define target node IDs in the field.
+- `apex.environment.DFEMFieldTemperatureNodal.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldTemperatureNodal.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldTemperatureNodal.getTemperatureValues` — a list of temperature values associated with the target nodes.
+- `apex.environment.DFEMFieldTemperatureNodal.removeTargets` — Remove the target nodes from the field.
+- `apex.environment.DFEMFieldTemperatureNodal.update` — Updates one or more properties of the Temperature.
+- `apex.environment.DFEMFieldTimeDelay.DFEMFieldTimeDelay` — Create DFEMFieldTimeDelay in this environment.
+- `apex.environment.DFEMFieldTimeDelay.getNodeIds` — a list of integers to define target node IDs in the field.
+- `apex.environment.DFEMFieldTimeDelay.getPathIndices` — a list of integers mapped to the string indices in the pathNames.
+- `apex.environment.DFEMFieldTimeDelay.getPathNames` — a list to provide the unique pathNames of the mesh bodies that include target FEM entities.
+- `apex.environment.DFEMFieldTimeDelay.getTimeDelaysRx` — a list of the time delay values in the rotation X component.
+- `apex.environment.DFEMFieldTimeDelay.getTimeDelaysRy` — a list of the time delay values in the rotation Y component.
+- `apex.environment.DFEMFieldTimeDelay.getTimeDelaysRz` — a list of the time delay values in the rotation Z component.
+- `apex.environment.DFEMFieldTimeDelay.getTimeDelaysX` — a list of the time delay values in the X component.
+- `apex.environment.DFEMFieldTimeDelay.getTimeDelaysY` — a list of the time delay value in the Y component.
+- `apex.environment.DFEMFieldTimeDelay.getTimeDelaysZ` — a list of the time delay values in the Z component.
+- `apex.environment.DFEMFieldTimeDelay.removeTargets` — Remove the target nodes from the field.
+- `apex.environment.DFEMFieldTimeDelay.update` — Updates one or more properties of the field.
+- `apex.environment.DisplacementConstraint.getApplicationMethod` — DEPRECATED. Returns ApplicationMethod of the DisplacementConstraint.
+- `apex.environment.DisplacementConstraint.getAttachmentDistributionType` — DEPRECATED. Returns AttachmentDistributionType of the DisplacementConstraint.
+- `apex.environment.DisplacementConstraint.getAttachmentRegion` — DEPRECATED. Returns AttachmentRegion of the DisplacementConstraint.
+- `apex.environment.DisplacementConstraint.getConstraintType` — DEPRECATED. Returns ConstraintType of the DisplacementConstraint.
+- `apex.environment.DisplacementConstraint.getDisplacementConstraintProperties` — DEPRECATED. Returns DisplacementConstraintProperties of the DisplacementConstraint.
+- `apex.environment.DisplacementConstraint.getOrientation` — DEPRECATED. Returns Orientation of the DisplacementConstraint.
+- `apex.environment.DisplacementConstraint.getTarget` — DEPRECATED. Returns a read only collection of the entities that the DisplacementConstraint is applied to.
+- `apex.environment.DisplacementConstraint.update` — DEPRECATED. Update this DisplacementConstraint.
+- `apex.environment.DisplacementConstraintCollection.DisplacementConstraintCollection` — Construct a new DisplacementConstraintCollection.
+- `apex.environment.EnforcedMotion.addEnforcedMotionRep` — DEPRECATED. Add a EnforcedMotionRep.
+- `apex.environment.EnforcedMotion.clearConstraint` — DEPRECATED. Remove referenced constraint of the EnforcedMotion.
+- `apex.environment.EnforcedMotion.createEnforcedMotionDynamicRepByComponent` — DEPRECATED. Get a new EnforcedMotionRep in this environment.
+- `apex.environment.EnforcedMotion.createEnforcedMotionStaticRepByComponent` — DEPRECATED. Get a new EnforcedMotionRep in this environment.
+- `apex.environment.EnforcedMotion.createEnforcedMotionStaticRepByResultant` — DEPRECATED. Get a new EnforcedMotionRep in this environment.
+- `apex.environment.EnforcedMotion.getApplicationMethod` — DEPRECATED. Returns ApplicationMethod of the EnforcedMotion.
+- `apex.environment.EnforcedMotion.getAttachmentDistributionType` — DEPRECATED. Returns AttachmentRegion of the EnforcedMotion.
+- `apex.environment.EnforcedMotion.getAttachmentRegion` — DEPRECATED. Returns AttachmentRegion of the EnforcedMotion.
+- `apex.environment.EnforcedMotion.getConstraintReference` — DEPRECATED. Returns ConstraintReference of the EnforcedMotion.
+- `apex.environment.EnforcedMotion.getEnforcedMotionDynamicRep` — DEPRECATED. Returns EnforcedMotionDynamicRep of the EnforcedMotion.
+- `apex.environment.EnforcedMotion.getEnforcedMotionRep` — DEPRECATED. Returns EnforcedMotionRep of the EnforcedMotion.
+- `apex.environment.EnforcedMotion.getEnforcedMotionRepIndex` — DEPRECATED. Returns EnforcedMotionRep index of the EnforcedMotion.
+- `apex.environment.EnforcedMotion.getOrientation` — DEPRECATED. Returns apex.construct.Orientation of the EnforcedMotion.
+- `apex.environment.EnforcedMotion.getTarget` — DEPRECATED. Returns a read only collection of the entities that the EnforcedMotion is applied to.
+- `apex.environment.EnforcedMotion.removeRep` — DEPRECATED. Remove a EnforcedMotionRep by name.
+- `apex.environment.EnforcedMotion.update` — DEPRECATED. Update this EnforcedMotion.
+- `apex.environment.EnforcedMotionDynamicRep.getApproach` — DEPRECATED. Returns Approach of the EnforcedMotionDynamicRep.
+- `apex.environment.EnforcedMotionDynamicRep.getMotionType` — DEPRECATED. Returns EnforcedMotionType of the EnforcedMotionDynamicRep.
+- `apex.environment.EnforcedMotionDynamicRep.getRotationX` — DEPRECATED. Returns MomentX value of the EnforcedMotionDynamicRep.
+- `apex.environment.EnforcedMotionDynamicRep.getRotationY` — DEPRECATED. Returns MomentY value of the EnforcedMotionDynamicRep.
+- `apex.environment.EnforcedMotionDynamicRep.getRotationZ` — Returns MomentZ value of the EnforcedMotionDynamicRep.THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `apex.environment.EnforcedMotionDynamicRep.getTranslationX` — DEPRECATED. Returns ForceX value of the EnforcedMotionDynamicRep.
+- `apex.environment.EnforcedMotionDynamicRep.getTranslationY` — DEPRECATED. Returns ForceY value of the EnforcedMotionDynamicRep.
+- `apex.environment.EnforcedMotionDynamicRep.getTranslationZ` — DEPRECATED. Returns ForceZ value of the EnforcedMotionDynamicRep.
+- `apex.environment.EnforcedMotionDynamicRep.removeDRX` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `apex.environment.EnforcedMotionDynamicRep.removeDRY` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `apex.environment.EnforcedMotionDynamicRep.removeDRZ` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `apex.environment.EnforcedMotionDynamicRep.removeDTX` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `apex.environment.EnforcedMotionDynamicRep.removeDTY` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `apex.environment.EnforcedMotionDynamicRep.removeDTZ` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `apex.environment.EnforcedMotionDynamicRep.update` — DEPRECATED. Update this EnforcedMotionDynamicRep.
+- `apex.environment.EnforcedMotionRep.getRotationMagnitude` — DEPRECATED. Returns MMagnitude value of the EnforcedMotionRep. (inherited by `EnforcedMotionDynamicRep`)
+- `apex.environment.EnforcedMotionRep.getRotationX` — DEPRECATED. Returns MomentX value of the EnforcedMotionRep. (inherited by `EnforcedMotionDynamicRep`)
+- `apex.environment.EnforcedMotionRep.getRotationY` — DEPRECATED. Returns MomentY value of the EnforcedMotionRep. (inherited by `EnforcedMotionDynamicRep`)
+- `apex.environment.EnforcedMotionRep.getRotationZ` — DEPRECATED. Returns MomentZ value of the EnforcedMotionRep. (inherited by `EnforcedMotionDynamicRep`)
+- `apex.environment.EnforcedMotionRep.getTranslationMagnitude` — DEPRECATED. Returns FMagnitude value of the EnforcedMotionRep. (inherited by `EnforcedMotionDynamicRep`)
+- `apex.environment.EnforcedMotionRep.getTranslationX` — DEPRECATED. Returns ForceX value of the EnforcedMotionRep. (inherited by `EnforcedMotionDynamicRep`)
+- `apex.environment.EnforcedMotionRep.getTranslationY` — DEPRECATED. Returns ForceY value of the EnforcedMotionRep. (inherited by `EnforcedMotionDynamicRep`)
+- `apex.environment.EnforcedMotionRep.getTranslationZ` — DEPRECATED. Returns ForceZ value of the EnforcedMotionRep. (inherited by `EnforcedMotionDynamicRep`)
+- `apex.environment.EnforcedMotionRep.removeRX` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. (inherited by `EnforcedMotionDynamicRep`)
+- `apex.environment.EnforcedMotionRep.removeRY` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. (inherited by `EnforcedMotionDynamicRep`)
+- `apex.environment.EnforcedMotionRep.removeRZ` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. (inherited by `EnforcedMotionDynamicRep`)
+- `apex.environment.EnforcedMotionRep.removeTX` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. (inherited by `EnforcedMotionDynamicRep`)
+- `apex.environment.EnforcedMotionRep.removeTY` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. (inherited by `EnforcedMotionDynamicRep`)
+- `apex.environment.EnforcedMotionRep.removeTZ` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. (inherited by `EnforcedMotionDynamicRep`)
+- `apex.environment.EnforcedMotionRep.update` — DEPRECATED. Update this EnforcedMotionRep. (inherited by `EnforcedMotionDynamicRep`)
+- `apex.environment.ForceMoment.addForceMomentRep` — DEPRECATED. Add a ForceMomentRep.
+- `apex.environment.ForceMoment.clearConstraint` — DEPRECATED. Remove referenced constraint of the ForceMoment.
+- `apex.environment.ForceMoment.createForceMomentDynamicRepByComponent` — DEPRECATED. Get a new ForceMomentRep in this environment.
+- `apex.environment.ForceMoment.createForceMomentStaticRepByComponent` — DEPRECATED. Get a new ForceMomentRep in this environment.
+- `apex.environment.ForceMoment.createForceMomentStaticRepByResultant` — DEPRECATED. Get a new ForceMomentRep in this environment.
+- `apex.environment.ForceMoment.getApplicationMethod` — DEPRECATED. Returns ApplicationMethod of the ForceMoment.
+- `apex.environment.ForceMoment.getAttachmentDistributionType` — DEPRECATED. Returns AttachmentRegion of the ForceMoment.
+- `apex.environment.ForceMoment.getAttachmentRegion` — DEPRECATED. Returns AttachmentRegion of the ForceMoment.
+- `apex.environment.ForceMoment.getConstraintReference` — DEPRECATED. Returns ConstraintReference of the ForceMoment.
+- `apex.environment.ForceMoment.getForceMomentDynamicRep` — DEPRECATED. Returns ForceMomentDynamicRep of the ForceMoment.
+- `apex.environment.ForceMoment.getForceMomentRep` — DEPRECATED. Returns ForceMomentRep of the ForceMoment.
+- `apex.environment.ForceMoment.getForceMomentRepIndex` — DEPRECATED. Returns ForceMomentRep index of the ForceMoment.
+- `apex.environment.ForceMoment.getOrientation` — DEPRECATED. Returns apex.construct.Orientation of the ForceMoment.
+- `apex.environment.ForceMoment.getTarget` — DEPRECATED. Returns a read only collection of the entities that the ForceMoment is applied to.
+- `apex.environment.ForceMoment.removeRep` — DEPRECATED. Remove a ForceMomentRep by name.
+- `apex.environment.ForceMoment.update` — DEPRECATED. Update this ForceMoment.
+- `apex.environment.ForceMomentDynamicRep.getApproach` — DEPRECATED. Returns Approach of the ForceMomentDynamicRep.
+- `apex.environment.ForceMomentDynamicRep.getForceX` — DEPRECATED. Returns ForceX value of the ForceMomentDynamicRep.
+- `apex.environment.ForceMomentDynamicRep.getForceY` — DEPRECATED. Returns ForceY value of the ForceMomentDynamicRep.
+- `apex.environment.ForceMomentDynamicRep.getForceZ` — DEPRECATED. Returns ForceZ value of the ForceMomentDynamicRep.
+- `apex.environment.ForceMomentDynamicRep.getMomentX` — DEPRECATED. Returns MomentX value of the ForceMomentDynamicRep.
+- `apex.environment.ForceMomentDynamicRep.getMomentY` — DEPRECATED. Returns MomentY value of the ForceMomentDynamicRep.
+- `apex.environment.ForceMomentDynamicRep.getMomentZ` — DEPRECATED. Returns MomentZ value of the ForceMomentDynamicRep.
+- `apex.environment.ForceMomentDynamicRep.removeDFX` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `apex.environment.ForceMomentDynamicRep.removeDFY` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `apex.environment.ForceMomentDynamicRep.removeDFZ` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `apex.environment.ForceMomentDynamicRep.removeDMX` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `apex.environment.ForceMomentDynamicRep.removeDMY` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `apex.environment.ForceMomentDynamicRep.removeDMZ` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `apex.environment.ForceMomentDynamicRep.update` — DEPRECATED. Update this ForceMomentDynamicRep.
+- `apex.environment.ForceMomentRep.getForceX` — DEPRECATED. Returns ForceX value of the ForceMomentRep. (inherited by `ForceMomentDynamicRep`)
+- `apex.environment.ForceMomentRep.getForceY` — DEPRECATED. Returns ForceY value of the ForceMomentRep. (inherited by `ForceMomentDynamicRep`)
+- `apex.environment.ForceMomentRep.getForceZ` — DEPRECATED. Returns ForceZ value of the ForceMomentRep. (inherited by `ForceMomentDynamicRep`)
+- `apex.environment.ForceMomentRep.getMomentX` — DEPRECATED. Returns MomentX value of the ForceMomentRep. (inherited by `ForceMomentDynamicRep`)
+- `apex.environment.ForceMomentRep.getMomentY` — DEPRECATED. Returns MomentY value of the ForceMomentRep. (inherited by `ForceMomentDynamicRep`)
+- `apex.environment.ForceMomentRep.getMomentZ` — DEPRECATED. Returns MomentZ value of the ForceMomentRep. (inherited by `ForceMomentDynamicRep`)
+- `apex.environment.ForceMomentRep.removeFX` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. (inherited by `ForceMomentDynamicRep`)
+- `apex.environment.ForceMomentRep.removeFY` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. (inherited by `ForceMomentDynamicRep`)
+- `apex.environment.ForceMomentRep.removeFZ` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. (inherited by `ForceMomentDynamicRep`)
+- `apex.environment.ForceMomentRep.removeMX` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. (inherited by `ForceMomentDynamicRep`)
+- `apex.environment.ForceMomentRep.removeMY` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. (inherited by `ForceMomentDynamicRep`)
+- `apex.environment.ForceMomentRep.removeMZ` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. (inherited by `ForceMomentDynamicRep`)
+- `apex.environment.ForceMomentRep.update` — DEPRECATED. Update this ForceMomentRep. (inherited by `ForceMomentDynamicRep`)
+- `apex.environment.Gravity.getCoordinateSystem` — Returns CoordinateSystem of the gravity.
+- `apex.environment.Gravity.getCoordinateSystemDefinition` — the coordinate system definition of the gravity: "apex.attribute.CoordinateSystemDefinition.SuperElement", the coordinate system is defined in the ...
+- `apex.environment.Gravity.getGravConstant` — Returns GravConstant of the gravity.
+- `apex.environment.Gravity.getGravConstantMultiplier` — Returns GravConstantMultiplier of the gravity.
+- `apex.environment.Gravity.getMagnitudeAccel` — Returns MagnitudeAccel of the gravity.
+- `apex.environment.Gravity.getOrientation` — Returns Orientation of the gravity.
+- `apex.environment.Gravity.isValid`
+- `apex.environment.Gravity.setDescription` — Set the gravity description.
+- `apex.environment.Gravity.setName` — Set the gravity name.
+- `apex.environment.Gravity.update` — Update this Gravity.
+- `apex.environment.InitialCondition.getId` — the id of the initial condition. (inherited by 17 classes)
+- `apex.environment.InitialDisplacementVelocity.getDisplacementRx` — the displacement value in the rotation X.
+- `apex.environment.InitialDisplacementVelocity.getDisplacementRy` — the displacement value in the rotation Y.
+- `apex.environment.InitialDisplacementVelocity.getDisplacementRz` — the displacement value in the rotation Z.
+- `apex.environment.InitialDisplacementVelocity.getDisplacementX` — the displacement value in the translation X.
+- `apex.environment.InitialDisplacementVelocity.getDisplacementY` — the displacement value in the translation Y.
+- `apex.environment.InitialDisplacementVelocity.getDisplacementZ` — the displacement value in the translation Z.
+- `apex.environment.InitialDisplacementVelocity.getTarget` — an EntityCollection identifying the entities that the initial displacement and velocity will be applied to.
+- `apex.environment.InitialDisplacementVelocity.getVelocityRx` — the velocity value in rotation X.
+- `apex.environment.InitialDisplacementVelocity.getVelocityRy` — the velocity value in rotation Y.
+- `apex.environment.InitialDisplacementVelocity.getVelocityRz` — the velocity value in rotation Z.
+- `apex.environment.InitialDisplacementVelocity.getVelocityX` — the velocity value in translation X.
+- `apex.environment.InitialDisplacementVelocity.getVelocityY` — the velocity value in translation Y.
+- `apex.environment.InitialDisplacementVelocity.getVelocityZ` — the velocity value in translation Z.
+- `apex.environment.InitialDisplacementVelocity.update` — Updates one or more properties of the initial displacement and velocity.
+- `apex.environment.InitialDisplacementVelocityVariable.getSpatialTarget` — a DFEMFieldInitialDisplacementVelocity that identifies nodes that represent the region to which this initial condition is applied as well as the distribution ...
+- `apex.environment.InitialDisplacementVelocityVariable.update` — Updates one or more properties of the initial displacement and velocity.
+- `apex.environment.InitialStrain.getInt1` — the first integration point number.
+- `apex.environment.InitialStrain.getIntN` — the last integration point number.
+- `apex.environment.InitialStrain.getLayer1` — the first integration layer number.
+- `apex.environment.InitialStrain.getLayerN` — the last integration layer number.
+- `apex.environment.InitialStrain.getStrain` — the initial strain value.
+- `apex.environment.InitialStrain.getTarget` — the target entities that the InitialStrain is applied to.
+- `apex.environment.InitialStrain.update` — Updates one or more properties of the initial strain.
+- `apex.environment.InitialStrainVariable.getSpatialTarget` — a DFEMFieldInitialStrain that identifies elements that represent the region to which this stress is applied as well as the distribution of stresses across that ...
+- `apex.environment.InitialStrainVariable.update` — Updates one or more properties of the initial stress.
+- `apex.environment.InitialStress.getCoordinateSystemFlag` — an integer to indicate the coordinate system that the initial stress is evaluated. -1 points to the element coordinate system and 0 points to the global ...
+- `apex.environment.InitialStress.getInt1` — the first integration point number.
+- `apex.environment.InitialStress.getIntN` — the last integration point number.
+- `apex.environment.InitialStress.getLayer1` — the first integration layer number.
+- `apex.environment.InitialStress.getLayerN` — the last integration layer number.
+- `apex.environment.InitialStress.getStress1` — the stress value of the first component, for example, stress in X component for both solid and shell element, axial stress for beam element.
+- `apex.environment.InitialStress.getStress2` — the stress value of the second component, for example, stress in Y component for both solid and shell element, twist stress for beam element.
+- `apex.environment.InitialStress.getStress3` — the stress value of the third component, for example, stress in Z component for both solid and shell element.
+- `apex.environment.InitialStress.getStress4` — the stress value of the fourth component, for example, stress in XY component for both solid and shell element.
+- `apex.environment.InitialStress.getStress5` — the stress value of the fifth component, for example, stress in YZ component for both solid and shell element.
+- `apex.environment.InitialStress.getStress6` — the stress value of the sixth component, for example, stress in ZX component for both solid and shell element.
+- `apex.environment.InitialStress.getStress7` — the stress value of the seventh component, hydrostatic pressure for Herrmann elements only.
+- `apex.environment.InitialStress.getTarget` — an EntityCollection identifying the entities that the initial stress will be applied to.
+- `apex.environment.InitialStress.update` — Updates one or more properties of the initial stress.
+- `apex.environment.InitialStressVariable.getSpatialTarget` — a DFEMFieldInitialStress that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that ...
+- `apex.environment.InitialStressVariable.update` — Updates one or more properties of the initial stress.
+- `apex.environment.InitialTemperature.getId` — DEPRECATED. The ID of the InitialTemperature.
+- `apex.environment.InitialTemperature.getInitialTemperatureValue` — DEPRECATED. The initial temperature value.
+- `apex.environment.InitialTemperature.getTarget` — DEPRECATED. The target entities that the InitialTemperature is applied to.
+- `apex.environment.InitialTemperature.update` — DEPRECATED. Update this Initial Temperature condition.
+- `apex.environment.InitialTemperatureDefault.getDefaultTemperature` — the default temperature value.
+- `apex.environment.InitialTemperatureDefault.update` — Updates one or more properties of the Temperature.
+- `apex.environment.InitialTemperatureGradient2D.getTarget` — an EntityCollection identifying the entities that the Temperature will be applied to.
+- `apex.environment.InitialTemperatureGradient2D.getTemperatureLowerSurface` — the temperature for stress calculation at points on the lower surface.
+- `apex.environment.InitialTemperatureGradient2D.getTemperatureReferencePlane` — the temperature applied on the element reference plane.
+- `apex.environment.InitialTemperatureGradient2D.getTemperatureUpperSurface` — the temperature for stress calculation at points on the upper surface.
+- `apex.environment.InitialTemperatureGradient2D.getThermalGradient` — the effective linear thermal gradient.
+- `apex.environment.InitialTemperatureGradient2D.update` — Updates one or more properties of the Temperature.
+- `apex.environment.InitialTemperatureGradient2DHeat.getTarget` — an EntityCollection identifying the entities that the Temperature will be applied to.
+- `apex.environment.InitialTemperatureGradient2DHeat.getTemperatureBottom` — the temperature at bottom location through the thickness.
+- `apex.environment.InitialTemperatureGradient2DHeat.getTemperatureMid` — the temperature at mid location through the thickness.
+- `apex.environment.InitialTemperatureGradient2DHeat.getTemperatureTop` — the temperature at top location through the thickness.
+- `apex.environment.InitialTemperatureGradient2DHeat.update` — Updates one or more properties of the Temperature.
+- `apex.environment.InitialTemperatureGradient2DHeatVariable.getSpatialTarget` — a DFEMFieldTemperatureGradient2DHeat that identifies elements that represent the region to which this load is applied as well as the distribution of loads ...
+- `apex.environment.InitialTemperatureGradient2DHeatVariable.update` — Updates one or more properties of the Temperature.
+- `apex.environment.InitialTemperatureGradient2DVariable.getSpatialTarget` — a DFEMFieldTemperatureGradient2D that identifies elements that represent the region to which this load is applied as well as the distribution of loads across ...
+- `apex.environment.InitialTemperatureGradient2DVariable.update` — Updates one or more properties of the Temperature.
+- `apex.environment.InitialTemperatureGradientBeam2.getInputType` — The argument to define the load distribution on a single element.
+- `apex.environment.InitialTemperatureGradientBeam2.getTarget` — an EntityCollection identifying the entities that the Temperature will be applied to.
+- `apex.environment.InitialTemperatureGradientBeam2.getTemperatureEndA` — the temperature value at end A on the neutral axis.
+- `apex.environment.InitialTemperatureGradientBeam2.getTemperatureEndB` — the temperature value at end B on the neutral axis.
+- `apex.environment.InitialTemperatureGradientBeam2.getTemperaturePointCendA` — the temperature value on point C at end A, used for stress recovery.
+- `apex.environment.InitialTemperatureGradientBeam2.getTemperaturePointCendB` — the temperature value on point C at end B, used for stress recovery.
+- `apex.environment.InitialTemperatureGradientBeam2.getTemperaturePointDendA` — the temperature value on point D at end A, used for stress recovery.
+- `apex.environment.InitialTemperatureGradientBeam2.getTemperaturePointDendB` — the temperature value on point D at end B, used for stress recovery.
+- `apex.environment.InitialTemperatureGradientBeam2.getTemperaturePointEendA` — the temperature value on point E at end A, used for stress recovery.
+- `apex.environment.InitialTemperatureGradientBeam2.getTemperaturePointEendB` — the temperature value on point E at end B, used for stress recovery.
+- `apex.environment.InitialTemperatureGradientBeam2.getTemperaturePointFendA` — the temperature value on point F at end A, used for stress recovery.
+- `apex.environment.InitialTemperatureGradientBeam2.getTemperaturePointFendB` — the temperature value on point F at end B, used for stress recovery.
+- `apex.environment.InitialTemperatureGradientBeam2.getThermalGradient1A` — the effective linear thermal gradient in direction 1 on end A.
+- `apex.environment.InitialTemperatureGradientBeam2.getThermalGradient1B` — the effective linear thermal gradient in direction 1 on end B.
+- `apex.environment.InitialTemperatureGradientBeam2.getThermalGradient2A` — the effective linear thermal gradient in direction 2 on end A.
+- `apex.environment.InitialTemperatureGradientBeam2.getThermalGradient2B` — the effective linear thermal gradient in direction 2 on end B.
+- `apex.environment.InitialTemperatureGradientBeam2.update` — Updates one or more properties of the Temperature.
+- `apex.environment.InitialTemperatureGradientBeam2Variable.getSpatialTarget` — a DFEMFieldTemperatureBeam2 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that ...
+- `apex.environment.InitialTemperatureGradientBeam2Variable.update` — Update method.One or more properties may be updated in each call to update().
+- `apex.environment.InitialTemperatureGradientBeam3.getInputType` — The argument to define the load distribution on a single element.
+- `apex.environment.InitialTemperatureGradientBeam3.getTarget` — an EntityCollection identifying the entities that the Temperature will be applied to.
+- `apex.environment.InitialTemperatureGradientBeam3.getTemperatureEndA` — the temperature value at end A on the neutral axis.
+- `apex.environment.InitialTemperatureGradientBeam3.getTemperatureEndB` — the temperature value at end B on the neutral axis.
+- `apex.environment.InitialTemperatureGradientBeam3.getTemperatureMidC` — the temperature value at a point C between end A and end B.
+- `apex.environment.InitialTemperatureGradientBeam3.getTemperaturePointCendA` — the temperature value on point C at end A, used for stress recovery.
+- `apex.environment.InitialTemperatureGradientBeam3.getTemperaturePointCendB` — the temperature value on point C at end B, used for stress recovery.
+- `apex.environment.InitialTemperatureGradientBeam3.getTemperaturePointCmidC` — the temperature value on point C at mid A, used for stress recovery.
+- `apex.environment.InitialTemperatureGradientBeam3.getTemperaturePointDendA` — the temperature value on point D at end A, used for stress recovery.
+- `apex.environment.InitialTemperatureGradientBeam3.getTemperaturePointDendB` — the temperature value on point D at end B, used for stress recovery.
+- `apex.environment.InitialTemperatureGradientBeam3.getTemperaturePointDmidC` — the temperature value on point D at mid C, used for stress recovery.
+- `apex.environment.InitialTemperatureGradientBeam3.getTemperaturePointEendA` — the temperature value on point E at end A, used for stress recovery.
+- `apex.environment.InitialTemperatureGradientBeam3.getTemperaturePointEendB` — the temperature value on point E at end B, used for stress recovery.
+- `apex.environment.InitialTemperatureGradientBeam3.getTemperaturePointEmidC` — the temperature value on point E at mid C, used for stress recovery.
+- `apex.environment.InitialTemperatureGradientBeam3.getTemperaturePointFendA` — the temperature value on point F at end A, used for stress recovery.
+- `apex.environment.InitialTemperatureGradientBeam3.getTemperaturePointFendB` — the temperature value on point F at end B, used for stress recovery.
+- `apex.environment.InitialTemperatureGradientBeam3.getTemperaturePointFmidC` — the temperature value on point F at mid C, used for stress recovery.
+- `apex.environment.InitialTemperatureGradientBeam3.getThermalGradientYA` — the effective linear thermal gradient in local direction y on end A.
+- `apex.environment.InitialTemperatureGradientBeam3.getThermalGradientYB` — the effective linear thermal gradient in direction y on end B.
+- `apex.environment.InitialTemperatureGradientBeam3.getThermalGradientYC` — the effective linear thermal gradient in direction y on mid C.
+- `apex.environment.InitialTemperatureGradientBeam3.getThermalGradientZA` — the effective linear thermal gradient in direction z on end A.
+- `apex.environment.InitialTemperatureGradientBeam3.getThermalGradientZB` — the effective linear thermal gradient in direction z on end B.
+- `apex.environment.InitialTemperatureGradientBeam3.getThermalGradientZC` — the effective linear thermal gradient in direction z on mid C.
+- `apex.environment.InitialTemperatureGradientBeam3.update` — Updates one or more properties of the Temperature.
+- `apex.environment.InitialTemperatureGradientBeam3Variable.getSpatialTarget` — a DFEMFieldTemperatureBeam3 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that ...
+- `apex.environment.InitialTemperatureGradientBeam3Variable.update` — Update method.
+- `apex.environment.InitialTemperatureNodal.getTarget` — an EntityCollection identifying the entities that the Temperature will be applied to.
+- `apex.environment.InitialTemperatureNodal.getTemperatureValue` — the temperature value.
+- `apex.environment.InitialTemperatureNodal.update` — Updates one or more properties of the Temperature.
+- `apex.environment.InitialTemperatureNodalVariable.getSpatialTarget` — a DFEMFieldLoadDistributed that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that ...
+- `apex.environment.InitialTemperatureNodalVariable.update` — Update method.One or more properties may be updated in each call to update().
+- `apex.environment.Load.getId` — the id of the load. (inherited by 60 classes)
+- `apex.environment.LoadAccelerationNodal.getAccelerationVectorX` — the X component of the acceleration vector.
+- `apex.environment.LoadAccelerationNodal.getAccelerationVectorY` — the Y component of the acceleration vector.
+- `apex.environment.LoadAccelerationNodal.getAccelerationVectorZ` — the Z component of the acceleration vector.
+- `apex.environment.LoadAccelerationNodal.getOrientation` — the orientation used to define the direction of the acceleration vector.
+- `apex.environment.LoadAccelerationNodal.getScaleFactor` — an optional scale factor that will be applied to the acceleration vectors.
+- `apex.environment.LoadAccelerationNodal.getTarget` — an EntityCollection identifying the entities that the Acceleration load will be applied to.
+- `apex.environment.LoadAccelerationNodal.update` — Updates one or more properties of the Acceleration.
+- `apex.environment.LoadAccelerationNodalVariable.getSpatialTarget` — a DFEMFieldAccelerationNodal that identifies nodes that represent the region to which this load is applied as well as the distribution of loads across that ...
+- `apex.environment.LoadAccelerationNodalVariable.update` — Updates one or more properties of the Acceleration load.
+- `apex.environment.LoadAccelerationSpatial.getAccelerationVectorX` — the X component of the acceleration vector.
+- `apex.environment.LoadAccelerationSpatial.getAccelerationVectorY` — the Y component of the acceleration vector.
+- `apex.environment.LoadAccelerationSpatial.getAccelerationVectorZ` — the Z component of the acceleration vector.
+- `apex.environment.LoadAccelerationSpatial.getComponentDirection` — the component direction of the acceleration variation in the specified coordinate system.
+- `apex.environment.LoadAccelerationSpatial.getLoadVariation` — The load variation along the component direction of the coordinate system.
+- `apex.environment.LoadAccelerationSpatial.getOrientation` — an optional CoordinateSystem used to define the orientation of the Acceleration components.
+- `apex.environment.LoadAccelerationSpatial.update` — Update method.
+- `apex.environment.LoadAreaFactor.getScaleFactorRx` — the load scale(area) factor in the rotation X axis, scaleFactorRx is a Moment quantity and must be defined using the units of Moment from the active script ...
+- `apex.environment.LoadAreaFactor.getScaleFactorRy` — the load scale(area) factor in the rotation Y axis, scaleFactorRy is a Moment quantity and must be defined using the units of Moment from the active script ...
+- `apex.environment.LoadAreaFactor.getScaleFactorRz` — the load scale(area) factor in the rotation Z axis, scaleFactorRz is a Moment quantity and must be defined using the units of Moment from the active script ...
+- `apex.environment.LoadAreaFactor.getScaleFactorX` — the load scale(area) factor in the translation X axis, scaleFactorX is a Force quantity and must be defined using the units of Force from the active script ...
+- `apex.environment.LoadAreaFactor.getScaleFactorY` — the load scale(area) factor in the translation Y axis, scaleFactorY is a Force quantity and must be defined using the units of Force from the active script ...
+- `apex.environment.LoadAreaFactor.getScaleFactorZ` — the load scale(area) factor in the translation Z axis, scaleFactorZ is a Force quantity and must be defined using the units of Force from the active script ...
+- `apex.environment.LoadAreaFactor.getTarget` — an EntityCollection identifying the entities that the load area factor will be applied to.
+- `apex.environment.LoadAreaFactor.update` — Updates one or more properties of the load area factor.
+- `apex.environment.LoadAreaFactorVariable.getSpatialTarget` — a DFEMFieldForceComponent that identifies nodes that represent the region to which this load area factor is applied as well as the distribution of load area ...
+- `apex.environment.LoadAreaFactorVariable.update` — Updates one or more properties of the load area factor.
+- `apex.environment.LoadCombinationDynamic.getCombinedLoads` — a dictionary to define the combined loads and the scale factor for each load.
+- `apex.environment.LoadCombinationDynamic.getOverallScaleFactor` — the overall scale factor applied to all the loads to be combined.
+- `apex.environment.LoadCombinationDynamic.update` — Update method.
+- `apex.environment.LoadCombinationStatic.getCombinedLoads` — a dictionary to define the combined loads and the scale factor for each load.
+- `apex.environment.LoadCombinationStatic.getOverallScaleFactor` — the overall scale factor applied to all the loads to be combined.
+- `apex.environment.LoadCombinationStatic.update` — Update method.
+- `apex.environment.LoadDeformationAxial.getDeformation` — the deformation value along the element axis.
+- `apex.environment.LoadDeformationAxial.getTarget` — an EntityCollection identifying the entities that the Deformation will be applied to.
+- `apex.environment.LoadDeformationAxial.update` — Updates one or more properties of the Deformation.
+- `apex.environment.LoadDeformationAxialVariable.getSpatialTarget` — the field that defines the load distribution.
+- `apex.environment.LoadDeformationAxialVariable.update` — Update method.One or more properties may be updated in each call to update().
+- `apex.environment.LoadDistributed.getDirectionX` — the X component of the direction vector.
+- `apex.environment.LoadDistributed.getDirectionY` — the Y component of the direction vector.
+- `apex.environment.LoadDistributed.getDirectionZ` — the Z component of the direction vector.
+- `apex.environment.LoadDistributed.getOrientation` — the orientation used to define the direction of the pressure.
+- `apex.environment.LoadDistributed.getPressure` — the pressure magnitude value.
+- `apex.environment.LoadDistributed.getTarget` — an EntityCollection identifying the entities that the load will be applied to.
+- `apex.environment.LoadDistributed.update` — Updates one or more properties of the load.
+- `apex.environment.LoadDistributedBeam2.getDistanceX1` — the distance X1 along element axis from end A.
+- `apex.environment.LoadDistributedBeam2.getDistanceX2` — the distance X2 along element axis from end A.
+- `apex.environment.LoadDistributedBeam2.getInputType` — an optional argument to define the load distribution on a single element.
+- `apex.environment.LoadDistributedBeam2.getLoadFactorX1` — the load factor at the position of distance X1 from end A.
+- `apex.environment.LoadDistributedBeam2.getLoadFactorX2` — the load factor at the position of distance X2 from end A.
+- `apex.environment.LoadDistributedBeam2.getLoadType` — the loadType of the beam distributed load applied to beam element with two nodes. apex.attribute.LoadTypeBeam2.ForceX, the load is concentrated force in X ...
+- `apex.environment.LoadDistributedBeam2.getScaleType` — the scaleType of the load factors. apex.attribute.ScaleTypeBeam.Length, the distance values are actual distances along the element axis, and if distance1 != ...
+- `apex.environment.LoadDistributedBeam2.getTarget` — an EntityCollection identifying the entities that the load will be applied to.
+- `apex.environment.LoadDistributedBeam2.update` — Updates one or more properties of the Load.
+- `apex.environment.LoadDistributedBeam2Variable.getSpatialTarget` — a DFEMFieldLoadDistributedBeam2 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across ...
+- `apex.environment.LoadDistributedBeam2Variable.update` — Updates one or more properties of the Load.
+- `apex.environment.LoadDistributedBeam3.getCoordinateSystem` — the user defined coordinate system in which the load vector is defined.
+- `apex.environment.LoadDistributedBeam3.getInputType` — The argument to define the load distribution on a single element.
+- `apex.environment.LoadDistributedBeam3.getLoadScaleFactor` — the load scale factor.
+- `apex.environment.LoadDistributedBeam3.getLoadType` — the loadType of the beam distributed load. apex.attribute.LoadTypeBeam3.Force, the load is a force. apex.attribute.LoadTypeBeam3.Moment, the load is a moment. ...
+- `apex.environment.LoadDistributedBeam3.getLoadVectorX` — the X component of the load vector.
+- `apex.environment.LoadDistributedBeam3.getLoadVectorY` — the Y component of the load vector.
+- `apex.environment.LoadDistributedBeam3.getLoadVectorZ` — the Z component of the load vector.
+- `apex.environment.LoadDistributedBeam3.getMagnitudeEndA` — the load magnitude at end A.
+- `apex.environment.LoadDistributedBeam3.getMagnitudeEndB` — the load magnitude at end B.
+- `apex.environment.LoadDistributedBeam3.getMagnitudeMidC` — the load magnitude at the point C which is between end A and end B.
+- `apex.environment.LoadDistributedBeam3.getOrientationType` — the orientation type of the load. apex.attribute.OrientationTypeBeam3.Basic, the load is defined in the basic coordinate system. ...
+- `apex.environment.LoadDistributedBeam3.getTarget` — the entityCollection that the load is applied to.
+- `apex.environment.LoadDistributedBeam3.update` — Updates one or more properties of the load.
+- `apex.environment.LoadDistributedBeam3Variable.getSpatialTarget` — a DFEMFieldLoadDistributedBeam3 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across ...
+- `apex.environment.LoadDistributedBeam3Variable.update` — Updates one or more properties of the load.
+- `apex.environment.LoadDistributedVariable.getSpatialTarget` — a DFEMFieldLoadDistributed that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that ...
+- `apex.environment.LoadDistributedVariable.update` — Updates one or more properties of the load.
+- `apex.environment.LoadDynamicAcoustic.getExcitationLoads` — A collection of loads that will be used as the excitation loads of the dynamic load.
+- `apex.environment.LoadDynamicAcoustic.getFluidBulkModulus` — the bulk modulus of fluid.
+- `apex.environment.LoadDynamicAcoustic.getFluidDensity` — the density of fluid.
+- `apex.environment.LoadDynamicAcoustic.getPhaseLead` — a PhaseLead or PhaseLeadVariable object to define the phase lead in different dofs.
+- `apex.environment.LoadDynamicAcoustic.getPhaseLeadValue` — a phase lead value used for all dofs.
+- `apex.environment.LoadDynamicAcoustic.getPowerTable` — the table to define the power versus frequency.
+- `apex.environment.LoadDynamicAcoustic.getPowerValue` — the power value used for all frequencies.
+- `apex.environment.LoadDynamicAcoustic.getTimeDelay` — a TimeDelay or TimeDelayVariable object to define the time delay in different dofs.
+- `apex.environment.LoadDynamicAcoustic.getTimeDelayValue` — a time delay value used for all dofs.
+- `apex.environment.LoadDynamicAcoustic.update` — Update method.
+- `apex.environment.LoadDynamicFrequency1.getExcitationLoads` — A collection of loads that will be used as the excitation loads of the dynamic load.
+- `apex.environment.LoadDynamicFrequency1.getImagTable` — a table to define the imaginary part value versus frequency.
+- `apex.environment.LoadDynamicFrequency1.getImagValue` — the imaginary value used for all frequencies.
+- `apex.environment.LoadDynamicFrequency1.getLoadType` — the argument to define the dynamic excitation type.
+- `apex.environment.LoadDynamicFrequency1.getPhaseLead` — the PhaseLead or PhaseLeadVariable object.
+- `apex.environment.LoadDynamicFrequency1.getPhaseLeadValue` — The phase lead value used for all frequencies.
+- `apex.environment.LoadDynamicFrequency1.getRealPartTable` — a table to define the real part value versus frequency.
+- `apex.environment.LoadDynamicFrequency1.getRealPartValue` — a constant value as the real part used for all frequencies.
+- `apex.environment.LoadDynamicFrequency1.getTimeDelay` — the TimeDelay or TimeDelayVariable object.
+- `apex.environment.LoadDynamicFrequency1.getTimeDelayValue` — the time delay value used for all frequencies.
+- `apex.environment.LoadDynamicFrequency1.update` — Updates one or more properties of the load.
+- `apex.environment.LoadDynamicFrequency2.getExcitationLoads` — a collection of loads that will be used as the excitation loads of the dynamic load.
+- `apex.environment.LoadDynamicFrequency2.getLoadType` — the argument to define the dynamic excitation type.
+- `apex.environment.LoadDynamicFrequency2.getMagnitude` — the magnitude value used for all frequencies.
+- `apex.environment.LoadDynamicFrequency2.getMagnitudeTable` — a table to define the magnitude value versus frequency.
+- `apex.environment.LoadDynamicFrequency2.getPhaseAngle` — a phase angle value used for all frequencies.
+- `apex.environment.LoadDynamicFrequency2.getPhaseAngleTable` — a table to define the phase angle versus frequency.
+- `apex.environment.LoadDynamicFrequency2.getPhaseLead` — a PhaseLead or PhaseLeadVariable object to define the phase lead in different dofs.
+- `apex.environment.LoadDynamicFrequency2.getPhaseLeadValue` — a phase lead value used for all dofs.It is an Angle quantity and must be defined using the units of Angle from the active script unit system.
+- `apex.environment.LoadDynamicFrequency2.getTimeDelay` — a TimeDelay or TimeDelayVariable to define the time delay in different dofs.
+- `apex.environment.LoadDynamicFrequency2.getTimeDelayValue` — a time delay value used for all dofs.
+- `apex.environment.LoadDynamicFrequency2.update` — Updates one or more properties of the load.
+- `apex.environment.LoadDynamicTimeAnalytical.getExcitationLoads` — A collection of loads that will be used as the excitation loads of the dynamic load.
+- `apex.environment.LoadDynamicTimeAnalytical.getExponentialCoefficient` — exponential coefficient.
+- `apex.environment.LoadDynamicTimeAnalytical.getFrequency` — frequency in cycles per unit time.
+- `apex.environment.LoadDynamicTimeAnalytical.getGrowthCoefficient` — growth coefficient.
+- `apex.environment.LoadDynamicTimeAnalytical.getInitialDisplacement` — the initial displacement of the dynamic load.
+- `apex.environment.LoadDynamicTimeAnalytical.getInitialVelocity` — the initial velocity of the dynamic load.
+- `apex.environment.LoadDynamicTimeAnalytical.getLoadType` — the load type to define the dynamic excitation type.
+- `apex.environment.LoadDynamicTimeAnalytical.getPhaseAngle` — phase angle in degrees.
+- `apex.environment.LoadDynamicTimeAnalytical.getTimeConstant1` — time constant 1.
+- `apex.environment.LoadDynamicTimeAnalytical.getTimeConstant2` — time constant 2, must be >=time constant 1.
+- `apex.environment.LoadDynamicTimeAnalytical.getTimeDelay` — a TimeDelay or TimeDelayVariable object to define the time delay in different dofs.
+- `apex.environment.LoadDynamicTimeAnalytical.getTimeDelayValue` — a time delay value used for all dofs.
+- `apex.environment.LoadDynamicTimeAnalytical.update` — Update method.
+- `apex.environment.LoadDynamicTimeTabular.getExcitationLoads` — A collection of loads that will be used as the excitation loads of the dynamic load.
+- `apex.environment.LoadDynamicTimeTabular.getFunctionTable` — a table to define the function value versus time.
+- `apex.environment.LoadDynamicTimeTabular.getFunctionValue` — the function value used for all times.
+- `apex.environment.LoadDynamicTimeTabular.getInitialDisplacement` — the initial displacement of the dynamic load.
+- `apex.environment.LoadDynamicTimeTabular.getInitialVelocity` — the initial velocity of the dynamic load.
+- `apex.environment.LoadDynamicTimeTabular.getLoadType` — the load type to define the dynamic excitation type.
+- `apex.environment.LoadDynamicTimeTabular.getTimeDelay` — a TimeDelay or TimeDelayVariable object to define the time delay in different dofs.
+- `apex.environment.LoadDynamicTimeTabular.getTimeDelayValue` — a time delay value used for all dofs.
+- `apex.environment.LoadDynamicTimeTabular.update` — Updates one or more properties of the load.
+- `apex.environment.LoadEnforcedMotionRelative.getOrientation` — an optional CoordinateSystem used to define the orientation of the motion components.
+- `apex.environment.LoadEnforcedMotionRelative.getRotationX` — the motion value in rotation X.
+- `apex.environment.LoadEnforcedMotionRelative.getRotationY` — the motion value in rotation Y.
+- `apex.environment.LoadEnforcedMotionRelative.getRotationZ` — the motion value in rotation Z.
+- `apex.environment.LoadEnforcedMotionRelative.getTarget` — an EntityCollection identifying the entities that the enforced motion will be applied to.
+- `apex.environment.LoadEnforcedMotionRelative.getTranslationX` — the motion value in translation X.
+- `apex.environment.LoadEnforcedMotionRelative.getTranslationY` — the motion value in translation Y.
+- `apex.environment.LoadEnforcedMotionRelative.getTranslationZ` — the motion value in translation Z.
+- `apex.environment.LoadEnforcedMotionRelative.update` — Updates one or more properties of the enforced motion.
+- `apex.environment.LoadEnforcedMotionRelativeVariable.getSpatialTarget` — a DFEMFieldEnforcedMotion that identifies nodes that represent the region to which this load is applied as well as the distribution of enforced motions across ...
+- `apex.environment.LoadEnforcedMotionRelativeVariable.update` — Updates one or more properties of the enforced motion.
+- `apex.environment.LoadEnforcedMotionTotal.getOrientation` — an optional CoordinateSystem used to define the orientation of the motion components.
+- `apex.environment.LoadEnforcedMotionTotal.getRotationX` — the motion value in rotation X.
+- `apex.environment.LoadEnforcedMotionTotal.getRotationY` — the motion value in rotation Y.
+- `apex.environment.LoadEnforcedMotionTotal.getRotationZ` — the motion value in rotation Z.
+- `apex.environment.LoadEnforcedMotionTotal.getTarget` — an EntityCollection identifying the entities that the enforced motion will be applied to.
+- `apex.environment.LoadEnforcedMotionTotal.getTranslationX` — the motion value in translation X.
+- `apex.environment.LoadEnforcedMotionTotal.getTranslationY` — the motion value in translation Y.
+- `apex.environment.LoadEnforcedMotionTotal.getTranslationZ` — the motion value in translation Z.
+- `apex.environment.LoadEnforcedMotionTotal.update` — Updates one or more properties of the enforced motion.
+- `apex.environment.LoadEnforcedMotionTotalVariable.getSpatialTarget` — a DFEMFieldEnforcedMotion that identifies nodes that represent the region to which this load is applied as well as the distribution of enforced motions across ...
+- `apex.environment.LoadEnforcedMotionTotalVariable.update` — Update method.One or more properties may be updated in each call to update().
+- `apex.environment.LoadForceComponent.getForceX` — the value of the X component of the Force.
+- `apex.environment.LoadForceComponent.getForceY` — the value of the Y component of the Force.
+- `apex.environment.LoadForceComponent.getForceZ` — the value of the Z component of the Force.
+- `apex.environment.LoadForceComponent.getOrientation` — an optional CoordinateSystem used to define the orientation of the Force components.
+- `apex.environment.LoadForceComponent.getScaleFactor` — an optional scale factor that will be applied to the force vectors.
+- `apex.environment.LoadForceComponent.getTarget` — an EntityCollection identifying the entities that the Force will be applied to.
+- `apex.environment.LoadForceComponent.update` — Update method.One or more properties may be updated in each call to update().
+- `apex.environment.LoadForceComponentVariable.getSpatialTarget` — a DFEMFieldForceComponent that identifies nodes that represent the region to which this load is applied as well as the distribution of forces across that ...
+- `apex.environment.LoadForceComponentVariable.update` — Updates one or more properties of the Force.
+- `apex.environment.LoadForceFollowerNormal.getForceMagnitude` — the magnitude of the force, forceMagnitude is a Force quantity and must be defined using the units of Force from the active script unit system.
+- `apex.environment.LoadForceFollowerNormal.getPoint1` — the starting point of the first vector.
+- `apex.environment.LoadForceFollowerNormal.getPoint2` — the end point of the first vector.
+- `apex.environment.LoadForceFollowerNormal.getPoint3` — the starting point of the second vector.
+- `apex.environment.LoadForceFollowerNormal.getPoint4` — the end point of the second vector.
+- `apex.environment.LoadForceFollowerNormal.getTarget` — an EntityCollection identifying the entities that the Force will be applied to.
+- `apex.environment.LoadForceFollowerNormal.update` — Updates one or more properties of the Force.
+- `apex.environment.LoadForceFollowerNormalVariable.getSpatialTarget` — a DFEMFieldForceNormal that identifies nodes that represent the region to which this load is applied as well as the distribution of forces across that region.
+- `apex.environment.LoadForceFollowerNormalVariable.update` — Updates one or more properties of the Force.
+- `apex.environment.LoadForceFollowerVector.getForceMagnitude` — the magnitude of the Force, forceMagnitude is a Force quantity and must be defined using the units of Force from the active script unit system.
+- `apex.environment.LoadForceFollowerVector.getPoint1` — The starting point of the force vector.
+- `apex.environment.LoadForceFollowerVector.getPoint2` — the end point of the force vector.
+- `apex.environment.LoadForceFollowerVector.getTarget` — an EntityCollection identifying the entities that the Force will be applied to.
+- `apex.environment.LoadForceFollowerVector.update` — Updates one or more properties of the Force.
+- `apex.environment.LoadForceFollowerVectorVariable.getSpatialTarget` — a DFEMFieldForceVector that identifies nodes that represent the region to which this load is applied as well as the distribution of forces across that region.
+- `apex.environment.LoadForceFollowerVectorVariable.update` — Updates one or more properties of the load scale factor.
+- `apex.environment.LoadForceRotational.getCoordinateSystemDefinition` — the coordinate system definition of the rotational force: apex.attribute.CoordinateSystemDefinition.SuperElement, the coordinate system is defined in the ...
+- `apex.environment.LoadForceRotational.getLoadMethod` — the load method of the rotational force. apex.attribute.LoadMethod.Centrifugal should be used when there is no coupling in mass matrix - the lumped mass is ...
+- `apex.environment.LoadForceRotational.getOrientation` — the orientation used to define the direction of the RotationalForce.
+- `apex.environment.LoadForceRotational.getRotationCenter` — the rotation center of the rotational force.
+- `apex.environment.LoadForceRotational.getRotationVectorX` — the X component of the rotation vector.
+- `apex.environment.LoadForceRotational.getRotationVectorY` — the Y component of the rotation vector.
+- `apex.environment.LoadForceRotational.getRotationVectorZ` — the Z component of the rotation vector.
+- `apex.environment.LoadForceRotational.getScaleFactorAcc` — the scale factor of the angular acceleration.
+- `apex.environment.LoadForceRotational.getScaleFactorVel` — the scale factor for angular velocity in revolutions per unit time.
+- `apex.environment.LoadForceRotational.update` — Update method.
+- `apex.environment.LoadLug.getAngle` — The span angle of the selected target in the LoadLug.This is automatically determined by the selected edges or faces.In future release, user can manually ...
+- `apex.environment.LoadLug.getDescription` — An optional description for the LoadLug that will be created.
+- `apex.environment.LoadLug.getLugProperty` — The property of the LoadLug.
+- `apex.environment.LoadLug.getTarget` — Returns the target entities that the LoadLug is applied to.
+- `apex.environment.LoadLug.update` — Update this LoadLug.
+- `apex.environment.LoadLugCollection.LoadLugCollection` — Construct a new LoadLugCollection.
+- `apex.environment.LoadLugPropertyStatic.getDistribution` — Returns the distribution of the LoadLugPropertyStatic.
+- `apex.environment.LoadLugPropertyStatic.getDistributionOrientation` — Returns the distribution orientation of the LoadLugPropertyStatic.
+- `apex.environment.LoadLugPropertyStatic.getId` — Returns the load id of the LoadLugPropertyStatic.
+- `apex.environment.LoadLugPropertyStatic.getLoadMagnitude` — Returns the magnitude of the LoadLugPropertyStatic.
+- `apex.environment.LoadLugPropertyStatic.getOrientation` — Returns the orientation of the LoadLugPropertyStatic.
+- `apex.environment.LoadLugPropertyStatic.update` — Update this LoadLugPropertyStatic.
+- `apex.environment.LoadMomentComponent.getMomentX` — the value of the X component of the Moment.
+- `apex.environment.LoadMomentComponent.getMomentY` — the value of the Y component of the Moment.
+- `apex.environment.LoadMomentComponent.getMomentZ` — the value of the Z component of the Moment.
+- `apex.environment.LoadMomentComponent.getOrientation` — an optional CoordinateSystem used to define the orientation of the Moment components.
+- `apex.environment.LoadMomentComponent.getScaleFactor` — an optional scale factor that will be applied to the moment vectors.
+- `apex.environment.LoadMomentComponent.getTarget` — an EntityCollection identifying the entities that the Moment will be applied to.
+- `apex.environment.LoadMomentComponent.update` — Updates one or more properties of the Moment.
+- `apex.environment.LoadMomentComponentVariable.getSpatialTarget` — a DFEMFieldMomentComponent that identifies nodes that represent the region to which this load is applied as well as the distribution of moments across that ...
+- `apex.environment.LoadMomentComponentVariable.update` — Updates one or more properties of the Moment.
+- `apex.environment.LoadMomentFollowerNormal.getMomentMagnitude` — the magnitude of the moment, momentMagnitude is a Moment quantity and must be defined using the units of Moment from the active script unit system.
+- `apex.environment.LoadMomentFollowerNormal.getPoint1` — the starting point of the first vector.
+- `apex.environment.LoadMomentFollowerNormal.getPoint2` — the end point of the first vector.
+- `apex.environment.LoadMomentFollowerNormal.getPoint3` — the starting point of the second vector.
+- `apex.environment.LoadMomentFollowerNormal.getPoint4` — the end point of the second vector.
+- `apex.environment.LoadMomentFollowerNormal.getTarget` — the entityCollection that the load is applied to.
+- `apex.environment.LoadMomentFollowerNormal.update` — Updates one or more properties of the Moment.
+- `apex.environment.LoadMomentFollowerNormalVariable.getSpatialTarget` — a DFEMFieldMomentNormal that identifies nodes that represent the region to which this load is applied as well as the distribution of moments across that region.
+- `apex.environment.LoadMomentFollowerNormalVariable.update` — Update method.One or more properties may be updated in each call to update().
+- `apex.environment.LoadMomentFollowerVector.getMomentMagnitude` — the moment magnitude. momentMagnitude is a Moment quantity and must be defined using the units of Moment from the active script unit system.
+- `apex.environment.LoadMomentFollowerVector.getPoint1` — The starting point of the moment vector.
+- `apex.environment.LoadMomentFollowerVector.getPoint2` — the end point of the moment vector.
+- `apex.environment.LoadMomentFollowerVector.getTarget` — an EntityCollection identifying the entities that the Moment will be applied to.
+- `apex.environment.LoadMomentFollowerVector.update` — Updates one or more properties of the Moment.
+- `apex.environment.LoadMomentFollowerVectorVariable.getSpatialTarget` — a DFEMFieldMomentVector that identifies nodes that represent the region to which this load is applied as well as the distribution of moments across that region.
+- `apex.environment.LoadMomentFollowerVectorVariable.update` — Updates one or more properties of the Moment.
+- `apex.environment.LoadPhaseLead.getPhaseLeadRx` — the phase lead value in the rotation X component.
+- `apex.environment.LoadPhaseLead.getPhaseLeadRy` — the phase lead value in the rotation Y component.
+- `apex.environment.LoadPhaseLead.getPhaseLeadRz` — the phase lead value in the rotation Z component.
+- `apex.environment.LoadPhaseLead.getPhaseLeadX` — the phase lead value in the X component.
+- `apex.environment.LoadPhaseLead.getPhaseLeadY` — the phase lead value in the Y component.
+- `apex.environment.LoadPhaseLead.getPhaseLeadZ` — the phase lead value in the component.
+- `apex.environment.LoadPhaseLead.getTarget` — an EntityCollection identifying the entities that the phase lead will be applied to.
+- `apex.environment.LoadPhaseLead.update` — Updates one or more properties of the phase lead.
+- `apex.environment.LoadPhaseLeadVariable.getSpatialTarget` — the field that defines the phase lead distribution.
+- `apex.environment.LoadPhaseLeadVariable.update` — Update method.One or more properties may be updated in each call to update().
+- `apex.environment.LoadPressure.getLoadPressureProperty` — DEPRECATED. the property used to define one load pressure, it contains ID and pressureValue(s).
+- `apex.environment.LoadPressure.getTarget` — DEPRECATED. The entities which the pressure load is assigned to.
+- `apex.environment.LoadPressure.update` — DEPRECATED. Update this LoadPressure.
+- `apex.environment.LoadPressure2D.getPressureMagnitude` — the magnitude of the pressure, pressureMagnitude is a Pressure quantity and is defined using the units of Pressure from the active script unit system.
+- `apex.environment.LoadPressure2D.getTarget` — an EntityCollection identifying the entities that the pressure will be applied to.
+- `apex.environment.LoadPressure2D.update` — Updates one or more properties of the Pressure.
+- `apex.environment.LoadPressure2DVariable.getSpatialTarget` — a DFEMFieldPressure2DSurface that identifies elements that represent the region to which this load is applied as well as the distribution of pressures across ...
+- `apex.environment.LoadPressure2DVariable.update` — Updates one or more properties of the Pressure.
+- `apex.environment.LoadPressureArea.getPressureMagnitude` — the magnitude of the pressure, pressureMagnitude is a Pressure quantity and is defined using the units of Pressure from the active script unit system.
+- `apex.environment.LoadPressureArea.getVertex1` — the first vertex of the face.
+- `apex.environment.LoadPressureArea.getVertex2` — the second vertex of the face.
+- `apex.environment.LoadPressureArea.getVertex3` — the third vertex of the face.
+- `apex.environment.LoadPressureArea.getVertex4` — the fourth vertex of the face.
+- `apex.environment.LoadPressureArea.update` — Updates one or more properties of the Pressure.
+- `apex.environment.LoadPressureAreaVariable.getSpatialTarget` — a DFEMFieldPressureArea that identifies nodes that represent the region to which this load is applied as well as the distribution of pressures across that ...
+- `apex.environment.LoadPressureAreaVariable.update` — Updates one or more properties of the Pressure.
+- `apex.environment.LoadPressureCollection.LoadPressureCollection` — Construct a new LoadPressureCollection.
+- `apex.environment.LoadPressurePropertyStaticConstant.getId` — DEPRECATED. an optional load ID defined in PressurePropertyStaticConstant and assigned to the associated LoadPressure.
+- `apex.environment.LoadPressurePropertyStaticConstant.getPressureValue` — DEPRECATED. value of static constant pressure property.
+- `apex.environment.LoadPressurePropertyStaticConstant.update` — DEPRECATED. Update this LoadPressurePropertyStaticConstant.
+- `apex.environment.LoadPressurePropertyStaticVariable.getId` — DEPRECATED. an optional load ID defined in LoadPressurePropertyStaticVariable and assigned to the associated LoadPressure.
+- `apex.environment.LoadPressurePropertyStaticVariable.getPressureValues` — DEPRECATED. returns a nested Dictionary containing the pathNames of the MeshBody on which the pressure is applied and the element IDs/element face IDs/node IDs and ...
+- `apex.environment.LoadPressurePropertyStaticVariable.update` — DEPRECATED. update a static variable pressure load property.
+- `apex.environment.LoadRep.getFAlpha` — Returns FAlpha value of the LoadRep. (inherited by `EnforcedMotionDynamicRep`, `EnforcedMotionRep`, `ForceMomentDynamicRep`, `ForceMomentRep`)
+- `apex.environment.LoadRep.getFBeta` — Returns FBeta value of the LoadRep. (inherited by `EnforcedMotionDynamicRep`, `EnforcedMotionRep`, `ForceMomentDynamicRep`, `ForceMomentRep`)
+- `apex.environment.LoadRep.getFGamma` — Returns FGamma value of the LoadRep. (inherited by `EnforcedMotionDynamicRep`, `EnforcedMotionRep`, `ForceMomentDynamicRep`, `ForceMomentRep`)
+- `apex.environment.LoadRep.getFMagnitude` — Returns FMagnitude value of the LoadRep. (inherited by `EnforcedMotionDynamicRep`, `EnforcedMotionRep`, `ForceMomentDynamicRep`, `ForceMomentRep`)
+- `apex.environment.LoadRep.getMAlpha` — Returns MAlpha value of the LoadRep. (inherited by `EnforcedMotionDynamicRep`, `EnforcedMotionRep`, `ForceMomentDynamicRep`, `ForceMomentRep`)
+- `apex.environment.LoadRep.getMBeta` — Returns MBeta value of the LoadRep. (inherited by `EnforcedMotionDynamicRep`, `EnforcedMotionRep`, `ForceMomentDynamicRep`, `ForceMomentRep`)
+- `apex.environment.LoadRep.getMGamma` — Returns MGamma value of the LoadRep. (inherited by `EnforcedMotionDynamicRep`, `EnforcedMotionRep`, `ForceMomentDynamicRep`, `ForceMomentRep`)
+- `apex.environment.LoadRep.getMMagnitude` — Returns MMagnitude value of the LoadRep. (inherited by `EnforcedMotionDynamicRep`, `EnforcedMotionRep`, `ForceMomentDynamicRep`, `ForceMomentRep`)
+- `apex.environment.LoadRep.getParentLoad` — Returns parent Load entity. (inherited by `EnforcedMotionDynamicRep`, `EnforcedMotionRep`, `ForceMomentDynamicRep`, `ForceMomentRep`)
+- `apex.environment.LoadTemperature.getTarget` — DEPRECATED. Returns the target entities that the LoadTemperature is applied to.
+- `apex.environment.LoadTemperature.getTemperatureProperty` — DEPRECATED. Returns the property of the LoadTemperature.
+- `apex.environment.LoadTemperature.update` — DEPRECATED. Update this LoadTemperature.
+- `apex.environment.LoadTemperatureCollection.LoadTemperatureCollection` — Construct a new LoadTemperatureCollection.
+- `apex.environment.LoadTemperatureDefault.getDefaultTemperature` — the default temperature value.
+- `apex.environment.LoadTemperatureDefault.update` — Updates one or more properties of the Temperature.
+- `apex.environment.LoadTemperatureGradient2D.getTarget` — an EntityCollection identifying the entities that the Temperature will be applied to.
+- `apex.environment.LoadTemperatureGradient2D.getTemperatureLowerSurface` — the temperature for stress calculation at points on the lower surface.
+- `apex.environment.LoadTemperatureGradient2D.getTemperatureReferencePlane` — the temperature applied on the element reference plane.
+- `apex.environment.LoadTemperatureGradient2D.getTemperatureUpperSurface` — the temperature for stress calculation at points on the upper surface.
+- `apex.environment.LoadTemperatureGradient2D.getThermalGradient` — the effective linear thermal gradient.
+- `apex.environment.LoadTemperatureGradient2D.update` — Updates one or more properties of the Temperature.
+- `apex.environment.LoadTemperatureGradient2DHeat.getTarget` — an EntityCollection identifying the entities that the Temperature will be applied to.
+- `apex.environment.LoadTemperatureGradient2DHeat.getTemperatureBottom` — the temperature at bottom location through the thickness.
+- `apex.environment.LoadTemperatureGradient2DHeat.getTemperatureMid` — the temperature at mid location through the thickness.
+- `apex.environment.LoadTemperatureGradient2DHeat.getTemperatureTop` — the temperature at top location through the thickness.
+- `apex.environment.LoadTemperatureGradient2DHeat.update` — Updates one or more properties of the Temperature.
+- `apex.environment.LoadTemperatureGradient2DHeatVariable.getSpatialTarget` — a DFEMFieldTemperatureGradient2DHeat that identifies elements that represent the region to which this load is applied as well as the distribution of loads ...
+- `apex.environment.LoadTemperatureGradient2DHeatVariable.update` — Updates one or more properties of the Temperature.
+- `apex.environment.LoadTemperatureGradient2DVariable.getSpatialTarget` — a DFEMFieldTemperatureGradient2D that identifies elements that represent the region to which this load is applied as well as the distribution of loads across ...
+- `apex.environment.LoadTemperatureGradient2DVariable.update` — Updates one or more properties of the Temperature.
+- `apex.environment.LoadTemperatureGradientBeam2.getInputType` — The argument to define the load distribution on a single element.
+- `apex.environment.LoadTemperatureGradientBeam2.getTarget` — an EntityCollection identifying the entities that the Temperature will be applied to.
+- `apex.environment.LoadTemperatureGradientBeam2.getTemperatureEndA` — the temperature value at end A on the neutral axis.
+- `apex.environment.LoadTemperatureGradientBeam2.getTemperatureEndB` — the temperature value at end B on the neutral axis.
+- `apex.environment.LoadTemperatureGradientBeam2.getTemperaturePointCendA` — the temperature value on point C at end A, used for stress recovery.
+- `apex.environment.LoadTemperatureGradientBeam2.getTemperaturePointCendB` — the temperature value on point C at end B, used for stress recovery.
+- `apex.environment.LoadTemperatureGradientBeam2.getTemperaturePointDendA` — the temperature value on point D at end A, used for stress recovery.
+- `apex.environment.LoadTemperatureGradientBeam2.getTemperaturePointDendB` — the temperature value on point D at end B, used for stress recovery.
+- `apex.environment.LoadTemperatureGradientBeam2.getTemperaturePointEendA` — the temperature value on point E at end A, used for stress recovery.
+- `apex.environment.LoadTemperatureGradientBeam2.getTemperaturePointEendB` — the temperature value on point E at end B, used for stress recovery.
+- `apex.environment.LoadTemperatureGradientBeam2.getTemperaturePointFendA` — the temperature value on point F at end A, used for stress recovery.
+- `apex.environment.LoadTemperatureGradientBeam2.getTemperaturePointFendB` — the temperature value on point F at end B, used for stress recovery.
+- `apex.environment.LoadTemperatureGradientBeam2.getThermalGradient1A` — the effective linear thermal gradient in direction 1 on end A.
+- `apex.environment.LoadTemperatureGradientBeam2.getThermalGradient1B` — the effective linear thermal gradient in direction 1 on end B.
+- `apex.environment.LoadTemperatureGradientBeam2.getThermalGradient2A` — the effective linear thermal gradient in direction 2 on end A.
+- `apex.environment.LoadTemperatureGradientBeam2.getThermalGradient2B` — the effective linear thermal gradient in direction 2 on end B.
+- `apex.environment.LoadTemperatureGradientBeam2.update` — Updates one or more properties of the Temperature.
+- `apex.environment.LoadTemperatureGradientBeam2Variable.getSpatialTarget` — a DFEMFieldTemperatureBeam2 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that ...
+- `apex.environment.LoadTemperatureGradientBeam2Variable.update` — Update method.One or more properties may be updated in each call to update().
+- `apex.environment.LoadTemperatureGradientBeam3.getInputType` — The argument to define the load distribution on a single element.
+- `apex.environment.LoadTemperatureGradientBeam3.getTarget` — an EntityCollection identifying the entities that the Temperature will be applied to.
+- `apex.environment.LoadTemperatureGradientBeam3.getTemperatureEndA` — the temperature value at end A on the neutral axis.
+- `apex.environment.LoadTemperatureGradientBeam3.getTemperatureEndB` — the temperature value at end B on the neutral axis.
+- `apex.environment.LoadTemperatureGradientBeam3.getTemperatureMidC` — the temperature value at a point C between end A and end B.
+- `apex.environment.LoadTemperatureGradientBeam3.getTemperaturePointCendA` — the temperature value on point C at end A, used for stress recovery.
+- `apex.environment.LoadTemperatureGradientBeam3.getTemperaturePointCendB` — the temperature value on point C at end B, used for stress recovery.
+- `apex.environment.LoadTemperatureGradientBeam3.getTemperaturePointCmidC` — the temperature value on point C at mid C, used for stress recovery.
+- `apex.environment.LoadTemperatureGradientBeam3.getTemperaturePointDendA` — the temperature value on point D at end A, used for stress recovery.
+- `apex.environment.LoadTemperatureGradientBeam3.getTemperaturePointDendB` — the temperature value on point D at end B, used for stress recovery.
+- `apex.environment.LoadTemperatureGradientBeam3.getTemperaturePointDmidC` — the temperature value on point D at mid C, used for stress recovery.
+- `apex.environment.LoadTemperatureGradientBeam3.getTemperaturePointEendA` — the temperature value on point E at end A, used for stress recovery.
+- `apex.environment.LoadTemperatureGradientBeam3.getTemperaturePointEendB` — the temperature value on point E at end B, used for stress recovery.
+- `apex.environment.LoadTemperatureGradientBeam3.getTemperaturePointEmidC` — the temperature value on point E at mid C, used for stress recovery.
+- `apex.environment.LoadTemperatureGradientBeam3.getTemperaturePointFendA` — the temperature value on point F at end A, used for stress recovery.
+- `apex.environment.LoadTemperatureGradientBeam3.getTemperaturePointFendB` — the temperature value on point F at end B, used for stress recovery.
+- `apex.environment.LoadTemperatureGradientBeam3.getTemperaturePointFmidC` — the temperature value on point F at mid C, used for stress recovery.
+- `apex.environment.LoadTemperatureGradientBeam3.getThermalGradientYA` — the effective linear thermal gradient in local direction y on end A.
+- `apex.environment.LoadTemperatureGradientBeam3.getThermalGradientYB` — the effective linear thermal gradient in direction y on end B.
+- `apex.environment.LoadTemperatureGradientBeam3.getThermalGradientYC` — the effective linear thermal gradient in direction y on mid C.
+- `apex.environment.LoadTemperatureGradientBeam3.getThermalGradientZA` — the effective linear thermal gradient in direction z on end A.
+- `apex.environment.LoadTemperatureGradientBeam3.getThermalGradientZB` — the effective linear thermal gradient in direction z on end B.
+- `apex.environment.LoadTemperatureGradientBeam3.getThermalGradientZC` — the effective linear thermal gradient in direction z on mid C.
+- `apex.environment.LoadTemperatureGradientBeam3.update` — Updates one or more properties of the Temperature.
+- `apex.environment.LoadTemperatureGradientBeam3Variable.getSpatialTarget` — a DFEMFieldTemperatureBeam3 that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that ...
+- `apex.environment.LoadTemperatureGradientBeam3Variable.update` — Update method.
+- `apex.environment.LoadTemperatureNodal.getTarget` — an EntityCollection identifying the entities that the Temperature will be applied to.
+- `apex.environment.LoadTemperatureNodal.getTemperatureValue` — the temperature value.
+- `apex.environment.LoadTemperatureNodal.update` — Updates one or more properties of the Temperature.
+- `apex.environment.LoadTemperatureNodalVariable.getSpatialTarget` — a DFEMFieldLoadDistributed that identifies elements that represent the region to which this load is applied as well as the distribution of loads across that ...
+- `apex.environment.LoadTemperatureNodalVariable.update` — Update method.One or more properties may be updated in each call to update().
+- `apex.environment.LoadTemperaturePropertyStaticConstant.getId` — DEPRECATED. An optional load ID defined in TemperaturePropertyStaticConstant and assigned to the associated LoadTemperature.
+- `apex.environment.LoadTemperaturePropertyStaticConstant.getTemperatureValue` — DEPRECATED. the temperature value.
+- `apex.environment.LoadTemperaturePropertyStaticConstant.update` — DEPRECATED. Update this LoadTemperaturePropertyStaticConstant.
+- `apex.environment.LoadTemperaturePropertyStaticVariable.getId` — DEPRECATED. An optional load ID defined in LoadTemperaturePropertyStaticVariable and assigned to the associated LoadTemperature.
+- `apex.environment.LoadTemperaturePropertyStaticVariable.getTemperatureValues` — DEPRECATED. A nested Dictionary containing the pathName of the MeshBody on which the LoadTemperature is applied and the nodes IDs and the associated temperature values.
+- `apex.environment.LoadTemperaturePropertyStaticVariable.update` — DEPRECATED. Update this LoadTemperaturePropertyStaticVariable.
+- `apex.environment.LoadTimeDelay.getTarget` — an EntityCollection identifying the entities that the time delay will be applied to.
+- `apex.environment.LoadTimeDelay.getTimeDelayRx` — the time delay value in the rotation X component.
+- `apex.environment.LoadTimeDelay.getTimeDelayRy` — the time delay value in the rotation Y component.
+- `apex.environment.LoadTimeDelay.getTimeDelayRz` — the time delay value in the rotation Z component.
+- `apex.environment.LoadTimeDelay.getTimeDelayX` — the time delay value in the translation X Component.
+- `apex.environment.LoadTimeDelay.getTimeDelayY` — the time delay value in the Y component.
+- `apex.environment.LoadTimeDelay.getTimeDelayZ` — the time delay value in the Z component.
+- `apex.environment.LoadTimeDelay.update` — Updates one or more properties of the time delay.
+- `apex.environment.LoadTimeDelayVariable.getSpatialTarget` — a DFEMFieldTimeDelay that identifies nodes that represent the region to which this time delay is applied as well as the distribution of delays across that ...
+- `apex.environment.LoadTimeDelayVariable.update` — Updates one or more properties of the time delay.
+- `apex.environment.LoadTotal.getForceX` — the total force in X component, it is a Force quantity and must be defined using the units of Force from the active script unit system.
+- `apex.environment.LoadTotal.getForceY` — the total force in Y component, it is a Force quantity and must be defined using the units of Force from the active script unit system.
+- `apex.environment.LoadTotal.getForceZ` — the total force in Z component, it is a Force quantity and must be defined using the units of Force from the active script unit system.
+- `apex.environment.LoadTotal.getOrientation` — the orientation used to define the direction of the pressure.
+- `apex.environment.LoadTotal.getTarget` — an EntityCollection identifying the entities that the load will be applied to.
+- `apex.environment.LoadTotal.update` — Updates one or more properties of the load.
+- `apex.environment.LoadTraction.getOrientation` — DEPRECATED. Returns Orientation of the LoadTraction.
+- `apex.environment.LoadTraction.getTarget` — DEPRECATED. Returns the target entities that the LoadTraction is applied to.
+- `apex.environment.LoadTraction.getTractionProperty` — DEPRECATED. Returns the property of this LoadTraction.
+- `apex.environment.LoadTraction.update` — DEPRECATED. Update this LoadTraction.
+- `apex.environment.LoadTractionCollection.LoadTractionCollection` — Construct a new LoadTractionCollection.
+- `apex.environment.LoadTractionPropertyStaticConstant.getId` — DEPRECATED. Gets the load ID of the LoadTractionPropertyStaticConstant.
+- `apex.environment.LoadTractionPropertyStaticConstant.getPressureX` — DEPRECATED. Gets Optional - the pressure value in X component.
+- `apex.environment.LoadTractionPropertyStaticConstant.getPressureY` — DEPRECATED. Gets Optional - the pressure value in Y component.
+- `apex.environment.LoadTractionPropertyStaticConstant.getPressureZ` — DEPRECATED. Gets Optional - the pressure value in Z component.
+- `apex.environment.LoadTractionPropertyStaticConstant.removePressureX` — DEPRECATED. Remove the X component of this TractionLoad.
+- `apex.environment.LoadTractionPropertyStaticConstant.removePressureY` — DEPRECATED. Remove the Y component of this TractionLoad.
+- `apex.environment.LoadTractionPropertyStaticConstant.removePressureZ` — DEPRECATED. Remove the Y component of this TractionLoad.
+- `apex.environment.LoadTractionPropertyStaticConstant.update` — DEPRECATED. Update this LoadTractionPropertyStaticConstant.
+- `apex.environment.LoadTractionPropertyStaticTotal.getForceX` — DEPRECATED. Gets Optional - the force value in X component.
+- `apex.environment.LoadTractionPropertyStaticTotal.getForceY` — DEPRECATED. Gets Optional - the force value in Y component.
+- `apex.environment.LoadTractionPropertyStaticTotal.getForceZ` — DEPRECATED. Gets Optional - the force value in Z component.
+- `apex.environment.LoadTractionPropertyStaticTotal.getId` — DEPRECATED. Gets the load ID of the LoadTractionPropertyStaticTotal.
+- `apex.environment.LoadTractionPropertyStaticTotal.removeForceX` — DEPRECATED. Remove the X component of this TractionLoad.
+- `apex.environment.LoadTractionPropertyStaticTotal.removeForceY` — DEPRECATED. Remove the Y component of this TractionLoad.
+- `apex.environment.LoadTractionPropertyStaticTotal.removeForceZ` — DEPRECATED. Remove the Z component of this TractionLoad.
+- `apex.environment.LoadTractionPropertyStaticTotal.update` — DEPRECATED. Update this LoadTractionPropertyStaticTotal.
+- `apex.environment.PreloadBolt.createPreloadBoltRep` — Create and add a new PreloadBoltRep to this Bolt preload.
+- `apex.environment.PreloadBolt.getActiveRep` — Get the currently used BoltPreloadRep in this bolt preload.
+- `apex.environment.PreloadBolt.getTarget` — Get the target entities that the PreloadBolt is applied to.
+- `apex.environment.PreloadBolt.update` — Update this bolt preload.
+- `apex.environment.PreloadBoltCollection.PreloadBoltCollection` — Construct a new PreloadBoltCollection.
+- `apex.environment.PreloadBoltPropertyStatic.getForce` — Get the force of bolt preload, it is only available when preloadType = Force.
+- `apex.environment.PreloadBoltPropertyStatic.getOverclosure` — Get the overclosure of bolt preload, it is only available when preloadType = Overclosure.
+- `apex.environment.PreloadBoltPropertyStatic.getPreloadType` — Get the bolt preload definition type.
+- `apex.environment.PreloadBoltPropertyStatic.update` — Update static bolt preload property.
+- `apex.environment.PreloadBoltRep.getId` — Get the ID of the bolt preload rep.
+- `apex.environment.PreloadBoltRep.getRepProperty` — Get the property of the Bolt preload rep.
+- `apex.environment.PreloadBoltRep.update` — Update the bolt preload rep.
+- `apex.environment.Pressure.getPressure` — the pressure value on the 1st corner of the element.
+- `apex.environment.Pressure.getTarget` — the entityCollection that the load is applied to.
+- `apex.environment.Pressure.update` — Update method.
+- `apex.environment.PressureVariable.getSpatialTarget`
+- `apex.environment.PressureVariable.update`
+- `apex.environment.SupportFreeBody.getConstrainRotationX` — the argument to indicate whether the rotation X is constrained or not.
+- `apex.environment.SupportFreeBody.getConstrainRotationY` — the argument to indicate whether the rotation Y is constrained or not.
+- `apex.environment.SupportFreeBody.getConstrainRotationZ` — the argument to indicate whether the rotation Z is constrained or not.
+- `apex.environment.SupportFreeBody.getConstrainTranslationX` — the argument to indicate whether the translation X is constrained or not.
+- `apex.environment.SupportFreeBody.getConstrainTranslationY` — the argument to indicate whether the translation Y is constrained or not.
+- `apex.environment.SupportFreeBody.getConstrainTranslationZ` — the argument to indicate whether the translation Z is constrained or not.
+- `apex.environment.SupportFreeBody.getOrientation` — the orientation of the constraint.
+- `apex.environment.SupportFreeBody.getTarget` — an EntityCollection identifying the entities that the constraint will be applied to.
+- `apex.environment.SupportFreeBody.update` — Updates one or more properties of the constraint.
+- `apex.environment.SupportFreeBody1.getConstrainRotationX` — the argument to indicate whether the rotation X is constrained or not.
+- `apex.environment.SupportFreeBody1.getConstrainRotationY` — the argument to indicate whether the rotation Y is constrained or not.
+- `apex.environment.SupportFreeBody1.getConstrainRotationZ` — the argument to indicate whether the rotation Z is constrained or not.
+- `apex.environment.SupportFreeBody1.getConstrainTranslationX` — the argument to indicate whether the translation X is constrained or not.
+- `apex.environment.SupportFreeBody1.getConstrainTranslationY` — the argument to indicate whether the translation Y is constrained or not.
+- `apex.environment.SupportFreeBody1.getConstrainTranslationZ` — the argument to indicate whether the translation Z is constrained or not.
+- `apex.environment.SupportFreeBody1.getOrientation` — the orientation of the constraint.
+- `apex.environment.SupportFreeBody1.getTarget` — an EntityCollection identifying the entities that the constraint will be applied to.
+- `apex.environment.SupportFreeBody1.update` — Updates one or more properties of the support.
+- `apex.environment.SupportFreeBody1Variable.getSpatialTarget` — a DFEMFieldSupport that identifies nodes that represent the region to which this support is applied as well as the distribution of supports across that region.
+- `apex.environment.SupportFreeBody1Variable.update` — Updates one or more properties of the support.
+- `apex.environment.SupportFreeBodyVariable.getSpatialTarget` — a DFEMFieldSupport that identifies nodes that represent the region to which this support is applied as well as the distribution of supports across that region.
+- `apex.environment.SupportFreeBodyVariable.update` — Update method.One or more properties may be updated in each call to update().
+- `apex.gendes.ClearanceRegion.getLocation` — getLocation of ClearanceRegion is not supported yet, it will be supported in feature release.
+- `apex.gendes.ClearanceRegion.getOffsetDistance` — returns the offsetDistance of this ClearanceRegion.
+- `apex.gendes.ClearanceRegion.getTargetFaces` — returns the targetFaces of this ClearanceRegion.
+- `apex.gendes.ClearanceRegion.setOffsetDistance` — set the offsetDistance of this ClearanceRegion.
+- `apex.gendes.ClearanceRegion.update` — it's used to modify the created clearance region.
+- `apex.gendes.ClearanceRegionCollection.ClearanceRegionCollection` — Construct a new ClearanceRegionCollection.
+- `apex.gendes.ClearanceRegionCollection.appendList` — Add ClearanceRegions from a list to the end of this collection.
+- `apex.gendes.CompoundInterface.getMachiningAllowance` — returns the machiningAllowance of this CompoundInterface.
+- `apex.gendes.CompoundInterface.getNonDesignSpaceThickness` — returns the nonDesignSpaceThickness of this CompoundInterface.
+- `apex.gendes.CompoundInterface.getOffsetDistance` — returns the offsetDistance of this CompoundInterface.
+- `apex.gendes.CompoundInterface.getTarget` — returns the target of this CompoundInterface.
+- `apex.gendes.CompoundInterface.update` — Updates this interface.
+- `apex.gendes.CompoundInterfaceCollection.CompoundInterfaceCollection` — Construct a new CompoundInterfaceCollection.
+- `apex.gendes.CompoundInterfaceCollection.appendList` — Add CompoundInterfaces from a list to the end of this collection.
+- `apex.gendes.DesignSpace.getDesignSpaceSolid` — The solid body that defines the design space volume which is internally sent to the generative design solver.
+- `apex.gendes.DesignSpace.getFullSpaceSolidWithMA` — Returns a newly created geometry equal to the original DesignSpace plus all attached MAs.
+- `apex.gendes.DesignSpace.getLocation` — getLocation of DesignSpace is not supported yet, it will be supported in feature release.
+- `apex.gendes.DesignSpace.getNonDesignRegionAssociated` — NonDesignRegionCollection associated with the DesignSpace, that cannot be modified or reduced by the generative design solver.
+- `apex.gendes.DesignSpace.getSymmetricXY` — Boolean property indicating whether the DesignSpace supports symmetry about the XY plane or not.
+- `apex.gendes.DesignSpace.getSymmetricXZ` — Boolean property indicating whether the DesignSpace supports symmetry about the XZ plane or not.
+- `apex.gendes.DesignSpace.getSymmetricYZ` — Boolean property indicating whether the DesignSpace supports symmetry about the YZ plane or not.
+- `apex.gendes.DesignSpace.getSymmetryLocation` — The location of the origin of the DesignSpace as an ILocation.
+- `apex.gendes.DesignSpace.getSymmetryOrientation` — The orientation of the DesignSpace symmetry planes as an Orientation.
+- `apex.gendes.DesignSpace.getTarget`
+- `apex.gendes.DesignSpace.setParam`
+- `apex.gendes.DesignSpace.update` — Update this DesignSpace.
+- `apex.gendes.DesignSpaceCollection.DesignSpaceCollection` — Construct a new DesignSpaceCollection.
+- `apex.gendes.DesignSpaceCollection.appendList` — Add DesignSpaces from a list to the end of this collection.
+- `apex.gendes.GDConfiguration.applyConfiguration` — Perform the boolean operations based on the selected entities in the configuration.
+- `apex.gendes.GDConfiguration.getAccessRegions` — An EntityCollection of parts/solids that are created for the fasteners assembling spaces.
+- `apex.gendes.GDConfiguration.getClearanceRegions` — The ClearanceRegions specified in the configuration.
+- `apex.gendes.GDConfiguration.getCompoundInterfaces` — The compound interfaces specified in the configuration.
+- `apex.gendes.GDConfiguration.getDesignSpaceFinal` — The final design space derived from the configuration.
+- `apex.gendes.GDConfiguration.getDesignSpaceInitial` — The design space specified as the initialDesignSpace in this configuration.
+- `apex.gendes.GDConfiguration.getExcludedVolumes` — An EntityCollection of parts/solids that excluded from the initial design space, while they are not the design target.
+- `apex.gendes.GDConfiguration.getNondesignSpaces` — An EntityCollection containing all parts/solids that represent non-design regions in this GDConfiguration.
+- `apex.gendes.GDConfiguration.getRetainedVolumes` — An EntityCollection of parts/solids that carry and transfer loads in the generative design optimization, they cannot be modified or reduced by the generative ...
+- `apex.gendes.GDConfiguration.update` — Update this GDConfiguration.
+- `apex.gendes.GDConfigurationCollection.GDConfigurationCollection` — Construct a new GDConfigurationCollection.
+- `apex.gendes.GDConfigurationCollection.appendList` — Add GDConfigurations from a list to the end of this collection.
+- `apex.gendes.NonDesignRegion.getLocationInternal`
+- `apex.gendes.NonDesignRegion.getTarget`
+- `apex.gendes.NonDesignRegionCollection.NonDesignRegionCollection` — Construct a new NonDesignRegionCollection.
+- `apex.gendes.NonDesignRegionCollection.appendList` — Add NonDesignRegions from a list to the end of this collection.
+- `apex.geometry.Box.getCoordinateSystem` — The CoordinateSystem that defines the origin and orientation of the Box.
+- `apex.geometry.Box.getDepth` — The depth of the Box. depth is defined parallel to the the X-axis of the Box orientation/external CoordinateSystem. depth represents a Length quantity and must ...
+- `apex.geometry.Box.getHeight` — The height of the Box. height is defined parallel to the the X-axis of the Box orientation/external CoordinateSystem. height represents a Length quantity and ...
+- `apex.geometry.Box.getLength` — The Length of the Box. length is defined parallel to the the X-axis of the Box orientation/external CoordinateSystem. length represents a Length quantity and ...
+- `apex.geometry.Box.getOrigin` — The origin of the Box as an ILocation.
+- `apex.geometry.Box.getReferenceSystem` — Gets A tuple to represent location and orientation to be used for reference system.
+- `apex.geometry.Box.setCoordinateSystem` — Set the coordinateSystem of this Box.
+- `apex.geometry.Box.setDepth` — Set the depth of this Box.
+- `apex.geometry.Box.setDescription` — Set the description of this Box.
+- `apex.geometry.Box.setHeight` — Set the height of this Box.
+- `apex.geometry.Box.setLength` — Set the length of this Box.
+- `apex.geometry.Box.setName` — Set the name of this Box.
+- `apex.geometry.Box.setOrientation` — Set the orientation of this Box.
+- `apex.geometry.Box.setOrigin` — Set the origin of this Box.
+- `apex.geometry.Box.update` — Updates one or more modifiable properties of this Box.
+- `apex.geometry.BoxCollection.BoxCollection`
+- `apex.geometry.Cell.evaluateCoincidence` — Evaluates whether all locations in this Cell lie within the specified tolerance of the input Cells or Solids.
+- `apex.geometry.Cell.findCoincidentObjects` — Finds all Vertices, Points, Edges, Curves, Faces, Surfaces, Cells and Solids that are coincident with this Cell, within the supplied tolerance, and returns ...
+- `apex.geometry.Cell.getCentroid` — The location of the centroid of the Cell.
+- `apex.geometry.Cell.getEdges` — get the edges for this cell.
+- `apex.geometry.Cell.getFaces` — get the faces for this cell.
+- `apex.geometry.Cell.getLocation` — The location of this Cell in 3D cartesian space as an apex.ILocation.
+- `apex.geometry.Cell.getMeshControlEdges` — A read only meshControlEdgeCollection contain all MeshControlEdge composed by the Faces of this Cell.
+- `apex.geometry.Cell.getOrientation` — the orientation of this Cell as an apex.IOrientation
+- `apex.geometry.Cell.getTessellation` — returns the tessellation for this Cell as a Tesselation2D.
+- `apex.geometry.Cell.getVertices` — get the vertices for this cell.
+- `apex.geometry.Cell.getVolume` — get the volume of this cell.
+- `apex.geometry.CellCollection.CellCollection` — Construct a new CellCollection.
+- `apex.geometry.CellCollection.appendList` — Add Cells from a list to the end of this collection.
+- `apex.geometry.Curve.evaluateClosestLocation` — Given an input location in 3D space, evaluates and returns a result object containing the location on this Curve that is closest to the input location and the ... (inherited by `FacetedCurve`)
+- `apex.geometry.Curve.evaluateCoincidence` — Evaluates whether all locations on this Curve lie within the specified tolerance of the input Edges, Curves, Faces, Surfaces, Cells or Solids. (inherited by `FacetedCurve`)
+- `apex.geometry.Curve.evaluateCurveParametricCoordinate` — This method takes a parametric Curve coordinate (u) as input and returns the equivalent 3D cartesian coordinates as a List of Point3D objects. (inherited by `FacetedCurve`)
+- `apex.geometry.Curve.evaluateOrientationCurveParametricCoordinate` — This method takes a 1D parametric coordinate (u) as input and returns the default Orientation at that position on the Curve. (inherited by `FacetedCurve`)
+- `apex.geometry.Curve.evaluatePointOnCurve` — This method takes a point in space (as a Point3D object) as input and returns a result object containing the closest point on the Curve as a float value ... (inherited by `FacetedCurve`)
+- `apex.geometry.Curve.evaluateTangent` — Evaluates the tangent to this Curve at the input location and returns it as a Vector3D. (inherited by `FacetedCurve`)
+- `apex.geometry.Curve.findCoincidentObjects` — Finds all Vertices, Points, Edges and Curves that are coincident with this Curve, within the supplied tolerance, and returns them in an EntityCollection. (inherited by `FacetedCurve`)
+- `apex.geometry.Curve.getArcCenter` — return the arcCenter of this Curve. (inherited by `FacetedCurve`)
+- `apex.geometry.Curve.getCentroid` — The centroid of this Curve.. (inherited by `FacetedCurve`)
+- `apex.geometry.Curve.getExteriorVertices` — get the exterior verticies on this curve. (inherited by `FacetedCurve`)
+- `apex.geometry.Curve.getInteriorVertices` — get the interior verticies on this curve. (inherited by `FacetedCurve`)
+- `apex.geometry.Curve.getLength` — get the length of this curve. (inherited by `FacetedCurve`)
+- `apex.geometry.Curve.getLocation` — The location of this geometry Curve in 3D cartesian space as an apex.ILocation. (inherited by `FacetedCurve`)
+- `apex.geometry.Curve.getMassCenterNominal` — get the center of mass on this curve as an apex.Coordinate object. (inherited by `FacetedCurve`)
+- `apex.geometry.Curve.getMassNominal` — get the nominal mass on this curve. (inherited by `FacetedCurve`)
+- `apex.geometry.Curve.getMidPoint` — The location of the midPoint of the Curve. (inherited by `FacetedCurve`)
+- `apex.geometry.Curve.getOrientation` — the orientation of this Curve as an apex.IOrientation. (inherited by `FacetedCurve`)
+- `apex.geometry.Curve.getParametricRange` — The range of the parametric space coordinates used by the Curve, Apex Curves compose one or more Edges and Edges are bounded by Vertices. (inherited by `FacetedCurve`)
+- `apex.geometry.Curve.getPrincipalInertiaFrameNominal` — get the principal inertia frame on this curve as a rectangular CoordinateSystem. (inherited by `FacetedCurve`)
+- `apex.geometry.Curve.getPrincipalInertiaTensorNominal` — get the nominal principal inertia tensor on this curve as a Dictionary. (inherited by `FacetedCurve`)
+- `apex.geometry.Curve.getTessellation` — returns the tessellation for this Curve as a Tesselation1D. (inherited by `FacetedCurve`)
+- `apex.geometry.Curve.update` — Update one or more of this Curve properties. (inherited by `FacetedCurve`)
+- `apex.geometry.CurveCollection.CurveCollection` — Construct a new CurveCollection. (inherited by `FacetedCurveCollection`)
+- `apex.geometry.CurveCollection.appendList` — Add Curves from a list to the end of this collection. (inherited by `FacetedCurveCollection`)
+- `apex.geometry.Cylinder.getCoordinateSystem` — A CoordinateSystem that defines the origin and orientation of the Cylinder.
+- `apex.geometry.Cylinder.getLength` — The Length of the Cylinder. length is defined parallel to the the Z-axis of the Cylinder orientation. length represents a Length quantity and must be supplied ...
+- `apex.geometry.Cylinder.getOrigin` — The origin of the Cylinder as an ILocation.
+- `apex.geometry.Cylinder.getRadius` — The radius of the Cylinder. radius represents an Length quantity and must be supplied in the units of Length that are active in the script unit system.
+- `apex.geometry.Cylinder.getReferenceSystem` — Gets A tuple to represent location and orientation to be used for reference system.
+- `apex.geometry.Cylinder.getSweepangle` — The angle used to define partial cylinders.
+- `apex.geometry.Cylinder.setCoordinateSystem` — Set the coordinateSystem of this Cylinder.
+- `apex.geometry.Cylinder.setDescription` — Set the description of this Cylinder.
+- `apex.geometry.Cylinder.setLength` — Set the length of this Cylinder.
+- `apex.geometry.Cylinder.setName` — Set the name of this Cylinder.
+- `apex.geometry.Cylinder.setOrientation` — Set the orientation of this Cylinder.
+- `apex.geometry.Cylinder.setOrigin` — Set the origin of this Cylinder.
+- `apex.geometry.Cylinder.setRadius` — Set the radius of this Cylinder.
+- `apex.geometry.Cylinder.setSweepangle` — Set the sweepangle of this Cylinder.
+- `apex.geometry.Cylinder.update` — Updates the properties of this Cylinder.
+- `apex.geometry.CylinderCollection.CylinderCollection`
+- `apex.geometry.Edge.evaluateClosestLocation` — Given an input location in 3D space, evaluates and returns a result object containing the location on this Edge that is closest to the input location and the ...
+- `apex.geometry.Edge.evaluateCoincidence` — Evaluates whether all locations on this Edge lie within the specified tolerance of the input Edges, Curves, Faces, Surfaces, Cells or Solids.
+- `apex.geometry.Edge.evaluateEdgeParametricCoordinate` — This method takes a parametric edge coordinate (u) as input and returns the equivalent 3D cartesian coordinates as a apex.Coordinate object.
+- `apex.geometry.Edge.evaluateEdgeTangent` — Evaluates the tangent to this Edge at the input parametric location and returns it as a Vector3D.
+- `apex.geometry.Edge.evaluateOrientationEdgeParametricCoordinate` — This method takes a parametric edge coordinate (u) as input and returns the default orientation at that position as an apex.Orientation.
+- `apex.geometry.Edge.evaluatePointOnEdge` — evaluatePointOnEdge.
+- `apex.geometry.Edge.findCoincidentObjects` — Finds all Vertices, Points, Edges and Curves that are coincident with this Edge, within the supplied tolerance, and returns them in an EntityCollection.
+- `apex.geometry.Edge.getArcCenter` — return the arcCenter of this Edge.
+- `apex.geometry.Edge.getCentroid` — returns the centroid of this Edge as a Coordinate
+- `apex.geometry.Edge.getConnectedCells` — get the connected cells for this edge.
+- `apex.geometry.Edge.getConnectedFaces` — get the connected faces for this edge.
+- `apex.geometry.Edge.getEdgeSeed` — return the associated EdgeSeed.
+- `apex.geometry.Edge.getLength` — get the length of this edge.
+- `apex.geometry.Edge.getLocation` — The location of this Edge in 3D cartesian space as an apex.ILocation.
+- `apex.geometry.Edge.getMidPoint` — The location of the midPoint of the Edge.
+- `apex.geometry.Edge.getOrientation` — the orientation of this Edge as an apex.IOrientation.
+- `apex.geometry.Edge.getParametricRange` — The range of the parametric space coordinates used by the edge (uStart, uEnd).
+- `apex.geometry.Edge.getSpan` — returns the BeamSpan associated with this Edge or "None" if their is no associated BeamSpan.
+- `apex.geometry.Edge.getTessellation` — returns the tessellation for this Edge as a Tesselation1D.
+- `apex.geometry.Edge.getVertices` — get the vertices for this edge.
+- `apex.geometry.Edge.getVerticesSuppressed` — get the suppressed vertices for this edge.
+- `apex.geometry.EdgeCollection.EdgeCollection` — Construct a new EdgeCollection.
+- `apex.geometry.EdgeCollection.appendList` — Add Edges from a list to the end of this collection.
+- `apex.geometry.EdgeLoop.getEdgeSenses` — An ordered sequence (List) of Boolean values representing the senses of the Edges in this EdgeLoop.
+- `apex.geometry.EdgeLoop.getEdges` — An ordered sequence of geometry Edges that define the EdgeLoop.
+- `apex.geometry.EdgeLoop.getLength` — The total length of the Edge Loop determined by summing the length of all of the Edges that make up the EdgeLoop.
+- `apex.geometry.EdgeLoop.getNominalEnclosedArea` — An approximation of the area enclosed by this EdgeLoop.
+- `apex.geometry.EdgeLoop.getVertices` — An ordered sequence of unique geometry Vertices extracted from the edges of the EdgeLoop such that the first Edge in the EdgeLoop connects the first and second ...
+- `apex.geometry.EdgeLoopCollection.EdgeLoopCollection` — Construct a new EdgeLoopCollection.
+- `apex.geometry.EdgeLoopCollection.appendList` — Add EdgeLoops from a list to the end of this collection.
+- `apex.geometry.Ellipsoid.getCoordinateSystem` — A CoordinateSystem that defines the origin and orientation of the Ellipsoid.
+- `apex.geometry.Ellipsoid.getOrigin` — The origin of the Ellipsoid as an ILocation.
+- `apex.geometry.Ellipsoid.getReferenceSystem` — Gets A tuple to represent location and orientation to be used for reference system.
+- `apex.geometry.Ellipsoid.getXradius` — The 'radius' of the Ellipsoid in the x direction. xradius represents an Length quantity and must be supplied in the units of Length that are active in the ...
+- `apex.geometry.Ellipsoid.getYradius` — The 'radius' of the Ellipsoid in the y direction. yradius represents an Length quantity and must be supplied in the units of Length that are active in the ...
+- `apex.geometry.Ellipsoid.getZradius` — The 'radius' of the Ellipsoid in the z direction. zradius represents a Length quantity and must be supplied in the units of Length that are active in the ...
+- `apex.geometry.Ellipsoid.setCoordinateSystem` — Set the coordinateSystem of this Ellipsoid.
+- `apex.geometry.Ellipsoid.setDescription` — Set the description of this Ellipsoid.
+- `apex.geometry.Ellipsoid.setName` — Set the name of this Ellipsoid.
+- `apex.geometry.Ellipsoid.setOrientation` — Set the orientation of this Ellipsoid.
+- `apex.geometry.Ellipsoid.setOrigin` — Set the origin of this Ellipsoid.
+- `apex.geometry.Ellipsoid.setXradius` — Set the xradius of this Ellipsoid.
+- `apex.geometry.Ellipsoid.setYradius` — Set the yradius of this Ellipsoid.
+- `apex.geometry.Ellipsoid.setZradius` — Set the zradius of this Ellipsoid.
+- `apex.geometry.Ellipsoid.update` — Updates the properties of this Ellipsoid.
+- `apex.geometry.EllipsoidCollection.EllipsoidCollection`
+- `apex.geometry.Face.evaluateClosestLocation` — Given an input location in 3D space, evaluates and returns a result object containing the location on this Face that is closest to the input location and the ...
+- `apex.geometry.Face.evaluateClosestLocationOnFace` — DEPRECATED: "THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE NEXT APEX RELEASE " This method has been superseded by the equivalent ...
+- `apex.geometry.Face.evaluateCoincidence` — Evaluates whether all locations on this Face lie within the specified tolerance of the input Faces, Surfaces, Cells or Solids.
+- `apex.geometry.Face.evaluateFaceCurvatureUV` — This method takes a parametric face coordinate (u, v) as input and returns normal, principal1, principal2 and curvature1, curvature2 to the surface at that ...
+- `apex.geometry.Face.evaluateFaceParametricCoordinate` — evaluateFaceParametricCoordinate.
+- `apex.geometry.Face.evaluateFaceTangentUV` — This method takes a parametric face coordinate (u, v) as input and returns two tangents to the surface at that location as apex.construct.Vector3D objects in a ...
+- `apex.geometry.Face.evaluateNormal` — This method takes a parametric face coordinate (u, v) as input and returns the normal to the face at that location as a apex.construct.Vector3D object.
+- `apex.geometry.Face.evaluateOrientationFaceParametricCoordinate` — This method takes a parametric face coordinate (u,v) as input and returns a default Orientation at that position as an apex.Orientation.
+- `apex.geometry.Face.evaluatePointOnFace` — This method takes a point in space (as a apex.ILocation* object)as input and returns the equivalent position as parametric coordinates on the face..
+- `apex.geometry.Face.evaluateTangentInDirection` — This method takes a parametric face coordinate (u, v) and a direction vector as input and returns the tangent to the surface at the input location as ...
+- `apex.geometry.Face.findCoincidentObjects` — Finds all Vertices, Points, Edges, Curves, Faces and Surfaces that are coincident with this Face, within the supplied tolerance, and returns them in an ...
+- `apex.geometry.Face.getArea` — get the area of this face.
+- `apex.geometry.Face.getCentroid` — The location of the centroid of the Face.
+- `apex.geometry.Face.getConnectedCells` — get the connected Cells on this face.
+- `apex.geometry.Face.getCylindricalAxis` — return the cylindrical axis of this Face.
+- `apex.geometry.Face.getCylindricalAxisEndPoint` — return the end point of the cylindrical axis of this Face.
+- `apex.geometry.Face.getCylindricalAxisMidPoint` — return the mid point of the cylindrical axis of this Face.
+- `apex.geometry.Face.getCylindricalAxisStartPoint` — return the start point of the cylindrical axis of this Face.
+- `apex.geometry.Face.getEdges` — get the edges on this face.
+- `apex.geometry.Face.getEdgesSuppressed` — get the suppressed edges on this face.
+- `apex.geometry.Face.getExteriorEdgeLoops` — Returns the bounding EdgeLoops for this Face.
+- `apex.geometry.Face.getInteriorEdgeLoops` — Returns all interior EdgeLoops that may exist for this Face.
+- `apex.geometry.Face.getLocation` — The location of this Face in 3D cartesian space as an apex.ILocation.
+- `apex.geometry.Face.getMeshControlEdges` — A read only meshControlEdgeCollection contain all MeshControlEdge composed by the Faces of this Cell.
+- `apex.geometry.Face.getOrientation` — the orientation of this Face as an apex.IOrientation.
+- `apex.geometry.Face.getParametricRange` — getParametricRange.
+- `apex.geometry.Face.getTessellation` — returns the tessellation for this Face as a Tesselation2D.
+- `apex.geometry.Face.getVertices` — get the verticies on this face.
+- `apex.geometry.Face.getVerticesSuppressed` — get the suppressed verticies on this face.
+- `apex.geometry.Face.isMidsurface` — Boolean value indicating whether this Face is part of an automatically extracted mid-surface.
+- `apex.geometry.Face.update` — Updates one or more properties of this Face.
+- `apex.geometry.FaceCollection.FaceCollection` — Construct a new FaceCollection.
+- `apex.geometry.FaceCollection.appendList` — Add Faces from a list to the end of this collection.
+- `apex.geometry.FacetedCurveCollection.FacetedCurveCollection`
+- `apex.geometry.FacetedSolidCollection.FacetedSolidCollection`
+- `apex.geometry.FacetedSurfaceCollection.FacetedSurfaceCollection`
+- `apex.geometry.GeometryBody.assignMaterial` — assign a material to this GeometryBody. (inherited by 11 classes)
+- `apex.geometry.GeometryBody.assignShellSection` — DEPRECATED: THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.PLEASE USE apex.attribute.createFieldThicknessOffsetConstant. assign a shell ... (inherited by 11 classes)
+- `apex.geometry.GeometryBody.exportGeometry` — Export Geometry from this GeometryBody to a file using the supplied CAD format. (inherited by 11 classes)
+- `apex.geometry.GeometryBody.getCell` — get the cell for the specified id (inherited by 11 classes)
+- `apex.geometry.GeometryBody.getCells` — get the cells for the specified ids. (inherited by 11 classes)
+- `apex.geometry.GeometryBody.getConstraints` — Returns a collection of all Constraints that are applied to this GeometryBody. (inherited by 11 classes)
+- `apex.geometry.GeometryBody.getEdge` — get the edge for the specified id (inherited by 11 classes)
+- `apex.geometry.GeometryBody.getEdges` — get the edges for the specified ids. (inherited by 11 classes)
+- `apex.geometry.GeometryBody.getEdgesSuppressed` — get the suppressed edges for the specified ids. (inherited by 11 classes)
+- `apex.geometry.GeometryBody.getElements` — get the elements on this geometry body. (inherited by 11 classes)
+- `apex.geometry.GeometryBody.getExteriorNodes` — get the exterior nodes on this geometry body. (inherited by 11 classes)
+- `apex.geometry.GeometryBody.getFace` — get the face for the specified id (inherited by 11 classes)
+- `apex.geometry.GeometryBody.getFaces` — get the faces for the specified ids. (inherited by 11 classes)
+- `apex.geometry.GeometryBody.getInitialConditions` — Returns a collection of all InitialConditions that are applied to this GeometryBody. (inherited by 11 classes)
+- `apex.geometry.GeometryBody.getInteriorNodes` — get the interior nodes on this geometry body. (inherited by 11 classes)
+- `apex.geometry.GeometryBody.getLoads` — Returns a collection of all Loads that are applied to this GeometryBody. (inherited by 11 classes)
+- `apex.geometry.GeometryBody.getMeshes` — get the meshes on this geometry body. (inherited by 11 classes)
+- `apex.geometry.GeometryBody.getNodes` — get the nodes on this geometry body. (inherited by 11 classes)
+- `apex.geometry.GeometryBody.getParent` — Get the parent Part for this GeometryBody. (inherited by 11 classes)
+- `apex.geometry.GeometryBody.getReferenceSystem` — Gets A tuple to represent location and orientation to be used for reference system. (inherited by 11 classes)
+- `apex.geometry.GeometryBody.getReferencedBy` — returns a collection of all entities that directly Reference this GeometryBody (Point, Curve, Surface, Solid) (inherited by 11 classes)
+- `apex.geometry.GeometryBody.getVertex` — get the vertex for the specified id (inherited by 11 classes)
+- `apex.geometry.GeometryBody.getVertices` — get the vertices for the specified ids. (inherited by 11 classes)
+- `apex.geometry.GeometryBody.getVerticesSuppressed` — get the suppressed vertices for the specified ids. (inherited by 11 classes)
+- `apex.geometry.GeometryBody.setParent` — Set a Part to be the new parent for this GeometryBody. (inherited by 11 classes)
+- `apex.geometry.GeometryBody.setReferenceSystem` (inherited by 11 classes)
+- `apex.geometry.GeometryBody.update` — Update one or more of this GeometryBody properties. (inherited by 11 classes)
+- `apex.geometry.GeometryBodyCollection.GeometryBodyCollection` — Construct a new GeometryBodyCollection. (inherited by 11 classes)
+- `apex.geometry.GeometryBodyCollection.appendList` — Add GeometryBodies from a list to the end of this collection. (inherited by 11 classes)
+- `apex.geometry.GeometryFeature.getFeatureDimension` — Gets the leading dimension of this GeometryFeature The meaning of this property is dependent on the feature type as follows Hole2D - diameter of the hole ...
+- `apex.geometry.GeometryFeature.getFeatureType` — Gets the type of this GeometryFeature as an apex.geometry.GeometryFeatureType.
+- `apex.geometry.GeometryFeature.getTopology` — Gets collection of geometry topologies (Faces, Edges) that represent this feature.
+- `apex.geometry.GeometryFeatureCollection.GeometryFeatureCollection` — Construct a new GeometryFeatureCollection.
+- `apex.geometry.GeometryFeatureCollection.appendList` — Add GeometryFeatures from a list to the end of this collection.
+- `apex.geometry.GeometryTopology.asEntity` (inherited by `Cell`, `Edge`, `Face`, `Vertex`)
+- `apex.geometry.GeometryTopology.getBody` — Returns the Geometry Body that contains the topology. (inherited by `Cell`, `Edge`, `Face`, `Vertex`)
+- `apex.geometry.GeometryTopology.getConstraints` — Returns a collection of all Constraints that are applied to this GeometryTopology. (inherited by `Cell`, `Edge`, `Face`, `Vertex`)
+- `apex.geometry.GeometryTopology.getElements` — get the elements on this object. (inherited by `Cell`, `Edge`, `Face`, `Vertex`)
+- `apex.geometry.GeometryTopology.getExteriorNodes` — get the exterior nodes on this object. (inherited by `Cell`, `Edge`, `Face`, `Vertex`)
+- `apex.geometry.GeometryTopology.getInitialConditions` — Returns a collection of all InitialConditions that are applied to this GeometryTopology. (inherited by `Cell`, `Edge`, `Face`, `Vertex`)
+- `apex.geometry.GeometryTopology.getInteriorNodes` — get the interior nodes on this object. (inherited by `Cell`, `Edge`, `Face`, `Vertex`)
+- `apex.geometry.GeometryTopology.getLoads` — Returns a collection of all Loads that are applied to this GeometryBody. (inherited by `Cell`, `Edge`, `Face`, `Vertex`)
+- `apex.geometry.GeometryTopology.getNodes` — get the nodes on this object. (inherited by `Cell`, `Edge`, `Face`, `Vertex`)
+- `apex.geometry.GeometryTopology.getReferencedBy` — returns a collection of all entities that directly Reference this geometry Topology (Vertex, Edge, Face, Cell) (inherited by `Cell`, `Edge`, `Face`, `Vertex`)
+- `apex.geometry.GeometryTopologyCollection.GeometryTopologyCollection` — Construct a new GeometryTopologyCollection. (inherited by `CellCollection`, `EdgeCollection`, `FaceCollection`, `VertexCollection`)
+- `apex.geometry.GeometryTopologyCollection.appendList` — Add GeometryTopology Entities from a list to the end of this collection. (inherited by `CellCollection`, `EdgeCollection`, `FaceCollection`, `VertexCollection`)
+- `apex.geometry.MeshControlEdge.getLength` — The length of the MeshControlEdge.
+- `apex.geometry.MeshControlEdge.getMidPoint` — The location of the midPoint of MeshControlEdge, returned as a Coordinate.
+- `apex.geometry.MeshControlEdge.getParent` — The parent Face of this MeshControlEdge.
+- `apex.geometry.MeshControlEdgeCollection.MeshControlEdgeCollection` — Construct a new MeshControlEdgeCollection.
+- `apex.geometry.MeshControlEdgeCollection.appendList` — Add MeshControlEdges from a list to the end of this collection.
+- `apex.geometry.Point.evaluateCoincidence` — Evaluates whether the location of all Vertices in this Point lie within the specified tolerance of the input Vertices, Points, Edges, Curves, Faces, Surfaces ...
+- `apex.geometry.Point.findCoincidentObjects` — Finds all Vertices and Points that are coincident with this Point, within the supplied tolerance, and returns them in an EntityCollection.
+- `apex.geometry.Point.getAssociatedSeedPoint` — return the associated Seed Point.
+- `apex.geometry.Point.getCentroid` — returns the centroid of this Point Body as a Coordinate
+- `apex.geometry.Point.getLocation` — The location of this geometry Point in 3D cartesian space as an apex.ILocation.
+- `apex.geometry.Point.getOrientation` — the orientation of this Point as an apex.IOrientation
+- `apex.geometry.Point.getTessellation` — returns the tessellation for this Point as a Tesselation0D.
+- `apex.geometry.Point.update` — Update one or more of this Point properties.
+- `apex.geometry.PointCollection.PointCollection` — Construct a new PointCollection.
+- `apex.geometry.PointCollection.appendList` — Add Points from a list to the end of this collection.
+- `apex.geometry.Solid.evaluateCoincidence` — Evaluates whether all locations on this Solid lie within the specified tolerance of the input Cells or Solids. (inherited by `Box`, `Cylinder`, `Ellipsoid`, `FacetedSolid`, `Sphere`)
+- `apex.geometry.Solid.findCoincidentObjects` — Finds all Vertices, Points, Edges, Curves, Faces, Surfaces, Cells and Solids that are coincident with this Solid, within the supplied tolerance, and returns ... (inherited by `Box`, `Cylinder`, `Ellipsoid`, `FacetedSolid`, `Sphere`)
+- `apex.geometry.Solid.getCells` — get the cells for the specified ids. (inherited by `Box`, `Cylinder`, `Ellipsoid`, `FacetedSolid`, `Sphere`)
+- `apex.geometry.Solid.getCentroid` — The location of the centroid of the Solid. (inherited by `Box`, `Cylinder`, `Ellipsoid`, `FacetedSolid`, `Sphere`)
+- `apex.geometry.Solid.getExteriorEdges` — get the exterior Edges on this solid. (inherited by `Box`, `Cylinder`, `Ellipsoid`, `FacetedSolid`, `Sphere`)
+- `apex.geometry.Solid.getExteriorFaces` — get the exterior Faces on this solid. (inherited by `Box`, `Cylinder`, `Ellipsoid`, `FacetedSolid`, `Sphere`)
+- `apex.geometry.Solid.getExteriorVertices` — get the exterior Vertices on this solid. (inherited by `Box`, `Cylinder`, `Ellipsoid`, `FacetedSolid`, `Sphere`)
+- `apex.geometry.Solid.getInteriorEdges` — get the interior Edges on this solid. (inherited by `Box`, `Cylinder`, `Ellipsoid`, `FacetedSolid`, `Sphere`)
+- `apex.geometry.Solid.getInteriorFaces` — get the interior Faces on this solid. (inherited by `Box`, `Cylinder`, `Ellipsoid`, `FacetedSolid`, `Sphere`)
+- `apex.geometry.Solid.getInteriorVertices` — get the interior Vertices on this solid. (inherited by `Box`, `Cylinder`, `Ellipsoid`, `FacetedSolid`, `Sphere`)
+- `apex.geometry.Solid.getLocation` — The location of this geometry Solid in 3D cartesian space as an apex.ILocation. (inherited by `Box`, `Cylinder`, `Ellipsoid`, `FacetedSolid`, `Sphere`)
+- `apex.geometry.Solid.getMassCenterNominal` — get the center of mass on this solid as an apex.Coordinate object. (inherited by `Box`, `Cylinder`, `Ellipsoid`, `FacetedSolid`, `Sphere`)
+- `apex.geometry.Solid.getMassNominal` — get the nominal mass on this solid. (inherited by `Box`, `Cylinder`, `Ellipsoid`, `FacetedSolid`, `Sphere`)
+- `apex.geometry.Solid.getMeshControlEdges` — A read only meshControlEdgeCollection contain all MeshControlEdge composed by the Faces of this solid. (inherited by `Box`, `Cylinder`, `Ellipsoid`, `FacetedSolid`, `Sphere`)
+- `apex.geometry.Solid.getOrientation` — the orientation of this Solid as an apex.IOrientation. (inherited by `Box`, `Cylinder`, `Ellipsoid`, `FacetedSolid`, `Sphere`)
+- `apex.geometry.Solid.getPrincipalInertiaFrameNominal` — get the principal inertia frame on this solid as a rectangular CoordinateSystem. (inherited by `Box`, `Cylinder`, `Ellipsoid`, `FacetedSolid`, `Sphere`)
+- `apex.geometry.Solid.getPrincipalInertiaTensorNominal` — get the nominal principal inertia tensor on this solid as a Dictionary. (inherited by `Box`, `Cylinder`, `Ellipsoid`, `FacetedSolid`, `Sphere`)
+- `apex.geometry.Solid.getTessellationExterior` — returns the exterior tessellation for this Solid as a Tesselation2D. (inherited by `Box`, `Cylinder`, `Ellipsoid`, `FacetedSolid`, `Sphere`)
+- `apex.geometry.Solid.getTessellationInterior` — returns the interior tessellation for this Solid as a Tesselation2D. (inherited by `Box`, `Cylinder`, `Ellipsoid`, `FacetedSolid`, `Sphere`)
+- `apex.geometry.Solid.getVolume` — get the volume of this solid. (inherited by `Box`, `Cylinder`, `Ellipsoid`, `FacetedSolid`, `Sphere`)
+- `apex.geometry.Solid.identifyFeature` (inherited by `Box`, `Cylinder`, `Ellipsoid`, `FacetedSolid`, `Sphere`)
+- `apex.geometry.Solid.update` — Update one or more of this Solid properties. (inherited by `Box`, `Cylinder`, `Ellipsoid`, `FacetedSolid`, `Sphere`)
+- `apex.geometry.SolidCollection.SolidCollection` — Construct a new SolidCollection. (inherited by `BoxCollection`, `CylinderCollection`, `EllipsoidCollection`, `FacetedSolidCollection`, `SphereCollection`)
+- `apex.geometry.SolidCollection.appendList` — Add Solids from a list to the end of this collection. (inherited by `BoxCollection`, `CylinderCollection`, `EllipsoidCollection`, `FacetedSolidCollection`, `SphereCollection`)
+- `apex.geometry.Sphere.getCoordinateSystem` — A CoordinateSystem that defines the origin and orientation of the Sphere.
+- `apex.geometry.Sphere.getOrigin` — the origin of the Sphere as an ILocation.
+- `apex.geometry.Sphere.getRadius` — The radius of the Sphere. radius represents an Length quantity and must be supplied in the units of Angle that are active in the script unit system.
+- `apex.geometry.Sphere.getReferenceSystem` — Gets A tuple to represent location and orientation to be used for reference system.
+- `apex.geometry.Sphere.setCoordinateSystem` — Set the coordinateSystem of this Sphere.
+- `apex.geometry.Sphere.setDescription` — Set the description of this Sphere.
+- `apex.geometry.Sphere.setName` — Set the name of this Sphere.
+- `apex.geometry.Sphere.setOrientation` — Set the orientation of this Sphere.
+- `apex.geometry.Sphere.setOrigin` — Set the origin of this Sphere.
+- `apex.geometry.Sphere.setRadius` — Set the radius of this Sphere.
+- `apex.geometry.Sphere.update` — Updates the properties of this Sphere.
+- `apex.geometry.SphereCollection.SphereCollection`
+- `apex.geometry.Surface.evaluateClosestLocation` — Given an input location in 3D space, evaluates and returns a result object containing the location on this Surface that is closest to the input location and ... (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.evaluateClosestLocationOnSurface` — DEPRECATED: "THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE NEXT APEX RELEASE " This method has been superseded by the equivalent ... (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.evaluateCoincidence` — Evaluates whether all locations on this Surface lie within the specified tolerance of the input Faces, Surfaces, Cells or Solids. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.evaluateOrientationSurfaceParametricCoordinate` — This method takes a 2D parametric coordinate (u, v) as input and returns the default Orientation at that position on the Surface. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.evaluatePointOnSurface` — This method takes a point in space (as a Point3D object) as input and returns a result object containing the closest point on the Surface as a ... (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.evaluateSurfaceNormal` — evaluateSurfaceNormal (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.evaluateSurfaceParametricCoordinate` — This method takes a parametric Surface coordinate (u, v) as input and returns the equivalent 3D cartesian coordinates as a List of Point3D objects. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.evaluateTangentInDirection` — evaluateTangentInDirection (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.findCoincidentObjects` — Finds all Vertices, Points, Edges, Curves, Faces and Surfaces that are coincident with this Surface, within the supplied tolerance, and returns them in an ... (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.findFaceAtPoint` — findFaceAtPoint (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getArea` — get the area of this surface. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getCentroid` — The location of the centroid of the Surface. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getCylindricalAxis` — return the cylindrical axis of this Surface. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getCylindricalAxisEndPoint` — return the end point of the cylindrical axis of this Surface. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getCylindricalAxisMidPoint` — return the mid point of the cylindrical axis of this Surface. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getCylindricalAxisStartPoint` — return the start point of the cylindrical axis of this Surface. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getExteriorEdgeLoops` — Returns the bounding EdgeLoops of this Surface. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getExteriorEdges` — get the exterior Edges on this surface. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getExteriorIds` (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getExteriorVertices` — get the exterior Vertices on this surface. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getInteriorEdgeLoops` — Returns all interior EdgeLoops that may exist for this Surface. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getInteriorEdges` — get the interior Edges on this surface. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getInteriorIds` (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getInteriorVertices` — get the interior Vertices on this surface. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getIsManifold` — A Boolean value that indicates whether this Surface is manifold or not. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getLocation` — The location of this Surface in 3D cartesian space as an apex.ILocation. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getManifoldRegions` — Returns a List of FaceCollections. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getMassCenterNominal` — get the center of mass on this surface as an apex.Coordinate object. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getMassNominal` — get the nominal mass on this surface. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getMeshControlEdges` — A read only meshControlEdgeCollection contain all MeshControlEdge composed by the Faces of this surface. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getOrientation` — the orientation of this Surface as an apex.IOrientation. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getParametricRange` — The range of the parametric space coordinates used by the Surface, Apex Surfaces compose one or more Faces bounded by Edges. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getPrincipalInertiaFrameNominal` — get the principal inertia frame on this surface as a rectangular CoordinateSystem. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getPrincipalInertiaTensorNominal` — get the nominal principal inertia tensor on this surface as a Dictionary. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getTessellation` — returns the tessellation for this Surface as a Tesselation2D. (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.getType` (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.identifyFeature` (inherited by `FacetedSurface`)
+- `apex.geometry.Surface.update` — Update one or more of this Surface properties. (inherited by `FacetedSurface`)
+- `apex.geometry.SurfaceCollection.SurfaceCollection` — Construct a new SurfaceCollection. (inherited by `FacetedSurfaceCollection`)
+- `apex.geometry.SurfaceCollection.appendList` — Add Surfaces from a list to the end of this collection. (inherited by `FacetedSurfaceCollection`)
+- `apex.geometry.Vertex.evaluateCoincidence` — Evaluates whether this Vertex within the specified tolerance of the input Vertices, Points, Edges, Curves, Faces, Surfaces, Cells or Solids.
+- `apex.geometry.Vertex.findCoincidentObjects` — Finds all Vertices and Points that are coincident with this Vertex, within the supplied tolerance, and returns them in an EntityCollection.
+- `apex.geometry.Vertex.getConnectedCells` — get the connected Cells on this vertex.
+- `apex.geometry.Vertex.getConnectedEdges` — get the connected Edge on this vertex.
+- `apex.geometry.Vertex.getConnectedFaces` — get the connected Faces on this vertex.
+- `apex.geometry.Vertex.getLocation` — The the location of the Vertex in global cartesian space as an apex.ILocation.
+- `apex.geometry.Vertex.getOrientation` — the orientation of this Vertex as an apex.IOrientation
+- `apex.geometry.Vertex.getTessellation` — returns the tessellation for this Vertex as a Tesselation0D.
+- `apex.geometry.VertexCollection.VertexCollection` — Construct a new VertexCollection.
+- `apex.geometry.VertexCollection.appendList` — Add Verticies from a list to the end of this collection.
+- `apex.geometry.ZResultDefeature.getModifiedGeometryBodies` — getModifiedGeometryBodies return the list of modified bodies
+- `apex.geometry.ZResultDefeature.getNotRemovedFeatures` — getNotRemovedFeatures return the list of features not removed
+- `apex.geometry.ZResultDefeature.getNumFeaturesRemoved` — getNumFeaturesRemoved return the number of removed features
+- `apex.geometry.ZResultDefeature.getSeedPointIds` — getSeedPointIds return the list of seed point Id
+- `apex.geometry.ZResultDefeature.getSeedPoints` — getSeedPoints return the list of seed point
+- `apex.geometry.ZResultDefeatureCustomFeature.getEdgesOfFeatures` — return list of edge lists.
+- `apex.geometry.ZResultDefeatureCustomFeature.getNumberOfFeaturesFound` — return the number of features found.
+- `apex.geometry.ZResultEvaluateClosestLocation.getClosestLocation` — The location that lies directly on the target object that is closest to the input location.
+- `apex.geometry.ZResultEvaluateClosestLocation.getVector` — The vector in global Cartesian space that runs between the input location and the point on the target entity that is closest to that input location.
+- `apex.geometry.ZResultEvaluateClosestLocationOnFace.ZResultEvaluateClosestLocationOnFace`
+- `apex.geometry.ZResultEvaluateClosestLocationOnFace.getDistance` — The distance between the input Point and the location on the Face that is closest to it.
+- `apex.geometry.ZResultEvaluateClosestLocationOnFace.getU` — The distance between the input Point and the location on the Face that is closest to it.
+- `apex.geometry.ZResultEvaluateClosestLocationOnFace.getV` — The distance between the input Point and the location on the Face that is closest to it.
+- `apex.geometry.ZResultEvaluateClosestLocationOnFace.getVector` — A vector, in global Cartesian space, that defines the location of the closest point on the Face relative to the input Point.
+- `apex.geometry.ZResultEvaluateCurveParametricCoordinate.getPoints` — The location(s) in 3D Space of the input Curve parametric coordinates as a List of apex.construct.Point3D.
+- `apex.geometry.ZResultEvaluateFaceCurvature.ZResultEvaluateFaceCurvature`
+- `apex.geometry.ZResultEvaluateFaceCurvature.getCurvature1` — Curvature in the principal 1 direction at point UV.
+- `apex.geometry.ZResultEvaluateFaceCurvature.getCurvature2` — Curvature in the principal 2 direction at point UV.
+- `apex.geometry.ZResultEvaluateFaceCurvature.getNormal` — A unit vector that defines normal at point UV.
+- `apex.geometry.ZResultEvaluateFaceCurvature.getPrincipal1` — A unit vector that defines principal 1 direction of curvature at point UV.
+- `apex.geometry.ZResultEvaluateFaceCurvature.getPrincipal2` — A unit vector that defines principal 2 direction of curvature at point UV.
+- `apex.geometry.ZResultEvaluateFaceTangent.ZResultEvaluateFaceTangent`
+- `apex.geometry.ZResultEvaluateFaceTangent.getuTangent` — A vector that defines the tangent to the Face at the input location in a direction parallel to the local Face parametric U direction.
+- `apex.geometry.ZResultEvaluateFaceTangent.getvTangent` — A vector that defines the tangent to the Face at the input location in a direction parallel to the local Face parametric V direction.
+- `apex.geometry.ZResultEvaluatePointOnCurve.getParametricCoordinates` — The parametric coordinates of input point as a floating point value representing the parametric location on the Curve.
+- `apex.geometry.ZResultEvaluatePointOnFace.ZResultEvaluatePointOnFace`
+- `apex.geometry.ZResultEvaluatePointOnFace.getU` — The distance between the input Point and the location on the Face that is closest to it.
+- `apex.geometry.ZResultEvaluatePointOnFace.getV` — The distance between the input Point and the location on the Face that is closest to it.
+- `apex.geometry.ZResultEvaluatePointOnSurface.getParametricCoordinates` — The parametric coordinates of input point as an apex.construct.ParametricCoordinate2D.
+- `apex.geometry.ZResultEvaluateSurfaceParametricCoordinate.getPoints` — The location(s) in 3D Space of the input Surface parametric coordinate as a List of apex.construct.Point3D.
+- `apex.geometry.ZResultFindGeometryFaults.getFaultTypes` — return a list of fault types of the faults matching Faults[0]
+- `apex.geometry.ZResultFindGeometryFaults.getFaults` — return Tuples containing Topology, GeometryBody and Parts of faults that were found.
+- `apex.geometry.ZResultFindGeometryFaults.getNumGeometryFaults` — return Total number of geometry faults found
+- `apex.geometry.ZResultFindSmallSurfaceFeatures.getNumSmallFeaturesIdentified` — return Total number of small features identified
+- `apex.geometry.ZResultFindSmallSurfaceFeatures.getSmallFeatures` — return Dictionaries containing Topology, GeometryBody and Parts of the small features that were found.
+- `apex.geometry.ZResultGeometrySimplify.getNotSimplifiedGeometries` — return the list of Not Simplified Geometries
+- `apex.geometry.ZResultGeometrySimplify.getSimplifiedGeometries` — return the list of Simplified Geometries
+- `apex.geometry.ZResultIdentifyCustomFeature.getEdgesOfFeatures` — return list of edge lists.
+- `apex.geometry.ZResultIdentifyCustomFeature.getNumberOfFeaturesFound` — return the number of features found.
+- `apex.geometry.ZResultIdentifyFeature.getFeatureDimensions` — return a list of the featureDimensions
+- `apex.geometry.ZResultIdentifyFeature.getFeaturesIdentified` — return the list of features identified
+- `apex.geometry.ZResultIdentifyFixSmallFeatures.getNumFeaturesFixed` — return Total number of small features that were changed by AutoFix.This will be 0 if AutoFix is FALSE
+- `apex.geometry.ZResultIdentifyFixSmallFeatures.getNumFeaturesIdentified` — return Total number of small features identified
+- `apex.geometry.ZResultIdentifyFixSmallFeatures.getSmallFeatures` — return Dictionaries containing information about the small features that were found.Features that were succesfully fixed are not included in this list Each ...
+- `apex.geometry.ZResultSolidIdentifyFeature.getFeaturesIdentified` — return the features identified
+- `apex.geometry.ZResultSplitCurvesWithEntities.getNewEdges` — return an EdgeCollection containing all of the new Edges that were introduced by the split operation.
+- `apex.geometry.ZResultSplitSurfacesWithEntities.getNewFaces` — return a FaceCollection containing all of the new Faces that were introduced by the split operation.
+- `apex.instrument.ClearanceSensor.getMaxDistance` — Gets maximum distance of clearance sensor.
+- `apex.instrument.ClearanceSensor.getModelAssociation` — Gets optional argument to indicate the Model Association is used, it is needed ONLY when the argument of "useModelAssociation" is set as true.
+- `apex.instrument.ClearanceSensor.getParts` — Gets a list contains 2 parts between which the clearance sensor is created.
+- `apex.instrument.ClearanceSensor.getUseModelAssociation` — Gets optional argument to indicate if Model association is used.
+- `apex.instrument.ClearanceSensor.update` — update clearance sensor object.
+- `apex.instrument.ClearanceSensorCollection.ClearanceSensorCollection` — Construct a new ClearanceSensorCollection.
+- `apex.instrument.XSectionForceSensor.getLocation` — Returns location of the XSectionForceSensor.
+- `apex.instrument.XSectionForceSensor.getOrientation` — Returns glef.Orientation of the XSectionForceSensor.
+- `apex.instrument.XSectionForceSensor.getSensorCentroidLocation` — Returns apex.instrument.SensorLocationMethod of the XSectionForceSensor.
+- `apex.instrument.XSectionForceSensor.getTarget` — Returns select entities that the XSectionForceSensor is associated with.
+- `apex.instrument.XSectionForceSensor.update` — Update X-Section Force Sensor properties.
+- `apex.instrument.XSectionForceSensorArray.appendSensors` — Appends a List of XSectionForceSensors to this XSectionForceSensorArray.
+- `apex.instrument.XSectionForceSensorArray.getSensors` — Returns sensors that the XSectionForceSensorArray contains.
+- `apex.instrument.XSectionForceSensorArray.insertSensors` — Inserts a List of XSectionForceSensors into this XSectionForceSensorArray at a specified index.
+- `apex.instrument.XSectionForceSensorArray.removeSensors` — Remove XSectionForceSensors from this XSectionForceSensorArray.
+- `apex.instrument.XSectionForceSensorArray.update` — Update X-Section Force Sensor properties.
+- `apex.instrument.XSectionForceSensorArrayCollection.XSectionForceSensorArrayCollection` — Construct a new XSectionForceSensorArrayCollection.
+- `apex.instrument.XSectionForceSensorCollection.XSectionForceSensorCollection` — Construct a new XSectionForceSensorCollection.
+- `apex.mesh.CurveMesh.getElementOrder` — return the elementOrder of the curve mesh.
+- `apex.mesh.CurveMesh.getMeshSize` — return the meshsize of the curve mesh.
+- `apex.mesh.CurveMesh.getTarget` — return the list of edges which are meshed.
+- `apex.mesh.CurveMesh.update` — update one or more of this curve mesh properties.
+- `apex.mesh.CurveMeshCollection.CurveMeshCollection` — Construct a new CurveMeshCollection.
+- `apex.mesh.CurveMeshCollection.appendList` — Add CurveMesh from a list to the end of this collection.
+- `apex.mesh.EdgeSeed.getBiasType`
+- `apex.mesh.EdgeSeed.getEdge`
+- `apex.mesh.EdgeSeed.getElementEdgeLength`
+- `apex.mesh.EdgeSeed.getNumElementEdges`
+- `apex.mesh.EdgeSeed.update` — This methods is used to update one or more public attributes of the EdgeSeed.
+- `apex.mesh.EdgeSeedCollection.EdgeSeedCollection` — Construct a new EdgeSeedCollection.
+- `apex.mesh.EdgeSeedCollection.appendList` — Add EdgeSeed from a list to the end of this collection.
+- `apex.mesh.Element.assignMaterial` — assign a material to this element.
+- `apex.mesh.Element.assignShellSection` — DEPRECATED: THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.PLEASE USE apex.attribute.createFieldThicknessOffsetConstant. assign a shell ...
+- `apex.mesh.Element.getBehavior` — Returns the Behavior associated with this element.
+- `apex.mesh.Element.getConnectedElements` — Returns a collection of all elements that are connected to this element by sharing one or more nodes.
+- `apex.mesh.Element.getConstraints` — Returns a collection of all Constraints that are applied to this Element.
+- `apex.mesh.Element.getEdges` — Returns a read only ElementEdgeCollection of the edges of this element.
+- `apex.mesh.Element.getElementProperty2D` — Returns the ElementProperty2D associated with this element.
+- `apex.mesh.Element.getElementProperty3D` — Returns the ElementProperty3D associated with this element.
+- `apex.mesh.Element.getFaces` — Returns a read only ElementFaceCollection of the faces of this element.
+- `apex.mesh.Element.getFields` — Returns all fields associated with this element.
+- `apex.mesh.Element.getInitialConditions` — Returns a collection of all InitialConditions that are applied to this Element.
+- `apex.mesh.Element.getLoads` — Returns a collection of all Loads that are applied to this element.
+- `apex.mesh.Element.getMaterial` — Returns the material associated with this element.
+- `apex.mesh.Element.getNodeIds` — Returns an ordered List of the Node ID's that define the topology of the element.
+- `apex.mesh.Element.getNodes` — A read only ordered collection of the nodes that define the element topology.
+- `apex.mesh.Element.getNormal` — returns a vector representing the outward normal of the element.
+- `apex.mesh.Element.getOffset` — Returns the offset of the element when the element is 2D element.
+- `apex.mesh.Element.getParent` — Returns the parent MeshBody for this element.
+- `apex.mesh.Element.getReferencedBy` — returns a collection of all entities that directly Reference this Element
+- `apex.mesh.Element.getSection` — DEPRECATED: THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.PLEASE USE apex.mesh.element.getFields Returns the Section associated with ...
+- `apex.mesh.Element.getSpan` — Returns the BeamSpan associated with this element.
+- `apex.mesh.Element.getThickness` — Returns the thickness of the element when the element is 2D element.
+- `apex.mesh.Element.getTopology` — Returns the topology of this element as an apex.mesh.ElementTopology enumeration.
+- `apex.mesh.Element.reverse` — Reverses the Element Node order and returns the Element For example a linear Quadrilateral element with original node ordering of 1-2-3-4 will be modified to ...
+- `apex.mesh.Element.set12Edge` — Sets the desired 1-2 edge of the element and returns the Element.
+- `apex.mesh.ElementCollection.ElementCollection` — Construct a new ElementCollection.
+- `apex.mesh.ElementCollection.appendList` — Add Element from a list to the end of this collection.
+- `apex.mesh.ElementEdge.getAxisAlignedBoundingBox` — Returns the axis aligned bounding box around the object in space.
+- `apex.mesh.ElementEdge.getConnectedElements` — Returns a collection of all elements that are connected to this element edge by sharing one or more nodes.
+- `apex.mesh.ElementEdge.getConstraints` — Returns a collection of all Constraints that are applied to this ElementEdge.
+- `apex.mesh.ElementEdge.getInitialConditions` — Returns a collection of all InitialConditions that are applied to this ElementEdge.
+- `apex.mesh.ElementEdge.getLoads` — Returns a collection of all Loads that are applied to this ElementEdge.
+- `apex.mesh.ElementEdge.getNodes` — Returns an ordered collection of the nodes that define this ElementEdge.
+- `apex.mesh.ElementEdge.getParent` — Returns the parent element from this ElementEdge.
+- `apex.mesh.ElementEdgeCollection.ElementEdgeCollection` — Construct a new ElementEdgeCollection.
+- `apex.mesh.ElementEdgeCollection.appendList` — Add ElementEdge from a list to the end of this collection.
+- `apex.mesh.ElementFace.clearHighlight` — Removes highlighting from the object.
+- `apex.mesh.ElementFace.getAxisAlignedBoundingBox` — Returns the axis aligned bounding box around the object in space.
+- `apex.mesh.ElementFace.getConnectedElements` — Returns a collection of all elements that are connected to this element face by sharing one or more nodes.
+- `apex.mesh.ElementFace.getDisplacementConstraints` — Returns a collection of all DisplacementConstraints that are applied to this ElementFace.
+- `apex.mesh.ElementFace.getEdges` — Returns the element edges that comprise this ElementFace as an ElementEdgeCollection.
+- `apex.mesh.ElementFace.getLoads` — Returns a collection of all Loads that are applied to this ElementFace.
+- `apex.mesh.ElementFace.getNodes` — Returns an ordered collection of the nodes that define this ElementFace.
+- `apex.mesh.ElementFace.getNormal` — Returns the outward normal of the element face using the right hand rule with respect to the face node order.
+- `apex.mesh.ElementFace.getParent` — Returns the parent element from this ElementFace.
+- `apex.mesh.ElementFace.highlight` — Highlights the object using the highlight parameters in the argument list.
+- `apex.mesh.ElementFace.highlightColorRGB` — The highlight color assigned to the object as a ColorRGB object that support 8 bit RGB color definitions.
+- `apex.mesh.ElementFace.highlightEdgeWeight` — The edge weight assigned to the object.
+- `apex.mesh.ElementFace.highlightPointSize` — The highlight point size assigned to the object.
+- `apex.mesh.ElementFace.isHighlighted` — Boolean indicating whether the object is highlighted or not.
+- `apex.mesh.ElementFaceCollection.ElementFaceCollection` — Construct a new ElementFaceCollection.
+- `apex.mesh.ElementFaceCollection.appendList` — Add ElementFace from a list to the end of this collection.
+- `apex.mesh.ElementFaceCollection.getElementFaceDictionary` — Gets the ID's and topologies of the element faces in the ElementFaceCollection using a nested dictionary.
+- `apex.mesh.ElementIdSetCollection.ElementIdSetCollection` — Construct a new ElementIdSetCollection.
+- `apex.mesh.ElementIdSetCollection.appendList` — Add ElementIdSet from a list to the end of this collection.
+- `apex.mesh.HexMesh.getElementGeometryDeviationRatio` — return the value of elementGeometryDeviationRatio.
+- `apex.mesh.HexMesh.getElementMinEdgeLengthRatio` — return the value of elementMinEdgeLengthRatio.
+- `apex.mesh.HexMesh.getElementOrder` — return the elementOrder of the hex mesh.
+- `apex.mesh.HexMesh.getMappedMeshDominanceLevel` — return the value of mappedMeshDominanceLevel.
+- `apex.mesh.HexMesh.getMeshAlgorithm` — return the value of meshAlgorithm.
+- `apex.mesh.HexMesh.getMeshMethod` — return the meshMethod of the hex mesh.
+- `apex.mesh.HexMesh.getMeshSize` — return the meshsize of the hex mesh.
+- `apex.mesh.HexMesh.getRefineMeshUsingCurvature` — return flag: enable/disable the curvature refinement option.
+- `apex.mesh.HexMesh.getTarget` — return solid which are meshed.
+- `apex.mesh.HexMesh.update` — update one or more of this hex mesh properties.
+- `apex.mesh.HexMeshCollection.HexMeshCollection` — Construct a new HexMeshCollection.
+- `apex.mesh.HexMeshCollection.appendList` — Add HexMesh from a list to the end of this collection.
+- `apex.mesh.MeshBody.asEntity` — return the (base) Entity Object of this MeshBody. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.assignMaterial` — assign a material to this MeshBody. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.assignShellSection` — DEPRECATED: THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.PLEASE USE apex.attribute.createFieldThicknessOffsetConstant. assign a shell ... (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.createElement` — Creates an element in this MeshBody. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.createElements` — Creates multiple Elements in this MeshBody. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.createNode` — Creates a Node in this MeshBody at the provided location and returns it. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.createNodes` — Creates and returns a series of Nodes at the provided locations in this MeshBody. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.deleteElements` — Deletes elements, and optionally any resulting unreferenced Nodes, from this MeshBody. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.deleteUnreferencedNodes` — Removes all Nodes in this MeshBody that are not referenced by any other Element or Node Tie in the Model. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.disassociateFromGeometry` — Disassociates this MeshBody from Geometry if it is in fact associated. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.exportFEModel` — Exports the contents of the MeshBody to a Nastran file. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.exportMarc` — Exports the contents of the MeshBody to a Marc file. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.getAssociatedGeometry` — returns the GeometryBody that this MeshBody is associated with or 'None' if the MeshBody is an orphan mesh and not associated to geometry. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.getElement` — Get the element in this MeshBody. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.getElementConnectivities` — Returns a Dictionary containing the Element connectivity for every element, by element topology type, in this MeshBody. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.getElementEdge` — this method is used to search and return a specified ElementEdge by giving an element edge's combineID(ElementID + EdgeID) in string. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.getElementEdges` — Returns an ElementEdgeCollection of the element edges requested in the target argument. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.getElementFaces` — get element face collection. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.getElementFacesById` — get element face collection. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.getElementIDs` — Returns a Dictionary containing the Element ID's for every element, by element topology type, in this MeshBody. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.getElements` — Get a collection of Element in this MeshBody. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.getNode` — Get the node in this MeshBody. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.getNodeCoordinates` — Returns an array of node coordinates for every Node in this MeshBody. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.getNodeIDs` — Returns an array of Node ID's for all Nodes in this MeshBody. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.getNodes` — Get a collection of Node in this MeshBody. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.getParent` — Get the parent Part for this MeshBody. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.getReferenceSystem` — Gets A tuple to represent location and orientation to be used for reference system. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.getSubMesh` — returns the subMesh in this MeshBody. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.getSubMeshes` — returns a collection of SubMeshes from this MeshBody as a SubMeshCollection. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.setParent` — Set a Part to be the new parent for this MeshBody. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.setReferenceSystem` (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBody.update` — Update one or more of this mesh body properties. (inherited by `CurveMesh`, `HexMesh`, `PointMesh`, `SolidMesh`, `SurfaceMesh`)
+- `apex.mesh.MeshBodyCollection.MeshBodyCollection` — Construct a new MeshBodyCollection. (inherited by `CurveMeshCollection`, `HexMeshCollection`, `PointMeshCollection`, `SolidMeshCollection`, `SurfaceMeshCollection`)
+- `apex.mesh.MeshBodyCollection.appendList` — Add MeshBody from a list to the end of this collection. (inherited by `CurveMeshCollection`, `HexMeshCollection`, `PointMeshCollection`, `SolidMeshCollection`, `SurfaceMeshCollection`)
+- `apex.mesh.Node.assignAnalysisSystem` — assign a coordinate system as analysis coordinate system to the target Node.
+- `apex.mesh.Node.getAnalysisSystem` — The analysis coordinate system of the Node.
+- `apex.mesh.Node.getConstraints` — Returns a collection of all Constraints that are applied to this Node.
+- `apex.mesh.Node.getCoordinates` — Returns the coordinates of this Node in 3D space as an apex.Coordinate.
+- `apex.mesh.Node.getDisplacementConstraints` — Returns a collection of all Constraints that are applied to this Node.
+- `apex.mesh.Node.getElements` — Returns a collection of all Elements that reference this Node.
+- `apex.mesh.Node.getInitialConditions` — Returns a collection of all InitialConditions that are applied to this Node.
+- `apex.mesh.Node.getIsInGlobal` — Returns the True or False status if the node stored in global or not.
+- `apex.mesh.Node.getLoads` — Returns a collection of all Loads that are applied to this Node.
+- `apex.mesh.Node.getParent` — Returns the parent MeshBody for this Node.
+- `apex.mesh.Node.getReferenceSystem` — CoordinateSystem in which the coordinates of the node is defined.
+- `apex.mesh.Node.getReferencedBy` — returns a collection of all entities that directly Reference this Node
+- `apex.mesh.Node.update` — Updates the node including location, definition location coordinate system and analysis coordinate system assigned to the node.
+- `apex.mesh.Node.updateCoordinates` — Updates the spatial coordinates of the Node.
+- `apex.mesh.NodeCollection.NodeCollection` — Construct a new NodeCollection.
+- `apex.mesh.NodeCollection.appendList` — Add Node from a list to the end of this collection.
+- `apex.mesh.NodeIdSetCollection.NodeIdSetCollection` — Construct a new NodeIdSetCollection.
+- `apex.mesh.NodeIdSetCollection.appendList` — Add NodeIdSet from a list to the end of this collection.
+- `apex.mesh.PointMesh.update` — update name of this point mesh.
+- `apex.mesh.PointMeshCollection.PointMeshCollection` — Construct a new PointMeshCollection.
+- `apex.mesh.PointMeshCollection.appendList` — Add PointMesh from a list to the end of this collection.
+- `apex.mesh.SeedPoint.getCleanupTolerance` — retrieve the cleanup tolerance of the Seed Point
+- `apex.mesh.SeedPoint.getSearchDistance` — retrieve the search distance of the Seed Point
+- `apex.mesh.SeedPoint.getSource` — retrieve the source body of the Seed Point
+- `apex.mesh.SeedPoint.getTarget` — retrieve the target edge/face of the Seed Point
+- `apex.mesh.SeedPointCollection.SeedPointCollection` — Construct a new SeedPointCollection.
+- `apex.mesh.SeedPointCollection.appendList` — Add SeedPoint from a list to the end of this collection.
+- `apex.mesh.SolidMesh.getApproximateNumLayers` — return the value of approximate layer number.
+- `apex.mesh.SolidMesh.getAutoimprove` — boolean property that indicates whether automatic element quality improvement was performed on this mesh when it was created.
+- `apex.mesh.SolidMesh.getCoarsenMeshInternally` — return flag: enable/disable the internalCoarsen option.
+- `apex.mesh.SolidMesh.getCollapseShortElementEdges` — return flag: enable/disable the collapseShortElementEdges option.
+- `apex.mesh.SolidMesh.getCoreType` — return the value of hybrid mesh core type.
+- `apex.mesh.SolidMesh.getCreateFeatureMeshOnChamfers` — return flag: enable/disable the create Chamfer option.
+- `apex.mesh.SolidMesh.getCreateFeatureMeshOnCylinders` — return flag: enable/disable the create Cylinder option.
+- `apex.mesh.SolidMesh.getCreateFeatureMeshOnFillets` — return flag: enable/disable the create Fillet option.
+- `apex.mesh.SolidMesh.getCreateFeatureMeshOnQuadFaces` — return flag: enable/disable the create QuadFaces option.
+- `apex.mesh.SolidMesh.getCreateFeatureMeshOnSemiCylinders` — return flag: enable/disable the create SemiCylinder option.
+- `apex.mesh.SolidMesh.getCreateFeatureMeshOnWashers` — return flag: enable/disable the create Washer option.
+- `apex.mesh.SolidMesh.getCreateFeatureMeshes` — return flag: enable/disable the create FeatureMeshes option.
+- `apex.mesh.SolidMesh.getCreateLayeredMesh` — return flag: enable/disable the create QuadFaces option.
+- `apex.mesh.SolidMesh.getCreateMinLayers` — return flag: enable/disable the create mininal layers option.
+- `apex.mesh.SolidMesh.getEdgeLengthCollapseLimit` — return the value of collapseShortElementEdges.
+- `apex.mesh.SolidMesh.getElementGeometryDeviationRatio` — return the value of elementGeometryDeviationRatio.
+- `apex.mesh.SolidMesh.getElementMinEdgeLengthRatio` — return the value of elementMinEdgeLengthRatio.
+- `apex.mesh.SolidMesh.getElementOrder` — return the elementOrder of the solid mesh.
+- `apex.mesh.SolidMesh.getFaceMeshGrowthRatio` — return the value of face mesh growth size.
+- `apex.mesh.SolidMesh.getFeatureMeshtypes` — return optional argument controlling the types of feature meshes that this method will attempt to create.
+- `apex.mesh.SolidMesh.getGrowFaceMeshSize` — return flag: enable/disable the grow face mesh size option.
+- `apex.mesh.SolidMesh.getIgnoreBadEdges` — return flag: enable/disable the ignoreBadEdges option.
+- `apex.mesh.SolidMesh.getInteriorCoarseningFactor` — return the value of interiorCoarseningFactor.
+- `apex.mesh.SolidMesh.getMeshFlow` — return the type of MeshFlow to use for skin surface mesh in the SolidMesh.
+- `apex.mesh.SolidMesh.getMeshSize` — return the meshsize of the solid mesh.
+- `apex.mesh.SolidMesh.getMeshType` — return the meshType of the solid mesh.
+- `apex.mesh.SolidMesh.getProjectMidsideNodesToGeometry` — return flag: enable/disable the project middle nodes to geometry option.
+- `apex.mesh.SolidMesh.getRefineMeshUsingCurvature` — return flag: enable/disable the curvature refinement option.
+- `apex.mesh.SolidMesh.getSkinType` — return the value of hybrid mesh skin face type.
+- `apex.mesh.SolidMesh.getTarget` — return the Solid which are meshed.
+- `apex.mesh.SolidMesh.getThinSectionThreshold` — return the value of thinSectionThreshold.
+- `apex.mesh.SolidMesh.getUseMeshFlowOptimization` — return flag: enable/disable enhance mesh flow to improve quality.
+- `apex.mesh.SolidMesh.update` — Updates one or more properties of this SolidMesh.
+- `apex.mesh.SolidMeshCollection.SolidMeshCollection` — Construct a new SolidMeshCollection.
+- `apex.mesh.SolidMeshCollection.appendList` — Add SolidMesh from a list to the end of this collection.
+- `apex.mesh.SubMesh.asEntity` — return the (base) Entity Object of this SubMesh. (inherited by `SubMesh0D`, `SubMesh1D`, `SubMesh2D`, `SubMesh3D`)
+- `apex.mesh.SubMesh.getElements` — returns a collection of Elements composed by this submesh. (inherited by `SubMesh0D`, `SubMesh1D`, `SubMesh2D`, `SubMesh3D`)
+- `apex.mesh.SubMesh.getIndex` — SubMesh only has id, but does not have index. (inherited by `SubMesh0D`, `SubMesh1D`, `SubMesh2D`, `SubMesh3D`)
+- `apex.mesh.SubMesh.getNodes` — returns a collection of Nodes referenced by this submesh. (inherited by `SubMesh0D`, `SubMesh1D`, `SubMesh2D`, `SubMesh3D`)
+- `apex.mesh.SubMesh.getParent` — returns the MeshBody that composes this submesh. (inherited by `SubMesh0D`, `SubMesh1D`, `SubMesh2D`, `SubMesh3D`)
+- `apex.mesh.SubMesh0D.getIndex` — SubMesh only has id, but does not have index.
+- `apex.mesh.SubMesh1D.getEdge` — returns the Edge associated with this Submesh1D or 'None' if the Submesh is not associated to geometry (orphan mesh).
+- `apex.mesh.SubMesh1D.getIndex` — SubMesh only has id, but does not have index.
+- `apex.mesh.SubMesh2D.getFace` — returns the Face associated with this Submesh2D or 'None' if the submesh is not associated to geometry (orphan mesh).
+- `apex.mesh.SubMesh2D.getIndex` — SubMesh only has id, but does not have index.
+- `apex.mesh.SubMesh3D.getCell` — returns the Cell associated with this Submesh3D or 'None' if the submesh is not associated to geometry (orphan mesh).
+- `apex.mesh.SubMesh3D.getIndex` — SubMesh only has id, but does not have index.
+- `apex.mesh.SubMeshCollection.SubMeshCollection` — Construct a new SubMeshCollection.
+- `apex.mesh.SubMeshCollection.appendList` — Add SubMesh from a list to the end of this collection.
+- `apex.mesh.SurfaceMesh.getApplyTriaReduction` — return flag: enable/disable tria reduction process.
+- `apex.mesh.SurfaceMesh.getCreateFeatureMeshes` — return flag: enable/disable the UseMeshFlowOptimization option.
+- `apex.mesh.SurfaceMesh.getCurvatureRefinement` — return flag: enable/disable the curvature refinement option.
+- `apex.mesh.SurfaceMesh.getElementGeometryDeviationRatio` — return the value of elementGeometryDeviationRatio.
+- `apex.mesh.SurfaceMesh.getElementMinEdgeLengthRatio` — return the value of elementMinEdgeLengthRatio.
+- `apex.mesh.SurfaceMesh.getElementOrder` — return the elementOrder of the surface mesh.
+- `apex.mesh.SurfaceMesh.getFaceMeshGrowthRatio` — return the value of face mesh growth size.
+- `apex.mesh.SurfaceMesh.getFeatureMeshtypes` — return optional argument controlling the types of feature meshes that this method will attempt to create.
+- `apex.mesh.SurfaceMesh.getGrowFaceMeshSize` — return flag: enable/disable the grow face mesh size option.
+- `apex.mesh.SurfaceMesh.getMappedMeshDominanceLevel` — return the value of mappedMeshDominanceLevel.
+- `apex.mesh.SurfaceMesh.getMeshFlow` — return the type of MeshFlow to use in the SurfaceMesh.
+- `apex.mesh.SurfaceMesh.getMeshMethod` — return the meshMethod of the surface mesh.
+- `apex.mesh.SurfaceMesh.getMeshSize` — return the meshsize of the surface mesh.
+- `apex.mesh.SurfaceMesh.getMeshType` — return the meshType of the surface mesh.
+- `apex.mesh.SurfaceMesh.getProjectMidsideNodesToGeometry` — return flag: enable/disable the project middle nodes to geometry option.
+- `apex.mesh.SurfaceMesh.getTarget` — return the list of faces which are meshed.
+- `apex.mesh.SurfaceMesh.getTriaReductionStrength` — return the value of triaReductionStrength.
+- `apex.mesh.SurfaceMesh.getUseMeshFlowOptimization` — return flag: enable/disable enhance mesh flow to improve quality.
+- `apex.mesh.SurfaceMesh.update` — update one or more of this surface mesh properties.
+- `apex.mesh.SurfaceMeshCollection.SurfaceMeshCollection` — Construct a new SurfaceMeshCollection.
+- `apex.mesh.SurfaceMeshCollection.appendList` — Add SurfaceMesh from a list to the end of this collection.
+- `apex.mesh.ZRenumberByOffset.ZRenumberByOffset`
+- `apex.mesh.ZRenumberByOffset.getMaxCoordinateSystemId` — return the largest Coordinate System ID that was assigned during renumbering
+- `apex.mesh.ZRenumberByOffset.getMaxElementId` — return the max element id
+- `apex.mesh.ZRenumberByOffset.getMaxNodeId` — return the max node id
+- `apex.mesh.ZRenumberByOffset.getMinCoordinateSystemId` — return the smallest Coordinate System ID that was assigned during renumbering
+- `apex.mesh.ZRenumberByOffset.getMinElementId` — return the min element id
+- `apex.mesh.ZRenumberByOffset.getMinNodeId` — return the min node id
+- `apex.mesh.ZRenumberByStartId.ZRenumberByStartId`
+- `apex.mesh.ZRenumberByStartId.getEndCoordinateSystemId` — return the highest Coordinate System ID that was assigned during the renumber operation
+- `apex.mesh.ZRenumberByStartId.getEndElementId` — return the end element id
+- `apex.mesh.ZRenumberByStartId.getEndNodeId` — return the end node id
+- `apex.mesh.ZResultCreateCurveMesh.getCurveMeshes` — return a Collection of CurveMeshes that were succesfully created
+- `apex.mesh.ZResultCreateHexMesh.getHexMeshes` — return a Collection of HexMeshes that were succesfully created
+- `apex.mesh.ZResultCreateMesh.getNumElementsCreated` — return The total number of elements created (inherited by `ZResultCreateCurveMesh`, `ZResultCreateHexMesh`, `ZResultCreateSolidMesh`, `ZResultCreateSurfaceMesh`)
+- `apex.mesh.ZResultCreateMesh.getUnmeshedGeometry` — return a Collection of Geometry (Surfaces/Solids/Faces) that failed to mesh (inherited by `ZResultCreateCurveMesh`, `ZResultCreateHexMesh`, `ZResultCreateSolidMesh`, `ZResultCreateSurfaceMesh`)
+- `apex.mesh.ZResultCreateSolidMesh.getSolidMeshes` — return a Collection of SolidMeshes that were succesfully created
+- `apex.mesh.ZResultCreateSurfaceMesh.getSurfaceMeshes` — return a Collection of SurfaceMeshes that were succesfully created
+- `apex.post.ChartPlot.activate` — Activate the ChartPlot.
+- `apex.post.ChartPlot.clearAllDataSeries` — Clear all curves on the ChartPlot.
+- `apex.post.ChartPlot.createSBMTChart` — Creates SBMTChart and adds it to the ChartPlot.
+- `apex.post.ChartPlot.deactivate` — Deactivate the ChartPlot.
+- `apex.post.ChartPlot.update` — Updates one or more properties of the ChartPlot.
+- `apex.post.ColorMap.getColorMapSegmentMethod` — Returns the ColorMapSegmentMethod.
+- `apex.post.ColorMap.getDisplayContinuousColors` — Returns a boolean indicating if the ColorMap uses continous varying colors for color .
+- `apex.post.ColorMap.getEnd` — Returns the ending value of ColorMap.
+- `apex.post.ColorMap.getName` — Returns the ColorMap name.
+- `apex.post.ColorMap.getStart` — Returns the starting value of ColorMap.
+- `apex.post.ColorMap.getTableValues` — Returns a list of TableValue - pair of (value, color).
+- `apex.post.ColorMap.getUseOutOfRangeColors` — Returns a boolean indicating if out of range colors are used.
+- `apex.post.ColorMap.getisLocked` — Returns a boolean indicating if the ColorMap is locked.
+- `apex.post.ColorMap.update` — Updates one or more properties of the ColorMap.
+- `apex.post.ContourVisualization.getColorMap` — Returns the Color Map.
+- `apex.post.ContourVisualization.getCompositeFailure` — Returns the Composite Failure method.
+- `apex.post.ContourVisualization.getContourStyle` — Returns Contour Style.
+- `apex.post.ContourVisualization.getCoordinateSystem` — Returns the CoordinateSystem information, if defined.
+- `apex.post.ContourVisualization.getCoordinateSystemMethod` — Returns the System Type that the direction scalar data such as X-Component of Stress will be transformed to prior to display.
+- `apex.post.ContourVisualization.getCurrentResultQuantity` — Returns the Result Quantity such as Stress.
+- `apex.post.ContourVisualization.getCurrentReusltDerivation` — Returns the Result Derivation such as vonMises.
+- `apex.post.ContourVisualization.getElementNodalProcessing` — Returns the Element Nodal Processing method.
+- `apex.post.ContourVisualization.getLayerEnvelopingMethod` — Returns the Layer Enveloping Methods which is applicable when multiple layers are specified.
+- `apex.post.ContourVisualization.getLayerIdentificationMethod` — Returns the Layer Identification Method.
+- `apex.post.ContourVisualization.getLayers` — Returns a list of layers, if applicable.
+- `apex.post.ContourVisualization.update` — Update ContourVisualization.
+- `apex.post.DataSeriesOverSteps.getResultDerivation` — Returns The Result Derivation that user want to check and plot.
+- `apex.post.DataSeriesOverSteps.getResultQuantity` — Returns the results quantity that user want to check and plot.
+- `apex.post.DataSeriesOverSteps.getSteps` — Returns the steps collection from which the results extracted.
+- `apex.post.DataSeriesOverSteps.getTargets` — Return the Plot target from which the results data extracted.
+- `apex.post.DataSeriesOverSteps.getUnitXaxis` — Returns the unit used in the Plot X.
+- `apex.post.DataSeriesOverSteps.getUnitYaxis` — Returns the unit used in the Plot in Y.
+- `apex.post.DataSeriesOverStepsCollection.DataSeriesOverStepsCollection` — Construct a new DataSeriesOverStepsCollection.
+- `apex.post.DataSeriesTransient.getEvent` — Gets An event from which the transient data is extracted.
+- `apex.post.DataSeriesTransient.getResultDerivation` — Returns the ResultDerivation for which the data in this DataSeries was extracted.
+- `apex.post.DataSeriesTransient.getResultQuantity` — Returns the ResultQuantity for which the data in this DataSeries was extracted.
+- `apex.post.DataSeriesTransient.getTarget` — Gets Optional target, as an apex.Entity for this DataSeriesTime.
+- `apex.post.DataSeriesVMTBeamSpan.getBeamSpan` — Returns the BeamSpan from which the data in this DataSeries was extracted.
+- `apex.post.DataSeriesVMTBeamSpan.getElementNodePositions` — Returns a list of string defining the element nodes from which the underlying data was extracted The data used to display VMT diagrams from BeamSpans is ...
+- `apex.post.DataSeriesVMTBeamSpan.getEvent` — Returns the Event from which the data in this DataSeries was extracted.
+- `apex.post.DataSeriesVMTBeamSpan.getResultDerivation` — Returns the ResultDerivation for which the data in this DataSeries was extracted.
+- `apex.post.DataSeriesVMTBeamSpan.getResultQuantity` — Returns the ResultQuantity for which the data in this DataSeries was extracted.
+- `apex.post.DataSeriesVMTSensorArray.getEvent` — Returns the Event from which the data in this DataSeries was extracted.
+- `apex.post.DataSeriesVMTSensorArray.getResultQuantity` — Returns the ResultQuantity for which the data in this DataSeries was extracted.
+- `apex.post.DataSeriesVMTSensorArray.getVectorComponent` — Returns the VectorComponent for which the data in this DataSeries is displayed.
+- `apex.post.DataSeriesVMTSensorArray.getXSensorArray` — Returns the XSectionForceSensorArray from which the data in this DataSeries was extracted.
+- `apex.post.DataVisualization.asContourVisualization` (inherited by `ContourVisualization`, `DeformVisualization`, `VectorVisualization`)
+- `apex.post.DataVisualization.asDeformVisualization` (inherited by `ContourVisualization`, `DeformVisualization`, `VectorVisualization`)
+- `apex.post.DataVisualization.asVectorVisualization` (inherited by `ContourVisualization`, `DeformVisualization`, `VectorVisualization`)
+- `apex.post.DataVisualization.getDisplayUnit` — Return the display unit of the data the visualization is showing. (inherited by `ContourVisualization`, `DeformVisualization`, `VectorVisualization`)
+- `apex.post.DataVisualization.getTarget` — Return the Target entities used for this DataVisualization. (inherited by `ContourVisualization`, `DeformVisualization`, `VectorVisualization`)
+- `apex.post.DeformVisualization.getAbsoluteScalingFactor` — Returns the Absolute Scaling Factor.
+- `apex.post.DeformVisualization.getDeformScalingMethod` — Returns the Deform Scaling Method.
+- `apex.post.DeformVisualization.getRelativeScalingFactor` — Returns the Relative Scaling Factor.
+- `apex.post.DeformVisualization.update` — Updates one or more properties of the DeformVisualization.
+- `apex.post.ResultProbe0D.addProbeTargetEntities` — Modifies the set of target Entities at which the Probe will evaluate the results data, display on the viewport and add to the data grid.
+- `apex.post.ResultProbe0D.addProbeTargetEntity` — Modifies the set of target Entities at which the Probe will evaluate the results data, display on the viewport and add to the data grid.
+- `apex.post.ResultProbe0D.clearProbe` — Clears all Entities from this Probe causing all of its labels and the data grid to be cleared.
+- `apex.post.ResultProbe0D.deleteProbe` — When "exit probe tool" occurs.
+- `apex.post.ResultProbe0D.exportDataCSV` — Exports the contents of the probe (Data Grid) to a named .csv file.
+- `apex.post.ResultProbe0D.getProbeTargetEntities` — Returns the target entitites associated with this ResultProbe0D..
+- `apex.post.ResultProbe0D.getUnits` — Returns the units associated with this ResultProbe0D.
+- `apex.post.ResultProbe0D.setProbeDataVisualization` — Sets the DataVisualization that the probe will use to evaluate results data values.
+- `apex.post.StatePlot.activate` — activate the StatePlot.
+- `apex.post.StatePlot.activateVisualization` — Unmasks an existing DataVisualization within a StatePlot if it is currently masked.
+- `apex.post.StatePlot.active`
+- `apex.post.StatePlot.createContourVisualization` — Creates a ContourVisualization and adds it to the StatePlot.
+- `apex.post.StatePlot.createDeformVisualization` — Creates a DeformVisualization and adds it to the StatePlot.
+- `apex.post.StatePlot.createVectorVisualization` — Creates a VectorVisualization and adds it to the StatePlot.
+- `apex.post.StatePlot.deactivate` — deactivate the StatePlot.
+- `apex.post.StatePlot.deactivateVisualization` — Temporarily masks a DataVisualization within the StatePlot.
+- `apex.post.StatePlot.getEvent` — Returns the Scenario Event associated with this StatePlot.
+- `apex.post.StatePlot.getResultDataSetIndex` — Returns the Result Data Set Index for Scenario Events that have multiple data sets such as Modes or Buckling events.
+- `apex.post.StatePlot.getVisualization` — Returns DataVisualization in the StatePlot for the given entityType.
+- `apex.post.StatePlot.getVisualizations` — Returns a Dictionary of all DataVisualizations that are present in the StatePlot.
+- `apex.post.StatePlot.hide` — Hides the StatePlot.
+- `apex.post.StatePlot.removeAllVisualizations` — Removes all DataVisualizations from the StatePlot.
+- `apex.post.StatePlot.removeVisualization` — Removes a visualization from the StatePlot.
+- `apex.post.StatePlot.show` — Displays the StatePlot.
+- `apex.post.StatePlot.update` — Updates one or more properties of the StatePlot.
+- `apex.post.TableValue.TableValue`
+- `apex.post.TableValue.getColor`
+- `apex.post.TableValue.getValue`
+- `apex.post.TableValue.setColor`
+- `apex.post.TableValue.setValue`
+- `apex.post.VectorVisualization.getApplyFilter` — Returns enable apply filter boolean.
+- `apex.post.VectorVisualization.getArrowDisplayFilter` — Returns the vector arrows display filter.
+- `apex.post.VectorVisualization.getColorMap` — Returns the Color Map used to color code vectors if the VectorColorMethod is VectorValue.
+- `apex.post.VectorVisualization.getCoordinateSystem` — Returns the CoordinateSystem information, if defined.
+- `apex.post.VectorVisualization.getCoordinateSystemMethod` — Returns the System Type that the vector data will be transformed to prior to display.
+- `apex.post.VectorVisualization.getResultQuantity` — Returns the Result Quantity.
+- `apex.post.VectorVisualization.getTargetEntityType` — Returns the Target Entity Type.
+- `apex.post.VectorVisualization.getVectorColorMethod` — Returns the Vector Color Method that defines how the vectors will be color coded.
+- `apex.post.VectorVisualization.getVectorComponentColors` — Returns the Vector Components.
+- `apex.post.VectorVisualization.getVectorDisplayScalingFactor` — Returns the Vector Display scaling factor.
+- `apex.post.VectorVisualization.getVectorDisplayStyle` — Returns the Vector Display Style that specifies how the vector will be rendered.
+- `apex.post.VectorVisualization.getVectorOriginLocation` — Returns the Vector Origin Location.
+- `apex.post.VectorVisualization.getVectorScalingMethod` — Returns the Vector Scaling Method.
+- `apex.post.VectorVisualization.getVectorZoom` — Returns the Vector Zoom boolean that determines whether or not vectors will scaled with viewing distance.
+- `apex.post.VectorVisualization.update` — Update VectorVisualization.
+- `apex.setting.ApplicationSettingsGeometry.update` — Updates the properties of this ApplicationSettingsGeometry object.
+- `apex.setting.ApplicationSettingsStudy.ApplicationSettingsStudy` — Constructor of ApplicationSettingsStudy.
+- `apex.setting.ApplicationSettingsStudy.getDisplayPrereleaseScenario` — Gets If true, display pre-release scenario,subcase, step in study tab; if false, the pre-release scenario,subcase, step are hidden.
+- `apex.setting.ApplicationSettingsStudy.getDisplayUnsupportedCommand` — Gets If true, display unsupported command of a scenario; if false, unsupported command is hidden in a scenario.
+- `apex.setting.ApplicationSettingsStudy.getUseNewScenario` — Gets If true, use new scenarios; if false, use legacy scenarios.
+- `apex.setting.ApplicationSettingsStudy.setDisplayPrereleaseScenario` — Sets If true, display pre-release scenario,subcase, step in study tab; if false, the pre-release scenario,subcase, step are hidden.
+- `apex.setting.ApplicationSettingsStudy.setDisplayUnsupportedCommand` — Sets If true, display unsupported command of a scenario; if false, unsupported command is hidden in a scenario.
+- `apex.setting.ApplicationSettingsStudy.setUseNewScenario` — Sets If true, use new scenarios; if false, use legacy scenarios.
+- `apex.setting.IntegratedSolverExecutionSettings.getScratchFolder` — The location where the integrated solver will create temporary files used during solution.
+- `apex.setting.IntegratedSolverExecutionSettings.getSolverMemory` — The maximum amount of memory that will be provided to the integrated solver when it executes.
+- `apex.setting.IntegratedSolverExecutionSettings.setScratchFolder` — set the location where the integrated solver will create temporary files used during solution.
+- `apex.setting.IntegratedSolverExecutionSettings.setSolverMemory` — set the maximum amount of memory that will be provided to the integrated solver when it executes.
+- `apex.setting.ScriptTriggers.add` — Add a Script Trigger, Script, and script method to settings. if a script and method already exist for the trigger, it will be replaced.
+- `apex.setting.ScriptTriggers.disable` — disable a Script Trigger from settings.
+- `apex.setting.ScriptTriggers.enable` — enable a Script Trigger in settings.
+- `apex.setting.ScriptTriggers.getTriggerMethod` — Return method name associated with a ScriptTriggerType.
+- `apex.setting.ScriptTriggers.getTriggerScript` — Return script name associated with a ScriptTriggerType.
+- `apex.setting.ScriptTriggers.remove` — remove a Script Trigger and associated Script and method from settings.
+- `apex.studies.AUTOSPC.getPrintSingularities` — Gets Optional property that controls printing of the singularities to a table in the Nastran output.
+- `apex.studies.AUTOSPC.getPrintZeros` — Gets Optional property that controls whether or not singularities with zero stiffness ratios will be included in the printed output This property may be ...
+- `apex.studies.AUTOSPC.getPunchConstraints` — Gets Optional property that controls output of the constraints (SPC, MPC) to the Nastran punch file This property may be assigned any one of the following ...
+- `apex.studies.AUTOSPC.getResidual` — Gets Optional property to define the scope of this automatic constraint to either the superelements only or the superelements AND the residual.
+- `apex.studies.AUTOSPC.getSetId` — Gets Optional property that defines a SET ID to be used when constraints are output to the punch file If omitted, a default SID of 999 will be used.
+- `apex.studies.AUTOSPC.getSpcOrMpc` — Gets Optional string property that controls whether singularities are applied using single point constraints (SPC) or multi point constraints (MPC) This ...
+- `apex.studies.AUTOSPC.getStiffnessConstraintRatio` — Gets Optional property that defines a stiffness ratio constraint threshold.
+- `apex.studies.AUTOSPC.getStiffnessIdentificationtRatio` — Gets Optional property that defines a stiffness identification ratio threshold.
+- `apex.studies.AUTOSPC.getValue` — Gets a property indicating whether or not automatic singularity constraints will be applied or not This property may be assigned either of the following values ...
+- `apex.studies.AUTOSPC.setPrintSingularities` — Sets Optional property that controls printing of the singularities to a table in the Nastran output.
+- `apex.studies.AUTOSPC.setPrintZeros` — Sets Optional property that controls whether or not singularities with zero stiffness ratios will be included in the printed output This property may be ...
+- `apex.studies.AUTOSPC.setPunchConstraints` — Sets Optional property that controls output of the constraints (SPC, MPC) to the Nastran punch file This property may be assigned any one of the following ...
+- `apex.studies.AUTOSPC.setResidual` — Sets Optional property to define the scope of this automatic constraint to either the superelements only or the superelements AND the residual.
+- `apex.studies.AUTOSPC.setSetId` — Sets Optional property that defines a SET ID to be used when constraints are output to the punch file If omitted, a default SID of 999 will be used.
+- `apex.studies.AUTOSPC.setSpcOrMpc` — Sets Optional string property that controls whether singularities are applied using single point constraints (SPC) or multi point constraints (MPC) This ...
+- `apex.studies.AUTOSPC.setStiffnessConstraintRatio` — Sets Optional property that defines a stiffness ratio constraint threshold.
+- `apex.studies.AUTOSPC.setStiffnessIdentificationtRatio` — Sets Optional property that defines a stiffness identification ratio threshold.
+- `apex.studies.AUTOSPC.setValue` — Sets a property indicating whether or not automatic singularity constraints will be applied or not This property may be assigned either of the following values ...
+- `apex.studies.AXISYMMETRIC.getValue` — Gets required property to select axisymmetric boundary condition behavior value must be set to one of three possible string values, 'SINE' - indicates that ...
+- `apex.studies.AXISYMMETRIC.setValue` — Sets required property to select axisymmetric boundary condition behavior value must be set to one of three possible string values, 'SINE' - indicates that ...
+- `apex.studies.AdvancedSettingGenerativeDesign.getAdvancedSetting` — A list of strings that are intended to represent advanced user setting Statements in the Generative design solver file.
+- `apex.studies.AdvancedSettingGenerativeDesign.getStartSpaceName` — List of fully qualified path names of the start space STL file to be used for the scenario.
+- `apex.studies.AdvancedSettingGenerativeDesign.update` — A method to update advanced setting, start space STL file.
+- `apex.studies.BC.getValue` — Gets the ID assigned to a Subcase to identify which Subcases are associated wit the same eigenvalue extraction, This command is only required if a normal modes ...
+- `apex.studies.BC.setValue` — Sets the ID assigned to a Subcase to identify which Subcases are associated wit the same eigenvalue extraction, This command is only required if a normal modes ...
+- `apex.studies.BCONCHK.getOutput` — Gets optional argument (Default = None) used to control output of initial contact information.
+- `apex.studies.BCONCHK.getValue` — Gets optional property used to define how Nastran will proceed after completion of the initial contact checks value may be assigned any one of the following ...
+- `apex.studies.BCONCHK.setOutput` — Sets optional argument (Default = None) used to control output of initial contact information.
+- `apex.studies.BCONCHK.setValue` — Sets optional property used to define how Nastran will proceed after completion of the initial contact checks value may be assigned any one of the following ...
+- `apex.studies.BCONTACT.getAuto_contact_type` — Gets optional property used to define the type of contact that Nastran will use when automatic contact body creation is selected by setting value='AUTO' on ...
+- `apex.studies.BCONTACT.getValue` — Gets required property (Default = 'NONE') used to identify which contact pairs will be activated by this BCONTACT command This property may take any of the ...
+- `apex.studies.BCONTACT.setAuto_contact_type` — Sets optional property used to define the type of contact that Nastran will use when automatic contact body creation is selected by setting value='AUTO' on ...
+- `apex.studies.BCONTACT.setValue` — Sets required property (Default = 'NONE') used to identify which contact pairs will be activated by this BCONTACT command This property may take any of the ...
+- `apex.studies.BCPARA.getAugdist` — Gets specifies a penetration distance beyond which augmentation will be applied This property must be assigned one of the following values, any real number.
+- `apex.studies.BCPARA.getAugment` — Gets specifies the augmentation method that will be used when segment to segment contact is active This property may must be assigned any one of the following ...
+- `apex.studies.BCPARA.getBackctl` — Gets specifies backward compatibility contact analysis options This property may must be assigned any one of the following values, -1 - Activate all of ...
+- `apex.studies.BCPARA.getBeamb` — Gets activates/deactivates beam to beam contact This property may be assigned any one of the following values, 0 - Beam to beam contact is disabled None - same ...
+- `apex.studies.BCPARA.getBias` — Gets defines the contact tolerance bias factor This property may be assigned either of the following values, a floating point value between 0.0 and 1.0 None - ...
+- `apex.studies.BCPARA.getDdulmt` — Gets.
+- `apex.studies.BCPARA.getDynprfa` — Gets specifies the dynamic contact projection factor This property may be assigned any one of the following values, any real number >=0.0 and <=1.0 None - same ...
+- `apex.studies.BCPARA.getErrbas` — Gets defines the basis for contact error calculation, 0 - Use global error claculations None - same as 0 with the exception that this field will not be written ...
+- `apex.studies.BCPARA.getError` — Gets optional property defining a distance below which a node is considered to be touching a body This property may be assigned either of the following values ...
+- `apex.studies.BCPARA.getFgcflg` — Gets.
+- `apex.studies.BCPARA.getFgcnst` — Gets specifies the equivalent normal contact stiffness FOR cohesive (flexible) glued contact This property may be assigned any one of the following values, any ...
+- `apex.studies.BCPARA.getFgcnsti` — Gets specifies the equivalent normal contact stiffness for cohesive (flexible) glued contact using a table of stiffness values v's relative displacement This ...
+- `apex.studies.BCPARA.getFgcnstr` — Gets specifies the equivalent normal contact stiffness for cohesive (flexible) glued contact using a table of stiffness values This property may be assigned ...
+- `apex.studies.BCPARA.getFgcrcen` — Gets specifies an optional Grid ID at which the resultant contact force of secondary body to primary body will be evaluated This property may be assigned ...
+- `apex.studies.BCPARA.getFgcrcn1` — Gets specifies an optional Grid ID at which the resultant contact force of the primary body to the secondary body will be evaluated This property may be ...
+- `apex.studies.BCPARA.getFgctst` — Gets specifies the equivalent tangent contact stiffness FOR cohesive (flexible) glued contact This property may be assigned any one of the following values ...
+- `apex.studies.BCPARA.getFgctsti` — Gets.
+- `apex.studies.BCPARA.getFgctstr` — Gets specifies the equivalent tangential contact stiffness for cohesive (flexible) glued contact using a table of stiffness values This property may be ...
+- `apex.studies.BCPARA.getFntol` — Gets specifies the separation force (or stress) above which a node will separate from a body the value assigned here will represent either a Force or a Stress ...
+- `apex.studies.BCPARA.getFtype` — Gets specifies which type of friction will be used in contact pairs This property may be assigned any one of the following values, 0 - No friction None - same ...
+- `apex.studies.BCPARA.getGlueout` — Gets specifies how contact force and stress are output for glued contact This property may must be assigned any one of the following values, 0 -Normal and ...
+- `apex.studies.BCPARA.getIbsep` — Gets specifies how contact pairs use forces or stresses for separation This property may be assigned any one of the following values, 0 - Separation is based ...
+- `apex.studies.BCPARA.getIcsep` — Gets specifies how contact pairs separate during solution.
+- `apex.studies.BCPARA.getLincnt` — Gets specifies whether linear (under infinitesimal assumption, small sliding with small deformation and rotation or general contact assumptions will be used ...
+- `apex.studies.BCPARA.getMaxsep` — Gets specifies the maximum number of times contact pairs are allowed to separate during each solution increment This property may be assigned either of the ...
+- `apex.studies.BCPARA.getMethod` — Gets defines which contact method will be used for all contact pairs This property may be assigned any one of the following values, "NODESURF" - Node to ...
+- `apex.studies.BCPARA.getNlglue` — Gets specifies the use of permanent glued contact with small rotations under certain conditions, This property may be assigned either of the following values ...
+- `apex.studies.BCPARA.getNodsep` — Gets specifies whether or not separation checks will be carried out for grids that have previously touched and subsequently separated This property may be ...
+- `apex.studies.BCPARA.getOsplnfrq` — Gets specifies how often smooth line representations of deformable contact bodies will be output when BOUTPUT is requested This property may must be assigned ...
+- `apex.studies.BCPARA.getPenalt` — Gets specifies the augmented Lagrange penalty factor when Lagrange augmentation is requested by the "method" property This property may be assigned any one of ...
+- `apex.studies.BCPARA.getRvcnst` — Gets specifies a slip threshold when bilinear friction is active in contact pairs This property may be assigned either of the following values, any real number ...
+- `apex.studies.BCPARA.getSegangl` — Gets specifies the minimum angle between segment normal vectors that allows the segments to come into contact This property is only valid when segment to ...
+- `apex.studies.BCPARA.getSegsym` — Gets specifies the use of symmetric or non-symmetric friction matrices when segment to segment contact is active This property may be assigned either of the ...
+- `apex.studies.BCPARA.getSepacc` — Gets specifies whether or not to use accelerated separation checks in node to segment contact in Solution 400 This property may must be assigned any one of the ...
+- `apex.studies.BCPARA.getSfnpnlt` — Gets specifies the scale factor used by the augmented Lagrange penalty factor along the normal contact direction when segment to segment contact is active This ...
+- `apex.studies.BCPARA.getSftpnlt` — Gets specifies the scale factor used by the augmented Lagrange penalty factor along the tangential contact direction when segment to segment contact is active ...
+- `apex.studies.BCPARA.getSkip_separation_checks` — Gets a property to enable skipping of separation checks after a grid has initially touched and subsequently separated within an increment.
+- `apex.studies.BCPARA.getSldlmt` — Gets defines a maximum allowed sliding distance beyond which contact segments will be redefined This property may be assigned either of the following values ...
+- `apex.studies.BCPARA.getStkslp` — Gets specifies the maximum allowable slip distance for sticking.
+- `apex.studies.BCPARA.getTaugmnt` — Gets specifies whether or not augmentation will be used for the sticking part of contact when segment to segment contact is active This property may be ...
+- `apex.studies.BCPARA.getTcntctl` — Gets specifies how contact will be processed during linear perturbation analysis when contact has previously been calculated by an NLSTAUC analysis This ...
+- `apex.studies.BCPARA.getThkoff` — Gets specifies whether or not thickness will be excluded in the tolerance when node to segment contact is active or from the characteristic length for ...
+- `apex.studies.BCPARA.getTpenalt` — Gets specifies the augmented Lagrange penalty factor for the sticking part of friction This property may be assigned any one of the following values, any real ...
+- `apex.studies.BCPARA.getVersion` — Gets specifies whether to use Version 1 or Version 2 segment to segment contact default values This property may must be assigned any one of the following ...
+- `apex.studies.BCPARA.setAugdist` — Sets specifies a penetration distance beyond which augmentation will be applied This property must be assigned one of the following values, any real number.
+- `apex.studies.BCPARA.setAugment` — Sets specifies the augmentation method that will be used when segment to segment contact is active This property may must be assigned any one of the following ...
+- `apex.studies.BCPARA.setBackctl` — Sets specifies backward compatibility contact analysis options This property may must be assigned any one of the following values, -1 - Activate all of ...
+- `apex.studies.BCPARA.setBeamb` — Sets activates/deactivates beam to beam contact This property may be assigned any one of the following values, 0 - Beam to beam contact is disabled None - same ...
+- `apex.studies.BCPARA.setBias` — Sets defines the contact tolerance bias factor This property may be assigned either of the following values, a floating point value between 0.0 and 1.0 None - ...
+- `apex.studies.BCPARA.setDdulmt` — Sets.
+- `apex.studies.BCPARA.setDynprfa` — Sets specifies the dynamic contact projection factor This property may be assigned any one of the following values, any real number >=0.0 and <=1.0 None - same ...
+- `apex.studies.BCPARA.setErrbas` — Sets defines the basis for contact error calculation, 0 - Use global error claculations None - same as 0 with the exception that this field will not be written ...
+- `apex.studies.BCPARA.setError` — Sets optional property defining a distance below which a node is considered to be touching a body This property may be assigned either of the following values ...
+- `apex.studies.BCPARA.setFgcflg` — Sets.
+- `apex.studies.BCPARA.setFgcnst` — Sets specifies the equivalent normal contact stiffness FOR cohesive (flexible) glued contact This property may be assigned any one of the following values, any ...
+- `apex.studies.BCPARA.setFgcnsti` — Sets specifies the equivalent normal contact stiffness for cohesive (flexible) glued contact using a table of stiffness values v's relative displacement This ...
+- `apex.studies.BCPARA.setFgcnstr` — Sets specifies the equivalent normal contact stiffness for cohesive (flexible) glued contact using a table of stiffness values This property may be assigned ...
+- `apex.studies.BCPARA.setFgcrcen` — Sets specifies an optional Grid ID at which the resultant contact force of secondary body to primary body will be evaluated This property may be assigned ...
+- `apex.studies.BCPARA.setFgcrcn1` — Sets specifies an optional Grid ID at which the resultant contact force of the primary body to the secondary body will be evaluated This property may be ...
+- `apex.studies.BCPARA.setFgctst` — Sets specifies the equivalent tangent contact stiffness FOR cohesive (flexible) glued contact This property may be assigned any one of the following values ...
+- `apex.studies.BCPARA.setFgctsti` — Sets.
+- `apex.studies.BCPARA.setFgctstr` — Sets specifies the equivalent tangential contact stiffness for cohesive (flexible) glued contact using a table of stiffness values This property may be ...
+- `apex.studies.BCPARA.setFntol` — Sets specifies the separation force (or stress) above which a node will separate from a body the value assigned here will represent either a Force or a Stress ...
+- `apex.studies.BCPARA.setFtype` — Sets specifies which type of friction will be used in contact pairs This property may be assigned any one of the following values, 0 - No friction None - same ...
+- `apex.studies.BCPARA.setGlueout` — Sets specifies how contact force and stress are output for glued contact This property may must be assigned any one of the following values, 0 -Normal and ...
+- `apex.studies.BCPARA.setIbsep` — Sets specifies how contact pairs use forces or stresses for separation This property may be assigned any one of the following values, 0 - Separation is based ...
+- `apex.studies.BCPARA.setIcsep` — Sets specifies how contact pairs separate during solution.
+- `apex.studies.BCPARA.setLincnt` — Sets specifies whether linear (under infinitesimal assumption, small sliding with small deformation and rotation or general contact assumptions will be used ...
+- `apex.studies.BCPARA.setMaxsep` — Sets specifies the maximum number of times contact pairs are allowed to separate during each solution increment This property may be assigned either of the ...
+- `apex.studies.BCPARA.setMethod` — Sets defines which contact method will be used for all contact pairs This property may be assigned any one of the following values, "NODESURF" - Node to ...
+- `apex.studies.BCPARA.setNlglue` — Sets specifies the use of permanent glued contact with small rotations under certain conditions, This property may be assigned either of the following values ...
+- `apex.studies.BCPARA.setNodsep` — Sets specifies whether or not separation checks will be carried out for grids that have previously touched and subsequently separated This property may be ...
+- `apex.studies.BCPARA.setOsplnfrq` — Sets specifies how often smooth line representations of deformable contact bodies will be output when BOUTPUT is requested This property may must be assigned ...
+- `apex.studies.BCPARA.setPenalt` — Sets specifies the augmented Lagrange penalty factor when Lagrange augmentation is requested by the "method" property This property may be assigned any one of ...
+- `apex.studies.BCPARA.setRvcnst` — Sets specifies a slip threshold when bilinear friction is active in contact pairs This property may be assigned either of the following values, any real number ...
+- `apex.studies.BCPARA.setSegangl` — Sets specifies the minimum angle between segment normal vectors that allows the segments to come into contact This property is only valid when segment to ...
+- `apex.studies.BCPARA.setSegsym` — Sets specifies the use of symmetric or non-symmetric friction matrices when segment to segment contact is active This property may be assigned either of the ...
+- `apex.studies.BCPARA.setSepacc` — Sets specifies whether or not to use accelerated separation checks in node to segment contact in Solution 400 This property may must be assigned any one of the ...
+- `apex.studies.BCPARA.setSfnpnlt` — Sets specifies the scale factor used by the augmented Lagrange penalty factor along the normal contact direction when segment to segment contact is active This ...
+- `apex.studies.BCPARA.setSftpnlt` — Sets specifies the scale factor used by the augmented Lagrange penalty factor along the tangential contact direction when segment to segment contact is active ...
+- `apex.studies.BCPARA.setSkip_separation_checks` — Sets a property to enable skipping of separation checks after a grid has initially touched and subsequently separated within an increment.
+- `apex.studies.BCPARA.setSldlmt` — Sets defines a maximum allowed sliding distance beyond which contact segments will be redefined This property may be assigned either of the following values ...
+- `apex.studies.BCPARA.setStkslp` — Sets specifies the maximum allowable slip distance for sticking.
+- `apex.studies.BCPARA.setTaugmnt` — Sets specifies whether or not augmentation will be used for the sticking part of contact when segment to segment contact is active This property may be ...
+- `apex.studies.BCPARA.setTcntctl` — Sets specifies how contact will be processed during linear perturbation analysis when contact has previously been calculated by an NLSTAUC analysis This ...
+- `apex.studies.BCPARA.setThkoff` — Sets specifies whether or not thickness will be excluded in the tolerance when node to segment contact is active or from the characteristic length for ...
+- `apex.studies.BCPARA.setTpenalt` — Sets specifies the augmented Lagrange penalty factor for the sticking part of friction This property may be assigned any one of the following values, any real ...
+- `apex.studies.BCPARA.setVersion` — Sets specifies whether to use Version 1 or Version 2 segment to segment contact default values This property may must be assigned any one of the following ...
+- `apex.studies.BucklingSimulationSettings.getInteractionControl`
+- `apex.studies.BucklingSimulationSettings.getNumBucklingModes`
+- `apex.studies.BucklingSimulationSettings.setInteractionControl`
+- `apex.studies.BucklingSimulationSettings.setNumBucklingModes`
+- `apex.studies.BucklingStep.getSimulationSettings` — returns the simulation settings from this scenario
+- `apex.studies.DBSAVE.getValue` — Gets integer value used to select how often the nonlinear element data will be saved.
+- `apex.studies.DBSAVE.setValue` — Sets integer value used to select how often the nonlinear element data will be saved.
+- `apex.studies.DEFORM.getValue` — Gets the ID of a element deformation load assigned to the model referenced by the Scenario that this command is composed by Use this command to assign element ...
+- `apex.studies.DEFORM.setValue` — Sets the ID of a element deformation load assigned to the model referenced by the Scenario that this command is composed by Use this command to assign element ...
+- `apex.studies.DLOAD.getValue` — Gets the ID of a dynamic load assigned to the model referenced by the Scenario that this command is composed by.
+- `apex.studies.DLOAD.setValue` — Sets the ID of a dynamic load assigned to the model referenced by the Scenario that this command is composed by.
+- `apex.studies.DesignRules.getReductionStrategy` — These are just names that we invented for the different strategies of the support reduction.
+- `apex.studies.DesignRules.setReductionStrategy` — Define a Reduction Strategy for current scenario.
+- `apex.studies.DesignRules.update` — update the Design Rules for current scenario
+- `apex.studies.DirectTextInput.clearDirectTextInput` — Removes all content from selected Direct Text Input blocks.
+- `apex.studies.DirectTextInput.getBulkDataStatements` — A list of strings that are intended to represent Bulk Data Statements in the Nastran solver file.
+- `apex.studies.DirectTextInput.getCaseControlsStatements` — A list of strings that are intended to represent Case Control Statements in the Nastran solver file.
+- `apex.studies.DirectTextInput.getExecutiveControlStatements` — A list of strings that are intended to represent Executive Control Statements in the Nastran solver file.
+- `apex.studies.DirectTextInput.getExportOptions` — A map of Direct Text Input Export Options types.
+- `apex.studies.DirectTextInput.getFileManagementStatements` — A list of strings that are intended to represent File Management Statements in the Nastran solver file.
+- `apex.studies.DirectTextInput.getSystemCells` — A List of strings that represent system cells.
+- `apex.studies.DirectTextInput.update`
+- `apex.studies.ECHO.getOutput_punch` — Gets optional property that enables/disables output (echo) of bulk data entries to the punch file This property may be assigned the following values, "None" ...
+- `apex.studies.ECHO.getSort_print` — Gets optional property used to control sorting of the bulk data when written to the printed output file, This property accepts the following values, "SORT" - ...
+- `apex.studies.ECHO.getSort_punch` — Gets optional property used to control sorting of the bulk data when written to the PUNCH output file, This property will be silently ignored unless the ...
+- `apex.studies.ECHO.getUnsorted_entries` — Gets optional property defining a list of bulk data entries that will NOT be sorted prior to being written to the print file.
+- `apex.studies.ECHO.setOutput_punch` — Sets optional property that enables/disables output (echo) of bulk data entries to the punch file This property may be assigned the following values, "None" ...
+- `apex.studies.ECHO.setSort_print` — Sets optional property used to control sorting of the bulk data when written to the printed output file, This property accepts the following values, "SORT" - ...
+- `apex.studies.ECHO.setSort_punch` — Sets optional property used to control sorting of the bulk data when written to the PUNCH output file, This property will be silently ignored unless the ...
+- `apex.studies.ECHO.setUnsorted_entries` — Sets optional property defining a list of bulk data entries that will NOT be sorted prior to being written to the print file.
+- `apex.studies.Event.addConstraint` — Add a Constraint to this Event.
+- `apex.studies.Event.addLoad` — Add a Load to an Event.
+- `apex.studies.Event.getConstraints` — Return a collection of Constraint objects that are associated with this event.
+- `apex.studies.Event.getLoads` — Return a collection of LoadRep or Load objects that don't have LoadReps that are associated with this event.
+- `apex.studies.Event.getResultsDataAvailable` — True if any ResultsData is available for this Event, otherwise False.
+- `apex.studies.Event.importResultData` — Imports results data to this Scenario from an external results file.
+- `apex.studies.Event.removeConstraint` — Removes a Constraint from an Event.
+- `apex.studies.Event.removeLoad` — Removes a Load from this Event.
+- `apex.studies.Event.update` — Update this Scenario Event.
+- `apex.studies.EventCollection.EventCollection` — Construct a new EventCollection.
+- `apex.studies.ExecutedScenario.getAssembly` — Get the AsseAssembly that is associated with an ExecutedScenario.
+- `apex.studies.ExecutedScenario.getBeamSpan` — Get the beam span that is associated with an ExecutedScenario.
+- `apex.studies.ExecutedScenario.getBucklingStep` — Get the buckling step if the executed scenario is buckling.
+- `apex.studies.ExecutedScenario.getConnector` — Get the connector that is associated with an ExecutedScenario.
+- `apex.studies.ExecutedScenario.getConstraint` — Get the constraint that is associated with an ExecutedScenario.
+- `apex.studies.ExecutedScenario.getCoordinateSystem` — Get the coordinate system that is associated with an ExecutedScenario.
+- `apex.studies.ExecutedScenario.getCrossSectionSensor` — Get the cross section sensor that is associated with an ExecutedScenario.
+- `apex.studies.ExecutedScenario.getElement` — Get the element that is associated with an ExecutedScenario.
+- `apex.studies.ExecutedScenario.getElements` — Get the element collection that is associated with an ExecutedScenario.
+- `apex.studies.ExecutedScenario.getEvent` — Get the event given the executed scenario's relative pathName.
+- `apex.studies.ExecutedScenario.getForceMoment` — Get the forceMoment that is associated with an ExecutedScenario.
+- `apex.studies.ExecutedScenario.getInterfacePoint` — Get the interface point that is associated with an ExecutedScenario.
+- `apex.studies.ExecutedScenario.getLinearStep` — Get the linear step if the executed scenario is linear static.
+- `apex.studies.ExecutedScenario.getLoadCase` — Get the loadcase given the executed scenario's relative name.
+- `apex.studies.ExecutedScenario.getMesh` — Get the node that is associated with an ExecutedScenario.
+- `apex.studies.ExecutedScenario.getName` — Read-only string representing the name of this object.
+- `apex.studies.ExecutedScenario.getNode` — Get the node that is associated with an ExecutedScenario.
+- `apex.studies.ExecutedScenario.getNodes` — Get the node collection that is associated with an ExecutedScenario.
+- `apex.studies.ExecutedScenario.getPart` — Get the part that is associated with an ExecutedScenario.
+- `apex.studies.ExecutedScenario.getPath` — return this Entity path string.
+- `apex.studies.ExecutedScenario.getPreLoadStep` — Get the preload step if the executed scenario is buckling.
+- `apex.studies.ExecutedScenario.getScenarioModelRep` — Get the model rep that is associated with the executed scenario.
+- `apex.studies.ExecutedScenario.getStep` — Get the step given the executed scenario's relative pathName.
+- `apex.studies.ExecutedScenario.getSteps` — returns an ordered collection of the Steps in an ExecutedScenario
+- `apex.studies.ExecutedScenario.getXSectionForceSensorArray` — Get the XSection force sensor array that is associated with an ExecutedScenario.
+- `apex.studies.FEMCHECK.getUser_checks` — Gets defines the subset of model checks that will be carried out at the start of the Nastran run This property must be defined if "value" is set to "USER" This ...
+- `apex.studies.FEMCHECK.getValue` — Gets property used to define the scope of model checking that will be carried out at the start of the Nastran run This property may be assigned any of the ...
+- `apex.studies.FEMCHECK.setUser_checks` — Sets defines the subset of model checks that will be carried out at the start of the Nastran run This property must be defined if "value" is set to "USER" This ...
+- `apex.studies.FEMCHECK.setValue` — Sets property used to define the scope of model checking that will be carried out at the start of the Nastran run This property may be assigned any of the ...
+- `apex.studies.FREQUENCY.getValue` — Gets the ID of FREQ, FREQ1, FREQ2, FREQ3, FREQ4 and FREQ5 entries assigned to the model referenced by the Scenario that this command is composed by Use this ...
+- `apex.studies.FREQUENCY.setValue` — Sets the ID of FREQ, FREQ1, FREQ2, FREQ3, FREQ4 and FREQ5 entries assigned to the model referenced by the Scenario that this command is composed by Use this ...
+- `apex.studies.FRF.getAsmout` — Gets options for the frequency based assembly process This property may be assigned any one of the following values, "COMP" None "ALL" "ASSEMBLY" "CONNINFO" n ...
+- `apex.studies.FRF.getCompid` — Gets the id of the component whose FRFs are to be generated This property may be assigned either of the following values, n - a positive integer used to select ...
+- `apex.studies.FRF.getCompname` — Gets the name of the component whose FRFs are to be generated This property may be assigned either of the following values, a string value used to select an ...
+- `apex.studies.FRF.getConnpts` — Gets the ID of an existing Scenario SET that defines the points at which the FRF component specified by the "compid"/"compname" properties are to be connected ...
+- `apex.studies.FRF.getFrf_generation` — Gets property used to control which FRFs are generated This property may be assigned any of the following values, "GEN" - generate FRFs for the specified ...
+- `apex.studies.FRF.getFrf_store` — Gets an optional property used to define whether the FRF matrices are stored on the Nastran database or on a .op2 file.
+- `apex.studies.FRF.getIcf_op2_unit` — Gets a positive integer identifying the Nastran Fortran unit number associated with the .op2 file where the ICF data is stored This property MUST be provided ...
+- `apex.studies.FRF.getIcf_store` — Gets an optional property used to define whether the ICF data is stored on the Nastran database or on a .op2 file.
+- `apex.studies.FRF.getIcfauto` — Gets a property the defines how Nastran will GENERATE and USE use ICF information in the FBA process.
+- `apex.studies.FRF.getIcfgen` — Gets a property the defines how Nastran will Generate ICF information for the FRF component whose name is defined on the "compname" property .
+- `apex.studies.FRF.getIcfuse` — Gets a property the defines how Nastran will use ICF information in the FBA process.
+- `apex.studies.FRF.getLoadlbl` — Gets options for defining load lables in the output of FRF and FBA jobs This property may be assigned any one of the following values, "STD" None "ALT" "ALTX".
+- `apex.studies.FRF.getOp2_unit` — Gets a positive integer identifying the Nastran Fortran unit number associated with the .op2 file where the FRF matrices and other information are stored This ...
+- `apex.studies.FRF.getXitout` — Gets which FRFs will be output This property may be assigned any one of the following values, "UNIT" - Output the FRF results only for those unit excitations ...
+- `apex.studies.FRF.setAsmout` — Sets options for the frequency based assembly process This property may be assigned any one of the following values, "COMP" None "ALL" "ASSEMBLY" "CONNINFO" n ...
+- `apex.studies.FRF.setCompid` — Sets the id of the component whose FRFs are to be generated This property may be assigned either of the following values, n - a positive integer used to select ...
+- `apex.studies.FRF.setCompname` — Sets the name of the component whose FRFs are to be generated This property may be assigned either of the following values, a string value used to select an ...
+- `apex.studies.FRF.setConnpts` — Sets the ID of an existing Scenario SET that defines the points at which the FRF component specified by the "compid"/"compname" properties are to be connected ...
+- `apex.studies.FRF.setFrf_generation` — Sets property used to control which FRFs are generated This property may be assigned any of the following values, "GEN" - generate FRFs for the specified ...
+- `apex.studies.FRF.setFrf_store` — Sets an optional property used to define whether the FRF matrices are stored on the Nastran database or on a .op2 file.
+- `apex.studies.FRF.setIcf_op2_unit` — Sets a positive integer identifying the Nastran Fortran unit number associated with the .op2 file where the ICF data is stored This property MUST be provided ...
+- `apex.studies.FRF.setIcf_store` — Sets an optional property used to define whether the ICF data is stored on the Nastran database or on a .op2 file.
+- `apex.studies.FRF.setIcfauto` — Sets a property the defines how Nastran will GENERATE and USE use ICF information in the FBA process.
+- `apex.studies.FRF.setIcfgen` — Sets a property the defines how Nastran will Generate ICF information for the FRF component whose name is defined on the "compname" property .
+- `apex.studies.FRF.setIcfuse` — Sets a property the defines how Nastran will use ICF information in the FBA process.
+- `apex.studies.FRF.setLoadlbl` — Sets options for defining load lables in the output of FRF and FBA jobs This property may be assigned any one of the following values, "STD" None "ALT" "ALTX".
+- `apex.studies.FRF.setOp2_unit` — Sets a positive integer identifying the Nastran Fortran unit number associated with the .op2 file where the FRF matrices and other information are stored This ...
+- `apex.studies.FRF.setXitout` — Sets which FRFs will be output This property may be assigned any one of the following values, "UNIT" - Output the FRF results only for those unit excitations ...
+- `apex.studies.FailureSetting3DOrth.getAxisCompScale` — Define the axis Compression Scale in Build Direction(%)
+- `apex.studies.FailureSetting3DOrth.getAxisTenScale` — Define the axis tension Scale in Build Direction(%)
+- `apex.studies.FailureSetting3DOrth.getInPlaneCompScale` — Define the inplane Compression Scale in Build Direction(%)
+- `apex.studies.FailureSetting3DOrth.getInPlaneTenScale` — Define the inPlane tension Scale in Build Direction(%)
+- `apex.studies.FailureSetting3DOrth.getShearScale` — Define the shear Scale in Build Direction(%)
+- `apex.studies.FailureSetting3DOrth.setAxisCompScale` — Define the axis Compression Scale in Build Direction(%)
+- `apex.studies.FailureSetting3DOrth.setAxisTenScale` — Define the axis tension Scale in Build Direction(%)
+- `apex.studies.FailureSetting3DOrth.setInPlaneCompScale` — Define the inplane Compression Scale in Build Direction(%)
+- `apex.studies.FailureSetting3DOrth.setInPlaneTenScale` — Define the inPlane tension Scale in Build Direction(%)
+- `apex.studies.FailureSetting3DOrth.setShearScale` — Define the shear Scale in Build Direction(%)
+- `apex.studies.FailureSetting3DOrth.update` — update the Failure Setting for current scenario
+- `apex.studies.FailureSetting3DTranseIso.getAxisCompScale` — Define the axis Compression Scale in Build Direction(%)
+- `apex.studies.FailureSetting3DTranseIso.getAxisTenScale` — Define the axis tension Scale in Build Direction(%)
+- `apex.studies.FailureSetting3DTranseIso.getInPlaneCompScale` — Define the inplane Compression Scale in Build Direction(%)
+- `apex.studies.FailureSetting3DTranseIso.getInPlaneTenScale` — Define the inPlane tension Scale in Build Direction(%)
+- `apex.studies.FailureSetting3DTranseIso.getShearScale` — Define the shear Scale in Build Direction(%)
+- `apex.studies.FailureSetting3DTranseIso.setAxisCompScale` — Define the axis Compression Scale in Build Direction(%)
+- `apex.studies.FailureSetting3DTranseIso.setAxisTenScale` — Define the axis tension Scale in Build Direction(%)
+- `apex.studies.FailureSetting3DTranseIso.setInPlaneCompScale` — Define the inplane Compression Scale in Build Direction(%)
+- `apex.studies.FailureSetting3DTranseIso.setInPlaneTenScale` — Define the inPlane tension Scale in Build Direction(%)
+- `apex.studies.FailureSetting3DTranseIso.setShearScale` — Define the shear Scale in Build Direction(%)
+- `apex.studies.FailureSetting3DTranseIso.update` — update the Failure Setting for current scenario
+- `apex.studies.FailureSettingIso.getTensionScale` — Define the tension Scale in Build Direction(%)
+- `apex.studies.FailureSettingIso.setTensionScale` — Define the tension Scale in Build Direction(%)
+- `apex.studies.FailureSettingIso.update` — used to update the Failure Setting for current scenario
+- `apex.studies.FailureSettings.getAssessMethod` — Defined a Failure Assess Method for current scenario. it can be safetyFactor or stressGoal. (inherited by `FailureSetting3DOrth`, `FailureSetting3DTranseIso`, `FailureSettingIso`)
+- `apex.studies.FailureSettings.getFailureCriteria` — Define a failure Criteria for current scenario. (inherited by `FailureSetting3DOrth`, `FailureSetting3DTranseIso`, `FailureSettingIso`)
+- `apex.studies.FailureSettings.getSafetyFactorEvent` — Define a safety factor for events. (inherited by `FailureSetting3DOrth`, `FailureSetting3DTranseIso`, `FailureSettingIso`)
+- `apex.studies.FailureSettings.getSafetyFactorGlobal` — Define a safety factor for global. (inherited by `FailureSetting3DOrth`, `FailureSetting3DTranseIso`, `FailureSettingIso`)
+- `apex.studies.FailureSettings.getStressGoalEvent` — Define a stress Goal for events. (inherited by `FailureSetting3DOrth`, `FailureSetting3DTranseIso`, `FailureSettingIso`)
+- `apex.studies.FailureSettings.getStressGoalGlobal` — Define a stress Goal for global. (inherited by `FailureSetting3DOrth`, `FailureSetting3DTranseIso`, `FailureSettingIso`)
+- `apex.studies.FailureSettings.setAssessMethod` — Defined a Failure Assess Method for current scenario. it can be safetyFactor or stressGoal. (inherited by `FailureSetting3DOrth`, `FailureSetting3DTranseIso`, `FailureSettingIso`)
+- `apex.studies.FailureSettings.setFailureCriteria` — Define a failure Criteria for current scenario. (inherited by `FailureSetting3DOrth`, `FailureSetting3DTranseIso`, `FailureSettingIso`)
+- `apex.studies.FailureSettings.setSafetyFactorEvent` — Define a safety factor for events. (inherited by `FailureSetting3DOrth`, `FailureSetting3DTranseIso`, `FailureSettingIso`)
+- `apex.studies.FailureSettings.setSafetyFactorGlobal` — Define a safety factor for global. (inherited by `FailureSetting3DOrth`, `FailureSetting3DTranseIso`, `FailureSettingIso`)
+- `apex.studies.FailureSettings.setStressGoalEvent` — Define a stress Goal for events. (inherited by `FailureSetting3DOrth`, `FailureSetting3DTranseIso`, `FailureSettingIso`)
+- `apex.studies.FailureSettings.setStressGoalGlobal` — Define a stress Goal for global. (inherited by `FailureSetting3DOrth`, `FailureSetting3DTranseIso`, `FailureSettingIso`)
+- `apex.studies.FrequencyResponseSimulationSettings.getFreqRangeLower`
+- `apex.studies.FrequencyResponseSimulationSettings.getFreqRangeUpper`
+- `apex.studies.FrequencyResponseSimulationSettings.getMaxModes`
+- `apex.studies.FrequencyResponseSimulationSettings.getMechanismCheck`
+- `apex.studies.FrequencyResponseSimulationSettings.getNumBucklingModes`
+- `apex.studies.FrequencyResponseSimulationSettings.getStopCalculation`
+- `apex.studies.FrequencyResponseSimulationSettings.update` — Update this SimulationSettings.
+- `apex.studies.GROUNDCHECK.getDof_set` — Gets defines which set of stiffness degrees of freedom will be used for the ground checks This property may be assigned any one of the following values, "ALL" ...
+- `apex.studies.GROUNDCHECK.getForce_print_threshold` — Gets defines a threshold for printing of grounding forces This property will be silently ignored unless "grounding_data_recovery" is set to "YES" This property ...
+- `apex.studies.GROUNDCHECK.getGrounding_data_recovery` — Gets property used to specify whether grounding forces will be recovered or not This property may be assigned any one of the following values, "NO" - grounding ...
+- `apex.studies.GROUNDCHECK.getPrint_output` — Gets specifies whether ground check data will be written to the print file or not This property may be assigned one of the following values, "PRINT" - writes ...
+- `apex.studies.GROUNDCHECK.getPunch_output` — Gets controls output of ground check data to the punch file This property may be assigned any one of the following values, "PUNCH" - cause ground check output ...
+- `apex.studies.GROUNDCHECK.getRefgrid` — Gets optional ID of a Grid used for the calculation of the rigid body motion The property may be assigned either of the following values, n - positive integer ...
+- `apex.studies.GROUNDCHECK.getStrain_energy_thresh` — Gets defines a maximum threshold strain energy value used to determine if grounding is present.
+- `apex.studies.GROUNDCHECK.getValue` — Gets optional property specifying whether or not GROUNDCHECKS will be performed.
+- `apex.studies.GROUNDCHECK.setDof_set` — Sets defines which set of stiffness degrees of freedom will be used for the ground checks This property may be assigned any one of the following values, "ALL" ...
+- `apex.studies.GROUNDCHECK.setForce_print_threshold` — Sets defines a threshold for printing of grounding forces This property will be silently ignored unless "grounding_data_recovery" is set to "YES" This property ...
+- `apex.studies.GROUNDCHECK.setGrounding_data_recovery` — Sets property used to specify whether grounding forces will be recovered or not This property may be assigned any one of the following values, "NO" - grounding ...
+- `apex.studies.GROUNDCHECK.setPrint_output` — Sets specifies whether ground check data will be written to the print file or not This property may be assigned one of the following values, "PRINT" - writes ...
+- `apex.studies.GROUNDCHECK.setPunch_output` — Sets controls output of ground check data to the punch file This property may be assigned any one of the following values, "PUNCH" - cause ground check output ...
+- `apex.studies.GROUNDCHECK.setRefgrid` — Sets optional ID of a Grid used for the calculation of the rigid body motion The property may be assigned either of the following values, n - positive integer ...
+- `apex.studies.GROUNDCHECK.setStrain_energy_thresh` — Sets defines a maximum threshold strain energy value used to determine if grounding is present.
+- `apex.studies.GROUNDCHECK.setValue` — Sets optional property specifying whether or not GROUNDCHECKS will be performed.
+- `apex.studies.IC.getDiffk` — Gets defines whether or not differential stiffness effects will be included in the solution.
+- `apex.studies.IC.getIc_type` — Gets property used to specify the type of initial condition that is being selected.
+- `apex.studies.IC.getValue` — Gets positive integer property used to specify the ID of either a transient initial condition entry (TIC) or the ID of a static subcase as the source of the ...
+- `apex.studies.IC.setDiffk` — Sets defines whether or not differential stiffness effects will be included in the solution.
+- `apex.studies.IC.setIc_type` — Sets property used to specify the type of initial condition that is being selected.
+- `apex.studies.IC.setValue` — Sets positive integer property used to specify the ID of either a transient initial condition entry (TIC) or the ID of a static subcase as the source of the ...
+- `apex.studies.IRLOAD.getValue` — Gets property used to specify how Nastran will apply nonlinear inertial relief in Solution 400 This property may be assigned any of the following values ...
+- `apex.studies.IRLOAD.setValue` — Sets property used to specify how Nastran will apply nonlinear inertial relief in Solution 400 This property may be assigned any of the following values ...
+- `apex.studies.IncrementalSchemeAdaptive.IncrementalSchemeAdaptive` — Constructor for "IncrementalSchemeAdaptive".
+- `apex.studies.IncrementalSchemeAdaptive.getArtificialDamping` — Artificial damping for static analysis.
+- `apex.studies.IncrementalSchemeAdaptive.getDampingRatio` — The damping ration to use if artificial damping is set to Always, Damping energy or Minimum.
+- `apex.studies.IncrementalSchemeAdaptive.getIncrementGrowthFactor` — Factor for increasing time steps due to number of iterations.
+- `apex.studies.IncrementalSchemeAdaptive.getInitialLoadIncrement` — Initial time step defined as fraction of total load step time.
+- `apex.studies.IncrementalSchemeAdaptive.getMaxIncrements` — Maximum number of increments in the current load case.
+- `apex.studies.IncrementalSchemeAdaptive.getMaximumLoadIncrement` — Maximum time step defined as fraction of total load step time.
+- `apex.studies.IncrementalSchemeAdaptive.getMinimumLoadIncrement` — Minimum time step defined as fraction of total load step time.
+- `apex.studies.IncrementalSchemeAdaptive.getOutputIncrements` — The number of equal length increments for which output will be generated.
+- `apex.studies.IncrementalSchemeAdaptive.getStepLength` — Step length is used to define the period over which the increment of the load applies.
+- `apex.studies.IncrementalSchemeAdaptive.getStepOutput` — Optional-Step output setting.
+- `apex.studies.IncrementalSchemeAdaptive.update` — Update properties of "IncrementalSchemeAdaptive".
+- `apex.studies.IncrementalSchemeArcLength.IncrementalSchemeArcLength` — Constructor for "IncrementalSchemeArcLength".
+- `apex.studies.IncrementalSchemeArcLength.getArcLengthMethod` — Arc length method.
+- `apex.studies.IncrementalSchemeArcLength.getInitialLoadFraction` — Initial time step defined as a fraction of the load step time for the arc-length procedure.
+- `apex.studies.IncrementalSchemeArcLength.getMaxIncrements` — Maximum number of increments in the current load case.
+- `apex.studies.IncrementalSchemeArcLength.getMaximumAdjustmentRatio` — Maximum time step defined as fraction of total load step time.
+- `apex.studies.IncrementalSchemeArcLength.getMinimumAdjustmentRatio` — Minimum allowable arc-length adjustment ratio.
+- `apex.studies.IncrementalSchemeArcLength.getStepLength` — Step length is used to define the period over which the increment of the load applies.
+- `apex.studies.IncrementalSchemeArcLength.update` — Update properties of "IncrementalSchemeArcLength".
+- `apex.studies.IncrementalSchemeFixed.IncrementalSchemeFixed` — "IncrementalSchemeFixed" constructor
+- `apex.studies.IncrementalSchemeFixed.getIncrements` — Number of increments for fixed time stepping.
+- `apex.studies.IncrementalSchemeFixed.getOutputInterval` — Interval for output.
+- `apex.studies.IncrementalSchemeFixed.getStepLength` — Step length is used to define the period over which the increment of the load applies.
+- `apex.studies.IncrementalSchemeFixed.update` — Update properties of "IncrementalSchemeFixed".
+- `apex.studies.InteractionControl.InteractionControl` — InteractionControl constructor.
+- `apex.studies.InteractionControl.getBiasFactor` — Gets Optional - Contact tolerance bias factor.
+- `apex.studies.InteractionControl.getContactMethod` — Gets Contact method for the interaction control in a scenario.
+- `apex.studies.InteractionControl.getContactTolerance` — Gets An optional distance tolerance value (default =0.005m) used to determine the subset of elements specified in targetSide1 and targetSide2 that will ...
+- `apex.studies.InteractionControl.getEnablePermanentGlue` — Gets Optional - Force all glues with Permanent Glue without separation if it is true.
+- `apex.studies.InteractionControl.getFrictionType` — Gets Optional - Friction type of contact pair.
+- `apex.studies.InteractionControl.getIgnoreShellThickness` — Gets Optional-Ignore shell thickness from the tolerance during detection if it is true.
+- `apex.studies.InteractionControl.getLinearContact` — Gets Optional - if enable, the contact force is distributed based upon undeformed geometry.
+- `apex.studies.InteractionControl.getLinearContactLargeDisplacement` — Gets Optional - Force Linear Contact with Large Displacement of it is true.
+- `apex.studies.InteractionControl.getMaxSlidingDistance` — Gets Optional - Maximum allowed sliding distance, beyond it the contact segments are redefined The argument is only available for segment to segment method ...
+- `apex.studies.InteractionControl.getMaximumSeparations` — Gets Optional - Maximum number of separations allowed in each increment.
+- `apex.studies.InteractionControl.getNonSymmetricFrictionMatrix` — Gets Optional- Specify symmetric or non-symmetric friction matrix.
+- `apex.studies.InteractionControl.getNormalAugmentationMethod` — Gets Optional - Augmentation method in normal direction.
+- `apex.studies.InteractionControl.getNormalPenaltyFactor` — Gets Optional - Augmented Lagrange penalty factor in normal direction.
+- `apex.studies.InteractionControl.getNormalScaleFactor` — Gets Scale factor of augmented Lagrange penalty factor along contact normal direction.
+- `apex.studies.InteractionControl.getNormalVectorAngle` — Gets Optional - Minimum angle between segment normal vectors allowing the segments to come into contact.
+- `apex.studies.InteractionControl.getNotAllowedSeparateNewlyContactedNode` — Gets Optional - A node which comes into contact may not separate again in the same increment if it is on.
+- `apex.studies.InteractionControl.getPenetrationDistance` — Gets Optional - Penetration distance beyond which an augmentation will be applied The argument is only available for segment to segment method, which will be ...
+- `apex.studies.InteractionControl.getSeparationForce` — Gets Optional - max force of separation, which is only available when separation method define in scenario is based on "Force".
+- `apex.studies.InteractionControl.getSeparationIn` — Gets Optional - control separation in which increment.
+- `apex.studies.InteractionControl.getSeparationMethod` — Gets Optional - Separation based on stresses or forces.
+- `apex.studies.InteractionControl.getSeparationStress` — Gets Optional - max stress of separation, which is only available when separation method define in scenario is based on "Stress".
+- `apex.studies.InteractionControl.getSlipDistance` — Gets Optional - Maximum allowable slip distance for sticking, beyond it there is no sticking, only sliding exists.
+- `apex.studies.InteractionControl.getTangentAugmentationMethod` — Gets Optional - Augmentation method in tangent direction.
+- `apex.studies.InteractionControl.getTangentPenaltyFactor` — Gets Optional - Augmented Lagrange penalty factor in tangent direction The argument is only available for segment to segment method, which will be skipped in ...
+- `apex.studies.InteractionControl.getTangentScaleFactor` — Gets Scale factor of augmented Lagrange penalty factor along contact tangent direction.
+- `apex.studies.InteractionControl.update` — update InteractionControl
+- `apex.studies.IterationAndConvergence.IterationAndConvergence` — Constructor of "IterationAndConvergence".
+- `apex.studies.IterationAndConvergence.getAutoAdjustConvergenceCriteria` — Boolean to control automatically adjust convergence criteria if need.
+- `apex.studies.IterationAndConvergence.getDisplacementCriteria` — Boolean to control Displacement convergence criteria.
+- `apex.studies.IterationAndConvergence.getDisplacementTolerance` — tolerance for displacement criterion.
+- `apex.studies.IterationAndConvergence.getEffectiveStressFraction` — Fraction of effective stress used to limit the sub increment size in material routines.
+- `apex.studies.IterationAndConvergence.getIncludeDisplacementLoadVectorLength` — oolean to extend convergence checks to include the length of the displacement/load vector.
+- `apex.studies.IterationAndConvergence.getIncludeMaximumDisplacementLoadComponent` — Boolean to extend convergence checks to include the maximum component of displacement/load.
+- `apex.studies.IterationAndConvergence.getIncludeMoments` — Boolean to control Include moments as well as forces in the load convergence checks.
+- `apex.studies.IterationAndConvergence.getIncludeRotations` — Boolean to control include rotations as well as translations in the displacement convergence checks .
+- `apex.studies.IterationAndConvergence.getIterationProcedure` — Iteration strategies to be used.
+- `apex.studies.IterationAndConvergence.getLineSearchTolerance` — Line Search tolerance.
+- `apex.studies.IterationAndConvergence.getMaxCorrectionVectors` — Maximum number of quasi-Newton correction vectors to be saved on the database.
+- `apex.studies.IterationAndConvergence.getMaxIterationsPerIncrement` — Maximum number of iterations allowed for each increment.
+- `apex.studies.IterationAndConvergence.getMaxLineSearchesPerIteration` — Maximum number of line searches allowed for each iteration.
+- `apex.studies.IterationAndConvergence.getMinIterationsPerIncrement` — Minimum number of iterations needed for each increment.
+- `apex.studies.IterationAndConvergence.getNumberOfCutbacks` — Limits the number of times a load increment will be cut-back within a Step.
+- `apex.studies.IterationAndConvergence.getNumberOfIterationsBeforeStiffnessUpdate` — Defines the frequency ( in terms of the number of iterations between updates) with which the stiffness is updated.
+- `apex.studies.IterationAndConvergence.getResidualLoadCriteria` — Boolean to control residual Load criteria.
+- `apex.studies.IterationAndConvergence.getResidualLoadTolerance` — tolerance for residual load criterion.
+- `apex.studies.IterationAndConvergence.getWorkCriteria` — Boolean to control Work criteria.
+- `apex.studies.IterationAndConvergence.getWorkTolerance` — tolerance for work criterion.
+- `apex.studies.IterationAndConvergence.update` — Update properties of "IterationAndConvergence".
+- `apex.studies.KeyResult.getEvent` — Return the Event of this KeyResult.
+- `apex.studies.KeyResult.getIndependentValue` — An optional value used when the Event from which the key result is being extracted from is not atomic.
+- `apex.studies.KeyResult.getResultDataSetIndex` — Return the ResultDataSetIndex of this KeyResult.
+- `apex.studies.KeyResult.getResultDerivation` — An enumeration of supported ResultDerivations in Apex.
+- `apex.studies.KeyResult.getResultQuantity` — An enumeration of all supported ResultQuantities in Apex.
+- `apex.studies.KeyResult.getTarget` — Return the Target of this KeyResult.
+- `apex.studies.KeyResult.setDescription` — set description of this KeyResult
+- `apex.studies.LINE.getValue` — Gets optional property used to limit the number of lines that Nastran will write to each printed output.
+- `apex.studies.LINE.setValue` — Sets optional property used to limit the number of lines that Nastran will write to each printed output.
+- `apex.studies.LOAD.getValue` — Gets the ID of at least one load assigned to the model referenced by the Scenario that this command is composed by Use this command to assign a Loads to a ...
+- `apex.studies.LOAD.setValue` — Sets the ID of at least one load assigned to the model referenced by the Scenario that this command is composed by Use this command to assign a Loads to a ...
+- `apex.studies.LoadCase.addStep` — adds (and returns) a new step to this loadCase.
+- `apex.studies.LoadCase.getId` — ID for this LoadCase.
+- `apex.studies.LoadCase.getStep` — Retrieves a single Step from the LoadCase using the supplied name.
+- `apex.studies.LoadCase.getSteps` — returns a collection of all Steps composed by this LoadCase
+- `apex.studies.LoadCase.update` — Update the load case.
+- `apex.studies.LoadCaseCollection.LoadCaseCollection` — Construct a new LoadCaseCollection.
+- `apex.studies.LoadCaseItem.activateCommands` — Activates the case control commands identified using the activeCommands argument. (inherited by `ScenarioNastran`, `StepNastran`, `SubcaseNastran`, `SubstepNastran`)
+- `apex.studies.LoadCaseItem.deactivateCommands` — Deactivates the case control commands identified using the inactiveCommands argument. (inherited by `ScenarioNastran`, `StepNastran`, `SubcaseNastran`, `SubstepNastran`)
+- `apex.studies.LoadCaseItem.getApplicableCommandNames` — Gets a list of the names of all ScenarioCommands that are applicable to this LoadCaseItem. (inherited by `ScenarioNastran`, `StepNastran`, `SubcaseNastran`, `SubstepNastran`)
+- `apex.studies.LoadCaseItem.getCommand` — Retrieves the command identified by the argument from this LoadCaseItem. **[fails silently at runtime in Apex 2024.1]** (inherited by `ScenarioNastran`, `StepNastran`, `SubcaseNastran`, `SubstepNastran`)
+- `apex.studies.LoadCaseItem.getLabel` — Gets a Label for this LoadCaseItem. (inherited by `ScenarioNastran`, `StepNastran`, `SubcaseNastran`, `SubstepNastran`)
+- `apex.studies.LoadCaseItem.getSubtitle` — Gets a Subtitle for this LoadCaseItem. (inherited by `ScenarioNastran`, `StepNastran`, `SubcaseNastran`, `SubstepNastran`)
+- `apex.studies.LoadCaseItem.getTitle` — Gets a Title for this LoadCaseItem. (inherited by `ScenarioNastran`, `StepNastran`, `SubcaseNastran`, `SubstepNastran`)
+- `apex.studies.LoadCaseItem.setCommand` — Sets the command provided in the argument on this LoadCaseItem. **[runtime note in Apex 2024.1]** (inherited by `ScenarioNastran`, `StepNastran`, `SubcaseNastran`, `SubstepNastran`)
+- `apex.studies.LoadCaseItem.setLabel` — Sets a Label for this LoadCaseItem. (inherited by `ScenarioNastran`, `StepNastran`, `SubcaseNastran`, `SubstepNastran`)
+- `apex.studies.LoadCaseItem.setSubtitle` — Sets a Subtitle for this LoadCaseItem. (inherited by `ScenarioNastran`, `StepNastran`, `SubcaseNastran`, `SubstepNastran`)
+- `apex.studies.LoadCaseItem.setTitle` — Sets a Title for this LoadCaseItem. (inherited by `ScenarioNastran`, `StepNastran`, `SubcaseNastran`, `SubstepNastran`)
+- `apex.studies.MAPMODES.getBaseline_or_mapping` — Gets property used to define whether this MAPMODES command is a baseline run and cause the modes to be written to the .op2 file or a mapping run which will map ...
+- `apex.studies.MAPMODES.getValue` — Gets property defining the unit number (as a positive integer) associated wit the .op2 file that contains the modes from the initial run and into which the ...
+- `apex.studies.MAPMODES.setBaseline_or_mapping` — Sets property used to define whether this MAPMODES command is a baseline run and cause the modes to be written to the .op2 file or a mapping run which will map ...
+- `apex.studies.MAPMODES.setValue` — Sets property defining the unit number (as a positive integer) associated wit the .op2 file that contains the modes from the initial run and into which the ...
+- `apex.studies.MAXLINES.getValue` — Gets optional property used to limit the number of lines that Nastran will write to the printed output.
+- `apex.studies.MAXLINES.setValue` — Sets optional property used to limit the number of lines that Nastran will write to the printed output.
+- `apex.studies.MAXMINDEF.getAll_output_options` — Gets the number of maximum and minimum values to be printed.
+- `apex.studies.MAXMINDEF.getBrief_or_full` — Gets property used to control whether only the max/min data will be printed or if additional standard data recovery will also be provided This property accepts ...
+- `apex.studies.MAXMINDEF.getCoordinate_system_grid` — Gets property used to define the coordinate system used for grid based output max.min monitoring.
+- `apex.studies.MAXMINDEF.getElement_types_components` — Gets an optional property used to identify the element types and result components that will be monitored by this MAXMINDEF command This property may be ...
+- `apex.studies.MAXMINDEF.getGrid_or_element` — Gets property defining whether this MAXMIN(DEF) command will define max.min data recovery for Grid or Elements based output data This property may be set to ...
+- `apex.studies.MAXMINDEF.getResult_component_grid` — Gets property identifying the type of GRID based result COMPONENT for which max/min values should be monitored.
+- `apex.studies.MAXMINDEF.getResult_quantity_element` — Gets property identifying the type of ELEMENT based result quantity for which max/min values should be monitored.
+- `apex.studies.MAXMINDEF.getResult_quantity_grid` — Gets property identifying the type of GRID based result quantity for which max/min values should be monitored.
+- `apex.studies.MAXMINDEF.getRms_values` — Gets property to enable/disable root mean square values of each max/min requested by the ABSOLUTE, MIN and MAX properties This property may be assigned the ...
+- `apex.studies.MAXMINDEF.getUser_output_options` — Gets the ordering type and associated number of values based on that ordering type to print This property controls how many value are printed by choosing a ...
+- `apex.studies.MAXMINDEF.setAll_output_options` — Sets the number of maximum and minimum values to be printed.
+- `apex.studies.MAXMINDEF.setBrief_or_full` — Sets property used to control whether only the max/min data will be printed or if additional standard data recovery will also be provided This property accepts ...
+- `apex.studies.MAXMINDEF.setCoordinate_system_grid` — Sets property used to define the coordinate system used for grid based output max.min monitoring.
+- `apex.studies.MAXMINDEF.setElement_types_components` — Sets an optional property used to identify the element types and result components that will be monitored by this MAXMINDEF command This property may be ...
+- `apex.studies.MAXMINDEF.setGrid_or_element` — Sets property defining whether this MAXMIN(DEF) command will define max.min data recovery for Grid or Elements based output data This property may be set to ...
+- `apex.studies.MAXMINDEF.setResult_component_grid` — Sets property identifying the type of GRID based result COMPONENT for which max/min values should be monitored.
+- `apex.studies.MAXMINDEF.setResult_quantity_element` — Sets property identifying the type of ELEMENT based result quantity for which max/min values should be monitored.
+- `apex.studies.MAXMINDEF.setResult_quantity_grid` — Sets property identifying the type of GRID based result quantity for which max/min values should be monitored.
+- `apex.studies.MAXMINDEF.setRms_values` — Sets property to enable/disable root mean square values of each max/min requested by the ABSOLUTE, MIN and MAX properties This property may be assigned the ...
+- `apex.studies.MAXMINDEF.setUser_output_options` — Sets the ordering type and associated number of values based on that ordering type to print This property controls how many value are printed by choosing a ...
+- `apex.studies.METHOD.getScope` — Gets optional property used to define how the eigenvalue extraction parameters defined in the referenced EIGRL, EIGR or EIGB entity impact any fluid and ...
+- `apex.studies.METHOD.getValue` — Gets a positive integer used to select a set of eigenvalue extraction parameters defined in an existing EIGRL, EIGR or EIGB (Buckling only) entry with the ...
+- `apex.studies.METHOD.setScope` — Sets optional property used to define how the eigenvalue extraction parameters defined in the referenced EIGRL, EIGR or EIGB entity impact any fluid and ...
+- `apex.studies.METHOD.setValue` — Sets a positive integer used to select a set of eigenvalue extraction parameters defined in an existing EIGRL, EIGR or EIGB (Buckling only) entry with the ...
+- `apex.studies.MFREQUENCY.getInterpolation_type` — Gets enables selection of either linear or logarithmic interpolation between the frequencies defined by this MFREQUENCY command This property may be assign one ...
+- `apex.studies.MFREQUENCY.getTolerance` — Gets an optional frequency value threshold used to control when frequency interpolation is used in frequency dependent materials, springs and bushes.
+- `apex.studies.MFREQUENCY.getValue` — Gets optional property used to select how this MFREQUENCY command will define its set of master frequencies This property may be assigned one of the following ...
+- `apex.studies.MFREQUENCY.setInterpolation_type` — Sets enables selection of either linear or logarithmic interpolation between the frequencies defined by this MFREQUENCY command This property may be assign one ...
+- `apex.studies.MFREQUENCY.setTolerance` — Sets an optional frequency value threshold used to control when frequency interpolation is used in frequency dependent materials, springs and bushes.
+- `apex.studies.MFREQUENCY.setValue` — Sets optional property used to select how this MFREQUENCY command will define its set of master frequencies This property may be assigned one of the following ...
+- `apex.studies.MNFGenerationProperty.MNFGenerationProperty` (2 overloads) — Default constructor for MNFGenerationProperty.
+- `apex.studies.MNFGenerationProperty.getGenerateGridPointStrains` — Gets a Boolean value used to control output of grid point strains to the MNF.
+- `apex.studies.MNFGenerationProperty.getGenerateGridPointStresses` — Gets a Boolean value used to control output of grid point stresses to the MNF.
+- `apex.studies.MNFGenerationProperty.getGenerateMNF` — Gets a Boolean value that controls whether or not a modal neutral file will be generated.
+- `apex.studies.MNFGenerationProperty.getMassInvariantOptions` — Gets an Enumeration property that controls which mass invariants are written to the MNF.
+- `apex.studies.MNFGenerationProperty.getMnfFilename` — Gets the name of the exported modal neutral files.
+- `apex.studies.MNFGenerationProperty.setGenerateGridPointStrains` — Sets a Boolean value used to control output of grid point strains to the MNF.
+- `apex.studies.MNFGenerationProperty.setGenerateGridPointStresses` — Sets a Boolean value used to control output of grid point stresses to the MNF.
+- `apex.studies.MNFGenerationProperty.setGenerateMNF` — Sets a Boolean value that controls whether or not a modal neutral file will be generated.
+- `apex.studies.MNFGenerationProperty.setMassInvariantOptions` — Sets an Enumeration property that controls which mass invariants are written to the MNF.
+- `apex.studies.MNFGenerationProperty.setMnfFilename` — Sets the name of the exported modal neutral files.
+- `apex.studies.MODES.getValue` — Gets a positive integer specifying the number of times the subcase with which this MODES command is associated will be repeated.
+- `apex.studies.MODES.setValue` — Sets a positive integer specifying the number of times the subcase with which this MODES command is associated will be repeated.
+- `apex.studies.MODESELECT.getDomain_type` — Gets specifies whether the modes selected by this MODESELECT command will be used in the calculation of the dynamic response of the structure or the fluid ...
+- `apex.studies.MODESELECT.getForce_include_exclude` — Gets a property used to define whether modes defined on the "force_mode_inclusion_exclusion" or "force_mode_set_inclusion_exclusion" properties will be ...
+- `apex.studies.MODESELECT.getForce_mode_inclusion_exclusion` — Gets specifies the ID of a single mode that will be unconditionally INCLUDED or EXCLUDED from the simulation base on the value of the "force_include_exclude" ...
+- `apex.studies.MODESELECT.getForce_mode_set_inclusion_exclusion` — Gets specifies the ID of a ScenarioSetModeId that defines the IDs one or more modes that will be unconditionally INCLUDED or EXCLUDED from the simulation based ...
+- `apex.studies.MODESELECT.getFrequency_range` — Gets specifies, using a list of two floating point values, the lower and upper limits of a range of modal frequencies that will be used in the calculation of ...
+- `apex.studies.MODESELECT.getInclude_exclude_modes` — Gets a property used to define whether the modes defined on the "selected_mode" or "selected_mode_set" properties will be forcefully INCLUDED or EXCLUDED from ...
+- `apex.studies.MODESELECT.getLowest` — Gets specifies, using a positive integer) the number of modes that will be used in the calculation of the dynamic response.
+- `apex.studies.MODESELECT.getMod_eff_mass_frac` — Gets specifies which modes will be used in the dynamic response calculation using threshold values of modal effective mass fraction.
+- `apex.studies.MODESELECT.getMode_range` — Gets specifies, using a list of two positive integers, the lower and upper limits of a range of mode numbers that will be used in the calculation of the ...
+- `apex.studies.MODESELECT.getSelected_mode_include_exclude` — Gets specifies the ID of a single mode that will be INCLUDED or EXCLUDED from the simulation base on the value of the "include_exclude_modes" property.
+- `apex.studies.MODESELECT.getSelected_mode_set_include_excldue` — Gets specifies the ID of a ScenarioSetModeId that defines the IDs of one or more modes selected for inclusion or exclusion from the simulation.
+- `apex.studies.MODESELECT.getSelection_method` — Gets specifies which one of five different methods will be used to select modes This property may be assigned any one of the following values, "USER" - user ...
+- `apex.studies.MODESELECT.getThreshold_method` — Gets specifies how the model effective mass fraction thresholds specified using the "mod_eff_mass_fraction" property are used to select modes This property may ...
+- `apex.studies.MODESELECT.setDomain_type` — Sets specifies whether the modes selected by this MODESELECT command will be used in the calculation of the dynamic response of the structure or the fluid ...
+- `apex.studies.MODESELECT.setForce_include_exclude` — Sets a property used to define whether modes defined on the "force_mode_inclusion_exclusion" or "force_mode_set_inclusion_exclusion" properties will be ...
+- `apex.studies.MODESELECT.setForce_mode_inclusion_exclusion` — Sets specifies the ID of a single mode that will be unconditionally INCLUDED or EXCLUDED from the simulation base on the value of the "force_include_exclude" ...
+- `apex.studies.MODESELECT.setForce_mode_set_inclusion_exclusion` — Sets specifies the ID of a ScenarioSetModeId that defines the IDs one or more modes that will be unconditionally INCLUDED or EXCLUDED from the simulation based ...
+- `apex.studies.MODESELECT.setFrequency_range` — Sets specifies, using a list of two floating point values, the lower and upper limits of a range of modal frequencies that will be used in the calculation of ...
+- `apex.studies.MODESELECT.setInclude_exclude_modes` — Sets a property used to define whether the modes defined on the "selected_mode" or "selected_mode_set" properties will be forcefully INCLUDED or EXCLUDED from ...
+- `apex.studies.MODESELECT.setLowest` — Sets specifies, using a positive integer) the number of modes that will be used in the calculation of the dynamic response.
+- `apex.studies.MODESELECT.setMod_eff_mass_frac` — Sets specifies which modes will be used in the dynamic response calculation using threshold values of modal effective mass fraction.
+- `apex.studies.MODESELECT.setMode_range` — Sets specifies, using a list of two positive integers, the lower and upper limits of a range of mode numbers that will be used in the calculation of the ...
+- `apex.studies.MODESELECT.setSelected_mode_include_exclude` — Sets specifies the ID of a single mode that will be INCLUDED or EXCLUDED from the simulation base on the value of the "include_exclude_modes" property.
+- `apex.studies.MODESELECT.setSelected_mode_set_include_excldue` — Sets specifies the ID of a ScenarioSetModeId that defines the IDs of one or more modes selected for inclusion or exclusion from the simulation.
+- `apex.studies.MODESELECT.setSelection_method` — Sets specifies which one of five different methods will be used to select modes This property may be assigned any one of the following values, "USER" - user ...
+- `apex.studies.MODESELECT.setThreshold_method` — Sets specifies how the model effective mass fraction thresholds specified using the "mod_eff_mass_fraction" property are used to select modes This property may ...
+- `apex.studies.MONITOR.getComplex_form` — Gets optional property defining the form of complex output from monitor point data.
+- `apex.studies.MONITOR.getNoprint_mondsp1` — Gets optional property to enable/disable printing of monitor point data from MONDSP1 monitor points.
+- `apex.studies.MONITOR.getNoprint_monpnt1` — Gets optional property to enable/disable printing of monitor point data from MONPNT1 monitor points.
+- `apex.studies.MONITOR.getNoprint_monpnt2` — Gets optional property to enable/disable printing of monitor point data from MONPNT2 monitor points.
+- `apex.studies.MONITOR.getNoprint_monpnt3` — Gets optional property to enable/disable printing of monitor point data from MONPNT3 monitor points.
+- `apex.studies.MONITOR.getValue` — Gets property to enable or disable output of monitor point data This property supports the following value assignment, 'ALL' (Default) - enables output of all ...
+- `apex.studies.MONITOR.setComplex_form` — Sets optional property defining the form of complex output from monitor point data.
+- `apex.studies.MONITOR.setNoprint_mondsp1` — Sets optional property to enable/disable printing of monitor point data from MONDSP1 monitor points.
+- `apex.studies.MONITOR.setNoprint_monpnt1` — Sets optional property to enable/disable printing of monitor point data from MONPNT1 monitor points.
+- `apex.studies.MONITOR.setNoprint_monpnt2` — Sets optional property to enable/disable printing of monitor point data from MONPNT2 monitor points.
+- `apex.studies.MONITOR.setNoprint_monpnt3` — Sets optional property to enable/disable printing of monitor point data from MONPNT3 monitor points.
+- `apex.studies.MONITOR.setValue` — Sets property to enable or disable output of monitor point data This property supports the following value assignment, 'ALL' (Default) - enables output of all ...
+- `apex.studies.MeshlessGenerativeDesignStep.addEvent` — Adds an Event to this Step using the supplied name and returns the Event.
+- `apex.studies.MeshlessGenerativeDesignStep.duplicateEvent` — duplicate a new Event from the given one.
+- `apex.studies.MeshlessGenerativeDesignStep.getSimulationSettings` — returns the simulation settings from this scenario
+- `apex.studies.ModesSimulationSettings.getFreqRangeLower`
+- `apex.studies.ModesSimulationSettings.getFreqRangeUpper`
+- `apex.studies.ModesSimulationSettings.getInteractionControl`
+- `apex.studies.ModesSimulationSettings.getMaxModes`
+- `apex.studies.ModesSimulationSettings.setFreqRangeLower`
+- `apex.studies.ModesSimulationSettings.setFreqRangeUpper`
+- `apex.studies.ModesSimulationSettings.setInteractionControl`
+- `apex.studies.ModesSimulationSettings.setMaxModes`
+- `apex.studies.ModesStep.getSimulationSettings` — returns the ModesSimulationSettings from this apex.studie.Scenario
+- `apex.studies.ModesStep.setMNFOptions` — Configures the Step to include calculation and export of a Modal Neutral File for use in Adams multi-body dynamics simulations.
+- `apex.studies.MultiBodyTransientStep.addEvent` — Adds an Event to this Step using the supplied name and returns the Event.
+- `apex.studies.MultiBodyTransientStep.duplicateEvent` — duplicate a new Event from the given one.
+- `apex.studies.MultiBodyTransientStep.getEndTime` — Get the end time duration of the simulation.
+- `apex.studies.MultiBodyTransientStep.getOutputFrequency` — Get the output frequency in the simulation.
+- `apex.studies.MultiBodyTransientStep.getOutputStepSize` — Get the output step size in the simulation.
+- `apex.studies.MultiBodyTransientStep.getOutputSteps` — Get the number of output steps in the simulation.
+- `apex.studies.MultiBodyTransientStep.getSimulationSettings` — returns the simulation settings from this scenario
+- `apex.studies.MultiBodyTransientStep.update` — Modifies one or more parameters of the Scenario.
+- `apex.studies.NLBUCK.getValue` — Gets property used to control when nonlinear buckling analyses will be carried out during a Solution 400 analysis This property may be assigned any one of the ...
+- `apex.studies.NLBUCK.setValue` — Sets property used to control when nonlinear buckling analyses will be carried out during a Solution 400 analysis This property may be assigned any one of the ...
+- `apex.studies.NLIC.getLoadfact` — Gets specifies the load factor (or time) within the previously selected Subcase or Step at which the initial state was calculated.
+- `apex.studies.NLIC.getStep` — Gets specifies the positive integer ID of an existing STEP in which the initial state is calculated This property may be assigned either of the following ...
+- `apex.studies.NLIC.getSubcase` — Gets specify the positive integer ID of the existing Subcase in which the initial state is calculated This property may be assigned either of the following ...
+- `apex.studies.NLIC.getTime` — Gets specifies the time (or load factor) within the previously selected Subcase or Step at which the initial state was calculated.
+- `apex.studies.NLIC.getUsage_tolerance` — Gets specify whether the nearest time/load factor to the specified value should be used irrespective of how far it is from an available value or if it should ...
+- `apex.studies.NLIC.setLoadfact` — Sets specifies the load factor (or time) within the previously selected Subcase or Step at which the initial state was calculated.
+- `apex.studies.NLIC.setStep` — Sets specifies the positive integer ID of an existing STEP in which the initial state is calculated This property may be assigned either of the following ...
+- `apex.studies.NLIC.setSubcase` — Sets specify the positive integer ID of the existing Subcase in which the initial state is calculated This property may be assigned either of the following ...
+- `apex.studies.NLIC.setTime` — Sets specifies the time (or load factor) within the previously selected Subcase or Step at which the initial state was calculated.
+- `apex.studies.NLIC.setUsage_tolerance` — Sets specify whether the nearest time/load factor to the specified value should be used irrespective of how far it is from an available value or if it should ...
+- `apex.studies.NLOPRM.getContact_punch` — Gets property used to select which contact constraint output options are written to the punch file This property may be assigned any on of the following ...
+- `apex.studies.NLOPRM.getDebug_control` — Gets property used to specify printed output of debug data.
+- `apex.studies.NLOPRM.getDebug_post` — Gets property used to specify debug POST output options This property may be assigned any one of the following values, "NONE" - No post output None - same as ...
+- `apex.studies.NLOPRM.getDelimit` — Gets specifies whether or not DELIMIT output is written to the punch file Ths property may be assigned any one of the following values, "NO" - no delimiters ...
+- `apex.studies.NLOPRM.getGrid_output` — Gets specifies which grid point information will be written to the punch file This property may be assigned any one of the following values, "NO" - No grid ...
+- `apex.studies.NLOPRM.getOutput_control` — Gets property used to specify nonlinear solution output options This property may be assigned either of the following values, any combination of the following ...
+- `apex.studies.NLOPRM.setContact_punch` — Sets property used to select which contact constraint output options are written to the punch file This property may be assigned any on of the following ...
+- `apex.studies.NLOPRM.setDebug_control` — Sets property used to specify printed output of debug data.
+- `apex.studies.NLOPRM.setDebug_post` — Sets property used to specify debug POST output options This property may be assigned any one of the following values, "NONE" - No post output None - same as ...
+- `apex.studies.NLOPRM.setDelimit` — Sets specifies whether or not DELIMIT output is written to the punch file Ths property may be assigned any one of the following values, "NO" - no delimiters ...
+- `apex.studies.NLOPRM.setGrid_output` — Sets specifies which grid point information will be written to the punch file This property may be assigned any one of the following values, "NO" - No grid ...
+- `apex.studies.NLOPRM.setOutput_control` — Sets property used to specify nonlinear solution output options This property may be assigned either of the following values, any combination of the following ...
+- `apex.studies.NLSTEP.getValue` — Gets the ID of NLSTEP bulk entry Use this command to assign integration and time step data to a nonlinear static and transient Subcase, Step or Substep.
+- `apex.studies.NLSTEP.setValue` — Sets the ID of NLSTEP bulk entry Use this command to assign integration and time step data to a nonlinear static and transient Subcase, Step or Substep.
+- `apex.studies.NSM.getValue` — Gets the ID of one or more NMS, NSML, NSM1, NSML1 or NSMADD entries assigned to the model referenced by the Scenario that this command is composed by Use this ...
+- `apex.studies.NSM.setValue` — Sets the ID of one or more NMS, NSML, NSM1, NSML1 or NSMADD entries assigned to the model referenced by the Scenario that this command is composed by Use this ...
+- `apex.studies.NastranSol400StepSettingsStatic.NastranSol400StepSettingsStatic` — Constructor for Nastran s400 static step simulation setting.
+- `apex.studies.NastranSol400StepSettingsStatic.getId` — id of the step setting.
+- `apex.studies.NastranSol400StepSettingsStatic.getIncrementalScheme` — Incremental Scheme to be used for this step.
+- `apex.studies.NastranSol400StepSettingsStatic.getIncrementalSchemeAdaptive` — The step properties of Incremental Scheme = Adaptive.
+- `apex.studies.NastranSol400StepSettingsStatic.getIncrementalSchemeArcLength` — The step properties of Incremental Scheme = ArcLength.
+- `apex.studies.NastranSol400StepSettingsStatic.getIncrementalSchemeFixed` — The step properties of Incremental Scheme = Fixed.
+- `apex.studies.NastranSol400StepSettingsStatic.getIterationsAndConvergence` — Iteration and convergence setting for the step.
+- `apex.studies.NastranSol400StepSettingsStatic.getPredefinedOption` — The severity of the nonlinear present in this Step.
+- `apex.studies.NastranSol400StepSettingsStatic.getStepSettingMethod` — Step setting using "Smart' or "Advanced" to define increment, iteration and convergence settings.
+- `apex.studies.NastranSol400StepSettingsStatic.update` — Update Nastran s400 static step simulation setting.
+- `apex.studies.ODSFREQ.getValue` — Gets a property used to identify the ScenarioSetFrequency containing frequency values that will be used to generate ODS output This property may be assigned ...
+- `apex.studies.ODSFREQ.setValue` — Sets a property used to identify the ScenarioSetFrequency containing frequency values that will be used to generate ODS output This property may be assigned ...
+- `apex.studies.OFREQUENCY.getValue` — Gets a property used to identify the ScenarioSetFrequency containing frequency values that will be used to generate output requests This property may be ...
+- `apex.studies.OFREQUENCY.setValue` — Sets a property used to identify the ScenarioSetFrequency containing frequency values that will be used to generate output requests This property may be ...
+- `apex.studies.OMODES.getValue` — Gets a property used to identify the ScenarioSetModeId containing IDs of the Modes that will be used to generate output requests This property may be assigned ...
+- `apex.studies.OMODES.setValue` — Sets a property used to identify the ScenarioSetModeId containing IDs of the Modes that will be used to generate output requests This property may be assigned ...
+- `apex.studies.OTIME.getValue` — Gets a property used to identify the ScenarioSetTime containing the time values that will be used to generate output data This property may be assigned the ID ...
+- `apex.studies.OTIME.setValue` — Sets a property used to identify the ScenarioSetTime containing the time values that will be used to generate output data This property may be assigned the ID ...
+- `apex.studies.PARTN.getValue` — Gets a property used to identify the ScenarioSetGridId containing IDs of the Nodes that will be used to generate the partitioning vector This property may be ...
+- `apex.studies.PARTN.setValue` — Sets a property used to identify the ScenarioSetGridId containing IDs of the Nodes that will be used to generate the partitioning vector This property may be ...
+- `apex.studies.PEAKOUT.getAcoustic_dofs` — Gets a positive integer identifying the ID of a an existing ScenarioSetGridId that defines a set of acoustic degrees of freedom from which the peaks are ...
+- `apex.studies.PEAKOUT.getMin_peak_separation` — Gets optional property (Default None) used to define the minimum allowed frequency between two peaks.
+- `apex.studies.PEAKOUT.getNumber_of_peaks` — Gets optional property used to specify the number of peaks to extract.
+- `apex.studies.PEAKOUT.getPeak_highest` — Gets defines the highest frequency used in peak identification.
+- `apex.studies.PEAKOUT.getPeak_lowest` — Gets defines the lowest frequency used in peak identification.
+- `apex.studies.PEAKOUT.getPeak_quantity` — Gets optional property (Default None)used to identify the result quantity that will be used to identify response peaks This property may be assigned any one of ...
+- `apex.studies.PEAKOUT.getPeak_scale_method` — Gets property used to define the scaling method for peak acoustic pressure identification in the fluid domain This property may be assigned any one of the ...
+- `apex.studies.PEAKOUT.getStructural_dofs` — Gets a positive integer identify an existing ScenarioSetGridComponent that defines a set of structural degrees of freedom from which the peaks are extracted.
+- `apex.studies.PEAKOUT.setAcoustic_dofs` — Sets a positive integer identifying the ID of a an existing ScenarioSetGridId that defines a set of acoustic degrees of freedom from which the peaks are ...
+- `apex.studies.PEAKOUT.setMin_peak_separation` — Sets optional property (Default None) used to define the minimum allowed frequency between two peaks.
+- `apex.studies.PEAKOUT.setNumber_of_peaks` — Sets optional property used to specify the number of peaks to extract.
+- `apex.studies.PEAKOUT.setPeak_highest` — Sets defines the highest frequency used in peak identification.
+- `apex.studies.PEAKOUT.setPeak_lowest` — Sets defines the lowest frequency used in peak identification.
+- `apex.studies.PEAKOUT.setPeak_quantity` — Sets optional property (Default None)used to identify the result quantity that will be used to identify response peaks This property may be assigned any one of ...
+- `apex.studies.PEAKOUT.setPeak_scale_method` — Sets property used to define the scaling method for peak acoustic pressure identification in the fluid domain This property may be assigned any one of the ...
+- `apex.studies.PEAKOUT.setStructural_dofs` — Sets a positive integer identify an existing ScenarioSetGridComponent that defines a set of structural degrees of freedom from which the peaks are extracted.
+- `apex.studies.POST.getEnhanced_op2` — Gets parameter used to control whether to export standard or enhanced .op2 formats to the .op2 file This property will be silently ignored unless ...
+- `apex.studies.POST.getPost_processor` — Gets optional property used to identify which post-processor this command will target This property accepts any one of the following values, "PATRAN" - Patran ...
+- `apex.studies.POST.setEnhanced_op2` — Sets parameter used to control whether to export standard or enhanced .op2 formats to the .op2 file This property will be silently ignored unless ...
+- `apex.studies.POST.setPost_processor` — Sets optional property used to identify which post-processor this command will target This property accepts any one of the following values, "PATRAN" - Patran ...
+- `apex.studies.RANDOM.getValue` — Gets required property used to select one or more RANDPS and/or RANDT1 entities that respectively define the power spectral density and time lag functions that ...
+- `apex.studies.RANDOM.setValue` — Sets required property used to select one or more RANDPS and/or RANDT1 entities that respectively define the power spectral density and time lag functions that ...
+- `apex.studies.RCROSS.getOutput_cross_corr` — Gets property used to request calculation and output of the cross correlation function This property may be assigned the following values, 'CORF' - activates ...
+- `apex.studies.RCROSS.getOutput_cross_psd` — Gets property used to request calculation and output of the cross power spectra; density function This property may be assigned the following values, 'PSDF' - ...
+- `apex.studies.RCROSS.getOutput_cross_psd_corr` — Gets property used to request calculation and output of both the cross power spectral density and cross correlation function This property may be assigned the ...
+- `apex.studies.RCROSS.getOutput_format` — Gets optional property used to control the format of the complex output generated by this RCROSS command This property may be assigned the following values ...
+- `apex.studies.RCROSS.getOutput_print` — Gets property used to control output of the cross PSD and cross correlation data to the Nastran print file This property may be assigned the following values ...
+- `apex.studies.RCROSS.getOutput_punch` — Gets property used to control output of the cross PSD and cross correlation data to the Nastran punch file This property may be assigned the following values ...
+- `apex.studies.RCROSS.getValue` — Gets The positive integer ID of an RCROSS entity that defines the pair of response quantities used to compute the cross power spectral density and cross ...
+- `apex.studies.RCROSS.setOutput_cross_corr` — Sets property used to request calculation and output of the cross correlation function This property may be assigned the following values, 'CORF' - activates ...
+- `apex.studies.RCROSS.setOutput_cross_psd` — Sets property used to request calculation and output of the cross power spectra; density function This property may be assigned the following values, 'PSDF' - ...
+- `apex.studies.RCROSS.setOutput_cross_psd_corr` — Sets property used to request calculation and output of both the cross power spectral density and cross correlation function This property may be assigned the ...
+- `apex.studies.RCROSS.setOutput_format` — Sets optional property used to control the format of the complex output generated by this RCROSS command This property may be assigned the following values ...
+- `apex.studies.RCROSS.setOutput_print` — Sets property used to control output of the cross PSD and cross correlation data to the Nastran print file This property may be assigned the following values ...
+- `apex.studies.RCROSS.setOutput_punch` — Sets property used to control output of the cross PSD and cross correlation data to the Nastran punch file This property may be assigned the following values ...
+- `apex.studies.RCROSS.setValue` — Sets The positive integer ID of an RCROSS entity that defines the pair of response quantities used to compute the cross power spectral density and cross ...
+- `apex.studies.RESVEC.getAdjoint_load_residuals` — Gets property used to specify whether or not residual vectors based on adjoint loads will be calculated This property may be assigned any one of the following ...
+- `apex.studies.RESVEC.getApplied_load_residuals` — Gets property used to specify whether or not residual vectors based on applied loads will be calculated This property may be assigned any one of the following ...
+- `apex.studies.RESVEC.getDynamically_responding_residuals` — Gets property used to specify whether or not residual vectors are allowed to respond dynamically during modal frequency/transient analysis This property may be ...
+- `apex.studies.RESVEC.getInertial_force_residuals` — Gets property used to specify whether or not residual vectors based on inertial forces from rigid body motions will be calculated This property may be assigned ...
+- `apex.studies.RESVEC.getRvdof_residuals` — Gets property used to specify whether or not residual vectors based on specified residual vector degrees of freedom will be calculated This property may be ...
+- `apex.studies.RESVEC.getValue` — Gets property used to specify whether residual vectors will be calculated or not This property may be assigned any one of the following values, "SYSTEM" - ...
+- `apex.studies.RESVEC.getViscous_damping_residuals` — Gets property used to specify whether or not residual vectors based on viscous damping will be calculated This property may be assigned any one of the ...
+- `apex.studies.RESVEC.setAdjoint_load_residuals` — Sets property used to specify whether or not residual vectors based on adjoint loads will be calculated This property may be assigned any one of the following ...
+- `apex.studies.RESVEC.setApplied_load_residuals` — Sets property used to specify whether or not residual vectors based on applied loads will be calculated This property may be assigned any one of the following ...
+- `apex.studies.RESVEC.setDynamically_responding_residuals` — Sets property used to specify whether or not residual vectors are allowed to respond dynamically during modal frequency/transient analysis This property may be ...
+- `apex.studies.RESVEC.setInertial_force_residuals` — Sets property used to specify whether or not residual vectors based on inertial forces from rigid body motions will be calculated This property may be assigned ...
+- `apex.studies.RESVEC.setRvdof_residuals` — Sets property used to specify whether or not residual vectors based on specified residual vector degrees of freedom will be calculated This property may be ...
+- `apex.studies.RESVEC.setValue` — Sets property used to specify whether residual vectors will be calculated or not This property may be assigned any one of the following values, "SYSTEM" - ...
+- `apex.studies.RESVEC.setViscous_damping_residuals` — Sets property used to specify whether or not residual vectors based on viscous damping will be calculated This property may be assigned any one of the ...
+- `apex.studies.RIGID.getValue` — Gets property used to specify which of three possible methods will be used by Nastran to process rigid elements This property may be assigned any one of the ...
+- `apex.studies.RIGID.setValue` — Sets property used to specify which of three possible methods will be used by Nastran to process rigid elements This property may be assigned any one of the ...
+- `apex.studies.RSDAMP.getScope` — Gets an optional property used to define how this residual structure damping command is applied to the structural and fluid regions of the residual.
+- `apex.studies.RSDAMP.getValue` — Gets a positive integer identifying an existing DAMPING entity.
+- `apex.studies.RSDAMP.setScope` — Sets an optional property used to define how this residual structure damping command is applied to the structural and fluid regions of the residual.
+- `apex.studies.RSDAMP.setValue` — Sets a positive integer identifying an existing DAMPING entity.
+- `apex.studies.SDAMPING.getScope` — Gets an optional property used to define how this modal damping command is applied to the structural and fluid regions of the model.
+- `apex.studies.SDAMPING.getValue` — Gets a positive integer identifying an existing TABDMP1, TABLED1, TABLED2, TABLED3 or, TABLED4 entity.
+- `apex.studies.SDAMPING.setScope` — Sets an optional property used to define how this modal damping command is applied to the structural and fluid regions of the model.
+- `apex.studies.SDAMPING.setValue` — Sets a positive integer identifying an existing TABDMP1, TABLED1, TABLED2, TABLED3 or, TABLED4 entity.
+- `apex.studies.SLDSKIN.getThickness_tol` — Gets optional property (Default = 1.0E-3) defining a thickness.
+- `apex.studies.SLDSKIN.getValue` — Gets optional property (default = "NONE") used to identify the PSHELL entries that will be modified by this command. value may be set as follows, "NONE" - The ...
+- `apex.studies.SLDSKIN.setThickness_tol` — Sets optional property (Default = 1.0E-3) defining a thickness.
+- `apex.studies.SLDSKIN.setValue` — Sets optional property (default = "NONE") used to identify the PSHELL entries that will be modified by this command. value may be set as follows, "NONE" - The ...
+- `apex.studies.SMETHOD.getSolver_controls` — Gets required property used to define iterative solver controls this property may be assigned any of the values shown below, 'ELEMENT' - This is the default ...
+- `apex.studies.SMETHOD.setSolver_controls` — Sets required property used to define iterative solver controls this property may be assigned any of the values shown below, 'ELEMENT' - This is the default ...
+- `apex.studies.SPC.getValue` — Gets the ID of one or more constraints assigned to the model referenced by the Scenario that this command is composed by Use this command to assign Constraints ...
+- `apex.studies.SPC.setValue` — Sets the ID of one or more constraints assigned to the model referenced by the Scenario that this command is composed by Use this command to assign Constraints ...
+- `apex.studies.STATSUB_BUCKLING.getValue` — Gets specifies the ID of an existing static analysis Subcase that will be used to define the static buckling load for use in linear buckling analysis This ...
+- `apex.studies.STATSUB_BUCKLING.getWrite_buckling_field` — Gets a property that controls whether or not the "(BUCKLING)" string is written as part of this STATSUB command or not This property may be assigned any one of ...
+- `apex.studies.STATSUB_BUCKLING.setValue` — Sets specifies the ID of an existing static analysis Subcase that will be used to define the static buckling load for use in linear buckling analysis This ...
+- `apex.studies.STATSUB_BUCKLING.setWrite_buckling_field` — Sets a property that controls whether or not the "(BUCKLING)" string is written as part of this STATSUB command or not This property may be assigned any one of ...
+- `apex.studies.STATSUB_PRELOAD.getValue` — Gets specifies the ID of an existing static analysis Subcase that will be used to form the differential stiffness that will be used by the Subcase with which ...
+- `apex.studies.STATSUB_PRELOAD.getWrite_preload_field` — Gets a property that controls whether or not the "(PRELOAD)" string is written as part of this STATSUB command or not This property may be assigned any one of ...
+- `apex.studies.STATSUB_PRELOAD.setValue` — Sets specifies the ID of an existing static analysis Subcase that will be used to form the differential stiffness that will be used by the Subcase with which ...
+- `apex.studies.STATSUB_PRELOAD.setWrite_preload_field` — Sets a property that controls whether or not the "(PRELOAD)" string is written as part of this STATSUB command or not This property may be assigned any one of ...
+- `apex.studies.STOCHASTICS.getValue` — Gets optional value used to identify which model parameters will be randomized by this STOCHASTICS command.
+- `apex.studies.STOCHASTICS.setValue` — Sets optional value used to identify which model parameters will be randomized by this STOCHASTICS command.
+- `apex.studies.SUBSEQ.getValue` — Gets the coefficients applied to previously occurring Subcases.
+- `apex.studies.SUBSEQ.setValue` — Sets the coefficients applied to previously occurring Subcases.
+- `apex.studies.SUBSEQ1.getGlobal_scale_factpr` — Gets the global scale factor for this subcase combination.
+- `apex.studies.SUBSEQ1.getValue` — Gets the coefficients and associated Subcase IDs of previously occurring Subcases as a list of lists.
+- `apex.studies.SUBSEQ1.setGlobal_scale_factpr` — Sets the global scale factor for this subcase combination.
+- `apex.studies.SUBSEQ1.setValue` — Sets the coefficients and associated Subcase IDs of previously occurring Subcases as a list of lists.
+- `apex.studies.SUPORT1.getValue` — Gets The ID of one or more SUPORT1 entries assigned to the model referenced by the Scenario that this command is composed by Use this command to assign a ...
+- `apex.studies.SUPORT1.setValue` — Sets The ID of one or more SUPORT1 entries assigned to the model referenced by the Scenario that this command is composed by Use this command to assign a ...
+- `apex.studies.SYMSEQ.getValue` — Gets the coefficients used to scale and subsequently sum results generated by previously occurring SYM Subcases.
+- `apex.studies.SYMSEQ.setValue` — Sets the coefficients used to scale and subsequently sum results generated by previously occurring SYM Subcases.
+- `apex.studies.Scenario.addConstraint` — Add a Constraint to this Scenario (only for standalone Modes Scenario) (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.addLoadCase` — adds (and returns) a new LoadCase to this Scenario. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.associateModelAssociation` — Associates an ModelAssociation with the Scenario. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.associateModelRep` — Associates an AssemblyRep or PartRep with the Scenario. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.attachNastranResults` — Attaches results from the supplied Nastran .hdf5 file into this Scenario. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.createDynamicStep` — Create Dynamic Step. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.createStaticStep` — Create Static Step. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.detachNastranResults` — Detach Nastran results from a scenario. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.execute` — Executes the Scenario on the local workstation. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.exportFEModel` — Exports the Scenario to a Nastran file. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.exportGenerativeDesignSolverInput` — Exports the Scenario in Generative Design file format. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.exportMarc` — Exports the contents of the Scenario to a Marc file. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getAcfCommands` — Get the series of ACF Commands to control a scenario. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getConstraints` — Return a collection of apex.EntityCollection objects that are associated with this (Modes) Scenario. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getDirectTextInput` (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getDynamicStep` — Get a Dynamic Step in a Scenario. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getExecutionStatus` — returns the ExecutionStatus of the Scenario (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getInitialConditions` — The collection of InitialConditions that are associated with the scenario. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getLastExecutedScenario` — return the last previously executed version of the Scenario. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getLoadCase` — Retrieves a single LoadCase from the Scenario using the supplied name. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getLoadCases` — Retrieves a collection of all LoadCases composed by this Scenario. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getNonStructuralMassSets` — The collection of NonStructuralMasses that is active in this Scenario. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getParameters` — Parameters set of the scenario, all PARAMs of the parameter set will be added above sub case within Nastran input file. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getParametersBulkData` — Parameters set of the scenario, all PARAMs of the parameter set will be added to bulk data within Nastran input file. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getParametersByEvent` — The string keys of the dictionary is the name of the event. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getParametersByLoadCase` — The string keys of the dictionary is the name of the load case. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getParametersByStep` — The string keys of the dictionary is the path name of the step. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getScenarioConfiguration` — returns the ScenarioConfiguration of this scenario (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getScenarioModelRep` — returns the ModelRep that is associated with this scenario (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getSimulationSettings` — returns the SimulationSettings from this Scenario (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getSimulationStatusMessages` — returns the Simulation Status messages of the Scenario (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getStaticStep` — Get a Static Step in a Scenario. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getStep` — Retrieves a single Step from the Scenario using the supplied name. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getSteps` — returns an ordered collection of the Steps in a Scenario (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.getSystemCells` — System cells set of the scenario. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.importMarc` — Imports the contents of the Scenario to a Marc file. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.importNastranResults` — Imports results from the supplied Nastran .hdf5 file into this Scenario. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.removeConstraint` — Removes a Constraint from an Scenario (only for standalone Modes Scenario) (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.setInitialConditions` — Defines InitialConditions that are associated with the scenario. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.setNonStructuralMassSets` — Defines the set of NonStructuralMasses that will be active in this Scenario. (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.setParameters` — set a Parameters set to this Scenario (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.setParametersBulkData` — set a Parameters set to this Scenario (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.setParametersByEvent` — set Parameters set to this Scenario (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.setParametersByLoadCase` — set Parameters set to this Scenario (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.setParametersByStep` — set Parameters set to this Scenario (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.setSimulationSettings` — set a SimulationSettings to this Scenario (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.setSystemCells` — set a System cells set to this Scenario (inherited by `ExecutedScenario`)
+- `apex.studies.Scenario.update` — Update this Scenario. (inherited by `ExecutedScenario`)
+- `apex.studies.ScenarioCollection.ScenarioCollection` — Construct a new ScenarioCollection.
+- `apex.studies.ScenarioCommand.getActiveState` — Gets the active state of this ScenarioCommand. (inherited by 60 classes)
+- `apex.studies.ScenarioCommand.getDescription` — Gets the read only a description of this ScenarioCommand. (inherited by 60 classes)
+- `apex.studies.ScenarioCommand.getName` — Gets the read only Name of this ScenarioCommand. (inherited by 60 classes)
+- `apex.studies.ScenarioCommand.setActiveState` — Sets the active state of this ScenarioCommand. (inherited by 60 classes)
+- `apex.studies.ScenarioNastran.associateModelRep` — Associates an AssemblyRep or PartRep with the Scenario.
+- `apex.studies.ScenarioNastran.attachNastranResults` — Attaches results from the supplied ScenarioNastran .hdf5 file into this Scenario.
+- `apex.studies.ScenarioNastran.createScenarioSetFrequency` — Creates and returns a ScenarioSetFrequency The ScenarioSetElementId may be optionally be initialized with an id, name and iterable of frequency values.
+- `apex.studies.ScenarioNastran.createScenarioSetFrfcompId` — Creates and returns a ScenarioSetFrfcompId The ScenarioSetFrfcompId may optionally be initialized with an id, name and iterable of FRFCOMP bulk entry IDs.
+- `apex.studies.ScenarioNastran.createScenarioSetGridComponent` — Creates and returns a ScenarioSetGridComponent The ScenarioSetGridComponent may optionally be initialized with an id, name and iterable of grid component ...
+- `apex.studies.ScenarioNastran.createScenarioSetGridId` — Creates and returns a ScenarioSetGridId The ScenarioSetGridId may be optionally be initialized with an id, name and Group.
+- `apex.studies.ScenarioNastran.createScenarioSetModeId`
+- `apex.studies.ScenarioNastran.createScenarioSetRandId` — Creates and returns a ScenarioSetRandId The ScenarioSetRandId may optionally be initialized with an id, name and iterable of IDs.
+- `apex.studies.ScenarioNastran.createScenarioSetTime` — Creates and returns a ScenarioSetTime The ScenarioSetTime may be optionally be initialized with an id, name and iterable of time values.
+- `apex.studies.ScenarioNastran.createSubcase` — Creates one or more Subcases of the specified type and adds them to this Scenario.
+- `apex.studies.ScenarioNastran.deleteSubcase` — Deletes a SubcaseNastran from this Study.
+- `apex.studies.ScenarioNastran.detachNastranResults` — Detach ScenarioNastran results from a scenario.
+- `apex.studies.ScenarioNastran.execute` — Executes the Scenario on the local workstation.
+- `apex.studies.ScenarioNastran.exportFEModel` — Exports the ScenarioNastran to a Nastran file.
+- `apex.studies.ScenarioNastran.getAnalysis` — Gets enumeration used to define the default ANALYSIS type for this ScenarioNastran.
+- `apex.studies.ScenarioNastran.getDirectTextInput` — get export new scenario settings.
+- `apex.studies.ScenarioNastran.getExecutionStatus` — Gets the execution status of this ScenarioNastran.
+- `apex.studies.ScenarioNastran.getParameters` — Parameters set of the ScenarioNastran, all PARAMs of the parameter set will be added above sub case within Nastran input file.
+- `apex.studies.ScenarioNastran.getParametersBulkData` — Parameters set of the ScenarioNastran, all PARAMs of the parameter set will be added to bulk data within Nastran input file.
+- `apex.studies.ScenarioNastran.getParametersByLoadCase` — The string keys of the dictionary is the name of the load case.
+- `apex.studies.ScenarioNastran.getParametersByStep` — The string keys of the dictionary is the path name of the step.
+- `apex.studies.ScenarioNastran.getParametersBySubStep` — The string keys of the dictionary is the path name of the sub step.
+- `apex.studies.ScenarioNastran.getResultFiles` — Gets A List of the fully qualified pathnames of all currently attached result files.
+- `apex.studies.ScenarioNastran.getScenarioSetNastran` — gets a ScenarioSetNastran from this ScenarioNastran using the ID provided in the argument The ScenarioSetNastran is returned as an instance of the actual type ...
+- `apex.studies.ScenarioNastran.getScenarioSets` — Gets a list of all ScenarioSetNastran items in this ScenarioNastran.
+- `apex.studies.ScenarioNastran.getSolutionType` — Gets Enumeration used to identify the type of solution that will be carried out by a Scenario.
+- `apex.studies.ScenarioNastran.getSubcaseNastran` — Returns the SubcaseNastran identified by the name defined in the argument.
+- `apex.studies.ScenarioNastran.getSubcases` — Returns a list of Subcases in this Scenario.
+- `apex.studies.ScenarioNastran.getSystemCells` — System cells set of the ScenarioNastran.
+- `apex.studies.ScenarioNastran.setAnalysis` — Sets enumeration used to define the default ANALYSIS type for this ScenarioNastran.
+- `apex.studies.ScenarioNastran.setParameters` — set a Parameters set to this ScenarioNastran
+- `apex.studies.ScenarioNastran.setParametersBulkData` — set a Parameters set to this ScenarioNastran
+- `apex.studies.ScenarioNastran.setParametersByLoadCase` — set Parameters set to this ScenarioNastran
+- `apex.studies.ScenarioNastran.setParametersByStep` — set Parameters set to this ScenarioNastran
+- `apex.studies.ScenarioNastran.setParametersBySubStep` — set Parameters set to this ScenarioNastran
+- `apex.studies.ScenarioNastran.setSystemCells` — set a System cells set to this ScenarioNastran
+- `apex.studies.ScenarioNastranCollection.ScenarioNastranCollection` — Construct a new ScenarioNastranCollection.
+- `apex.studies.ScenarioSetFrequency.getValues` — Gets a property defining the list of Frequencies that this set represents.
+- `apex.studies.ScenarioSetFrequency.setValues` — Sets a property defining the list of Frequencies that this set represents.
+- `apex.studies.ScenarioSetFrfcompId.getValues` — Gets a property defining the list of IDs of FRFCOMP bulk entries that this set represents.
+- `apex.studies.ScenarioSetFrfcompId.setValues` — Sets a property defining the list of IDs of FRFCOMP bulk entries that this set represents.
+- `apex.studies.ScenarioSetGridComponent.getValues` — Gets a property defining the list of Grid components that this set represents Each grid component in the list is represented by the combination of the grid ID ...
+- `apex.studies.ScenarioSetGridComponent.setValues` — Sets a property defining the list of Grid components that this set represents Each grid component in the list is represented by the combination of the grid ID ...
+- `apex.studies.ScenarioSetGridId.clone` — Creates a copy of this ScenarioSetNastran.
+- `apex.studies.ScenarioSetGridId.getGroup` — Gets a property defining the list of Grid IDs that this set represents.
+- `apex.studies.ScenarioSetGridId.setGroup` — Sets the Apex Group from which this set extracts its Grids.
+- `apex.studies.ScenarioSetModeId.getValues` — Gets a property defining the list of Mode IDs that this set represents.
+- `apex.studies.ScenarioSetModeId.setValues` — Sets a property defining the list of Mode IDs that this set represents.
+- `apex.studies.ScenarioSetNastran.clone` — Creates a copy of this ScenarioSetNastran. (inherited by 7 classes)
+- `apex.studies.ScenarioSetNastran.getId` — Gets an ID for this SET. (inherited by 7 classes)
+- `apex.studies.ScenarioSetNastran.getName` — Gets an optional name for this ScenarioSet ScenarioSet names must be unique within a Scenario. (inherited by 7 classes)
+- `apex.studies.ScenarioSetNastran.setId` — Sets an ID for this SET. (inherited by 7 classes)
+- `apex.studies.ScenarioSetNastran.setName` — Sets an optional name for this ScenarioSet ScenarioSet names must be unique within a Scenario. (inherited by 7 classes)
+- `apex.studies.ScenarioSetRandId.getValues` — Gets a property defining the list of IDs of RANDPS and/or RANDT1 that this set represents.
+- `apex.studies.ScenarioSetRandId.setValues` — Sets a property defining the list of IDs of RANDPS and/or RANDT1 that this set represents.
+- `apex.studies.ScenarioSetTime.getValues` — Gets a property defining the list of times that this set represents This property represents a Time quantity and must be defined using the units of Time from ...
+- `apex.studies.ScenarioSetTime.setValues` — Sets a property defining the list of times that this set represents This property represents a Time quantity and must be defined using the units of Time from ...
+- `apex.studies.SimulationSettings.asBucklingSimulationSettings` (inherited by 9 classes)
+- `apex.studies.SimulationSettings.asFrequencyResponseSimulationSettings` (inherited by 9 classes)
+- `apex.studies.SimulationSettings.asModesSimulationSettings` (inherited by 9 classes)
+- `apex.studies.SimulationSettings.asNastranSol400SimulationSettings` (inherited by 9 classes)
+- `apex.studies.SimulationSettings.asSimulationSettingsBucklingNastran` (inherited by 9 classes)
+- `apex.studies.SimulationSettings.asSimulationSettingsGenerativeDesign` (inherited by 9 classes)
+- `apex.studies.SimulationSettings.asSimulationSettingsModesNastran` (inherited by 9 classes)
+- `apex.studies.SimulationSettings.asSimulationSettingsStaticNastran` (inherited by 9 classes)
+- `apex.studies.SimulationSettings.asStaticSimulationSettings` (inherited by 9 classes)
+- `apex.studies.SimulationSettingsBucklingNastran.SimulationSettingsBucklingNastran` — This class manages the simulation settings for Buckling Simulation Steps.
+- `apex.studies.SimulationSettingsBucklingNastran.getInteractionControl` — Interaction control settings for the scenario.
+- `apex.studies.SimulationSettingsBucklingNastran.getNumBucklingModes` — The number of buckling modes (default = 10) to recover during the simulation.
+- `apex.studies.SimulationSettingsBucklingNastran.getSolverControlSettings` — Solver control settings for the scenario.
+- `apex.studies.SimulationSettingsBucklingNastran.setInteractionControl` — Interaction control settings for the scenario.
+- `apex.studies.SimulationSettingsBucklingNastran.setNumBucklingModes` — The number of buckling modes (default = 10) to recover during the simulation.
+- `apex.studies.SimulationSettingsBucklingNastran.setSolverControlSettings` — Solver control settings for the scenario.
+- `apex.studies.SimulationSettingsBucklingNastran.update` — Update the simulation settings.
+- `apex.studies.SimulationSettingsGenerativeDesign.getAdvancedSettings` — returns the AdvancedSettingGenerativeDesign object from this Scenario.
+- `apex.studies.SimulationSettingsGenerativeDesign.getBuildDirection` — Get the build direction of the SimulationSettings.
+- `apex.studies.SimulationSettingsGenerativeDesign.getComplexity` — indirectly controls the initial complexity of the model during simulation by specifying the amount of memory to use for the simulation.
+- `apex.studies.SimulationSettingsGenerativeDesign.getDesignRules` — The argument defines how the current scenario take the design rules.
+- `apex.studies.SimulationSettingsGenerativeDesign.getFailureSettings` — The argument defines how the current scenario take the failure settings.
+- `apex.studies.SimulationSettingsGenerativeDesign.getFrequencyConstraintEvent` — a dictionary to define the frequency constraint for each event in this scenario.
+- `apex.studies.SimulationSettingsGenerativeDesign.getFrequencyConstraintGlobal` — a float value to define the frequency constraint applied to the scenario - all events in this scenario will have the same frequency constraint if the frequency ...
+- `apex.studies.SimulationSettingsGenerativeDesign.getKeepConstraintRegions` — The argument defines a list constraint objects which application regions to be kept during optimization by name.
+- `apex.studies.SimulationSettingsGenerativeDesign.getKeepInterfaceRegions` — The argument defines a list interfaces objects to be kept during optimization by name.
+- `apex.studies.SimulationSettingsGenerativeDesign.getKeepLoadRegions` — The argument defines a list load objects which application regions to be kept during optimization by name.
+- `apex.studies.SimulationSettingsGenerativeDesign.getKeepNonDesignRegions` — The argument defines a list non-design regions objects to be kept during optimization by name.
+- `apex.studies.SimulationSettingsGenerativeDesign.getManufacturingMethod` — Enumeration argument to guide the type of manufacturing method that will be generated by the solver.
+- `apex.studies.SimulationSettingsGenerativeDesign.getShapeQuality` — Enumeration argument to control the quality of the shape that will be generated.
+- `apex.studies.SimulationSettingsGenerativeDesign.getStrutDensity` — Enumeration argument to guide the type of shape that will be generated by the solver.
+- `apex.studies.SimulationSettingsGenerativeDesign.setAdvancedSettings` — returns the AdvancedSettingGenerativeDesign object from this Scenario.
+- `apex.studies.SimulationSettingsGenerativeDesign.setBuildDirection` — Define the build direction using an orientation object.
+- `apex.studies.SimulationSettingsGenerativeDesign.setComplexity` — indirectly controls the initial complexity of the model during simulation by specifying the amount of memory to use for the simulation.
+- `apex.studies.SimulationSettingsGenerativeDesign.setDesignRules` — The argument defines how the current scenario take the design rules.
+- `apex.studies.SimulationSettingsGenerativeDesign.setFailureSettings` — The argument defines how the current scenario take the failure settings.
+- `apex.studies.SimulationSettingsGenerativeDesign.setFrequencyConstraintEvent` — a dictionary to define the frequency constraint for each event in this scenario.
+- `apex.studies.SimulationSettingsGenerativeDesign.setFrequencyConstraintGlobal` — a float value to define the frequency constraint applied to the scenario - all events in this scenario will have the same frequency constraint if the frequency ...
+- `apex.studies.SimulationSettingsGenerativeDesign.setKeepConstraintRegions` — The argument defines a list constraint objects which application regions to be kept during optimization by name.
+- `apex.studies.SimulationSettingsGenerativeDesign.setKeepInterfaceRegions` — The argument defines a list interfaces objects to be kept during optimization by name.
+- `apex.studies.SimulationSettingsGenerativeDesign.setKeepLoadRegions` — The argument defines a list load objects which application regions to be kept during optimization by name.
+- `apex.studies.SimulationSettingsGenerativeDesign.setKeepNonDesignRegions` — The argument defines a list non-design regions objects to be kept during optimization by name.
+- `apex.studies.SimulationSettingsGenerativeDesign.setManufacturingMethod` — Enumeration argument to guide the type of manufacturing method that will be generated by the solver. used to define the manufacturing Method
+- `apex.studies.SimulationSettingsGenerativeDesign.setShapeQuality` — Enumeration argument to control the quality of the shape that will be generated.
+- `apex.studies.SimulationSettingsGenerativeDesign.setStrutDensity` — Enumeration argument to guide the type of shape that will be generated by the solver.
+- `apex.studies.SimulationSettingsModesNastran.SimulationSettingsModesNastran` — Constructor of the simulation settings.
+- `apex.studies.SimulationSettingsModesNastran.getFrequencyBoundLower` — The lower bound value of modal frequencies that will be recovered by the normal modes solutions.
+- `apex.studies.SimulationSettingsModesNastran.getFrequencyBoundUpper` — The upper bound value of modal frequencies that will be recovered by the normal modes solutions.
+- `apex.studies.SimulationSettingsModesNastran.getInteractionControl` — Interaction control settings for the scenario.
+- `apex.studies.SimulationSettingsModesNastran.getMaxNumModes` — The maximum number of modes (default = 10) to recover during solution.
+- `apex.studies.SimulationSettingsModesNastran.getSolverControlSettings` — Solver control settings for the scenario.
+- `apex.studies.SimulationSettingsModesNastran.getStopCalculation` — Stop calculation based on maximum number of modes.
+- `apex.studies.SimulationSettingsModesNastran.setFrequencyBoundLower` — The lower bound value of modal frequencies that will be recovered by the normal modes solutions.
+- `apex.studies.SimulationSettingsModesNastran.setFrequencyBoundUpper` — The upper bound value of modal frequencies that will be recovered by the normal modes solutions.
+- `apex.studies.SimulationSettingsModesNastran.setInteractionControl` — Interaction control settings for the scenario.
+- `apex.studies.SimulationSettingsModesNastran.setMaxNumModes` — The maximum number of modes (default = 10) to recover during solution.
+- `apex.studies.SimulationSettingsModesNastran.setSolverControlSettings` — Solver control settings for the scenario.
+- `apex.studies.SimulationSettingsModesNastran.setStopCalculation` — Stop calculation based on maximum number of modes.
+- `apex.studies.SimulationSettingsModesNastran.update` — Updates all properties of the this settings.
+- `apex.studies.SimulationSettingsNastranSol400.SimulationSettingsNastranSol400` — Constructor of the simulation setting for nonlinear scenario(Sol400).
+- `apex.studies.SimulationSettingsNastranSol400.getInteractionControl`
+- `apex.studies.SimulationSettingsNastranSol400.getSolverControlSettings` — Solver control settings for the scenario.
+- `apex.studies.SimulationSettingsNastranSol400.getStepSettings`
+- `apex.studies.SimulationSettingsNastranSol400.setInteractionControl`
+- `apex.studies.SimulationSettingsNastranSol400.setSolverControlSettings` — Solver control settings for the scenario.
+- `apex.studies.SimulationSettingsNastranSol400.setStepSettings`
+- `apex.studies.SimulationSettingsNastranSol400.update` — Update the simulation setting for nonlinear scenario(Sol400).
+- `apex.studies.SimulationSettingsStaticNastran.SimulationSettingsStaticNastran` — SimulationSettingsStaticNastran Constructor.
+- `apex.studies.SimulationSettingsStaticNastran.getEnableMechanismCheck` — Boolean flag to indicate whether the solver should produce diagnostic results if a mechanism is detected during solution.
+- `apex.studies.SimulationSettingsStaticNastran.getInteractionControl` — Interaction control settings for the scenario.
+- `apex.studies.SimulationSettingsStaticNastran.getSolverControlSettings` — Solver control settings for the scenario.
+- `apex.studies.SimulationSettingsStaticNastran.setEnableMechanismCheck` — Boolean flag to indicate whether the solver should produce diagnostic results if a mechanism is detected during solution.
+- `apex.studies.SimulationSettingsStaticNastran.setInteractionControl` — Interaction control settings for the scenario.
+- `apex.studies.SimulationSettingsStaticNastran.setSolverControlSettings` — Solver control settings for the scenario.
+- `apex.studies.SimulationSettingsStaticNastran.update` — Update the SimulationSettingsStaticNastran.
+- `apex.studies.SolverControlSettingsNastran.SolverControlSettingsNastran` — Constructor of nastran solver control settings.
+- `apex.studies.SolverControlSettingsNastran.getAutomaticConstraints` — boolean property that controls whether Nastran will automatically constrain singular degrees of freedom.
+- `apex.studies.SolverControlSettingsNastran.getDataDeckEcho` — Controls echo (i.e., printout) of the Bulk Data.
+- `apex.studies.SolverControlSettingsNastran.getExportAbstractions` — Optional boolean argument (Default = False) that controls whether the exported file will include Nastran ABSTRCT and/or NAMVAL keywords that preserve Apex ...
+- `apex.studies.SolverControlSettingsNastran.getExportHierarchicalFiles` — A Boolean quantity to control whether the exported data is written as a series of hierarchical include files that mirrors the Assembly/Part product structure ...
+- `apex.studies.SolverControlSettingsNastran.getExportProperty` — Optional boolean argument that controls whether the property is written on element entry or it is written as a separated entry in the exported file.
+- `apex.studies.SolverControlSettingsNastran.getExportWideFormat` — A boolean value that controls whether the exported data is written using Nastran Wide format (16 characters per keyword field) or not.
+- `apex.studies.SolverControlSettingsNastran.getMassCalcuationMethod` — mass calculation method to be used. 1.Lumped, generation of lumped mass matrices 2.Coupled, generation of Coupled mass matrices
+- `apex.studies.SolverControlSettingsNastran.getMaxPrintLines` — the maximum number of output lines
+- `apex.studies.SolverControlSettingsNastran.getMaxRunTime` — the maximum CPU time. maxRunTime represents an Time quantity and must be defined using the units of Time from the active script unit system
+- `apex.studies.SolverControlSettingsNastran.getNodeForWeightGeneration` — Specify the node weight generator to be executed.
+- `apex.studies.SolverControlSettingsNastran.getPlateStiffnessFactor` — specifies the scaling factor of the penalty stiffness to be added to the normal rotation for CQUAD4 and CTRIA3 elements
+- `apex.studies.SolverControlSettingsNastran.getResultOutputType` — An enumeration to define which Nastran results file format will be requested in the exported file.
+- `apex.studies.SolverControlSettingsNastran.getShellNormalTolerance` — requests the generation of unique grid point normals for adjacent shell elements. shellNormalTolerance represents an Angle quantity and must be defined using ...
+- `apex.studies.SolverControlSettingsNastran.getUnitSystem` — The name of a consistent unit system to use when exporting Nastran files, for example "mm-kg-s-N", "in-slinch-s-lbf".
+- `apex.studies.SolverControlSettingsNastran.getWtmass` — Scale factor that will be used to scale all structural mass and density values in the exported file.
+- `apex.studies.SolverControlSettingsNastran.setAutomaticConstraints` — boolean property that controls whether Nastran will automatically constrain singular degrees of freedom.
+- `apex.studies.SolverControlSettingsNastran.setDataDeckEcho` — Controls echo (i.e., printout) of the Bulk Data.
+- `apex.studies.SolverControlSettingsNastran.setExportAbstractions` — Optional boolean argument (Default = False) that controls whether the exported file will include Nastran ABSTRCT and/or NAMVAL keywords that preserve Apex ...
+- `apex.studies.SolverControlSettingsNastran.setExportHierarchicalFiles` — A Boolean quantity to control whether the exported data is written as a series of hierarchical include files that mirrors the Assembly/Part product structure ...
+- `apex.studies.SolverControlSettingsNastran.setExportProperty` — Optional boolean argument that controls whether the property is written on element entry or it is written as a separated entry in the exported file.
+- `apex.studies.SolverControlSettingsNastran.setExportWideFormat` — A boolean value that controls whether the exported data is written using Nastran Wide format (16 characters per keyword field) or not.
+- `apex.studies.SolverControlSettingsNastran.setMassCalcuationMethod` — mass calculation method to be used. 1.Lumped, generation of lumped mass matrices 2.Coupled, generation of Coupled mass matrices
+- `apex.studies.SolverControlSettingsNastran.setMaxPrintLines` — the maximum number of output lines
+- `apex.studies.SolverControlSettingsNastran.setMaxRunTime` — the maximum CPU time. maxRunTime represents an Time quantity and must be defined using the units of Time from the active script unit system
+- `apex.studies.SolverControlSettingsNastran.setNodeForWeightGeneration` — Specify the node weight generator to be executed.
+- `apex.studies.SolverControlSettingsNastran.setPlateStiffnessFactor` — specifies the scaling factor of the penalty stiffness to be added to the normal rotation for CQUAD4 and CTRIA3 elements
+- `apex.studies.SolverControlSettingsNastran.setResultOutputType` — An enumeration to define which Nastran results file format will be requested in the exported file.
+- `apex.studies.SolverControlSettingsNastran.setShellNormalTolerance` — requests the generation of unique grid point normals for adjacent shell elements. shellNormalTolerance represents an Angle quantity and must be defined using ...
+- `apex.studies.SolverControlSettingsNastran.setUnitSystem` — The name of a consistent unit system to use when exporting Nastran files, for example "mm-kg-s-N", "in-slinch-s-lbf".
+- `apex.studies.SolverControlSettingsNastran.setWtmass` — Scale factor that will be used to scale all structural mass and density values in the exported file.
+- `apex.studies.SolverControlSettingsNastran.update` — Update the nastran solver control settings.
+- `apex.studies.StaticSimulationSettings.getInteractionControl`
+- `apex.studies.StaticSimulationSettings.getMechanismCheck`
+- `apex.studies.StaticSimulationSettings.setInteractionControl`
+- `apex.studies.StaticSimulationSettings.setMechanismCheck`
+- `apex.studies.StaticStep.activateInertiaRelief` — Activates Inertia Relief for this StaticStep. (inherited by `StaticStepNastranSol400`)
+- `apex.studies.StaticStep.deactivateInertiaRelief` — De-activates Inertia Relief for this StaticStep. (inherited by `StaticStepNastranSol400`)
+- `apex.studies.StaticStep.getSimulationSettings` — returns the StaticSimulationSettings from this Scenario (inherited by `StaticStepNastranSol400`)
+- `apex.studies.StaticStepNastranSol400.getPath` — return this Entity path string.
+- `apex.studies.StaticStepNastranSol400.update` — update the step.
+- `apex.studies.Step.addConstraints` — Add one or more constraints to the step. (inherited by 9 classes)
+- `apex.studies.Step.addEvent` — Adds an Event to this Step using the supplied name and returns the Event. (inherited by 9 classes)
+- `apex.studies.Step.addLoads` — Add one or more loads to the step. (inherited by 9 classes)
+- `apex.studies.Step.duplicateEvent` — duplicate a new Event from the given one. (inherited by 9 classes)
+- `apex.studies.Step.getConstraints` — Return a collection of Constraint objects that are associated with this Step. (inherited by 9 classes)
+- `apex.studies.Step.getEvent` — Retrieves a single Event from the Step using the supplied name. (inherited by 9 classes)
+- `apex.studies.Step.getEvents` — retrieves an ordered collection of the Steps in a Scenario (inherited by 9 classes)
+- `apex.studies.Step.getLoads` — Return a collection of LoadRep or Load objects that don't have LoadReps that are associated with this event. (inherited by 9 classes)
+- `apex.studies.Step.getOutputRequests` — A list of output requests of the step. (inherited by 9 classes)
+- `apex.studies.Step.removeConstraints` — Remove one or more constraints to the step. (inherited by 9 classes)
+- `apex.studies.Step.removeEvent` — Removes an Event from the Step. (inherited by 9 classes)
+- `apex.studies.Step.removeLoads` — Remove one or more loads from the step. (inherited by 9 classes)
+- `apex.studies.Step.setOutputRequests` — A list of output requests of the step. (inherited by 9 classes)
+- `apex.studies.Step.update` — Update this Step. (inherited by 9 classes)
+- `apex.studies.StepCollection.StepCollection` — Construct a new StepCollection.
+- `apex.studies.StepNastran.createSubsteps` — Creates and returns a pair of Substeps and adds them to this Step.
+- `apex.studies.StepNastran.getAnalysisType` — Gets Enumeration used to identify the type of Analysis that will be carried out by a Subcase.
+- `apex.studies.StepNastran.getStepID` — Gets an ID for this StepNastran Step IDs must be unique and monotonically increasing (with Step order) within a SubcaseNastran.
+- `apex.studies.StepNastran.getSubstepNastran` — Returns the SubstepNastran identified by the name defined in the argument.
+- `apex.studies.StepNastran.getSubsteps` — Returns a list of Substeps in this Scenario.
+- `apex.studies.StepNastran.setStepID` — Sets an ID for this StepNastran Step IDs must be unique and monotonically increasing (with Step order) within a SubcaseNastran.
+- `apex.studies.StepNastranCollection.StepNastranCollection` — Construct a new StepNastranCollection.
+- `apex.studies.Study.MNFGenerationProperty` — Creates a MNFGenerationProperty. (inherited by `StudyGenerativeDesign`)
+- `apex.studies.Study.createScenario` — Creates a Scenario within this Study object. (inherited by `StudyGenerativeDesign`)
+- `apex.studies.Study.createScenarioByModelRep` — Creates a Scenario within this Study object. (inherited by `StudyGenerativeDesign`)
+- `apex.studies.Study.createScenarioMBDScripted` — Create scripted scenario with the specified attributes. (inherited by `StudyGenerativeDesign`)
+- `apex.studies.Study.createScenarioMBDStandard` — Create standard scenario with the specified attributes. (inherited by `StudyGenerativeDesign`)
+- `apex.studies.Study.createScenarioNastran` — Creates and returns a ScenarioNastran entity and adds it to this Study. (inherited by `StudyGenerativeDesign`)
+- `apex.studies.Study.createStudyGenerativeDesign` — Creates and returns a StudyGenerativeDesign object. (inherited by `StudyGenerativeDesign`)
+- `apex.studies.Study.deleteScenario` — Deletes a Scenario from this Study. (inherited by `StudyGenerativeDesign`)
+- `apex.studies.Study.deleteScenarioNastran` — Deletes a ScenarioNastran from this Study. (inherited by `StudyGenerativeDesign`)
+- `apex.studies.Study.getGenerativeDesignStudy` — Retrieves a Generative Study from the primary Study using the input Generative Design study name. (inherited by `StudyGenerativeDesign`)
+- `apex.studies.Study.getScenario` — Retrieves a Scenario from the Study using the input Scenario name. (inherited by `StudyGenerativeDesign`)
+- `apex.studies.Study.getScenarioNastran` — Returns the ScenarioNastran identified by the name defined in the argument. (inherited by `StudyGenerativeDesign`)
+- `apex.studies.Study.getScenarios` — returns a collection of all Scenarios in the Study. (inherited by `StudyGenerativeDesign`)
+- `apex.studies.Study.getScenariosNastran` — Returns a list of ScenarioNastran entities composed by this Study. (inherited by `StudyGenerativeDesign`)
+- `apex.studies.StudyGenerativeDesign.associateStudyModelRep` — Sets the ModelRep for this Study.
+- `apex.studies.StudyGenerativeDesign.createScenario` — creates and returns a Scenario for use in generative design simulations.
+- `apex.studies.StudyGenerativeDesign.deleteScenario` — Deletes a Scenario from this Study.
+- `apex.studies.StudyGenerativeDesign.getScenario` — Retrieves a Scenario from the Study using the input Scenario name.
+- `apex.studies.StudyGenerativeDesign.getScenarios` — returns a collection of all Scenarios in the StudyGenerativeDesign.
+- `apex.studies.StudyGenerativeDesign.getStudyModelRep` — The ModelRep associated with this Study.
+- `apex.studies.StudyGenerativeDesign.update` — Update the StudyGenerativeDesign.
+- `apex.studies.SubcaseNastran.createSteps` — Creates and returns one or more Steps and adds them to this Subcase.
+- `apex.studies.SubcaseNastran.createSubcase` — Creates one or more Subcases of the specified type and adds them to this Subcase.
+- `apex.studies.SubcaseNastran.getAnalysisType` — Gets Enumeration used to identify the type of Analysis that will be carried out by a Subcase.
+- `apex.studies.SubcaseNastran.getStepNastran` — Returns the StepNastran identified by the name defined in the argument.
+- `apex.studies.SubcaseNastran.getSteps` — returns a list of Steps composed by this Subcase.
+- `apex.studies.SubcaseNastran.getSubcaseID` — Gets an ID for this SubcaseNastran Subcase IDs must be unique and monotonically increasing (with Subcase order) within a ScenarioNastran.
+- `apex.studies.SubcaseNastran.getSubcaseNastran` — Returns the SubcaseNastran identified by the name defined in the argument.
+- `apex.studies.SubcaseNastran.getSubcases` — Returns a list of Subcases in this Scenario.
+- `apex.studies.SubcaseNastran.setSubcaseID` — Sets an ID for this SubcaseNastran Subcase IDs must be unique and monotonically increasing (with Subcase order) within a ScenarioNastran.
+- `apex.studies.SubcaseNastranCollection.SubcaseNastranCollection` — Construct a new SubcaseNastranCollection.
+- `apex.studies.SubstepNastran.getAnalysisType` — Gets Enumeration used to identify the type of Analysis that will be carried out by a Subcase.
+- `apex.studies.SubstepNastran.getSubstepID` — Gets an ID for this SubstepNastran Substep IDs must be unique and monotonically increasing (with Substep order) within a StepNastran.
+- `apex.studies.SubstepNastran.setSubstepID` — Sets an ID for this SubstepNastran Substep IDs must be unique and monotonically increasing (with Substep order) within a StepNastran.
+- `apex.studies.SubstepNastranCollection.SubstepNastranCollection` — Construct a new SubstepNastranCollection.
+- `apex.studies.TEMPERATURE.getOutputVerification` — Gets an optional property specifying the type of temperature verification data (if any) to output This property may be assigned any one of the following ...
+- `apex.studies.TEMPERATURE.getTemperaturePurpose` — Gets an optional property identifying how the temperature load selected by this TEMPERATURE command will be used This property may be assigned any one of the ...
+- `apex.studies.TEMPERATURE.getValue` — Gets the ID of one or more temperatures (TEMP, TEMPD, TEMPP1, TEMPB3, TEMPRB or TEMPAX) assigned to the model referenced by the Scenario that this command is ...
+- `apex.studies.TEMPERATURE.setOutputVerification` — Sets an optional property specifying the type of temperature verification data (if any) to output This property may be assigned any one of the following ...
+- `apex.studies.TEMPERATURE.setTemperaturePurpose` — Sets an optional property identifying how the temperature load selected by this TEMPERATURE command will be used This property may be assigned any one of the ...
+- `apex.studies.TEMPERATURE.setValue` — Sets the ID of one or more temperatures (TEMP, TEMPD, TEMPP1, TEMPB3, TEMPRB or TEMPAX) assigned to the model referenced by the Scenario that this command is ...
+- `apex.studies.TSTEP.getValue` — Gets the ID of a TSTEP entry assigned to the model referenced by the Scenario that this command is composed by Use this command to assign integration and time ...
+- `apex.studies.TSTEP.setValue` — Sets the ID of a TSTEP entry assigned to the model referenced by the Scenario that this command is composed by Use this command to assign integration and time ...
+- `apex.studies.WEIGHTCHECK.getCgi` — Gets property used to request output of the center of gravity and mass moments of inertia of the model This property may be assigned the following values, "NO" ...
+- `apex.studies.WEIGHTCHECK.getDof_set` — Gets defines which set of stiffness degrees of freedom will be used for the weight checks This property may be assigned any one of the following values, "ALL" ...
+- `apex.studies.WEIGHTCHECK.getPrint_output` — Gets specifies whether weight check data will be written to the print file or not This property may be assigned one of the following values, "PRINT" - writes ...
+- `apex.studies.WEIGHTCHECK.getPunch_out` — Gets controls output of weight check data to the punch file This property may be assigned any one of the following values, "PUNCH" - cause weight check output ...
+- `apex.studies.WEIGHTCHECK.getRefgrid` — Gets optional ID of a Grid used for the calculation of the rigid body motion The property may be assigned either of the following values, n - positive integer ...
+- `apex.studies.WEIGHTCHECK.getValue` — Gets optional property specifying whether or not WEIGHTCHECKs will be performed.
+- `apex.studies.WEIGHTCHECK.getWeight_mass` — Gets property used to control whether the weight check output is produced in units of mass or weight This property may be assigned any one of the following ...
+- `apex.studies.WEIGHTCHECK.setCgi` — Sets property used to request output of the center of gravity and mass moments of inertia of the model This property may be assigned the following values, "NO" ...
+- `apex.studies.WEIGHTCHECK.setDof_set` — Sets defines which set of stiffness degrees of freedom will be used for the weight checks This property may be assigned any one of the following values, "ALL" ...
+- `apex.studies.WEIGHTCHECK.setPrint_output` — Sets specifies whether weight check data will be written to the print file or not This property may be assigned one of the following values, "PRINT" - writes ...
+- `apex.studies.WEIGHTCHECK.setPunch_out` — Sets controls output of weight check data to the punch file This property may be assigned any one of the following values, "PUNCH" - cause weight check output ...
+- `apex.studies.WEIGHTCHECK.setRefgrid` — Sets optional ID of a Grid used for the calculation of the rigid body motion The property may be assigned either of the following values, n - positive integer ...
+- `apex.studies.WEIGHTCHECK.setValue` — Sets optional property specifying whether or not WEIGHTCHECKs will be performed.
+- `apex.studies.WEIGHTCHECK.setWeight_mass` — Sets property used to control whether the weight check output is produced in units of mass or weight This property may be assigned any one of the following ...
+- `apex.utility.PolyData.addSet` — Defines a grouping of PolyData primitives.
+- `apex.utility.PolyData.getSets` — Returns all groupings of PolyData primitives.
+- `apex.utility.PolyData.getTopologyEdgeVertices` — Returns a Dictionary containing the topological edges and their associated topological vertices.
+- `apex.utility.PolyData.getTopologyEdges` — A Dictionary containing all groups of cell edges in the object that represent higher level topological edges.The dictionary key is of type integer and ...
+- `apex.utility.PolyData.getTopologyFaceEdges` — returns a Dictionary containing the topological faces and their associated topological edges.
+- `apex.utility.PolyData.getTopologyFaceVertices` — Returns a Dictionary containing the topological faces and their associated topological vertices.
+- `apex.utility.PolyData.getTopologyFaces` — A Dictionary containing all groups of cells in the object that represent higher level topology faces.
+- `apex.utility.PolyData.getTopologyVertices` — A run length encoded string describing the IDs of all points in the object that represent higher level topological vertices Run length encoded ID's enable ...
+- `apex.utility.PolyData.mergeTopologicalFaces` — Merge two or more topology faces into a single topology face.
+- `apex.utility.PolyData.removeSets` — Removes a grouping of PolyData primitives.
+- `apex.utility.PolyData.updateToplogyEdges` — modifies the contents of the object topologyEdges data structure This class maintains a list of cell edges that will be used to define high level topological ...
+- `apex.utility.PolyData.updateToplogyVertices` — modifies the set of points in the Tessellation that will be identified as Vertex points.
+- `apex.utility.ProximitySearch.ProximitySearch` — Construct a new ProximitySearch.
+- `apex.utility.ProximitySearch.clearCandidates` — This method clears all candidate objects from the ProximitySearch object.
+- `apex.utility.ProximitySearch.findNearestObject` — DEPRECATED: In releases of Apex prior to Iberian Lynx this argument was of type apex.construct.Point3D.
+- `apex.utility.ProximitySearch.findNearestObjects` — DEPRECATED: In releases of Apex prior to Iberian Lynx this argument was of type apex.construct.Point3D.
+- `apex.utility.ProximitySearch.findObjectsAABoundingBox` — DEPRECATED: In releases of Apex prior to Iberian Lynx this argument was of type apex.construct.Point3D.
+- `apex.utility.ProximitySearch.findObjectsWithinDistance` — DEPRECATED: In releases of Apex prior to Iberian Lynx this argument was of type apex.construct.Point3D.
+- `apex.utility.ProximitySearch.getCandidates` — This method returns collection of all of the candidate entities that have been added to the ProximitySearch object..
+- `apex.utility.ProximitySearch.insert` — This method adds an object to the ProximitySearch object.
+- `apex.utility.ProximitySearch.insertCollection` — This method adds a Collection of objects to the ProximitySearch object.
+- `apex.utility.ProximitySearch.insertList` — This method adds a List of objects to the ProximitySearch object.
+- `apex.utility.ZResultfindNearbyObjects.foundObjects` — The objects from the ProximitySearch candidates that are closest to or within a specified distance of the target location.
+- `apex.utility.ZResultfindNearbyObjects.getDistances` — This method returns a List of distances, as floats, between the target location and the found objects.
+- `apex.utility.ZResultfindNearbyObjects.getVectors` — This method returns a list of Vector3D objects that defines the vector between the target location and the location of the nearest object. a list of Vector3Ds ...
+- `apex.utility.ZResultfindNearbyObjects.~ZResultfindNearbyObjects`
+- `apex.utility.ZResultfindNearestObject.getDistance` — This method returns the distance between the target location and the nearest neighbor.
+- `apex.utility.ZResultfindNearestObject.getNearestObject` — This method returns the object from the ProximitySearch candidates that is closest to the target location.
+- `apex.utility.ZResultfindNearestObject.getVector` — This method returns a apex.construct.Vector3D object that defines the vector between the target location and the location of the nearest object.

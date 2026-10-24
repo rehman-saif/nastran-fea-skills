@@ -60,11 +60,16 @@ Apex release: Iberian Lynx FP2. All arguments are keyword-only.
 `apex.studies.MultiBodyDynamic`: `Dynamic`, `QuasiStatic`
   - Multi Body Scenario Dynamic Step Simulation Type
 
-`apex.studies.NastranAnalysisType`: `Statics`, `LinearCombination`, `RepeatedOutput`, `Symmetry`, `SymmetricCombination`, `Modes`, `ModalOutput`, `Buckling`, `ModalTransient`, `DirectTransient`, `ModalFrequency`, `DirectFrequency`, `ModalComplexEigenvalue`, `DirectComplexEigenvalue`, `CyclicStatics`, `CyclicModes`, `CyclicBuckling`, `CyclicFrequency`, `StaticAeroelasticity`, `StaticAeroelasticDivergence`, `Flutter`, `DynamicAeroelasticity`, `NonlinearStatics`, `NonlinearTransient`, `NonlinearSteadyStateHeat`, `NonlinearTransientHeat`, `DesignOptimization`, `NonlinearHarmonic`, `ALL`, `NonlinearStatics1XX`, `Hot2Cold`, `SteadyStateHeat153`, `CoupledThermalStructural153`, `NonlinearTransient159`, `Undefined`
-  - To identify the type of analysis that will be carried out by a LoadCaseItem (Subcase, Step, Substep)
+`apex.studies.NastranAnalysisType` — 35 members. To identify the type of analysis that will be carried out by a LoadCaseItem (Subcase, Step, Substep)
+  - `apex.studies.NastranAnalysisType`: `Statics`, `LinearCombination`, `RepeatedOutput`, `Symmetry`, `SymmetricCombination`, `Modes`, `ModalOutput`, `Buckling`, `ModalTransient`, `DirectTransient`, `ModalFrequency`, `DirectFrequency`
+  - `apex.studies.NastranAnalysisType`: `ModalComplexEigenvalue`, `DirectComplexEigenvalue`, `CyclicStatics`, `CyclicModes`, `CyclicBuckling`, `CyclicFrequency`, `StaticAeroelasticity`, `StaticAeroelasticDivergence`, `Flutter`, `DynamicAeroelasticity`
+  - `apex.studies.NastranAnalysisType`: `NonlinearStatics`, `NonlinearTransient`, `NonlinearSteadyStateHeat`, `NonlinearTransientHeat`, `DesignOptimization`, `NonlinearHarmonic`, `ALL`, `NonlinearStatics1XX`, `Hot2Cold`, `SteadyStateHeat153`
+  - `apex.studies.NastranAnalysisType`: `CoupledThermalStructural153`, `NonlinearTransient159`, `Undefined`
 
-`apex.studies.NastranSolutionType`: `Statics_101`, `Modes_103`, `Buckling_105`, `DirectComplexEigenvalue_107`, `DirectFrequency_108`, `DirectTransient_109`, `ModalComplexEigenvalue_110`, `ModelFrequency_111`, `ModalTransient_112`, `CyclicStatics_114`, `CyclicModes_115`, `CyclicBuckling_116`, `CyclicDirectFrequency_118`, `NonlinearHarmonic_128`, `NonlinearTransient_129`, `StaticAeroelasticity_144`, `AerodynamicFlutter_145`, `DynamicAeroelasticity_146`, `TransientStructuralThermal_153`, `DesignOptimization_200`, `Nonlinear_400`, `ALL`, `Undefined`
-  - To identify the type of a ScenarioNastran
+`apex.studies.NastranSolutionType` — 23 members. To identify the type of a ScenarioNastran
+  - `apex.studies.NastranSolutionType`: `Statics_101`, `Modes_103`, `Buckling_105`, `DirectComplexEigenvalue_107`, `DirectFrequency_108`, `DirectTransient_109`, `ModalComplexEigenvalue_110`, `ModelFrequency_111`, `ModalTransient_112`, `CyclicStatics_114`
+  - `apex.studies.NastranSolutionType`: `CyclicModes_115`, `CyclicBuckling_116`, `CyclicDirectFrequency_118`, `NonlinearHarmonic_128`, `NonlinearTransient_129`, `StaticAeroelasticity_144`, `AerodynamicFlutter_145`, `DynamicAeroelasticity_146`
+  - `apex.studies.NastranSolutionType`: `TransientStructuralThermal_153`, `DesignOptimization_200`, `Nonlinear_400`, `ALL`, `Undefined`
 
 `apex.studies.OutputRequestQuantities`: `Stress`, `NonlinearStress`, `Strain`, `StrainEnergy`, `ElementForce`, `NodalForce`, `SectionForce`, `AppliedLoad`, `ConstraintReactionForce`, `ContactResults`, `NodalKineticEnergy`, `Displacement`, `Velocity`, `Acceleration`, `Undefined`
   - Output request quantity for scenario, load case or step
@@ -75,8 +80,10 @@ Apex release: Iberian Lynx FP2. All arguments are keyword-only.
 `apex.studies.ReductionStrategy`: `NoneOption`, `Low`, `Medium`, `High`
   - Argument to define the reduction strategy
 
-`apex.studies.ScenarioConfiguration`: `Static`, `NormalModes`, `LinearBucklingNoPrestiffening`, `LinearBucklingWithPrestiffening`, `ModalFrequencyNoPrestiffening`, `ModalFrequencyWithPrestiffening`, `ModalTransferFrequencyNoPrestiffening`, `ModalTransferFrequencyWithPrestiffening`, `ModalTransientNoprestiffening`, `ModalTransientWithPrestiffening`, `ModalRandomNoPrestiffening`, `ModalRandomWithPrestiffening`, `ShockResponseNoPrestiffening`, `ShockResponseWithPrestiffening`, `MultiBodyTransient`, `MultiBodyTransientStaticPreload`, `MultibodyScripted`, `GenerativeDesign`, `NastranSol400Static`
-  - This enumeration is used to identify common Scenario configurations such as Static, Normal Modes, Buckling, Frequency Response etc. It is used to conveniently create specific configurations of Scenarios and avoid the use of multiple "addStep()" calls
+`apex.studies.ScenarioConfiguration` — 19 members. This enumeration is used to identify common Scenario configurations such as Static, Normal Modes, Buckling, Frequency Response etc. It is used to conveniently create specific configurations of Scenarios and avoid the use of multiple "addStep()" calls
+  - `apex.studies.ScenarioConfiguration`: `Static`, `NormalModes`, `LinearBucklingNoPrestiffening`, `LinearBucklingWithPrestiffening`, `ModalFrequencyNoPrestiffening`, `ModalFrequencyWithPrestiffening`, `ModalTransferFrequencyNoPrestiffening`
+  - `apex.studies.ScenarioConfiguration`: `ModalTransferFrequencyWithPrestiffening`, `ModalTransientNoprestiffening`, `ModalTransientWithPrestiffening`, `ModalRandomNoPrestiffening`, `ModalRandomWithPrestiffening`, `ShockResponseNoPrestiffening`
+  - `apex.studies.ScenarioConfiguration`: `ShockResponseWithPrestiffening`, `MultiBodyTransient`, `MultiBodyTransientStaticPreload`, `MultibodyScripted`, `GenerativeDesign`, `NastranSol400Static`
 
 `apex.studies.SeparationIn`: `Current`, `Next`
   - Contact Separation In which increment

@@ -1,0 +1,61 @@
+{
+  "_about": [
+    "Behaviour seen at runtime that the generated reference does not show.",
+    "tools/gen_api.py stamps each entry into the block and the index line of the call it names.",
+    "name: a module function (apex.module.function) or a method on the class that declares it",
+    "(apex.module.Class.method; see api/methods-index.md). A name not in the reference stops the build.",
+    "kind: raises | silent | note. observed: the Apex release it was seen in.",
+    "Add an entry only for behaviour that was actually observed, and say how."
+  ],
+  "overrides": [
+    {
+      "name": "apex.catalog.createPropertiesElement3DHomogeneous",
+      "kind": "raises",
+      "observed": "Apex 2024.1",
+      "behaviour": "Raises `RuntimeError: ERROR: THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.` The reference does not mark it deprecated.",
+      "instead": "`apex.catalog.createPropertiesElement3D(name=..., primaryProperties3D=\"PSOLID\")`, then `prop.getProperties3DModel(properties3DModel=\"PSOLID\").update(elementProperties3D={\"MID\": material.id})`."
+    },
+    {
+      "name": "apex.attribute.Properties3DModel.update",
+      "kind": "silent",
+      "observed": "Apex 2024.1",
+      "behaviour": "`elementProperties3D={\"MID\": <Material object>}` is accepted without error and ignored: `getProperties()` shows no MID afterwards.",
+      "instead": "Pass the material's integer id, `{\"MID\": material.id}`. `PropertiesElement3D.getReferenceMaterial()` then returns the material."
+    },
+    {
+      "name": "apex.studies.LoadCaseItem.getCommand",
+      "kind": "silent",
+      "observed": "Apex 2024.1",
+      "behaviour": "On a `SubcaseNastran`, `getCommand(commandName=\"LOAD\").setValue(n)` reads back correctly in the same script but is gone by the next script, so the exported subcase has no `LOAD =`. Calling `setCommand` before `setValue` does not keep it either. Seen through a remote bridge that runs each script as a separate call; not yet reproduced in the Apex script editor. Output requests are not subcase commands: `getCommand(commandName=\"DISPLACEMENT\")` (also `STRESS`, `SPCFORCES`) raises `Command 'DISPLACEMENT' is UNSUPPORTED`.",
+      "instead": "`cmd = subcase.getCommand(commandName=\"LOAD\"); cmd.setValue(load.id); subcase.setCommand(commandName=\"LOAD\", activate=True)`, in that order, then read the value back in a later script or in the exported deck."
+    },
+    {
+      "name": "apex.studies.LoadCaseItem.setCommand",
+      "kind": "note",
+      "observed": "Apex 2024.1",
+      "behaviour": "`setCommand(commandName=..., activate=True)` called after `getCommand(...).setValue(...)` is what made a subcase case control value persist. `commandName` is the bare command name: `\"LOAD = 2\"` raises `Command 'LOAD = 2' is UNSUPPORTED`.",
+      "instead": "See `LoadCaseItem.getCommand` for the order."
+    },
+    {
+      "name": "apex.geometry.createCurve",
+      "kind": "note",
+      "observed": "Apex 2024.1",
+      "behaviour": "There is no part argument. The curve was created in the part made most recently (a part created with `Assembly.createPart` just before), not in the part of the input locations.",
+      "instead": "Create or activate the target part immediately before `createCurve`, and check `curve.getPathName()` afterwards."
+    },
+    {
+      "name": "apex.attribute.createNodeTie",
+      "kind": "note",
+      "observed": "Apex 2024.1",
+      "behaviour": "The tie is created at assembly level as `Node Tie <id>`. It has `name` and `getName()` but no rename: no `setName`, and `update()` takes no `name`. With `distributionType=apex.attribute.DistributionType.Rigid` and `dependentDoF=\"123456\"` it exported as an RBE2.",
+      "instead": "Keep the returned `NodeTie` objects (or their ids) in a dict keyed by your own names."
+    },
+    {
+      "name": "apex.attribute.createInteractionManualPair",
+      "kind": "note",
+      "observed": "Apex 2024.1",
+      "behaviour": "The new pair has no representation: `getActiveRep()` returns `None` until `createInteractionRep(...)` is called on it, so it is not yet a glue or a contact.",
+      "instead": "`pair.createInteractionRep(name=..., interactionType=apex.attribute.InteractionType.Glue, interactionPropertyGeometric=geo)`. In SOL 101 the subcases also need `BCONTACT`; see pitfalls.md."
+    }
+  ]
+}

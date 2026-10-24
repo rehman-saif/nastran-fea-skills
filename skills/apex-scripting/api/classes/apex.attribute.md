@@ -41,6 +41,10 @@ Methods:
 - `getCentroid() -> apex.construct.Point2D`
 - `getPrincipalAxes() -> float`
 - `getShearCenter() -> apex.construct.Point2D`
+- `update(name: str, description: str) -> None` — Update this Beam Shape properties.
+
+Method details:
+
 #### `update(name: str, description: str) -> None`
 Update this Beam Shape properties.
 
@@ -86,6 +90,14 @@ Methods:
 Methods:
 
 - `BeamShapeCollection() -> None` — Construct a new BeamShapeCollection.
+
+Method details:
+
+#### `BeamShapeCollection() -> None`
+Construct a new BeamShapeCollection.
+
+For example:
+
 
 ## `apex.attribute.BeamShapeCruciform`  (extends `BeamShape`)
 Properties: `horizontalSparExtension`, `horizontalSparWidth`, `overallHeight`, `verticalSparExtension`
@@ -349,8 +361,8 @@ Methods:
 - `getFieldOffset2() -> {str:[]}` — Field of offset from end A to end B in the "2" direction, the data type is one dictionary.
 - `getFieldVector() -> {str:[]}` — Field of vectors is used to define the orientation, the data type is one dictionary.
 - `getMaterial() -> apex.attribute.Material` — Returns the referenced Material object by the BeamSpan.
-- `getPathEdge() -> apex.geometry.EdgeCollection` — DEPRECATED: THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. This method has been superseded by the equivalent "BeamSpan.getBeamTarget()/beamTarget method/property Returns the apex.geometry.EdgeCollection that the BeamSpan is assigned to.
-- `getPlateFace() -> apex.geometry.FaceCollection` — DEPRECATED: THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. This method has been superseded by the equivalent "BeamSpan.getPlatTarget()/platTarget method/property Returns the apex.geometry.FaceCollection of the stiffened plates of the BeamSpan.
+- `getPathEdge() -> apex.geometry.EdgeCollection` — DEPRECATED: THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `getPlateFace() -> apex.geometry.FaceCollection` — DEPRECATED: THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
 - `getPlateSide() -> apex.attribute.TopBottom` — Returns the side of the stiffened plate that is touched by the beam span.
 - `getPlateTarget() -> apex.geometry.FaceCollection` — Read only property that returns the apex.geometry.FaceCollection that the BeamSpan is associated with.
 - `getReferences() -> apex.EntityCollection` — returns a collection of all entities that this BeamSpan directly references
@@ -358,12 +370,12 @@ Methods:
 - `getShapeBoundaryDistanceB() -> float` — Returns boundary distance of shape B of the BeamSpan.
 - `getShapeEndADirection1() -> apex.construct.Vector3D` — Returns the direction of the "1" axis of the "End A" BeamShape as a Vector3D.
 - `getShapeEndADirection2() -> apex.construct.Vector3D` — Returns the direction of the "2" axis of the "End A" BeamShape as a Vector3D.
-- `getShapeEndAOffsetGlobal() -> apex.construct.Vector3D` — Returns the offset, in 3D space, of the origin of the BeamShape relative to the BeamSpan at end 'A' of the span. The offset is returned in a vector3D object with respect to the global coordinate system and represents a distance therefore units of length must be used when defining or interpreting this value.
-- `getShapeEndAShearCenterOffsetGlobal() -> apex.construct.Vector3D` — Returnsthe offset, in 3D space, of the shear center of the BeamShape relative to the BeamSpan at end 'A' of the span. This offset is not available if the BeamSpan is defined using BeamShapeProfile1D beam shapes The offset is returned in a vector3D object and represents a distance therefore units of length must be used when defining or interpreting this value.
+- `getShapeEndAOffsetGlobal() -> apex.construct.Vector3D` — Returns the offset, in 3D space, of the origin of the BeamShape relative to the BeamSpan at end 'A' of the span.
+- `getShapeEndAShearCenterOffsetGlobal() -> apex.construct.Vector3D` — Returnsthe offset, in 3D space, of the shear center of the BeamShape relative to the BeamSpan at end 'A' of the span.
 - `getShapeEndBDirection1() -> apex.construct.Vector3D` — Returns the direction of the "1" axis of the "End B" BeamShape as a Vector3D.
 - `getShapeEndBDirection2() -> apex.construct.Vector3D` — Returns the direction of the "2" axis of the "End B" BeamShape as a Vector3D.
-- `getShapeEndBOffsetGlobal() -> apex.construct.Vector3D` — Returns the offset, in 3D space, of the origin of the BeamShape relative to the BeamSpan at end 'B' of the span. The offset is returned in a vector3D object with respect to the global coordinate system and represents a distance therefore units of length must be used when defining or interpreting this value.
-- `getShapeEndBShearCenterOffsetGlobal() -> apex.construct.Vector3D` — Returnsthe offset, in 3D space, of the shear center of the BeamShape relative to the BeamSpan at end 'B' of the span. This offset is not available if the BeamSpan is defined using BeamShapeProfile1D beam shapes The offset is returned in a vector3D object and represents a distance therefore units of length must be used when defining or interpreting this value.
+- `getShapeEndBOffsetGlobal() -> apex.construct.Vector3D` — Returns the offset, in 3D space, of the origin of the BeamShape relative to the BeamSpan at end 'B' of the span.
+- `getShapeEndBShearCenterOffsetGlobal() -> apex.construct.Vector3D` — Returnsthe offset, in 3D space, of the shear center of the BeamShape relative to the BeamSpan at end 'B' of the span.
 - `getSpanOrientationA() -> apex.construct.Orientation`
 - `getSpanOrientationB() -> apex.construct.Orientation`
 - `getStationAOrientation() -> float` — Returns Station A shape orientation of the BeamSpan.
@@ -374,8 +386,48 @@ Methods:
 - `getStationBShape() -> BeamShape` — Returns the referenced BeamShape object at station B by the BeamSpan.
 - `getStationBXoffset() -> float` — Returns Station B Xoffset of the BeamSpan.
 - `getStationBYOffset() -> float` — Returns Station B Yoffset of the BeamSpan.
-- `isTaperSection() -> bool` — check if the BeamSpan is tapered. The BeamSpan is tapered if the return value is True, otherwise, it is constant
+- `isTaperSection() -> bool` — check if the BeamSpan is tapered.
 - `reverse() -> None` — Reverses the orientation of the BeamSpan.
+- `update(name: str, description: str, shapeEndA: BeamShape, shapeEndB: BeamShape, shapeEndA_orientation: float, shapeEndB_orientation: float, shapeEndA_offset1: float, shapeEndA_offset2: float, shapeEndB_offset1: float, shapeEndB_offset2: float, spanType: apex.attribute.BeamSpanType, beamTarget: apex.geometry.EdgeCollection, plateTarget: apex.geometry.FaceCollection, shapeMatingDirection: apex.attribute.ShapeMatingSide, plateSide: apex.attribute.TopBottom, shapeBoundaryDistanceA: float, shapeBoundaryDistanceB: float, shapeEndA_direction1: apex.construct.Vector3D, shapeEndA_direction2: apex.construct.Vector3D, shapeEndB_direction1: apex.construct.Vector3D, shapeEndB_direction2: apex.construct.Vector3D, beamSpanOrientationType: apex.attribute.BeamSpanOrientationType, field_vector: {string:[]}, field_offset1: {string:[]}, field_offset2: {string:[]}, color: [int], renderStyle: apex.session.DisplayRenderStyle, material: apex.attribute.Material) -> None` — updates one or more of the BeamSpan properties.
+
+Method details:
+
+#### `getFieldOffset1() -> {str:[]}`
+Field of offset from end A to end B in the "1" direction, the data type is one dictionary.
+
+For FEM method field, the first key is "identifier", the value is a integer list which contains all nodes and corresponding elements in the span, the format is [EID1, NID1, EID1, NID2, EID2, NID1, EID2, NID2]; the second key is "fieldOffset", the value is a float list which contains offsets, it is a 1D array; the third key is "identifier type", the value is a string of "FEM_OFFSET".For Parametric method field, the first key is "identifier", the value is a float list which contains all parametric location in the span, the format is [LOC1, LOC2, LOC3, LOC4]; the second key is "fieldOffset", the value is a float list which contains offsets, it is a 1D array, such as [LOC1_1, LOC2_2, LOC2_1, LOC3_2, LOC3_1, lOC4_2]; the third key is "identifier type", the value is a string of "PARAMETRIC_OFFSET".
+
+#### `getFieldOffset2() -> {str:[]}`
+Field of offset from end A to end B in the "2" direction, the data type is one dictionary.
+
+For FEM method field, the first key is "identifier", the value is a integer list which contains all nodes and corresponding elements in the span, the format is [EID1, NID1, EID1, NID2, EID2, NID1, EID2, NID2]; the second key is "fieldOffset", the value is a float list which contains offsets, it is a 1D array; the third key is "identifier type", the value is a string of "FEM_OFFSET".For Parametric method field, the first key is "identifier", the value is a float list which contains all parametric location in the span, the format is [LOC1, LOC2, LOC3, LOC4]; the second key is "fieldOffset", the value is a float list which contains offsets, it is a 1D array, such as [LOC1_1, LOC2_2, LOC2_1, LOC3_2, LOC3_1, lOC4_2]; the third key is "identifier type", the value is a string of "PARAMETRIC_OFFSET".
+
+#### `getFieldVector() -> {str:[]}`
+Field of vectors is used to define the orientation, the data type is one dictionary.
+
+For FEM method field, the first key is "identifier", the value is a integer list which contains all elements in the span; the second key is "fieldVector", the value is a float list which contains vectors, it is a 1D array, such as [x1, y1, z1, x2, y2, z2]; the third key is "identifier type", the value is a string of "FEM_VECTOR".For Parametric method field, the first key is "identifier", the value is a float list which contains all parametric location in the span; the second key is "fieldVector", the value is a float list which contains vectors, it is a 1D array, such as [x1, y1, z1, x2, y2, z2]; the third key is "identifier type", the value is a string of "PARAMETRIC_VECTOR".
+
+#### `getPathEdge() -> apex.geometry.EdgeCollection`
+DEPRECATED: THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. This method has been superseded by the equivalent "BeamSpan.getBeamTarget()/beamTarget method/property Returns the apex.geometry.EdgeCollection that the BeamSpan is assigned to.
+
+#### `getPlateFace() -> apex.geometry.FaceCollection`
+DEPRECATED: THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. This method has been superseded by the equivalent "BeamSpan.getPlatTarget()/platTarget method/property Returns the apex.geometry.FaceCollection of the stiffened plates of the BeamSpan.
+
+#### `getShapeEndAOffsetGlobal() -> apex.construct.Vector3D`
+Returns the offset, in 3D space, of the origin of the BeamShape relative to the BeamSpan at end 'A' of the span. The offset is returned in a vector3D object with respect to the global coordinate system and represents a distance therefore units of length must be used when defining or interpreting this value.
+
+#### `getShapeEndAShearCenterOffsetGlobal() -> apex.construct.Vector3D`
+Returnsthe offset, in 3D space, of the shear center of the BeamShape relative to the BeamSpan at end 'A' of the span. This offset is not available if the BeamSpan is defined using BeamShapeProfile1D beam shapes The offset is returned in a vector3D object and represents a distance therefore units of length must be used when defining or interpreting this value.
+
+#### `getShapeEndBOffsetGlobal() -> apex.construct.Vector3D`
+Returns the offset, in 3D space, of the origin of the BeamShape relative to the BeamSpan at end 'B' of the span. The offset is returned in a vector3D object with respect to the global coordinate system and represents a distance therefore units of length must be used when defining or interpreting this value.
+
+#### `getShapeEndBShearCenterOffsetGlobal() -> apex.construct.Vector3D`
+Returnsthe offset, in 3D space, of the shear center of the BeamShape relative to the BeamSpan at end 'B' of the span. This offset is not available if the BeamSpan is defined using BeamShapeProfile1D beam shapes The offset is returned in a vector3D object and represents a distance therefore units of length must be used when defining or interpreting this value.
+
+#### `isTaperSection() -> bool`
+check if the BeamSpan is tapered. The BeamSpan is tapered if the return value is True, otherwise, it is constant
+
 #### `update(name: str, description: str, shapeEndA: BeamShape, shapeEndB: BeamShape, shapeEndA_orientation: float, shapeEndB_orientation: float, shapeEndA_offset1: float, shapeEndA_offset2: float, shapeEndB_offset1: float, shapeEndB_offset2: float, spanType: apex.attribute.BeamSpanType, beamTarget: apex.geometry.EdgeCollection, plateTarget: apex.geometry.FaceCollection, shapeMatingDirection: apex.attribute.ShapeMatingSide, plateSide: apex.attribute.TopBottom, shapeBoundaryDistanceA: float, shapeBoundaryDistanceB: float, shapeEndA_direction1: apex.construct.Vector3D, shapeEndA_direction2: apex.construct.Vector3D, shapeEndB_direction1: apex.construct.Vector3D, shapeEndB_direction2: apex.construct.Vector3D, beamSpanOrientationType: apex.attribute.BeamSpanOrientationType, field_vector: {string:[]}, field_offset1: {string:[]}, field_offset2: {string:[]}, color: [int], renderStyle: apex.session.DisplayRenderStyle, material: apex.attribute.Material) -> None`
 updates one or more of the BeamSpan properties. All arguments are optional. If an argument is omitted the value of the corresponding property will be unchanged by this method.
 
@@ -415,6 +467,14 @@ Methods:
 
 - `BeamSpanCollection() -> None` — Construct a new BeamSpanCollection.
 
+Method details:
+
+#### `BeamSpanCollection() -> None`
+Construct a new BeamSpanCollection.
+
+For example:
+
+
 ## `apex.attribute.Bolt`  (extends `Entity`, `IDisplayable`, `IUserHighlightable`, `IUserAttributes`, `IName`)
 
 ## `apex.attribute.Bolt3D`  (extends `Bolt`)
@@ -428,13 +488,32 @@ Methods:
 - `getBoltPreloads() -> apex.environment.PreloadBoltCollection` — Get A collection of bolt preload object applying to the bolt object.If bolt preload is not existing, returns None.
 - `getControlNode() -> apex.mesh.Node` — Get the Control node of the bolt.
 - `getControlNodeDefinitionMethod() -> apex.attribute.ControlNodeDefinitionMethod` — Get the control node definition method of bolt.
-- `getCrossSectionElements() -> apex.EntityCollection` — Get the Cross section elements opposites to bolt axis orientation. It can be elements or a group of elements.
-- `getCrossSectionFaces() -> apex.EntityCollection` — Get the Cross section Faces to detect cross section elements and nodes. If it is not existing, returns None.
+- `getCrossSectionElements() -> apex.EntityCollection` — Get the Cross section elements opposites to bolt axis orientation.
+- `getCrossSectionFaces() -> apex.EntityCollection` — Get the Cross section Faces to detect cross section elements and nodes.
 - `getCrossSectionMethod() -> apex.attribute.CrossSectionMethod` — Get the Cross section definition method of the 3D bolt object.
-- `getCrossSectionNodes() -> apex.EntityCollection` — Get the Nodes of the cross section of bolt. It can be nodes or a group of nodes.
-- `getCrossSectionOffset() -> float` — Get the Cross section offset of the bolt. It is only available when crossSectionMethod = Automatic.
+- `getCrossSectionNodes() -> apex.EntityCollection` — Get the Nodes of the cross section of bolt.
+- `getCrossSectionOffset() -> float` — Get the Cross section offset of the bolt.
 - `getId() -> int` — Get the id of the bolt object.
-- `getScaleOfOffset() -> float` — Get the scale which used to determine the offset value from top or bottom. The offset = scale*Bolt Length. It is only available when controlNodeDefinitionMethod = OffsetFromTop or OffsetFromBottom.
+- `getScaleOfOffset() -> float` — Get the scale which used to determine the offset value from top or bottom.
+- `update(name: str, description: str, id: int, crossSectionMethod: apex.attribute.CrossSectionMethod, boltBody: apex.Entity, crossSectionOffset: float, crossSectionElements: apex.EntityCollection, crossSectionNodes: apex.EntityCollection, boltAxisOrientation: apex.construct.Vector3D, crossSectionFaces: apex.EntityCollection, controlNodeDefinitionMethod: apex.attribute.ControlNodeDefinitionMethod, controlNode: apex.mesh.Node, scaleOfOffset: float, controlNodeLocation: apex.ILocation) -> None` — Used to Update the 3D bolt object.
+
+Method details:
+
+#### `getCrossSectionElements() -> apex.EntityCollection`
+Get the Cross section elements opposites to bolt axis orientation. It can be elements or a group of elements.
+
+#### `getCrossSectionFaces() -> apex.EntityCollection`
+Get the Cross section Faces to detect cross section elements and nodes. If it is not existing, returns None.
+
+#### `getCrossSectionNodes() -> apex.EntityCollection`
+Get the Nodes of the cross section of bolt. It can be nodes or a group of nodes.
+
+#### `getCrossSectionOffset() -> float`
+Get the Cross section offset of the bolt. It is only available when crossSectionMethod = Automatic.
+
+#### `getScaleOfOffset() -> float`
+Get the scale which used to determine the offset value from top or bottom. The offset = scale*Bolt Length. It is only available when controlNodeDefinitionMethod = OffsetFromTop or OffsetFromBottom.
+
 #### `update(name: str, description: str, id: int, crossSectionMethod: apex.attribute.CrossSectionMethod, boltBody: apex.Entity, crossSectionOffset: float, crossSectionElements: apex.EntityCollection, crossSectionNodes: apex.EntityCollection, boltAxisOrientation: apex.construct.Vector3D, crossSectionFaces: apex.EntityCollection, controlNodeDefinitionMethod: apex.attribute.ControlNodeDefinitionMethod, controlNode: apex.mesh.Node, scaleOfOffset: float, controlNodeLocation: apex.ILocation) -> None`
 Used to Update the 3D bolt object.
 
@@ -461,6 +540,14 @@ Methods:
 
 - `Bolt3DCollection() -> None` — Construct a new Bolt3DCollection.
 
+Method details:
+
+#### `Bolt3DCollection() -> None`
+Construct a new Bolt3DCollection.
+
+For example:
+
+
 ## `apex.attribute.Bushing`  (extends `Connector`)
 
 ## `apex.attribute.BushingCollection`  (extends `EntityCollection`, `IUserHighlightable`)
@@ -468,6 +555,14 @@ Methods:
 Methods:
 
 - `BushingCollection() -> None` — Construct a new BushingCollection.
+
+Method details:
+
+#### `BushingCollection() -> None`
+Construct a new BushingCollection.
+
+For example:
+
 
 ## `apex.attribute.BushingRepProperties`  (extends `ConnectorDiscreteProperty`)
 Class BushingRepProperties. The class BushingRepProperties holds the properties of Bushing connector.
@@ -503,6 +598,10 @@ Methods:
 - `getTranslationalStructuralDampingX() -> float` — The structuralDampingDirection in X direction.
 - `getTranslationalStructuralDampingY() -> float` — The structuralDampingDirection in Y direction.
 - `getTranslationalStructuralDampingZ() -> float` — The structuralDampingDirection in Z direction.
+- `update(translationalStiffnessX: float, translationalStiffnessY: float, translationalStiffnessZ: float, rotationalStiffnessX: float, rotationalStiffnessY: float, rotationalStiffnessZ: float, translationalDampingX: float, translationalDampingY: float, translationalDampingZ: float, rotationalDampingX: float, rotationalDampingY: float, rotationalDampingZ: float, translationalStructuralDampingX: float, translationalStructuralDampingY: float, translationalStructuralDampingZ: float, rotationalStructuralDampingX: float, rotationalStructuralDampingY: float, rotationalStructuralDampingZ: float, translationalStressRecovery: float, rotationalStressRecovery: float, translationalStrainRecovery: float, rotationalStrainRecovery: float, mass: float, thermalExpansionCoefficient: float, referenceTemperature: float, lengthOfCoincidentGrids: float, name: str, description: str, id: int) -> None` — Update this connector properties.
+
+Method details:
+
 #### `update(translationalStiffnessX: float, translationalStiffnessY: float, translationalStiffnessZ: float, rotationalStiffnessX: float, rotationalStiffnessY: float, rotationalStiffnessZ: float, translationalDampingX: float, translationalDampingY: float, translationalDampingZ: float, rotationalDampingX: float, rotationalDampingY: float, rotationalDampingZ: float, translationalStructuralDampingX: float, translationalStructuralDampingY: float, translationalStructuralDampingZ: float, rotationalStructuralDampingX: float, rotationalStructuralDampingY: float, rotationalStructuralDampingZ: float, translationalStressRecovery: float, rotationalStressRecovery: float, translationalStrainRecovery: float, rotationalStrainRecovery: float, mass: float, thermalExpansionCoefficient: float, referenceTemperature: float, lengthOfCoincidentGrids: float, name: str, description: str, id: int) -> None`
 Update this connector properties.
 
@@ -545,6 +644,14 @@ Methods:
 
 - `BushingRepPropertiesCollection() -> None` — Construct a new BushingRepPropertiesCollection.
 
+Method details:
+
+#### `BushingRepPropertiesCollection() -> None`
+Construct a new BushingRepPropertiesCollection.
+
+For example:
+
+
 ## `apex.attribute.Connector`  (extends `Entity`, `IDisplayable`, `IUserHighlightable`, `IUserAttributes`, `IName`)
 Class Connector. THIS CLASS IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Instead use ConnectorDiscrete
 Properties: `applicationMethod1`, `applicationMethod2`, `closedStiffness`, `colorRGB`, `connectorProperties`, `connectorType`, `damping`, `diameter`, `edgeWeight`, `end1AttachmentRegion`, `end1DistributionMethod`, `end1InterfacePoint`, `end2AttachmentRegion`, `end2DistributionMethod`, `end2InterfacePoint`, `highlighted`, `initialOpening`, `kineticFriction`, `linkMaterial`, `openStiffness`, `orientation`, `pointSize`, `preload`, `rotationalDampingX`, `rotationalDampingY`, `rotationalDampingZ`, `rotationalStiffnessX`, `rotationalStiffnessY`, `rotationalStiffnessZ`, `staticFriction`, `stiffness`, `translationalDampingX`, `translationalDampingY`, `translationalDampingZ`, `translationalStiffnessX`, `translationalStiffnessY`, `translationalStiffnessZ`, `transverseStiffness`
@@ -585,6 +692,10 @@ Methods:
 - `getTranslationalStiffnessY() -> float` — Returns translationalStiffnessY of the Connector.
 - `getTranslationalStiffnessZ() -> float` — Returns translationalStiffnessZ of the Connector.
 - `getTransverseStiffness() -> float` — Returns transverseStiffness of the Connector.
+- `update(name: str, connectorProperties: ConnectorProperty, applicationMethod1: apex.attribute.ApplicationMethod, applicationMethod2: apex.attribute.ApplicationMethod, end1InterfacePoint: apex.Coordinate, end2InterfacePoint: apex.Coordinate, end1AttachmentRegion: EntityCollection, end1DistributionMethod: apex.attribute.DistributionType, end2AttachmentRegion: EntityCollection, end2DistributionMethod: apex.attribute.DistributionType, orientation: apex.construct.Orientation, description: str, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None` — Update this Connector properties.
+
+Method details:
+
 #### `update(name: str, connectorProperties: ConnectorProperty, applicationMethod1: apex.attribute.ApplicationMethod, applicationMethod2: apex.attribute.ApplicationMethod, end1InterfacePoint: apex.Coordinate, end2InterfacePoint: apex.Coordinate, end1AttachmentRegion: EntityCollection, end1DistributionMethod: apex.attribute.DistributionType, end2AttachmentRegion: EntityCollection, end2DistributionMethod: apex.attribute.DistributionType, orientation: apex.construct.Orientation, description: str, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None`
 Update this Connector properties.
 
@@ -614,6 +725,14 @@ Methods:
 
 - `ConnectorCollection() -> None` — Construct a new ConnectorCollection.
 
+Method details:
+
+#### `ConnectorCollection() -> None`
+Construct a new ConnectorCollection.
+
+For example:
+
+
 ## `apex.attribute.ConnectorDiscrete`  (extends `Entity`, `IDisplayable`, `IUserHighlightable`, `IUserAttributes`, `IName`)
 The class ConnectorDiscrete.
 Properties: `applicationMethod1`, `applicationMethod2`, `colorRGB`, `connectorProperties`, `connectorType`, `createTypeForFastener`, `edgeWeight`, `end1AttachmentRegion`, `end1DependentDOF`, `end1DistributionMethod`, `end1DOF`, `end1IndependentDOF`, `end1InterfacePoint`, `end2AttachmentRegion`, `end2DependentDOF`, `end2DistributionMethod`, `end2DOF`, `end2IndependentDOF`, `end2InterfacePoint`, `highlighted`, `id`, `locationOffsetCoordinates`, `locationOffsetCoordinateSystem`, `locationParametric`, `masterLocationForPatches`, `masterNodeForPatches`, `orientation`, `orientationByLocation`, `orientationByVector`, `piercingNodeForPatchA`, `piercingNodeForPatchB`, `pointSize`
@@ -625,13 +744,13 @@ Methods:
 - `getConnectorDiscreteProperties() -> ConnectorDiscreteProperty` — The connectorProperties of the connector.
 - `getConnectorType() -> ConnectorType` — The connectorType of ConnectorDiscrete.
 - `getCreateTypeForFastener() -> apex.attribute.createTypeForFastener` — Returns indicate the creation type as one of the enumerations : "ByElement" or "ByProperty".
-- `getEnd1AttachmentRegion() -> apex.EntityCollection` — The attachment region of the 1st end. THIS ATTRIBUTE WILL BE DEPRECATED BECASUE NOW ONE CONNECTOR CREATED BY APEX WILL ONLY CONNECTS TWO NODES.
+- `getEnd1AttachmentRegion() -> apex.EntityCollection` — DEPRECATED. The attachment region of the 1st end.
 - `getEnd1DOF() -> str` — Returns end1DOF of the ConnectorDiscrete.
 - `getEnd1DependentDOF() -> str` — Returns end1DependentDOF of the ConnectorDiscrete.
 - `getEnd1DistributionMethod() -> DistributionType` — The distribution type of the 1st end.
 - `getEnd1IndependentDOF() -> str` — Returns end1IndependentDOF of the ConnectorDiscrete.
 - `getEnd1InterfacePoint() -> apex.Coordinate` — The location of the 1st end.
-- `getEnd2AttachmentRegion() -> apex.EntityCollection` — The attachment region of the 2nd end. THIS ATTRIBUTE WILL BE DEPRECATED BECASUE NOW ONE CONNECTOR CREATED BY APEX WILL ONLY CONNECTS TWO NODES.
+- `getEnd2AttachmentRegion() -> apex.EntityCollection` — DEPRECATED. The attachment region of the 2nd end.
 - `getEnd2DOF() -> str` — Returns end2DOFof the ConnectorDiscrete.
 - `getEnd2DependentDOF() -> str` — Returns end2DependentDOF of the ConnectorDiscrete.
 - `getEnd2DistributionMethod() -> DistributionType` — The distribution type of the 2nd end.
@@ -648,6 +767,16 @@ Methods:
 - `getOrientationByVector() -> apex.construct.Vector3D` — Returns orientationByVector of the ConnectorDiscrete.
 - `getPiercingNodeForPatchA() -> apex.Coordinate` — Returns piercing point for patch A.
 - `getPiercingNodeForPatchB() -> apex.Coordinate` — Returns piercing location for patch B.
+- `update(name: str, connectorProperties: ConnectorDiscreteProperty, applicationMethod1: apex.attribute.ApplicationMethod, applicationMethod2: apex.attribute.ApplicationMethod, end1InterfacePoint: apex.Coordinate, end2InterfacePoint: apex.Coordinate, end1AttachmentRegion: EntityCollection, end1DistributionMethod: apex.attribute.DistributionType, end2AttachmentRegion: EntityCollection, end2DistributionMethod: apex.attribute.DistributionType, orientation: apex.construct.Orientation, orientationByLocation: apex.ILocation, orientationByVector: apex.construct.Vector3D, locationParametric: float, locationOffsetCoordinateSystem: apex.construct.CoordinateSystem, locationOffsetCoordinates: apex.ILocation, description: str, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int, end1DOF: str, end2DOF: str, end1IndependentDOF: str, end1DependentDOF: str, end2IndependentDOF: str, end2DependentDOF: str, piercingNodeForPatchA: apex.Coordinate, piercingNodeForPatchB: apex.Coordinate, masterNodeForPatches: apex.Coordinate, masterLocationForPatches: apex.ILocation, id: int, deleteUnreferencedNodeAndNodeTie: bool) -> None` — Update this ConnectorDiscrete.
+
+Method details:
+
+#### `getEnd1AttachmentRegion() -> apex.EntityCollection`
+The attachment region of the 1st end. THIS ATTRIBUTE WILL BE DEPRECATED BECASUE NOW ONE CONNECTOR CREATED BY APEX WILL ONLY CONNECTS TWO NODES.
+
+#### `getEnd2AttachmentRegion() -> apex.EntityCollection`
+The attachment region of the 2nd end. THIS ATTRIBUTE WILL BE DEPRECATED BECASUE NOW ONE CONNECTOR CREATED BY APEX WILL ONLY CONNECTS TWO NODES.
+
 #### `update(name: str, connectorProperties: ConnectorDiscreteProperty, applicationMethod1: apex.attribute.ApplicationMethod, applicationMethod2: apex.attribute.ApplicationMethod, end1InterfacePoint: apex.Coordinate, end2InterfacePoint: apex.Coordinate, end1AttachmentRegion: EntityCollection, end1DistributionMethod: apex.attribute.DistributionType, end2AttachmentRegion: EntityCollection, end2DistributionMethod: apex.attribute.DistributionType, orientation: apex.construct.Orientation, orientationByLocation: apex.ILocation, orientationByVector: apex.construct.Vector3D, locationParametric: float, locationOffsetCoordinateSystem: apex.construct.CoordinateSystem, locationOffsetCoordinates: apex.ILocation, description: str, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int, end1DOF: str, end2DOF: str, end1IndependentDOF: str, end1DependentDOF: str, end2IndependentDOF: str, end2DependentDOF: str, piercingNodeForPatchA: apex.Coordinate, piercingNodeForPatchB: apex.Coordinate, masterNodeForPatches: apex.Coordinate, masterLocationForPatches: apex.ILocation, id: int, deleteUnreferencedNodeAndNodeTie: bool) -> None`
 Update this ConnectorDiscrete.
 
@@ -694,6 +823,14 @@ Methods:
 
 - `ConnectorDiscreteCollection() -> None` — Construct a new ConnectorDiscreteCollection.
 
+Method details:
+
+#### `ConnectorDiscreteCollection() -> None`
+Construct a new ConnectorDiscreteCollection.
+
+For example:
+
+
 ## `apex.attribute.ConnectorDiscreteProperty`  (extends `Entity`, `IName`)
 The base class ConnectorDiscreteProperty.
 
@@ -710,10 +847,28 @@ Properties: `bodyProperty`, `bodyType`, `contactResultCalculation`, `id`, `targe
 Methods:
 
 - `getBodyProperty() -> apex.attribute.ContactBodyProperty` — Contact body properties.
-- `getBodyType() -> apex.attribute.ContactBodyType` — Defines if the body is rigid or deformable. By default, it is deformable.
-- `getContactResultCalculation() -> apex.attribute.ContactResultCalculation` — Calculate the global resultant contact force/moment in Origin or Estimated centroid. Omits it if body type is not deform.
-- `getId() -> int` — ID of the contact body. If omits, the system will automatically assign an ID.
+- `getBodyType() -> apex.attribute.ContactBodyType` — Defines if the body is rigid or deformable.
+- `getContactResultCalculation() -> apex.attribute.ContactResultCalculation` — Calculate the global resultant contact force/moment in Origin or Estimated centroid.
+- `getId() -> int` — ID of the contact body.
 - `getTarget() -> apex.EntityCollection` — An entity collection for contact body.
+- `update(name: str, description: str, id: int, bodyType: apex.attribute.ContactBodyType, target: apex.EntityCollection, bodyProperty: apex.attribute.ContactBodyProperty, contactResultCalculation: apex.attribute.ContactResultCalculation) -> ContactBody` — update the contact body.
+
+Method details:
+
+#### `getBodyType() -> apex.attribute.ContactBodyType`
+Defines if the body is rigid or deformable. By default, it is deformable.
+
+#### `getContactResultCalculation() -> apex.attribute.ContactResultCalculation`
+Calculate the global resultant contact force/moment in Origin or Estimated centroid. Omits it if body type is not deform.
+
+#### `getId() -> int`
+ID of the contact body. If omits, the system will automatically assign an ID.
+
+#### `getTarget() -> apex.EntityCollection`
+An entity collection for contact body.
+
+For deform body, the target entities can be solid body, solid cell, sheet body, solid mesh body, shell mesh body, 3D elements, 2D elements, face, element face and 2D/3D element property.For rigid body, the target entities can be solid body, sheet body, curve body, face, edge, shell mesh body, curve mesh body, 2D element, 1D element.
+
 #### `update(name: str, description: str, id: int, bodyType: apex.attribute.ContactBodyType, target: apex.EntityCollection, bodyProperty: apex.attribute.ContactBodyProperty, contactResultCalculation: apex.attribute.ContactResultCalculation) -> ContactBody`
 update the contact body.
 
@@ -733,19 +888,46 @@ Methods:
 
 - `ContactBodyCollection() -> None` — Construct a new ContactBodyCollection.
 
+Method details:
+
+#### `ContactBodyCollection() -> None`
+Construct a new ContactBodyCollection.
+
+For example:
+
+
 ## `apex.attribute.ContactBodyProperty`  (extends `Entity`)
 A contact body property of each side contact pair.
 Properties: `discontinuityDefinition`, `discontinuityTarget`, `ignoreShellThickness`, `projectMidNode`, `shellLayer`, `smoothingFeatureAngle`, `smoothingState`
 
 Methods:
 
-- `getDiscontinuityDefinition() -> apex.attribute.DiscontinuityDefinition` — Discontinuity Definition for smoothing. It is used when smoothingStage is true.
-- `getDiscontinuityTarget() -> apex.EntityCollection` — the target discontinuities entities for smoothing. It can be geometry edge or element edge. It is used when DiscontinuityDefinition = Manual and smoothingStage is true.
+- `getDiscontinuityDefinition() -> apex.attribute.DiscontinuityDefinition` — Discontinuity Definition for smoothing.
+- `getDiscontinuityTarget() -> apex.EntityCollection` — the target discontinuities entities for smoothing.
 - `getIgnoreShellThickness() -> bool` — Consider or ignore shell thickness during detection of contact.
-- `getProjectMidNode() -> bool` — Optional - The mid-side grid of quadratic elements are projected onto the selected spline surfaces. Ignored if smoothing is false.
+- `getProjectMidNode() -> bool` — Optional - The mid-side grid of quadratic elements are projected onto the selected spline surfaces.
 - `getShellLayer() -> apex.attribute.ShellLayer` — Shell layer to be used for contact detection.
-- `getSmoothingFeatureAngle() -> float` — Optional - Angle to detect feature edges. Edges between Elements with face normal deviation equal to or larger will be detected as an edge feature, and not be smoothed. It is used when DiscontinuityDefinition = Auto and smoothinStage is true.
-- `getSmoothingState() -> bool` — Optional - enable to control geometric smoothing of boundary of deformable body. Omits it if it is not a deform body.
+- `getSmoothingFeatureAngle() -> float` — Optional - Angle to detect feature edges.
+- `getSmoothingState() -> bool` — Optional - enable to control geometric smoothing of boundary of deformable body.
+- `update(smoothingState: apex.ApexBool, smoothingFeatureAngle: float, projectMidNode: apex.ApexBool, shellLayer: apex.attribute.ShellLayer, ignoreShellThickness: apex.ApexBool, discontinuityDefinition: apex.attribute.DiscontinuityDefinition, discontinuityTarget: apex.EntityCollection) -> None` — update contact body property.
+
+Method details:
+
+#### `getDiscontinuityDefinition() -> apex.attribute.DiscontinuityDefinition`
+Discontinuity Definition for smoothing. It is used when smoothingStage is true.
+
+#### `getDiscontinuityTarget() -> apex.EntityCollection`
+the target discontinuities entities for smoothing. It can be geometry edge or element edge. It is used when DiscontinuityDefinition = Manual and smoothingStage is true.
+
+#### `getProjectMidNode() -> bool`
+Optional - The mid-side grid of quadratic elements are projected onto the selected spline surfaces. Ignored if smoothing is false.
+
+#### `getSmoothingFeatureAngle() -> float`
+Optional - Angle to detect feature edges. Edges between Elements with face normal deviation equal to or larger will be detected as an edge feature, and not be smoothed. It is used when DiscontinuityDefinition = Auto and smoothinStage is true.
+
+#### `getSmoothingState() -> bool`
+Optional - enable to control geometric smoothing of boundary of deformable body. Omits it if it is not a deform body.
+
 #### `update(smoothingState: apex.ApexBool, smoothingFeatureAngle: float, projectMidNode: apex.ApexBool, shellLayer: apex.attribute.ShellLayer, ignoreShellThickness: apex.ApexBool, discontinuityDefinition: apex.attribute.DiscontinuityDefinition, discontinuityTarget: apex.EntityCollection) -> None`
 update contact body property.
 
@@ -764,8 +946,15 @@ Properties: `id`, `interactions`
 
 Methods:
 
-- `getId() -> int` — Returns ID of the ContactTable. If omits, the system will automatically assign an ID.
+- `getId() -> int` — Returns ID of the ContactTable.
 - `getInteractions() -> apex.attribute.InteractionCollection` — Returns A collection of Interaction for the ContactTable.
+- `update(name: str, description: str, id: int, interactions: InteractionCollection) -> apex.attribute.ContactTable` — Creates and returns a ContactTable.
+
+Method details:
+
+#### `getId() -> int`
+Returns ID of the ContactTable. If omits, the system will automatically assign an ID.
+
 #### `update(name: str, description: str, id: int, interactions: InteractionCollection) -> apex.attribute.ContactTable`
 Creates and returns a ContactTable.
 
@@ -782,10 +971,22 @@ Methods:
 
 - `ContactTableCollection() -> None` — Construct a new ContactTableCollection.
 
+Method details:
+
+#### `ContactTableCollection() -> None`
+Construct a new ContactTableCollection.
+
+For example:
+
+
 ## `apex.attribute.CylindricalJoint`  (extends `Joint`)
 Contains CylindricalJoint and methods for editing/getting CylindricalJoint attributes.
 
 Methods:
+
+- `update(name: str, description: str, jointAxis: apex.attribute.JointAxis, side1: apex.EntityCollection, side1DistributionType: apex.attribute.DistributionType, side2: apex.EntityCollection, side2DistributionType: apex.attribute.DistributionType, jointOrigin: apex.Entity, jointOrientation: apex.construct.Orientation, axisLocationMode: apex.attribute.AxisLocationMode, jointRenderType: apex.attribute.JointRenderType) -> None` — Update this CylindricalJoint properties.
+
+Method details:
 
 #### `update(name: str, description: str, jointAxis: apex.attribute.JointAxis, side1: apex.EntityCollection, side1DistributionType: apex.attribute.DistributionType, side2: apex.EntityCollection, side2DistributionType: apex.attribute.DistributionType, jointOrigin: apex.Entity, jointOrientation: apex.construct.Orientation, axisLocationMode: apex.attribute.AxisLocationMode, jointRenderType: apex.attribute.JointRenderType) -> None`
 Update this CylindricalJoint properties.
@@ -813,6 +1014,14 @@ Methods:
 
 - `Damper1DCollection() -> None` — Construct a new Damper1DCollection.
 
+Method details:
+
+#### `Damper1DCollection() -> None`
+Construct a new Damper1DCollection.
+
+For example:
+
+
 ## `apex.attribute.Damper1DRepProperties`  (extends `ConnectorDiscreteProperty`)
 Class Damper1DRepProperties. The class Damper1DRepProperties holds the properties of Damper1D connector.
 Properties: `damping`, `embedded`, `id`
@@ -822,6 +1031,10 @@ Methods:
 - `getDamping() -> float` — The damping of the Damper1D connector.
 - `getEmbedded() -> bool` — Returns embedded of the Damper1D connector.
 - `getId() -> int` — Returns id of the Damper1D connector.
+- `update(damping: float, name: str, description: str, id: int) -> None` — Update this connector properties.
+
+Method details:
+
 #### `update(damping: float, name: str, description: str, id: int) -> None`
 Update this connector properties.
 
@@ -839,10 +1052,33 @@ Methods:
 
 - `Damper1DRepPropertiesCollection() -> None` — Construct a new Damper1DRepPropertiesCollection.
 
+Method details:
+
+#### `Damper1DRepPropertiesCollection() -> None`
+Construct a new Damper1DRepPropertiesCollection.
+
+For example:
+
+
 ## `apex.attribute.DiscreteDataTable`
 class DiscreteDataTable.
 
 Methods:
+
+- `getRegions() -> [DiscreteRegion]` — get the discrete region list.
+- `removeValueByElementFaceID(elemId: int int int, faceId: int int int) -> bool` — remove element if DiscreteRegionType is ElementFace.
+- `removeValueByElementID(elemId: int int int) -> bool` — remove element if DiscreteRegionType is Element.
+- `removeValueByElementNodeID(elemId: int int int, nodeId: int int int) -> bool` — remove element if DiscreteRegionType is ElementNode.
+- `removeValueByFaceNodeID(elemId: int int int, faceId: int int int, nodeId: int int int) -> bool` — remove element if DiscreteRegionType is FaceNode.
+- `updateValueByElementFaceID(elemId: int int int, faceId: int int int, value: float) -> bool` — Update the value field if DiscreteRegionType is ElementFace.
+- `updateValueByElementID(elemId: int int int, value: float) -> bool` — Update the value field if DiscreteRegionType is Element.
+- `updateValueByElementNodeID(elemId: int int int, nodeId: int int int, value: float) -> bool` — Update the value field if DiscreteRegionType is ElementNode.
+- `updateValueByFaceNodeID(elemId: int int int, faceId: int int int, nodeId: int int int, value: float) -> bool` — Update the value field if DiscreteRegionType is FaceNode.
+- `updateValueByNodeID(nodeId: int int int, value: float) -> bool` — Update the value field if DiscreteRegionType is Node.
+- `updateVectorByElementID(elemId: int int int, vector: apex.construct.Vector3D) -> bool` — Update the vector in Field if DiscreteRegionType is Element.
+- `updateVectorByElementNodeID(elemId: int int int, nodeId: int int int, vector: apex.construct.Vector3D) -> bool` — update the vector field if DiscreteRegionType is ElementNode.
+
+Method details:
 
 #### `getRegions() -> [DiscreteRegion]`
 get the discrete region list.
@@ -950,6 +1186,11 @@ Properties: `discreteFEMFieldType`, `discreteValue`
 Methods:
 
 - `getDiscreteFEMFieldType() -> apex.attribute.DiscreteFEMFieldType` — Get the DiscreteFEMFieldType of DiscreteFEMField.
+- `getDiscreteValue(type: apex.attribute.DiscreteFEMFieldType) -> {str:{dict}}` — Get the discrete value that this DiscreteFEMField has.
+- `updateDiscreteValue(name: str, type: apex.attribute.DiscreteFEMFieldType, fieldValues: {str:{dict}}) -> None` — Used to update the attribute for DiscreteFEMField.
+
+Method details:
+
 #### `getDiscreteValue(type: apex.attribute.DiscreteFEMFieldType) -> {str:{dict}}`
 Get the discrete value that this DiscreteFEMField has.
 
@@ -970,6 +1211,14 @@ Methods:
 
 - `DiscreteFEMFieldCollection() -> None` — Construct a new DiscreteFEMFieldCollection.
 
+Method details:
+
+#### `DiscreteFEMFieldCollection() -> None`
+Construct a new DiscreteFEMFieldCollection.
+
+For example:
+
+
 ## `apex.attribute.DiscreteRegion`
 class DiscreteRegion. THIS CLASS IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: LoadPressure, LoadPressurePropertyStaticConstant and LoadPressurePropertyStaticVariable.
 Properties: `discreteIDs1a`, `discreteIDs1b`, `discreteIDs2`, `discreteRegionType`, `values`
@@ -989,16 +1238,21 @@ Properties: `count`, `dependentDof`, `distributionMode`, `distributionType`
 
 Methods:
 
-#### `deleteNodeTies(nodeTies: apex.attribute.NodeTieCollection) -> bool`
-Remove NodeTies from this DiscreteTie.
-
-- `nodeTies` — is A collection of NodeTies. The NodeTies in this collection will be added to the NodeTies that are already composed by the target DiscreteTie and they will be removed from the DiscreteTie that currently composes them. If the NodeTie that is being added does not share the same nearest common ancestor as the DiscreteTie to which it is being added the method will return false, otherwise it will return True
-
+- `deleteNodeTies(nodeTies: apex.attribute.NodeTieCollection) -> bool` — Remove NodeTies from this DiscreteTie.
 - `getCount() -> int` — Returns Count (of NodeTies in) of the DiscreteTie.
 - `getDependentDof() -> str` — Returns dependentDoF of the DiscreteTie.
 - `getDistributionMode() -> str` — Returns distributionMode of the DiscreteTie.
 - `getDistributionType() -> str` — Returns distributionType of the DiscreteTie.
 - `getNodeTieByID(id: int) -> NodeTie` — get an existing NodeTie under Discrete Tie by ID
+- `update(name: str, dependentDoF: str) -> None` — Update this DiscreteTie properties.
+
+Method details:
+
+#### `deleteNodeTies(nodeTies: apex.attribute.NodeTieCollection) -> bool`
+Remove NodeTies from this DiscreteTie.
+
+- `nodeTies` — is A collection of NodeTies. The NodeTies in this collection will be added to the NodeTies that are already composed by the target DiscreteTie and they will be removed from the DiscreteTie that currently composes them. If the NodeTie that is being added does not share the same nearest common ancestor as the DiscreteTie to which it is being added the method will return false, otherwise it will return True
+
 #### `update(name: str, dependentDoF: str) -> None`
 Update this DiscreteTie properties.
 
@@ -1014,6 +1268,14 @@ Iterable collection of DiscreteTie, based on EntityCollection.
 Methods:
 
 - `DiscreteTieCollection() -> None` — Construct a new DiscreteTieCollection.
+
+Method details:
+
+#### `DiscreteTieCollection() -> None`
+Construct a new DiscreteTieCollection.
+
+For example:
+
 
 ## `apex.attribute.DisplacementConstraintProperty`
 Struct DisplacementConstraintProperty. THIS STRUCT IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with classes: ConstraintDisplacement.
@@ -1050,6 +1312,10 @@ Methods:
 - `getMaterialMatrix22() -> float` — Returns Matrix22 of the constitutive model.
 - `getMaterialMatrix23() -> float` — Returns Matrix23 of the constitutive model.
 - `getMaterialMatrix33() -> float` — Returns Matrix33 of the constitutive model.
+- `update(materialMatrix11: float, materialMatrix12: float, materialMatrix13: float, materialMatrix22: float, materialMatrix23: float, materialMatrix33: float) -> None` — Update properties of this ElasticityLinear2DAniso constitutive model.
+
+Method details:
+
 #### `update(materialMatrix11: float, materialMatrix12: float, materialMatrix13: float, materialMatrix22: float, materialMatrix23: float, materialMatrix33: float) -> None`
 Update properties of this ElasticityLinear2DAniso constitutive model.
 
@@ -1067,6 +1333,17 @@ Properties: `elasticModulus11`, `elasticModulus22`, `poissonRatio`, `shearModulu
 
 Methods:
 
+- `ElasticityLinear2DOrtho(elasticModulus11: float, elasticModulus22: float, shearModulus12: float, shearModulus23: float, shearModulus13: float, poissonRatio: float) -> None` — Create ElasticityLinear2DOrtho constitutive model.
+- `getElasticModulus11() -> float` — Returns Elastic Modulus 11 of the constitutive model.
+- `getElasticModulus22() -> float` — Returns Shear Modulus 22 of the constitutive model.
+- `getPoissonRatio() -> float` — Returns Poisson Ratio of the constitutive model.
+- `getShearModulus12() -> float` — Returns Shear Modulus 12 of the constitutive model.
+- `getShearModulus13() -> float` — Returns Shear Modulus 13 of the constitutive model.
+- `getShearModulus23() -> float` — Returns Shear Modulus 23 of the constitutive model.
+- `update(elasticModulus11: float, elasticModulus22: float, shearModulus12: float, shearModulus23: float, shearModulus13: float, poissonRatio: float) -> None` — Update properties of this ElasticityLinear2DOrtho constitutive model.
+
+Method details:
+
 #### `ElasticityLinear2DOrtho(elasticModulus11: float, elasticModulus22: float, shearModulus12: float, shearModulus23: float, shearModulus13: float, poissonRatio: float) -> None`
 Create ElasticityLinear2DOrtho constitutive model.
 
@@ -1077,12 +1354,6 @@ Create ElasticityLinear2DOrtho constitutive model.
 - `shearModulus13` — of this constitutive model
 - `poissonRatio` — of this constitutive model
 
-- `getElasticModulus11() -> float` — Returns Elastic Modulus 11 of the constitutive model.
-- `getElasticModulus22() -> float` — Returns Shear Modulus 22 of the constitutive model.
-- `getPoissonRatio() -> float` — Returns Poisson Ratio of the constitutive model.
-- `getShearModulus12() -> float` — Returns Shear Modulus 12 of the constitutive model.
-- `getShearModulus13() -> float` — Returns Shear Modulus 13 of the constitutive model.
-- `getShearModulus23() -> float` — Returns Shear Modulus 23 of the constitutive model.
 #### `update(elasticModulus11: float, elasticModulus22: float, shearModulus12: float, shearModulus23: float, shearModulus13: float, poissonRatio: float) -> None`
 Update properties of this ElasticityLinear2DOrtho constitutive model.
 
@@ -1099,6 +1370,32 @@ This Class is no longer supported in Apex. Refer to MaterialModel to determine h
 Properties: `materialMatrix11`, `materialMatrix12`, `materialMatrix13`, `materialMatrix14`, `materialMatrix15`, `materialMatrix16`, `materialMatrix22`, `materialMatrix23`, `materialMatrix24`, `materialMatrix25`, `materialMatrix26`, `materialMatrix33`, `materialMatrix34`, `materialMatrix35`, `materialMatrix36`, `materialMatrix44`, `materialMatrix45`, `materialMatrix46`, `materialMatrix55`, `materialMatrix56`, `materialMatrix66`
 
 Methods:
+
+- `ElasticityLinear3DAniso(materialMatrix11: float, materialMatrix12: float, materialMatrix13: float, materialMatrix14: float, materialMatrix15: float, materialMatrix16: float, materialMatrix22: float, materialMatrix23: float, materialMatrix24: float, materialMatrix25: float, materialMatrix26: float, materialMatrix33: float, materialMatrix34: float, materialMatrix35: float, materialMatrix36: float, materialMatrix44: float, materialMatrix45: float, materialMatrix46: float, materialMatrix55: float, materialMatrix56: float, materialMatrix66: float) -> None` — Create ElasticityLinear2DOrtho constitutive model.
+- `getMaterialMatrix11() -> float` — Returns Matrix11 of the constitutive model.
+- `getMaterialMatrix12() -> float` — Returns Matrix12 of the constitutive model.
+- `getMaterialMatrix13() -> float` — Returns Matrix13 of the constitutive model.
+- `getMaterialMatrix14() -> float` — Returns Matrix14 of the constitutive model.
+- `getMaterialMatrix15() -> float` — Returns Matrix15 of the constitutive model.
+- `getMaterialMatrix16() -> float` — Returns Matrix16 of the constitutive model.
+- `getMaterialMatrix22() -> float` — Returns Matrix22 of the constitutive model.
+- `getMaterialMatrix23() -> float` — Returns Matrix23 of the constitutive model.
+- `getMaterialMatrix24() -> float` — Returns Matrix24 of the constitutive model.
+- `getMaterialMatrix25() -> float` — Returns Matrix25 of the constitutive model.
+- `getMaterialMatrix26() -> float` — Returns Matrix26 of the constitutive model.
+- `getMaterialMatrix33() -> float` — Returns Matrix33 of the constitutive model.
+- `getMaterialMatrix34() -> float` — Returns Matrix34 of the constitutive model.
+- `getMaterialMatrix35() -> float` — Returns Matrix35 of the constitutive model.
+- `getMaterialMatrix36() -> float` — Returns Matrix36 of the constitutive model.
+- `getMaterialMatrix44() -> float` — Returns Matrix44 of the constitutive model.
+- `getMaterialMatrix45() -> float` — Returns Matrix45 of the constitutive model.
+- `getMaterialMatrix46() -> float` — Returns Matrix46 of the constitutive model.
+- `getMaterialMatrix55() -> float` — Returns Matrix55 of the constitutive model.
+- `getMaterialMatrix56() -> float` — Returns Matrix56 of the constitutive model.
+- `getMaterialMatrix66() -> float` — Returns Matrix66 of the constitutive model.
+- `update(materialMatrix11: float, materialMatrix12: float, materialMatrix13: float, materialMatrix14: float, materialMatrix15: float, materialMatrix16: float, materialMatrix22: float, materialMatrix23: float, materialMatrix24: float, materialMatrix25: float, materialMatrix26: float, materialMatrix33: float, materialMatrix34: float, materialMatrix35: float, materialMatrix36: float, materialMatrix44: float, materialMatrix45: float, materialMatrix46: float, materialMatrix55: float, materialMatrix56: float, materialMatrix66: float) -> None` — Update properties of this ElasticityLinear2DOrtho constitutive model.
+
+Method details:
 
 #### `ElasticityLinear3DAniso(materialMatrix11: float, materialMatrix12: float, materialMatrix13: float, materialMatrix14: float, materialMatrix15: float, materialMatrix16: float, materialMatrix22: float, materialMatrix23: float, materialMatrix24: float, materialMatrix25: float, materialMatrix26: float, materialMatrix33: float, materialMatrix34: float, materialMatrix35: float, materialMatrix36: float, materialMatrix44: float, materialMatrix45: float, materialMatrix46: float, materialMatrix55: float, materialMatrix56: float, materialMatrix66: float) -> None`
 Create ElasticityLinear2DOrtho constitutive model.
@@ -1125,27 +1422,6 @@ Create ElasticityLinear2DOrtho constitutive model.
 - `materialMatrix56` — of this constitutive model
 - `materialMatrix66` — of this constitutive model
 
-- `getMaterialMatrix11() -> float` — Returns Matrix11 of the constitutive model.
-- `getMaterialMatrix12() -> float` — Returns Matrix12 of the constitutive model.
-- `getMaterialMatrix13() -> float` — Returns Matrix13 of the constitutive model.
-- `getMaterialMatrix14() -> float` — Returns Matrix14 of the constitutive model.
-- `getMaterialMatrix15() -> float` — Returns Matrix15 of the constitutive model.
-- `getMaterialMatrix16() -> float` — Returns Matrix16 of the constitutive model.
-- `getMaterialMatrix22() -> float` — Returns Matrix22 of the constitutive model.
-- `getMaterialMatrix23() -> float` — Returns Matrix23 of the constitutive model.
-- `getMaterialMatrix24() -> float` — Returns Matrix24 of the constitutive model.
-- `getMaterialMatrix25() -> float` — Returns Matrix25 of the constitutive model.
-- `getMaterialMatrix26() -> float` — Returns Matrix26 of the constitutive model.
-- `getMaterialMatrix33() -> float` — Returns Matrix33 of the constitutive model.
-- `getMaterialMatrix34() -> float` — Returns Matrix34 of the constitutive model.
-- `getMaterialMatrix35() -> float` — Returns Matrix35 of the constitutive model.
-- `getMaterialMatrix36() -> float` — Returns Matrix36 of the constitutive model.
-- `getMaterialMatrix44() -> float` — Returns Matrix44 of the constitutive model.
-- `getMaterialMatrix45() -> float` — Returns Matrix45 of the constitutive model.
-- `getMaterialMatrix46() -> float` — Returns Matrix46 of the constitutive model.
-- `getMaterialMatrix55() -> float` — Returns Matrix55 of the constitutive model.
-- `getMaterialMatrix56() -> float` — Returns Matrix56 of the constitutive model.
-- `getMaterialMatrix66() -> float` — Returns Matrix66 of the constitutive model.
 #### `update(materialMatrix11: float, materialMatrix12: float, materialMatrix13: float, materialMatrix14: float, materialMatrix15: float, materialMatrix16: float, materialMatrix22: float, materialMatrix23: float, materialMatrix24: float, materialMatrix25: float, materialMatrix26: float, materialMatrix33: float, materialMatrix34: float, materialMatrix35: float, materialMatrix36: float, materialMatrix44: float, materialMatrix45: float, materialMatrix46: float, materialMatrix55: float, materialMatrix56: float, materialMatrix66: float) -> None`
 Update properties of this ElasticityLinear2DOrtho constitutive model.
 
@@ -1178,6 +1454,20 @@ Properties: `elasticModulus11`, `elasticModulus22`, `elasticModulus33`, `poisson
 
 Methods:
 
+- `ElasticityLinear3DOrtho(elasticModulus11: float, elasticModulus22: float, elasticModulus33: float, shearModulus12: float, shearModulus23: float, shearModulus13: float, poissonRatio12: float, poissonRatio23: float, poissonRatio13: float) -> None` — Create ElasticityLinear3DOrtho constitutive model.
+- `getElasticModulus11() -> float` — Returns ElasticModulus11 of the constitutive model.
+- `getElasticModulus22() -> float` — Returns ElasticModulus22 of the constitutive model.
+- `getElasticModulus33() -> float` — Returns ElasticModulus33 of the constitutive model.
+- `getPoissonRatio12() -> float` — Returns PoissonRatio12 of the constitutive model.
+- `getPoissonRatio13() -> float` — Returns PoissonRatio13 of the constitutive model.
+- `getPoissonRatio23() -> float` — Returns PoissonRatio23 of the constitutive model.
+- `getShearModulus12() -> float` — Returns ShearModulus12 of the constitutive model.
+- `getShearModulus13() -> float` — Returns ShearModulus13 of the constitutive model.
+- `getShearModulus23() -> float` — Returns ShearModulusc23 of the constitutive model.
+- `update(elasticModulus11: float, elasticModulus22: float, elasticModulus33: float, shearModulus12: float, shearModulus23: float, shearModulus13: float, poissonRatio12: float, poissonRatio23: float, poissonRatio13: float) -> None` — Update properties of this ElasticityLinear3DOrtho constitutive model.
+
+Method details:
+
 #### `ElasticityLinear3DOrtho(elasticModulus11: float, elasticModulus22: float, elasticModulus33: float, shearModulus12: float, shearModulus23: float, shearModulus13: float, poissonRatio12: float, poissonRatio23: float, poissonRatio13: float) -> None`
 Create ElasticityLinear3DOrtho constitutive model.
 
@@ -1191,15 +1481,6 @@ Create ElasticityLinear3DOrtho constitutive model.
 - `poissonRatio23` — This define the yz direction poisson ratio
 - `poissonRatio13` — This define the xz direction poisson ratio
 
-- `getElasticModulus11() -> float` — Returns ElasticModulus11 of the constitutive model.
-- `getElasticModulus22() -> float` — Returns ElasticModulus22 of the constitutive model.
-- `getElasticModulus33() -> float` — Returns ElasticModulus33 of the constitutive model.
-- `getPoissonRatio12() -> float` — Returns PoissonRatio12 of the constitutive model.
-- `getPoissonRatio13() -> float` — Returns PoissonRatio13 of the constitutive model.
-- `getPoissonRatio23() -> float` — Returns PoissonRatio23 of the constitutive model.
-- `getShearModulus12() -> float` — Returns ShearModulus12 of the constitutive model.
-- `getShearModulus13() -> float` — Returns ShearModulus13 of the constitutive model.
-- `getShearModulus23() -> float` — Returns ShearModulusc23 of the constitutive model.
 #### `update(elasticModulus11: float, elasticModulus22: float, elasticModulus33: float, shearModulus12: float, shearModulus23: float, shearModulus13: float, poissonRatio12: float, poissonRatio23: float, poissonRatio13: float) -> None`
 Update properties of this ElasticityLinear3DOrtho constitutive model.
 
@@ -1220,6 +1501,16 @@ Properties: `elasticModulusAxial`, `elasticModulusPlan`, `poissonRatioxy`, `pois
 
 Methods:
 
+- `ElasticityLinear3DTransvIso(elasticModulusAxial: float, elasticModulusPlan: float, shearModulusxy: float, poissonRatioxy: float, poissonRatioyz: float) -> None` — Create ElasticityLinear3DTransvIso constitutive model.
+- `getElasticModulusAxial() -> float` — Returns ElasticModulus11 of the constitutive model.
+- `getElasticModulusPlan() -> float` — Returns ElasticModulus22 of the constitutive model.
+- `getPoissonRatioxy() -> float` — Returns ShearModulus12 of the constitutive model.
+- `getPoissonRatioyz() -> float` — Returns ShearModulusc23 of the constitutive model.
+- `getShearModulusxy() -> float` — Returns ElasticModulus33 of the constitutive model.
+- `update(elasticModulusAxial: float, elasticModulusPlan: float, shearModulusxy: float, poissonRatioxy: float, poissonRatioyz: float) -> None` — Update properties of this ElasticityLinear3DTransvIso constitutive model.
+
+Method details:
+
 #### `ElasticityLinear3DTransvIso(elasticModulusAxial: float, elasticModulusPlan: float, shearModulusxy: float, poissonRatioxy: float, poissonRatioyz: float) -> None`
 Create ElasticityLinear3DTransvIso constitutive model.
 
@@ -1229,11 +1520,6 @@ Create ElasticityLinear3DTransvIso constitutive model.
 - `poissonRatioxy` — Defiend the poisson Ratio in xy direction. Used axial for x Orientation. Used in plane for y and z Orientation.
 - `poissonRatioyz` — Defiend the poisson Ratio in yz direction. Used axial for x Orientation. Used in plane for y and z Orientation.
 
-- `getElasticModulusAxial() -> float` — Returns ElasticModulus11 of the constitutive model.
-- `getElasticModulusPlan() -> float` — Returns ElasticModulus22 of the constitutive model.
-- `getPoissonRatioxy() -> float` — Returns ShearModulus12 of the constitutive model.
-- `getPoissonRatioyz() -> float` — Returns ShearModulusc23 of the constitutive model.
-- `getShearModulusxy() -> float` — Returns ElasticModulus33 of the constitutive model.
 #### `update(elasticModulusAxial: float, elasticModulusPlan: float, shearModulusxy: float, poissonRatioxy: float, poissonRatioyz: float) -> None`
 Update properties of this ElasticityLinear3DTransvIso constitutive model.
 
@@ -1250,6 +1536,14 @@ Properties: `elasticModulus`, `poissonRatio`, `shearModulus`
 
 Methods:
 
+- `ElasticityLinearIso(elasticModulus: float, shearModulus: float, poissonRatio: float) -> None` — Create ElasticityLinearIso constitutive model.
+- `getElasticModulus() -> float` — Returns Elastic Modulus of the material.
+- `getPoissonRatio() -> float` — Returns Poisson Ratio of the material.
+- `getShearModulus() -> float` — Returns Shear Modulus of the material.
+- `update(elasticModulus: float, shearModulus: float, poissonRatio: float) -> None` — Update properties of this ElasticityLinearIso constitutive model.
+
+Method details:
+
 #### `ElasticityLinearIso(elasticModulus: float, shearModulus: float, poissonRatio: float) -> None`
 Create ElasticityLinearIso constitutive model.
 
@@ -1257,9 +1551,6 @@ Create ElasticityLinearIso constitutive model.
 - `shearModulus` — of this constitutive model
 - `poissonRatio` — of this constitutive model
 
-- `getElasticModulus() -> float` — Returns Elastic Modulus of the material.
-- `getPoissonRatio() -> float` — Returns Poisson Ratio of the material.
-- `getShearModulus() -> float` — Returns Shear Modulus of the material.
 #### `update(elasticModulus: float, shearModulus: float, poissonRatio: float) -> None`
 Update properties of this ElasticityLinearIso constitutive model.
 
@@ -1281,6 +1572,10 @@ Methods:
 - `getCompression() -> float` — Returns The compression Strength of the material.
 - `getShear() -> float` — Returns The shear Strength of the material.
 - `getTension() -> float` — Returns The Tensile Strength of the material.
+- `update(tension: float, compression: float, shear: float) -> None` — Used to update a Failure2DAniso object.
+
+Method details:
+
 #### `update(tension: float, compression: float, shear: float) -> None`
 Used to update a Failure2DAniso object.
 
@@ -1301,6 +1596,10 @@ Methods:
 - `getInPlaneShear() -> float` — Returns The inPlane Shear Strength of the material.
 - `getTensionX() -> float` — Returns The X-axial Tensile Strength of the material.
 - `getTensionY() -> float` — Returns The Y-axial Tensile Strength of the material.
+- `update(tensionX: float, tensionY: float, compressionX: float, compressionY: float, inPlaneShear: float) -> None` — Used to update a Failure2DOrth object.
+
+Method details:
+
 #### `update(tensionX: float, tensionY: float, compressionX: float, compressionY: float, inPlaneShear: float) -> None`
 Used to update a Failure2DOrth object.
 
@@ -1323,6 +1622,10 @@ Methods:
 - `getInPlaneCompressive() -> float` — Returns the in Plane compressive Strength of the material.
 - `getInPlaneTension() -> float` — Returns the in Plane Tensile Strength of the material.
 - `getTransverseShear() -> float` — Returns the transverse Shear Strength of the material.
+- `update(axisTension: float, axisCompressive: float, inPlaneTension: float, inPlaneCompressive: float, transverseShear: float) -> None` — Used to update a Failure3DOrth object.
+
+Method details:
+
 #### `update(axisTension: float, axisCompressive: float, inPlaneTension: float, inPlaneCompressive: float, transverseShear: float) -> None`
 Used to update a Failure3DOrth object.
 
@@ -1345,6 +1648,10 @@ Methods:
 - `getInPlaneCompressive() -> float` — Returns the in Plane compressive Strength of the material.
 - `getInPlaneTension() -> float` — Returns the in Plane Tensile Strength of the material.
 - `getTransverseShear() -> float` — Returns the transverse Shear Strength of the material.
+- `update(axisTension: float, axisCompressive: float, inPlaneTension: float, inPlaneCompressive: float, transverseShear: float) -> None` — Used to update a Failure3DTransvIso object.
+
+Method details:
+
 #### `update(axisTension: float, axisCompressive: float, inPlaneTension: float, inPlaneCompressive: float, transverseShear: float) -> None`
 Used to update a Failure3DTransvIso object.
 
@@ -1365,6 +1672,10 @@ Methods:
 - `getCompression() -> float` — Returns The compression Strength of the material.
 - `getShear() -> float` — Returns The shear Strength of the material.
 - `getTension() -> float` — Returns The Tensile Strength of the material.
+- `update(tension: float, compression: float, shear: float) -> None` — Used to update a FailureIso object.
+
+Method details:
+
 #### `update(tension: float, compression: float, shear: float) -> None`
 Used to update a FailureIso object.
 
@@ -1380,6 +1691,14 @@ Used to update a FailureIso object.
 Methods:
 
 - `FastenerCollection() -> None` — Construct a newFastenerCollection.
+
+Method details:
+
+#### `FastenerCollection() -> None`
+Construct a newFastenerCollection.
+
+For example:
+
 
 ## `apex.attribute.FastenerRepProperties`  (extends `ConnectorDiscreteProperty`)
 Class FastenerRepProperties. The FastenerRepProperties class holds the properties for Fastener.
@@ -1397,13 +1716,20 @@ Methods:
 - `getRotationalStiffnessX() -> float` — Gets the rotational stiffness about x axis.
 - `getRotationalStiffnessY() -> float` — Gets the rotational stiffness about y axis.
 - `getRotationalStiffnessZ() -> float` — Gets the rotational stiffness about z axis.
-- `getStiffnessCoordinateSystem() -> apex.attribute.FastenerStiffnessCoordinateSystem` — Gets the element stiffness coordinate system type. Optional numeric argument indicate the element stiffness coordinate system, which could be one of values: Global, UserDefined, MinusOne, Unset,.
+- `getStiffnessCoordinateSystem() -> apex.attribute.FastenerStiffnessCoordinateSystem` — Gets the element stiffness coordinate system type.
 - `getStructuralDamping() -> float` — Gets the structural damping of fastener.
 - `getThermalExpansionCoefficient() -> float` — Gets the thermal expansion coefficient for Gets the fastener.
 - `getTransverseStiffnessX() -> float` — Gets the transverse stiffness along x axis.
 - `getTransverseStiffnessY() -> float` — Gets the transverse stiffness along y axis.
 - `getTransverseStiffnessZ() -> float` — Gets the transverse stiffness along z axis.
 - `getUserDefinedStiffnessCoordinateSystem() -> apex.construct.CoordinateSystem` — Gets user defined element stiffness coordinate system, which takes effect only when the argument"stiffnessCoordinateSystem" is set as "userDefined.
+- `update(id: int, diameter: float, transverseStiffnessX: float, transverseStiffnessY: float, transverseStiffnessZ: float, rotationalStiffnessX: float, rotationalStiffnessY: float, rotationalStiffnessZ: float, mass: float, structuralDamping: float, thermalExpansionCoefficient: float, referenceTemperature: float, lengthWithCoincidentGrids: float, flagOfCoordinateSystem: apex.attributes.FlagOfCoordinateSystem, userDefinedStiffnessCoordinateSystem: apex.construct.CoordinateSystem, stiffnessCoordinateSystem: apex.attributes.FastenerStiffnessCoordinateSystem, name: str, description: str) -> None` — Update the property of fastener.
+
+Method details:
+
+#### `getStiffnessCoordinateSystem() -> apex.attribute.FastenerStiffnessCoordinateSystem`
+Gets the element stiffness coordinate system type. Optional numeric argument indicate the element stiffness coordinate system, which could be one of values: Global, UserDefined, MinusOne, Unset,.
+
 #### `update(id: int, diameter: float, transverseStiffnessX: float, transverseStiffnessY: float, transverseStiffnessZ: float, rotationalStiffnessX: float, rotationalStiffnessY: float, rotationalStiffnessZ: float, mass: float, structuralDamping: float, thermalExpansionCoefficient: float, referenceTemperature: float, lengthWithCoincidentGrids: float, flagOfCoordinateSystem: apex.attributes.FlagOfCoordinateSystem, userDefinedStiffnessCoordinateSystem: apex.construct.CoordinateSystem, stiffnessCoordinateSystem: apex.attributes.FastenerStiffnessCoordinateSystem, name: str, description: str) -> None`
 Update the property of fastener.
 
@@ -1436,6 +1762,14 @@ Methods:
 
 - `FastenerRepPropertiesCollection() -> None` — Construct a new FastenerRepPropertiesCollection.
 
+Method details:
+
+#### `FastenerRepPropertiesCollection() -> None`
+Construct a new FastenerRepPropertiesCollection.
+
+For example:
+
+
 ## `apex.attribute.FlexibleLink`  (extends `Connector`)
 
 ## `apex.attribute.FlexibleLinkCollection`  (extends `EntityCollection`, `IUserHighlightable`)
@@ -1443,6 +1777,14 @@ Methods:
 Methods:
 
 - `FlexibleLinkCollection() -> None` — Construct a new FlexibleLinkCollection.
+
+Method details:
+
+#### `FlexibleLinkCollection() -> None`
+Construct a new FlexibleLinkCollection.
+
+For example:
+
 
 ## `apex.attribute.FlexibleLinkRepProperties`  (extends `ConnectorDiscreteProperty`)
 Class FlexibleLinkRepProperties. The class FlexibleLinkRepProperties holds the properties of FlexibleLink connector.
@@ -1452,6 +1794,10 @@ Methods:
 
 - `getDiameter() -> float` — The diameter of the FlexibleLink connector.
 - `getLinkMaterial() -> Material` — The material assigned to the FlexibleLink connector.
+- `update(diameter: float, linkMaterial: Material) -> None` — Update this connector properties.
+
+Method details:
+
 #### `update(diameter: float, linkMaterial: Material) -> None`
 Update this connector properties.
 
@@ -1469,6 +1815,14 @@ Methods:
 
 - `GapCollection() -> None` — Construct a new GapCollection.
 
+Method details:
+
+#### `GapCollection() -> None`
+Construct a new GapCollection.
+
+For example:
+
+
 ## `apex.attribute.GapRepProperties`  (extends `ConnectorDiscreteProperty`)
 Class GapRepProperties. The class GapRepProperties holds the properties of Gap connector.
 Properties: `closedStiffness`, `initialOpening`, `kineticFriction`, `openStiffness`, `preload`, `staticFriction`, `transverseStiffness`
@@ -1482,6 +1836,10 @@ Methods:
 - `getPreload() -> float` — The preload applied on the gap.
 - `getStaticFriction() -> float` — Coefficient of static friction.
 - `getTransverseStiffness() -> float` — Transverse stiffness when the gap is closed.
+- `update(initialOpening: float, preload: float, closedStiffness: float, openStiffness: float, transverseStiffness: float, staticFriction: float, kineticFriction: float) -> None` — Update this connector properties.
+
+Method details:
+
 #### `update(initialOpening: float, preload: float, closedStiffness: float, openStiffness: float, transverseStiffness: float, staticFriction: float, kineticFriction: float) -> None`
 Update this connector properties.
 
@@ -1502,6 +1860,18 @@ Properties: `activeRep`, `body1Property`, `body2Property`, `contactBody1`, `cont
 
 Methods:
 
+- `createInteractionRep(name: str, description: str, id: int, interactionType: apex.attribute.InteractionType, interactionPropertyGeometric: apex.attribute.InteractionPropertyGeometric, interactionPropertyPhysical: apex.attribute.InteractionPropertyPhysical, allowSelfContactSide1: bool, allowSelfContactSide2: bool) -> apex.attribute.InteractionRep` — Create an interaction rep.
+- `getActiveRep() -> apex.attribute.InteractionRep` — Gets The active interaction rep of current interaction.
+- `getBody1Property() -> apex.attribute.ContactBodyProperty` — Gets Interaction body property of side1.
+- `getBody2Property() -> apex.attribute.ContactBodyProperty` — Gets Interaction body property of side2.
+- `getContactBodies1() -> apex.attribute.ContactBodyCollection` — Gets Primary Side Contact Bodies of an interaction pair.
+- `getContactBodies2() -> apex.attribute.ContactBodyCollection` — Gets Secondary side Contact Bodies of an interaction pair.
+- `getTargetSide1() -> apex.EntityCollection` — Gets Primary side of an interaction pair.
+- `getTargetSide2() -> apex.EntityCollection` — Gets Secondary side of an interaction pair.
+- `update(name: str, description: str, targetSide1: apex.EntityCollection, targetSide2: apex.EntityCollection, body1Property: apex.attribute.ContactBodyProperty, body2Property: apex.attribute.ContactBodyProperty) -> Interaction` — update the interaction object.
+
+Method details:
+
 #### `createInteractionRep(name: str, description: str, id: int, interactionType: apex.attribute.InteractionType, interactionPropertyGeometric: apex.attribute.InteractionPropertyGeometric, interactionPropertyPhysical: apex.attribute.InteractionPropertyPhysical, allowSelfContactSide1: bool, allowSelfContactSide2: bool) -> apex.attribute.InteractionRep`
 Create an interaction rep.
 
@@ -1514,13 +1884,6 @@ Create an interaction rep.
 - `allowSelfContactSide1` — Optional - Boolean to choose self Contact for primary side of interaction pair. It is only available if interactionType = Glue or General contact. Omits it if interactionType = Self contact.
 - `allowSelfContactSide2` — Optional - Boolean to choose self Contact for secondary side of interaction pair. It is only available if interactionType = Glue or General contact. Omits it if interactionType = Self contact.
 
-- `getActiveRep() -> apex.attribute.InteractionRep` — Gets The active interaction rep of current interaction.
-- `getBody1Property() -> apex.attribute.ContactBodyProperty` — Gets Interaction body property of side1.
-- `getBody2Property() -> apex.attribute.ContactBodyProperty` — Gets Interaction body property of side2.
-- `getContactBodies1() -> apex.attribute.ContactBodyCollection` — Gets Primary Side Contact Bodies of an interaction pair.
-- `getContactBodies2() -> apex.attribute.ContactBodyCollection` — Gets Secondary side Contact Bodies of an interaction pair.
-- `getTargetSide1() -> apex.EntityCollection` — Gets Primary side of an interaction pair.
-- `getTargetSide2() -> apex.EntityCollection` — Gets Secondary side of an interaction pair.
 #### `update(name: str, description: str, targetSide1: apex.EntityCollection, targetSide2: apex.EntityCollection, body1Property: apex.attribute.ContactBodyProperty, body2Property: apex.attribute.ContactBodyProperty) -> Interaction`
 update the interaction object.
 
@@ -1538,50 +1901,143 @@ Methods:
 
 - `InteractionCollection() -> None` — Construct a new InteractionCollection.
 
+Method details:
+
+#### `InteractionCollection() -> None`
+Construct a new InteractionCollection.
+
+For example:
+
+
 ## `apex.attribute.InteractionPropertyGeometric`  (extends `Entity`)
 Interaction Geometric Properties, it is various properties for Interaction Pairs.
 Properties: `adjustedMagnitude`, `adjustedSecondaryBodyClearance`, `adjustedSecondaryBodyInterferenceFit`, `allowSeparation`, `biasFactor`, `breakingGlueCriteria`, `clearanceSearchTolerance`, `contactSearchOrder`, `contactTolerance`, `contactToleranceCalculationMethod`, `coordinateSystemWithVector`, `cosinesVector`, `delayedSlideOff`, `flexibleGlue`, `hardSoftRatio`, `id`, `ignoreShellThicknessSide1`, `ignoreShellThicknessSide2`, `initialClearance`, `interferenceClosure`, `interferenceFit`, `interferenceFitMethod`, `name`, `normalPenaltyFactor`, `normalStiffness`, `penetrationDistance`, `penetrationSearchTolerance`, `retainMoment`, `scaleCenter`, `scaleFactorVector`, `shellLayerSide1`, `shellLayerSide2`, `slideOffDistance`, `slipDistance`, `stepGlue`, `stressFreeInitialContact`, `tangentPenaltyFactor`, `tangentStiffness`
 
 Methods:
 
-- `getAdjustedMagnitude() -> float` — Gets Optional - adjusted magnitude. It is only available when initialClearance is true.
-- `getAdjustedSecondaryBodyClearance() -> bool` — Gets Optional to define which Contact body to be adjust for Initial gap/overlap. True: Secondary body False: Primary body It is only available when initialClearance is true.
-- `getAdjustedSecondaryBodyInterferenceFit() -> bool` — Gets Optional to define which Contact body to be adjust for interference fit. True: Secondary body False: Primary body.
-- `getAllowSeparation() -> bool` — Gets Optional - enable to allow glue separation during simulation. Omits it if the interaction type is contact.
+- `getAdjustedMagnitude() -> float` — Gets Optional - adjusted magnitude.
+- `getAdjustedSecondaryBodyClearance() -> bool` — Gets Optional to define which Contact body to be adjust for Initial gap/overlap.
+- `getAdjustedSecondaryBodyInterferenceFit() -> bool` — Gets Optional to define which Contact body to be adjust for interference fit.
+- `getAllowSeparation() -> bool` — Gets Optional - enable to allow glue separation during simulation.
 - `getBiasFactor() -> float` — Gets Optional - Contact tolerance bias factor.
-- `getBreakingGlueCriteria() -> bool` — Gets Optional - enable to use breaking blue parameters to define separation when allowSeparation = True. Omits it if the interaction type is contact.
-- `getClearanceSearchTolerance() -> float` — Gets Optional - Search tolerance of initial gap or overlap. It is only available when initialClearance is true.
+- `getBreakingGlueCriteria() -> bool` — Gets Optional - enable to use breaking blue parameters to define separation when allowSeparation = True.
+- `getClearanceSearchTolerance() -> float` — Gets Optional - Search tolerance of initial gap or overlap.
 - `getContactSearchOrder() -> apex.attribute.ContactSearchOrder` — Gets Optional - contact search order for node to segment contact method.
-- `getContactTolerance() -> float` — Gets An optional distance tolerance value (default =0.005m) used to determine the subset of elements specified in targetSide1 and targetSide2 that will actually be glued/contact during the simulations.
-- `getContactToleranceCalculationMethod() -> apex.AutoManual` — Gets An optional argument (default True) that controls whether the ContactTolerance should be calculated automatically by the system or defined manually via this method. The Automatic option works well in most cases and should only be replaced with a manual value for complex geometry where the automatic value is observed to produce unwanted results.
-- `getCoordinateSystemWithVector() -> apex.construct.CoordinateSystem` — Gets Optional - Coordinate system to define the interference fit vector. The option will be available when InterferenceFitMethod = UserDirection or ScaleFactor.
-- `getCosinesVector() -> [float]` — Gets Optional - Cosines Vector[a1,a2,a3] of the interference fit direction. a1 will be the angle of x axis; a2 will be the angle of y axis; a3 will be the angle of z axis. The option will be available when InterferenceFitMethod = UserDirection.
+- `getContactTolerance() -> float` — Gets An optional distance tolerance value (default =0.005m) used to determine the subset of elements specified in targetSide1 and targetSide2 that will ...
+- `getContactToleranceCalculationMethod() -> apex.AutoManual` — Gets An optional argument (default True) that controls whether the ContactTolerance should be calculated automatically by the system or defined manually via ...
+- `getCoordinateSystemWithVector() -> apex.construct.CoordinateSystem` — Gets Optional - Coordinate system to define the interference fit vector.
+- `getCosinesVector() -> [float]` — Gets Optional - Cosines Vector[a1,a2,a3] of the interference fit direction. a1 will be the angle of x axis; a2 will be the angle of y axis; a3 will be the ...
 - `getDelayedSlideOff() -> bool` — Gets Optional - Activate/Deactivate delay-slide off.
-- `getFlexibleGlue() -> bool` — Gets Optional - Activate/Deactivate Flexible Glue. Omits it if the interaction type is contact.
-- `getHardSoftRatio() -> float` — Gets Optional - Hard soft ratio of the contact pair. This argument is only available for node to segment contact method, which will be skipped in segment to segment method.
+- `getFlexibleGlue() -> bool` — Gets Optional - Activate/Deactivate Flexible Glue.
+- `getHardSoftRatio() -> float` — Gets Optional - Hard soft ratio of the contact pair.
 - `getId() -> int` — Gets ID of Interaction geometric properties.
 - `getIgnoreShellThicknessSide1() -> bool` — Gets Consider or ignore shell thickness during detection of contact side 1.
 - `getIgnoreShellThicknessSide2() -> bool` — Gets Consider or ignore shell thickness during detection of contact side 2.
 - `getInitialClearance() -> bool` — Gets Optional - active to Adjust Initial gap or overlap.
-- `getInterferenceClosure() -> float` — Gets Optional - Adjust gap(>0.0) or overlap(<0.0) based on the value The option will be available when InterferenceFitMethod = NormalDirection or UserDireaction.
+- `getInterferenceClosure() -> float` — Gets Optional - Adjust gap(>0.0) or overlap(<0.0) based on the value The option will be available when InterferenceFitMethod = NormalDirection or ...
 - `getInterferenceFit() -> bool` — Gets Optional - active to Adjust Interference Fit.
 - `getInterferenceFitMethod() -> apex.attribute.InterferenceFitMethod` — Gets Optional - Method to define Interference Fit.
 - `getName() -> str` — Gets Name of Interaction geometric properties.
-- `getNormalPenaltyFactor() -> float` — Gets Optional - Augmented Lagrange penalty factor in normal direction. The argument is only available for segment to segment method, which will be skipped in node to segment method.
-- `getNormalStiffness() -> float` — Gets Optional - Normal Stiffness for flexible glue. Omits it if the interaction type is contact.
-- `getPenetrationDistance() -> float` — Gets Optional - Penetration distance beyond which an augmentation will be applied The argument is only available for segment to segment method, which will be skipped in node to segment method.
-- `getPenetrationSearchTolerance() -> float` — Gets Optional - Penetration Search Tolerance. The option will be available when InterferenceFitMethod = Automatic.
-- `getRetainMoment() -> bool` — Gets Optional - enable to retain moment for shell glue. Omits it if the interaction type is contact.
-- `getScaleCenter() -> [float]` — Gets Optional - Scale Center[x,y,z] with interference fit. The option will be available when InterferenceFitMethod = ScaleCenter.
-- `getScaleFactorVector() -> [float]` — Gets Optional - Scale Factor Vector [a1,a2,a3] of the interference fit. The option will be available when InterferenceFitMethod = ScaleFactor.
-- `getShellLayerSide1() -> apex.attribute.ShellLayer` — Gets Shell layer to be used for contact detection in side 1. In segment to segment contact method, it only supports "ShellLayer = TopAndButtom", skip other shell layer method. In node to segment contact method, it supports all 3 options.
-- `getShellLayerSide2() -> apex.attribute.ShellLayer` — Gets Shell layer to be used for contact detection in side 2. In segment to segment contact method, it only supports "ShellLayer = TopAndButtom", skip other shell layer method. In node to segment contact method, it supports all 3 options.
-- `getSlideOffDistance() -> float` — Gets Optional - Slide Off Distance which is only available when "delayedSlideOff = True". Otherwise,it will be skipped.
-- `getSlipDistance() -> float` — Gets Optional - Maximum allowable slip distance for sticking, beyond it there is no sticking, only sliding exists The argument is only available for segment to segment method, which will be skipped in node to segment method.
-- `getStepGlue() -> bool` — Gets Optional- Step Glue for Large Displacement and Rotation. Omits it if the interaction type is contact.
+- `getNormalPenaltyFactor() -> float` — Gets Optional - Augmented Lagrange penalty factor in normal direction.
+- `getNormalStiffness() -> float` — Gets Optional - Normal Stiffness for flexible glue.
+- `getPenetrationDistance() -> float` — Gets Optional - Penetration distance beyond which an augmentation will be applied The argument is only available for segment to segment method, which will be ...
+- `getPenetrationSearchTolerance() -> float` — Gets Optional - Penetration Search Tolerance.
+- `getRetainMoment() -> bool` — Gets Optional - enable to retain moment for shell glue.
+- `getScaleCenter() -> [float]` — Gets Optional - Scale Center[x,y,z] with interference fit.
+- `getScaleFactorVector() -> [float]` — Gets Optional - Scale Factor Vector [a1,a2,a3] of the interference fit.
+- `getShellLayerSide1() -> apex.attribute.ShellLayer` — Gets Shell layer to be used for contact detection in side 1.
+- `getShellLayerSide2() -> apex.attribute.ShellLayer` — Gets Shell layer to be used for contact detection in side 2.
+- `getSlideOffDistance() -> float` — Gets Optional - Slide Off Distance which is only available when "delayedSlideOff = True".
+- `getSlipDistance() -> float` — Gets Optional - Maximum allowable slip distance for sticking, beyond it there is no sticking, only sliding exists The argument is only available for segment to ...
+- `getStepGlue() -> bool` — Gets Optional- Step Glue for Large Displacement and Rotation.
 - `getStressFreeInitialContact() -> bool` — Gets Optional - Activate/Deactivate stress-free initial contact can be obtained.
-- `getTangentPenaltyFactor() -> float` — Gets Optional - Augmented Lagrange penalty factor in tangent direction The argument is only available for segment to segment method, which will be skipped in node to segment method.
-- `getTangentStiffness() -> float` — Gets Optional - Tangent Stiffness for flexible glue. Omits it if the interaction type is contact.
+- `getTangentPenaltyFactor() -> float` — Gets Optional - Augmented Lagrange penalty factor in tangent direction The argument is only available for segment to segment method, which will be skipped in ...
+- `getTangentStiffness() -> float` — Gets Optional - Tangent Stiffness for flexible glue.
+- `update(contactToleranceCalculationMethod: apex.AutoManual, contactTolerance: float, biasFactor: float, shellLayerSide1: apex.attribute.ShellLayer, shellLayerSide2: apex.attribute.ShellLayer, ignoreShellThicknessSide1: bool, ignoreShellThicknessSide2: bool, normalPenaltyFactor: float, tangentPenaltyFactor: float, penetrationDistance: float, slipDistance: float, contactSearchOrder: apex.attribute.ContactSearchOrder, hardSoftRatio: float, stressFreeInitialContact: bool, delayedSlideOff: bool, slideOffDistance: float, retainMoment: bool, allowSeparation: bool, breakingGlueCriteria: bool, stepGlue: bool, flexibleGlue: bool, normalStiffness: float, tangentStiffness: float, interferenceFit: bool, interferenceFitMethod: apex.attribute.InterferenceFitMethod, interferenceClosure: float, cosinesVector: [float], scaleCenter: [float], scaleFactorVector: [float], penetrationSearchTolerance: float, coordinateSystemWithVector: apex.construct.CoordinateSystem, adjustedSecondaryBodyInterferenceFit: bool, initialClearance: bool, clearanceSearchTolerance: float, adjustedMagnitude: float, adjustedSecondaryBodyClearance: bool, id: int, name: str) -> None` — Update interaction geometric properties.
+
+Method details:
+
+#### `getAdjustedMagnitude() -> float`
+Gets Optional - adjusted magnitude. It is only available when initialClearance is true.
+
+#### `getAdjustedSecondaryBodyClearance() -> bool`
+Gets Optional to define which Contact body to be adjust for Initial gap/overlap. True: Secondary body False: Primary body It is only available when initialClearance is true.
+
+#### `getAdjustedSecondaryBodyInterferenceFit() -> bool`
+Gets Optional to define which Contact body to be adjust for interference fit. True: Secondary body False: Primary body.
+
+#### `getAllowSeparation() -> bool`
+Gets Optional - enable to allow glue separation during simulation. Omits it if the interaction type is contact.
+
+#### `getBreakingGlueCriteria() -> bool`
+Gets Optional - enable to use breaking blue parameters to define separation when allowSeparation = True. Omits it if the interaction type is contact.
+
+#### `getClearanceSearchTolerance() -> float`
+Gets Optional - Search tolerance of initial gap or overlap. It is only available when initialClearance is true.
+
+#### `getContactTolerance() -> float`
+Gets An optional distance tolerance value (default =0.005m) used to determine the subset of elements specified in targetSide1 and targetSide2 that will actually be glued/contact during the simulations.
+
+#### `getContactToleranceCalculationMethod() -> apex.AutoManual`
+Gets An optional argument (default True) that controls whether the ContactTolerance should be calculated automatically by the system or defined manually via this method. The Automatic option works well in most cases and should only be replaced with a manual value for complex geometry where the automatic value is observed to produce unwanted results.
+
+#### `getCoordinateSystemWithVector() -> apex.construct.CoordinateSystem`
+Gets Optional - Coordinate system to define the interference fit vector. The option will be available when InterferenceFitMethod = UserDirection or ScaleFactor.
+
+#### `getCosinesVector() -> [float]`
+Gets Optional - Cosines Vector[a1,a2,a3] of the interference fit direction. a1 will be the angle of x axis; a2 will be the angle of y axis; a3 will be the angle of z axis. The option will be available when InterferenceFitMethod = UserDirection.
+
+#### `getFlexibleGlue() -> bool`
+Gets Optional - Activate/Deactivate Flexible Glue. Omits it if the interaction type is contact.
+
+#### `getHardSoftRatio() -> float`
+Gets Optional - Hard soft ratio of the contact pair. This argument is only available for node to segment contact method, which will be skipped in segment to segment method.
+
+#### `getInterferenceClosure() -> float`
+Gets Optional - Adjust gap(>0.0) or overlap(<0.0) based on the value The option will be available when InterferenceFitMethod = NormalDirection or UserDireaction.
+
+#### `getNormalPenaltyFactor() -> float`
+Gets Optional - Augmented Lagrange penalty factor in normal direction. The argument is only available for segment to segment method, which will be skipped in node to segment method.
+
+#### `getNormalStiffness() -> float`
+Gets Optional - Normal Stiffness for flexible glue. Omits it if the interaction type is contact.
+
+#### `getPenetrationDistance() -> float`
+Gets Optional - Penetration distance beyond which an augmentation will be applied The argument is only available for segment to segment method, which will be skipped in node to segment method.
+
+#### `getPenetrationSearchTolerance() -> float`
+Gets Optional - Penetration Search Tolerance. The option will be available when InterferenceFitMethod = Automatic.
+
+#### `getRetainMoment() -> bool`
+Gets Optional - enable to retain moment for shell glue. Omits it if the interaction type is contact.
+
+#### `getScaleCenter() -> [float]`
+Gets Optional - Scale Center[x,y,z] with interference fit. The option will be available when InterferenceFitMethod = ScaleCenter.
+
+#### `getScaleFactorVector() -> [float]`
+Gets Optional - Scale Factor Vector [a1,a2,a3] of the interference fit. The option will be available when InterferenceFitMethod = ScaleFactor.
+
+#### `getShellLayerSide1() -> apex.attribute.ShellLayer`
+Gets Shell layer to be used for contact detection in side 1. In segment to segment contact method, it only supports "ShellLayer = TopAndButtom", skip other shell layer method. In node to segment contact method, it supports all 3 options.
+
+#### `getShellLayerSide2() -> apex.attribute.ShellLayer`
+Gets Shell layer to be used for contact detection in side 2. In segment to segment contact method, it only supports "ShellLayer = TopAndButtom", skip other shell layer method. In node to segment contact method, it supports all 3 options.
+
+#### `getSlideOffDistance() -> float`
+Gets Optional - Slide Off Distance which is only available when "delayedSlideOff = True". Otherwise,it will be skipped.
+
+#### `getSlipDistance() -> float`
+Gets Optional - Maximum allowable slip distance for sticking, beyond it there is no sticking, only sliding exists The argument is only available for segment to segment method, which will be skipped in node to segment method.
+
+#### `getStepGlue() -> bool`
+Gets Optional- Step Glue for Large Displacement and Rotation. Omits it if the interaction type is contact.
+
+#### `getTangentPenaltyFactor() -> float`
+Gets Optional - Augmented Lagrange penalty factor in tangent direction The argument is only available for segment to segment method, which will be skipped in node to segment method.
+
+#### `getTangentStiffness() -> float`
+Gets Optional - Tangent Stiffness for flexible glue. Omits it if the interaction type is contact.
+
 #### `update(contactToleranceCalculationMethod: apex.AutoManual, contactTolerance: float, biasFactor: float, shellLayerSide1: apex.attribute.ShellLayer, shellLayerSide2: apex.attribute.ShellLayer, ignoreShellThicknessSide1: bool, ignoreShellThicknessSide2: bool, normalPenaltyFactor: float, tangentPenaltyFactor: float, penetrationDistance: float, slipDistance: float, contactSearchOrder: apex.attribute.ContactSearchOrder, hardSoftRatio: float, stressFreeInitialContact: bool, delayedSlideOff: bool, slideOffDistance: float, retainMoment: bool, allowSeparation: bool, breakingGlueCriteria: bool, stepGlue: bool, flexibleGlue: bool, normalStiffness: float, tangentStiffness: float, interferenceFit: bool, interferenceFitMethod: apex.attribute.InterferenceFitMethod, interferenceClosure: float, cosinesVector: [float], scaleCenter: [float], scaleFactorVector: [float], penetrationSearchTolerance: float, coordinateSystemWithVector: apex.construct.CoordinateSystem, adjustedSecondaryBodyInterferenceFit: bool, initialClearance: bool, clearanceSearchTolerance: float, adjustedMagnitude: float, adjustedSecondaryBodyClearance: bool, id: int, name: str) -> None`
 Update interaction geometric properties.
 
@@ -1631,16 +2087,38 @@ Properties: `exponent1`, `exponent2`, `frictionCoefficient`, `frictionStressLimi
 
 Methods:
 
-- `getExponent1() -> float` — Gets Optional - Exponent of Max Normal Stress. It is only available when breakingGlueCriteria = True in InteractionPropertyGeometric. Omits it if the interaction type is contact.
-- `getExponent2() -> float` — Gets Optional - Exponent of Max Tangent Stress. It is only available when breakingGlueCriteria = True in InteractionPropertyGeometric. Omits it if the interaction type is contact.
+- `getExponent1() -> float` — Gets Optional - Exponent of Max Normal Stress.
+- `getExponent2() -> float` — Gets Optional - Exponent of Max Tangent Stress.
 - `getFrictionCoefficient() -> float` — Gets Optional - Friction Coefficient of the contact pair.
 - `getFrictionStressLimit() -> float` — Gets Optional - Friction stress limit of the contact pair.
 - `getId() -> int` — Gets ID of interaction physical properties.
-- `getMaxNormalStress() -> float` — Gets Optional - it is only available when breakingGlueCriteria = True in InteractionPropertyGeometric. Omits it if the interaction type is contact.
-- `getMaxTangentStress() -> float` — Gets Optional - it is only available when breakingGlueCriteria = True in InteractionPropertyGeometric. Omits it if the interaction type is contact.
+- `getMaxNormalStress() -> float` — Gets Optional - it is only available when breakingGlueCriteria = True in InteractionPropertyGeometric.
+- `getMaxTangentStress() -> float` — Gets Optional - it is only available when breakingGlueCriteria = True in InteractionPropertyGeometric.
 - `getName() -> str` — Gets Name of interaction physical properties.
-- `getSeparationForce() -> float` — Gets Optional - max force of separation, which is only available when separation method define in scenario is based on "Force". Otherwise,it will be skipped.
-- `getSeparationStress() -> float` — Gets Optional - max stress of separation, which is only available when separation method define in scenario is based on "Stress". Otherwise,it will be skipped.
+- `getSeparationForce() -> float` — Gets Optional - max force of separation, which is only available when separation method define in scenario is based on "Force".
+- `getSeparationStress() -> float` — Gets Optional - max stress of separation, which is only available when separation method define in scenario is based on "Stress".
+- `update(frictionCoefficient: float, frictionStressLimit: float, maxNormalStress: float, maxTangentStress: float, exponent1: float, exponent2: float, separationForce: float, separationStress: float, id: int, name: str) -> None` — Update interaction physical properties.
+
+Method details:
+
+#### `getExponent1() -> float`
+Gets Optional - Exponent of Max Normal Stress. It is only available when breakingGlueCriteria = True in InteractionPropertyGeometric. Omits it if the interaction type is contact.
+
+#### `getExponent2() -> float`
+Gets Optional - Exponent of Max Tangent Stress. It is only available when breakingGlueCriteria = True in InteractionPropertyGeometric. Omits it if the interaction type is contact.
+
+#### `getMaxNormalStress() -> float`
+Gets Optional - it is only available when breakingGlueCriteria = True in InteractionPropertyGeometric. Omits it if the interaction type is contact.
+
+#### `getMaxTangentStress() -> float`
+Gets Optional - it is only available when breakingGlueCriteria = True in InteractionPropertyGeometric. Omits it if the interaction type is contact.
+
+#### `getSeparationForce() -> float`
+Gets Optional - max force of separation, which is only available when separation method define in scenario is based on "Force". Otherwise,it will be skipped.
+
+#### `getSeparationStress() -> float`
+Gets Optional - max stress of separation, which is only available when separation method define in scenario is based on "Stress". Otherwise,it will be skipped.
+
 #### `update(frictionCoefficient: float, frictionStressLimit: float, maxNormalStress: float, maxTangentStress: float, exponent1: float, exponent2: float, separationForce: float, separationStress: float, id: int, name: str) -> None`
 Update interaction physical properties.
 
@@ -1662,12 +2140,22 @@ Properties: `allowSelfContactSide1`, `allowSelfContactSide2`, `id`, `interaction
 
 Methods:
 
-- `getAllowSelfContactSide1() -> bool` — Optional - Boolean to choose self Contact for primary side of interaction pair. It is only available if interactionType = Glue or General contact. Omits it if interactionType = Self contact.
-- `getAllowSelfContactSide2() -> bool` — Optional - Boolean to choose self Contact for secondary side of interaction pair. It is only available if interactionType = Glue or General contact. Omits it if interactionType = Self contact.
+- `getAllowSelfContactSide1() -> bool` — Optional - Boolean to choose self Contact for primary side of interaction pair.
+- `getAllowSelfContactSide2() -> bool` — Optional - Boolean to choose self Contact for secondary side of interaction pair.
 - `getId() -> int` — Gets ID of this interaction rep.
 - `getInteractionPropertyGeometric() -> apex.attribute.InteractionPropertyGeometric` — Gets Interaction Geometric Properties.
 - `getInteractionPropertyPhysical() -> apex.attribute.InteractionPropertyPhysical` — Gets Interaction Physical Properties.
 - `getInteractionType() -> apex.attribute.InteractionType` — Gets Interaction type of the interaction object: Glue, General Contact or Self Contact.
+- `update(name: str, description: str, id: int, interactionType: apex.attribute.InteractionType, interactionPropertyGeometric: InteractionPropertyGeometric, interactionPropertyPhysical: InteractionPropertyPhysical, allowSelfContactSide1: apex.ApexBool, allowSelfContactSide2: apex.ApexBool) -> InteractionRep` — Update an interaction rep.
+
+Method details:
+
+#### `getAllowSelfContactSide1() -> bool`
+Optional - Boolean to choose self Contact for primary side of interaction pair. It is only available if interactionType = Glue or General contact. Omits it if interactionType = Self contact.
+
+#### `getAllowSelfContactSide2() -> bool`
+Optional - Boolean to choose self Contact for secondary side of interaction pair. It is only available if interactionType = Glue or General contact. Omits it if interactionType = Self contact.
+
 #### `update(name: str, description: str, id: int, interactionType: apex.attribute.InteractionType, interactionPropertyGeometric: InteractionPropertyGeometric, interactionPropertyPhysical: InteractionPropertyPhysical, allowSelfContactSide1: apex.ApexBool, allowSelfContactSide2: apex.ApexBool) -> InteractionRep`
 Update an interaction rep.
 
@@ -1686,13 +2174,35 @@ Properties: `activeDofs`, `applicationMethod`, `description`, `distributionType`
 
 Methods:
 
-- `getActiveDofs() -> str` — Returns active DOFs of the Interface Point. A string defining the degrees of freedom that are active on this InterfacePoint. Each degrees of freedom is represented by an integer between 1 and 6. Translational DOFs are denoted by the values 1, 2 and 3 (corresponding to translation along x, y and z axes). Rotational DOFs are denoted by the values 4, 5 and 6 (corresponding to rotation about the x, y and z axes). If the interface point is created by "Free" Method, return "None".
-- `getApplicationMethod() -> apex.attribute.ApplicationMethod` — Returns application method of the Interface Point. The application method, options are: 1. ApplicationMethod.Direct 2. ApplicationMethod.Remote 3. ApplicationMethod.Free, the method is only available in Adams Mission.
-- `getDistributionType() -> apex.attribute.DistributionType` — Returns distribution type of the Interface Point. Enumeration property defining how loads will be distributed between the InterfacePoint and the attachment region. The default "Compliant" option causes the motion of the reference point to be calculated as the average of the motions of the points in the attachment region. It adds no stiffness to the regions that it attaches to and will distribute load according to the relative stiffness distributions across the attachment region. The optional "Rigid" option will cause the entire attachment region to be considered as a rigid body. If the attachment region is already part of a rigid body, the options are equivalent. If the interface point is created by "Free" Method, return "None".
-- `getGenerateASET() -> bool` — Returns Boolean of generateASET of the Interface Point. Optional Boolean property to control if ASET creates for the Interface Point. If true, the ASET will be created to generate MNF. If false, No ASET will be created. If ApplicationMethod.Free is used, it will be omitted.
-- `getLocation() -> apex.Coordinate` — Returns location of the Interface Point as an ILocation. The location of the InterfacePoint will be at the global x, y, z coordinate locations defined by ILocation.
+- `getActiveDofs() -> str` — Returns active DOFs of the Interface Point.
+- `getApplicationMethod() -> apex.attribute.ApplicationMethod` — Returns application method of the Interface Point.
+- `getDistributionType() -> apex.attribute.DistributionType` — Returns distribution type of the Interface Point.
+- `getGenerateASET() -> bool` — Returns Boolean of generateASET of the Interface Point.
+- `getLocation() -> apex.Coordinate` — Returns location of the Interface Point as an ILocation.
 - `getOrientation() -> apex.Orientation` — Returns orientation of the Interface Point as an IOrientation object.
-- `getTarget() -> apex.EntityCollection` — Returns target of the Interface Point. A collection of entities that define regions of the MechanicalSystem to which this InterfacePoint connects. Valid entity types are Parts, geometry bodies, geometry topologies or nodes.
+- `getTarget() -> apex.EntityCollection` — Returns target of the Interface Point.
+- `update(name: str, description: str, applicationMethod: apex.attribute.ApplicationMethod, location: apex.ILocation, target: apex.EntityCollection, distributionType: apex.attribute.DistributionType, orientation: apex.IOrientation, activeDofs: str, generateASET: bool, useLocalValue: bool) -> None` — Updates one or more properties of this InterfacePoint.
+
+Method details:
+
+#### `getActiveDofs() -> str`
+Returns active DOFs of the Interface Point. A string defining the degrees of freedom that are active on this InterfacePoint. Each degrees of freedom is represented by an integer between 1 and 6. Translational DOFs are denoted by the values 1, 2 and 3 (corresponding to translation along x, y and z axes). Rotational DOFs are denoted by the values 4, 5 and 6 (corresponding to rotation about the x, y and z axes). If the interface point is created by "Free" Method, return "None".
+
+#### `getApplicationMethod() -> apex.attribute.ApplicationMethod`
+Returns application method of the Interface Point. The application method, options are: 1. ApplicationMethod.Direct 2. ApplicationMethod.Remote 3. ApplicationMethod.Free, the method is only available in Adams Mission.
+
+#### `getDistributionType() -> apex.attribute.DistributionType`
+Returns distribution type of the Interface Point. Enumeration property defining how loads will be distributed between the InterfacePoint and the attachment region. The default "Compliant" option causes the motion of the reference point to be calculated as the average of the motions of the points in the attachment region. It adds no stiffness to the regions that it attaches to and will distribute load according to the relative stiffness distributions across the attachment region. The optional "Rigid" option will cause the entire attachment region to be considered as a rigid body. If the attachment region is already part of a rigid body, the options are equivalent. If the interface point is created by "Free" Method, return "None".
+
+#### `getGenerateASET() -> bool`
+Returns Boolean of generateASET of the Interface Point. Optional Boolean property to control if ASET creates for the Interface Point. If true, the ASET will be created to generate MNF. If false, No ASET will be created. If ApplicationMethod.Free is used, it will be omitted.
+
+#### `getLocation() -> apex.Coordinate`
+Returns location of the Interface Point as an ILocation. The location of the InterfacePoint will be at the global x, y, z coordinate locations defined by ILocation.
+
+#### `getTarget() -> apex.EntityCollection`
+Returns target of the Interface Point. A collection of entities that define regions of the MechanicalSystem to which this InterfacePoint connects. Valid entity types are Parts, geometry bodies, geometry topologies or nodes.
+
 #### `update(name: str, description: str, applicationMethod: apex.attribute.ApplicationMethod, location: apex.ILocation, target: apex.EntityCollection, distributionType: apex.attribute.DistributionType, orientation: apex.IOrientation, activeDofs: str, generateASET: bool, useLocalValue: bool) -> None`
 Updates one or more properties of this InterfacePoint. This method allows multiple properties of the InterfacePoint to be updated using a single method call. All arguments are optional and the values of all InterfacePoint properties associated with the omitted arguments are left unchanged.
 
@@ -1714,6 +2224,14 @@ Methods:
 
 - `InterfacePointCollection() -> None` — Construct a new InterfacePointCollection.
 
+Method details:
+
+#### `InterfacePointCollection() -> None`
+Construct a new InterfacePointCollection.
+
+For example:
+
+
 ## `apex.attribute.Joint`  (extends `Entity`, `IDisplayable`, `IIdentifier`, `IPhysical`, `IUserAttributes`, `IName`)
 Contains Joint and methods for editing/getting Joint attributes.
 Properties: `axisLocationMode`, `jointAxis`, `jointOrientation`, `jointOrigin`, `jointRenderType`, `jointType`, `side1`, `side1DistributionType`, `side2`, `side2DistributionType`
@@ -1731,12 +2249,28 @@ Methods:
 - `getSide2() -> apex.EntityCollection` — Returns side 2 attachment region of the Joint.
 - `getSide2DistributionType() -> str` — Returns Sidde 2 Distribution Type of the Joint.
 
+Method details:
+
+#### `getJointAxis() -> apex.construct.CoordinateSystemAxis`
+*Returns orientation of the Joint.
+
+Returns principal axis orientation of the Joint.
+
+
 ## `apex.attribute.JointCollection`  (extends `EntityCollection`, `IUserHighlightable`)
 Iterable collection of Joint, based on EntityCollection.
 
 Methods:
 
 - `JointCollection() -> None` — Construct a new JointCollection.
+
+Method details:
+
+#### `JointCollection() -> None`
+Construct a new JointCollection.
+
+For example:
+
 
 ## `apex.attribute.LayeredPanel`  (extends `Entity`, `IDisplayable`, `IUserHighlightable`, `IName`)
 Class LayeredPanel.
@@ -1745,7 +2279,53 @@ Properties: `alignmentType`, `allowableInterLaminarBondStress`, `failureCriteria
 Methods:
 
 - `addPanelMaterialOrientations(panelMaterialOrientations: {str:[{dict}]}) -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
-- `clearAllPanelMaterialOrientations() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Clears all material orientations defined in this layeredPanel.
+- `clearAllPanelMaterialOrientations() -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `createAddPlyUsingProjectedVector(material: apex.attribute.Material, thickness: float, angle: float, coverageRegion: apex.EntityCollection) -> apex.attribute.Ply` — Creates a Ply and adds it to the LayeredPanel using a projected vector approach to define the Ply Material orientation.
+- `createPliesFromSheetStackUsingProjectedVector(materialSheetStack: apex.attribute.MaterialSheetStack, angle: float, coverageRegion: apex.EntityCollection) -> apex.attribute.PlyCollection` — Creates and returns a sequence of plies within this LayeredPanel using an input MaterialSheetStack and orients the sheet stack relative to the panel axis using ...
+- `createPlyFromSheetUsingProjectedVector(materialSheet: apex.attribute.MaterialSheet, angle: float, coverageRegion: apex.EntityCollection) -> apex.attribute.Ply` — Creates a ply within this LayeredPanel using an input MaterialSheet and orients the sheet relative to the panel axis using the input angle.
+- `deletePlies(plies: apex.attribute.PlyCollection) -> None` — Deletes Plies from this Layered Panel.
+- `deletePly(ply: apex.attribute.Ply) -> None` — Deletes a Ply.
+- `flip() -> None` — Flips the build direction of the layeredPanel, if the input target is a general surface, then flip will not perform as there is no uniform build direction for ...
+- `getAlignmentType() -> apex.attribute.AlignmentType` — Gets an optional enum defining the default alignment type for the panel.If omitted, the offsetType is "apex.attribute.AlignmentType..Offset".
+- `getAllowableInterLaminarBondStress() -> float` — Gets the allowable shear stress of the bonding material.
+- `getFailureCriteria() -> apex.attribute.FailureCriteriaComposite` — Gets the optional enum defining the failureCriteria of the panel.
+- `getPanelCoordinateSystem() -> apex.construct.CoordinateSystem` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `getPanelMaterialOrientation() -> apex.construct.Orientation` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `getPanelMaterialOrientations() -> {str:[{dict}]}` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `getPanelOffset() -> float` — Gets the panel offset distance from the bottom plane.
+- `getPlies() -> apex.attribute.PlyCollection` — Gets Plies of the LayeredPanel.
+- `getPly(name: str) -> apex.attribute.Ply` — Gets the ply of the LayeredPanel.
+- `getPlyBehavior() -> apex.attribute.PlyBehavior` — Gets the plyBehavior of the panel.If omitted, the plyBehavior is "apex.attribute.PlyBehavior.Default".
+- `getPlyById(id: int) -> apex.attribute.Ply` — Gets the ply of the LayeredPanel by id.
+- `getPlyIdBehavior() -> apex.attribute.PlyIdBehavior` — Gets the plyIdBehavior of the panel.If omitted, the plyBehavior is "apex.attribute.PlyIdBehavior.UseGlobal".
+- `getReferenceTemperature() -> float` — Gets the optional referenceTemperature of the layeredPanel.
+- `getStructuralDampingCoefficient() -> float` — Gets an optional structuralDampingCoefficient of the panel.
+- `getTarget() -> apex.Entity` — Gets the target that supports this LayeredPanel.
+- `getZone(index: int) -> apex.attribute.Zone` — Gets the zone of the LayeredPanel.
+- `getZoneByID(id: int) -> apex.attribute.Zone` — Gets the zone of the LayeredPanel by id.
+- `getZones() -> apex.attribute.ZoneCollection` — Gets Zones of the LayeredPanel.
+- `highlightZone(zone: apex.attribute.Zone) -> None` — Highlight a Zone.
+- `removePanelMaterialOrientations(target: {str:str}) -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `setAlignmentType(alignmentType: apex.attribute.AlignmentType) -> None` — Sets an optional enum defining the default alignment type for the panel.If omitted, the offsetType is "apex.attribute.AlignmentType..Offset".
+- `setFailureCriteria(failureCriteria: apex.attribute.FailureCriteriaComposite) -> None` — Sets the optional enum defining the failureCriteria of the panel.
+- `setPanelOffset(panelOffset: float) -> None` — Sets the panel offset distance from the bottom plane.
+- `setPlyBehavior(plyBehavior: apex.attribute.PlyBehavior) -> None` — Sets the plyBehavior of the panel.If omitted, the plyBehavior is "apex.attribute.PlyBehavior.Default".
+- `setPlyIdBehavior(plyIdBehavior: apex.attribute.PlyIdBehavior) -> None` — Sets the plyIdBehavior of the panel.If omitted, the plyBehavior is "apex.attribute.PlyIdBehavior.UseGlobal".
+- `setReferenceTemperature(referenceTemperature: float) -> None` — Sets the optional referenceTemperature of the layeredPanel.
+- `setStructuralDampingCoefficient(structuralDampingCoefficient: float) -> None` — Sets an optional structuralDampingCoefficient of the panel.
+- `setTarget(target: apex.Entity) -> None` — Sets the Surface that supports this LayeredPanel.
+- `update(name: str, description: str, offset: float, alignmentType: apex.attribute.AlignmentType, buildSide: apex.attribute.TopBottom, failureCriteria: apex.attribute.FailureCriteriaComposite, plyBehavior: apex.attribute.PlyBehavior, referenceTemperature: float, allowableInterLaminarBondStress: float, structuralDampingCoefficient: float, orientation: apex.construct.Orientation, panelMaterialOrientations: {str:[{dict}]}, plyIdBehavior: apex.attribute.PlyIdBehavior) -> None` — Update this LayeredPanel properties.
+
+Method details:
+
+#### `addPanelMaterialOrientations(panelMaterialOrientations: {str:[{dict}]}) -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+
+Creates and adds materialOrientations to the LayeredPanel. The input is a dictionary that the key is the pathName of the target in the layeredPanel, the value is a list of dictionaries to define the material orientations. Each material orientation is a dictionary that contains three elements: {"orientation_type" : "< TypeName>", "< OrientationReference > : < ReferenceValue>, "< EntityIDs >" : [ids] }Apex currently only supports add material orientations by "CoordinateSystemProjection" (including direct and radial projection - based on the coordinate system type). For "CoordinateSystemProjection", If < OrientationReference > is "euler_angles", then < ReferenceValue > is the euler angles and it projects the X axis of the rectangular coordinate system defined by the euler angles on the target. If < OrientationReference > is "coordinate_system", then < ReferenceValue > is the name of the coordinate system and system projects the X axis (rectangular coordinate system) or R axis (cylindrical or spherical coordinate system) of the coordinate system onto the target. < EntityIDs > is either "faces_ids" or "elements_ids" and the value is the list of ids.For example, layeredPanel_1.addPanelMaterialOrientations (panelMaterialOrientations = { "Model/Part 1/ Surface 1 ": [ {"orientation_type" : "CoordinateSystemProjection", "coordinate_system: "Cylindrical Coordinate System 1", "face_ids":[3,4] }, <br> {"orientation_type" : "CoordinateSystemProjection", "euler_angles : [90,23.00,12.78], "face_ids":[5,6] ] } )Current release user is only allowed to add material orientation on one geometry body, so this dictionary contains only one element for now, in above example, the key is "Model/Part 1/ Surface 1 " which is also the target body of the panel, the value is a list containing two dictionaries that represent two material orientations: the first material orientation is defined by a cylindrical coordinate system and its R axis is projected onto two faces as material X axis, the second material orientation is defined by a coordinate system derived from euler angles and its X axis is projected onto the two faces as material X axis.
+
+#### `clearAllPanelMaterialOrientations() -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Clears all material orientations defined in this layeredPanel.
+
 #### `createAddPlyUsingProjectedVector(material: apex.attribute.Material, thickness: float, angle: float, coverageRegion: apex.EntityCollection) -> apex.attribute.Ply`
 Creates a Ply and adds it to the LayeredPanel using a projected vector approach to define the Ply Material orientation.
 
@@ -1782,30 +2362,79 @@ Deletes a Ply.
 
 - `ply` — of this LayeredPanel
 
-- `flip() -> None` — Flips the build direction of the layeredPanel, if the input target is a general surface, then flip will not perform as there is no uniform build direction for a general surface.
-- `getAlignmentType() -> apex.attribute.AlignmentType` — Gets an optional enum defining the default alignment type for the panel.If omitted, the offsetType is "apex.attribute.AlignmentType..Offset".
-- `getAllowableInterLaminarBondStress() -> float` — Gets the allowable shear stress of the bonding material.
-- `getFailureCriteria() -> apex.attribute.FailureCriteriaComposite` — Gets the optional enum defining the failureCriteria of the panel.
-- `getPanelCoordinateSystem() -> apex.construct.CoordinateSystem` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
-- `getPanelMaterialOrientation() -> apex.construct.Orientation` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
-- `getPanelMaterialOrientations() -> {str:[{dict}]}` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
-- `getPanelOffset() -> float` — Gets the panel offset distance from the bottom plane. If omitted, the reference location of the panel is on the bottom plane.
-- `getPlies() -> apex.attribute.PlyCollection` — Gets Plies of the LayeredPanel.
+#### `flip() -> None`
+Flips the build direction of the layeredPanel, if the input target is a general surface, then flip will not perform as there is no uniform build direction for a general surface.
+
+#### `getAlignmentType() -> apex.attribute.AlignmentType`
+Gets an optional enum defining the default alignment type for the panel.If omitted, the offsetType is "apex.attribute.AlignmentType..Offset".
+
+Specific AlignmentType can be specified using syntax "apex.attribute.AlignmentType..<enum_value>". "apex.attribute.AlignmentType.Offset" will offset the laminate from the reference plane. "apex.attribute.AlignmentType.Mid" will align the mid of the laminate with the reference plane. "apex.attribute.AlignmentType.Top" will align the top of the laminate with the reference plane.It's a default parameter for all zones within the panel. If the alignmentType of the zone is set, then the alignmentType of panel is ignored on this zone. If the alignmentType of the zone is unset, then the alignmentType of panel is assigned to this zone.Note that alignmentType of panel should not be used when the target is a general body, specify alignmentType of zone.
+
+#### `getAllowableInterLaminarBondStress() -> float`
+Gets the allowable shear stress of the bonding material.
+
+It's a default parameter for all zones within the panel. If the allowableInterlaminarBondStress of the zone is set, then the allowableInterlaminarBondStress of panel is ignored on this zone. If the allowableInterlaminarBondStress of the zone is unset, then the allowableInterlaminarBondStress of panel is assigned to this zone.
+
+#### `getFailureCriteria() -> apex.attribute.FailureCriteriaComposite`
+Gets the optional enum defining the failureCriteria of the panel.
+
+It's a default parameter for all zones within the panel. If the failureCriteria of the zone is set, then the failureCriteria of panel is ignored on this zone. If the failureCriteria of the zone is unset, then the failureCriteria of panel is assigned to this zone.
+
+#### `getPanelCoordinateSystem() -> apex.construct.CoordinateSystem`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+
+If the panel has only one material orientation defined by a coordinate system, it will return the reference coordinate system. If there are multiple orientations defined by different coordinate systems, it will return none.
+
+#### `getPanelMaterialOrientation() -> apex.construct.Orientation`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+
+If the panel has only one material orientation defined by an Euler Angle, it will return the orientation object. If there are multiple orientations defined by different Euler Angles, it will return none.
+
+#### `getPanelMaterialOrientations() -> {str:[{dict}]}`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+
+Gets a nested Dictionary defining the material orientations within the target entities in the panel. The key of the top level dictionary is a string that represents the pathName of the target and the associated value is a list containing one or several dictionaries which define the material orientations of the target.The general format: panelMaterialOrientations = { "< pathName of the target body >": [ {material orientation 1}, {material orientation 2},... ] } } The material orientation dictionary format {"orientation_type" : "< TypeName>", "< OrientationReference > : < ReferenceValue >, "< EntityIDs >" : [ids] }Note in current release Apex only supports one panel created on one body. So panelMaterialOrientations only contains one element, the key of this element is the pathName of the target body, the value is a dictionary that contains one or several dictionaries that define each material orientation.There are two types of material orientation definitions in current release: "CoordinateSystemProjection"(include direct and radial projection - based on the coordinate system type) and "ThetaAngle". For "CoordinateSystemProjection", If < OrientationReference > is "euler_angles", then < ReferenceValue > is the euler angles and it projects the X axis of the rectangular coordinate system defined by the euler angles on the target. If < OrientationReference > is "coordinate_system", then < ReferenceValue > is the name of the coordinate system object and system projects the X axis (rectangular coordinate system) or R axis (cylindrical or spherical coordinate system) of the coordinate system onto the target. < EntityIDs > is either "faces_ids" or "elements_ids" and the value is the list of ids. The "ThetaAngle" defines theta angle value for each element. The < OrientationReference > is "Angles" and the < OrientationValue > is a list of angle values. < EntityIDs > is a list of elements ids corresponding to the angle values.For example: 1) Two material orientations created on one surface: "Face 1" and "Face 2" are defined by Euler Angles and "Face 3","Face 4" are defined by a cylindrical coordinate system(therefore it's a radial projection).panelMaterialOrientations = { "Model/Part 1/ Surface 1 ": [ {"orientation_type" : "CoordinateSystemProjection", "euler_angles : (90,23.00,12.78),"face_ids": [1,2] }, <br> {"orientation_type" : "CoordinateSystemProjection", "coordinate_system : "Cylindrical Coordinate System 1", "face_ids":[3,4]} ] }2) A panel from BDF import has the material orientations defined by theta angle and coordinate system:panelMaterialOrientations = { "Model/Part 1/ Mesh 1 ": [ {"orientation_type" : "CoordinateSystemProjection", "coordinate_system : "Cylindrical Coordinate System 1", "elements_ids":[]}, <br> {"orientation_type" : "ThetaAngle", "angles" : [45.00,45.78,52.98,54.63,57.49], "elements_ids":[11,12,13,14,15] } ] } Note that if the value associated with "elements_ids" or "faces_ids" is an empty list, this means all elements or all faces in the target body have same material orientation.Current limitation in this release: For panel created from BDF import, Apex supports both "CoordinateSystemProjection" and "ThetaAngle" for orientation type. For panel created on geometry, "ThetaAngle" is not supported in this release. Only "CoordinateSystemProjection" is available.
+
+#### `getPanelOffset() -> float`
+Gets the panel offset distance from the bottom plane. If omitted, the reference location of the panel is on the bottom plane.
+
+It's a default parameter for all zones within the panel. If the zoneOffset of the zone is set, then the panelOffset is ignored on this zone. If the zoneOffset of the zone is unset, then the panelOffset is assigned to this zone.The panelOffset should not be used when the target is a general body, zoneOffset must be used. When offsetType is midPlane or topPlane, set/getPanelOffset will return error as the panelOffset may vary depending on each zone thickness, so it's not a constant value.
+
 #### `getPly(name: str) -> apex.attribute.Ply`
 Gets the ply of the LayeredPanel.
 
 - `name` — of the ply
 
-- `getPlyBehavior() -> apex.attribute.PlyBehavior` — Gets the plyBehavior of the panel.If omitted, the plyBehavior is "apex.attribute.PlyBehavior.Default".
+#### `getPlyBehavior() -> apex.attribute.PlyBehavior`
+Gets the plyBehavior of the panel.If omitted, the plyBehavior is "apex.attribute.PlyBehavior.Default".
+
+It's a default parameter for all zones within the panel. If the plyBehavior of the zone is set, then the plyBehavior of panel is ignored on this zone. If the plyBehavior of the zone is unset, then the plyBehavior of panel is assigned to this zone.
+
 #### `getPlyById(id: int) -> apex.attribute.Ply`
 Gets the ply of the LayeredPanel by id.
 
 - `id` — of the ply
 
-- `getPlyIdBehavior() -> apex.attribute.PlyIdBehavior` — Gets the plyIdBehavior of the panel.If omitted, the plyBehavior is "apex.attribute.PlyIdBehavior.UseGlobal".
-- `getReferenceTemperature() -> float` — Gets the optional referenceTemperature of the layeredPanel.
-- `getStructuralDampingCoefficient() -> float` — Gets an optional structuralDampingCoefficient of the panel.
-- `getTarget() -> apex.Entity` — Gets the target that supports this LayeredPanel. It can be one surface or one 2d mesh.
+#### `getPlyIdBehavior() -> apex.attribute.PlyIdBehavior`
+Gets the plyIdBehavior of the panel.If omitted, the plyBehavior is "apex.attribute.PlyIdBehavior.UseGlobal".
+
+Specific It's a default parameter for all zones within the panel. If the plyIdBehavior of the zone is set, then the plyIdBehavior of panel is ignored on this zone. If the plyIdBehavior of the zone is unset, then the plyIdBehavior of panel is assigned to this zone.
+
+#### `getReferenceTemperature() -> float`
+Gets the optional referenceTemperature of the layeredPanel.
+
+It's a default parameter for all zones within the panel. If the referenceTemperature of the zone is set, then the referenceTemperature of panel is ignored on this zone. If the referenceTemperature of the zone is unset, then the referenceTemperature of panel is assigned to this zone.
+
+#### `getStructuralDampingCoefficient() -> float`
+Gets an optional structuralDampingCoefficient of the panel.
+
+It's a default parameter for all zones within the panel. If the structuralDampingCoefficient of the zone is set, then the structuralDampingCoefficient of panel is ignored on this zone. If the structuralDampingCoefficient of the zone is unset, then the structuralDampingCoefficient of panel is assigned to this zone.
+
+#### `getTarget() -> apex.Entity`
+Gets the target that supports this LayeredPanel. It can be one surface or one 2d mesh.
+
+Note that in current release, the panel created by BDF import can include the target of a 2d mesh, while for panel created in Apex, the target can be only one surface.
+
 #### `getZone(index: int) -> apex.attribute.Zone`
 Gets the zone of the LayeredPanel.
 
@@ -1816,20 +2445,51 @@ Gets the zone of the LayeredPanel by id.
 
 - `id` — of the zone
 
-- `getZones() -> apex.attribute.ZoneCollection` — Gets Zones of the LayeredPanel.
 #### `highlightZone(zone: apex.attribute.Zone) -> None`
 Highlight a Zone.
 
 - `zone` — of this LayeredPanel
 
-- `removePanelMaterialOrientations(target: {str:str}) -> None` — THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
-- `setAlignmentType(alignmentType: apex.attribute.AlignmentType) -> None` — Sets an optional enum defining the default alignment type for the panel.If omitted, the offsetType is "apex.attribute.AlignmentType..Offset".
-- `setFailureCriteria(failureCriteria: apex.attribute.FailureCriteriaComposite) -> None` — Sets the optional enum defining the failureCriteria of the panel.
-- `setPanelOffset(panelOffset: float) -> None` — Sets the panel offset distance from the bottom plane. If omitted, the reference location of the panel is on the bottom plane.
-- `setPlyBehavior(plyBehavior: apex.attribute.PlyBehavior) -> None` — Sets the plyBehavior of the panel.If omitted, the plyBehavior is "apex.attribute.PlyBehavior.Default".
-- `setPlyIdBehavior(plyIdBehavior: apex.attribute.PlyIdBehavior) -> None` — Sets the plyIdBehavior of the panel.If omitted, the plyBehavior is "apex.attribute.PlyIdBehavior.UseGlobal".
-- `setReferenceTemperature(referenceTemperature: float) -> None` — Sets the optional referenceTemperature of the layeredPanel.
-- `setStructuralDampingCoefficient(structuralDampingCoefficient: float) -> None` — Sets an optional structuralDampingCoefficient of the panel.
+#### `removePanelMaterialOrientations(target: {str:str}) -> None`
+THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+
+Removes material orientations from the target in this layeredPanel. The input is a dictionary defining the targets. The key is the pathName of the target body, the value is list of id which represent the sub entities on the target body. When the target is a geometry body, then the list is the ids of faces. When the target is a mesh body, then the list is the ids of elements.For example, target = { "Model/Part 1/ Surface 1 ": [1,2,3,4]}. This is removing the material orientations from faces on Surface 1. Another example , target = { "Model/Part 2/ Mesh 1 ": []}. This will remove material orientations on the entire orphan mesh.
+
+#### `setAlignmentType(alignmentType: apex.attribute.AlignmentType) -> None`
+Sets an optional enum defining the default alignment type for the panel.If omitted, the offsetType is "apex.attribute.AlignmentType..Offset".
+
+Specific AlignmentType can be specified using syntax "apex.attribute.AlignmentType..<enum_value>". "apex.attribute.AlignmentType.Offset" will offset the laminate from the reference plane. "apex.attribute.AlignmentType.Mid" will align the mid of the laminate with the reference plane. "apex.attribute.AlignmentType.Top" will align the top of the laminate with the reference plane.It's a default parameter for all zones within the panel. If the alignmentType of the zone is set, then the alignmentType of panel is ignored on this zone. If the alignmentType of the zone is unset, then the alignmentType of panel is assigned to this zone.Note that alignmentType of panel should not be used when the target is a general body, specify alignmentType of zone.
+
+#### `setFailureCriteria(failureCriteria: apex.attribute.FailureCriteriaComposite) -> None`
+Sets the optional enum defining the failureCriteria of the panel.
+
+It's a default parameter for all zones within the panel. If the failureCriteria of the zone is set, then the failureCriteria of panel is ignored on this zone. If the failureCriteria of the zone is unset, then the failureCriteria of panel is assigned to this zone.
+
+#### `setPanelOffset(panelOffset: float) -> None`
+Sets the panel offset distance from the bottom plane. If omitted, the reference location of the panel is on the bottom plane.
+
+It's a default parameter for all zones within the panel. If the zoneOffset of the zone is set, then the panelOffset is ignored on this zone. If the zoneOffset of the zone is unset, then the panelOffset is assigned to this zone.The panelOffset should not be used when the target is a general body, zoneOffset must be used. When offsetType is midPlane or topPlane, set/getPanelOffset will return error as the panelOffset may vary depending on each zone thickness, so it's not a constant value.
+
+#### `setPlyBehavior(plyBehavior: apex.attribute.PlyBehavior) -> None`
+Sets the plyBehavior of the panel.If omitted, the plyBehavior is "apex.attribute.PlyBehavior.Default".
+
+It's a default parameter for all zones within the panel. If the plyBehavior of the zone is set, then the plyBehavior of panel is ignored on this zone. If the plyBehavior of the zone is unset, then the plyBehavior of panel is assigned to this zone.
+
+#### `setPlyIdBehavior(plyIdBehavior: apex.attribute.PlyIdBehavior) -> None`
+Sets the plyIdBehavior of the panel.If omitted, the plyBehavior is "apex.attribute.PlyIdBehavior.UseGlobal".
+
+Specific It's a default parameter for all zones within the panel. If the plyIdBehavior of the zone is set, then the plyIdBehavior of panel is ignored on this zone. If the plyIdBehavior of the zone is unset, then the plyIdBehavior of panel is assigned to this zone.
+
+#### `setReferenceTemperature(referenceTemperature: float) -> None`
+Sets the optional referenceTemperature of the layeredPanel.
+
+It's a default parameter for all zones within the panel. If the referenceTemperature of the zone is set, then the referenceTemperature of panel is ignored on this zone. If the referenceTemperature of the zone is unset, then the referenceTemperature of panel is assigned to this zone.
+
+#### `setStructuralDampingCoefficient(structuralDampingCoefficient: float) -> None`
+Sets an optional structuralDampingCoefficient of the panel.
+
+It's a default parameter for all zones within the panel. If the structuralDampingCoefficient of the zone is set, then the structuralDampingCoefficient of panel is ignored on this zone. If the structuralDampingCoefficient of the zone is unset, then the structuralDampingCoefficient of panel is assigned to this zone.
+
 #### `setTarget(target: apex.Entity) -> None`
 Sets the Surface that supports this LayeredPanel.
 
@@ -1862,18 +2522,31 @@ Methods:
 
 - `LayeredPanelCollection() -> None` — Construct a new LayeredPanelCollection.
 
+Method details:
+
+#### `LayeredPanelCollection() -> None`
+Construct a new LayeredPanelCollection.
+
+For example:
+
+
 ## `apex.attribute.Mass`  (extends `ConstitutiveModel`)
 This Class is no longer supported in Apex. Refer to MaterialModel to determine how this capability is now supported.
 Properties: `massDensity`
 
 Methods:
 
+- `Mass(massDensity: float) -> None` — Create ElasticityLinear2DOrtho constitutive model.
+- `getMassDensity() -> float` — Returns Elastic Modulus 11 of the constitutive model.
+- `update(massDensity: float) -> None` — Update properties of this ElasticityLinear2DOrtho constitutive model.
+
+Method details:
+
 #### `Mass(massDensity: float) -> None`
 Create ElasticityLinear2DOrtho constitutive model.
 
 - `massDensity` — of this constitutive model
 
-- `getMassDensity() -> float` — Returns Elastic Modulus 11 of the constitutive model.
 #### `update(massDensity: float) -> None`
 Update properties of this ElasticityLinear2DOrtho constitutive model.
 
@@ -1885,6 +2558,32 @@ Class representing a Material in Apex.
 Properties: `color`, `constitutiveModels`, `coverageRegions`, `dampingCoefficient`, `density`, `elasticityOrthotropic2D`, `elasticModulus`, `id`, `materialType`, `poissonRatio`, `references`, `target`, `thermalExpansionCoeff`, `thermalExpansionCoeffOrthotropic2D`
 
 Methods:
+
+- `addConstitutiveModel(constitutiveModel: apex.attribute.ConstitutiveModel) -> None` — This Method is no longer supported in Apex.
+- `addSecondaryMaterialModel(secondaryMaterialModel: apex.attribute.MaterialModel) -> bool` — This method is used to add a secondary material model to a material object.
+- `getColor() -> [int]` — Returns Color (RGB Vector) of the material.
+- `getConstitutiveModel(type: ConstitutiveModelType) -> apex.attribute.ConstitutiveModel` — This Method is no longer supported in Apex.
+- `getConstitutiveModels() -> [apex.attribute.ConstitutiveModel]` — This Method is no longer supported in Apex.
+- `getCoverageRegions() -> MaterialCoverageRegionCollection` — Returns all MaterialCoverageRegions that this Material is associated with.
+- `getDampingCoefficient() -> float` — This Method is no longer supported in Apex.
+- `getDensity() -> float` — This Method is no longer supported in Apex.
+- `getElasticModulus() -> float` — This Method is no longer supported in Apex.
+- `getElasticityOrthotropic2D() -> {str:float}` — This Method is no longer supported in Apex.
+- `getId() -> int` — Returns id of the material.
+- `getMaterialModel(materialModel: str) -> apex.attribute.MaterialModel` — Returns specific material model via material model name which is assigned to a material.
+- `getMaterialModels() -> [apex.attribute.MaterialModel]` — Returns all material models which are assigned to a material.
+- `getMaterialType() -> MaterialType` — This Method is no longer supported in Apex.
+- `getPoissonRatio() -> float` — This Method is no longer supported in Apex.
+- `getReferences() -> apex.EntityCollection` — returns a collection of all entities that this Material directly references
+- `getTarget() -> apex.EntityCollection` — Returns a read only collection of the entities that the Material is applied to.
+- `getThermalExpansionCoeff() -> float` — This Method is no longer supported in Apex.
+- `getThermalExpansionCoeffOrthotropic2D() -> {str:float}` — This Method is no longer supported in Apex.
+- `removeConstitutiveModel(constitutiveModel: apex.attribute.ConstitutiveModel) -> None` — This method used to remove constitutive models from a material objects.
+- `removeMaterialModel(materialModel: apex.attribute.MaterialModel) -> None` — This method is used to remove a material model (if exists) from a material object.
+- `setPrimaryMaterialModel(primaryMaterialModel: apex.attribute.MaterialModel) -> None` — This method is used to set the primary material model to a material object.
+- `update(name: str, description: str, color: [int], id: int) -> None` — Update this Material properties.
+
+Method details:
 
 #### `addConstitutiveModel(constitutiveModel: apex.attribute.ConstitutiveModel) -> None`
 This Method is no longer supported in Apex. Refer to Material.setPrimaryMaterialModel and Material.addSecondaryMaterialModel to determine how this capability is now supported.
@@ -1900,7 +2599,6 @@ This method is used to add a secondary material model to a material object.
 
 example: material_1 = apex.catalog.createMaterial(name="Material 1", description = "", primaryMaterialModel = "MAT1") matModel_ = apex.attribute.MaterialModel( keyword = 'MATEP' ) material_1.addSecondaryMaterialModel(secondaryMaterialModel = matModel_)
 
-- `getColor() -> [int]` — Returns Color (RGB Vector) of the material.
 #### `getConstitutiveModel(type: ConstitutiveModelType) -> apex.attribute.ConstitutiveModel`
 This Method is no longer supported in Apex. Refer to Material.getMaterialModel to determine how this capability is now supported.
 
@@ -1908,13 +2606,36 @@ This Method is no longer supported in Apex. Refer to Material.getMaterialModel t
 
 This method used to get the ConstitutiveModel via ConstitutiveModelType which assigned to a material.example: myElasticity = material1.getConstitutiveModel(type = Elasticity)myElasticity.update(modulus = xx)Returns some kind of constitutive model added to the material.
 
-- `getConstitutiveModels() -> [apex.attribute.ConstitutiveModel]` — This Method is no longer supported in Apex. Refer to Material.getMaterialModels to determine how this capability is now supported.
-- `getCoverageRegions() -> MaterialCoverageRegionCollection` — Returns all MaterialCoverageRegions that this Material is associated with.
-- `getDampingCoefficient() -> float` — This Method is no longer supported in Apex. Refer to MaterialModel and Material.getMaterialModel to determine how this capability is now supported.
-- `getDensity() -> float` — This Method is no longer supported in Apex. Refer to MaterialModel and Material.getMaterialModel to determine how this capability is now supported.
-- `getElasticModulus() -> float` — This Method is no longer supported in Apex. Refer to MaterialModel and Material.getMaterialModel to determine how this capability is now supported.
-- `getElasticityOrthotropic2D() -> {str:float}` — This Method is no longer supported in Apex. Refer to MaterialModel and Material.getMaterialModel to determine how this capability is now supported.
-- `getId() -> int` — Returns id of the material.
+#### `getConstitutiveModels() -> [apex.attribute.ConstitutiveModel]`
+This Method is no longer supported in Apex. Refer to Material.getMaterialModels to determine how this capability is now supported.
+
+Returns all the ConstitutiveModels which assigned to a material
+
+#### `getCoverageRegions() -> MaterialCoverageRegionCollection`
+Returns all MaterialCoverageRegions that this Material is associated with.
+
+Current versions of Apex use MaterialCoverageRegions for orthotropic materials only.
+
+#### `getDampingCoefficient() -> float`
+This Method is no longer supported in Apex. Refer to MaterialModel and Material.getMaterialModel to determine how this capability is now supported.
+
+Returns Damping Coefficient of the material.
+
+#### `getDensity() -> float`
+This Method is no longer supported in Apex. Refer to MaterialModel and Material.getMaterialModel to determine how this capability is now supported.
+
+Returns Density of the material.
+
+#### `getElasticModulus() -> float`
+This Method is no longer supported in Apex. Refer to MaterialModel and Material.getMaterialModel to determine how this capability is now supported.
+
+Returns Elastic Modulus of the material.
+
+#### `getElasticityOrthotropic2D() -> {str:float}`
+This Method is no longer supported in Apex. Refer to MaterialModel and Material.getMaterialModel to determine how this capability is now supported.
+
+Returns the 2D orthotropic elasticity material properties. The properties are contained in a Dictionary with the following valid string type keys elaticModulusX elasticModulusY shearModulusXY shearModulusYZ shearModulusXZ The value associated with each key is a float type representing the elasticity property described by the key.
+
 #### `getMaterialModel(materialModel: str) -> apex.attribute.MaterialModel`
 Returns specific material model via material model name which is assigned to a material.
 
@@ -1922,13 +2643,26 @@ Returns specific material model via material model name which is assigned to a m
 
 example: MAT1_ = material1.getMaterialModel(materialModel = "MAT1") Returns a certain material model added to the material.
 
-- `getMaterialModels() -> [apex.attribute.MaterialModel]` — Returns all material models which are assigned to a material.
-- `getMaterialType() -> MaterialType` — This Method is no longer supported in Apex. Refer to MaterialModel and Material.getMaterialModel to determine how this capability is now supported.
-- `getPoissonRatio() -> float` — This Method is no longer supported in Apex. Refer to MaterialModel and Material.getMaterialModel to determine how this capability is now supported.
-- `getReferences() -> apex.EntityCollection` — returns a collection of all entities that this Material directly references
-- `getTarget() -> apex.EntityCollection` — Returns a read only collection of the entities that the Material is applied to.
-- `getThermalExpansionCoeff() -> float` — This Method is no longer supported in Apex. Refer to MaterialModel and Material.getMaterialModel to determine how this capability is now supported.
-- `getThermalExpansionCoeffOrthotropic2D() -> {str:float}` — This Method is no longer supported in Apex. Refer to MaterialModel and Material.getMaterialModel to determine how this capability is now supported.
+#### `getMaterialType() -> MaterialType`
+This Method is no longer supported in Apex. Refer to MaterialModel and Material.getMaterialModel to determine how this capability is now supported.
+
+Returns type of the material (Isotropic or Orthotropic).
+
+#### `getPoissonRatio() -> float`
+This Method is no longer supported in Apex. Refer to MaterialModel and Material.getMaterialModel to determine how this capability is now supported.
+
+Returns Poisson Ratio of the material.
+
+#### `getThermalExpansionCoeff() -> float`
+This Method is no longer supported in Apex. Refer to MaterialModel and Material.getMaterialModel to determine how this capability is now supported.
+
+Returns Thermal Expansion Coeff of the material.
+
+#### `getThermalExpansionCoeffOrthotropic2D() -> {str:float}`
+This Method is no longer supported in Apex. Refer to MaterialModel and Material.getMaterialModel to determine how this capability is now supported.
+
+Returns the 2D orthotropic thermal Expansion Coeff material properties. The properties are contained in a Dictionary with the following valid string type keys expansionCoefficient11 expansionCoefficient22 The value associated with each key is a float type representing the elasticity property described by the key.
+
 #### `removeConstitutiveModel(constitutiveModel: apex.attribute.ConstitutiveModel) -> None`
 This method used to remove constitutive models from a material objects.
 
@@ -1967,6 +2701,14 @@ Methods:
 
 - `MaterialCollection() -> None` — Construct a new MaterialCollection.
 
+Method details:
+
+#### `MaterialCollection() -> None`
+Construct a new MaterialCollection.
+
+For example:
+
+
 ## `apex.attribute.MaterialCoverageRegion`  (extends `Entity`, `IPhysical`, `IUserAttributes`)
 DEPRECATION NOTICE: THIS CLASS IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Class MaterialCoverageRegion. Can only be constructed using apex.catalog createMaterialCoverageRegion() method.
 Properties: `alignmentMethod`, `director`, `material`, `materialCoordinateSystem`, `name`, `target`
@@ -1979,6 +2721,25 @@ Methods:
 - `getMaterialCoordinateSystem() -> apex.construct.CoordinateSystem` — A apex.construct.CoordinateSystem whose X axis defines the Material orientation in this MaterialCoverageRegion.
 - `getName() -> str` — The name of this MaterialCoverageRegion.
 - `getTarget() -> apex.EntityCollection` — The entities that are included in this MaterialCoverageRegion as an EntityCollection.
+- `update(name: str, target: apex.EntityCollection, materialAxis: apex.EntityCollection, director: apex.EntityCollection, orientation: apex.construct.Orientation, origin: apex.ILocation) -> None` — Update this MaterialCoverageRegion properties.
+
+Method details:
+
+#### `getDirector() -> apex.EntityCollection`
+A collection of Curves and/or Edges that define how the Material is oriented across this MaterialCoverageRegion.
+
+The director EntityCollection may contain only apex.geometry.Curve or apex.geometry.Edge entities.This attribute must be defined if the MaterialAlignmentMethod is of type apex.attribute.MaterialAlignmentMethod.Curve.For all other MaterialAlignmentMethod types this attribute is ignored.
+
+#### `getMaterialCoordinateSystem() -> apex.construct.CoordinateSystem`
+A apex.construct.CoordinateSystem whose X axis defines the Material orientation in this MaterialCoverageRegion.
+
+This attribute must be defined if the MaterialAlignmentMethod is of type apex.attribute.MaterialAlignmentMethod.CoordinstSystem.For all other MaterialAlignmentMethod types this attribute is ignored.
+
+#### `getTarget() -> apex.EntityCollection`
+The entities that are included in this MaterialCoverageRegion as an EntityCollection.
+
+target may include Solids, Surfaces, Faces or 2D elements.Solids are internally expanded to the set of all exterior Faces of the Solids.
+
 #### `update(name: str, target: apex.EntityCollection, materialAxis: apex.EntityCollection, director: apex.EntityCollection, orientation: apex.construct.Orientation, origin: apex.ILocation) -> None`
 Update this MaterialCoverageRegion properties.
 
@@ -1998,18 +2759,34 @@ Methods:
 
 - `MaterialCoverageRegionCollection() -> None` — Construct a new MaterialCoverageRegionCollection.
 
+Method details:
+
+#### `MaterialCoverageRegionCollection() -> None`
+Construct a new MaterialCoverageRegionCollection.
+
+For example:
+
+
 ## `apex.attribute.MaterialModel`  (extends `Entity`)
 This class manages the Material Models of a material.
 
 Methods:
+
+- `MaterialModel(materialModel: str) -> None` — Create Generic Constitutive Model.
+- `getProperties() -> {str:value}` — This function will return the whole dictionary which stores the Material properties.
+- `getProperty(key: str) -> object` — The function is passed with an attribute name (bdf filed name), Returns the corresponding value of the attribute.
+- `update(materialProperties: {str:value}) -> None` — Update the Generic Constitutive Model.
+
+Method details:
 
 #### `MaterialModel(materialModel: str) -> None`
 Create Generic Constitutive Model.
 
 - `materialModel` — keyword of this generic constitutive model
 
-- `getProperties() -> {str:value}` — This function will return the whole dictionary which stores the Material properties.
-- `getProperty(key: str) -> object` — The function is passed with an attribute name (bdf filed name), Returns the corresponding value of the attribute. For example: XXModel_.getProperty('E'), the "E" is the input, will return the elasticity Modulus value. The return Type maybe different depend on the value return.
+#### `getProperty(key: str) -> object`
+The function is passed with an attribute name (bdf filed name), Returns the corresponding value of the attribute. For example: XXModel_.getProperty('E'), the "E" is the input, will return the elasticity Modulus value. The return Type maybe different depend on the value return.
+
 #### `update(materialProperties: {str:value}) -> None`
 Update the Generic Constitutive Model.
 
@@ -2033,6 +2810,10 @@ Properties: `director`
 Methods:
 
 - `getDirector() -> apex.Entity` — A entity of Curve and/or Edge that define how the Material is oriented across this MaterialOrientationField2DAlignCurve.
+- `update(name: str, target: apex.EntityCollection, director: apex.Entity) -> None` — Update this MaterialOrientationField2DAlignCurve properties.
+
+Method details:
+
 #### `update(name: str, target: apex.EntityCollection, director: apex.Entity) -> None`
 Update this MaterialOrientationField2DAlignCurve properties.
 
@@ -2048,6 +2829,10 @@ Properties: `coordinateSystem`
 Methods:
 
 - `getCoordinateSystem() -> apex.construct.CoordinateSystem` — A apex.construct.CoordinateSystem defines the Material orientation in this MaterialOrientationField2DCoordinate.
+- `update(name: str, target: apex.EntityCollection, coordinateSystem: apex.Entity) -> None` — Update this MaterialOrientationField2DCoordinate properties.
+
+Method details:
+
 #### `update(name: str, target: apex.EntityCollection, coordinateSystem: apex.Entity) -> None`
 Update this MaterialOrientationField2DCoordinate properties.
 
@@ -2064,18 +2849,24 @@ Methods:
 
 - `getMaterial() -> apex.attribute.Material` — Gets the material from which this sheet is made and which, in conjunction with thickness, defines the mechanical properties of the sheet.
 - `getThickness() -> float` — Gets the thickness of this SheetMaterial. thickness represents a Length quantity and is defined using the units of Length from the active script unit system.
+- `setDescription(description: str) -> None` — Set the MaterialSheet description.
+- `setMaterial(material: apex.attribute.Material) -> None` — Sets the material from which this sheet is made and which, in conjunction with thickness, defines the mechanical properties of the sheet.
+- `setName(name: str) -> None` — Set the MaterialSheet name.
+- `setThickness(thickness: float) -> None` — Sets the thickness of this SheetMaterial. thickness represents a Length quantity and is defined using the units of Length from the active script unit system.
+- `update(name: str, description: str, material: apex.attribute.Material, thickness: float) -> None` — Updates one or more properties of this SheetMaterial This method allow multiple properties of the SheetMaterial to be updated using a single method call.
+
+Method details:
+
 #### `setDescription(description: str) -> None`
 Set the MaterialSheet description.
 
 - `description` — of the MaterialSheet.
 
-- `setMaterial(material: apex.attribute.Material) -> None` — Sets the material from which this sheet is made and which, in conjunction with thickness, defines the mechanical properties of the sheet.
 #### `setName(name: str) -> None`
 Set the MaterialSheet name.
 
 - `name` — of the MaterialSheet.
 
-- `setThickness(thickness: float) -> None` — Sets the thickness of this SheetMaterial. thickness represents a Length quantity and is defined using the units of Length from the active script unit system.
 #### `update(name: str, description: str, material: apex.attribute.Material, thickness: float) -> None`
 Updates one or more properties of this SheetMaterial This method allow multiple properties of the SheetMaterial to be updated using a single method call. All arguments are optional and the values of all SheetMaterial properties associated with the omitted arguments are left unchanged.
 
@@ -2091,14 +2882,39 @@ Methods:
 
 - `MaterialSheetCollection() -> None` — Iterable collection of MaterialSheets.
 
+Method details:
+
+#### `MaterialSheetCollection() -> None`
+Iterable collection of MaterialSheets.
+
+For example:
+
+
 ## `apex.attribute.MaterialSheetStack`  (extends `Entity`, `IUserAttributes`, `IName`)
 Class representing a sequence of ordered and oriented MaterialSheets to enable efficient definition of laminates. Associating the MaterialSheetStack to a region of a LayeredPanel enables rapid definitions of complex laminates.
 Properties: `sheetStackDefinition`, `symmetry`
 
 Methods:
 
-- `getSheetStackDefinition() -> [{str:str}]` — Gets sheetStackDefinition defines an ordered List of oriented MaterialSheets. Each entry in the List is a dictionary and each dictionary identifies a MaterialSheet and the orientation of the sheet in the stack. The order of the dictionaries in the list defines the order of the Sheets in the SheetStack. Each Dictionary includes two key value pairs, key = "sheet_name" of type string has an associated string type value identifying the name of the MaterialSheet key = "sheet_orientation" of type string has an associated float value defining the relative orientation of the sheet in the SheetStack The value of sheet_orientation represents an Angle quantity and must be defined using the units of Angle from the active script unit system.
-- `getSymmetry() -> apex.attribute.StackSymmetry` — Gets enumeration defining whether the provided sheet stack definition will be reflected to add additional sheets to the stack or not. A value of apex.attributes.StackSymmetry. None indicates that this stack has no symmetry - the stack includes only those sheets explicitly defined in the stack definition A value of apex.attributes.StackSymmetry.Odd indicates that this stack is symmetric about the first sheet. Every sheet apart from the first will be mirrored about the first sheet, adding more sheets to the stack than are explicitly defined in the stack definition. The first sheet occurs just once in the stack - it is the "middle" sheet. A value of apex.attributes.StackSymmetry.Even indicates that this stack is symmetric and every sheet in the stack definition will be mirrored, including the first sheet, to double the number of sheets explicitly defined in the stack definition.
+- `getSheetStackDefinition() -> [{str:str}]` — Gets sheetStackDefinition defines an ordered List of oriented MaterialSheets.
+- `getSymmetry() -> apex.attribute.StackSymmetry` — Gets enumeration defining whether the provided sheet stack definition will be reflected to add additional sheets to the stack or not.
+- `moveSheetDown(sheetIndex: int) -> int` — Moves the sheet identified in the input down one position in the stack.
+- `moveSheetUp(sheetIndex: int) -> int` — Moves the sheet identified in the input up one position in the stack.
+- `reverse() -> None` — Reverses the order of the MaterialSheets in this MaterialSheetStack.
+- `setDescription(description: str) -> None` — Set the MaterialSheetStack description.
+- `setName(name: str) -> None` — Set the MaterialSheetStack name.
+- `setSheetStackDefinition(sheetStackDefinition: [{str:str}]) -> None` — Sets sheetStackDefinition defines an ordered List of oriented MaterialSheets.
+- `setSymmetry(symmetry: apex.attribute.StackSymmetry) -> None` — Sets enumeration defining whether the provided sheet stack definition will be reflected to add additional sheets to the stack or not.
+- `update(name: str, description: str, sheetStackDefinition: [{dict}], symmetry: apex.attribute.StackSymmetry) -> None` — Updates one or more properties of this SheetStack This method allow multiple properties of the SheetStack to be updated using a single method call.
+
+Method details:
+
+#### `getSheetStackDefinition() -> [{str:str}]`
+Gets sheetStackDefinition defines an ordered List of oriented MaterialSheets. Each entry in the List is a dictionary and each dictionary identifies a MaterialSheet and the orientation of the sheet in the stack. The order of the dictionaries in the list defines the order of the Sheets in the SheetStack. Each Dictionary includes two key value pairs, key = "sheet_name" of type string has an associated string type value identifying the name of the MaterialSheet key = "sheet_orientation" of type string has an associated float value defining the relative orientation of the sheet in the SheetStack The value of sheet_orientation represents an Angle quantity and must be defined using the units of Angle from the active script unit system.
+
+#### `getSymmetry() -> apex.attribute.StackSymmetry`
+Gets enumeration defining whether the provided sheet stack definition will be reflected to add additional sheets to the stack or not. A value of apex.attributes.StackSymmetry. None indicates that this stack has no symmetry - the stack includes only those sheets explicitly defined in the stack definition A value of apex.attributes.StackSymmetry.Odd indicates that this stack is symmetric about the first sheet. Every sheet apart from the first will be mirrored about the first sheet, adding more sheets to the stack than are explicitly defined in the stack definition. The first sheet occurs just once in the stack - it is the "middle" sheet. A value of apex.attributes.StackSymmetry.Even indicates that this stack is symmetric and every sheet in the stack definition will be mirrored, including the first sheet, to double the number of sheets explicitly defined in the stack definition.
+
 #### `moveSheetDown(sheetIndex: int) -> int`
 Moves the sheet identified in the input down one position in the stack.
 
@@ -2109,7 +2925,6 @@ Moves the sheet identified in the input up one position in the stack.
 
 - `sheetIndex` — The index of the Sheet to move up.
 
-- `reverse() -> None` — Reverses the order of the MaterialSheets in this MaterialSheetStack.
 #### `setDescription(description: str) -> None`
 Set the MaterialSheetStack description.
 
@@ -2145,6 +2960,14 @@ Methods:
 
 - `MaterialSheetStackCollection() -> None` — Iterable collection of MaterialSheetStacks.
 
+Method details:
+
+#### `MaterialSheetStackCollection() -> None`
+Iterable collection of MaterialSheetStacks.
+
+For example:
+
+
 ## `apex.attribute.MeshDependentTie`  (extends `Entity`, `IDisplayable`, `IUserHighlightable`, `IUserAttributes`, `IName`)
 class MeshDependentTie.
 Properties: `bodies`, `facesEdges`
@@ -2152,6 +2975,13 @@ Properties: `bodies`, `facesEdges`
 Methods:
 
 - `asEntity() -> Entity`
+- `getBodies() -> apex.geometry.GeometryBodyCollection` — a collection of all of the Bodies associated with this MeshDependentTie.
+- `getFacesEdges() -> apex.geometry.GeometryTopologyCollection` — a collection of all of the Faces and/or Edges associated with this MeshDependentTie.
+- `removeBodies(bodies: apex.geometry.GeometryBodyCollection) -> apex.geometry.GeometryBodyCollection` — removes Geometry Bodies from the MeshDependentTie.
+- `update(name: str, description: str) -> None` — Update this MeshDependentTie.
+
+Method details:
+
 #### `getBodies() -> apex.geometry.GeometryBodyCollection`
 a collection of all of the Bodies associated with this MeshDependentTie.
 
@@ -2184,14 +3014,29 @@ Methods:
 
 - `MeshDependentTieCollection() -> None` — Construct a new MeshDependentTieCollection.
 
+Method details:
+
+#### `MeshDependentTieCollection() -> None`
+Construct a new MeshDependentTieCollection.
+
+For example:
+
+
 ## `apex.attribute.NSMCombination`  (extends `Entity`, `IName`)
 A class to represent NSM Combination(NSMADD).
 Properties: `id`, `NSM`
 
 Methods:
 
-- `getId() -> int` — Returns ID of the NSM Combination. If omits, the system will automatically assign an ID.
+- `getId() -> int` — Returns ID of the NSM Combination.
 - `getNSM() -> apex.attribute.NonstructuralMassCollection` — Returns A collection of NSM for the NSM Combination.
+- `update(name: str, description: str, id: int, NSM: NonstructuralMassCollection) -> apex.attribute.NSMCombination` — Creates and returns a NSMCombination.
+
+Method details:
+
+#### `getId() -> int`
+Returns ID of the NSM Combination. If omits, the system will automatically assign an ID.
+
 #### `update(name: str, description: str, id: int, NSM: NonstructuralMassCollection) -> apex.attribute.NSMCombination`
 Creates and returns a NSMCombination.
 
@@ -2208,13 +3053,21 @@ Methods:
 
 - `NSMCombinationCollection() -> None` — Construct a new NSMCombinationCollection.
 
+Method details:
+
+#### `NSMCombinationCollection() -> None`
+Construct a new NSMCombinationCollection.
+
+For example:
+
+
 ## `apex.attribute.NodeTie`  (extends `Entity`, `IDisplayable`, `IIdentifier`, `IPhysical`, `IUserAttributes`, `IName`)
 Contains NodeTies and methods for editing/getting NodeTie attributes.
 Properties: `attachmentDOFAndWeights`, `attachmentRegions`, `dependentDof`, `distributionMode`, `distributionType`, `dOFDefinitionMode`, `referencePoint`, `thermalExpansionCoeff`
 
 Methods:
 
-- `getAttachmentDOFAndWeights() -> {str:{str:float}}` — Returns a map of NodeIds, attachment DOF and attachment weights of the NodeTie. The parameter DOFAndWeightFactors is a map. The Key is NodeID. The value is a map. In the value map, the key is a sub string of "123456" representing the DOF. And the value is a double weight factor: Example from the user story figure on DoF and eight Factor: 'Individual' Case: { "Assembly 3/Assembly 1/Part 1:1" : {"1" :1.0,"2" :2.0,}, "Assembly 3/Assembly 2/Part 1:1" : {"1" :3.01,}, }
+- `getAttachmentDOFAndWeights() -> {str:{str:float}}` — Returns a map of NodeIds, attachment DOF and attachment weights of the NodeTie.
 - `getAttachmentRegions() -> apex.EntityCollection` — Returns attachment regions of the NodeTie.
 - `getDOFDefinitionMode() -> str` — Returns DOF Definition Mode of the NodeTie.
 - `getDependentDof() -> str` — Returns dependent DOF of the NodeTie.
@@ -2222,6 +3075,13 @@ Methods:
 - `getDistributionType() -> str` — Returns Distribution Type of the NodeTie.
 - `getReferencePoint() -> apex.Entity` — Returns reference point of the NodeTie.
 - `getThermalExpansionCoeff() -> float` — Returns thermalExpansionCoeff of the NodeTie.
+- `update(attachmentRegions: apex.EntityCollection, dependentDoF: str, dofDefinitionMode: apex.attribute.DOFDefinitionMode, distributionType: apex.attribute.DistributionType, distributionMode: apex.attribute.DistributionMode, referencePoint: Entity, DOFAndWeightFactors: {str:{str:float}}, thermalExpansionCoeff: float, deleteUnreferencedNode: bool) -> None` — Update this NodeTie properties.
+
+Method details:
+
+#### `getAttachmentDOFAndWeights() -> {str:{str:float}}`
+Returns a map of NodeIds, attachment DOF and attachment weights of the NodeTie. The parameter DOFAndWeightFactors is a map. The Key is NodeID. The value is a map. In the value map, the key is a sub string of "123456" representing the DOF. And the value is a double weight factor: Example from the user story figure on DoF and eight Factor: 'Individual' Case: { "Assembly 3/Assembly 1/Part 1:1" : {"1" :1.0,"2" :2.0,}, "Assembly 3/Assembly 2/Part 1:1" : {"1" :3.01,}, }
+
 #### `update(attachmentRegions: apex.EntityCollection, dependentDoF: str, dofDefinitionMode: apex.attribute.DOFDefinitionMode, distributionType: apex.attribute.DistributionType, distributionMode: apex.attribute.DistributionMode, referencePoint: Entity, DOFAndWeightFactors: {str:{str:float}}, thermalExpansionCoeff: float, deleteUnreferencedNode: bool) -> None`
 Update this NodeTie properties.
 
@@ -2245,6 +3105,14 @@ Methods:
 
 - `NodeTieCollection() -> None` — Construct a new NodeTieCollection.
 
+Method details:
+
+#### `NodeTieCollection() -> None`
+Construct a new NodeTieCollection.
+
+For example:
+
+
 ## `apex.attribute.NonstructuralMass`  (extends `Entity`, `IDisplayable`, `IUserHighlightable`, `IName`)
 Class NonstructuralMass.
 Properties: `constantMass`, `id`, `massDistribution`, `nonstructuralMassType`, `target`, `variableMass`
@@ -2257,6 +3125,10 @@ Methods:
 - `getNonstructuralMassType() -> apex.attribute.NonstructuralMassType` — Returns NonstructuralMassType of the NonstructuralMass.
 - `getTarget() -> apex.EntityCollection` — Returns target of the NonstructuralMass.
 - `getVariableMass() -> {float:apex.EntityCollection}` — Returns variable mass of the NonstructuralMass.
+- `update(name: str, description: str, id: int, massDistribution: apex.attribute.MassDistribution, nonstructuralMassType: apex.attribute.NonstructuralMassType, constantMass: float, target: apex.EntityCollection, variableMass: {float:apex.EntityCollection}) -> None` — Update this NonstructuralMass properties.
+
+Method details:
+
 #### `update(name: str, description: str, id: int, massDistribution: apex.attribute.MassDistribution, nonstructuralMassType: apex.attribute.NonstructuralMassType, constantMass: float, target: apex.EntityCollection, variableMass: {float:apex.EntityCollection}) -> None`
 Update this NonstructuralMass properties.
 
@@ -2279,11 +3151,26 @@ Methods:
 
 - `NonstructuralMassCollection() -> None` — Construct a new NonstructuralMassCollection.
 
+Method details:
+
+#### `NonstructuralMassCollection() -> None`
+Construct a new NonstructuralMassCollection.
+
+For example:
+
+
 ## `apex.attribute.PerfectlyPlastic`  (extends `Plasticity`)
 This Class is no longer supported in Apex. Refer to MaterialModel to determine how this capability is now supported.
 Properties: `initialYieldStress`
 
 Methods:
+
+- `PerfectlyPlastic(initialYieldStress: float, yieldCriteria: YieldCriteria) -> None` — Constructor.
+- `getInitialYieldStress() -> float`
+- `setInitialYieldStress(initialYieldStress: float) -> None`
+- `update(initialYieldStress: float, yieldCriteria: YieldCriteria) -> None` — the update method used to edit the Plasticity constitutive model
+
+Method details:
 
 #### `PerfectlyPlastic(initialYieldStress: float, yieldCriteria: YieldCriteria) -> None`
 Constructor.
@@ -2293,8 +3180,6 @@ Constructor.
 
 Usage example:$$ New the Plasticity constitutive model with the initial Yield stress and yieldCriteria.myPlasticity = apex.attribute.PlasticityPerfectly(initialYieldStress= 200.0, yieldCriteria= myYieldCriteria2 )
 
-- `getInitialYieldStress() -> float`
-- `setInitialYieldStress(initialYieldStress: float) -> None`
 #### `update(initialYieldStress: float, yieldCriteria: YieldCriteria) -> None`
 the update method used to edit the Plasticity constitutive model
 
@@ -2308,6 +3193,10 @@ Usage example:$$ edit the Plasticity constitutive model with the initial Yield s
 Contains PlanarJoint and methods for editing/getting PlanarJoint attributes.
 
 Methods:
+
+- `update(name: str, description: str, jointAxis: apex.attribute.JointAxis, side1: apex.EntityCollection, side1DistributionType: apex.attribute.DistributionType, side2: apex.EntityCollection, side2DistributionType: apex.attribute.DistributionType, jointOrigin: apex.Entity, jointOrientation: apex.construct.Orientation, axisLocationMode: apex.attribute.AxisLocationMode, jointRenderType: apex.attribute.JointRenderType) -> None` — Update this PlanarJoint properties.
+
+Method details:
 
 #### `update(name: str, description: str, jointAxis: apex.attribute.JointAxis, side1: apex.EntityCollection, side1DistributionType: apex.attribute.DistributionType, side2: apex.EntityCollection, side2DistributionType: apex.attribute.DistributionType, jointOrigin: apex.Entity, jointOrientation: apex.construct.Orientation, axisLocationMode: apex.attribute.AxisLocationMode, jointRenderType: apex.attribute.JointRenderType) -> None`
 Update this PlanarJoint properties.
@@ -2333,16 +3222,40 @@ Properties: `hardeningRule`, `yieldCriteria`
 
 Methods:
 
-- `getHardeningRule() -> apex.attribute.HardeningRule` — Gets There are 4 types of hardening method, they are Enumerated in HardeningRule, and each Plasticity Constitutive model should contain only one of the 4 hardening methods.
-- `getYieldCriteria() -> YieldCriteria` — Gets There are six yield criteria rules, they are derived from the base class YieldCriteria. and each Plasticity Constitutive model should contain only one of the six yield criteria rules.
-- `setHardeningRule(hardeningRule: apex.attribute.HardeningRule) -> None` — Sets There are 4 types of hardening method, they are Enumerated in HardeningRule, and each Plasticity Constitutive model should contain only one of the 4 hardening methods.
-- `setYieldCriteria(yieldCriteria: YieldCriteria) -> None` — Sets There are six yield criteria rules, they are derived from the base class YieldCriteria. and each Plasticity Constitutive model should contain only one of the six yield criteria rules.
+- `getHardeningRule() -> apex.attribute.HardeningRule` — Gets There are 4 types of hardening method, they are Enumerated in HardeningRule, and each Plasticity Constitutive model should contain only one of the 4 ...
+- `getYieldCriteria() -> YieldCriteria` — Gets There are six yield criteria rules, they are derived from the base class YieldCriteria. and each Plasticity Constitutive model should contain only one of ...
+- `setHardeningRule(hardeningRule: apex.attribute.HardeningRule) -> None` — Sets There are 4 types of hardening method, they are Enumerated in HardeningRule, and each Plasticity Constitutive model should contain only one of the 4 ...
+- `setYieldCriteria(yieldCriteria: YieldCriteria) -> None` — Sets There are six yield criteria rules, they are derived from the base class YieldCriteria. and each Plasticity Constitutive model should contain only one of ...
+
+Method details:
+
+#### `getHardeningRule() -> apex.attribute.HardeningRule`
+Gets There are 4 types of hardening method, they are Enumerated in HardeningRule, and each Plasticity Constitutive model should contain only one of the 4 hardening methods.
+
+#### `getYieldCriteria() -> YieldCriteria`
+Gets There are six yield criteria rules, they are derived from the base class YieldCriteria. and each Plasticity Constitutive model should contain only one of the six yield criteria rules.
+
+#### `setHardeningRule(hardeningRule: apex.attribute.HardeningRule) -> None`
+Sets There are 4 types of hardening method, they are Enumerated in HardeningRule, and each Plasticity Constitutive model should contain only one of the 4 hardening methods.
+
+#### `setYieldCriteria(yieldCriteria: YieldCriteria) -> None`
+Sets There are six yield criteria rules, they are derived from the base class YieldCriteria. and each Plasticity Constitutive model should contain only one of the six yield criteria rules.
+
 
 ## `apex.attribute.PlasticityHardeningSlope`  (extends `Plasticity`)
 This Class is no longer supported in Apex. Refer to MaterialModel to determine how this capability is now supported.
 Properties: `hardeningSlope`, `initialYieldStress`
 
 Methods:
+
+- `PlasticityHardeningSlope(initialYieldStress: float, hardeningSlope: float, yieldCriteria: YieldCriteria, hardeningRule: apex.attribute.HardeningRule) -> None` — Constructor.
+- `getHardeningSlope() -> float`
+- `getInitialYieldStress() -> float`
+- `setHardeningSlope(hardeningSlope: float) -> None`
+- `setInitialYieldStress(initialYieldStress: float) -> None`
+- `update(initialYieldStress: float, hardeningSlope: float, yieldCriteria: YieldCriteria, hardeningRule: apex.attribute.HardeningRule) -> None` — the update method
+
+Method details:
 
 #### `PlasticityHardeningSlope(initialYieldStress: float, hardeningSlope: float, yieldCriteria: YieldCriteria, hardeningRule: apex.attribute.HardeningRule) -> None`
 Constructor.
@@ -2354,10 +3267,6 @@ Constructor.
 
 Usage example:$$ New the Plasticity constitutive model with the initial Yield stress,hardening slope, yieldCriteria and hardeningRule.myPlasticity = apex.attribute.PlasticityHardeningSlope(initialYieldStress= 200.0, hardeningSlope= 12.3, yieldCriteria= myYieldCriteria2, hardeningRule= Isotropic )
 
-- `getHardeningSlope() -> float`
-- `getInitialYieldStress() -> float`
-- `setHardeningSlope(hardeningSlope: float) -> None`
-- `setInitialYieldStress(initialYieldStress: float) -> None`
 #### `update(initialYieldStress: float, hardeningSlope: float, yieldCriteria: YieldCriteria, hardeningRule: apex.attribute.HardeningRule) -> None`
 the update method
 
@@ -2375,6 +3284,13 @@ Properties: `stressStrainCurve`
 
 Methods:
 
+- `PlasticityStressStrain(stressStrainCurve: StressStrainCurve, yieldCriteria: YieldCriteria, hardeningRule: apex.attribute.HardeningRule = apex.attribute.HardeningRule.Isotropic) -> None` — Constructor.
+- `getStressStrainCurve() -> StressStrainCurve` — Gets Used to define the stress-strain curve for Plasticity constitutive model.
+- `setStressStrainCurve(stressStrainCurve: StressStrainCurve) -> None` — Sets Used to define the stress-strain curve for Plasticity constitutive model.
+- `update(stressStrainCurve: StressStrainCurve, yieldCriteria: YieldCriteria, hardeningRule: apex.attribute.HardeningRule = apex.attribute.HardeningRule.Isotropic) -> None` — the update method used to edit the Plasticity constitutive model
+
+Method details:
+
 #### `PlasticityStressStrain(stressStrainCurve: StressStrainCurve, yieldCriteria: YieldCriteria, hardeningRule: apex.attribute.HardeningRule = apex.attribute.HardeningRule.Isotropic) -> None`
 Constructor.
 
@@ -2384,8 +3300,6 @@ Constructor.
 
 Usage example:$$ New the Plasticity constitutive model with the stressStrainCurve, yieldCriteria and hardeningRule.myPlasticity = apex.attribute.PlasticityStressStrain(stressStrainCurve = mystressStrainCurve, yieldCriteria = myYieldCriteria2, hardeningRule = Isotropic )
 
-- `getStressStrainCurve() -> StressStrainCurve` — Gets Used to define the stress-strain curve for Plasticity constitutive model.
-- `setStressStrainCurve(stressStrainCurve: StressStrainCurve) -> None` — Sets Used to define the stress-strain curve for Plasticity constitutive model.
 #### `update(stressStrainCurve: StressStrainCurve, yieldCriteria: YieldCriteria, hardeningRule: apex.attribute.HardeningRule = apex.attribute.HardeningRule.Isotropic) -> None`
 the update method used to edit the Plasticity constitutive model
 
@@ -2407,16 +3321,38 @@ Methods:
 - `getCoverageArea() -> float` — Gets the area of the coverage region that this ply is associated with.
 - `getCoverageRegion() -> apex.EntityCollection` — Gets the entities in the LayeredPanel that this Ply is associated with.
 - `getId() -> int` — Gets the id of the ply, it's an external ply id that can be used in different zones and panels.
-- `getMaterial() -> apex.attribute.Material` — Gets the material associated with this ply. material may be omitted only if materialSheet is provided in which case this property will be set to the Material defined by the MaterialSheet.
-- `getName() -> str` — Gets the name of this Ply. name must be unique within a LayeredPanel. If a non-unique name is provided the system will silently modify the provided name to make it unique by appending an integer.
-- `getThickness() -> float` — Gets the thickness associated with this Ply thickness may be omitted only if materialSheet is provided in which case this property will be set to the thickness defined by the MaterialSheet thickness represents a Length quantity and is defined using the unit of Length from the active script unit system.
+- `getMaterial() -> apex.attribute.Material` — Gets the material associated with this ply. material may be omitted only if materialSheet is provided in which case this property will be set to the Material ...
+- `getName() -> str` — Gets the name of this Ply. name must be unique within a LayeredPanel.
+- `getThickness() -> float` — Gets the thickness associated with this Ply thickness may be omitted only if materialSheet is provided in which case this property will be set to the thickness ...
 - `setAngle(angle: float) -> None` — Sets the angle of this Ply.
 - `setColor(color: apex.ColorRGB) -> None` — Sets the color associated with this Ply.
 - `setCoverageRegion(coverageRegion: apex.EntityCollection) -> None` — Sets the entities in the LayeredPanel that this Ply is associated with.
 - `setId(id: int) -> None` — Sets the id of the ply, it's an external ply id that can be used in different zones and panels.
-- `setMaterial(material: apex.attribute.Material) -> None` — Sets the material associated with this ply. material may be omitted only if materialSheet is provided in which case this property will be set to the Material defined by the MaterialSheet.
-- `setName(name: str) -> None` — Sets the name of this Ply. name must be unique within a LayeredPanel. If a non-unique name is provided the system will silently modify the provided name to make it unique by appending an integer.
-- `setThickness(thickness: float) -> None` — Sets the material associated with this ply. material may be omitted only if materialSheet is provided in which case this property will be set to the Material defined by the MaterialSheet.
+- `setMaterial(material: apex.attribute.Material) -> None` — Sets the material associated with this ply. material may be omitted only if materialSheet is provided in which case this property will be set to the Material ...
+- `setName(name: str) -> None` — Sets the name of this Ply. name must be unique within a LayeredPanel.
+- `setThickness(thickness: float) -> None` — Sets the material associated with this ply. material may be omitted only if materialSheet is provided in which case this property will be set to the Material ...
+- `update(id: int, name: str, color: [int], material: apex.attribute.Material, thickness: float, angle: float, coverageRegion: apex.EntityCollection) -> None` — Update this Ply properties.
+
+Method details:
+
+#### `getMaterial() -> apex.attribute.Material`
+Gets the material associated with this ply. material may be omitted only if materialSheet is provided in which case this property will be set to the Material defined by the MaterialSheet.
+
+#### `getName() -> str`
+Gets the name of this Ply. name must be unique within a LayeredPanel. If a non-unique name is provided the system will silently modify the provided name to make it unique by appending an integer.
+
+#### `getThickness() -> float`
+Gets the thickness associated with this Ply thickness may be omitted only if materialSheet is provided in which case this property will be set to the thickness defined by the MaterialSheet thickness represents a Length quantity and is defined using the unit of Length from the active script unit system.
+
+#### `setMaterial(material: apex.attribute.Material) -> None`
+Sets the material associated with this ply. material may be omitted only if materialSheet is provided in which case this property will be set to the Material defined by the MaterialSheet.
+
+#### `setName(name: str) -> None`
+Sets the name of this Ply. name must be unique within a LayeredPanel. If a non-unique name is provided the system will silently modify the provided name to make it unique by appending an integer.
+
+#### `setThickness(thickness: float) -> None`
+Sets the material associated with this ply. material may be omitted only if materialSheet is provided in which case this property will be set to the Material defined by the MaterialSheet.
+
 #### `update(id: int, name: str, color: [int], material: apex.attribute.Material, thickness: float, angle: float, coverageRegion: apex.EntityCollection) -> None`
 Update this Ply properties.
 
@@ -2438,6 +3374,14 @@ Methods:
 
 - `PlyCollection() -> None` — Construct a new PlyCollection.
 
+Method details:
+
+#### `PlyCollection() -> None`
+Construct a new PlyCollection.
+
+For example:
+
+
 ## `apex.attribute.PointMass`  (extends `Entity`, `IDisplayable`, `IUserHighlightable`, `IUserAttributes`, `IName`)
 Class PointMass.
 Properties: `ixx`, `ixy`, `ixz`, `iyy`, `iyz`, `izz`, `location`, `mass`, `massMatrix`, `orientation`, `target`
@@ -2452,10 +3396,17 @@ Methods:
 - `getIzz() -> float` — Returns izz of the PointMass.
 - `getLocation() -> apex.Coordinate` — Returns Coordinate of the PointMass.
 - `getMass() -> float` — Returns mass of the PointMass.
-- `getMassMatrix() -> apex.attribute.PointMassMatrix` — Returns massMatrix of the PointMass. Returns None if the PointMass does not use mass matrix.
+- `getMassMatrix() -> apex.attribute.PointMassMatrix` — Returns massMatrix of the PointMass.
 - `getOrientation() -> apex.construct.Orientation` — Returns apex.construct.Orientation of the PointMass.
 - `getTarget() -> apex.EntityCollection` — Returns a read only collection of the entities that the PointMass is applied to.
 - `getUseMassMatrix() -> bool` — Returns a bool value to indicate the PointMass use inertia matrix or not.
+- `update(name: str, mass: float, ixx: float, iyy: float, izz: float, ixy: float, ixz: float, iyz: float, massMatrix: apex.attribute.PointMassMatrix, applicationMethod: apex.attribute.ApplicationMethod, location: apex.Coordinate, target: apex.EntityCollection, orientation: apex.construct.Orientation, description: str, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None` — Update this PointMass properties.
+
+Method details:
+
+#### `getMassMatrix() -> apex.attribute.PointMassMatrix`
+Returns massMatrix of the PointMass. Returns None if the PointMass does not use mass matrix.
+
 #### `update(name: str, mass: float, ixx: float, iyy: float, izz: float, ixy: float, ixz: float, iyz: float, massMatrix: apex.attribute.PointMassMatrix, applicationMethod: apex.attribute.ApplicationMethod, location: apex.Coordinate, target: apex.EntityCollection, orientation: apex.construct.Orientation, description: str, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None`
 Update this PointMass properties.
 
@@ -2486,6 +3437,14 @@ One or more properties may be updated in each call to update(). For example:
 Methods:
 
 - `PointMassCollection() -> None` — Construct a new PointMassCollection.
+
+Method details:
+
+#### `PointMassCollection() -> None`
+Construct a new PointMassCollection.
+
+For example:
+
 
 ## `apex.attribute.PointMassMatrix`
 Properties: `M11`, `M21`, `M22`, `M31`, `M32`, `M33`, `M41`, `M42`, `M43`, `M44`, `M51`, `M52`, `M53`, `M54`, `M55`, `M61`, `M62`, `M63`, `M64`, `M65`, `M66`
@@ -2544,6 +3503,10 @@ Methods:
 - `getActivateChannelMask() -> [bool]` — Returns activateChannelMask of the PointSensor.
 - `getOrientation() -> apex.construct.Orientation` — Returns apex.construct.Orientation of the PointSensor.
 - `getTarget() -> apex.EntityCollection` — "Returns a read only Entity identifying the entity that the PointSensor is associated with.
+- `update(name: str, target: apex.EntityCollection, activateChannelMask: [bool], orientation: apex.construct.Orientation, description: str, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None` — Update this PointSensor properties.
+
+Method details:
+
 #### `update(name: str, target: apex.EntityCollection, activateChannelMask: [bool], orientation: apex.construct.Orientation, description: str, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None`
 Update this PointSensor properties.
 
@@ -2566,10 +3529,22 @@ Methods:
 
 - `PointSensorCollection() -> None` — Construct a new PointSensorCollection.
 
+Method details:
+
+#### `PointSensorCollection() -> None`
+Construct a new PointSensorCollection.
+
+For example:
+
+
 ## `apex.attribute.PrismaticJoint`  (extends `Joint`)
 Contains PrismaticJoint and methods for editing/getting PrismaticJoint attributes.
 
 Methods:
+
+- `update(name: str, description: str, jointAxis: apex.attribute.JointAxis, side1: apex.EntityCollection, side1DistributionType: apex.attribute.DistributionType, side2: apex.EntityCollection, side2DistributionType: apex.attribute.DistributionType, jointOrigin: apex.Entity, jointOrientation: apex.construct.Orientation, axisLocationMode: apex.attribute.AxisLocationMode, jointRenderType: apex.attribute.JointRenderType) -> None` — Update this PrismaticJoint properties.
+
+Method details:
 
 #### `update(name: str, description: str, jointAxis: apex.attribute.JointAxis, side1: apex.EntityCollection, side1DistributionType: apex.attribute.DistributionType, side2: apex.EntityCollection, side2DistributionType: apex.attribute.DistributionType, jointOrigin: apex.Entity, jointOrientation: apex.construct.Orientation, axisLocationMode: apex.attribute.AxisLocationMode, jointRenderType: apex.attribute.JointRenderType) -> None`
 Update this PrismaticJoint properties.
@@ -2594,13 +3569,21 @@ This class manages the Properties Models of a PropertiesElement2D.
 
 Methods:
 
+- `Properties2DModel(properties2DModel: str) -> None` — Create Properties2DModel with Properties2D keyword name.
+- `getProperties() -> {str:value}` — This function will return the whole dictionary which stores the PropertiesElement2D properties.
+- `getProperty(key: str) -> object` — The function is passed with an attribute name (bdf filed name), Returns the corresponding value of the attribute.
+- `update(elementProperties2D: {str:value}) -> None` — Update the Properties2DModel.
+
+Method details:
+
 #### `Properties2DModel(properties2DModel: str) -> None`
 Create Properties2DModel with Properties2D keyword name. All Properties2D can be: PRIMARY: "PSHELL" , "PSHEAR", “ PCOHE”,“PLPLANE” , SECONDARY: "PSHLN1", "PSHEARN", "PSHLN2". example: property2DModel_1 = apex.attribute.Properties2DModel(properties2DModel = 'PSHELL')
 
 - `properties2DModel` — keyword of this Properties2DModel
 
-- `getProperties() -> {str:value}` — This function will return the whole dictionary which stores the PropertiesElement2D properties.
-- `getProperty(key: str) -> object` — The function is passed with an attribute name (bdf filed name), Returns the corresponding value of the attribute. For example: XXModel_.getProperty('T'), the "T" is the input, will return the thickness value. The return Type maybe different depend on the value return.
+#### `getProperty(key: str) -> object`
+The function is passed with an attribute name (bdf filed name), Returns the corresponding value of the attribute. For example: XXModel_.getProperty('T'), the "T" is the input, will return the thickness value. The return Type maybe different depend on the value return.
+
 #### `update(elementProperties2D: {str:value}) -> None`
 Update the Properties2DModel.
 
@@ -2612,10 +3595,21 @@ This class manages the Properties Models of a PropertiesElement3D.
 
 Methods:
 
-- `Properties3DModel(properties3DModel: str) -> None` — Create Properties3DModel with Properties3D keyword name. All Properties3D can be: PRIMARY: "PSOLID", "PLSOLID" SECONDARY: "PSLDN1" example: property3DModel_1 = apex.attribute.Properties3DModel(properties2DModel = 'PSOLID')
+- `Properties3DModel(properties3DModel: str) -> None` — Create Properties3DModel with Properties3D keyword name.
 - `getProperties() -> {str:value}` — This function will return the whole dictionary which stores the PropertiesElement3D properties.
-- `getProperty(key: str) -> object` — The function is passed with an attribute name (bdf filed name), Returns the corresponding value of the attribute. For example: XXModel_.getProperty('T'), the "T" is the input, will return the thickness value. The return Type maybe different depend on the value return.
+- `getProperty(key: str) -> object` — The function is passed with an attribute name (bdf filed name), Returns the corresponding value of the attribute.
+- `update(elementProperties3D: {str:value}) -> None` — Update the Properties3DModel. **[fails silently at runtime in Apex 2024.1]**
+
+Method details:
+
+#### `Properties3DModel(properties3DModel: str) -> None`
+Create Properties3DModel with Properties3D keyword name. All Properties3D can be: PRIMARY: "PSOLID", "PLSOLID" SECONDARY: "PSLDN1" example: property3DModel_1 = apex.attribute.Properties3DModel(properties2DModel = 'PSOLID')
+
+#### `getProperty(key: str) -> object`
+The function is passed with an attribute name (bdf filed name), Returns the corresponding value of the attribute. For example: XXModel_.getProperty('T'), the "T" is the input, will return the thickness value. The return Type maybe different depend on the value return.
+
 #### `update(elementProperties3D: {str:value}) -> None`
+> **Fails silently at runtime (Apex 2024.1):** `elementProperties3D={"MID": <Material object>}` is accepted without error and ignored: `getProperties()` shows no MID afterwards. **Instead:** Pass the material's integer id, `{"MID": material.id}`. `PropertiesElement3D.getReferenceMaterial()` then returns the material.
 Update the Properties3DModel.
 
 - `elementProperties3D` — A dictionary to define Properties3DModel properties. The key is a string of the property name, the value is of valid types.
@@ -2627,6 +3621,28 @@ Properties: `coverageRegion`, `field`, `id`, `propertyType`, `references`, `targ
 
 Methods:
 
+- `addSecondaryProperties2DModel(secondaryProperties2DModel: apex.attribute.Properties2DModel) -> bool` — This method is used to add a secondary Properties2D model to a PropertiesElement2D object.
+- `asShearPanel() -> apex.attribute.ShearPanel` — Get ShearPanel entity when the type of 2D element property is apex.attribute.PropertiesElement2DType.ShearPanel.
+- `asShell() -> apex.attribute.Shell` — Get Shell entity when the type of 2D element property is apex.attribute.PropertiesElement2DType.Shell.
+- `asSimpleShell() -> apex.attribute.SimpleShell` — Get SimpleShell entity when the type of 2D element property is apex.attribute.PropertiesElement2DType.SimpleShell.
+- `getCoverageRegion() -> Property2DCoverageRegion` — Get the Property2DCoverageRegion that this 2D element property is associated with.
+- `getField() -> apex.Entity` — Get a field that this 2D element property.
+- `getID() -> int` — Get the Property identification number. (Integer > 0) If omitted, the system will assign a default ID which is the smallest and unique among all existing IDs.
+- `getProperties2DModel(properties2DModel: str) -> apex.attribute.Properties2DModel` — Returns specific Properties2D model via Properties2D model name which is assigned to a PropertiesElement2D.
+- `getProperties2DModels() -> [apex.attribute.Properties2DModel]` — Returns all Properties2D models which are assigned to a PropertiesElement2D.
+- `getPropertyType() -> apex.attribute.PropertiesElement2DType` — Get the type of 2D element property that will be activated for elements that are associated with this class.
+- `getReferenceMaterial() -> apex.attribute.Material` — Get the material referenced in the PropertiesElement2D object.
+- `getReferences() -> apex.EntityCollection` — Get a collection of all entities that this 2D element property directly references.
+- `getTarget() -> apex.EntityCollection` — Get a collection of the entities that the PropertiesElement2D is applied to.
+- `removeProperties2DModel(properties2DModel: apex.attribute.Properties2DModel) -> None` — This method is used to remove a Properties2DModel model (if exists) from a PropertiesElement2D object.
+- `setID(id: int) -> None` — Set the Property identification number. (Integer > 0) If omitted, the system will assign a default ID which is the smallest and unique among all existing IDs.
+- `setPrimaryProperties2DModel(primaryProperties2DModel: apex.attribute.Properties2DModel) -> None` — This method is used to set the primary Properties2D model to a PropertiesElement2D object.
+- `setPropertyType(propertyType: apex.attribute.PropertiesElement2DType) -> None` — Set the type of 2D element property that will be activated for elements that are associated with this class.
+- `setReferences(references: apex.EntityCollection) -> None` — Set a collection of all entities that this 2D element property directly references.
+- `update(name: str, description: str, id: int) -> None` — Update properties of this PropertiesElement2D.
+
+Method details:
+
 #### `addSecondaryProperties2DModel(secondaryProperties2DModel: apex.attribute.Properties2DModel) -> bool`
 This method is used to add a secondary Properties2D model to a PropertiesElement2D object.
 
@@ -2634,12 +3650,6 @@ This method is used to add a secondary Properties2D model to a PropertiesElement
 
 example: myPropertiesElement2D_1 = apex.catalog.createPropertiesElement2D(name="myPropertiesElement2D 1", description = "", primaryProperties2D = "PSHELL") property2DModel_ = apex.attribute.Properties2DModel( properties2DModel = 'PSHEARN' ) myPropertiesElement2D_1.addSecondaryProperties2DModel(secondaryProperties2DModel = property2DModel_)
 
-- `asShearPanel() -> apex.attribute.ShearPanel` — Get ShearPanel entity when the type of 2D element property is apex.attribute.PropertiesElement2DType.ShearPanel.
-- `asShell() -> apex.attribute.Shell` — Get Shell entity when the type of 2D element property is apex.attribute.PropertiesElement2DType.Shell.
-- `asSimpleShell() -> apex.attribute.SimpleShell` — Get SimpleShell entity when the type of 2D element property is apex.attribute.PropertiesElement2DType.SimpleShell.
-- `getCoverageRegion() -> Property2DCoverageRegion` — Get the Property2DCoverageRegion that this 2D element property is associated with.
-- `getField() -> apex.Entity` — Get a field that this 2D element property.
-- `getID() -> int` — Get the Property identification number. (Integer > 0) If omitted, the system will assign a default ID which is the smallest and unique among all existing IDs.
 #### `getProperties2DModel(properties2DModel: str) -> apex.attribute.Properties2DModel`
 Returns specific Properties2D model via Properties2D model name which is assigned to a PropertiesElement2D.
 
@@ -2647,11 +3657,9 @@ Returns specific Properties2D model via Properties2D model name which is assigne
 
 example: property2DModel_1 = myPropertiesElement2D_1 .getProperties2DModel(properties2DModel = 'PSHELL') Returns a certain Properties2D model added to the PropertiesElement2D.
 
-- `getProperties2DModels() -> [apex.attribute.Properties2DModel]` — Returns all Properties2D models which are assigned to a PropertiesElement2D.
-- `getPropertyType() -> apex.attribute.PropertiesElement2DType` — Get the type of 2D element property that will be activated for elements that are associated with this class. The type is indicated by an apex.attributes.PropertiesElement2DType enumeration and defaults to "SimpleShell".
-- `getReferenceMaterial() -> apex.attribute.Material` — Get the material referenced in the PropertiesElement2D object.
-- `getReferences() -> apex.EntityCollection` — Get a collection of all entities that this 2D element property directly references.
-- `getTarget() -> apex.EntityCollection` — Get a collection of the entities that the PropertiesElement2D is applied to.
+#### `getPropertyType() -> apex.attribute.PropertiesElement2DType`
+Get the type of 2D element property that will be activated for elements that are associated with this class. The type is indicated by an apex.attributes.PropertiesElement2DType enumeration and defaults to "SimpleShell".
+
 #### `removeProperties2DModel(properties2DModel: apex.attribute.Properties2DModel) -> None`
 This method is used to remove a Properties2DModel model (if exists) from a PropertiesElement2D object.
 
@@ -2659,7 +3667,6 @@ This method is used to remove a Properties2DModel model (if exists) from a Prope
 
 example: myPropertiesElement2D_1 = apex.catalog.createPropertiesElement2D(name="myPropertiesElement2D 1", description = "", primaryProperties2D = "PSHELL") property2DModel_ = apex.attribute.Properties2DModel( properties2DModel = 'PSHEARN' ) myPropertiesElement2D_1.addSecondaryProperties2DModel(secondaryProperties2DModel = property2DModel_) myPropertiesElement2D_1.removeProperties2DModel(properties2DModel = property2DModel_)
 
-- `setID(id: int) -> None` — Set the Property identification number. (Integer > 0) If omitted, the system will assign a default ID which is the smallest and unique among all existing IDs.
 #### `setPrimaryProperties2DModel(primaryProperties2DModel: apex.attribute.Properties2DModel) -> None`
 This method is used to set the primary Properties2D model to a PropertiesElement2D object.
 
@@ -2667,8 +3674,9 @@ This method is used to set the primary Properties2D model to a PropertiesElement
 
 example: myPropertiesElement2D_1 = apex.catalog.createPropertiesElement2D(name="myPropertiesElement2D 1", description = "", primaryProperties2D = "PSHELL") property2DModel_ = apex.attribute.Properties2DModel( properties2DModel = 'PSHEAR' ) myPropertiesElement2D_1.setPrimaryProperties2DModel(primaryProperties2DModel = property2DModel_)
 
-- `setPropertyType(propertyType: apex.attribute.PropertiesElement2DType) -> None` — Set the type of 2D element property that will be activated for elements that are associated with this class. The type is indicated by an apex.attributes.PropertiesElement2DType enumeration and defaults to "SimpleShell".
-- `setReferences(references: apex.EntityCollection) -> None` — Set a collection of all entities that this 2D element property directly references.
+#### `setPropertyType(propertyType: apex.attribute.PropertiesElement2DType) -> None`
+Set the type of 2D element property that will be activated for elements that are associated with this class. The type is indicated by an apex.attributes.PropertiesElement2DType enumeration and defaults to "SimpleShell".
+
 #### `update(name: str, description: str, id: int) -> None`
 Update properties of this PropertiesElement2D.
 
@@ -2684,11 +3692,32 @@ Methods:
 
 - `PropertiesElement2DCollection() -> None` — Construct a new PropertiesElement2DCollection.
 
+Method details:
+
+#### `PropertiesElement2DCollection() -> None`
+Construct a new PropertiesElement2DCollection.
+
+For example:
+
+
 ## `apex.attribute.PropertiesElement3D`  (extends `Entity`, `IUserAttributes`, `IName`)
 Class PropertiesElement3D. It's an element property that can be assigned to 3d elements only.
 Properties: `id`, `target`
 
 Methods:
+
+- `addSecondaryProperties3DModel(secondaryProperties3DModel: apex.attribute.Properties3DModel) -> bool` — This method is used to add a secondary Properties3D model to a PropertiesElement3D object.
+- `getAssociatedElements() -> apex.mesh.ElementCollection` — Gets the elements associated with this PropertiesElement3D.
+- `getID() -> int` — Get the ID of the PropertiesElement3D.
+- `getProperties3DModel(properties3DModel: str) -> apex.attribute.Properties3DModel` — Returns specific Properties3D model via Properties3D model name which is assigned to a PropertiesElement3D.
+- `getProperties3DModels() -> [apex.attribute.Properties3DModel]` — Returns all Properties3D models which are assigned to a PropertiesElement3D.
+- `getReferenceMaterial() -> apex.attribute.Material` — Get the material referenced in the PropertiesElement3D object.
+- `getTarget() -> apex.EntityCollection` — Get a collection of the entities that the PropertiesElement3D is applied to.
+- `removeProperties3DModel(properties3DModel: apex.attribute.Properties3DModel) -> None` — This method is used to remove a Properties3DModel model (if exists) from a PropertiesElement3D object.
+- `setPrimaryProperties3DModel(primaryProperties3DModel: apex.attribute.Properties3DModel) -> None` — This method is used to set the primary Properties3D model to a PropertiesElement3D object.
+- `update(name: str, description: str, id: int) -> None` — Update properties of this PropertiesElement3D.
+
+Method details:
 
 #### `addSecondaryProperties3DModel(secondaryProperties3DModel: apex.attribute.Properties3DModel) -> bool`
 This method is used to add a secondary Properties3D model to a PropertiesElement3D object.
@@ -2697,8 +3726,6 @@ This method is used to add a secondary Properties3D model to a PropertiesElement
 
 example: myPropertiesElement3D_1 = apex.catalog.createPropertiesElement3D(name="myPropertiesElement3D 1", description = "", primaryProperties3D = "PSOLID") property3DModel_ = apex.attribute.Properties3DModel( properties3DModel = 'PSHEARN' ) myPropertiesElement3D_1.addSecondaryProperties3DModel(secondaryProperties3DModel = property3DModel_)
 
-- `getAssociatedElements() -> apex.mesh.ElementCollection` — Gets the elements associated with this PropertiesElement3D.
-- `getID() -> int` — Get the ID of the PropertiesElement3D.
 #### `getProperties3DModel(properties3DModel: str) -> apex.attribute.Properties3DModel`
 Returns specific Properties3D model via Properties3D model name which is assigned to a PropertiesElement3D.
 
@@ -2706,9 +3733,6 @@ Returns specific Properties3D model via Properties3D model name which is assigne
 
 example: property3DModel_1 = myPropertiesElement3D_1 .getProperties3DModel(properties3DModel = 'PSOLID') Returns a certain Properties3D model added to the PropertiesElement3D.
 
-- `getProperties3DModels() -> [apex.attribute.Properties3DModel]` — Returns all Properties3D models which are assigned to a PropertiesElement3D.
-- `getReferenceMaterial() -> apex.attribute.Material` — Get the material referenced in the PropertiesElement3D object.
-- `getTarget() -> apex.EntityCollection` — Get a collection of the entities that the PropertiesElement3D is applied to.
 #### `removeProperties3DModel(properties3DModel: apex.attribute.Properties3DModel) -> None`
 This method is used to remove a Properties3DModel model (if exists) from a PropertiesElement3D object.
 
@@ -2738,6 +3762,14 @@ Methods:
 
 - `PropertiesElement3DCollection() -> None` — Construct a new PropertiesElement3DCollection.
 
+Method details:
+
+#### `PropertiesElement3DCollection() -> None`
+Construct a new PropertiesElement3DCollection.
+
+For example:
+
+
 ## `apex.attribute.PropertiesElement3DHomogeneous`  (extends `PropertiesElement3D`)
 Class PropertiesElement3DHomogeneous. It includes general properties for 3d elements including material, material orientation and several element behaviors.
 Properties: `integrationNetwork`, `integrationScheme`, `materialOrientation`, `orientationType`, `outputLocation`, `referenceMaterial`
@@ -2750,6 +3782,10 @@ Methods:
 - `getOrientationType() -> apex.attribute.OrientationType3D` — Get the material orientation type of the PropertiesElement3D.
 - `getOutputLocation() -> apex.attribute.OutputLocation` — Get the location of the stress output.
 - `getReferenceMaterial() -> apex.attribute.Material` — Get the material used in the PropertiesElement3D.
+- `update(name: str, description: str, id: int, target: apex.EntityCollection, referenceMaterial: apex.attribute.Material, orientationType: apex.attribute.OrientationType3D, materialOrientation: apex.IOrientation, integrationNetwork: apex.attribute.IntegrationNetwork, integrationScheme: apex.attribute.IntegrationScheme, outputLocation: apex.attribute.OutputLocation) -> None` — Updates this PropertiesElement3D.
+
+Method details:
+
 #### `update(name: str, description: str, id: int, target: apex.EntityCollection, referenceMaterial: apex.attribute.Material, orientationType: apex.attribute.OrientationType3D, materialOrientation: apex.IOrientation, integrationNetwork: apex.attribute.IntegrationNetwork, integrationScheme: apex.attribute.IntegrationScheme, outputLocation: apex.attribute.OutputLocation) -> None`
 Updates this PropertiesElement3D. One or more properties may be updated in each call to update().
 
@@ -2772,15 +3808,37 @@ Properties: `alignmentMethod`, `coordinateSystem`, `director`, `name`, `Property
 Methods:
 
 - `getAlignmentMethod() -> apex.attribute.Property2DAlignmentMethod` — Get the enumeration that indicates which method is used to define the 2D property orientation in this Property2DCoverageRegion.
-- `getCoordinateSystem() -> apex.construct.CoordinateSystem` — Get the coordinate system whose X axis defines the 2D property orientation in this Property2DCoverageRegion. This attribute must be defined if the Property2DAlignmentMethod is of type apex.attribute.Property2DAlignmentMethod.CoordinstSystem. For all other MaterialAlignmentMethod types this attribute is ignored.
-- `getDirector() -> apex.EntityCollection` — Get the collection of Curves and/or Edges that define how the Property 2D is oriented across this Property2DCoverageRegion. The director EntityCollection may contain only Curve or Edge entities. This attribute must be defined if the Property2DAlignmentMethod is of type apex.attribute.Property2DAlignmentMethod.Curve. For all other Property2DAlignmentMethod types this attribute is ignored.
+- `getCoordinateSystem() -> apex.construct.CoordinateSystem` — Get the coordinate system whose X axis defines the 2D property orientation in this Property2DCoverageRegion.
+- `getDirector() -> apex.EntityCollection` — Get the collection of Curves and/or Edges that define how the Property 2D is oriented across this Property2DCoverageRegion.
 - `getName() -> str` — Get the name of this Property2DCoverageRegion.
 - `getProperty2D() -> apex.attribute.PropertiesElement2D` — Get the 2D property that is assigned to this coverage region.
-- `getTarget() -> apex.EntityCollection` — Get the entities that are included in this Property2DCoverageRegion as an EntityCollection. Target may include Surfaces, Faces or 2D/3D elements. The target should be Surfaces, Faces or 2D elements and all other types will be silently ignored. Solids are internally expanded to the set of all exterior Faces of the Solids Note:if the 2D property created by refer section, the target will be NOT allowed edit, because the target of 2D property is determined by the section's target.
-- `setCoordinateSystem(property2DAxis: apex.construct.CoordinateSystem) -> None` — Set the coordinate system whose X axis defines the 2D property orientation in this Property2DCoverageRegion. This attribute must be defined if the Property2DAlignmentMethod is of type apex.attribute.Property2DAlignmentMethod.CoordinstSystem. For all other MaterialAlignmentMethod types this attribute is ignored.
-- `setDirector(director: apex.EntityCollection) -> None` — Set the collection of Curves and/or Edges that define how the Property 2D is oriented across this Property2DCoverageRegion. The director EntityCollection may contain only Curve or Edge entities. This attribute must be defined if the Property2DAlignmentMethod is of type apex.attribute.Property2DAlignmentMethod.Curve. For all other Property2DAlignmentMethod types this attribute is ignored.
+- `getTarget() -> apex.EntityCollection` — Get the entities that are included in this Property2DCoverageRegion as an EntityCollection.
+- `setCoordinateSystem(property2DAxis: apex.construct.CoordinateSystem) -> None` — Set the coordinate system whose X axis defines the 2D property orientation in this Property2DCoverageRegion.
+- `setDirector(director: apex.EntityCollection) -> None` — Set the collection of Curves and/or Edges that define how the Property 2D is oriented across this Property2DCoverageRegion.
 - `setName(name: str) -> None` — Set the name of this Property2DCoverageRegion.
-- `setTarget(target: apex.EntityCollection) -> None` — Set the entities that are included in this Property2DCoverageRegion as an EntityCollection. Target may include Surfaces, Faces or 2D/3D elements. The target should be Surfaces, Faces or 2D elements and all other types will be silently ignored. Solids are internally expanded to the set of all exterior Faces of the Solids Note:if the 2D property created by refer section, the target will be NOT allowed edit, because the target of 2D property is determined by the section's target.
+- `setTarget(target: apex.EntityCollection) -> None` — Set the entities that are included in this Property2DCoverageRegion as an EntityCollection.
+- `update(name: str, target: apex.EntityCollection, property2DAxis: apex.construct.CoordinateSystem, director: apex.EntityCollection) -> None` — Update the properties of this Property2DCoverageRegion.
+
+Method details:
+
+#### `getCoordinateSystem() -> apex.construct.CoordinateSystem`
+Get the coordinate system whose X axis defines the 2D property orientation in this Property2DCoverageRegion. This attribute must be defined if the Property2DAlignmentMethod is of type apex.attribute.Property2DAlignmentMethod.CoordinstSystem. For all other MaterialAlignmentMethod types this attribute is ignored.
+
+#### `getDirector() -> apex.EntityCollection`
+Get the collection of Curves and/or Edges that define how the Property 2D is oriented across this Property2DCoverageRegion. The director EntityCollection may contain only Curve or Edge entities. This attribute must be defined if the Property2DAlignmentMethod is of type apex.attribute.Property2DAlignmentMethod.Curve. For all other Property2DAlignmentMethod types this attribute is ignored.
+
+#### `getTarget() -> apex.EntityCollection`
+Get the entities that are included in this Property2DCoverageRegion as an EntityCollection. Target may include Surfaces, Faces or 2D/3D elements. The target should be Surfaces, Faces or 2D elements and all other types will be silently ignored. Solids are internally expanded to the set of all exterior Faces of the Solids Note:if the 2D property created by refer section, the target will be NOT allowed edit, because the target of 2D property is determined by the section's target.
+
+#### `setCoordinateSystem(property2DAxis: apex.construct.CoordinateSystem) -> None`
+Set the coordinate system whose X axis defines the 2D property orientation in this Property2DCoverageRegion. This attribute must be defined if the Property2DAlignmentMethod is of type apex.attribute.Property2DAlignmentMethod.CoordinstSystem. For all other MaterialAlignmentMethod types this attribute is ignored.
+
+#### `setDirector(director: apex.EntityCollection) -> None`
+Set the collection of Curves and/or Edges that define how the Property 2D is oriented across this Property2DCoverageRegion. The director EntityCollection may contain only Curve or Edge entities. This attribute must be defined if the Property2DAlignmentMethod is of type apex.attribute.Property2DAlignmentMethod.Curve. For all other Property2DAlignmentMethod types this attribute is ignored.
+
+#### `setTarget(target: apex.EntityCollection) -> None`
+Set the entities that are included in this Property2DCoverageRegion as an EntityCollection. Target may include Surfaces, Faces or 2D/3D elements. The target should be Surfaces, Faces or 2D elements and all other types will be silently ignored. Solids are internally expanded to the set of all exterior Faces of the Solids Note:if the 2D property created by refer section, the target will be NOT allowed edit, because the target of 2D property is determined by the section's target.
+
 #### `update(name: str, target: apex.EntityCollection, property2DAxis: apex.construct.CoordinateSystem, director: apex.EntityCollection) -> None`
 Update the properties of this Property2DCoverageRegion. One or more properties may be updated in each call to update() and Properties that are not provided will be left unchanged.
 
@@ -2796,6 +3854,14 @@ Methods:
 
 - `Property2DCoverageRegionCollection() -> None` — Construct a new Property2DCoverageRegionCollection.
 
+Method details:
+
+#### `Property2DCoverageRegionCollection() -> None`
+Construct a new Property2DCoverageRegionCollection.
+
+For example:
+
+
 ## `apex.attribute.RemotePointEntity`  (extends `Entity`)
 RemotePointEntity Class Object.
 Properties: `x`, `y`, `z`
@@ -2810,6 +3876,10 @@ Methods:
 Contains RevoluteJoint and methods for editing/getting RevoluteJoint attributes.
 
 Methods:
+
+- `update(name: str, description: str, jointAxis: apex.attribute.JointAxis, side1: apex.EntityCollection, side1DistributionType: apex.attribute.DistributionType, side2: apex.EntityCollection, side2DistributionType: apex.attribute.DistributionType, jointOrigin: apex.Entity, jointOrientation: apex.construct.Orientation, axisLocationMode: apex.attribute.AxisLocationMode, jointRenderType: apex.attribute.JointRenderType) -> None` — Update this RevoluteJoint properties.
+
+Method details:
 
 #### `update(name: str, description: str, jointAxis: apex.attribute.JointAxis, side1: apex.EntityCollection, side1DistributionType: apex.attribute.DistributionType, side2: apex.EntityCollection, side2DistributionType: apex.attribute.DistributionType, jointOrigin: apex.Entity, jointOrientation: apex.construct.Orientation, axisLocationMode: apex.attribute.AxisLocationMode, jointRenderType: apex.attribute.JointRenderType) -> None`
 Update this RevoluteJoint properties.
@@ -2835,14 +3905,30 @@ Properties: `curveSubdivisions`, `id`, `referenceBody`, `rigidFaceType`, `subdiv
 
 Methods:
 
-- `getCurveSubdivisions() -> int` — Int value to represent curve Subdivision number. This attribute is only used when rigidFacType = BCNURBS2.
-- `getId() -> int` — ID of the rigid face. If omits, the system will automatically assign an ID.
+- `getCurveSubdivisions() -> int` — Int value to represent curve Subdivision number.
+- `getId() -> int` — ID of the rigid face.
 - `getReferenceBody() -> apex.Entity` — Return Nurbs geometry body when rigidFacType = BCNURBS/BCNURB2 or patch mesh body when rigidFacType = BCPATCH.
 - `getRigidFaceType() -> apex.attribute.RigidFaceType` — Defines the rigid face type.
 - `getSubdivisionsUdirection() -> int` — Returns subdivisions in U direction for a Nurbs surface when rigidFacType = BCNURBS.
 - `getSubdivisionsVdirection() -> int` — Returns subdivisions in V direction for a Nurbs surface when rigidFacType = BCNURBS.
-- `getTrimmingCurvesID() -> {apex.Entity:int}` — A dictionary to represent trimming curves ID for Nurbs body. This attribute is only used when rigidFacType = BCNURBS. The key is apex.Entity of trimming curve; the value is int of ID of trimming curve.
-- `getTrimmingCurvesSubdivisions() -> {apex.Entity:int}` — A dictionary to represent trimming curves Subdivision for Nurbs body. This attribute is only used when rigidFacType = BCNURBS. The key is apex.Entity of trimming curve ; the value is int of Subdivision number of trimming curve.
+- `getTrimmingCurvesID() -> {apex.Entity:int}` — A dictionary to represent trimming curves ID for Nurbs body.
+- `getTrimmingCurvesSubdivisions() -> {apex.Entity:int}` — A dictionary to represent trimming curves Subdivision for Nurbs body.
+- `update(name: str, description: str, id: int, subdivisionsUdirection: int, subdivisionsVdirection: int, curveSubdivisions: int, trimmingCurvesID: {apex.Entity:int}, trimmingCurvesSubdivisions: {apex.Entity:int}) -> None` — update the rigid face.
+
+Method details:
+
+#### `getCurveSubdivisions() -> int`
+Int value to represent curve Subdivision number. This attribute is only used when rigidFacType = BCNURBS2.
+
+#### `getId() -> int`
+ID of the rigid face. If omits, the system will automatically assign an ID.
+
+#### `getTrimmingCurvesID() -> {apex.Entity:int}`
+A dictionary to represent trimming curves ID for Nurbs body. This attribute is only used when rigidFacType = BCNURBS. The key is apex.Entity of trimming curve; the value is int of ID of trimming curve.
+
+#### `getTrimmingCurvesSubdivisions() -> {apex.Entity:int}`
+A dictionary to represent trimming curves Subdivision for Nurbs body. This attribute is only used when rigidFacType = BCNURBS. The key is apex.Entity of trimming curve ; the value is int of Subdivision number of trimming curve.
+
 #### `update(name: str, description: str, id: int, subdivisionsUdirection: int, subdivisionsVdirection: int, curveSubdivisions: int, trimmingCurvesID: {apex.Entity:int}, trimmingCurvesSubdivisions: {apex.Entity:int}) -> None`
 update the rigid face.
 
@@ -2863,6 +3949,14 @@ Methods:
 
 - `RigidFaceCollection() -> None` — Construct a new RigidFaceCollection.
 
+Method details:
+
+#### `RigidFaceCollection() -> None`
+Construct a new RigidFaceCollection.
+
+For example:
+
+
 ## `apex.attribute.RigidLink`  (extends `Connector`)
 
 ## `apex.attribute.RigidLinkCollection`  (extends `EntityCollection`, `IUserHighlightable`)
@@ -2870,6 +3964,14 @@ Methods:
 Methods:
 
 - `RigidLinkCollection() -> None` — Construct a new RigidLinkCollection.
+
+Method details:
+
+#### `RigidLinkCollection() -> None`
+Construct a new RigidLinkCollection.
+
+For example:
+
 
 ## `apex.attribute.RigidLinkRepProperties`  (extends `ConnectorDiscreteProperty`)
 Class RigidLinkRepProperties. The RigidLinkRepProperties does not have any attributes.
@@ -2879,6 +3981,10 @@ Methods:
 
 - `getReferenceTemperature() -> float` — reference temperature of rigid link
 - `getThermalExpansionCoefficient() -> float` — thermal expansion coefficient of rigid link
+- `update(thermalExpansionCoefficient: float, referenceTemperature: float) -> None` — Update this connector properties.
+
+Method details:
+
 #### `update(thermalExpansionCoefficient: float, referenceTemperature: float) -> None`
 Update this connector properties.
 
@@ -2894,6 +4000,14 @@ This Class is no longer supported in Apex.
 Methods:
 
 - `SectionCollection() -> None` — Construct a new SectionCollection.
+
+Method details:
+
+#### `SectionCollection() -> None`
+Construct a new SectionCollection.
+
+For example:
+
 
 ## `apex.attribute.ShearPanel`  (extends `PropertiesElement2D`)
 Class ShearPanel. This class describes the shear panel behavior of shell elements.
@@ -2911,6 +4025,10 @@ Methods:
 - `setNonStructuralMass(nonStructuralMass: float) -> None` — Set the Nonstructural mass per unit area.
 - `setShearMaterial(shearMaterial: apex.attribute.Material) -> None` — Set the Material identification of a MAT1 entry.
 - `setThickness(thickness: float) -> None` — Set the Thickness value of shear panel.
+- `update(name: str, description: str, id: int, thickness: float, shearMaterial: apex.attribute.Material, nonStructuralMass: float, effectiveFactor1: float, effectiveFactor2: float, references: apex.EntityCollection) -> None` — Used to update the attribute for shear panel.
+
+Method details:
+
 #### `update(name: str, description: str, id: int, thickness: float, shearMaterial: apex.attribute.Material, nonStructuralMass: float, effectiveFactor1: float, effectiveFactor2: float, references: apex.EntityCollection) -> None`
 Used to update the attribute for shear panel.
 
@@ -2931,36 +4049,124 @@ Properties: `bendingMaterial`, `bendingRatio`, `bottomFiberDistance`, `couplingM
 
 Methods:
 
-- `getBendingMaterial() -> apex.attribute.Material` — Get the Bending Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the Bending will use the referred material.
-- `getBendingRatio() -> float` — Get the bending moment of inertia (12I/T^3) ratio of the actual bending moment inertia of the shell, I, to the bending moment of inertia of a homogeneous shell (T^3/12). The default value is for a homogeneous shell.(1.0) This value is required if bending stiffness is active, otherwise it is silently ignored.
-- `getBottomFiberDistance() -> float` — Get the BottomFiberDistance of this 2D element property. Fiber distances for stress calculations. The positive direction is determined by the right-hand rule.
-- `getCouplingMaterial() -> apex.attribute.Material` — Get the CouplingMaterial of this 2D element property. Material identification for membrane-bending coupling.
-- `getEnableBendingStiffness() -> bool` — Get the EnableBendingStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not bending stiffness is activated. This value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
-- `getEnableCoupling() -> bool` — Get the EnableCoupling of this 2D element property. Boolean value (Default = False) that defines whether or not membrane-bending coupling stiffness is activated. This value is only applicable if the 2D element property Type is set to "Shell".
-- `getEnableMembraneStiffness() -> bool` — Get the EnableMembraneStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not membrane stiffness is activated. This value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
-- `getEnableTransverseShearStiffness() -> bool` — Get the EnableTransverseShearStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not transverse shear stiffness is activated. This value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
-- `getMembraneMaterial() -> apex.attribute.Material` — Get the Membrane Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the Membrane will use the referred material.
-- `getNonStructuralMass() -> float` — Get the NonStructuralMass of this 2D element property. Define the Nonstructural mass per unit area.
+- `getBendingMaterial() -> apex.attribute.Material` — Get the Bending Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the ...
+- `getBendingRatio() -> float` — Get the bending moment of inertia (12I/T^3) ratio of the actual bending moment inertia of the shell, I, to the bending moment of inertia of a homogeneous shell ...
+- `getBottomFiberDistance() -> float` — Get the BottomFiberDistance of this 2D element property.
+- `getCouplingMaterial() -> apex.attribute.Material` — Get the CouplingMaterial of this 2D element property.
+- `getEnableBendingStiffness() -> bool` — Get the EnableBendingStiffness of this 2D element property.
+- `getEnableCoupling() -> bool` — Get the EnableCoupling of this 2D element property.
+- `getEnableMembraneStiffness() -> bool` — Get the EnableMembraneStiffness of this 2D element property.
+- `getEnableTransverseShearStiffness() -> bool` — Get the EnableTransverseShearStiffness of this 2D element property.
+- `getMembraneMaterial() -> apex.attribute.Material` — Get the Membrane Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the ...
+- `getNonStructuralMass() -> float` — Get the NonStructuralMass of this 2D element property.
 - `getOffset() -> float` — Get the Offset from the surface of grid points to the element reference plane.
-- `getThickness() -> float` — Get the membrane thickness of this 2D element property. Default membrane thickness for Ti on the connection entry. If T is blank then the thickness must be specified for Ti on the CQUAD4, CTRIA3, CQUAD8, and CTRIA6 entries.
-- `getTopFiberDistance() -> float` — Get the TopFiberDistance of this 2D element property. Fiber distances for stress calculations. The positive direction is determined by the right-hand rule.
-- `getTransversMaterial() -> apex.attribute.Material` — Get the Transvers Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the Transvers Shear will use the referred material.
-- `getTransverseShearRatio() -> float` — Get the transverse shear thickness ratio of this 2D element property. Transverse shear thickness ratio, Ts/T is the ratio of the shear thickness (Ts), to the membrane thickness (T) of the shell. The default value is for a homogeneous shell (0.833333). This value is used if transverse shear stiffness is active, otherwise it is silently ignored.
-- `setBendingMaterial(bendingMaterial: apex.attribute.Material) -> None` — Set the Bending Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the Bending will use the referred material.
-- `setBendingRatio(bendingRatio: float) -> None` — Set the bending moment of inertia (12I/T^3) ratio of the actual bending moment inertia of the shell, I, to the bending moment of inertia of a homogeneous shell (T^3/12). The default value is for a homogeneous shell.(1.0) This value is required if bending stiffness is active, otherwise it is silently ignored.
-- `setBottomFiberDistance(bottomFiberDistance: float) -> None` — Set the BottomFiberDistance of this 2D element property. Fiber distances for stress calculations. The positive direction is determined by the right-hand rule.
-- `setCouplingMaterial(couplingMaterial: apex.attribute.Material) -> None` — Set the CouplingMaterial of this 2D element property. Material identification for membrane-bending coupling.
-- `setEnableBendingStiffness(enableBendingStiffness: apex.ApexBool) -> None` — Set the EnableBendingStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not bending stiffness is activated. This value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
-- `setEnableCoupling(enableCoupling: apex.ApexBool) -> None` — Set the EnableCoupling of this 2D element property. Boolean value (Default = False) that defines whether or not membrane-bending coupling stiffness is activated. This value is only applicable if the 2D element property Type is set to "Shell".
-- `setEnableMembraneStiffness(enableMembraneStiffness: apex.ApexBool) -> None` — Set the EnableMembraneStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not membrane stiffness is activated. This value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
-- `setEnableTransverseShearStiffness(enableTransverseShearStiffness: apex.ApexBool) -> None` — Set the EnableTransverseShearStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not transverse shear stiffness is activated. This value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
-- `setMembraneMaterial(membraneMaterial: apex.attribute.Material) -> None` — Set the Membrane Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the Membrane will use the referred material.
-- `setNonStructuralMass(nonStructuralMass: float) -> None` — Set the NonStructuralMass of this 2D element property. Define the Nonstructural mass per unit area.
+- `getThickness() -> float` — Get the membrane thickness of this 2D element property.
+- `getTopFiberDistance() -> float` — Get the TopFiberDistance of this 2D element property.
+- `getTransversMaterial() -> apex.attribute.Material` — Get the Transvers Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the ...
+- `getTransverseShearRatio() -> float` — Get the transverse shear thickness ratio of this 2D element property.
+- `setBendingMaterial(bendingMaterial: apex.attribute.Material) -> None` — Set the Bending Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the ...
+- `setBendingRatio(bendingRatio: float) -> None` — Set the bending moment of inertia (12I/T^3) ratio of the actual bending moment inertia of the shell, I, to the bending moment of inertia of a homogeneous shell ...
+- `setBottomFiberDistance(bottomFiberDistance: float) -> None` — Set the BottomFiberDistance of this 2D element property.
+- `setCouplingMaterial(couplingMaterial: apex.attribute.Material) -> None` — Set the CouplingMaterial of this 2D element property.
+- `setEnableBendingStiffness(enableBendingStiffness: apex.ApexBool) -> None` — Set the EnableBendingStiffness of this 2D element property.
+- `setEnableCoupling(enableCoupling: apex.ApexBool) -> None` — Set the EnableCoupling of this 2D element property.
+- `setEnableMembraneStiffness(enableMembraneStiffness: apex.ApexBool) -> None` — Set the EnableMembraneStiffness of this 2D element property.
+- `setEnableTransverseShearStiffness(enableTransverseShearStiffness: apex.ApexBool) -> None` — Set the EnableTransverseShearStiffness of this 2D element property.
+- `setMembraneMaterial(membraneMaterial: apex.attribute.Material) -> None` — Set the Membrane Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the ...
+- `setNonStructuralMass(nonStructuralMass: float) -> None` — Set the NonStructuralMass of this 2D element property.
 - `setOffset(offset: float) -> None` — Set the Offset from the surface of grid points to the element reference plane.
-- `setThickness(thickness: float) -> None` — Set the membrane thickness of this 2D element property. Default membrane thickness for Ti on the connection entry. If T is blank then the thickness must be specified for Ti on the CQUAD4, CTRIA3, CQUAD8, and CTRIA6 entries.
-- `setTopFiberDistance(topFiberDistance: float) -> None` — Set the TopFiberDistance of this 2D element property. Fiber distances for stress calculations. The positive direction is determined by the right-hand rule.
-- `setTransversMaterial(transversMaterial: apex.attribute.Material) -> None` — Set the Transvers Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the Transvers Shear will use the referred material.
-- `setTransverseShearRatio(transverseShearRatio: float) -> None` — Set the transverse shear thickness ratio of this 2D element property. Transverse shear thickness ratio, Ts/T is the ratio of the shear thickness (Ts), to the membrane thickness (T) of the shell. The default value is for a homogeneous shell (0.833333). This value is used if transverse shear stiffness is active, otherwise it is silently ignored.
+- `setThickness(thickness: float) -> None` — Set the membrane thickness of this 2D element property.
+- `setTopFiberDistance(topFiberDistance: float) -> None` — Set the TopFiberDistance of this 2D element property.
+- `setTransversMaterial(transversMaterial: apex.attribute.Material) -> None` — Set the Transvers Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the ...
+- `setTransverseShearRatio(transverseShearRatio: float) -> None` — Set the transverse shear thickness ratio of this 2D element property.
+- `update(name: str, description: str, id: int, overrideSection: apex.ApexBool, thickness: float, offset: float, enableMembraneStiffness: apex.ApexBool, membraneMaterial: apex.attribute.Material, enableBendingStiffness: apex.ApexBool, bendingMaterial: apex.attribute.Material, bendingRatio: float, enableTransverseShearStiffness: apex.ApexBool, transversMaterial: apex.attribute.Material, transverseShearRatio: float, enableCoupling: apex.ApexBool, couplingMaterial: apex.attribute.Material, nonStructuralMass: float, topFiberDistance: float, bottomFiberDistance: float, references: apex.EntityCollection) -> None` — Used to update the attribute for shell.
+
+Method details:
+
+#### `getBendingMaterial() -> apex.attribute.Material`
+Get the Bending Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the Bending will use the referred material.
+
+#### `getBendingRatio() -> float`
+Get the bending moment of inertia (12I/T^3) ratio of the actual bending moment inertia of the shell, I, to the bending moment of inertia of a homogeneous shell (T^3/12). The default value is for a homogeneous shell.(1.0) This value is required if bending stiffness is active, otherwise it is silently ignored.
+
+#### `getBottomFiberDistance() -> float`
+Get the BottomFiberDistance of this 2D element property. Fiber distances for stress calculations. The positive direction is determined by the right-hand rule.
+
+#### `getCouplingMaterial() -> apex.attribute.Material`
+Get the CouplingMaterial of this 2D element property. Material identification for membrane-bending coupling.
+
+#### `getEnableBendingStiffness() -> bool`
+Get the EnableBendingStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not bending stiffness is activated. This value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
+
+#### `getEnableCoupling() -> bool`
+Get the EnableCoupling of this 2D element property. Boolean value (Default = False) that defines whether or not membrane-bending coupling stiffness is activated. This value is only applicable if the 2D element property Type is set to "Shell".
+
+#### `getEnableMembraneStiffness() -> bool`
+Get the EnableMembraneStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not membrane stiffness is activated. This value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
+
+#### `getEnableTransverseShearStiffness() -> bool`
+Get the EnableTransverseShearStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not transverse shear stiffness is activated. This value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
+
+#### `getMembraneMaterial() -> apex.attribute.Material`
+Get the Membrane Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the Membrane will use the referred material.
+
+#### `getNonStructuralMass() -> float`
+Get the NonStructuralMass of this 2D element property. Define the Nonstructural mass per unit area.
+
+#### `getThickness() -> float`
+Get the membrane thickness of this 2D element property. Default membrane thickness for Ti on the connection entry. If T is blank then the thickness must be specified for Ti on the CQUAD4, CTRIA3, CQUAD8, and CTRIA6 entries.
+
+#### `getTopFiberDistance() -> float`
+Get the TopFiberDistance of this 2D element property. Fiber distances for stress calculations. The positive direction is determined by the right-hand rule.
+
+#### `getTransversMaterial() -> apex.attribute.Material`
+Get the Transvers Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the Transvers Shear will use the referred material.
+
+#### `getTransverseShearRatio() -> float`
+Get the transverse shear thickness ratio of this 2D element property. Transverse shear thickness ratio, Ts/T is the ratio of the shear thickness (Ts), to the membrane thickness (T) of the shell. The default value is for a homogeneous shell (0.833333). This value is used if transverse shear stiffness is active, otherwise it is silently ignored.
+
+#### `setBendingMaterial(bendingMaterial: apex.attribute.Material) -> None`
+Set the Bending Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the Bending will use the referred material.
+
+#### `setBendingRatio(bendingRatio: float) -> None`
+Set the bending moment of inertia (12I/T^3) ratio of the actual bending moment inertia of the shell, I, to the bending moment of inertia of a homogeneous shell (T^3/12). The default value is for a homogeneous shell.(1.0) This value is required if bending stiffness is active, otherwise it is silently ignored.
+
+#### `setBottomFiberDistance(bottomFiberDistance: float) -> None`
+Set the BottomFiberDistance of this 2D element property. Fiber distances for stress calculations. The positive direction is determined by the right-hand rule.
+
+#### `setCouplingMaterial(couplingMaterial: apex.attribute.Material) -> None`
+Set the CouplingMaterial of this 2D element property. Material identification for membrane-bending coupling.
+
+#### `setEnableBendingStiffness(enableBendingStiffness: apex.ApexBool) -> None`
+Set the EnableBendingStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not bending stiffness is activated. This value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
+
+#### `setEnableCoupling(enableCoupling: apex.ApexBool) -> None`
+Set the EnableCoupling of this 2D element property. Boolean value (Default = False) that defines whether or not membrane-bending coupling stiffness is activated. This value is only applicable if the 2D element property Type is set to "Shell".
+
+#### `setEnableMembraneStiffness(enableMembraneStiffness: apex.ApexBool) -> None`
+Set the EnableMembraneStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not membrane stiffness is activated. This value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
+
+#### `setEnableTransverseShearStiffness(enableTransverseShearStiffness: apex.ApexBool) -> None`
+Set the EnableTransverseShearStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not transverse shear stiffness is activated. This value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
+
+#### `setMembraneMaterial(membraneMaterial: apex.attribute.Material) -> None`
+Set the Membrane Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the Membrane will use the referred material.
+
+#### `setNonStructuralMass(nonStructuralMass: float) -> None`
+Set the NonStructuralMass of this 2D element property. Define the Nonstructural mass per unit area.
+
+#### `setThickness(thickness: float) -> None`
+Set the membrane thickness of this 2D element property. Default membrane thickness for Ti on the connection entry. If T is blank then the thickness must be specified for Ti on the CQUAD4, CTRIA3, CQUAD8, and CTRIA6 entries.
+
+#### `setTopFiberDistance(topFiberDistance: float) -> None`
+Set the TopFiberDistance of this 2D element property. Fiber distances for stress calculations. The positive direction is determined by the right-hand rule.
+
+#### `setTransversMaterial(transversMaterial: apex.attribute.Material) -> None`
+Set the Transvers Material of this 2D element property. this will allow user create the 2D element property by refer a existing material. this means that the Transvers Shear will use the referred material.
+
+#### `setTransverseShearRatio(transverseShearRatio: float) -> None`
+Set the transverse shear thickness ratio of this 2D element property. Transverse shear thickness ratio, Ts/T is the ratio of the shear thickness (Ts), to the membrane thickness (T) of the shell. The default value is for a homogeneous shell (0.833333). This value is used if transverse shear stiffness is active, otherwise it is silently ignored.
+
 #### `update(name: str, description: str, id: int, overrideSection: apex.ApexBool, thickness: float, offset: float, enableMembraneStiffness: apex.ApexBool, membraneMaterial: apex.attribute.Material, enableBendingStiffness: apex.ApexBool, bendingMaterial: apex.attribute.Material, bendingRatio: float, enableTransverseShearStiffness: apex.ApexBool, transversMaterial: apex.attribute.Material, transverseShearRatio: float, enableCoupling: apex.ApexBool, couplingMaterial: apex.attribute.Material, nonStructuralMass: float, topFiberDistance: float, bottomFiberDistance: float, references: apex.EntityCollection) -> None`
 Used to update the attribute for shell. In the scripting we will allow user update the thickness/offset as below: 1. User create the object with a thickness/offset value , then only allow update the thickness/offset value. if user set a reference section, will return a error. since we can not support two thickness/offset definition methods at the same time. 2. User create the object with a reference section, it allowed to update the object with a new section (include the association). if user set a thickness/offset value for this object, will return a error. 3. others parameters should be able to update normally.
 
@@ -2992,13 +4198,35 @@ Properties: `bendingRatio`, `enableBendingStiffness`, `enableMembraneStiffness`,
 
 Methods:
 
-- `getBendingRatio() -> float` — Bending momnet of inertia (12I/T^3) ratio of the actual bending moment inertia of the shell, I, to the bending moment of inertia of a homogeneous shell (T^3/12). The default value is for a homogeneous shell.(1.0) This value is required if bending stiffness is active, otherwise it is silently ignored.
-- `getEnableBendingStiffness() -> bool` — Boolean value (Default = True) that defines whether or not bending stiffness is activated. This value is only applicable if the ShellBehaviorType is set to "ThinShell" and is silently ignored for all other ShellBehaviorTypes.
-- `getEnableMembraneStiffness() -> bool` — Boolean value (Default = True) that defines whether or not membrane stiffness is activated. This value is only applicable if the ShellBehaviorType is set to "ThinShell" and is silently ignored for all other ShellBehaviorTypes.
-- `getEnableTransverseShearStiffness() -> bool` — Boolean value (Default = True) that defines whether or not tranverse shear stiffness is activated. This value is only applicable if the ShellBehaviorType is set to "ThinShell" and is silently ignored for all other ShellBehaviorTypes.
+- `getBendingRatio() -> float` — Bending momnet of inertia (12I/T^3) ratio of the actual bending moment inertia of the shell, I, to the bending moment of inertia of a homogeneous shell ...
+- `getEnableBendingStiffness() -> bool` — Boolean value (Default = True) that defines whether or not bending stiffness is activated.
+- `getEnableMembraneStiffness() -> bool` — Boolean value (Default = True) that defines whether or not membrane stiffness is activated.
+- `getEnableTransverseShearStiffness() -> bool` — Boolean value (Default = True) that defines whether or not tranverse shear stiffness is activated.
 - `getReferences() -> apex.EntityCollection` — returns a collection of all entities that this ShellBehavior directly references.
-- `getShellBehaviorType() -> apex.attribute.ShellBehaviorType` — Selects the type of behavior that will be activated for elements that are associated with this class. The behavior type is indicated by an apex.attributes.ShellBehaviorType enumeration and defaults to "ThinShell".
-- `getTransverseShearRatio() -> float` — Transverse shear thickness ratio, Ts/T is the ratio of the shear thickness (Ts), to the membrane thickness (T) of the shell. The default value is for a homogeneous shell (0.833333). This value is used if tranverse shear stiffness is active, otherwise it is silently ignored.
+- `getShellBehaviorType() -> apex.attribute.ShellBehaviorType` — Selects the type of behavior that will be activated for elements that are associated with this class.
+- `getTransverseShearRatio() -> float` — Transverse shear thickness ratio, Ts/T is the ratio of the shear thickness (Ts), to the membrane thickness (T) of the shell.
+- `update(name: str, description: str, shellBehaviorType: apex.attribute.ShellBehaviorType = apex.attribute.ShellBehaviorType.Undefined, enableMembraneStiffness: apex.ApexBool = ApexBoolUndefined, enableBendingStiffness: apex.ApexBool = ApexBoolUndefined, enableTransverseShearStiffness: apex.ApexBool = ApexBoolUndefined, bendingRatio: float, transverseShearRatio: float) -> None` — Updates one or more properties of the ShellBehavior.
+
+Method details:
+
+#### `getBendingRatio() -> float`
+Bending momnet of inertia (12I/T^3) ratio of the actual bending moment inertia of the shell, I, to the bending moment of inertia of a homogeneous shell (T^3/12). The default value is for a homogeneous shell.(1.0) This value is required if bending stiffness is active, otherwise it is silently ignored.
+
+#### `getEnableBendingStiffness() -> bool`
+Boolean value (Default = True) that defines whether or not bending stiffness is activated. This value is only applicable if the ShellBehaviorType is set to "ThinShell" and is silently ignored for all other ShellBehaviorTypes.
+
+#### `getEnableMembraneStiffness() -> bool`
+Boolean value (Default = True) that defines whether or not membrane stiffness is activated. This value is only applicable if the ShellBehaviorType is set to "ThinShell" and is silently ignored for all other ShellBehaviorTypes.
+
+#### `getEnableTransverseShearStiffness() -> bool`
+Boolean value (Default = True) that defines whether or not tranverse shear stiffness is activated. This value is only applicable if the ShellBehaviorType is set to "ThinShell" and is silently ignored for all other ShellBehaviorTypes.
+
+#### `getShellBehaviorType() -> apex.attribute.ShellBehaviorType`
+Selects the type of behavior that will be activated for elements that are associated with this class. The behavior type is indicated by an apex.attributes.ShellBehaviorType enumeration and defaults to "ThinShell".
+
+#### `getTransverseShearRatio() -> float`
+Transverse shear thickness ratio, Ts/T is the ratio of the shear thickness (Ts), to the membrane thickness (T) of the shell. The default value is for a homogeneous shell (0.833333). This value is used if tranverse shear stiffness is active, otherwise it is silently ignored.
+
 #### `update(name: str, description: str, shellBehaviorType: apex.attribute.ShellBehaviorType = apex.attribute.ShellBehaviorType.Undefined, enableMembraneStiffness: apex.ApexBool = ApexBoolUndefined, enableBendingStiffness: apex.ApexBool = ApexBoolUndefined, enableTransverseShearStiffness: apex.ApexBool = ApexBoolUndefined, bendingRatio: float, transverseShearRatio: float) -> None`
 Updates one or more properties of the ShellBehavior. This method allows multiple properties of the ShellBehavior to be updated using a single method call. All arguments are optional and the values of all ShellBehavior properties associated with the omitted arguments are left unchanged.
 
@@ -3019,6 +4247,14 @@ Methods:
 
 - `ShellBehaviorCollection() -> None` — Construct a new ShellBehaviorCollection.
 
+Method details:
+
+#### `ShellBehaviorCollection() -> None`
+Construct a new ShellBehaviorCollection.
+
+For example:
+
+
 ## `apex.attribute.ShellSection`  (extends `Entity`, `IUserAttributes`, `IName`)
 This Class is no longer supported in Apex. Refer to ThicknessOffsetFieldConstant to determine how this capability is now supported.
 Properties: `offset`, `references`, `target`, `thickness`
@@ -3029,7 +4265,14 @@ Methods:
 - `getReferences() -> apex.EntityCollection` — returns a collection of all entities that this ShellSection directly references
 - `getTarget() -> apex.EntityCollection` — Returns a read only collection of the entities that the ShellSection is applied to.
 - `getThickness() -> float` — Returns Thickness of the ShellSection.
-- `recalculate() -> None` — recalculates the thickness and offset fields/values for this Section using the current locations of the pairs of Faces that were used to create the Section. This method will only affect ShellSections that were created using the automatic thickness tool or automatic mid-surface extraction tool. The method will be silently ignored if called on ShellSections that were not created using these methods.
+- `recalculate() -> None` — recalculates the thickness and offset fields/values for this Section using the current locations of the pairs of Faces that were used to create the Section.
+- `update(name: str, description: str, thickness: float, offset: float) -> None` — Update this ShellSection properties.
+
+Method details:
+
+#### `recalculate() -> None`
+recalculates the thickness and offset fields/values for this Section using the current locations of the pairs of Faces that were used to create the Section. This method will only affect ShellSections that were created using the automatic thickness tool or automatic mid-surface extraction tool. The method will be silently ignored if called on ShellSections that were not created using these methods.
+
 #### `update(name: str, description: str, thickness: float, offset: float) -> None`
 Update this ShellSection properties.
 
@@ -3047,28 +4290,98 @@ Properties: `bendingRatio`, `bottomFiberDistance`, `enableBendingStiffness`, `en
 
 Methods:
 
-- `getBendingRatio() -> float` — Get the BendingRatio of this 2D element property. Bending moment of inertia (12I/T^3) ratio of the actual bending moment inertia of the shell, I, to the bending moment of inertia of a homogeneous shell (T^3/12). The default value is for a homogeneous shell.(1.0) This value is required if bending stiffness is active, otherwise it is silently ignored.
-- `getBottomFiberDistance() -> float` — Get the BottomFiberDistance of this 2D element property. Fiber distances for stress calculations. The positive direction is determined by the right-hand rule.
-- `getEnableBendingStiffness() -> bool` — Get the EnableBendingStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not bending stiffness is activated. This value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
-- `getEnableMembraneStiffness() -> bool` — Get the EnableMembraneStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not membrane stiffness is activated. This value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
-- `getEnableTransverseShearStiffness() -> bool` — Get the EnableTransverseShearStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not transverse shear stiffness is activated. This value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
-- `getNonStructuralMass() -> float` — Get the NonStructuralMass of this 2D element property. Define the Nonstructural mass per unit area.
-- `getOffset() -> float` — Get the Offset of this 2D element property. Offset from the surface of grid points to the element reference plane.
-- `getReferMaterial() -> apex.attribute.Material` — Get the ReferMaterial of this 2D element property. This will allow user create the 2D element property by refer a existing material. This means that all the Membrane, Bending, Transvers Shear will use the referred material.
-- `getThickness() -> float` — Get the Thickness of this 2D element property. Default membrane thickness for Ti on the connection entry. If T is blank then the thickness must be specified for Ti on the CQUAD4, CTRIA3, CQUAD8, and CTRIA6 entries. (Real or blank) Average thickness if TFLAG = 1 .
-- `getTopFiberDistance() -> float` — Get the TopFiberDistance of this 2D element property. Fiber distances for stress calculations. The positive direction is determined by the right-hand rule.
-- `getTransverseShearRatio() -> float` — Get the TransverseShearRatio of this 2D element property. Transverse shear thickness ratio, Ts/T is the ratio of the shear thickness (Ts), to the membrane thickness (T) of the shell. The default value is for a homogeneous shell (0.833333). This value is used if transverse shear stiffness is active, otherwise it is silently ignored.
-- `setBendingRatio(bendingRatio: float) -> None` — Set the BendingRatio of this 2D element property. Bending moment of inertia (12I/T^3) ratio of the actual bending moment inertia of the shell, I, to the bending moment of inertia of a homogeneous shell (T^3/12). The default value is for a homogeneous shell.(1.0) This value is required if bending stiffness is active, otherwise it is silently ignored.
-- `setBottomFiberDistance(bottomFiberDistance: float) -> None` — Set the BottomFiberDistance of this 2D element property. Fiber distances for stress calculations. The positive direction is determined by the right-hand rule.
-- `setEnableBendingStiffness(enableBendingStiffness: apex.ApexBool) -> None` — Set the EnableBendingStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not bending stiffness is activated. This value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
-- `setEnableMembraneStiffness(enableMembraneStiffness: apex.ApexBool) -> None` — Set the EnableMembraneStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not membrane stiffness is activated. This value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
-- `setEnableTransverseShearStiffness(enableTransverseShearStiffness: apex.ApexBool) -> None` — Set the EnableTransverseShearStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not transverse shear stiffness is activated. his value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
-- `setNonStructuralMass(nonStructuralMass: float) -> None` — Set the NonStructuralMass of this 2D element property. Define the Nonstructural mass per unit area.
-- `setOffset(offset: float) -> None` — Set the Offset of this 2D element property. Offset from the surface of grid points to the element reference plane.
-- `setReferMaterial(referMaterial: apex.attribute.Material) -> None` — Set the ReferMaterial of this 2D element property. This will allow user create the 2D element property by refer a existing material. This means that all the Membrane, Bending, Transvers Shear will use the referred material.
-- `setThickness(thickness: float) -> None` — Set the Thickness of this 2D element property. Default membrane thickness for Ti on the connection entry. If T is blank then the thickness must be specified for Ti on the CQUAD4, CTRIA3, CQUAD8, and CTRIA6 entries. (Real or blank) Average thickness if TFLAG = 1 .
-- `setTopFiberDistance(topFiberDistance: float) -> None` — Set the TopFiberDistance of this 2D element property. Fiber distances for stress calculations. The positive direction is determined by the right-hand rule.
-- `setTransverseShearRatio(transverseShearRatio: float) -> None` — Set the TransverseShearRatio of this 2D element property. Transverse shear thickness ratio, Ts/T is the ratio of the shear thickness (Ts), to the membrane thickness (T) of the shell. The default value is for a homogeneous shell (0.833333). This value is used if transverse shear stiffness is active, otherwise it is silently ignored.
+- `getBendingRatio() -> float` — Get the BendingRatio of this 2D element property.
+- `getBottomFiberDistance() -> float` — Get the BottomFiberDistance of this 2D element property.
+- `getEnableBendingStiffness() -> bool` — Get the EnableBendingStiffness of this 2D element property.
+- `getEnableMembraneStiffness() -> bool` — Get the EnableMembraneStiffness of this 2D element property.
+- `getEnableTransverseShearStiffness() -> bool` — Get the EnableTransverseShearStiffness of this 2D element property.
+- `getNonStructuralMass() -> float` — Get the NonStructuralMass of this 2D element property.
+- `getOffset() -> float` — Get the Offset of this 2D element property.
+- `getReferMaterial() -> apex.attribute.Material` — Get the ReferMaterial of this 2D element property.
+- `getThickness() -> float` — Get the Thickness of this 2D element property.
+- `getTopFiberDistance() -> float` — Get the TopFiberDistance of this 2D element property.
+- `getTransverseShearRatio() -> float` — Get the TransverseShearRatio of this 2D element property.
+- `setBendingRatio(bendingRatio: float) -> None` — Set the BendingRatio of this 2D element property.
+- `setBottomFiberDistance(bottomFiberDistance: float) -> None` — Set the BottomFiberDistance of this 2D element property.
+- `setEnableBendingStiffness(enableBendingStiffness: apex.ApexBool) -> None` — Set the EnableBendingStiffness of this 2D element property.
+- `setEnableMembraneStiffness(enableMembraneStiffness: apex.ApexBool) -> None` — Set the EnableMembraneStiffness of this 2D element property.
+- `setEnableTransverseShearStiffness(enableTransverseShearStiffness: apex.ApexBool) -> None` — Set the EnableTransverseShearStiffness of this 2D element property.
+- `setNonStructuralMass(nonStructuralMass: float) -> None` — Set the NonStructuralMass of this 2D element property.
+- `setOffset(offset: float) -> None` — Set the Offset of this 2D element property.
+- `setReferMaterial(referMaterial: apex.attribute.Material) -> None` — Set the ReferMaterial of this 2D element property.
+- `setThickness(thickness: float) -> None` — Set the Thickness of this 2D element property.
+- `setTopFiberDistance(topFiberDistance: float) -> None` — Set the TopFiberDistance of this 2D element property.
+- `setTransverseShearRatio(transverseShearRatio: float) -> None` — Set the TransverseShearRatio of this 2D element property.
+- `update(name: str, description: str, id: int, overrideSection: apex.ApexBool, thickness: float, offset: float, referMaterial: apex.attribute.Material, enableMembraneStiffness: apex.ApexBool, enableBendingStiffness: apex.ApexBool, enableTransverseShearStiffness: apex.ApexBool, bendingRatio: float, transverseShearRatio: float, nonStructuralMass: float, topFiberDistance: float, bottomFiberDistance: float, references: apex.EntityCollection) -> None` — Used to update the attribute for simple shell.
+
+Method details:
+
+#### `getBendingRatio() -> float`
+Get the BendingRatio of this 2D element property. Bending moment of inertia (12I/T^3) ratio of the actual bending moment inertia of the shell, I, to the bending moment of inertia of a homogeneous shell (T^3/12). The default value is for a homogeneous shell.(1.0) This value is required if bending stiffness is active, otherwise it is silently ignored.
+
+#### `getBottomFiberDistance() -> float`
+Get the BottomFiberDistance of this 2D element property. Fiber distances for stress calculations. The positive direction is determined by the right-hand rule.
+
+#### `getEnableBendingStiffness() -> bool`
+Get the EnableBendingStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not bending stiffness is activated. This value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
+
+#### `getEnableMembraneStiffness() -> bool`
+Get the EnableMembraneStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not membrane stiffness is activated. This value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
+
+#### `getEnableTransverseShearStiffness() -> bool`
+Get the EnableTransverseShearStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not transverse shear stiffness is activated. This value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
+
+#### `getNonStructuralMass() -> float`
+Get the NonStructuralMass of this 2D element property. Define the Nonstructural mass per unit area.
+
+#### `getOffset() -> float`
+Get the Offset of this 2D element property. Offset from the surface of grid points to the element reference plane.
+
+#### `getReferMaterial() -> apex.attribute.Material`
+Get the ReferMaterial of this 2D element property. This will allow user create the 2D element property by refer a existing material. This means that all the Membrane, Bending, Transvers Shear will use the referred material.
+
+#### `getThickness() -> float`
+Get the Thickness of this 2D element property. Default membrane thickness for Ti on the connection entry. If T is blank then the thickness must be specified for Ti on the CQUAD4, CTRIA3, CQUAD8, and CTRIA6 entries. (Real or blank) Average thickness if TFLAG = 1 .
+
+#### `getTopFiberDistance() -> float`
+Get the TopFiberDistance of this 2D element property. Fiber distances for stress calculations. The positive direction is determined by the right-hand rule.
+
+#### `getTransverseShearRatio() -> float`
+Get the TransverseShearRatio of this 2D element property. Transverse shear thickness ratio, Ts/T is the ratio of the shear thickness (Ts), to the membrane thickness (T) of the shell. The default value is for a homogeneous shell (0.833333). This value is used if transverse shear stiffness is active, otherwise it is silently ignored.
+
+#### `setBendingRatio(bendingRatio: float) -> None`
+Set the BendingRatio of this 2D element property. Bending moment of inertia (12I/T^3) ratio of the actual bending moment inertia of the shell, I, to the bending moment of inertia of a homogeneous shell (T^3/12). The default value is for a homogeneous shell.(1.0) This value is required if bending stiffness is active, otherwise it is silently ignored.
+
+#### `setBottomFiberDistance(bottomFiberDistance: float) -> None`
+Set the BottomFiberDistance of this 2D element property. Fiber distances for stress calculations. The positive direction is determined by the right-hand rule.
+
+#### `setEnableBendingStiffness(enableBendingStiffness: apex.ApexBool) -> None`
+Set the EnableBendingStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not bending stiffness is activated. This value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
+
+#### `setEnableMembraneStiffness(enableMembraneStiffness: apex.ApexBool) -> None`
+Set the EnableMembraneStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not membrane stiffness is activated. This value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
+
+#### `setEnableTransverseShearStiffness(enableTransverseShearStiffness: apex.ApexBool) -> None`
+Set the EnableTransverseShearStiffness of this 2D element property. Boolean value (Default = True) that defines whether or not transverse shear stiffness is activated. his value is only applicable if the 2D element property Type is set to "simpleShell" or "Shell".
+
+#### `setNonStructuralMass(nonStructuralMass: float) -> None`
+Set the NonStructuralMass of this 2D element property. Define the Nonstructural mass per unit area.
+
+#### `setOffset(offset: float) -> None`
+Set the Offset of this 2D element property. Offset from the surface of grid points to the element reference plane.
+
+#### `setReferMaterial(referMaterial: apex.attribute.Material) -> None`
+Set the ReferMaterial of this 2D element property. This will allow user create the 2D element property by refer a existing material. This means that all the Membrane, Bending, Transvers Shear will use the referred material.
+
+#### `setThickness(thickness: float) -> None`
+Set the Thickness of this 2D element property. Default membrane thickness for Ti on the connection entry. If T is blank then the thickness must be specified for Ti on the CQUAD4, CTRIA3, CQUAD8, and CTRIA6 entries. (Real or blank) Average thickness if TFLAG = 1 .
+
+#### `setTopFiberDistance(topFiberDistance: float) -> None`
+Set the TopFiberDistance of this 2D element property. Fiber distances for stress calculations. The positive direction is determined by the right-hand rule.
+
+#### `setTransverseShearRatio(transverseShearRatio: float) -> None`
+Set the TransverseShearRatio of this 2D element property. Transverse shear thickness ratio, Ts/T is the ratio of the shear thickness (Ts), to the membrane thickness (T) of the shell. The default value is for a homogeneous shell (0.833333). This value is used if transverse shear stiffness is active, otherwise it is silently ignored.
+
 #### `update(name: str, description: str, id: int, overrideSection: apex.ApexBool, thickness: float, offset: float, referMaterial: apex.attribute.Material, enableMembraneStiffness: apex.ApexBool, enableBendingStiffness: apex.ApexBool, enableTransverseShearStiffness: apex.ApexBool, bendingRatio: float, transverseShearRatio: float, nonStructuralMass: float, topFiberDistance: float, bottomFiberDistance: float, references: apex.EntityCollection) -> None`
 Used to update the attribute for simple shell. In the scripting we will allow user update the thickness/offset as below: 1. User create the object with a thickness/offset value , then only allow update the thickness/offset value. if user set a reference section, will return a error. since we can not support two thickness/offset definition methods at the same time. 2. User create the object with a reference section, it allowed to update the object with a new section (include the association). if user set a thickness/offset value for this object, will return a error. 3. others parameters should be able to update normally.
 
@@ -3098,6 +4411,10 @@ Contains SphericalJoint and methods for editing/getting SphericalJoint attribute
 
 Methods:
 
+- `update(name: str, description: str, jointAxis: apex.attribute.JointAxis, side1: apex.EntityCollection, side1DistributionType: apex.attribute.DistributionType, side2: apex.EntityCollection, side2DistributionType: apex.attribute.DistributionType, jointOrigin: apex.Entity, jointOrientation: apex.construct.Orientation, axisLocationMode: apex.attribute.AxisLocationMode, jointRenderType: apex.attribute.JointRenderType) -> None` — Update this SphericalJoint properties.
+
+Method details:
+
 #### `update(name: str, description: str, jointAxis: apex.attribute.JointAxis, side1: apex.EntityCollection, side1DistributionType: apex.attribute.DistributionType, side2: apex.EntityCollection, side2DistributionType: apex.attribute.DistributionType, jointOrigin: apex.Entity, jointOrientation: apex.construct.Orientation, axisLocationMode: apex.attribute.AxisLocationMode, jointRenderType: apex.attribute.JointRenderType) -> None`
 Update this SphericalJoint properties.
 
@@ -3124,6 +4441,14 @@ Methods:
 
 - `Spring1DCollection() -> None` — Construct a new Spring1DCollection.
 
+Method details:
+
+#### `Spring1DCollection() -> None`
+Construct a new Spring1DCollection.
+
+For example:
+
+
 ## `apex.attribute.Spring1DRepProperties`  (extends `ConnectorDiscreteProperty`)
 Class Spring1DRepProperties. The class Spring1DRepProperties holds the properties of spring1D connector.
 Properties: `dampingCoefficient`, `embedded`, `id`, `stiffness`, `stressCoefficient`
@@ -3135,6 +4460,10 @@ Methods:
 - `getId() -> int` — Returns id of the Spring1D connector.
 - `getStiffness() -> float` — The stiffness of Spring1D connector.
 - `getStressCoefficient() -> float` — The stressCoefficient of Spring1D connector.
+- `update(stiffness: float, dampingCoefficient: float, stressCoefficient: float, name: str, description: str, id: int) -> None` — Update this connector properties.
+
+Method details:
+
 #### `update(stiffness: float, dampingCoefficient: float, stressCoefficient: float, name: str, description: str, id: int) -> None`
 Update this connector properties.
 
@@ -3154,6 +4483,14 @@ Methods:
 
 - `Spring1DRepPropertiesCollection() -> None` — Construct a new Spring1DRepPropertiesCollection.
 
+Method details:
+
+#### `Spring1DRepPropertiesCollection() -> None`
+Construct a new Spring1DRepPropertiesCollection.
+
+For example:
+
+
 ## `apex.attribute.SpringDamper1D`  (extends `Connector`)
 
 ## `apex.attribute.SpringDamper1DCollection`  (extends `EntityCollection`, `IUserHighlightable`)
@@ -3161,6 +4498,14 @@ Methods:
 Methods:
 
 - `SpringDamper1DCollection() -> None` — Construct a new SpringDamper1DCollection.
+
+Method details:
+
+#### `SpringDamper1DCollection() -> None`
+Construct a new SpringDamper1DCollection.
+
+For example:
+
 
 ## `apex.attribute.SpringDamper1DRepProperties`  (extends `ConnectorDiscreteProperty`)
 Class SpringDamper1DRepProperties. The class SprinDamper1DRepProperties holds the properties of SpringDamper1D connector.
@@ -3175,6 +4520,10 @@ Methods:
 - `getStiffness() -> float` — The stiffness of the SpringDamper1D connector.
 - `getStrainRecoveryCoefficient() -> float` — The strainRecoveryCoefficient of the SpringDamper1D connector.
 - `getStressRecoveryCoefficient() -> float` — The stressRecoveryCoefficient of the SpringDamper1D connector.
+- `update(stiffness: float, damping: float, mass: float, stressRecoveryCoefficient: float, strainRecoveryCoefficient: float, name: str, description: str, id: int) -> None` — Update this connector properties.
+
+Method details:
+
 #### `update(stiffness: float, damping: float, mass: float, stressRecoveryCoefficient: float, strainRecoveryCoefficient: float, name: str, description: str, id: int) -> None`
 Update this connector properties.
 
@@ -3195,6 +4544,14 @@ One or more properties may be updated in each call to update().
 Methods:
 
 - `SpringDamper1DRepPropertiesCollection() -> None` — Construct a new SpringDamper1DRepPropertiesCollection.
+
+Method details:
+
+#### `SpringDamper1DRepPropertiesCollection() -> None`
+Construct a new SpringDamper1DRepPropertiesCollection.
+
+For example:
+
 
 ## `apex.attribute.StressStrainCurve`  (extends `DataSeries`)
 This class used to define the stress-strain curve for Plasticity constitutive model.
@@ -3260,6 +4617,15 @@ Properties: `expansionCoefficient11`, `expansionCoefficient12`, `expansionCoeffi
 
 Methods:
 
+- `ThermalExpansionLinear2DAnisotropic(expansionCoefficient11: float, expansionCoefficient22: float, expansionCoefficient12: float, referenceTemp: float) -> None` — Create ThermalExpansionLinear2DAnisotropic constitutive model.
+- `getExpansionCoefficient11() -> float` — Returns Expansion Coefficient11 of the constitutive model.
+- `getExpansionCoefficient12() -> float` — Returns Expansion Coefficient12 of the constitutive model.
+- `getExpansionCoefficient22() -> float` — Returns Expansion Coefficient22 of the constitutive model.
+- `getReferenceTemp() -> float` — Gets Reference Temp property of the Material.
+- `update(expansionCoefficient11: float, expansionCoefficient22: float, expansionCoefficient12: float, referenceTemp: float) -> None` — Update properties of this ThermalExpansionLinear2DAnisotropic constitutive model.
+
+Method details:
+
 #### `ThermalExpansionLinear2DAnisotropic(expansionCoefficient11: float, expansionCoefficient22: float, expansionCoefficient12: float, referenceTemp: float) -> None`
 Create ThermalExpansionLinear2DAnisotropic constitutive model.
 
@@ -3268,10 +4634,6 @@ Create ThermalExpansionLinear2DAnisotropic constitutive model.
 - `expansionCoefficient12` — of this constitutive model
 - `referenceTemp` — Reference Temp property of the Material
 
-- `getExpansionCoefficient11() -> float` — Returns Expansion Coefficient11 of the constitutive model.
-- `getExpansionCoefficient12() -> float` — Returns Expansion Coefficient12 of the constitutive model.
-- `getExpansionCoefficient22() -> float` — Returns Expansion Coefficient22 of the constitutive model.
-- `getReferenceTemp() -> float` — Gets Reference Temp property of the Material.
 #### `update(expansionCoefficient11: float, expansionCoefficient22: float, expansionCoefficient12: float, referenceTemp: float) -> None`
 Update properties of this ThermalExpansionLinear2DAnisotropic constitutive model.
 
@@ -3287,6 +4649,14 @@ Properties: `expansionCoefficient11`, `expansionCoefficient22`, `referenceTemp`
 
 Methods:
 
+- `ThermalExpansionLinear2DOrthotropic(expansionCoefficient11: float, expansionCoefficient22: float, referenceTemp: float) -> None` — Create ThermalExpansionLinear2DOrthotropic constitutive model.
+- `getExpansionCoefficient11() -> float` — Returns Expansion Coefficient11 of the constitutive model.
+- `getExpansionCoefficient22() -> float` — Returns Expansion Coefficient22 of the constitutive model.
+- `getReferenceTemp() -> float` — Gets Reference Temp property of the Material.
+- `update(expansionCoefficient11: float, expansionCoefficient22: float, referenceTemp: float) -> None` — Update properties of this ThermalExpansionLinear2DOrthotropic constitutive model.
+
+Method details:
+
 #### `ThermalExpansionLinear2DOrthotropic(expansionCoefficient11: float, expansionCoefficient22: float, referenceTemp: float) -> None`
 Create ThermalExpansionLinear2DOrthotropic constitutive model.
 
@@ -3294,9 +4664,6 @@ Create ThermalExpansionLinear2DOrthotropic constitutive model.
 - `expansionCoefficient22` — of this constitutive model
 - `referenceTemp` — Reference Temp property of the Material
 
-- `getExpansionCoefficient11() -> float` — Returns Expansion Coefficient11 of the constitutive model.
-- `getExpansionCoefficient22() -> float` — Returns Expansion Coefficient22 of the constitutive model.
-- `getReferenceTemp() -> float` — Gets Reference Temp property of the Material.
 #### `update(expansionCoefficient11: float, expansionCoefficient22: float, referenceTemp: float) -> None`
 Update properties of this ThermalExpansionLinear2DOrthotropic constitutive model.
 
@@ -3311,6 +4678,18 @@ Properties: `expansionCoefficient11`, `expansionCoefficient12`, `expansionCoeffi
 
 Methods:
 
+- `ThermalExpansionLinear3DAnisotropic(expansionCoefficient11: float, expansionCoefficient22: float, expansionCoefficient33: float, expansionCoefficient12: float, expansionCoefficient23: float, expansionCoefficient13: float, referenceTemp: float) -> None` — Create ThermalExpansionLinear3DAnisotropic constitutive model.
+- `getExpansionCoefficient11() -> float` — Returns Expansion Coefficient11 of the constitutive model.
+- `getExpansionCoefficient12() -> float` — Returns Expansion Coefficient12 of the constitutive model.
+- `getExpansionCoefficient13() -> float` — Returns Expansion Coefficient13 of the constitutive model.
+- `getExpansionCoefficient22() -> float` — Returns Expansion Coefficient22 of the constitutive model.
+- `getExpansionCoefficient23() -> float` — Returns Expansion Coefficient23 of the constitutive model.
+- `getExpansionCoefficient33() -> float` — Returns Expansion Coefficient33 of the constitutive model.
+- `getReferenceTemp() -> float` — Gets Reference Temp property of the Material.
+- `update(expansionCoefficient11: float, expansionCoefficient22: float, expansionCoefficient33: float, expansionCoefficient12: float, expansionCoefficient23: float, expansionCoefficient13: float, referenceTemp: float) -> None` — Update properties of this ThermalExpansionLinear3DAnisotropic constitutive model.
+
+Method details:
+
 #### `ThermalExpansionLinear3DAnisotropic(expansionCoefficient11: float, expansionCoefficient22: float, expansionCoefficient33: float, expansionCoefficient12: float, expansionCoefficient23: float, expansionCoefficient13: float, referenceTemp: float) -> None`
 Create ThermalExpansionLinear3DAnisotropic constitutive model.
 
@@ -3322,13 +4701,6 @@ Create ThermalExpansionLinear3DAnisotropic constitutive model.
 - `expansionCoefficient13` — of this constitutive model
 - `referenceTemp` — Reference Temp property of the Material
 
-- `getExpansionCoefficient11() -> float` — Returns Expansion Coefficient11 of the constitutive model.
-- `getExpansionCoefficient12() -> float` — Returns Expansion Coefficient12 of the constitutive model.
-- `getExpansionCoefficient13() -> float` — Returns Expansion Coefficient13 of the constitutive model.
-- `getExpansionCoefficient22() -> float` — Returns Expansion Coefficient22 of the constitutive model.
-- `getExpansionCoefficient23() -> float` — Returns Expansion Coefficient23 of the constitutive model.
-- `getExpansionCoefficient33() -> float` — Returns Expansion Coefficient33 of the constitutive model.
-- `getReferenceTemp() -> float` — Gets Reference Temp property of the Material.
 #### `update(expansionCoefficient11: float, expansionCoefficient22: float, expansionCoefficient33: float, expansionCoefficient12: float, expansionCoefficient23: float, expansionCoefficient13: float, referenceTemp: float) -> None`
 Update properties of this ThermalExpansionLinear3DAnisotropic constitutive model.
 
@@ -3347,6 +4719,15 @@ Properties: `expansionCoefficient11`, `expansionCoefficient22`, `expansionCoeffi
 
 Methods:
 
+- `ThermalExpansionLinear3DOrthotropic(expansionCoefficient11: float, expansionCoefficient22: float, expansionCoefficient33: float, referenceTemp: float) -> None` — Create ThermalExpansionLinear3DOrthotropic constitutive model.
+- `getExpansionCoefficient11() -> float` — Returns theCoefficient of linear thermal expansion in the material 11 direction.
+- `getExpansionCoefficient22() -> float` — Returns the Coefficient of linear thermal expansion in the material 22 direction.
+- `getExpansionCoefficient33() -> float` — Returns the Coefficient of linear thermal expansion in the material 33 direction.
+- `getReferenceTemp() -> float` — Gets Reference Temp property of the Material.
+- `update(expansionCoefficient11: float, expansionCoefficient22: float, expansionCoefficient33: float, referenceTemp: float) -> None` — Update properties of this ThermalExpansionLinear3DOrthotropic constitutive model.
+
+Method details:
+
 #### `ThermalExpansionLinear3DOrthotropic(expansionCoefficient11: float, expansionCoefficient22: float, expansionCoefficient33: float, referenceTemp: float) -> None`
 Create ThermalExpansionLinear3DOrthotropic constitutive model.
 
@@ -3355,10 +4736,6 @@ Create ThermalExpansionLinear3DOrthotropic constitutive model.
 - `expansionCoefficient33` — Coefficient of linear thermal expansion in the material 33 direction
 - `referenceTemp` — Reference Temp property of the Material
 
-- `getExpansionCoefficient11() -> float` — Returns theCoefficient of linear thermal expansion in the material 11 direction.
-- `getExpansionCoefficient22() -> float` — Returns the Coefficient of linear thermal expansion in the material 22 direction.
-- `getExpansionCoefficient33() -> float` — Returns the Coefficient of linear thermal expansion in the material 33 direction.
-- `getReferenceTemp() -> float` — Gets Reference Temp property of the Material.
 #### `update(expansionCoefficient11: float, expansionCoefficient22: float, expansionCoefficient33: float, referenceTemp: float) -> None`
 Update properties of this ThermalExpansionLinear3DOrthotropic constitutive model.
 
@@ -3374,6 +4751,14 @@ Properties: `expansionCoefficient11`, `expansionCoefficient22`, `referenceTemp`
 
 Methods:
 
+- `ThermalExpansionLinear3DTransvIso(expansionCoefficient11: float, expansionCoefficient22: float, referenceTemp: float) -> None` — Create ThermalExpansionLinear3DTransvIso constitutive model.
+- `getExpansionCoefficient11() -> float` — Returns the Axis Direction Thermal Expansion Coefficient.
+- `getExpansionCoefficient22() -> float` — Returns the in plan Thermal Expansion Coefficient.
+- `getReferenceTemp() -> float` — Gets Reference Temp property of the Material.
+- `update(expansionCoefficient11: float, expansionCoefficient22: float, referenceTemp: float) -> None` — Update properties of this ThermalExpansionLinear3DTransvIso constitutive model.
+
+Method details:
+
 #### `ThermalExpansionLinear3DTransvIso(expansionCoefficient11: float, expansionCoefficient22: float, referenceTemp: float) -> None`
 Create ThermalExpansionLinear3DTransvIso constitutive model.
 
@@ -3381,9 +4766,12 @@ Create ThermalExpansionLinear3DTransvIso constitutive model.
 - `expansionCoefficient22` — The in plan Thermal Expansion Coefficient. Used in plane for y and z Orientation
 - `referenceTemp` — Reference Temp property of the Material
 
-- `getExpansionCoefficient11() -> float` — Returns the Axis Direction Thermal Expansion Coefficient. Used axial for x Orientation.
-- `getExpansionCoefficient22() -> float` — Returns the in plan Thermal Expansion Coefficient. Used in plane for y and z Orientation.
-- `getReferenceTemp() -> float` — Gets Reference Temp property of the Material.
+#### `getExpansionCoefficient11() -> float`
+Returns the Axis Direction Thermal Expansion Coefficient. Used axial for x Orientation.
+
+#### `getExpansionCoefficient22() -> float`
+Returns the in plan Thermal Expansion Coefficient. Used in plane for y and z Orientation.
+
 #### `update(expansionCoefficient11: float, expansionCoefficient22: float, referenceTemp: float) -> None`
 Update properties of this ThermalExpansionLinear3DTransvIso constitutive model.
 
@@ -3398,14 +4786,19 @@ Properties: `expansionCoefficient11`, `referenceTemp`
 
 Methods:
 
+- `ThermalExpansionLinearIsotropic(expansionCoefficient11: float, referenceTemp: float) -> None` — Create ThermalExpansionLinearIsotropic constitutive model.
+- `getExpansionCoefficient11() -> float` — Returns Expansion Coefficient11 of the constitutive model.
+- `getReferenceTemp() -> float` — Gets Reference Temp property of the Material.
+- `update(expansionCoefficient11: float, referenceTemp: float) -> None` — Update properties of this ThermalExpansionLinearIsotropic constitutive model.
+
+Method details:
+
 #### `ThermalExpansionLinearIsotropic(expansionCoefficient11: float, referenceTemp: float) -> None`
 Create ThermalExpansionLinearIsotropic constitutive model.
 
 - `expansionCoefficient11` — of this constitutive model
 - `referenceTemp` — parameter to modify the Reference Temp property of the Material
 
-- `getExpansionCoefficient11() -> float` — Returns Expansion Coefficient11 of the constitutive model.
-- `getReferenceTemp() -> float` — Gets Reference Temp property of the Material.
 #### `update(expansionCoefficient11: float, referenceTemp: float) -> None`
 Update properties of this ThermalExpansionLinearIsotropic constitutive model.
 
@@ -3428,6 +4821,10 @@ Properties: `constantValue`
 Methods:
 
 - `getConstantValue() -> float` — Get the constant value of ThicknessOffsetFieldConstant.
+- `update(name: str, targets: apex.EntityCollection, constantValue: float) -> None` — Used to update the attribute for ThicknessOffsetFieldConstant.
+
+Method details:
+
 #### `update(name: str, targets: apex.EntityCollection, constantValue: float) -> None`
 Used to update the attribute for ThicknessOffsetFieldConstant.
 
@@ -3444,7 +4841,14 @@ Methods:
 
 - `getOffset() -> float` — Get the offset value of ThicknessOffsetFieldMidsurface.
 - `getThickness() -> float` — Get the thickness value of ThicknessOffsetFieldMidsurface.
-- `recalculate() -> None` — recalculates the thickness and offset fields/values for this field using the current locations of the pairs of Faces that were used to create the field. This method will only affect ThicknessOffsetFieldMidsurface that were created using the automatic thickness tool or automatic mid-surface extraction tool. The method will be silently ignored if called on ThicknessOffsetFieldMidsurface that were not created using these methods.
+- `recalculate() -> None` — recalculates the thickness and offset fields/values for this field using the current locations of the pairs of Faces that were used to create the field.
+- `update(name: str, targets: apex.EntityCollection, thickness: float, offset: float) -> None` — Used to update the attribute for ThicknessOffsetFieldMidsurface.
+
+Method details:
+
+#### `recalculate() -> None`
+recalculates the thickness and offset fields/values for this field using the current locations of the pairs of Faces that were used to create the field. This method will only affect ThicknessOffsetFieldMidsurface that were created using the automatic thickness tool or automatic mid-surface extraction tool. The method will be silently ignored if called on ThicknessOffsetFieldMidsurface that were not created using these methods.
+
 #### `update(name: str, targets: apex.EntityCollection, thickness: float, offset: float) -> None`
 Used to update the attribute for ThicknessOffsetFieldMidsurface.
 
@@ -3461,11 +4865,25 @@ Methods:
 
 - `ThicknessOffsetFieldMidsurfaceCollection() -> None` — Construct a new ThicknessOffsetFieldMidsurfaceCollection.
 
+Method details:
+
+#### `ThicknessOffsetFieldMidsurfaceCollection() -> None`
+Construct a new ThicknessOffsetFieldMidsurfaceCollection.
+
+For example:
+
+
 ## `apex.attribute.ViscoElasticity`  (extends `ConstitutiveModel`)
 This Class is no longer supported in Apex. Refer to MaterialModel to determine how this capability is now supported.
 Properties: `strdampingCoefficient`
 
 Methods:
+
+- `ViscoElasticity(strdampingCoefficient: float) -> None` — Create Structural Damping Coefficient.
+- `getStrdampingCoefficient() -> float` — Returns Elastic Modulus 11 of the constitutive model.
+- `update(strdampingCoefficient: float) -> None` — used to update the Structural Damping Coefficient
+
+Method details:
 
 #### `ViscoElasticity(strdampingCoefficient: float) -> None`
 Create Structural Damping Coefficient.
@@ -3474,7 +4892,6 @@ Create Structural Damping Coefficient.
 
 example: myViscoElasticityProperty.update(strdampingCoefficient = )
 
-- `getStrdampingCoefficient() -> float` — Returns Elastic Modulus 11 of the constitutive model.
 #### `update(strdampingCoefficient: float) -> None`
 used to update the Structural Damping Coefficient
 
@@ -3489,6 +4906,17 @@ Properties: `GE11`, `GE12`, `GE13`, `GE22`, `GE23`, `GE33`
 
 Methods:
 
+- `ViscoElasticity2DAniso(strdampingCoefficient: float, GE11: float, GE12: float, GE13: float, GE22: float, GE23: float, GE33: float) -> None` — Create ViscoElasticity2DAniso constitutive model.
+- `getGE11() -> float` — Returns Matrix11 of the constitutive model.
+- `getGE12() -> float` — Returns Matrix12 of the constitutive model.
+- `getGE13() -> float` — Returns Matrix13 of the constitutive model.
+- `getGE22() -> float` — Returns Matrix22 of the constitutive model.
+- `getGE23() -> float` — Returns Matrix23 of the constitutive model.
+- `getGE33() -> float` — Returns Matrix33 of the constitutive model.
+- `update(strdampingCoefficient: float, GE11: float, GE12: float, GE13: float, GE22: float, GE23: float, GE33: float) -> None` — Update properties of this ViscoElasticity2DAniso constitutive model.
+
+Method details:
+
 #### `ViscoElasticity2DAniso(strdampingCoefficient: float, GE11: float, GE12: float, GE13: float, GE22: float, GE23: float, GE33: float) -> None`
 Create ViscoElasticity2DAniso constitutive model.
 
@@ -3500,12 +4928,6 @@ Create ViscoElasticity2DAniso constitutive model.
 - `GE23` — of this constitutive model
 - `GE33` — of this constitutive model
 
-- `getGE11() -> float` — Returns Matrix11 of the constitutive model.
-- `getGE12() -> float` — Returns Matrix12 of the constitutive model.
-- `getGE13() -> float` — Returns Matrix13 of the constitutive model.
-- `getGE22() -> float` — Returns Matrix22 of the constitutive model.
-- `getGE23() -> float` — Returns Matrix23 of the constitutive model.
-- `getGE33() -> float` — Returns Matrix33 of the constitutive model.
 #### `update(strdampingCoefficient: float, GE11: float, GE12: float, GE13: float, GE22: float, GE23: float, GE33: float) -> None`
 Update properties of this ViscoElasticity2DAniso constitutive model.
 
@@ -3523,6 +4945,32 @@ This Class is no longer supported in Apex. Refer to MaterialModel to determine h
 Properties: `GE11`, `GE12`, `GE13`, `GE14`, `GE15`, `GE16`, `GE22`, `GE23`, `GE24`, `GE25`, `GE26`, `GE33`, `GE34`, `GE35`, `GE36`, `GE44`, `GE45`, `GE46`, `GE55`, `GE56`, `GE66`
 
 Methods:
+
+- `ViscoElasticity3DAniso(strdampingCoefficient: float, GE11: float, GE12: float, GE13: float, GE14: float, GE15: float, GE16: float, GE22: float, GE23: float, GE24: float, GE25: float, GE26: float, GE33: float, GE34: float, GE35: float, GE36: float, GE44: float, GE45: float, GE46: float, GE55: float, GE56: float, GE66: float) -> None` — Create ViscoElasticity3DAniso constitutive model.
+- `getGE11() -> float` — Returns Matrix11 of the constitutive model.
+- `getGE12() -> float` — Returns Matrix12 of the constitutive model.
+- `getGE13() -> float` — Returns Matrix13 of the constitutive model.
+- `getGE14() -> float` — Returns Matrix14 of the constitutive model.
+- `getGE15() -> float` — Returns Matrix15 of the constitutive model.
+- `getGE16() -> float` — Returns Matrix16 of the constitutive model.
+- `getGE22() -> float` — Returns Matrix22 of the constitutive model.
+- `getGE23() -> float` — Returns Matrix23 of the constitutive model.
+- `getGE24() -> float` — Returns Matrix24 of the constitutive model.
+- `getGE25() -> float` — Returns Matrix25 of the constitutive model.
+- `getGE26() -> float` — Returns Matrix6 of the constitutive model.
+- `getGE33() -> float` — Returns Matrix33 of the constitutive model.
+- `getGE34() -> float` — Returns Matrix34 of the constitutive model.
+- `getGE35() -> float` — Returns Matrix35 of the constitutive model.
+- `getGE36() -> float` — Returns Matrix36 of the constitutive model.
+- `getGE44() -> float` — Returns Matrix44 of the constitutive model.
+- `getGE45() -> float` — Returns Matrix45 of the constitutive model.
+- `getGE46() -> float` — Returns Matrix46 of the constitutive model.
+- `getGE55() -> float` — Returns Matrix55 of the constitutive model.
+- `getGE56() -> float` — Returns Matrix56 of the constitutive model.
+- `getGE66() -> float` — Returns Matrix66 of the constitutive model.
+- `update(strdampingCoefficient: float, GE11: float, GE12: float, GE13: float, GE14: float, GE15: float, GE16: float, GE22: float, GE23: float, GE24: float, GE25: float, GE26: float, GE33: float, GE34: float, GE35: float, GE36: float, GE44: float, GE45: float, GE46: float, GE55: float, GE56: float, GE66: float) -> None` — Update properties of this ViscoElasticity3DAniso constitutive model.
+
+Method details:
 
 #### `ViscoElasticity3DAniso(strdampingCoefficient: float, GE11: float, GE12: float, GE13: float, GE14: float, GE15: float, GE16: float, GE22: float, GE23: float, GE24: float, GE25: float, GE26: float, GE33: float, GE34: float, GE35: float, GE36: float, GE44: float, GE45: float, GE46: float, GE55: float, GE56: float, GE66: float) -> None`
 Create ViscoElasticity3DAniso constitutive model.
@@ -3550,27 +4998,6 @@ Create ViscoElasticity3DAniso constitutive model.
 - `GE56` — of this constitutive model
 - `GE66` — of this constitutive model
 
-- `getGE11() -> float` — Returns Matrix11 of the constitutive model.
-- `getGE12() -> float` — Returns Matrix12 of the constitutive model.
-- `getGE13() -> float` — Returns Matrix13 of the constitutive model.
-- `getGE14() -> float` — Returns Matrix14 of the constitutive model.
-- `getGE15() -> float` — Returns Matrix15 of the constitutive model.
-- `getGE16() -> float` — Returns Matrix16 of the constitutive model.
-- `getGE22() -> float` — Returns Matrix22 of the constitutive model.
-- `getGE23() -> float` — Returns Matrix23 of the constitutive model.
-- `getGE24() -> float` — Returns Matrix24 of the constitutive model.
-- `getGE25() -> float` — Returns Matrix25 of the constitutive model.
-- `getGE26() -> float` — Returns Matrix6 of the constitutive model.
-- `getGE33() -> float` — Returns Matrix33 of the constitutive model.
-- `getGE34() -> float` — Returns Matrix34 of the constitutive model.
-- `getGE35() -> float` — Returns Matrix35 of the constitutive model.
-- `getGE36() -> float` — Returns Matrix36 of the constitutive model.
-- `getGE44() -> float` — Returns Matrix44 of the constitutive model.
-- `getGE45() -> float` — Returns Matrix45 of the constitutive model.
-- `getGE46() -> float` — Returns Matrix46 of the constitutive model.
-- `getGE55() -> float` — Returns Matrix55 of the constitutive model.
-- `getGE56() -> float` — Returns Matrix56 of the constitutive model.
-- `getGE66() -> float` — Returns Matrix66 of the constitutive model.
 #### `update(strdampingCoefficient: float, GE11: float, GE12: float, GE13: float, GE14: float, GE15: float, GE16: float, GE22: float, GE23: float, GE24: float, GE25: float, GE26: float, GE33: float, GE34: float, GE35: float, GE36: float, GE44: float, GE45: float, GE46: float, GE55: float, GE56: float, GE66: float) -> None`
 Update properties of this ViscoElasticity3DAniso constitutive model.
 
@@ -3614,6 +5041,10 @@ Methods:
 - `setC3(c3: float) -> None` — Sets Barlat C3 coefficient.
 - `setC6(c6: float) -> None` — Sets Barlat C6 coefficient.
 - `setM(m: float) -> None` — Sets Barlat M coefficient.
+- `update(m: float, c1: float, c2: float, c3: float, c6: float) -> None` — edit method Usage example: $$ Edit a Barlat yield criteria. myYieldCriteria.update(m = 1.0, c1 = 1.0, c2 = 1.0, c3 = 1.0, c6 = 1.0)
+
+Method details:
+
 #### `update(m: float, c1: float, c2: float, c3: float, c6: float) -> None`
 edit method Usage example: $$ Edit a Barlat yield criteria. myYieldCriteria.update(m = 1.0, c1 = 1.0, c2 = 1.0, c3 = 1.0, c6 = 1.0)
 
@@ -3641,18 +5072,58 @@ Properties: `R11`, `R12`, `R13`, `R22`, `R23`, `R33`
 
 Methods:
 
-- `getR11() -> float` — Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
-- `getR12() -> float` — Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
-- `getR13() -> float` — Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
-- `getR22() -> float` — Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
-- `getR23() -> float` — Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
-- `getR33() -> float` — Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
-- `setR11(R11: float) -> None` — Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
-- `setR12(R12: float) -> None` — Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
-- `setR13(R13: float) -> None` — Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
-- `setR22(R22: float) -> None` — Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
-- `setR23(R23: float) -> None` — Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
-- `setR33(R33: float) -> None` — Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
+- `getR11() -> float` — Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `getR12() -> float` — Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `getR13() -> float` — Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `getR22() -> float` — Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `getR23() -> float` — Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `getR33() -> float` — Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `setR11(R11: float) -> None` — Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `setR12(R12: float) -> None` — Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `setR13(R13: float) -> None` — Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `setR22(R22: float) -> None` — Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `setR23(R23: float) -> None` — Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `setR33(R33: float) -> None` — Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12 ...
+- `update(r11: float, r22: float, r33: float, r12: float, r23: float, r13: float) -> None` — edit method.
+
+Method details:
+
+#### `getR11() -> float`
+Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
+
+#### `getR12() -> float`
+Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
+
+#### `getR13() -> float`
+Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
+
+#### `getR22() -> float`
+Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
+
+#### `getR23() -> float`
+Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
+
+#### `getR33() -> float`
+Gets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
+
+#### `setR11(R11: float) -> None`
+Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
+
+#### `setR12(R12: float) -> None`
+Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
+
+#### `setR13(R13: float) -> None`
+Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
+
+#### `setR22(R22: float) -> None`
+Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
+
+#### `setR23(R23: float) -> None`
+Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
+
+#### `setR33(R33: float) -> None`
+Sets Stress ratios of initial yield stresses in various material directions to the reference yield stress from FID/Y0 field. (Real > 0; R11, R22, R33, R12, R23, R31, respectively for Hill)
+
 #### `update(r11: float, r22: float, r33: float, r12: float, r23: float, r13: float) -> None`
 edit method. Usage example: $$ edit a Hill’s 1948 yield criteria yield criteria myYieldCriteria.update(r11 = 1.0, r22 = 1.0, r33 = 1.0, r12 = 1.0, r23 = 1.0, r13 = 1.0 )
 
@@ -3672,6 +5143,10 @@ Methods:
 
 - `getEqVonMises() -> float` — Gets Equivalent (von Mises) tensile yield stress. (Real, no Default)
 - `setEqVonMises(eqVonMises: float) -> None` — Sets Equivalent (von Mises) tensile yield stress. (Real, no Default)
+- `update(eqVonMises: float) -> None` — edit method Usage example: $$ Edit a Barlat yield criteria. myYieldCriteria.update(m = 1.0, c1 = 1.0, c2 = 1.0, c3 = 1.0, c6 = 1.0)
+
+Method details:
+
 #### `update(eqVonMises: float) -> None`
 edit method Usage example: $$ Edit a Barlat yield criteria. myYieldCriteria.update(m = 1.0, c1 = 1.0, c2 = 1.0, c3 = 1.0, c6 = 1.0)
 
@@ -3686,6 +5161,10 @@ Methods:
 
 - `getAlpha() -> float` — Gets Specifies the parameter alpha for linear Mohr-Coulomb model.
 - `setAlpha(Alpha: float) -> None` — Sets Specifies the parameter alpha for linear Mohr-Coulomb model.
+- `update(alpha: float) -> None` — update method Usage example: $$ edit a Linear Mohr-Coulomb yield criteria myYieldCriteria.update(alpha = 1.0)
+
+Method details:
+
 #### `update(alpha: float) -> None`
 update method Usage example: $$ edit a Linear Mohr-Coulomb yield criteria myYieldCriteria.update(alpha = 1.0)
 
@@ -3698,10 +5177,20 @@ Properties: `Alpha`, `Beta`
 
 Methods:
 
-- `getAlpha() -> float` — Gets Specifies the parameter alpha for linear Mohr-Coulomb model. Real > 0.
+- `getAlpha() -> float` — Gets Specifies the parameter alpha for linear Mohr-Coulomb model.
 - `getBeta() -> float` — Gets Specifies the parameter beta for parabolic Mohr-Coulomb model. (Real > 0.
-- `setAlpha(Alpha: float) -> None` — Sets Specifies the parameter alpha for linear Mohr-Coulomb model. Real > 0.
+- `setAlpha(Alpha: float) -> None` — Sets Specifies the parameter alpha for linear Mohr-Coulomb model.
 - `setBeta(Beta: float) -> None` — Sets Specifies the parameter beta for parabolic Mohr-Coulomb model. (Real > 0.
+- `update(alpha: float, beta: float) -> None` — Edit method Usage example: $$ edit a Parabolic Mohr-Coulomb model yield criteria myYieldCriteria.update(alpha = 1.0,beta = 1.0 )
+
+Method details:
+
+#### `getAlpha() -> float`
+Gets Specifies the parameter alpha for linear Mohr-Coulomb model. Real > 0.
+
+#### `setAlpha(Alpha: float) -> None`
+Sets Specifies the parameter alpha for linear Mohr-Coulomb model. Real > 0.
+
 #### `update(alpha: float, beta: float) -> None`
 Edit method Usage example: $$ edit a Parabolic Mohr-Coulomb model yield criteria myYieldCriteria.update(alpha = 1.0,beta = 1.0 )
 
@@ -3719,18 +5208,70 @@ Properties: `alignmentType`, `allowableInterLaminarBondStress`, `failureCriteria
 Methods:
 
 - `getAlignmentType() -> apex.attribute.AlignmentType` — Gets the optional alignmentType of the zone offset.
-- `getAllowableInterLaminarBondStress() -> float` — Gets the optional allowableInterlaminarBondStress of the zone. If set, it will override the allowableInterlaminarBondStress defined by the panel. If unset, this zone will use the allowableInterlaminarBondStress defined by the panel.
-- `getFailureCriteria() -> apex.attribute.FailureCriteriaComposite` — Gets the optional failureCriteria of the zone. If set, it will override the failureCriteria defined by the panel. If unset, this zone will use the failureCriteria defined by the panel.
-- `getId() -> int` — Gets the id of the zone. If unset, system will automatically assign a valid id to the zone by default.
+- `getAllowableInterLaminarBondStress() -> float` — Gets the optional allowableInterlaminarBondStress of the zone.
+- `getFailureCriteria() -> apex.attribute.FailureCriteriaComposite` — Gets the optional failureCriteria of the zone.
+- `getId() -> int` — Gets the id of the zone.
 - `getNonStructuralMass() -> float` — Gets the nonstructural mass per unit area on the zone region.
 - `getPlies() -> apex.attribute.PlyCollection` — Gets Plies of the Zone.
-- `getPlyBehavior() -> apex.attribute.PlyBehavior` — Gets the optional plyBehavior in zone. If set, it will override the plyBehavior defined by the panel. If unset, this zone will use the plyBehavior defined by the panel. If both plyBehaviors in zone and panel are omitted, then system assumes "apex.attribute.PlyBehavior.Default" is used.
-- `getPlyIdBehavior() -> apex.attribute.PlyIdBehavior` — Gets the optional plyIdBehavior in zone. If set, it will override the plyIdBehavior defined by the panel. If unset, this zone will use the plyIdBehavior defined by the panel. If both plyIdBehaviors in zone and panel are omitted, then system assumes "apex.attribute.PlyIdBehavior.UseGlobal" is used.
-- `getReferenceTemperature() -> float` — Gets the optional reference temperature of the zone. If set, the reference temperature of the zone will override the reference temperature specified in the panel. If unset, this zone will use the panel referenceTemperature by default.
+- `getPlyBehavior() -> apex.attribute.PlyBehavior` — Gets the optional plyBehavior in zone.
+- `getPlyIdBehavior() -> apex.attribute.PlyIdBehavior` — Gets the optional plyIdBehavior in zone.
+- `getReferenceTemperature() -> float` — Gets the optional reference temperature of the zone.
 - `getRegions() -> apex.EntityCollection` — Gets regions of the zone.
-- `getStructuralDampingCoefficient() -> float` — Gets the optional structuralDampingCoefficient of the zone. If set, the structuralDampingCoefficient of the zone will override the reference temperature specified in the panel. If unset, this zone will use the panel structuralDampingCoefficient by default.
+- `getStructuralDampingCoefficient() -> float` — Gets the optional structuralDampingCoefficient of the zone.
 - `getThickness() -> float` — Gets the total thickness of the zone.This thickness is derived from the total plies thickness within the zone.
-- `getZoneOffset() -> float` — Gets the optional offset distance of the zone. The zoneOffset only makes sense when offsetType is defined to "apex.attribute.AlignmentType.Offset". If zoneOffset is set, it will override the panelOffset. If zoneOffset is unset, this zone will use the panelOffset by default.
+- `getZoneOffset() -> float` — Gets the optional offset distance of the zone.
+- `moveDownPly(ply: apex.attribute.Ply) -> None` — Move down the ply.
+- `moveUpPly(ply: apex.attribute.Ply) -> None` — Move up the ply.
+- `setAlignmentType(alignmentType: apex.attribute.AlignmentType) -> None` — Sets the optional alignmentType of the zone offset.
+- `setAllowableInterLaminarBondStress(allowableInterlaminarBondStress: float) -> None` — Sets the optional allowableInterlaminarBondStress of the zone.
+- `setFailureCriteria(failureCriteria: apex.attribute.FailureCriteriaComposite) -> None` — Sets the optional failureCriteria of the zone.
+- `setId(id: int) -> None` — Sets the id of the zone.
+- `setNonStructuralMass(nonStructuralMass: float) -> None` — Sets the nonstructural mass per unit area on the zone region.
+- `setPlyBehavior(plyBehavior: apex.attribute.PlyBehavior) -> None` — Sets the optional plyBehavior in zone.
+- `setPlyIdBehavior(plyIdBehavior: apex.attribute.PlyIdBehavior) -> None` — Sets the optional plyIdBehavior in zone.
+- `setReferenceTemperature(referenceTemperature: float) -> None` — Sets the optional reference temperature of the zone.
+- `setStructuralDampingCoefficient(structuralDampingCoefficient: float) -> None` — Sets the optional structuralDampingCoefficient of the zone.
+- `setZoneOffset(zoneOffset: float) -> None` — Sets the optional offset distance of the zone.
+- `update(id: int, alignmentType: apex.attribute.AlignmentType, zoneOffset: float, failureCriteria: apex.attribute.FailureCriteriaComposite, plyBehavior: apex.attribute.PlyBehavior, structuralDampingCoefficient: float, referenceTemperature: float, allowableInterLaminarBondStress: float, nonStructuralMass: float, plyIdBehavior: apex.attribute.PlyIdBehavior) -> None` — Update the Zone properties.
+
+Method details:
+
+#### `getAlignmentType() -> apex.attribute.AlignmentType`
+Gets the optional alignmentType of the zone offset.
+
+Specific OffsetType can be specified using syntax "apex.attribute.AlignmentType.<enum_value>" "apex.attribute.AlignmentType.Offset" will offset the zone from the reference plane "apex.attribute.AlignmentType.Mid" will align the mid of the zone with the reference plane. "apex.attribute.AlignmentType.Top" will align the top of the zone with the reference plane. "apex.attribute.AlignmentType.FollowPanel" will align the zone according to panel alignment.For the AlignmentType : If set, the zone alignmentType will override the panel alignmentType. If unset, the panel alignmentType is used on this zone.
+
+#### `getAllowableInterLaminarBondStress() -> float`
+Gets the optional allowableInterlaminarBondStress of the zone. If set, it will override the allowableInterlaminarBondStress defined by the panel. If unset, this zone will use the allowableInterlaminarBondStress defined by the panel.
+
+#### `getFailureCriteria() -> apex.attribute.FailureCriteriaComposite`
+Gets the optional failureCriteria of the zone. If set, it will override the failureCriteria defined by the panel. If unset, this zone will use the failureCriteria defined by the panel.
+
+#### `getId() -> int`
+Gets the id of the zone. If unset, system will automatically assign a valid id to the zone by default.
+
+#### `getPlyBehavior() -> apex.attribute.PlyBehavior`
+Gets the optional plyBehavior in zone. If set, it will override the plyBehavior defined by the panel. If unset, this zone will use the plyBehavior defined by the panel. If both plyBehaviors in zone and panel are omitted, then system assumes "apex.attribute.PlyBehavior.Default" is used.
+
+#### `getPlyIdBehavior() -> apex.attribute.PlyIdBehavior`
+Gets the optional plyIdBehavior in zone. If set, it will override the plyIdBehavior defined by the panel. If unset, this zone will use the plyIdBehavior defined by the panel. If both plyIdBehaviors in zone and panel are omitted, then system assumes "apex.attribute.PlyIdBehavior.UseGlobal" is used.
+
+#### `getReferenceTemperature() -> float`
+Gets the optional reference temperature of the zone. If set, the reference temperature of the zone will override the reference temperature specified in the panel. If unset, this zone will use the panel referenceTemperature by default.
+
+#### `getRegions() -> apex.EntityCollection`
+Gets regions of the zone.
+
+The regions of a zone can include surface, faces, 2d meshes and 2d elements.
+
+#### `getStructuralDampingCoefficient() -> float`
+Gets the optional structuralDampingCoefficient of the zone. If set, the structuralDampingCoefficient of the zone will override the reference temperature specified in the panel. If unset, this zone will use the panel structuralDampingCoefficient by default.
+
+#### `getZoneOffset() -> float`
+Gets the optional offset distance of the zone. The zoneOffset only makes sense when offsetType is defined to "apex.attribute.AlignmentType.Offset". If zoneOffset is set, it will override the panelOffset. If zoneOffset is unset, this zone will use the panelOffset by default.
+
+When offsetType is midPlane or topPlane, the zoneOffset will return the equivalent offset distance value.
+
 #### `moveDownPly(ply: apex.attribute.Ply) -> None`
 Move down the ply.
 
@@ -3741,16 +5282,37 @@ Move up the ply.
 
 - `ply` — of the LayeredPanel
 
-- `setAlignmentType(alignmentType: apex.attribute.AlignmentType) -> None` — Sets the optional alignmentType of the zone offset.
-- `setAllowableInterLaminarBondStress(allowableInterlaminarBondStress: float) -> None` — Sets the optional allowableInterlaminarBondStress of the zone. If set, it will override the allowableInterlaminarBondStress defined by the panel. If unset, this zone will use the allowableInterlaminarBondStress defined by the panel.
-- `setFailureCriteria(failureCriteria: apex.attribute.FailureCriteriaComposite) -> None` — Sets the optional failureCriteria of the zone. If set, it will override the failureCriteria defined by the panel. If unset, this zone will use the failureCriteria defined by the panel.
-- `setId(id: int) -> None` — Sets the id of the zone. If unset, system will automatically assign a valid id to the zone by default.
-- `setNonStructuralMass(nonStructuralMass: float) -> None` — Sets the nonstructural mass per unit area on the zone region.
-- `setPlyBehavior(plyBehavior: apex.attribute.PlyBehavior) -> None` — Sets the optional plyBehavior in zone. If set, it will override the plyBehavior defined by the panel. If unset, this zone will use the plyBehavior defined by the panel. If both plyBehaviors in zone and panel are omitted, then system assumes "apex.attribute.PlyBehavior.Default" is used.
-- `setPlyIdBehavior(plyIdBehavior: apex.attribute.PlyIdBehavior) -> None` — Sets the optional plyIdBehavior in zone. If set, it will override the plyIdBehavior defined by the panel. If unset, this zone will use the plyIdBehavior defined by the panel. If both plyIdBehaviors in zone and panel are omitted, then system assumes "apex.attribute.PlyIdBehavior.UseGlobal" is used.
-- `setReferenceTemperature(referenceTemperature: float) -> None` — Sets the optional reference temperature of the zone. If set, the reference temperature of the zone will override the reference temperature specified in the panel. If unset, this zone will use the panel referenceTemperature by default.
-- `setStructuralDampingCoefficient(structuralDampingCoefficient: float) -> None` — Sets the optional structuralDampingCoefficient of the zone. If set, the structuralDampingCoefficient of the zone will override the reference temperature specified in the panel. If unset, this zone will use the panel structuralDampingCoefficient by default.
-- `setZoneOffset(zoneOffset: float) -> None` — Sets the optional offset distance of the zone. The zoneOffset only makes sense when offsetType is defined to "apex.attribute.AlignmentType.Offset". If zoneOffset is set, it will override the panelOffset. If zoneOffset is unset, this zone will use the panelOffset by default.
+#### `setAlignmentType(alignmentType: apex.attribute.AlignmentType) -> None`
+Sets the optional alignmentType of the zone offset.
+
+Specific OffsetType can be specified using syntax "apex.attribute.AlignmentType.<enum_value>" "apex.attribute.AlignmentType.Offset" will offset the zone from the reference plane "apex.attribute.AlignmentType.Mid" will align the mid of the zone with the reference plane. "apex.attribute.AlignmentType.Top" will align the top of the zone with the reference plane. "apex.attribute.AlignmentType.FollowPanel" will align the zone according to panel alignment.For the AlignmentType : If set, the zone alignmentType will override the panel alignmentType. If unset, the panel alignmentType is used on this zone.
+
+#### `setAllowableInterLaminarBondStress(allowableInterlaminarBondStress: float) -> None`
+Sets the optional allowableInterlaminarBondStress of the zone. If set, it will override the allowableInterlaminarBondStress defined by the panel. If unset, this zone will use the allowableInterlaminarBondStress defined by the panel.
+
+#### `setFailureCriteria(failureCriteria: apex.attribute.FailureCriteriaComposite) -> None`
+Sets the optional failureCriteria of the zone. If set, it will override the failureCriteria defined by the panel. If unset, this zone will use the failureCriteria defined by the panel.
+
+#### `setId(id: int) -> None`
+Sets the id of the zone. If unset, system will automatically assign a valid id to the zone by default.
+
+#### `setPlyBehavior(plyBehavior: apex.attribute.PlyBehavior) -> None`
+Sets the optional plyBehavior in zone. If set, it will override the plyBehavior defined by the panel. If unset, this zone will use the plyBehavior defined by the panel. If both plyBehaviors in zone and panel are omitted, then system assumes "apex.attribute.PlyBehavior.Default" is used.
+
+#### `setPlyIdBehavior(plyIdBehavior: apex.attribute.PlyIdBehavior) -> None`
+Sets the optional plyIdBehavior in zone. If set, it will override the plyIdBehavior defined by the panel. If unset, this zone will use the plyIdBehavior defined by the panel. If both plyIdBehaviors in zone and panel are omitted, then system assumes "apex.attribute.PlyIdBehavior.UseGlobal" is used.
+
+#### `setReferenceTemperature(referenceTemperature: float) -> None`
+Sets the optional reference temperature of the zone. If set, the reference temperature of the zone will override the reference temperature specified in the panel. If unset, this zone will use the panel referenceTemperature by default.
+
+#### `setStructuralDampingCoefficient(structuralDampingCoefficient: float) -> None`
+Sets the optional structuralDampingCoefficient of the zone. If set, the structuralDampingCoefficient of the zone will override the reference temperature specified in the panel. If unset, this zone will use the panel structuralDampingCoefficient by default.
+
+#### `setZoneOffset(zoneOffset: float) -> None`
+Sets the optional offset distance of the zone. The zoneOffset only makes sense when offsetType is defined to "apex.attribute.AlignmentType.Offset". If zoneOffset is set, it will override the panelOffset. If zoneOffset is unset, this zone will use the panelOffset by default.
+
+When offsetType is midPlane or topPlane, the zoneOffset will return the equivalent offset distance value.
+
 #### `update(id: int, alignmentType: apex.attribute.AlignmentType, zoneOffset: float, failureCriteria: apex.attribute.FailureCriteriaComposite, plyBehavior: apex.attribute.PlyBehavior, structuralDampingCoefficient: float, referenceTemperature: float, allowableInterLaminarBondStress: float, nonStructuralMass: float, plyIdBehavior: apex.attribute.PlyIdBehavior) -> None`
 Update the Zone properties.
 
@@ -3774,4 +5336,12 @@ Iterable collection of Zone, based on EntityCollection.
 Methods:
 
 - `ZoneCollection() -> None` — Construct a new ZoneCollection.
+
+Method details:
+
+#### `ZoneCollection() -> None`
+Construct a new ZoneCollection.
+
+For example:
+
 

@@ -90,6 +90,7 @@ Severity: **error** means the run will fail or its answer is invalid;
 | `PROPERTY_TYPE_MISMATCH` | error | e.g. CQUAD4 pointing at a PSOLID | PID collision between parts |
 | `MISSING_MATERIAL` | error | property MID not defined | |
 | `MISSING_SET` | error | LOAD/SPC/MPC in case control or a LOAD combination refers to an undefined set | renamed or deleted load set |
+| `CONTACT_INACTIVE` | error (SOL 101/400), warn otherwise | BCONECT/BCTABLE/BCTABL1 present but no subcase has `BCONTACT = n`, or one has `BCONTACT = NONE` in SOL 101/400; every glue/contact pair is ignored | exporter wrote the glue but not the case control (seen from Apex 2024.1) |
 | `UNCONSTRAINED_GROUP` | error | an assembly (parts plus active contact) has no path to any SPC, in a static run without INREL/SUPORT | missing connection or glue; missing SPC |
 | `LOAD_ON_UNATTACHED` | error | a load on a grid with no stiffness | load point left behind after remeshing |
 | `SPC_ON_DEPENDENT` | error | SPC on a dependent DOF of an RBE2/RBE3/RBAR | constraint applied to an RBE spider node |

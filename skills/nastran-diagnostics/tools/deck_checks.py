@@ -69,6 +69,8 @@ PROP_CARDS = set().union(*PROP_OK.values())
 MAT_CARDS = {"MAT1", "MAT2", "MAT3", "MAT8", "MAT9", "MAT10", "MATHE", "MATHP", "MATEP"}
 MAT_RHO = {"MAT1": 5, "MAT2": 8, "MAT8": 8, "MAT9": 23, "MAT3": 8}
 MAT_E = {"MAT1": 2, "MAT8": 2}
+# solution sequences where BCONTACT defaults to NONE (QRG, BCONTACT Case Control)
+CONTACT_DEFAULT_NONE = {"101", "SESTATIC", "400", "NLSTATIC"}
 CONTACT_CARDS = {"BCSURF", "BSURF", "BCPROP", "BCBODY", "BCBODY1", "BCONECT", "BCTABLE",
                  "BCTABL1", "BCONPRG", "BCONPRP", "BGSET", "BCTSET", "BCTPARA", "BCTPARM",
                  "BCPARA", "BGPARM", "BCRPARA", "BCTADD", "BGADD"}
@@ -121,6 +123,7 @@ ROUTES = {
     "GLUE_SAME_COMPONENT": (["BCONECT"], None),
     "UNUSED_CONTACT_SURFACE": (["BCSURF"], None),
     "CONTACT_NOT_ANALYSED": (["BGSET", "BCTABLE"], None),
+    "CONTACT_INACTIVE": (["BCONTACT(Case)", "BCONECT"], "how to activate contact or glue in a Nastran analysis scenario"),
     "COINCIDENT_UNMERGED": (["GRID"], "how to merge coincident nodes"),
     "SPC_ON_DEPENDENT": (["SPC1", "RBE2", "RBE3"], "how to edit a rigid connection"),
     "DOUBLE_DEPENDENT": (["RBE2", "RBE3", "MPC"], "how to edit a rigid connection"),
@@ -952,7 +955,7 @@ def run_checks(m, cc_lines, sol=None, unit_hint=None, coincident=True, log=print
     log("  checks: geometry and mass estimate (%.1fs)" % (time.time() - t0))
 
     # ---------------- contact / glue graph
-    glue = analyse_contact(m, F, comp_of, elem_size, label, bcontact, have_cc)
+    glue = analyse_contact(m, F, comp_of, elem_size, label, bcontact, have_cc, sol)
     S["contact"] = glue["summary"]
 
     # super-groups: components + active contact links
@@ -1124,7 +1127,7 @@ def detect_units(m, hint=None):
             "system": sysname.group(0) if sysname else None, "source": "deck header comments"}
 
 
-def analyse_contact(m, F, comp_of, elem_size, label, bcontact, have_cc):
+def analyse_contact(m, F, comp_of, elem_size, label, bcontact, have_cc, sol=None):
     ctab = m.contact
     out = {"pairs": [], "summary": {}}
     if not ctab:
@@ -1171,7 +1174,12 @@ def analyse_contact(m, F, comp_of, elem_size, label, bcontact, have_cc):
     note = []
     if have_cc:
         ids = set()
-        for b in bcontact:
+        live = {b for b in bcontact if str(b).strip().upper() != "NONE"}
+        if live != set(bcontact) and (sol or "").upper() in CONTACT_DEFAULT_NONE:
+            # QRG BCONTACT (Case): in SOL 101/400, NONE in any subcase applies to all
+            live = set()
+            note.append("BCONTACT=NONE in a subcase - all contact ignored")
+        for b in live:
             bi = to_int(b)
             if bi is not None and bi in tables:
                 ids |= tables[bi]
@@ -1183,7 +1191,16 @@ def analyse_contact(m, F, comp_of, elem_size, label, bcontact, have_cc):
                 note.append("BCONTACT=%s - all BCONECT assumed active" % b)
                 ids = None
                 break
-        active = ids if bcontact else set()
+        active = ids if live else set()
+        defs = [n for n in ("BCONECT", "BCTABLE", "BCTABL1") if ctab.get(n)]
+        if defs and not live:
+            known = (sol or "").upper() in CONTACT_DEFAULT_NONE
+            F.add("CONTACT_INACTIVE", "error" if known else "warn",
+                  "Contact is defined (%s) but no subcase selects it with BCONTACT" % ", ".join(defs),
+                  "BCONTACT is absent or NONE in every subcase. BCONTACT defaults to NONE in SOL 101 "
+                  "and 400, and without BCONTACT=n (n>0) no contact analysis is done in a load case "
+                  "(QRG, BCONTACT Case Control). Every glue/contact pair is ignored, so the parts it "
+                  "joins are not connected. Add BCONTACT = <BCONECT/BCTABLE id> to each subcase.")
     iglue = {}
     for c in ctab.get("BCONPRG", []):
         toks = [x.upper() for x in c.fields[2:]]

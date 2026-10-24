@@ -1,8 +1,15 @@
 """Generate the compact Apex API reference in `api/` from Apex Doxygen XML.
 
-Writes `api/functions-index.md`, `api/enums.md`, `api/classes.md`,
-`api/modules/*.md` and `api/classes/*.md`, each carrying the full per-parameter
-documentation so the raw XML does not need to ship with the skill.
+Writes `api/functions-index.md`, `api/methods-index.md`, `api/enums.md`,
+`api/classes.md`, `api/modules/*.md` and `api/classes/*.md`, each carrying the
+full per-parameter documentation so the raw XML does not need to ship with the
+skill.
+
+Behaviour that only shows up at runtime (calls that raise although the
+reference documents them, arguments that are silently ignored) is kept by hand
+in `tools/runtime_overrides.json`. Each entry is stamped into the block and the
+index line of the function or method it names. An entry naming a call that is
+not in the reference stops the build.
 
     python tools/gen_api.py [source_xml_dir] [output_package_dir]
 
@@ -11,7 +18,7 @@ folder near the skill, or at $APEX_SCRIPTING_ARCHIVE. Paths are derived from thi
 file's location, so the skill can be moved or copied anywhere.
 """
 import xml.etree.ElementTree as ET
-import glob, os, re, sys, collections
+import glob, os, re, sys, collections, copy, json
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PKG = os.path.dirname(HERE)
@@ -36,10 +43,19 @@ def _find_src():
 
 SRC = sys.argv[1] if len(sys.argv) > 1 else _find_src()
 OUT = sys.argv[2] if len(sys.argv) > 2 else PKG
+OVERRIDES = os.path.join(HERE, "runtime_overrides.json")
 
 def text(el):
     if el is None:
         return ""
+    # Doxygen code examples are dropped: flattened onto one line they lose
+    # their whitespace and read as broken code.
+    if el.find(".//programlisting") is not None:
+        el = copy.deepcopy(el)
+        for parent in el.iter():
+            for child in list(parent):
+                if child.tag == "programlisting":
+                    parent.remove(child)
     s = "".join(el.itertext())
     s = re.sub(r"\s+", " ", s).strip()
     return s
@@ -125,7 +141,6 @@ def remarks_of(m):
     dd = m.find("detaileddescription")
     if dd is None:
         return ""
-    import copy
     dd = copy.deepcopy(dd)
     for parent in dd.iter():
         for child in list(parent):
@@ -269,6 +284,82 @@ def load_classes():
     return classes
 
 
+def short_brief(b, limit=160):
+    """First sentence of a brief, capped, for one-line index and list entries."""
+    if not b:
+        return ""
+    s = re.split(r"(?<=[.!?])\s+(?=[A-Z])", b, maxsplit=1)[0]
+    if len(s) > limit:
+        s = s[:limit].rsplit(" ", 1)[0].rstrip(",;:") + " ..."
+    if "DEPRECATED" in b and "DEPRECATED" not in s:
+        s = "DEPRECATED. " + s
+    return s
+
+
+# Member lists longer than ENUM_WRAP characters are wrapped onto lines of about
+# ENUM_CHUNK characters, each repeating the enum name, so a grep for one member
+# returns a short line instead of the whole enum.
+ENUM_WRAP = 300
+ENUM_CHUNK = 220
+
+def enum_members(vals):
+    return ", ".join("`%s`" % v for v in vals)
+
+
+def enum_chunks(vals):
+    lines, cur, n = [], [], 0
+    for v in vals:
+        s = "`%s`" % v
+        if cur and n + len(s) + 2 > ENUM_CHUNK:
+            lines.append(", ".join(cur))
+            cur, n = [], 0
+        cur.append(s)
+        n += len(s) + 2
+    if cur:
+        lines.append(", ".join(cur))
+    return lines
+
+
+OVERRIDE_LABEL = {"raises": "Raises at runtime",
+                  "silent": "Fails silently at runtime",
+                  "note": "Runtime behaviour"}
+OVERRIDE_TAG = {"raises": "raises at runtime",
+                "silent": "fails silently at runtime",
+                "note": "runtime note"}
+
+def load_overrides():
+    """name -> [override], from tools/runtime_overrides.json."""
+    if not os.path.exists(OVERRIDES):
+        return {}
+    with open(OVERRIDES, encoding="utf-8") as fh:
+        data = json.load(fh)
+    out = collections.defaultdict(list)
+    for o in data["overrides"]:
+        if o.get("kind") not in OVERRIDE_LABEL:
+            sys.exit("runtime_overrides.json: %s has unknown kind %r" % (o.get("name"), o.get("kind")))
+        out[o["name"]].append(o)
+    return out
+
+
+def override_lines(ovs):
+    L = []
+    for o in ovs:
+        s = "> **%s (%s):** %s" % (OVERRIDE_LABEL[o["kind"]], o["observed"], o["behaviour"])
+        if o.get("instead"):
+            s += " **Instead:** " + o["instead"]
+        L.append(s)
+    return L
+
+
+def override_tag(ovs):
+    tags = []
+    for o in ovs:
+        t = "%s in %s" % (OVERRIDE_TAG[o["kind"]], o["observed"])
+        if t not in tags:
+            tags.append(t)
+    return " **[%s]**" % "; ".join(tags) if tags else ""
+
+
 def emit_detail(L, d, indent=""):
     """Append brief, per-parameter docs, return note and remarks for a member."""
     if d.get("brief"):
@@ -314,6 +405,14 @@ def main():
     for c in classes:
         by_mod[c["module"]].append(c)
 
+    overrides = load_overrides()
+    known = {"%s.%s" % (n, fn["name"]) for n, d in mods.items() for fn in d["funcs"]}
+    known |= {"%s.%s" % (c["full"], m["name"]) for c in classes for m in c["meths"]}
+    stale = sorted(set(overrides) - known)
+    if stale:
+        sys.exit("runtime_overrides.json names calls that are not in the reference: %s"
+                 % ", ".join(stale))
+
     total = 0
     # ---- per-module files ----
     for name, d in mods.items():
@@ -325,15 +424,27 @@ def main():
         if d["enums"]:
             L += ["## Enumerations", ""]
             for e in d["enums"]:
-                L.append(f"`{name}.{e['name']}`: " + ", ".join("`%s`" % v for v in e["values"]))
-                if e["brief"]:
-                    L.append(f"  - {e['brief']}")
+                full = f"{name}.{e['name']}"
+                members = enum_members(e["values"])
+                if len(members) <= ENUM_WRAP:
+                    L.append(f"`{full}`: {members}")
+                    if e["brief"]:
+                        L.append(f"  - {e['brief']}")
+                else:
+                    # long list: the description goes first so a trimmed read keeps it
+                    head = f"`{full}` — {len(e['values'])} members"
+                    if e["brief"]:
+                        head += f". {e['brief']}"
+                    L.append(head)
+                    for chunk in enum_chunks(e["values"]):
+                        L.append(f"  - `{full}`: {chunk}")
                 L.append("")
 
         if d["funcs"]:
             L += ["## Module functions", ""]
             for fn in d["funcs"]:
                 L.append(f"### `{name}.{sig(fn)}`")
+                L += override_lines(overrides.get(f"{name}.{fn['name']}", []))
                 emit_detail(L, fn)
                 L.append("")
 
@@ -359,19 +470,25 @@ def main():
                 if c["props"]:
                     C.append("Properties: " + ", ".join("`%s`" % p for p in c["props"]))
                 if c["meths"]:
-                    C.append("")
-                    C.append("Methods:")
-                    C.append("")
+                    # Every signature first, one line each, then the prose under
+                    # "Method details", so a trimmed read still has the list.
+                    C += ["", "Methods:", ""]
+                    details = []
                     for m in c["meths"]:
-                        if m.get("pdocs") or m.get("returns"):
+                        ovs = overrides.get(f"{c['full']}.{m['name']}", [])
+                        sb = short_brief(m["brief"])
+                        C.append(f"- `{sig(m)}`" + (f" — {sb}" if sb else "") + override_tag(ovs))
+                        rem = m.get("remarks")
+                        if (m.get("pdocs") or m.get("returns") or ovs or sb != m["brief"]
+                                or (rem and rem != m["brief"])):
+                            details.append((m, ovs))
+                    if details:
+                        C += ["", "Method details:", ""]
+                        for m, ovs in details:
                             C.append(f"#### `{sig(m)}`")
+                            C += override_lines(ovs)
                             emit_detail(C, m)
                             C.append("")
-                        else:
-                            line = f"- `{sig(m)}`"
-                            if m["brief"]:
-                                line += f" — {m['brief']}"
-                            C.append(line)
                 C.append("")
             total += w(os.path.join(OUT, "api", "classes", f"{name}.md"), "\n".join(C) + "\n")
 
@@ -385,8 +502,69 @@ def main():
         for fn in d["funcs"]:
             rows.append((fn["name"], name, fn["brief"]))
     for fn, mod, br in sorted(rows):
-        L.append(f"- `{mod}.{fn}` — {br}" if br else f"- `{mod}.{fn}`")
+        tag = override_tag(overrides.get(f"{mod}.{fn}", []))
+        L.append((f"- `{mod}.{fn}` — {br}" if br else f"- `{mod}.{fn}`") + tag)
     total += w(os.path.join(OUT, "api", "functions-index.md"), "\n".join(L) + "\n")
+
+    # ---- flat method lookup ----
+    by_full = {c["full"]: c for c in classes}
+    by_short = collections.defaultdict(list)
+    for c in classes:
+        by_short[c["short"]].append(c["full"])
+
+    def resolve_base(b, mod):
+        if b in by_full:
+            return b
+        cands = by_short.get(b.rsplit(".", 1)[-1], [])
+        same = [x for x in cands if x.rsplit(".", 1)[0] == mod]
+        return (same or cands or [None])[0]
+
+    children = collections.defaultdict(set)
+    for c in classes:
+        for b in c["bases"]:
+            p = resolve_base(b, c["module"])
+            if p and p != c["full"]:
+                children[p].add(c["full"])
+
+    def descendants(full):
+        seen, todo = set(), [full]
+        while todo:
+            for ch in children.get(todo.pop(), ()):
+                if ch not in seen:
+                    seen.add(ch)
+                    todo.append(ch)
+        return seen
+
+    L = ["# Method lookup index", "",
+         "Flat, greppable list of every class method as `module.Class.method`, one",
+         "line per method name. A method is listed on the class that declares it;",
+         "\"inherited by\" names the classes that get it from there. Open",
+         "`api/classes/<module>.md` for the signature and argument documentation.",
+         ""]
+    mcount = 0
+    for c in sorted(classes, key=lambda x: x["full"]):
+        if not c["meths"]:
+            continue
+        desc = descendants(c["full"])
+        if not desc:
+            inh = ""
+        elif len(desc) <= 6:
+            inh = " (inherited by %s)" % ", ".join("`%s`" % by_full[x]["short"] for x in sorted(desc))
+        else:
+            inh = " (inherited by %d classes)" % len(desc)
+        groups = collections.OrderedDict()
+        for m in c["meths"]:
+            groups.setdefault(m["name"], []).append(m)
+        for mname, ms in groups.items():
+            mcount += 1
+            line = f"- `{c['full']}.{mname}`"
+            if len(ms) > 1:
+                line += f" ({len(ms)} overloads)"
+            sb = next((short_brief(m["brief"]) for m in ms if m["brief"]), "")
+            if sb:
+                line += f" — {sb}"
+            L.append(line + override_tag(overrides.get(f"{c['full']}.{mname}", [])) + inh)
+    total += w(os.path.join(OUT, "api", "methods-index.md"), "\n".join(L) + "\n")
 
     # ---- enums ----
     L = ["# Enumeration reference", "",
@@ -399,7 +577,15 @@ def main():
         L += [f"## {name}", ""]
         for e in d["enums"]:
             ecount += 1
-            L.append(f"- `{name}.{e['name']}`: " + ", ".join("`%s`" % v for v in e["values"]))
+            full = f"{name}.{e['name']}"
+            members = enum_members(e["values"])
+            dep = " — DEPRECATED" if "DEPRECATED" in e["brief"] else ""
+            if len(members) <= ENUM_WRAP:
+                L.append(f"- `{full}`: {members}{dep}")
+            else:
+                L.append(f"- `{full}` — {len(e['values'])} members, wrapped below{dep}")
+                for chunk in enum_chunks(e["values"]):
+                    L.append(f"  - `{full}`: {chunk}")
         L.append("")
     total += w(os.path.join(OUT, "api", "enums.md"), "\n".join(L) + "\n")
 
@@ -418,6 +604,8 @@ def main():
 
     print("modules:", len(mods))
     print("functions:", len(rows))
+    print("methods:", mcount)
+    print("runtime overrides:", sum(len(v) for v in overrides.values()))
     print("enums:", ecount)
     print("classes:", len(classes))
     print("bytes written:", total)

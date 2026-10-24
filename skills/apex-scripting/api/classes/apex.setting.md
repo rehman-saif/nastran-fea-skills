@@ -9,6 +9,10 @@ Properties: `createGeometryInNewPart`, `geometryEdgeTesselationTolerance`, `geom
 
 Methods:
 
+- `update(createGeometryInNewPart: apex.setting.CreateGeometryInNewPart = apex.setting.CreateGeometryInNewPart.CurrentPart, geometryTessellationIsWatertight: bool = False, geometryFaceTesselationTolerance: apex.setting.GeometryTessellationTolerance = apex.setting.GeometryTessellationTolerance.Medium, geometryEdgeTesselationTolerance: apex.setting.GeometryTessellationTolerance = apex.setting.GeometryTessellationTolerance.Medium) -> None` — Updates the properties of this ApplicationSettingsGeometry object.
+
+Method details:
+
 #### `update(createGeometryInNewPart: apex.setting.CreateGeometryInNewPart = apex.setting.CreateGeometryInNewPart.CurrentPart, geometryTessellationIsWatertight: bool = False, geometryFaceTesselationTolerance: apex.setting.GeometryTessellationTolerance = apex.setting.GeometryTessellationTolerance.Medium, geometryEdgeTesselationTolerance: apex.setting.GeometryTessellationTolerance = apex.setting.GeometryTessellationTolerance.Medium) -> None`
 Updates the properties of this ApplicationSettingsGeometry object. All modifiable properties of the ApplicationSettingsGeometry object are supported as optional arguments. Multiple properties may be updated in a single call. Any properties not included in the argument list are unchanged by this method.
 
@@ -35,15 +39,37 @@ Properties: `scratchFolder`, `solverMemory`
 
 Methods:
 
-- `getScratchFolder() -> str` — The location where the integrated solver will create temporary files used during solution. The location must be defined as a path qualified folder and must exist on the current system otherwise the method will throw an exception.
+- `getScratchFolder() -> str` — The location where the integrated solver will create temporary files used during solution.
 - `getSolverMemory() -> float` — The maximum amount of memory that will be provided to the integrated solver when it executes.
 - `setScratchFolder(scratchFolder: str) -> None` — set the location where the integrated solver will create temporary files used during solution.
 - `setSolverMemory(solverMemory: float) -> None` — set the maximum amount of memory that will be provided to the integrated solver when it executes.
+
+Method details:
+
+#### `getScratchFolder() -> str`
+The location where the integrated solver will create temporary files used during solution. The location must be defined as a path qualified folder and must exist on the current system otherwise the method will throw an exception.
+
+Example : "E:/Scratch"
+
+#### `getSolverMemory() -> float`
+The maximum amount of memory that will be provided to the integrated solver when it executes.
+
+This value represents a digital storage quantity and must be interpreted using the units of Digital Storage in the active ScriptUnitSystem
+
 
 ## `apex.setting.ScriptTriggers`
 setting object used to add/remove/enable the automatic execution of scripts.
 
 Methods:
+
+- `add(trigger: apex.setting.ScriptTriggerType, scriptName: str, methodName: str) -> None` — Add a Script Trigger, Script, and script method to settings. if a script and method already exist for the trigger, it will be replaced.
+- `disable(trigger: apex.setting.ScriptTriggerType) -> None` — disable a Script Trigger from settings.
+- `enable(trigger: apex.setting.ScriptTriggerType) -> None` — enable a Script Trigger in settings.
+- `getTriggerMethod(trigger: apex.setting.ScriptTriggerType) -> str` — Return method name associated with a ScriptTriggerType.
+- `getTriggerScript(trigger: apex.setting.ScriptTriggerType) -> str` — Return script name associated with a ScriptTriggerType.
+- `remove(trigger: apex.setting.ScriptTriggerType) -> None` — remove a Script Trigger and associated Script and method from settings.
+
+Method details:
 
 #### `add(trigger: apex.setting.ScriptTriggerType, scriptName: str, methodName: str) -> None`
 Add a Script Trigger, Script, and script method to settings. if a script and method already exist for the trigger, it will be replaced.

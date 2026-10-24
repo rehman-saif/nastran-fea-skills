@@ -40,6 +40,16 @@ Properties: `activeExternalSolver`, `computeEnvironmentNastranExternal`, `comput
 
 Methods:
 
+- `ComputeEnvironmentNastran(computeEnvironmentNastranExternal: apex.compute.ComputeEnvironmentNastranExternal, computeEnvironmentNastranIntegrated: apex.compute.ComputeEnvironmentNastranIntegrated, name: str, activeExternalSolver: bool = False) -> None` — Constructor for the nastran compute environment.
+- `getActiveExternalSolver() -> bool` — Active External Nastran solver.
+- `getComputeEnvironmentNastranExternal() -> apex.compute.ComputeEnvironmentNastranExternal` — External Nastran ComputeEnvironment.
+- `getComputeEnvironmentNastranIntegrated() -> apex.compute.ComputeEnvironmentNastranIntegrated` — Integrated Nastran ComputeEnvironment.
+- `getName() -> str` — Name of the compute environment.
+- `thisSPtr() -> apex.compute.ComputeEnvironmentNastran`
+- `~ComputeEnvironmentNastran() -> None`
+
+Method details:
+
 #### `ComputeEnvironmentNastran(computeEnvironmentNastranExternal: apex.compute.ComputeEnvironmentNastranExternal, computeEnvironmentNastranIntegrated: apex.compute.ComputeEnvironmentNastranIntegrated, name: str, activeExternalSolver: bool = False) -> None`
 Constructor for the nastran compute environment.
 
@@ -48,18 +58,47 @@ Constructor for the nastran compute environment.
 - `name` — Name of the compute environment
 - `activeExternalSolver` — Active External Nastran solver. The default is false, which use integrated solver to run simulation. If it is false,ComputeEnvironmentNastranIntegrated will be used; if it is true,ComputeEnvironmentNastranExternal will be used.
 
-- `getActiveExternalSolver() -> bool` — Active External Nastran solver. The default is false, which use integrated solver to run simulation. If it is false,ComputeEnvironmentNastranIntegrated will be used; if it is true,ComputeEnvironmentNastranExternal will be used.
-- `getComputeEnvironmentNastranExternal() -> apex.compute.ComputeEnvironmentNastranExternal` — External Nastran ComputeEnvironment.
-- `getComputeEnvironmentNastranIntegrated() -> apex.compute.ComputeEnvironmentNastranIntegrated` — Integrated Nastran ComputeEnvironment.
-- `getName() -> str` — Name of the compute environment.
-- `thisSPtr() -> apex.compute.ComputeEnvironmentNastran`
-- `~ComputeEnvironmentNastran() -> None`
+#### `getActiveExternalSolver() -> bool`
+Active External Nastran solver. The default is false, which use integrated solver to run simulation. If it is false,ComputeEnvironmentNastranIntegrated will be used; if it is true,ComputeEnvironmentNastranExternal will be used.
+
 
 ## `apex.compute.ComputeEnvironmentNastranExternal`
 A class used to define the compute environment for Nastran.
 Properties: `bufferpool`, `buffersize`, `cputhreads`, `deleteScratchOnCompletion`, `fxphysical`, `inputFileFolder`, `memory`, `memoryAllocationMethod`, `memorymax`, `memorymaxMethod`, `resultFileFolder`, `scratchFileFolder`, `solverExecutionPreference`, `solverPath`
 
 Methods:
+
+- `ComputeEnvironmentNastranExternal(solverPath: str, inputFileFolder: str, scratchFileFolder: str, resultFileFolder: str, buffersize: int, bufferpool: float, memorymax: float = 16 GB, fxphysical: float = 0.75f, memory: float = 12 GB, cputhreads: int = 4, deleteScratchOnCompletion: apex.compute.DeleteScratchFiles = apex.compute.DeleteScratchFiles.Yes, solverExecutionPreference: apex.compute.SolverExecutionPreference = apex.compute.SolverExecutionPreference.Auto, memorymaxMethod: apex.compute.MemorymaxMethod = apex.compute.MemorymaxMethod.Fraction, memoryAllocationMethod: apex.compute.NastranMemoryAllocationMethod = apex.compute.NastranMemoryAllocationMethod.Max) -> None` — constructor for the compute environment.
+- `getBufferpool() -> float` — bufferpool represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system
+- `getBuffersize() -> int` — buffersize represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system
+- `getCputhreads() -> int` — Define the cpu threads to be used in simulation.
+- `getDeleteScratchOnCompletion() -> apex.compute.DeleteScratchFiles` — Status of Scratch files on completion.
+- `getFxphysical() -> float` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. fxphysical represents a fraction of physical memory ...
+- `getInputFileFolder() -> str` — the fully qualified pathname of the folder where the Nastran input file(s) will be written
+- `getMemory() -> float` — the amount of memory that will be allocated to Nastran for solution of jobs. memory is only required when memoryAllocationMehod is set to ...
+- `getMemoryAllocationMethod() -> apex.compute.NastranMemoryAllocationMethod` — enumeration specifying the method that will be used to allocate memory to Nastran for solution of jobs.
+- `getMemorymax() -> float` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment.
+- `getMemorymaxMethod() -> apex.compute.MemorymaxMethod` — Max memory definition method.
+- `getResultFileFolder() -> str` — the fully qualified pathname of the folder where the Nastran result file(s) will be written.
+- `getScratchFileFolder() -> str` — the fully qualified pathname of the folder where the Nastran scratch file(s) will be written
+- `getSolverExecutionPreference() -> apex.compute.SolverExecutionPreference` — Preference to set solver/parallel/memory.
+- `getSolverPath() -> str` — fully qualified path to the Nastran installation folder.For example r"D:\MSC\Software\Nastran\2022.1\bin\nastranw.exe"
+- `setBufferpool(bufferpool: float) -> None` — bufferpool represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system
+- `setBuffersize(buffersize: int) -> None` — buffersize represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system
+- `setCputhreads(cputhreads: int) -> None` — Define the cpu threads to be used in simulation.
+- `setDeleteScratchOnCompletion(deleteScratchOnCompletion: apex.compute.DeleteScratchFiles) -> None` — Status of Scratch files on completion.
+- `setFxphysical(fxphysical: float) -> None` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. fxphysical represents a fraction of physical memory ...
+- `setInputFileFolder(inputFileFolder: str) -> None` — the fully qualified pathname of the folder where the Nastran input file(s) will be written
+- `setMemory(memory: float) -> None` — the amount of memory that will be allocated to Nastran for solution of jobs. memory is only required when memoryAllocationMehod is set to ...
+- `setMemoryAllocationMethod(memoryAllocationMethod: apex.compute.NastranMemoryAllocationMethod) -> None` — enumeration specifying the method that will be used to allocate memory to Nastran for solution of jobs.
+- `setMemorymax(memorymax: float) -> None` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment.
+- `setMemorymaxMethod(memorymaxMethod: apex.compute.MemorymaxMethod) -> None` — Max memory definition method.
+- `setResultFileFolder(resultFileFolder: str) -> None` — the fully qualified pathname of the folder where the Nastran result file(s) will be written.
+- `setScratchFileFolder(scratchFileFolder: str) -> None` — the fully qualified pathname of the folder where the Nastran scratch file(s) will be written
+- `setSolverExecutionPreference(solverExecutionPreference: apex.compute.SolverExecutionPreference) -> None` — Preference to set solver/parallel/memory.
+- `setSolverPath(solverPath: str) -> None` — fully qualified path to the Nastran installation folder.For example r"D:\MSC\Software\Nastran\2022.1\bin\nastranw.exe"
+
+Method details:
 
 #### `ComputeEnvironmentNastranExternal(solverPath: str, inputFileFolder: str, scratchFileFolder: str, resultFileFolder: str, buffersize: int, bufferpool: float, memorymax: float = 16 GB, fxphysical: float = 0.75f, memory: float = 12 GB, cputhreads: int = 4, deleteScratchOnCompletion: apex.compute.DeleteScratchFiles = apex.compute.DeleteScratchFiles.Yes, solverExecutionPreference: apex.compute.SolverExecutionPreference = apex.compute.SolverExecutionPreference.Auto, memorymaxMethod: apex.compute.MemorymaxMethod = apex.compute.MemorymaxMethod.Fraction, memoryAllocationMethod: apex.compute.NastranMemoryAllocationMethod = apex.compute.NastranMemoryAllocationMethod.Max) -> None`
 constructor for the compute environment.
@@ -79,40 +118,62 @@ constructor for the compute environment.
 - `memorymaxMethod` — Max memory definition method.
 - `memoryAllocationMethod` — enumeration specifying the method that will be used to allocate memory to Nastran for solution of jobs. Setting this value to apex.compute.NastranMemoryAllocationMethod.Estimate will cause Nastran to determine an optimal memory allocation based on examination of the job, limited only by the value of memorymax Setting this value to apex.compute.NastranMemoryAllocationMethod.Max will cause Nastran to allocate memory for each job equal to the value defined for memorymax Setting this value to apex.compute.NastranMemoryAllocationMethod.User requires that a value be assigned to memory and that memory value will be used
 
-- `getBufferpool() -> float` — bufferpool represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system
-- `getBuffersize() -> int` — buffersize represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system
-- `getCputhreads() -> int` — Define the cpu threads to be used in simulation.
-- `getDeleteScratchOnCompletion() -> apex.compute.DeleteScratchFiles` — Status of Scratch files on completion.
-- `getFxphysical() -> float` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. fxphysical represents a fraction of physical memory, the fraction is between 0 and 1. It is only required when memorymaxMethod = Fraction.
-- `getInputFileFolder() -> str` — the fully qualified pathname of the folder where the Nastran input file(s) will be written
-- `getMemory() -> float` — the amount of memory that will be allocated to Nastran for solution of jobs. memory is only required when memoryAllocationMehod is set to apex.compute.NastranMemoryAllocationMethod.User and is silently ignored in all other cases. memory represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system
-- `getMemoryAllocationMethod() -> apex.compute.NastranMemoryAllocationMethod` — enumeration specifying the method that will be used to allocate memory to Nastran for solution of jobs. Setting this value to apex.compute.NastranMemoryAllocationMethod.Estimate will cause Nastran to determine an optimal memory allocation based on examination of the job, limited only by the value of memorymax Setting this value to apex.compute.NastranMemoryAllocationMethod.Max will cause Nastran to allocate memory for each job equal to the value defined for memorymax Setting this value to apex.compute.NastranMemoryAllocationMethod.User requires that a value be assigned to memory and that memory value will be used
-- `getMemorymax() -> float` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. This setting defines an upper limit for other memory settings in this compute environment. 1.If the associated "memory" setting is set to "Automatic", Nastran will estimate the optimal amount of memory required to solve each job. If the estimated memory requirement exceeds the value of memorymax defined here, Nastran will limit memory usage to the value defined here 2.If the associated "memory" setting is set to "Manual" and a memory size greater than the value of memorymax defined here is specified, Nastran will limit memory usage to the value defined here maxMemory represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system.It is only required when MemoryMaxMethod = User.
-- `getMemorymaxMethod() -> apex.compute.MemorymaxMethod` — Max memory definition method.
-- `getResultFileFolder() -> str` — the fully qualified pathname of the folder where the Nastran result file(s) will be written. If omits, the system will generate the result files in the input file folder.
-- `getScratchFileFolder() -> str` — the fully qualified pathname of the folder where the Nastran scratch file(s) will be written
-- `getSolverExecutionPreference() -> apex.compute.SolverExecutionPreference` — Preference to set solver/parallel/memory. If SolverExecutionPreferenc = Auto, Nastran will automatically select the solver/parallel/memory. It is not required the setting of memorymax, memory, cupthreads, buffersize, bufferpool. If SolverExecutionPreferenc = Manual, user can configure the setting of memorymax, memory, cupthreads, buffersize, bufferpool.
-- `getSolverPath() -> str` — fully qualified path to the Nastran installation folder.For example r"D:\MSC\Software\Nastran\2022.1\bin\nastranw.exe"
-- `setBufferpool(bufferpool: float) -> None` — bufferpool represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system
-- `setBuffersize(buffersize: int) -> None` — buffersize represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system
-- `setCputhreads(cputhreads: int) -> None` — Define the cpu threads to be used in simulation.
-- `setDeleteScratchOnCompletion(deleteScratchOnCompletion: apex.compute.DeleteScratchFiles) -> None` — Status of Scratch files on completion.
-- `setFxphysical(fxphysical: float) -> None` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. fxphysical represents a fraction of physical memory, the fraction is between 0 and 1. It is only required when memorymaxMethod = Fraction.
-- `setInputFileFolder(inputFileFolder: str) -> None` — the fully qualified pathname of the folder where the Nastran input file(s) will be written
-- `setMemory(memory: float) -> None` — the amount of memory that will be allocated to Nastran for solution of jobs. memory is only required when memoryAllocationMehod is set to apex.compute.NastranMemoryAllocationMethod.User and is silently ignored in all other cases. memory represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system
-- `setMemoryAllocationMethod(memoryAllocationMethod: apex.compute.NastranMemoryAllocationMethod) -> None` — enumeration specifying the method that will be used to allocate memory to Nastran for solution of jobs. Setting this value to apex.compute.NastranMemoryAllocationMethod.Estimate will cause Nastran to determine an optimal memory allocation based on examination of the job, limited only by the value of memorymax Setting this value to apex.compute.NastranMemoryAllocationMethod.Max will cause Nastran to allocate memory for each job equal to the value defined for memorymax Setting this value to apex.compute.NastranMemoryAllocationMethod.User requires that a value be assigned to memory and that memory value will be used
-- `setMemorymax(memorymax: float) -> None` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. This setting defines an upper limit for other memory settings in this compute environment. 1.If the associated "memory" setting is set to "Automatic", Nastran will estimate the optimal amount of memory required to solve each job. If the estimated memory requirement exceeds the value of memorymax defined here, Nastran will limit memory usage to the value defined here 2.If the associated "memory" setting is set to "Manual" and a memory size greater than the value of memorymax defined here is specified, Nastran will limit memory usage to the value defined here maxMemory represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system.It is only required when MemoryMaxMethod = User.
-- `setMemorymaxMethod(memorymaxMethod: apex.compute.MemorymaxMethod) -> None` — Max memory definition method.
-- `setResultFileFolder(resultFileFolder: str) -> None` — the fully qualified pathname of the folder where the Nastran result file(s) will be written. If omits, the system will generate the result files in the input file folder.
-- `setScratchFileFolder(scratchFileFolder: str) -> None` — the fully qualified pathname of the folder where the Nastran scratch file(s) will be written
-- `setSolverExecutionPreference(solverExecutionPreference: apex.compute.SolverExecutionPreference) -> None` — Preference to set solver/parallel/memory. If SolverExecutionPreferenc = Auto, Nastran will automatically select the solver/parallel/memory. It is not required the setting of memorymax, memory, cupthreads, buffersize, bufferpool. If SolverExecutionPreferenc = Manual, user can configure the setting of memorymax, memory, cupthreads, buffersize, bufferpool.
-- `setSolverPath(solverPath: str) -> None` — fully qualified path to the Nastran installation folder.For example r"D:\MSC\Software\Nastran\2022.1\bin\nastranw.exe"
+#### `getFxphysical() -> float`
+The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. fxphysical represents a fraction of physical memory, the fraction is between 0 and 1. It is only required when memorymaxMethod = Fraction.
+
+#### `getMemory() -> float`
+the amount of memory that will be allocated to Nastran for solution of jobs. memory is only required when memoryAllocationMehod is set to apex.compute.NastranMemoryAllocationMethod.User and is silently ignored in all other cases. memory represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system
+
+#### `getMemoryAllocationMethod() -> apex.compute.NastranMemoryAllocationMethod`
+enumeration specifying the method that will be used to allocate memory to Nastran for solution of jobs. Setting this value to apex.compute.NastranMemoryAllocationMethod.Estimate will cause Nastran to determine an optimal memory allocation based on examination of the job, limited only by the value of memorymax Setting this value to apex.compute.NastranMemoryAllocationMethod.Max will cause Nastran to allocate memory for each job equal to the value defined for memorymax Setting this value to apex.compute.NastranMemoryAllocationMethod.User requires that a value be assigned to memory and that memory value will be used
+
+#### `getMemorymax() -> float`
+The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. This setting defines an upper limit for other memory settings in this compute environment. 1.If the associated "memory" setting is set to "Automatic", Nastran will estimate the optimal amount of memory required to solve each job. If the estimated memory requirement exceeds the value of memorymax defined here, Nastran will limit memory usage to the value defined here 2.If the associated "memory" setting is set to "Manual" and a memory size greater than the value of memorymax defined here is specified, Nastran will limit memory usage to the value defined here maxMemory represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system.It is only required when MemoryMaxMethod = User.
+
+#### `getResultFileFolder() -> str`
+the fully qualified pathname of the folder where the Nastran result file(s) will be written. If omits, the system will generate the result files in the input file folder.
+
+#### `getSolverExecutionPreference() -> apex.compute.SolverExecutionPreference`
+Preference to set solver/parallel/memory. If SolverExecutionPreferenc = Auto, Nastran will automatically select the solver/parallel/memory. It is not required the setting of memorymax, memory, cupthreads, buffersize, bufferpool. If SolverExecutionPreferenc = Manual, user can configure the setting of memorymax, memory, cupthreads, buffersize, bufferpool.
+
+#### `setFxphysical(fxphysical: float) -> None`
+The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. fxphysical represents a fraction of physical memory, the fraction is between 0 and 1. It is only required when memorymaxMethod = Fraction.
+
+#### `setMemory(memory: float) -> None`
+the amount of memory that will be allocated to Nastran for solution of jobs. memory is only required when memoryAllocationMehod is set to apex.compute.NastranMemoryAllocationMethod.User and is silently ignored in all other cases. memory represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system
+
+#### `setMemoryAllocationMethod(memoryAllocationMethod: apex.compute.NastranMemoryAllocationMethod) -> None`
+enumeration specifying the method that will be used to allocate memory to Nastran for solution of jobs. Setting this value to apex.compute.NastranMemoryAllocationMethod.Estimate will cause Nastran to determine an optimal memory allocation based on examination of the job, limited only by the value of memorymax Setting this value to apex.compute.NastranMemoryAllocationMethod.Max will cause Nastran to allocate memory for each job equal to the value defined for memorymax Setting this value to apex.compute.NastranMemoryAllocationMethod.User requires that a value be assigned to memory and that memory value will be used
+
+#### `setMemorymax(memorymax: float) -> None`
+The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. This setting defines an upper limit for other memory settings in this compute environment. 1.If the associated "memory" setting is set to "Automatic", Nastran will estimate the optimal amount of memory required to solve each job. If the estimated memory requirement exceeds the value of memorymax defined here, Nastran will limit memory usage to the value defined here 2.If the associated "memory" setting is set to "Manual" and a memory size greater than the value of memorymax defined here is specified, Nastran will limit memory usage to the value defined here maxMemory represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system.It is only required when MemoryMaxMethod = User.
+
+#### `setResultFileFolder(resultFileFolder: str) -> None`
+the fully qualified pathname of the folder where the Nastran result file(s) will be written. If omits, the system will generate the result files in the input file folder.
+
+#### `setSolverExecutionPreference(solverExecutionPreference: apex.compute.SolverExecutionPreference) -> None`
+Preference to set solver/parallel/memory. If SolverExecutionPreferenc = Auto, Nastran will automatically select the solver/parallel/memory. It is not required the setting of memorymax, memory, cupthreads, buffersize, bufferpool. If SolverExecutionPreferenc = Manual, user can configure the setting of memorymax, memory, cupthreads, buffersize, bufferpool.
+
 
 ## `apex.compute.ComputeEnvironmentNastranIntegrated`
 A class used to define the compute environment for Nastran.
 Properties: `fxphysical`, `matrixConditionLimit`, `memorymax`, `memorymaxMethod`, `scratchFileFolder`
 
 Methods:
+
+- `ComputeEnvironmentNastranIntegrated(scratchFileFolder: str, matrixConditionLimit: float = 1.00E+12f, memorymax: float = 4.0 GB, fxphysical: float = 0.75f, memorymaxMethod: apex.compute.MemorymaxMethod = apex.compute.MemorymaxMethod.Fraction) -> None` — Constructor of IntegratedSolverNastran.
+- `getFxphysical() -> float` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. memorymax represents a quantity of Digital Storage and ...
+- `getMatrixConditionLimit() -> float` — The matrix condition limit for analysis.
+- `getMemorymax() -> float` — Max memory definition method.
+- `getMemorymaxMethod() -> apex.compute.MemorymaxMethod` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. fxphysical represents a fraction of physical memory ...
+- `getScratchFileFolder() -> str` — the fully qualified pathname of the folder where the Nastran scratch file(s) will be written
+- `setFxphysical(fxphysical: float) -> None` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. memorymax represents a quantity of Digital Storage and ...
+- `setMatrixConditionLimit(matrixConditionLimit: float) -> None` — The matrix condition limit for analysis.
+- `setMemorymax(memorymax: float) -> None` — Max memory definition method.
+- `setMemorymaxMethod(memorymaxMethod: apex.compute.MemorymaxMethod) -> None` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. fxphysical represents a fraction of physical memory ...
+- `setScratchFileFolder(scratchFileFolder: str) -> None` — the fully qualified pathname of the folder where the Nastran scratch file(s) will be written
+
+Method details:
 
 #### `ComputeEnvironmentNastranIntegrated(scratchFileFolder: str, matrixConditionLimit: float = 1.00E+12f, memorymax: float = 4.0 GB, fxphysical: float = 0.75f, memorymaxMethod: apex.compute.MemorymaxMethod = apex.compute.MemorymaxMethod.Fraction) -> None`
 Constructor of IntegratedSolverNastran.
@@ -123,16 +184,18 @@ Constructor of IntegratedSolverNastran.
 - `fxphysical` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. memorymax represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system. It is only available when memorymaxMethod = User
 - `memorymaxMethod` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. fxphysical represents a fraction of physical memory, the fraction is between 0 and 1. It is only required when memorymaxMethod = Fraction.
 
-- `getFxphysical() -> float` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. memorymax represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system. It is only available when memorymaxMethod = User.
-- `getMatrixConditionLimit() -> float` — The matrix condition limit for analysis.
-- `getMemorymax() -> float` — Max memory definition method.
-- `getMemorymaxMethod() -> apex.compute.MemorymaxMethod` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. fxphysical represents a fraction of physical memory, the fraction is between 0 and 1. It is only required when memorymaxMethod = Fraction.
-- `getScratchFileFolder() -> str` — the fully qualified pathname of the folder where the Nastran scratch file(s) will be written
-- `setFxphysical(fxphysical: float) -> None` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. memorymax represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system. It is only available when memorymaxMethod = User.
-- `setMatrixConditionLimit(matrixConditionLimit: float) -> None` — The matrix condition limit for analysis.
-- `setMemorymax(memorymax: float) -> None` — Max memory definition method.
-- `setMemorymaxMethod(memorymaxMethod: apex.compute.MemorymaxMethod) -> None` — The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. fxphysical represents a fraction of physical memory, the fraction is between 0 and 1. It is only required when memorymaxMethod = Fraction.
-- `setScratchFileFolder(scratchFileFolder: str) -> None` — the fully qualified pathname of the folder where the Nastran scratch file(s) will be written
+#### `getFxphysical() -> float`
+The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. memorymax represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system. It is only available when memorymaxMethod = User.
+
+#### `getMemorymaxMethod() -> apex.compute.MemorymaxMethod`
+The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. fxphysical represents a fraction of physical memory, the fraction is between 0 and 1. It is only required when memorymaxMethod = Fraction.
+
+#### `setFxphysical(fxphysical: float) -> None`
+The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. memorymax represents a quantity of Digital Storage and must be specified using the units of Digital Storage from the active script unit system. It is only available when memorymaxMethod = User.
+
+#### `setMemorymaxMethod(memorymaxMethod: apex.compute.MemorymaxMethod) -> None`
+The maximum amount of memory that can be used for execution of Nastran jobs on this compute environment. fxphysical represents a fraction of physical memory, the fraction is between 0 and 1. It is only required when memorymaxMethod = Fraction.
+
 
 ## `apex.compute.LocalSolver`  (extends `ComputeEnvironmentGenDes`)
 A class used to define the "Local" solver compute environment for Generative design.

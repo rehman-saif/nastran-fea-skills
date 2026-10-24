@@ -9,6 +9,45 @@ Properties: `assemblies`, `assemblyReps`, `axisAlignedBoundingBox`, `datumPlanes
 
 Methods:
 
+- `applyColorToChildren(color: [int]) -> None` — applies the color of this Assembly to all its children.
+- `applyRenderStyleToChildren(renderStyle: apex.session.DisplayRenderStyle) -> None` — applies the Render Style of this Assembly to all its children.
+- `applyTransparencyToChildren(enableTransparency: bool, transparencyLevel: int) -> None` — applies the Transparency setting of this Assembly to all its children.
+- `asEntity() -> Entity` — return the (base) Entity Object of this Assembly.
+- `createAssembly(name: str = "") -> Assembly` — Create a new Assembly that is child of this Assembly.
+- `createAssemblyRep(name: str, description: str = "") -> apex.AssemblyRep` — Create an Assembly Rep from this Assembly.
+- `createPart(name: str = "") -> Part` — Create a new Part that is child of this Assembly.
+- `deleteAssemblyRep(assemblyRep: apex.AssemblyRep) -> None` — Deletes an Assembly Rep from an Assembly.
+- `delete_RENAMED_AFTER_SWIG() -> None` — Delete this Assembly.
+- `exportFEModel(filename: str, unitSystem: str, exportWideFormat: bool = False, exportHierarchicalFiles: bool = False, renumberMethod: apex.attribute.ExportRenumberMethod = apex.attribute.ExportRenumberMethod.Internal, exportAbstractions: bool = False, writePropertyOnElement: bool = True, exportProperty: apex.ExportProperty = apex.ExportProperty.AsDefined) -> None` — Exports the contents of the Assembly to a Nastran file.
+- `exportGeometry(filename: str, cadFormat: apex.geometry.CADFormat, unitSystem: str = "m", stlMergeCells: bool = True, exportVirtualFaces: bool = False, exportVirtualFaceMethod: apex.VirtualFaceExportMethod = apex.VirtualFaceExportMethod.NurbsOnly, exportBodyPositionInLocal: bool = False) -> None` — Export Geometry from this assembly to a file using the supplied CAD format.
+- `exportMarc(filename: str, unitSystem: str, exportWideFormat: bool = False, exportHierarchicalFiles: bool = False, renumberMethod: apex.attribute.ExportRenumberMethod = apex.attribute.ExportRenumberMethod.Internal, exportAbstractions: bool = False) -> None` — Exports the contents of the Assembly to a Marc file.
+- `getAssemblies(recursive: bool = False) -> apex.AssemblyCollection` — Get all Assemblies in this Assembly.
+- `getAssembly(name: str) -> Assembly` — Get an Assembly in this Assembly.
+- `getAssemblyRep(name: str) -> apex.AssemblyRep` — get an Assembly Rep by name
+- `getAssemblyReps() -> apex.AssemblyRepCollection` — get all Assembly Reps from this Assembly.
+- `getDatumPlane(name: str) -> apex.construct.DatumPlane` — Retrieves a DatumPlane that is a direct child of this Assembly using the supplied name.
+- `getDatumPlanes(recursive: bool = False) -> apex.construct.DatumPlaneCollection` — Retrieves all DatumPlanes directly composed by this Assembly and returns them in a DatumPlaneCollection.
+- `getDisplayableEntities() -> apex.EntityCollection` — returns a collection of all entities in this Assembly that implement IDisplayable as an EntityCollection.
+- `getElements() -> apex.mesh.ElementCollection` — Get all elements in this Assembly.
+- `getExclusiveRegions() -> apex.RegionCollection` — returns a RegionCollection of all Regions that exclusively reference ONLY Entities composed by Parts within this Assembly hierarchy.
+- `getInterfacePoints() -> apex.attribute.InterfacePointCollection` — returns a read only collection of all InterfacePoints composed by this Assembly
+- `getModel() -> Model` — Return the parent Model of this Assembly.
+- `getNamedEntities() -> apex.EntityCollection` — returns a collection of all entities in this Assembly that implement IName as an EntityCollection.
+- `getNodes() -> apex.mesh.NodeCollection` — Get all nodes in this Assembly.
+- `getParent() -> Assembly` — Get the parent Assembly for this Assembly.
+- `getPart(name: str) -> Part` — Get a Part in this Assembly.
+- `getPartialRegions() -> apex.RegionCollection` — returns a RegionCollection of all Regions that reference at least one Entity that is composed by a Part within this Assembly hierarchy.
+- `getParts(recursive: bool = False) -> apex.PartCollection` — Get all Parts in this Assembly.
+- `getPhysicalEntities() -> apex.EntityCollection` — returns a collection of all entities in this Assembly that implement IName as an EntityCollection.
+- `importGeometryAsParts(geometryFileNames: [str], importSolids: bool = True, importSurfaces: bool = True, importCurves: bool = True, importPoints: bool = True, importGeneralBodies: bool = True, importDatumPlanes: bool = False, importHiddenGeometry: bool = False, cleanOnImport: bool = True, removeRedundantTopoOnImport: bool = True, loadCompleteTopology: bool = True, sewOnImport: bool = False, importReviewMode3dxmlCleanOnImport: bool = True, importReviewMode3dxmlSplitOnFeatureVertexAngle: bool = True, importReviewMode3dxmlFeatureAngle: float = 40.0, importReviewMode3dxmlVertexAngle: float = 40.0, importReviewMode3dxmlDetectMachinedFaces: bool = False, importPublications: bool = False, importAttributes: bool = False) -> {str:apex.EntityCollection}` — Imports a target CAD model from the input CAD files into the target assembly.
+- `importSTLAsParts(stlFileNames: [str], importBodyType: apex.geometry.STLImportBodyType = apex.geometry.STLImportBodyType.Mesh, featureAngle: float = 40.0, vertexAngle: float = 40.0, detectMachinedFaces: bool = False, splitOnAngle: bool = True, unitSystem: str = "m", cleanOnImport: bool = True) -> {str:apex.EntityCollection}` — Imports one or more STL files into this model and creates either mesh or geometry bodies depending on the supplied input values.
+- `setParent(parent: Assembly) -> None` — Set an Assembly to be the new parent for this Assembly.
+- `unsetColor() -> None` — unapplies the color of this Assembly to all its children.
+- `unsetRender() -> None` — unapplies the renderStyle of this Assembly to all its children.
+- `update(name: str, parent: Entity, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None` — Update one or more of this Assembly properties.
+
+Method details:
+
 #### `applyColorToChildren(color: [int]) -> None`
 applies the color of this Assembly to all its children.
 
@@ -63,7 +102,6 @@ Deletes an Assembly Rep from an Assembly. If the target AssemblyRep does not exi
 
 - `assemblyRep` — objet to be deleted.
 
-- `delete_RENAMED_AFTER_SWIG() -> None` — Delete this Assembly.
 #### `exportFEModel(filename: str, unitSystem: str, exportWideFormat: bool = False, exportHierarchicalFiles: bool = False, renumberMethod: apex.attribute.ExportRenumberMethod = apex.attribute.ExportRenumberMethod.Internal, exportAbstractions: bool = False, writePropertyOnElement: bool = True, exportProperty: apex.ExportProperty = apex.ExportProperty.AsDefined) -> None`
 Exports the contents of the Assembly to a Nastran file. All objects in the Assembly that can be mapped to Nastran keywords will be exported. Only bulk data entries are exported when this method is called from the Assembly class - to export Case (and other Nastran file sections) use the equivalent method on the Scenario class instead. The method arguments provide control over export options.
 
@@ -253,8 +291,16 @@ Set an Assembly to be the new parent for this Assembly.
 
 - `parent` — to be assigned the new parent of this Assembly
 
-- `unsetColor() -> None` — unapplies the color of this Assembly to all its children.
-- `unsetRender() -> None` — unapplies the renderStyle of this Assembly to all its children.
+#### `unsetColor() -> None`
+unapplies the color of this Assembly to all its children.
+
+This method provides the ability to allow the children of containers to control the color display.
+
+#### `unsetRender() -> None`
+unapplies the renderStyle of this Assembly to all its children.
+
+This method provides the ability to allow the children of containers to control the render style display.
+
 #### `update(name: str, parent: Entity, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None`
 Update one or more of this Assembly properties.
 
@@ -274,6 +320,15 @@ Iterable collection of Assemblies, based on IPhysicalCollection.
 Methods:
 
 - `AssemblyCollection() -> None` — Construct a new AssemblyCollection.
+- `appendList(assemblyList: [Assembly]) -> None` — Add Assemblies from a list to the end of this collection.
+
+Method details:
+
+#### `AssemblyCollection() -> None`
+Construct a new AssemblyCollection.
+
+For example:
+
 #### `appendList(assemblyList: [Assembly]) -> None`
 Add Assemblies from a list to the end of this collection.
 
@@ -287,6 +342,20 @@ Assembly representation objects.
 Properties: `exclusiveGroups`, `exclusiveRegions`, `partialGroups`, `partialRegions`, `parts`, `targets`
 
 Methods:
+
+- `add(target: apex.Entity = None, targets: apex.EntityCollection = None) -> None` — adds Assembly/ AssemblyRep/ Part/ apex.attribute.MeshDependentTie/ apex.attribute.DiscreteTie to an AssemblyRep
+- `exportFEModel(filename: str, unitSystem: str, exportWideFormat: bool = False, exportHierarchicalFiles: bool = False, renumberMethod: apex.attribute.ExportRenumberMethod = apex.attribute.ExportRenumberMethod.Internal, exportAbstractions: bool = False, writePropertyOnElement: bool = True, exportProperty: apex.ExportProperty = apex.ExportProperty.AsDefined) -> None` — Exports the contents of the AssemblyRep to a Nastran file.
+- `exportMarc(filename: str, unitSystem: str, exportWideFormat: bool = False, exportHierarchicalFiles: bool = False, inputType: apex.attribute.MarcInputType = apex.attribute.MarcInputType.Dat, renumberMethod: apex.attribute.ExportRenumberMethod = apex.attribute.ExportRenumberMethod.Internal, apexEngineeringAbstractions: bool = False) -> None` — Exports the contents of the AssemblyRep to a Marc file.
+- `getExclusiveGroups() -> apex.GroupCollection` — returns a GroupCollection of all Groups that exclusively reference ONLY Entities composed by PartReps within this AssemblyRep hierarchy.
+- `getExclusiveRegions() -> apex.RegionCollection` — returns a RegionCollection of all Regions that exclusively reference ONLY Entities composed by PartReps within this AssemblyRep hierarchy.
+- `getPartialGroups() -> apex.GroupCollection` — returns a GroupCollection of all Groups that reference at least one Entity that is composed by a PartRep within this AssemblyRep hierarchy.
+- `getPartialRegions() -> apex.RegionCollection` — returns a RegionCollection of all Regions that reference at least one Entity that is composed by a PartRep within this AssemblyRep hierarchy.
+- `getParts() -> apex.PartCollection` — get Parts in AssemblyRep.
+- `getTargets() -> apex.EntityCollection` — get targets, Assembly/ AssemblyRep/ Part/ apex.attribute.MeshDependentTie/ apex.attribute.DiscreteTie from an AssemblyRep
+- `remove(target: apex.Entity = None, targets: apex.EntityCollection = None) -> None` — remove Assembly/ AssemblyRep/ Part/ apex.attribute.MeshDependentTie/ apex.attribute.DiscreteTie from an AssemblyRep
+- `update(name: str = "#####", description: str = "#####", targets: apex.EntityCollection = None) -> None` — Update this AssemblyRep.
+
+Method details:
 
 #### `add(target: apex.Entity = None, targets: apex.EntityCollection = None) -> None`
 adds Assembly/ AssemblyRep/ Part/ apex.attribute.MeshDependentTie/ apex.attribute.DiscreteTie to an AssemblyRep
@@ -337,8 +406,6 @@ returns a RegionCollection of all Regions that reference at least one Entity tha
 
 Returns: a RegionCollection of all Regions that reference at least one Entity that is composed by a PartRep within this AssemblyRep hierarchy.
 
-- `getParts() -> apex.PartCollection` — get Parts in AssemblyRep.
-- `getTargets() -> apex.EntityCollection` — get targets, Assembly/ AssemblyRep/ Part/ apex.attribute.MeshDependentTie/ apex.attribute.DiscreteTie from an AssemblyRep
 #### `remove(target: apex.Entity = None, targets: apex.EntityCollection = None) -> None`
 remove Assembly/ AssemblyRep/ Part/ apex.attribute.MeshDependentTie/ apex.attribute.DiscreteTie from an AssemblyRep
 
@@ -361,18 +428,32 @@ Methods:
 
 - `AssemblyRepCollection() -> None` — Construct a new AssemblyRepCollection.
 
+Method details:
+
+#### `AssemblyRepCollection() -> None`
+Construct a new AssemblyRepCollection.
+
+For example:
+
+
 ## `apex.AxisAlignedBoundingBox`
 object representing a the bounding box of a 3D object in space.
 Properties: `point1`, `point2`
 
 Methods:
 
-- `AxisAlignedBoundingBox(point1: apex.construct.Point3D, point2: apex.construct.Point3D) -> None` — DEPRECATED: In releases of Apex prior to Iberian Lynx this argument was of type apex.construct.Point3D. In the Iberian Lynx release the argument type has been changed to apex.ILocation. For the Iberian Lynx release, users may continue to pass Point3D objects however this capability may be deprecated in a future release therefore users are advised to transition their code to use apex.ILocation as quickly as possible to avoid future problems.
+- `AxisAlignedBoundingBox(point1: apex.construct.Point3D, point2: apex.construct.Point3D) -> None` — DEPRECATED: In releases of Apex prior to Iberian Lynx this argument was of type apex.construct.Point3D.
 - `AxisAlignedBoundingBox(point1: ILocation, point2: ILocation) -> None`
 - `AxisAlignedBoundingBox() -> None`
 - `getPoint1(: None) -> ILocation`
 - `getPoint2(: None) -> ILocation`
 - `update(point1: ILocation, point2: ILocation) -> bool`
+
+Method details:
+
+#### `AxisAlignedBoundingBox(point1: apex.construct.Point3D, point2: apex.construct.Point3D) -> None`
+DEPRECATED: In releases of Apex prior to Iberian Lynx this argument was of type apex.construct.Point3D. In the Iberian Lynx release the argument type has been changed to apex.ILocation. For the Iberian Lynx release, users may continue to pass Point3D objects however this capability may be deprecated in a future release therefore users are advised to transition their code to use apex.ILocation as quickly as possible to avoid future problems.
+
 
 ## `apex.ColorRGB`
 A convenience class that holds a Color defined by 3 integer values(RGB). The class exposes three attributes that represent the 'r', 'g', 'b' values.
@@ -384,6 +465,11 @@ Methods:
 - `ColorRGB(rval: int, gval: int, bval: int) -> None`
 - `ColorRGB(ival: int) -> None`
 - `operator==(color: ColorRGB) -> bool`
+- `update(rval: int, gval: int, bval: int) -> None` — update the color value
+- `updateInteger(ival: int) -> None` — update the color value
+
+Method details:
+
 #### `update(rval: int, gval: int, bval: int) -> None`
 update the color value
 
@@ -406,6 +492,17 @@ update the color values
 Properties: `associatedEntity`, `x`, `y`, `z`
 
 Methods:
+
+- `Coordinate() -> None` — Create a new 3d Coordinate with x, y, z = 0.
+- `Coordinate(physicalEntity: apex.ILocation) -> None` — Create a new 3d Coordinate with location initialized from an ILocation Entity.
+- `Coordinate(x: float, y: float, z: float) -> None` — Create a new 3d Coordinate specifying each of x, y, z.
+- `getAssociatedEntity() -> apex.Entity` — Return the Entity associated with this Coordinate (may be None).
+- `setAssociatedEntity(entity: apex.Entity) -> None` — Set the Entity associated with this Coordinate (may be None).
+- `setX(x: float) -> None` — sets the x value of this Coordinate.
+- `setY(y: float) -> None` — sets the y value of this Coordinate.
+- `setZ(z: float) -> None` — sets the z value of this Coordinate.
+
+Method details:
 
 #### `Coordinate() -> None`
 Create a new 3d Coordinate with x, y, z = 0.
@@ -430,11 +527,6 @@ Create a new 3d Coordinate specifying each of x, y, z.
 
 Returns: the created Coordinate (with no associated Entity)
 
-- `getAssociatedEntity() -> apex.Entity` — Return the Entity associated with this Coordinate (may be None).
-- `setAssociatedEntity(entity: apex.Entity) -> None` — Set the Entity associated with this Coordinate (may be None).
-- `setX(x: float) -> None` — sets the x value of this Coordinate.
-- `setY(y: float) -> None` — sets the y value of this Coordinate.
-- `setZ(z: float) -> None` — sets the z value of this Coordinate.
 
 ## `apex.DataTable2Col`
 object representing 2 columns of float data. Used in apex.environment module.
@@ -459,6 +551,59 @@ Methods:
 Properties: `allowDesignStudyToIgnoreList`, `allowOptimizationToIgnoreRange`, `description`, `discreteValueIncludeMax`, `discreteValueIncludeMin`, `discreteValueList`, `discreteValueMethod`, `discreteValueNumber`, `discreteValueRange`, `enableOptimizationParams`, `id`, `maxValue`, `minValue`, `moveLimit`, `name`, `negativeDelta`, `negativePercentage`, `positiveDelta`, `positivePercentage`, `rangeType`, `specifyAllowableDiscreteValues`, `type`, `unit`, `value`
 
 Methods:
+
+- `getAllowDesignStudyToIgnoreList() -> bool` — Gets option to allow design study to ignore list or not, for Real or Integer type.
+- `getAllowOptimizationToIgnoreRange() -> bool` — Gets option to allow optimization to ignore range or not for Real or Integer type.
+- `getDescription() -> str` — Gets description of the design variable.
+- `getDesignVariableType() -> apex.DesignVariableType` — Gets one of types: Real, Integer, String, Expression or Object.
+- `getDiscreteValueIncludeMax() -> bool` — Gets option to include max value in the discrete values list or not, for Real type.
+- `getDiscreteValueIncludeMin() -> bool` — Gets option to include min value in the discrete values list or not, for Real type.
+- `getDiscreteValueList() -> [float]` — Gets list of discrete values, for Real or Integer type.
+- `getDiscreteValueMethod() -> apex.DiscreteValueMethod` — Gets discrete values method for design variable, either "Generate" or "EnterValues" for Real type, or "EnterValues" for Integer type.
+- `getDiscreteValueNumber() -> int` — Gets number of discrete values for Real type.
+- `getDiscreteValueRange() -> apex.DiscreteValueRange` — Gets discrete value range, either "Equal spaced" or "MinStdMax", for Real type.
+- `getEnableOptimizationParams() -> bool` — Gets option to enable optimization parameters for Real or Integer type.
+- `getId() -> int` — Gets id of design variable for Real type.
+- `getMaxValue() -> float` — Gets maximum value of design variable for Real or Integer type.
+- `getMinValue() -> float` — Gets minimum value of design variable for Real or Integer type.
+- `getMoveLimit() -> float` — Gets the move limit of design variable for Real or Integer type.
+- `getName() -> str` — Gets name of design variable.
+- `getNegativeDelta() -> float` — Gets negative delta for value of design variable for Real or Integer type.
+- `getNegativePercentage() -> float` — Gets negative percentage for value of design variable for Real or Integer type.
+- `getPath() -> str` — return this Entity path string.
+- `getPositiveDelta() -> float` — Gets positive delta for value of design variable for Real or Integer type.
+- `getPositivePercentage() -> float` — Gets positive percentage for value of design variable for Real or Integer type.
+- `getRangeType() -> apex.DesignVariableRangeType` — Gets one of 3 range types for Real or Integer type.
+- `getSpecifyAllowableDiscreteValues() -> bool` — Gets boolean value to indicate specifying allowable discrete values or not for Real or Integer type.
+- `getUnit() -> apex.DesignVariableUnit` — Gets unit of design variable for Real type.
+- `getValue() -> object` — Gets value for design variable.
+- `setAllowDesignStudyToIgnoreList(allowDesignStudyToIgnoreList: bool) -> None` — Sets option to allow design study to ignore list or not, for Real or Integer type.
+- `setAllowOptimizationToIgnoreRange(allowOptimizationToIgnoreRange: bool) -> None` — Sets option to allow optimization to ignore range or not for Real or Integer type.
+- `setDescription(description: str) -> None` — Sets description of the design variable.
+- `setDesignVariableType(type: apex.DesignVariableType) -> None` — Sets one of types: Real, Integer, String, Expression or Object.
+- `setDiscreteValueIncludeMax(discreteValueIncludeMax: bool) -> None` — Sets option to include max value in the discrete values list or not, for Real type.
+- `setDiscreteValueIncludeMin(discreteValueIncludeMin: bool) -> None` — Sets option to include min value in the discrete values list or not, for Real type.
+- `setDiscreteValueList(discreteValueList: [float]) -> None` — Sets list of discrete values, for Real or Integer type.
+- `setDiscreteValueMethod(discreteValueMethod: apex.DiscreteValueMethod) -> None` — Sets discrete values method for design variable, either "Generate" or "EnterValues" for Real type, or "EnterValues" for Integer type.
+- `setDiscreteValueNumber(discreteValueNumber: int) -> None` — Sets number of discrete values for Real type.
+- `setDiscreteValueRange(discreteValueRange: apex.DiscreteValueRange) -> None` — Sets discrete value range, either "Equal spaced" or "MinStdMax", for Real type.
+- `setEnableOptimizationParams(enableOptimizationParams: bool) -> None` — Sets option to enable optimization parameters for Real or Integer type.
+- `setId(id: int) -> None` — Sets id of design variable for Real type.
+- `setMaxValue(maxValue: float) -> None` — Sets maximum value of design variable for Real or Integer type.
+- `setMinValue(minValue: float) -> None` — Sets minimum value of design variable for Real or Integer type.
+- `setMoveLimit(moveLimit: float) -> None` — Sets the move limit of design variable for Real or Integer type.
+- `setName(name: str) -> None` — Sets name of design variable.
+- `setNegativeDelta(negativeDelta: float) -> None` — Sets negative delta for value of design variable for Real or Integer type.
+- `setNegativePercentage(negativePercentage: float) -> None` — Sets negative percentage for value of design variable for Real or Integer type.
+- `setPositiveDelta(positiveDelta: float) -> None` — Sets positive delta for value of design variable for Real or Integer type.
+- `setPositivePercentage(positivePercentage: float) -> None` — Sets positive percentage for value of design variable for Real or Integer type.
+- `setRangeType(rangeType: apex.DesignVariableRangeType) -> None` — Sets one of 3 range types for Real or Integer type.
+- `setSpecifyAllowableDiscreteValues(specifyAllowableDiscreteValues: bool) -> None` — Sets boolean value to indicate specifying allowable discrete values or not for Real or Integer type.
+- `setUnit(unit: apex.DesignVariableUnit) -> None` — Sets unit of design variable for Real type.
+- `setValue(value: object) -> None` — Sets value for design variable.
+- `update(name: str, id: int, description: str, type: apex.DesignVariableRangeType, unit: str, value: object, rangeType: apex.DesignVariableRangeType, minValue: float, maxValue: float, negativePercentage: float, positivePercentage: float, negativeDelta: float, positiveDelta: float, enableOptimizationParams: ApexBool, moveLimit: float, allowOptimizationToIgnoreRange: ApexBool, specifyAllowableDiscreteValues: ApexBool, discreteValueMethod: apex.DiscreteValueMethod, discreteValueRange: apex.DiscreteValueRange, discreteValueNumber: int, discreteValueIncludeMax: ApexBool, discreteValueIncludeMin: ApexBool, discreteValueList: [float], allowDesignStudyToIgnoreList: ApexBool) -> None` — update the attributes of design variable.
+
+Method details:
 
 #### `getAllowDesignStudyToIgnoreList() -> bool`
 Gets option to allow design study to ignore list or not, for Real or Integer type.
@@ -662,7 +807,6 @@ Sets the move limit of design variable for Real or Integer type.
 
 - `moveLimit` — the move limit of design variable for Real or Integer type.
 
-- `setName(name: str) -> None` — Sets name of design variable.
 #### `setNegativeDelta(negativeDelta: float) -> None`
 Sets negative delta for value of design variable for Real or Integer type.
 
@@ -739,6 +883,14 @@ Methods:
 
 - `DesignVariableCollection() -> None` — Construct a new UserAttributeCollection.
 
+Method details:
+
+#### `DesignVariableCollection() -> None`
+Construct a new UserAttributeCollection.
+
+For example:
+
+
 ## `apex.Entity`
 Base scripting class that supports type operations. Most other scripting Classes inherit from Entity.
 Properties: `entityType`
@@ -812,6 +964,11 @@ Methods:
 - `asSurfaceMesh() -> apex.mesh.SurfaceMesh`
 - `asUserAttribute() -> UserAttribute`
 - `asVertex() -> apex.geometry.Vertex`
+- `getEntityType() -> apex.EntityType` — DEPRECATED: THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
+- `~Entity() -> None`
+
+Method details:
+
 #### `getEntityType() -> apex.EntityType`
 DEPRECATED: THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.
 
@@ -819,7 +976,6 @@ Returns: this apex::EntityType
 
 return the type of this object.Use this method instead of the built-in Python "type()" method for Apex objects
 
-- `~Entity() -> None`
 
 ## `apex.EntityCollection`
 Iterable collection of Entities.
@@ -829,6 +985,28 @@ Methods:
 
 - `EntityCollection() -> None` — Construct a new EntityCollection.
 - `append(entity: apex.Entity) -> None` — Add a new Entity to the end of this collection.
+- `appendList(entityList: [Entity]) -> None` — Add the entities from a list to the end of this collection.
+- `clear() -> None` — clear this collection.
+- `extend(collection: apex.EntityCollection) -> None` — Add a new EntityCollection to the end of this collection.
+- `fromList(entityList: [apex.Entity]) -> None` — This method inserts a List of Entities to the collection.
+- `getCollectionType() -> apex.CollectionType` — DEPRECATED. return the type of this Collection.
+- `hide() -> None` — Hide the Entities in this collection.
+- `index(entity: apex.Entity = None, start: int = 0, end: int = -1) -> int` — This method is to get the entity index.
+- `insert(index: int, entity: apex.Entity) -> None` — This method is to insert an entity into the collection.
+- `len() -> int` — return the length of this collection.
+- `remove(entity: apex.Entity) -> None` — This method is to remove an entity from the collection.
+- `show() -> None` — Show the Entities in this collection.
+- `showOnly() -> None` — Show Only the Entities in this collection.
+- `toList() -> [apex.Entity]` — This method returns the members of the Entity Collection as a Python List.
+- `unsetVisibility() -> None` — Set the Entities' visibility to "UnSet" status in this collection.
+
+Method details:
+
+#### `EntityCollection() -> None`
+Construct a new EntityCollection.
+
+For example:
+
 #### `appendList(entityList: [Entity]) -> None`
 Add the entities from a list to the end of this collection.
 
@@ -836,15 +1014,19 @@ Add the entities from a list to the end of this collection.
 
 For example:
 
-- `clear() -> None` — clear this collection.
-- `extend(collection: apex.EntityCollection) -> None` — Add a new EntityCollection to the end of this collection.
-- `fromList(entityList: [apex.Entity]) -> None` — This method inserts a List of Entities to the collection. It will not return a new collection.
+#### `fromList(entityList: [apex.Entity]) -> None`
+This method inserts a List of Entities to the collection. It will not return a new collection.
+
 #### `getCollectionType() -> apex.CollectionType`
 return the type of this Collection. DEPRECATED: THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. User can use type(object) to get the type directly. getCollectionType() may also be accessed as an object property 'collectionType'. For example:
 
 Returns: this apex::CollectionType
 
-- `hide() -> None` — Hide the Entities in this collection.
+#### `hide() -> None`
+Hide the Entities in this collection.
+
+Sets the visibility status of the object to "Hidden" in the current scene.
+
 #### `index(entity: apex.Entity = None, start: int = 0, end: int = -1) -> int`
 This method is to get the entity index.
 
@@ -858,22 +1040,42 @@ This method is to insert an entity into the collection.
 - `index` — The index in the Collection after which the object will be inserted. The inserted index will be inserted immediately AFTER the supplied index.
 - `entity` — the entity to be inserted
 
-- `len() -> int` — return the length of this collection.
 #### `remove(entity: apex.Entity) -> None`
 This method is to remove an entity from the collection.
 
 - `entity` — the entity to be remove from the collection.
 
-- `show() -> None` — Show the Entities in this collection.
-- `showOnly() -> None` — Show Only the Entities in this collection.
-- `toList() -> [apex.Entity]` — This method returns the members of the Entity Collection as a Python List.
-- `unsetVisibility() -> None` — Set the Entities' visibility to "UnSet" status in this collection.
+#### `show() -> None`
+Show the Entities in this collection.
+
+Sets the visibility status of the Entities to "Visible" in the "scene".
+
+#### `showOnly() -> None`
+Show Only the Entities in this collection.
+
+Sets the visibility status of the Entities to "Visible" and sets the visibility status of all other objects in this object type group to "Hidden".
+
+#### `unsetVisibility() -> None`
+Set the Entities' visibility to "UnSet" status in this collection.
+
+Sets the visibility status of the object to "UnSet" in the current scene.
+
 
 ## `apex.Group`  (extends `Entity`, `IPhysical`, `IUserAttributes`, `IName`, `IOrientation`, `IDisplayable`)
 Class used to persist collections of ILocation objects, including Mesh and Geometry sub-entities, with non-volatile names and pathNames. Groups support two critical behaviors, 1. Non-volatile names/pathNames for collections of mesh and geometry sub-entities. Neither Mesh nor Geometry sub-entities provided non-volatile names or IDs. 2. Generative update of the their contents.
 Properties: `centroid`, `target`
 
 Methods:
+
+- `addEntities(entities: apex.ILocationCollection) -> None` — Add entities to this Group.
+- `addEntity(entity: apex.ILocation) -> None` — Add entity to this Group.
+- `getCentroid() -> apex.Coordinate` — returns the centroid of this Group as a Coordinate.
+- `getTarget() -> apex.ILocationCollection` — A collection of ILocation objects that represent this Group.
+- `removeEntities(entities: apex.ILocationCollection) -> None` — Removes entities from this Group.
+- `removeEntity(entity: apex.ILocation) -> None` — Removes an entity from this Group.
+- `update(name: str, description: str, entities: apex.ILocationCollection) -> None` — Update this group.
+
+Method details:
 
 #### `addEntities(entities: apex.ILocationCollection) -> None`
 Add entities to this Group. Entities in the input that are not supported by Group will be silently ignored. Entities in the input that are already referenced by this Group will be silently ignored.
@@ -890,7 +1092,9 @@ returns the centroid of this Group as a Coordinate. If the Group references a si
 
 Returns: returns the centroid of this Group as a Coordinate.
 
-- `getTarget() -> apex.ILocationCollection` — A collection of ILocation objects that represent this Group. The following entity types are currently supported, 1. GeometryBody (Solid, Surface, Curve, Point and all specializations thereof) 2. GeometryTopology (Cell, Face, Edge, Vertex) 3. MeshBody (SolidMesh, HexMesh, SurfaceMesh, CurveMesh, PointMesh) 4. Node 5. Element.
+#### `getTarget() -> apex.ILocationCollection`
+A collection of ILocation objects that represent this Group. The following entity types are currently supported, 1. GeometryBody (Solid, Surface, Curve, Point and all specializations thereof) 2. GeometryTopology (Cell, Face, Edge, Vertex) 3. MeshBody (SolidMesh, HexMesh, SurfaceMesh, CurveMesh, PointMesh) 4. Node 5. Element.
+
 #### `removeEntities(entities: apex.ILocationCollection) -> None`
 Removes entities from this Group. Entities in the input that are not supported by Group will be silently ignored Entities in the input that are not referenced by this Group will be silently ignored.
 
@@ -918,10 +1122,39 @@ Methods:
 - `show() -> None` — Show the Entities in this collection.
 - `showOnly() -> None` — Show Only the Entities in this collection.
 
+Method details:
+
+#### `GroupCollection() -> None`
+Construct a new GroupCollection.
+
+For example:
+
+#### `hide() -> None`
+Hide the Entities in this collection.
+
+Sets the visibility status of the object to "Hidden" in the current scene.
+
+#### `show() -> None`
+Show the Entities in this collection.
+
+Sets the visibility status of the Entities to "Visible" in the "scene".
+
+#### `showOnly() -> None`
+Show Only the Entities in this collection.
+
+Sets the visibility status of the Entities to "Visible" and sets the visibility status of all other objects in this object type group to "Hidden".
+
+
 ## `apex.IActivatable`
 Properties: `isActive`
 
 Methods:
+
+- `activate() -> bool` — Activates the Entity.
+- `deactivate() -> bool` — Deactivates the Entity.
+- `getIsActive() -> bool` — Returns True of this Entity is Active, False if it is Inactive.
+
+Method details:
 
 #### `activate() -> bool`
 Activates the Entity. If the entity is already Active the method will return without changing the entity.
@@ -958,11 +1191,59 @@ Methods:
 - `unsetTransparency() -> None` — unapplies the Transparency of this entity to all its children.
 - `unsetVisibility() -> None` — unset the visibility of this entity and all its children need to be displaied as their original visibility.
 
+Method details:
+
+#### `applyVisibilityToChildren(visibility: apex.session.Visibility) -> None`
+change the container Entity visibility and apply the new value to its children.
+
+When invoked from any container, forces the visibility status of all children to match the visibility status of the container.
+
+#### `hide() -> None`
+Hide this Entity.
+
+Sets the visibility status of the object to "Hidden" in the current scene.
+
+#### `show() -> None`
+Show this Entity.
+
+Sets the visibility status of the object to "Visible" in the "scene".
+
+#### `showOnly() -> None`
+Show Only this Entity.
+
+Sets the visibility status of the object to "Visible" and sets the visibility status of all other objects in this object type group to "Hidden".
+
+#### `unsetColor() -> None`
+unapplies the color of this entity to all its children.
+
+This method provides the ability to allow the children of containers to control the color display.
+
+#### `unsetRender() -> None`
+unapplies the renderStyle of this entity to all its children.
+
+This method provides the ability to allow the children of containers to control the render style display.
+
+#### `unsetTransparency() -> None`
+unapplies the Transparency of this entity to all its children.
+
+This method provides the ability to allow the children of containers to control the transparency display.
+
+#### `unsetVisibility() -> None`
+unset the visibility of this entity and all its children need to be displaied as their original visibility.
+
+When invoked from any container object, causes the effective visibility state of the contained objects to be directly controlled by the objects themselves. If the visibility state of the container object is set to Visible or Hidden then the effective visibility of the children is controlled by the container object and not by the individial objects.
+
+
 ## `apex.IIdentifier`
 pure virtual Base scripting Interface object supporting Identifier (index and Id) methods.
 Properties: `id`, `index`
 
 Methods:
+
+- `getId() -> str` — return the Id of this Entity.
+- `getIndex() -> int` — return the index of this Entity.
+
+Method details:
 
 #### `getId() -> str`
 return the Id of this Entity.
@@ -984,7 +1265,25 @@ Properties: `location`, `locationCartesian`, `locationCartesianLocal`, `location
 
 Methods:
 
-- `getLocation() -> Coordinate` — Gets The location of the object. All classes that implement ILocation define a single spatial reference location for that object. For 0D objects the location is unambiguous. For 1D, 2D and 3D object types the location is based on an object type specific rule.
+- `getLocation() -> Coordinate` — Gets The location of the object.
+- `getLocationCartesian() -> [float]` — Gets Returns the location of the object as List of three floats, representing the x, y and z coordinates of the location in the global cartesian coordinate ...
+- `getLocationCartesianLocal() -> [float]` — Gets Returns the location of the object as List of three floats, representing the x, y and z coordinates of the location in the local Cartesian coordinate ...
+- `getLocationCylindrical() -> [float]` — Gets Returns the location of the object as List of three floats, representing the r, theta and z coordinates of the location in the global cylindrical ...
+- `getLocationCylindricalLocal() -> [float]` — Gets Returns the location of the object as List of three floats, representing the r, theta and z coordinates of the location in the local cylindrical ...
+- `getLocationSpherical() -> [float]` — Returns the location of the object as List of three floats, representing the r, theta and phi coordinates of the location in the global spherical coordinate ...
+- `getLocationSphericalLocal() -> [float]` — Gets Returns the location of the object as List of three floats, representing the r, theta and phi coordinates of the location in the local spherical ...
+- `getX() -> float` — Gets The x coordinate of the object location in a global cartesian system. x represents a position quantity and will be returned in the units of Length form ...
+- `getXLocal() -> float` — Gets The x coordinate of the object location in a local Cartesian system. x represents a position quantity and will be returned in the units of Length form the ...
+- `getY() -> float` — Gets The y coordinate of the object location in a global Cartesian system. y represents a position quantity and will be returned in the units of Length form ...
+- `getYLocal() -> float` — Gets The y coordinate of the object location in a local Cartesian system. y represents a position quantity and will be returned in the units of Length form the ...
+- `getZ() -> float` — Gets The z coordinate of the object location in a global Cartesian/cylindrical system. z represents a position quantity and will be returned in the units of ...
+- `getZLocal() -> float` — Gets The z coordinate of the object location in a local Cartesian/Cylindrical system. z represents a position quantity and will be returned in the units of ...
+
+Method details:
+
+#### `getLocation() -> Coordinate`
+Gets The location of the object. All classes that implement ILocation define a single spatial reference location for that object. For 0D objects the location is unambiguous. For 1D, 2D and 3D object types the location is based on an object type specific rule.
+
 #### `getLocationCartesian() -> [float]`
 Gets Returns the location of the object as List of three floats, representing the x, y and z coordinates of the location in the global cartesian coordinate system. Each of the values in the list represents a Length value and is returned in the units of Length from the active script unit system.
 
@@ -1015,12 +1314,24 @@ Gets Returns the location of the object as List of three floats, representing th
 
 Returns: the local location of the object as List of three floats
 
-- `getX() -> float` — Gets The x coordinate of the object location in a global cartesian system. x represents a position quantity and will be returned in the units of Length form the active script unit system.
-- `getXLocal() -> float` — Gets The x coordinate of the object location in a local Cartesian system. x represents a position quantity and will be returned in the units of Length form the active script unit system.
-- `getY() -> float` — Gets The y coordinate of the object location in a global Cartesian system. y represents a position quantity and will be returned in the units of Length form the active script unit system.
-- `getYLocal() -> float` — Gets The y coordinate of the object location in a local Cartesian system. y represents a position quantity and will be returned in the units of Length form the active script unit system.
-- `getZ() -> float` — Gets The z coordinate of the object location in a global Cartesian/cylindrical system. z represents a position quantity and will be returned in the units of Length form the active script unit system.
-- `getZLocal() -> float` — Gets The z coordinate of the object location in a local Cartesian/Cylindrical system. z represents a position quantity and will be returned in the units of Length form the active script unit system.
+#### `getX() -> float`
+Gets The x coordinate of the object location in a global cartesian system. x represents a position quantity and will be returned in the units of Length form the active script unit system.
+
+#### `getXLocal() -> float`
+Gets The x coordinate of the object location in a local Cartesian system. x represents a position quantity and will be returned in the units of Length form the active script unit system.
+
+#### `getY() -> float`
+Gets The y coordinate of the object location in a global Cartesian system. y represents a position quantity and will be returned in the units of Length form the active script unit system.
+
+#### `getYLocal() -> float`
+Gets The y coordinate of the object location in a local Cartesian system. y represents a position quantity and will be returned in the units of Length form the active script unit system.
+
+#### `getZ() -> float`
+Gets The z coordinate of the object location in a global Cartesian/cylindrical system. z represents a position quantity and will be returned in the units of Length form the active script unit system.
+
+#### `getZLocal() -> float`
+Gets The z coordinate of the object location in a local Cartesian/Cylindrical system. z represents a position quantity and will be returned in the units of Length form the active script unit system.
+
 
 ## `apex.ILocationCollection`
 Iterable collection of Entities that implement ILocation. based on EntityCollection.
@@ -1028,6 +1339,15 @@ Iterable collection of Entities that implement ILocation. based on EntityCollect
 Methods:
 
 - `ILocationCollection() -> None` — Construct a new ILocationCollection.
+- `appendList(ilocationList: [apex.ILocation]) -> None` — Add entities that implement ILocation interface from a list to the end of this collection.
+
+Method details:
+
+#### `ILocationCollection() -> None`
+Construct a new ILocationCollection.
+
+For example:
+
 #### `appendList(ilocationList: [apex.ILocation]) -> None`
 Add entities that implement ILocation interface from a list to the end of this collection.
 
@@ -1041,6 +1361,12 @@ pure virtual Base scripting Interface object supporting name/description methods
 Properties: `description`, `name`, `pathName`
 
 Methods:
+
+- `getDescription() -> str` — Read-only string representing the description of this object.
+- `getName() -> str` — Read-only string representing the name of this object.
+- `getPathName() -> str` — Read-only string representing the pathName (combination of entity path and name) of this object.
+
+Method details:
 
 #### `getDescription() -> str`
 Read-only string representing the description of this object. The description field usually appears the Object Property panel in the interactive UI and in some cases will appear in the Tool property panel of the tool that creates the object.
@@ -1056,46 +1382,143 @@ Returns: this entity name (string)
 
 getName() may also be accessed as an Entity property 'name'. For example:
 
-- `getPathName() -> str` — Read-only string representing the pathName (combination of entity path and name) of this object.
+#### `getPathName() -> str`
+Read-only string representing the pathName (combination of entity path and name) of this object.
+
+The pathName string includes the parent name Hierarchy, including model name, and the entity name.For example a part pathName: MyModel/TopAssembly/LeftAssembly/LeftPart
+
 
 ## `apex.IOrientation`
 Properties: `alpha`, `alphaLocal`, `beta`, `betaLocal`, `euler121`, `euler121Local`, `euler123`, `euler123Local`, `euler131`, `euler131Local`, `euler132`, `euler132Local`, `euler212`, `euler212Local`, `euler213`, `euler213Local`, `euler231`, `euler231Local`, `euler232`, `euler232Local`, `euler313`, `euler313Local`, `euler323`, `euler323Local`, `gamma`, `gammaLocal`, `orientation`, `xAxis`, `xAxisLocal`, `yAxis`, `yAxisLocal`, `zAxis`, `zAxisLocal`
 
 Methods:
 
-- `getAlpha() -> float` — Gets a float value representing the first Euler rotation angle based on the Euler 313 rotation convention. It is based on global reference coordinate system of the object. alpha represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getAlphaLocal() -> float` — Gets a float value representing the first Euler rotation angle based on the Euler 313 rotation convention in local coordinate system. alpha represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getBeta() -> float` — Gets a float value representing the second Euler rotation angle based on the Euler 313 rotation convention. It is based on global reference coordinate system of the object. beta represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getBetaLocal() -> float` — Gets a float value representing the second Euler rotation angle based on the Euler 313 rotation convention in local coordinate system. beta represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getEuler121() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 121 rotation convention. It is based on global reference coordinate system of the object. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getEuler121Local() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 121 rotation convention in local coordinate system. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getEuler123() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 123 rotation convention. It is based on global reference coordinate system of the object. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getEuler123Local() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 123 rotation convention in local coordinate system. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getEuler131() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 131 rotation convention. It is based on global reference coordinate system of the object. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getEuler131Local() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 131 rotation convention in local coordinate system. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getEuler132() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 132 rotation convention. It is based on global reference coordinate system of the object. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getEuler132Local() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 132 rotation convention in local coordinate system. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getEuler212() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 212 rotation convention. It is based on global reference coordinate system of the object. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getEuler212Local() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 212 rotation convention in local coordinate system. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getEuler213() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 213 rotation convention. It is based on global reference coordinate system of the object. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getEuler213Local() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 213 rotation convention in local coordinate system. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getEuler231() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 231 rotation convention. It is based on global reference coordinate system of the object. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getEuler231Local() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 231 rotation convention in local coordinate system. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getEuler232() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 232 rotation convention. It is based on global reference coordinate system of the object. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getEuler232Local() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 232 rotation convention in local coordinate system. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getEuler313() -> [float]` — Returns the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 313 rotation convention. It is based on global reference coordinate system of the object. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getEuler313Local() -> [float]` — Gets the orientation of the object as a List of three floats, each representing the rotation of the orientation using the Euler 313 rotation convention in local coordinate system. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getEuler323() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 323 rotation convention. It is based on global reference coordinate system of the object. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getEuler323Local() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 323 rotation convention in local coordinate system. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getGamma() -> float` — Gets a float value representing the third Euler rotation angle based on the Euler 313 rotation convention. It is based on global reference coordinate system of the object. gamma represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getGammaLocal() -> float` — Gets a float value representing the third Euler rotation angle based on the Euler 313 rotation convention in local coordinate system. gamma represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getOrientation() -> apex.Orientation` — Gets the orientation of the object as an apex.Orientation. All classes that implement IOrientation define a single orientation for that object. The rules used to determine the orientation vary with object types and are defined within the documented for each class. Returns the orientation of the object as an Orientation based on the 313 rotation convention.
-- `getXAxis() -> apex.construct.Vector3D` — Gets the direction of the x axis of the Orientation of this object as a Vector3D. It is based on global reference coordinate system of the object.
+- `getAlpha() -> float` — Gets a float value representing the first Euler rotation angle based on the Euler 313 rotation convention.
+- `getAlphaLocal() -> float` — Gets a float value representing the first Euler rotation angle based on the Euler 313 rotation convention in local coordinate system. alpha represents an Angle ...
+- `getBeta() -> float` — Gets a float value representing the second Euler rotation angle based on the Euler 313 rotation convention.
+- `getBetaLocal() -> float` — Gets a float value representing the second Euler rotation angle based on the Euler 313 rotation convention in local coordinate system. beta represents an Angle ...
+- `getEuler121() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 121 rotation convention.
+- `getEuler121Local() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 121 rotation convention in local ...
+- `getEuler123() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 123 rotation convention.
+- `getEuler123Local() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 123 rotation convention in local ...
+- `getEuler131() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 131 rotation convention.
+- `getEuler131Local() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 131 rotation convention in local ...
+- `getEuler132() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 132 rotation convention.
+- `getEuler132Local() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 132 rotation convention in local ...
+- `getEuler212() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 212 rotation convention.
+- `getEuler212Local() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 212 rotation convention in local ...
+- `getEuler213() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 213 rotation convention.
+- `getEuler213Local() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 213 rotation convention in local ...
+- `getEuler231() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 231 rotation convention.
+- `getEuler231Local() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 231 rotation convention in local ...
+- `getEuler232() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 232 rotation convention.
+- `getEuler232Local() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 232 rotation convention in local ...
+- `getEuler313() -> [float]` — Returns the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 313 rotation convention.
+- `getEuler313Local() -> [float]` — Gets the orientation of the object as a List of three floats, each representing the rotation of the orientation using the Euler 313 rotation convention in ...
+- `getEuler323() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 323 rotation convention.
+- `getEuler323Local() -> [float]` — Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 323 rotation convention in local ...
+- `getGamma() -> float` — Gets a float value representing the third Euler rotation angle based on the Euler 313 rotation convention.
+- `getGammaLocal() -> float` — Gets a float value representing the third Euler rotation angle based on the Euler 313 rotation convention in local coordinate system. gamma represents an Angle ...
+- `getOrientation() -> apex.Orientation` — Gets the orientation of the object as an apex.Orientation.
+- `getXAxis() -> apex.construct.Vector3D` — Gets the direction of the x axis of the Orientation of this object as a Vector3D.
 - `getXAxisLocal() -> apex.construct.Vector3D` — Gets the direction of the x axis of the Orientation of this object as a Vector3D in local coordinate system.
-- `getYAxis() -> apex.construct.Vector3D` — Gets the direction of the y axis of the Orientation of this object as a Vector3D. It is based on global reference coordinate system of the object.
+- `getYAxis() -> apex.construct.Vector3D` — Gets the direction of the y axis of the Orientation of this object as a Vector3D.
 - `getYAxisLocal() -> apex.construct.Vector3D` — Gets the direction of the y axis of the Orientation of this object as a Vector3D in local coordinate system.
-- `getZAxis() -> apex.construct.Vector3D` — Gets the direction of the z axis of the Orientation of this object as a Vector3D. It is based on global reference coordinate system of the object.
+- `getZAxis() -> apex.construct.Vector3D` — Gets the direction of the z axis of the Orientation of this object as a Vector3D.
 - `getZAxisLocal() -> apex.construct.Vector3D` — Gets the direction of the z axis of the Orientation of this object as a Vector3D in local coordinate system.
+
+Method details:
+
+#### `getAlpha() -> float`
+Gets a float value representing the first Euler rotation angle based on the Euler 313 rotation convention. It is based on global reference coordinate system of the object. alpha represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getAlphaLocal() -> float`
+Gets a float value representing the first Euler rotation angle based on the Euler 313 rotation convention in local coordinate system. alpha represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getBeta() -> float`
+Gets a float value representing the second Euler rotation angle based on the Euler 313 rotation convention. It is based on global reference coordinate system of the object. beta represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getBetaLocal() -> float`
+Gets a float value representing the second Euler rotation angle based on the Euler 313 rotation convention in local coordinate system. beta represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getEuler121() -> [float]`
+Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 121 rotation convention. It is based on global reference coordinate system of the object. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getEuler121Local() -> [float]`
+Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 121 rotation convention in local coordinate system. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getEuler123() -> [float]`
+Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 123 rotation convention. It is based on global reference coordinate system of the object. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getEuler123Local() -> [float]`
+Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 123 rotation convention in local coordinate system. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getEuler131() -> [float]`
+Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 131 rotation convention. It is based on global reference coordinate system of the object. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getEuler131Local() -> [float]`
+Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 131 rotation convention in local coordinate system. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getEuler132() -> [float]`
+Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 132 rotation convention. It is based on global reference coordinate system of the object. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getEuler132Local() -> [float]`
+Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 132 rotation convention in local coordinate system. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getEuler212() -> [float]`
+Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 212 rotation convention. It is based on global reference coordinate system of the object. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getEuler212Local() -> [float]`
+Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 212 rotation convention in local coordinate system. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getEuler213() -> [float]`
+Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 213 rotation convention. It is based on global reference coordinate system of the object. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getEuler213Local() -> [float]`
+Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 213 rotation convention in local coordinate system. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getEuler231() -> [float]`
+Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 231 rotation convention. It is based on global reference coordinate system of the object. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getEuler231Local() -> [float]`
+Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 231 rotation convention in local coordinate system. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getEuler232() -> [float]`
+Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 232 rotation convention. It is based on global reference coordinate system of the object. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getEuler232Local() -> [float]`
+Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 232 rotation convention in local coordinate system. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getEuler313() -> [float]`
+Returns the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 313 rotation convention. It is based on global reference coordinate system of the object. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getEuler313Local() -> [float]`
+Gets the orientation of the object as a List of three floats, each representing the rotation of the orientation using the Euler 313 rotation convention in local coordinate system. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getEuler323() -> [float]`
+Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 323 rotation convention. It is based on global reference coordinate system of the object. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getEuler323Local() -> [float]`
+Gets the orientation of the object as List of three floats, each representing the rotation of the orientation using the Euler 323 rotation convention in local coordinate system. Each of the values in the list represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getGamma() -> float`
+Gets a float value representing the third Euler rotation angle based on the Euler 313 rotation convention. It is based on global reference coordinate system of the object. gamma represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getGammaLocal() -> float`
+Gets a float value representing the third Euler rotation angle based on the Euler 313 rotation convention in local coordinate system. gamma represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getOrientation() -> apex.Orientation`
+Gets the orientation of the object as an apex.Orientation. All classes that implement IOrientation define a single orientation for that object. The rules used to determine the orientation vary with object types and are defined within the documented for each class. Returns the orientation of the object as an Orientation based on the 313 rotation convention.
+
+#### `getXAxis() -> apex.construct.Vector3D`
+Gets the direction of the x axis of the Orientation of this object as a Vector3D. It is based on global reference coordinate system of the object.
+
+#### `getYAxis() -> apex.construct.Vector3D`
+Gets the direction of the y axis of the Orientation of this object as a Vector3D. It is based on global reference coordinate system of the object.
+
+#### `getZAxis() -> apex.construct.Vector3D`
+Gets the direction of the z axis of the Orientation of this object as a Vector3D. It is based on global reference coordinate system of the object.
+
 
 ## `apex.IOrientationCollection`
 Iterable collection of Objects that implement IOrientation.
@@ -1103,6 +1526,15 @@ Iterable collection of Objects that implement IOrientation.
 Methods:
 
 - `IOrientationCollection() -> None` — Construct a new IOrientationCollection.
+- `appendList(iorientationList: [apex.IOrientation]) -> None` — Add entities that implement IOrientation interface from a list to the end of this collection.
+
+Method details:
+
+#### `IOrientationCollection() -> None`
+Construct a new IOrientationCollection.
+
+For example:
+
 #### `appendList(iorientationList: [apex.IOrientation]) -> None`
 Add entities that implement IOrientation interface from a list to the end of this collection.
 
@@ -1116,6 +1548,10 @@ pure virtual Base scripting Interface object supporting path methods.
 Properties: `path`
 
 Methods:
+
+- `getPath() -> str` — return this Entity path string.
+
+Method details:
 
 #### `getPath() -> str`
 return this Entity path string.
@@ -1139,6 +1575,23 @@ Properties: `averageCentroid`, `centroid`
 Methods:
 
 - `IPhysicalCollection() -> None` — Construct a new IPhysicalCollection.
+- `appendList(iphysicalList: [apex.IPhysical]) -> None` — Add entities that implement IPhysical interface from a list to the end of this collection.
+- `clearHighlight() -> None` — Removes highlighting from the object.
+- `getAverageCentroid() -> apex.Coordinate` — The average location of the centroids of all of the Geometry and Topology entities in this IPhysicalCollection.
+- `getCentroid() -> apex.Coordinate` — The location of the centroid of all of the geomety/topology entities in this IPhysicalCollection.
+- `highlight(colorRGB: apex.ColorRGB, lineWidth: int, pointSize: int) -> None` — Highlights the object using the highlight parameters in the argument list.
+- `highlightColorRGB() -> apex.ColorRGB` — The highlight color assigned to the object as a ColorRGB object that support 8 bit RGB color definitions.
+- `highlightEdgeWeight() -> int` — The edge weight assigned to the object.
+- `highlightPointSize() -> int` — The highlight point size assigned to the object.
+- `isHighlighted() -> bool` — Boolean indicating whether the object is highlighted or not.
+
+Method details:
+
+#### `IPhysicalCollection() -> None`
+Construct a new IPhysicalCollection.
+
+For example:
+
 #### `appendList(iphysicalList: [apex.IPhysical]) -> None`
 Add entities that implement IPhysical interface from a list to the end of this collection.
 
@@ -1146,7 +1599,9 @@ Add entities that implement IPhysical interface from a list to the end of this c
 
 For example:
 
-- `clearHighlight() -> None` — Removes highlighting from the object. The method has no effect if the object is not already highlighted.
+#### `clearHighlight() -> None`
+Removes highlighting from the object. The method has no effect if the object is not already highlighted.
+
 #### `getAverageCentroid() -> apex.Coordinate`
 The average location of the centroids of all of the Geometry and Topology entities in this IPhysicalCollection. Support for inclusion of other IPhysical types will be added a future release.
 
@@ -1157,16 +1612,17 @@ The location of the centroid of all of the geomety/topology entities in this IPh
 
 Returns: The location of the centroid of All of the IPhysical entities in this IPhysicalCollection.
 
-- `highlight(colorRGB: apex.ColorRGB, lineWidth: int, pointSize: int) -> None` — Highlights the object using the highlight parameters in the argument list.
-- `highlightColorRGB() -> apex.ColorRGB` — The highlight color assigned to the object as a ColorRGB object that support 8 bit RGB color definitions.
-- `highlightEdgeWeight() -> int` — The edge weight assigned to the object.
-- `highlightPointSize() -> int` — The highlight point size assigned to the object.
-- `isHighlighted() -> bool` — Boolean indicating whether the object is highlighted or not.
 
 ## `apex.IUserAttributes`
 scripting Interface supporting methods for setting/getting attribute on Entities
 
 Methods:
+
+- `addUserAttribute(userAttributeName: str, floatValue: float, boolValue: apex.ApexBool, stringValue: str, intValue: int) -> None` — add a UserAttribute object to this Entity.
+- `getUserAttributes(userAttributeNames: [str] = []) -> apex.UserAttributeCollection` — get a UserAttribute from this Entity.
+- `removeUserAttributes(userAttributeNames: [str] = []) -> apex.UserAttributeCollection` — delete a UserAttribute from this Entity.
+
+Method details:
 
 #### `addUserAttribute(userAttributeName: str, floatValue: float, boolValue: apex.ApexBool, stringValue: str, intValue: int) -> None`
 add a UserAttribute object to this Entity.
@@ -1200,12 +1656,18 @@ Properties: `colorRGB`, `edgeWeight`, `highlighted`, `pointSize`
 
 Methods:
 
-- `clearHighlight() -> None` — Removes highlighting from the object. The method has no effect if the object is not already highlighted.
+- `clearHighlight() -> None` — Removes highlighting from the object.
 - `highlight(colorRGB: apex.ColorRGB = apex.ColorRGB(), lineWidth: int = 2, pointSize: int = 3) -> None` — Highlights the object using the highlight parameters in the argument list.
 - `highlightColorRGB() -> apex.ColorRGB` — The highlight color assigned to the object as a ColorRGB object that support 8 bit RGB color definitions.
 - `highlightEdgeWeight() -> int` — The edge weight assigned to the object.
 - `highlightPointSize() -> int` — The highlight point size assigned to the object.
 - `isHighlighted() -> bool` — Boolean indicating whether the object is highlighted or not.
+
+Method details:
+
+#### `clearHighlight() -> None`
+Removes highlighting from the object. The method has no effect if the object is not already highlighted.
+
 
 ## `apex.LocationInternal`  (extends `IsConstructed`)
 apex.Location Class representing a location in 3D space. THIS CLASS IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE. Users should be working with apex.Coordinate, which implements ILocation, which provides .x, .y, .z directly. All methods have already been updated to accept IPhysical.
@@ -1215,6 +1677,17 @@ Methods:
 - `LocationInternal() -> None`
 - `getByCoord() -> bool`
 - `getEntity() -> apex.Entity`
+- `getX() -> float` — get float x Value of the X coordinate of the location in 3D space in the Apex global coordinate system.
+- `getY() -> float` — get float y Value of the X coordinate of the location in 3D space in the Apex global coordinate system.
+- `getZ() -> float` — get float z Value of the X coordinate of the location in 3D space in the Apex global coordinate system.
+- `setByCoord(byCoord: bool) -> None`
+- `setEntity(entity: apex.Entity) -> None`
+- `setX(x: float) -> None`
+- `setY(y: float) -> None`
+- `setZ(z: float) -> None`
+
+Method details:
+
 #### `getX() -> float`
 get float x Value of the X coordinate of the location in 3D space in the Apex global coordinate system. Coordinate values represent Length quantities and will be returned in the units of Length of the current ScriptUnitSystem.
 
@@ -1230,17 +1703,83 @@ get float z Value of the X coordinate of the location in 3D space in the Apex gl
 
 Returns: float z Value of the X coordinate of the location in 3D space in the Apex global coordinate system.
 
-- `setByCoord(byCoord: bool) -> None`
-- `setEntity(entity: apex.Entity) -> None`
-- `setX(x: float) -> None`
-- `setY(y: float) -> None`
-- `setZ(z: float) -> None`
 
 ## `apex.Model`  (extends `Assembly`)
 (database) object that can contain Assemblies, Parts, Geometry and FEM data, and be saved to the computer filesystem. Created with the apex.createModel() method.
 Properties: `assemblies`, `currentPart`, `displayableEntities`, `groups`, `modelAssociations`, `namedEntities`, `parts`, `physicalEntities`, `regions`
 
 Methods:
+
+- `close() -> Model` — Closes the current Model and creates a new one.
+- `createAssembly(name: str = "", parentPath: str = "") -> Assembly` — Create a new Assembly in this Model.
+- `createMirrorPlane(normal: apex.ILocation, origin: apex.ILocation) -> apex.construct.MirrorPlane`
+- `createModelAssociation(name: str, description: str, primaryAssembly: apex.Assembly, secondaryAssembly: apex.Assembly) -> ModelAssociation` — Creates and returns a ModelAssociation.
+- `createModelSet3Nastran(id: int, name: str, set_type: str, set_ids: [int]) -> apex.ModelSet3Nastran` — Creates and returns a ModelSet3Nastran The ModelSet3Nastran may optionally be initialized with an id, set type and list of ids.
+- `createPart(name: str = "", parentPath: str = "") -> Part` — Create a new Part in this Model.
+- `deleteModelAssociation(modelAssociation: ModelAssociation) -> None` — Deletes the input ModelAssociation from this Model.
+- `exportFEModel(filename: str, unitSystem: str, exportWideFormat: bool = False, exportHierarchicalFiles: bool = False, renumberMethod: apex.attribute.ExportRenumberMethod = apex.attribute.ExportRenumberMethod.Internal, exportAbstractions: bool = False, writePropertyOnElement: bool = True, exportProperty: apex.ExportProperty = apex.ExportProperty.AsDefined) -> None` — Exports the Model in Nastran bulk data file format.
+- `exportGeometry(filename: str, cadFormat: apex.geometry.CADFormat, unitSystem: str = "m", stlMergeCells: bool = True, exportVirtualFaces: bool = False, exportVirtualFaceMethod: apex.VirtualFaceExportMethod = apex.VirtualFaceExportMethod.NurbsOnly, exportGeometryOrganization: apex.GeometryExportOrganization = apex.GeometryExportOrganization.Multiple, exportBodyPositionInLocal: bool = False) -> None` — Export Geometry file from this model to a file using the supplied CAD format.
+- `exportMarc(filename: str, unitSystem: str, exportWideFormat: bool = False, exportHierarchicalFiles: bool = False, renumberMethod: apex.attribute.ExportRenumberMethod = apex.attribute.ExportRenumberMethod.Internal, exportAbstractions: bool = False) -> None` — Exports the contents of the Model to a Marc file.
+- `getAssemblies(recursive: bool = False) -> apex.AssemblyCollection` — Get all Assemblies in this Model.
+- `getAssembly(pathName: str) -> Assembly` — Get an Assembly in this Model.
+- `getBeamSpan(pathName: str) -> attribute.BeamSpan` — Retrieve a BeamSpan from this Model using the BeamSpan pathName "THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE NEXT APEX RELEASE" This method has been ...
+- `getBox(pathName: str) -> apex.geometry.Box` — Get a Box in this Model.
+- `getCoordinateSystem(name: str) -> apex.construct.CoordinateSystem` — Get a CoordinateSystem in a Model.
+- `getCoordinateSystemById(id: int) -> apex.construct.CoordinateSystem` — Get a CoordinateSystem in a Model.
+- `getCoordinateSystems(target: [{str:str}]) -> apex.construct.CoordinateSystemCollection` — Get CoordinateSystem objects in a Model.
+- `getCurrentPart() -> Part` — Return the 'current' Part in this Model.
+- `getCurve(pathName: str) -> apex.geometry.Curve` — Get a Curve in this Model.
+- `getCurveMesh(pathName: str) -> apex.mesh.CurveMesh` — Get a CurveMesh in this Model. "THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE NEXT APEX RELEASE" This method has been superseded by the equivalent ...
+- `getCylinder(pathName: str) -> apex.geometry.Cylinder` — Get a Cylinder in a Model.
+- `getDatumPlanes(recursive: bool = False) -> apex.construct.DatumPlaneCollection` — Retrieves all DatumPlanes directly composed by the Model and return them in a DatumPlaneCollection.
+- `getDesignVariable(pathName: str) -> apex.DesignVariable` — Retrieves a design variable by using the input pathName.
+- `getDesignVariables() -> apex.DesignVariableCollection` — return all design variables in the model.
+- `getDisplayableEntities() -> apex.EntityCollection` — returns a collection of all entities in the Model that implement IDisplayable as an EntityCollection.
+- `getElements(elementsOfPartVec: [{str:str}] = []) -> apex.mesh.ElementCollection` — Get a ElementCollection in multi Part.
+- `getEllipsoid(pathName: str) -> apex.geometry.Ellipsoid` — Get a Ellipsoid in a Model.
+- `getEntities(pathNames: [str]) -> apex.EntityCollection` — Get a collection of named Entities in this Model.
+- `getFacetedCurve(pathName: str) -> apex.geometry.FacetedCurve` — Get a Faceted Curve in this Model.
+- `getFacetedSolid(pathName: str) -> apex.geometry.FacetedSolid` — Get a Faceted Solid in this Model.
+- `getFacetedSurface(pathName: str) -> apex.geometry.FacetedSurface` — Get a Faceted Surface in this Model.
+- `getGeometryBody(pathName: str) -> apex.geometry.GeometryBody` — Get a GeometryBody in this Model.
+- `getGroup(name: str) -> apex.Group` — Return a named Group identified from this Model.
+- `getGroups() -> apex.GroupCollection` — get all Groups from this Model.
+- `getHexMesh(pathName: str) -> apex.mesh.HexMesh` — Get a HexMesh in this Model. "THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE NEXT APEX RELEASE" This method has been superseded by the equivalent ...
+- `getInterfacePoints() -> apex.attribute.InterfacePointCollection` — Retrieves all of the apex.attribute.InterfacePoints InterfacePoints in this Model and returns them as an InterfacePointCollection.
+- `getMaterialCoverageRegions() -> apex.attribute.MaterialCoverageRegionCollection` — Retrieves all MaterialCoverageRegions directly composed by the Model and returns them in a MaterialCoverageRegionCollection.
+- `getMesh(pathName: str) -> apex.mesh.MeshBody` — Get a MeshBody in this Model. "THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE NEXT APEX RELEASE" This method has been superseded by the equivalent ...
+- `getModelAssociation(name: str, primaryAssembly: apex.Assembly) -> ModelAssociation` — Get a ModelAssociation.
+- `getModelAssociations() -> apex.ModelAssociationCollection` — get modelAssociation collection from model.
+- `getModelSetNastran(id: int) -> apex.ModelSetNastran` — gets a ModelSetNastran from this Model using the ID provided in the argument The ModelSetNastran is returned as an instance of the actual type of the Set and ...
+- `getNamedEntities() -> apex.EntityCollection` — returns a collection of all entities in this Model that implement IName as an EntityCollection.
+- `getNodes(nodesOfPartVec: [{str:str}] = []) -> apex.mesh.NodeCollection` — Get a NodeCollection in multi Part.
+- `getPart(pathName: str) -> Part` — Get a Part in this Model.
+- `getParts(recursive: bool = False) -> apex.PartCollection` — Get all Parts in this Model.
+- `getPhysicalEntities() -> apex.EntityCollection` — returns a collection of all entities in the Model that implement ILocation as an EntityCollection.
+- `getPoint(pathName: str) -> apex.geometry.Point` — Get a Point in this Model.
+- `getRegion(name: str) -> apex.Region` — Return a named Region identified from this Model.
+- `getRegions() -> apex.RegionCollection` — get all Regions from this Model.
+- `getSolid(pathName: str) -> apex.geometry.Solid` — Get a Solid in this Model.
+- `getSolidMesh(pathName: str) -> apex.mesh.SolidMesh` — Get a SolidMesh in this Model. "THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE NEXT APEX RELEASE" This method has been superseded by the equivalent ...
+- `getSphere(pathName: str) -> apex.geometry.Sphere` — Get a Sphere in a Model.
+- `getSurface(pathName: str) -> apex.geometry.Surface` — Get a Surface in this Model.
+- `getSurfaceMesh(pathName: str) -> apex.mesh.SurfaceMesh` — Get a SurfaceMesh in this Model. "THIS METHOD IS DEPRECATED AND WILL BE REMOVED IN THE NEXT APEX RELEASE" This method has been superseded by the equivalent ...
+- `importApexModel(databaseFileNames: [str]) -> apex.EntityCollection` — Imports a target Apex database model from the input database files and returns the EntityCollection of Top Level of Part/Assembly.
+- `importFEModel(feModelFileName: str, feResultsFileName: str, modelType: apex.mesh.FEModelFormat, unitSystemName: str, organizeBy: apex.mesh.FEModelImportOrganizationOptions = apex.mesh.FEModelImportOrganizationOptions.ByContiguousMesh, skip: [str] = [], modelResultsImportOptions: apex.ModelResultsImportOptions = apex.ModelResultsImportOptions.Undefined, idConflictResolutionMethod: apex.attribute.IdConflictResolutionMethod = apex.attribute.IdConflictResolutionMethod.AutomaticOffset, detectFlexibleLink: bool = True, set3ToGroup: bool = True, preserveIncludeFileStructure: bool = False) -> apex.Entity` — Imports a finite element models, and optionally results data, into this Apex Model and returns (as an Entity) the top level Part, Assembly or Scenario that is ...
+- `importGendesResults(resultFolder: str, studyName: str, scenarioName: str, designPart: str = "") -> apex.Entity` — Imports a Generative Design result file into this Apex Study and returns (as an Entity) the scenario that is created for the import results.
+- `importGeometry(geometryFileNames: [str], importSolids: bool = True, importSurfaces: bool = True, importCurves: bool = True, importPoints: bool = True, importGeneralBodies: bool = True, importHiddenGeometry: bool = True, importCoordinate: bool = False, importDatumPlane: bool = False, cleanOnImport: bool = True, removeRedundantTopoOnimport: bool = True, loadCompleteTopology: bool = True, sewOnImport: bool = False, skipUnmodified: bool = False, importFilter: {str:bool} = {}, preview: bool = False, importReviewMode3dxmlCleanOnImport: bool = True, importReviewMode3dxmlSplitOnFeatureVertexAngle: bool = True, importReviewMode3dxmlFeatureAngle: float = 40.0, importReviewMode3dxmlVertexAngle: float = 40.0, importReviewMode3dxmlDetectMachinedFaces: bool = False, importAttributes: bool = False, importPublications: bool = False) -> {str:apex.Entity}` — Imports a target CAD model from the input CAD files and returns a Dictionary representing the Part / Assembly structure of that CAD model.
+- `importGeometryPreview(geometryFileNames: [str]) -> {str:bool}` — Previews a target CAD model from the input CAD files and returns a Dictionary representing the Part/Assembly structure of that CAD model.
+- `importMarc(filename: str, unitSystem: str, importHierarchicalFiles: bool = False, renumberMethod: apex.attribute.ImportRenumberMethod = apex.attribute.ImportRenumberMethod.Internal, importAbstractions: bool = False) -> apex.Entity` — Imports the contents of the Model to a Marc file.
+- `importModelAssociation(associationFilename: str) -> ModelAssociationCollection` — import ModelAssociation from file.
+- `importRegisteredAdamsCarAssembly(databaseAlias: str = "", assemblyName: str = "") -> Assembly` — Imports an Adams/Car assembly from an Adams/Car database when the database has previously been registered in the Adams/Car config file.
+- `importSTL(stlFileNames: [str], importBodyType: apex.geometry.STLImportBodyType = apex.geometry.STLImportBodyType.Mesh, featureAngle: float = 40.0, vertexAngle: float = 40.0, splitOnAngle: bool = True, detectMachinedFace: bool = False, unitSystem: str = "m", cleanOnImport: bool = True) -> {str:apex.Entity}` — Imports one or more STL files into this model and creates either mesh or geometry bodies depending on the supplied input values.
+- `importUnregisteredAdamsCarAssembly(databaseAlias: str, assemblyName: str, databasePathname: str) -> Assembly` — Imports and registers and Adams/Car assembly from an Adams/Car database when the database has NOT previously been registered in the Adams/Car config file.
+- `isCurrent() -> bool` — Returns bool representing whether the model is current and can be operated on.
+- `save() -> None` — Save all changes to the Model since the last Save.
+- `saveAs(name: str, path: str) -> Model` — Save the model to a new DB.
+- `setCurrentPart(pathName: str) -> Part` — Set the 'current' Part in this Model.
+
+Method details:
 
 #### `close() -> Model`
 Closes the current Model and creates a new one. The new Model is provied with a default name and is created in the default location.
@@ -1255,7 +1794,6 @@ Create a new Assembly in this Model.
 
 Returns: the created Assembly
 
-- `createMirrorPlane(normal: apex.ILocation, origin: apex.ILocation) -> apex.construct.MirrorPlane`
 #### `createModelAssociation(name: str, description: str, primaryAssembly: apex.Assembly, secondaryAssembly: apex.Assembly) -> ModelAssociation`
 Creates and returns a ModelAssociation. ModelAssociations enable associations to be defined between two top level Assemblies in a Model. One of the Assemblies is defined to be the "Primary" Assembly and the other to be the "Secondary" Assembly and individual Each Part in the primary Assembly can be associated with one or more Parts or Assemblies in the secondary Assembly. Parts/Assemblies in the secondary Assembly can only be associated to one Part in the primary Assembly. ModelAssociations are used to connect two different representations of the same model. Current Apex releases use ModelAssociations to enable, 1.animation of CAD or finite element models based on the results of an Adams/Car multi-body dynamics simulation. In his case, the multibody dynamics model (results) are generated by importing an Adams/Car model (and results). The multi-body dynamics model is added to a ModelAssociation as the primary assembly and a second Assembly containing CAD or finite element entities is included as the secondary Assembly. Individual Parts form the multiboidy model (primary assembly) are then associated with one or more Parts/Assemblies from the CAD/finite element model.
 
@@ -1725,8 +2263,6 @@ Imports and registers and Adams/Car assembly from an Adams/Car database when the
 
 Returns: the top Assembly of imported model
 
-- `isCurrent() -> bool` — Returns bool representing whether the model is current and can be operated on.
-- `save() -> None` — Save all changes to the Model since the last Save.
 #### `saveAs(name: str, path: str) -> Model`
 Save the model to a new DB.
 
@@ -1748,6 +2284,23 @@ Properties: `interfaceLoadAssociations`, `partAssociations`, `primaryAssembly`, 
 Methods:
 
 - `ModelAssociation() -> None`
+- `associateLoadTransferPoints(primaryAssemblyLoadTransferPoint: apex.attribute.InterfacePoint, secondaryAssemblyLoadTransferPoint: apex.attribute.NodeTie) -> None` — Associates an InterfacePoints in the primary Assembly with a NodeTies in the secondary Assembly.
+- `associatePartsAutomatic(scope: apex.ModelAssociationScope, parts: apex.PartCollection = None, mappingTolerance: float = 5, onlyMapUnmappedParts: bool = True, hideAfterMapping: bool = True) -> bool` — Automatically associates Parts and/or Assemblies from the secondary assembly to a Parts in the primary assembly using a proximity tolerance algorithm.
+- `associatePartsManual(primaryPart: apex.Part, secondaryPartsAssemblies: apex.EntityCollection, hideAfterMapping: bool = True) -> bool` — Manually associates Parts and/or Assemblies from the secondary Assembly with a Part in the primary Assembly.
+- `exportAssociationData(fileName: str) -> bool` — Exports the model association data from this ModelAssociation to an external file in .txt format.
+- `getDescription() -> str` — Read-only string representing the description of this object.
+- `getInterfaceLoadAssociations() -> {str:apex.attribute.NodeTie}` — a dictionary defining the association between InterfacePoints in the primary Assembly and NodeTies in the secondary Assembly.
+- `getName() -> str` — Read-only string representing the name of this object.
+- `getPartAssociations() -> {str:apex.EntityCollection}` — get part associations.
+- `getPath() -> str` — return this Entity path string.
+- `getPrimaryAssembly() -> apex.Assembly` — get primary assembly.
+- `getSecondaryAssembly() -> apex.Assembly` — get secondary assembly.
+- `removeLoadTransferPointAssociation(loadTransferPointAssociation: str) -> None` — Removes an existing load transfer point association from this ModelAssociation.
+- `removePartAssociation(partAssociation: str) -> bool` — Removes an existing Part Association from this ModelAssociation.
+- `update(name: str = "", description: str = "#####", primaryAssembly: apex.Assembly = None, secondaryAssembly: apex.Assembly = None) -> ModelAssociation` — Update this model association.
+
+Method details:
+
 #### `associateLoadTransferPoints(primaryAssemblyLoadTransferPoint: apex.attribute.InterfacePoint, secondaryAssemblyLoadTransferPoint: apex.attribute.NodeTie) -> None`
 Associates an InterfacePoints in the primary Assembly with a NodeTies in the secondary Assembly.
 
@@ -1843,6 +2396,14 @@ Methods:
 
 - `ModelAssociationCollection() -> None` — Construct a new ModelAssociationCollection.
 
+Method details:
+
+#### `ModelAssociationCollection() -> None`
+Construct a new ModelAssociationCollection.
+
+For example:
+
+
 ## `apex.ModelRep`  (extends `Entity`)
 A ScenarioModelRep that represents an Assembely rep or part rep that is associated with a Scenario.
 
@@ -1858,9 +2419,18 @@ Properties: `set_ids`, `set_type`
 Methods:
 
 - `getSetIds() -> [int]` — Gets a property defining the IDs of the entity types specified by the set_type property This property may be assigned an iterable (List, Array etc) of ints.
-- `getSetType() -> str` — Gets a property used to define the type of entity that the IDs defined in this ModelSet3Nastran represnt This property may be assigned any one of the following values, "GRID" - The IDs represent the IDs of finite element Grids (Nodes) "ELEM" - The IDs represent the IDs of finite element Elements "POINT" - The IDs represent the IDs of finite element Points "PROP" - The IDs represent the IDs of element properties "RBEin" - The IDs represent the IDs of rigid elements (to be INCLUIDED in MPC selections) "RBEex" - The IDs represent the IDs of rigid elements (to be EXCLUDED from MPC selections)
+- `getSetType() -> str` — Gets a property used to define the type of entity that the IDs defined in this ModelSet3Nastran represnt This property may be assigned any one of the following ...
 - `setSetIds(set_ids: [int]) -> None` — Sets a property defining the IDs of the entity types specified by the set_type property This property may be assigned an iterable (List, Array etc) of ints.
-- `setSetType(set_type: str) -> None` — Sets a property used to define the type of entity that the IDs defined in this ModelSet3Nastran represnt This property may be assigned any one of the following values, "GRID" - The IDs represent the IDs of finite element Grids (Nodes) "ELEM" - The IDs represent the IDs of finite element Elements "POINT" - The IDs represent the IDs of finite element Points "PROP" - The IDs represent the IDs of element properties "RBEin" - The IDs represent the IDs of rigid elements (to be INCLUIDED in MPC selections) "RBEex" - The IDs represent the IDs of rigid elements (to be EXCLUDED from MPC selections)
+- `setSetType(set_type: str) -> None` — Sets a property used to define the type of entity that the IDs defined in this ModelSet3Nastran represnt This property may be assigned any one of the following ...
+
+Method details:
+
+#### `getSetType() -> str`
+Gets a property used to define the type of entity that the IDs defined in this ModelSet3Nastran represnt This property may be assigned any one of the following values, "GRID" - The IDs represent the IDs of finite element Grids (Nodes) "ELEM" - The IDs represent the IDs of finite element Elements "POINT" - The IDs represent the IDs of finite element Points "PROP" - The IDs represent the IDs of element properties "RBEin" - The IDs represent the IDs of rigid elements (to be INCLUIDED in MPC selections) "RBEex" - The IDs represent the IDs of rigid elements (to be EXCLUDED from MPC selections)
+
+#### `setSetType(set_type: str) -> None`
+Sets a property used to define the type of entity that the IDs defined in this ModelSet3Nastran represnt This property may be assigned any one of the following values, "GRID" - The IDs represent the IDs of finite element Grids (Nodes) "ELEM" - The IDs represent the IDs of finite element Elements "POINT" - The IDs represent the IDs of finite element Points "PROP" - The IDs represent the IDs of element properties "RBEin" - The IDs represent the IDs of rigid elements (to be INCLUIDED in MPC selections) "RBEex" - The IDs represent the IDs of rigid elements (to be EXCLUDED from MPC selections)
+
 
 ## `apex.ModelSetNastran`  (extends `Entity`)
 Base class for a series of specializations representing Nastran bulk data SET1, SET2, SET3 and SET4 entries.
@@ -1868,15 +2438,32 @@ Properties: `id`, `name`
 
 Methods:
 
-- `clone() -> ModelSetNastran` — Creates a copy of this ModelSetNastran. The copy will be created by default in the same model set as the original, however if the optional "model_set" argument is provided, the copy will be created in the ModelSetNastran that it references All properties of the original ModelSetNastran will be copied with the exception of the id which will be replaced by a new unique ID.
+- `clone() -> ModelSetNastran` — Creates a copy of this ModelSetNastran.
 - `getId() -> int` — Gets the ID of this SET.
 - `getName() -> str` — Gets the name of this SET.
 - `setId(id: int) -> None` — Sets the ID of this SET.
 - `setName(name: str) -> None` — Sets the name of this SET.
 
+Method details:
+
+#### `clone() -> ModelSetNastran`
+Creates a copy of this ModelSetNastran. The copy will be created by default in the same model set as the original, however if the optional "model_set" argument is provided, the copy will be created in the ModelSetNastran that it references All properties of the original ModelSetNastran will be copied with the exception of the id which will be replaced by a new unique ID.
+
+
 ## `apex.Orientation`  (extends `IsConstructed`, `IOrientation`)
 
 Methods:
+
+- `Orientation(alpha: float = 0.0, beta: float = 0.0, gamma: float = 0.0) -> None` — Orientation constructor.Optional arguments enable the Orientation to be constructed relative to the global Carteaisn coordinate system using Euler angles based ...
+- `Orientation(xAxis: apex.construct.Vector3D = Internally determined, yAxis: apex.construct.Vector3D = Internally determined, zAxis: apex.construct.Vector3D = Internally determined) -> None` — Orientation constructor.
+- `getAlpha() -> float` — Float value representing the first Euler rotation angle based on the Euler 313 rotation convention. alpha represents an Angle value and is returned in the ...
+- `getBeta() -> float` — Float value representing the second Euler rotation angle based on the Euler 313 rotation convention. beta represents an Angle value and is returned in the ...
+- `getGamma() -> float` — Float value representing the third Euler rotation angle based on the Euler 313 rotation convention. beta represents an Angle value and is returned in the Angle ...
+- `getXAxis() -> apex.construct.Vector3D` — The direction of the x axis of this Orientation as a Vector3D.
+- `getYAxis() -> apex.construct.Vector3D` — The direction of the y axis of this Orientation as a Vector3D.
+- `getZAxis() -> apex.construct.Vector3D` — The direction of the z axis of this Orientation as a Vector3D.
+
+Method details:
 
 #### `Orientation(alpha: float = 0.0, beta: float = 0.0, gamma: float = 0.0) -> None`
 Orientation constructor.Optional arguments enable the Orientation to be constructed relative to the global Carteaisn coordinate system using Euler angles based on the Euler 313 rotation convention.A default value of 0.0 will be used for any omitted arguments.If all arguments are omitted the Orientation will be created aligned with the global Cartesian system.
@@ -1892,18 +2479,95 @@ Orientation constructor. Optional arguments enable the Orientation to be constru
 - `yAxis` — an optional float value representing the second Euler rotation angle (default = 0.0) based on the Euler 313 rotation convention and relative to the global Cartesian system. beta represents an Angle value and must be supplied in the Angle units of the active script unit system
 - `zAxis` — an optional float value representing the third Euler rotation angle (default = 0.0) based on the Euler 313 rotation convention and relative to the global Cartesian system. gamma represents an Angle value and must be supplied in the Angle units of the active script unit system
 
-- `getAlpha() -> float` — Float value representing the first Euler rotation angle based on the Euler 313 rotation convention. alpha represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getBeta() -> float` — Float value representing the second Euler rotation angle based on the Euler 313 rotation convention. beta represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getGamma() -> float` — Float value representing the third Euler rotation angle based on the Euler 313 rotation convention. beta represents an Angle value and is returned in the Angle units of the active script unit system.
-- `getXAxis() -> apex.construct.Vector3D` — The direction of the x axis of this Orientation as a Vector3D.
-- `getYAxis() -> apex.construct.Vector3D` — The direction of the y axis of this Orientation as a Vector3D.
-- `getZAxis() -> apex.construct.Vector3D` — The direction of the z axis of this Orientation as a Vector3D.
+#### `getAlpha() -> float`
+Float value representing the first Euler rotation angle based on the Euler 313 rotation convention. alpha represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getBeta() -> float`
+Float value representing the second Euler rotation angle based on the Euler 313 rotation convention. beta represents an Angle value and is returned in the Angle units of the active script unit system.
+
+#### `getGamma() -> float`
+Float value representing the third Euler rotation angle based on the Euler 313 rotation convention. beta represents an Angle value and is returned in the Angle units of the active script unit system.
+
 
 ## `apex.Part`  (extends `Entity`, `IPhysical`, `IDisplayable`, `IUserAttributes`, `IName`, `IActivatable`)
 model object that can contain Geometry and FEM data (and have Material and Shell data assigned). Create using Model or Assembly createPart() method.
 Properties: `activeRep`, `axisAlignedBoundingBox`, `beamSpans`, `curves`, `datumPlanes`, `displayableEntities`, `elements`, `entities`, `exclusiveGroups`, `exclusiveRegions`, `facetedCurves`, `facetedSolids`, `facetedSurfaces`, `geometryBodies`, `interfacePoints`, `meshes`, `namedEntities`, `nodes`, `parent`, `partialGroups`, `partialRegions`, `partProperties`, `partReps`, `physicalEntities`, `points`, `referencedBy`, `referenceSystem`, `solids`, `surfaces`
 
 Methods:
+
+- `applyColorToChildren(color: [int]) -> None` — applies the color of this Part to all its children.
+- `applyRenderStyleToChildren(renderStyle: apex.session.DisplayRenderStyle) -> None` — applies the Render Style of this Part to all its children.
+- `applyTransparencyToChildren(enableTransparency: bool, transparencyLevel: int) -> None` — applies the Transparency setting of this Part to all its children.
+- `asEntity() -> Entity` — return the (base) Entity Object of this Part.
+- `assignMaterial(pMat: apex.attribute.Material) -> bool` — assign a material to this Part.
+- `assignShellSection(pSection: apex.attribute.ShellSection) -> bool` — DEPRECATED: THIS FUNCTION IS DEPRECATED AND WILL BE REMOVED IN THE FUTURE RELEASE.PLEASE USE apex.attribute.createFieldThicknessOffsetConstant. assign a shell ...
+- `createImportedPartRepFlex(modalNeutralFileName: str) -> apex.PartRep` — create a Imported PartRep in this Part.
+- `createMeshBody(meshType: apex.mesh.MeshTopology, name: str, description: str, csys: apex.construct.CoordinateSystem, nodeCoordinates: [float], elements: {str:[int]}) -> apex.mesh.MeshBody` — Creates and returns a MeshBody in this Part.
+- `createNativePartRepFlex(name: str, description: str = "", numberModes: int = 6, maximumFrequency: float = NAN, generateGridPointStresses: bool = True, generateGridPointStrains: bool = True) -> apex.PartRep`
+- `createSketchOnDatumPlane(name: str, datumPlane: apex.construct.DatumPlane, alignSketchViewWithViewport: bool) -> apex.construct.Sketch` — Create and initialize a sketch on the input DatumPlane.
+- `createSketchOnGlobalPlane(name: str, plane: apex.construct.GlobalPlane, alignSketchViewWithViewport: bool) -> apex.construct.Sketch` — Create and initialize the sketch given a flat face.
+- `createSketchOnSurface(name: str, face: Entity, reverseNormal: bool, alignSketchViewWithViewport: bool, location: apex.ILocation = None) -> apex.construct.Sketch` — Create and initialize the sketch given a face.
+- `delete_RENAMED_AFTER_SWIG() -> None` — Delete this Part.
+- `exportFEModel(filename: str, unitSystem: str, exportWideFormat: bool = False, exportAbstractions: bool = False, writePropertyOnElement: bool = True, exportProperty: apex.ExportProperty = apex.ExportProperty.AsDefined) -> None` — Exports this Part to a Nastran file.
+- `exportGeometry(filename: str, cadFormat: apex.geometry.CADFormat, unitSystem: str = "m", stlMergeCells: bool = True, exportVirtualFaces: bool = False, exportVirtualFaceMethod: apex.VirtualFaceExportMethod = apex.VirtualFaceExportMethod.NurbsOnly, exportBodyPositionInLocal: bool = False) -> None` — Export Geometry from this Part to a file using the supplied CAD format.
+- `exportMarc(filename: str, unitSystem: str, exportWideFormat: bool = False, exportAbstractions: bool = False) -> None` — Exports the contents of the Part to a Marc file.
+- `getActivePartRep() -> apex.PartRep` — returns the active partRep.
+- `getBeamSpan(name: str) -> apex.attribute.BeamSpan` — Get a BeamSpan in this Part.
+- `getBeamSpans() -> apex.attribute.BeamSpanCollection` — Returns read only collection of all BeamSpans contained by the Part.
+- `getBox(name: str) -> apex.geometry.Box` — Get a Box in this Part.
+- `getBoxes() -> apex.geometry.BoxCollection` — Get all Boxes in this Part.
+- `getCurve(name: str) -> apex.geometry.Curve` — Get a Curve in this Part.
+- `getCurves() -> apex.geometry.CurveCollection` — Get all Curves in this Part.
+- `getCylinder(name: str) -> apex.geometry.Cylinder` — Get a Cylinder in this Part.
+- `getCylinders() -> apex.geometry.CylinderCollection` — Get all Cylinders in this Part.
+- `getDatumPlane(name: str) -> apex.construct.DatumPlane` — Retrieves a named DatumPlane from this Part.
+- `getDatumPlanes() -> apex.construct.DatumPlaneCollection` — Returns all DatumPlanes directly composed by this Part.
+- `getDisplayableEntities() -> apex.EntityCollection` — returns a collection of all entities in this Part that implement IDisplayable as an EntityCollection.
+- `getElements(target: apex.Entity) -> apex.mesh.ElementCollection` — get the elements on this Entity (GeometryBody/GeometryTopology).
+- `getEllipsoid(name: str) -> apex.geometry.Ellipsoid` — Get a Ellipsoid in this Part.
+- `getEllipsoids() -> apex.geometry.EllipsoidCollection` — Get all Ellipsoids in this Part.
+- `getEntities() -> apex.EntityCollection` — Get all Entities in this Part.
+- `getExclusiveGroups(recursive: bool = True) -> apex.GroupCollection` — returns a GroupCollection of all Groups that exclusively reference ONLY Entities composed by this Part.
+- `getExclusiveRegions(recursive: bool = True) -> apex.RegionCollection` — returns a RegionCollection of all Regions that exclusively reference ONLY Entities composed by this Part.
+- `getFacetedCurve(name: str) -> apex.geometry.FacetedCurve` — Get a Faceted Curve in this Part.
+- `getFacetedCurves() -> apex.geometry.FacetedCurveCollection` — Get all Faceted Curves in this Part.
+- `getFacetedSolid(name: str) -> apex.geometry.FacetedSolid` — Get a Faceted Solid in this Part.
+- `getFacetedSolids() -> apex.geometry.FacetedSolidCollection` — Get all Faceted Solids in this Part.
+- `getFacetedSurface(name: str) -> apex.geometry.FacetedSurface` — Get a Faceted Surface in this Part.
+- `getFacetedSurfaces() -> apex.geometry.FacetedSurfaceCollection` — Get all Faceted Surfaces in this Part.
+- `getGeometryBodies() -> apex.geometry.GeometryBodyCollection` — Get all Bodies in this Part.
+- `getGeometryBody(name: str) -> apex.geometry.GeometryBody` — Get a GeometryBody in this Part.
+- `getInterfacePoints() -> apex.attribute.InterfacePointCollection` — returns a read only collection of all InterfacePoints composed by this Part
+- `getMesh(name: str) -> apex.mesh.MeshBody` — Get a MeshBody in this Part.
+- `getMeshes() -> apex.mesh.MeshBodyCollection` — Get all MesheBodies in this Part.
+- `getNamedEntities() -> apex.EntityCollection` — returns a collection of all entities in this Part that implement IName as an EntityCollection.
+- `getNodes(target: apex.Entity) -> apex.mesh.NodeCollection` — get the nodes on this Entity (GeometryBody/GeometryTopology).
+- `getParent() -> Assembly` — Get the parent Assembly for this Part.
+- `getPartProperties() -> apex.PartPropertyCollection` — returns all entities in this PartProperty collection.
+- `getPartRep(name: str) -> apex.PartRep` — returns the specific partRep.
+- `getPartReps() -> apex.PartRepCollection` — returns all entities in this PartRep collection.
+- `getPartialGroups() -> apex.GroupCollection` — returns a GroupCollection of all Groups that reference at least one Entity that is composed by this Part.
+- `getPartialRegions() -> apex.RegionCollection` — returns a RegionCollection of all Regions that reference at least one Entity that is composed by this Part.
+- `getPhysicalEntities() -> apex.EntityCollection` — returns a collection of all entities in this Part that implement ILocation as an EntityCollection.
+- `getPoint(name: str) -> apex.geometry.Point` — Get a Point in this Part.
+- `getPoints() -> apex.geometry.PointCollection` — Get all Points in this Part.
+- `getReferenceSystem() -> ( apex.ILocation,apex.IOrientation )` — Gets A tuple to represent location and orientation to be used for reference system.
+- `getReferencedBy() -> apex.EntityCollection` — returns a collection of all entities that directly Reference this Part
+- `getSolid(name: str) -> apex.geometry.Solid` — Get a Solid in this Part.
+- `getSolids() -> apex.geometry.SolidCollection` — Get all Solids in this Part.
+- `getSphere(name: str) -> apex.geometry.Sphere` — Get a Sphere in this Part.
+- `getSpheres() -> apex.geometry.SphereCollection` — Get all Spheres in this Part.
+- `getSurface(name: str) -> apex.geometry.Surface` — Get a Surface in this Part.
+- `getSurfaces() -> apex.geometry.SurfaceCollection` — Get all Surfaces in this Part.
+- `importGeometry(geometryFileNames: [str], importSolids: bool = True, importSurfaces: bool = True, importCurves: bool = True, importPoints: bool = True, importGeneralBodies: bool = True, importDatumPlanes: bool = False, importHiddenGeometry: bool = False, cleanOnImport: bool = True, removeRedundantTopoOnImport: bool = True, loadCompleteTopology: bool = True, sewOnImport: bool = False, importReviewMode3dxmlCleanOnImport: bool = True, importReviewMode3dxmlSplitOnFeatureVertexAngle: bool = True, importReviewMode3dxmlFeatureAngle: float = 40.0, importReviewMode3dxmlVertexAngle: float = 40.0, importReviewMode3dxmlDetectMachinedFaces: bool = False, importPublications: bool = False, importAttributes: bool = False) -> {str:apex.EntityCollection}` — Imports a target CAD model from the input CAD files into target parts.
+- `importSTL(stlFileNames: [str], importBodyType: apex.geometry.STLImportBodyType = apex.geometry.STLImportBodyType.Mesh, featureAngle: float = 40.0, vertexAngle: float = 40.0, detectMachinedFaces: bool = False, splitOnAngle: bool = True, unitSystem: str = "m", cleanOnImport: bool = True) -> {str:apex.EntityCollection}` — Imports one or more STL files into this model and creates either mesh or geometry bodies depending on the supplied input values.
+- `setParent(parent: Assembly) -> None` — Set an Assembly to be the new parent for this Part.
+- `setReferenceSystem(refSysPair: ( apex.ILocation,apex.IOrientation )) -> None`
+- `unsetColor() -> None` — unapplies the color of this Part to all its children.
+- `unsetRender() -> None` — unapplies the renderStyle of this Part to all its children.
+- `update(name: str, parent: Entity, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None` — Update one or more of this Part properties.
+
+Method details:
 
 #### `applyColorToChildren(color: [int]) -> None`
 applies the color of this Part to all its children.
@@ -1961,7 +2625,6 @@ Creates and returns a MeshBody in this Part. The method can create all types of 
 
 Returns: the MeshBody
 
-- `createNativePartRepFlex(name: str, description: str = "", numberModes: int = 6, maximumFrequency: float = NAN, generateGridPointStresses: bool = True, generateGridPointStrains: bool = True) -> apex.PartRep`
 #### `createSketchOnDatumPlane(name: str, datumPlane: apex.construct.DatumPlane, alignSketchViewWithViewport: bool) -> apex.construct.Sketch`
 Create and initialize a sketch on the input DatumPlane.
 
@@ -1991,7 +2654,6 @@ Create and initialize the sketch given a face.
 
 Returns: the created Sketch
 
-- `delete_RENAMED_AFTER_SWIG() -> None` — Delete this Part.
 #### `exportFEModel(filename: str, unitSystem: str, exportWideFormat: bool = False, exportAbstractions: bool = False, writePropertyOnElement: bool = True, exportProperty: apex.ExportProperty = apex.ExportProperty.AsDefined) -> None`
 Exports this Part to a Nastran file. All objects composed or referenced by the Part that can be mapped to Nastran keywords will be exported. Method arguments provide control over export options. Primarily bulk data entries are exported when this method is called from the Part class, although some case control keywords may also be exported to enable import of mesh independent ties into the other applications. To export case control entries, use the equivalent exportFEModel() method on the Scenario object.
 
@@ -2271,8 +2933,6 @@ Returns: Iterable collection of all the Points in this part
 
 getPoints() may also be accessed as a Part object property 'points'. For example:
 
-- `getReferenceSystem() -> ( apex.ILocation,apex.IOrientation )` — Gets A tuple to represent location and orientation to be used for reference system.
-- `getReferencedBy() -> apex.EntityCollection` — returns a collection of all entities that directly Reference this Part
 #### `getSolid(name: str) -> apex.geometry.Solid`
 Get a Solid in this Part.
 
@@ -2359,9 +3019,16 @@ Set an Assembly to be the new parent for this Part.
 
 - `parent` — to be assigned the new parent of this Part
 
-- `setReferenceSystem(refSysPair: ( apex.ILocation,apex.IOrientation )) -> None`
-- `unsetColor() -> None` — unapplies the color of this Part to all its children.
-- `unsetRender() -> None` — unapplies the renderStyle of this Part to all its children.
+#### `unsetColor() -> None`
+unapplies the color of this Part to all its children.
+
+This method provides the ability to allow the children of containers to control the color display.
+
+#### `unsetRender() -> None`
+unapplies the renderStyle of this Part to all its children.
+
+This method provides the ability to allow the children of containers to control the render style display.
+
 #### `update(name: str, parent: Entity, color: [int], renderStyle: apex.session.DisplayRenderStyle, enableTransparency: apex.ApexBool, transparencyLevel: int) -> None`
 Update one or more of this Part properties.
 
@@ -2381,6 +3048,15 @@ Iterable collection of Parts, based on IPhysicalCollection.
 Methods:
 
 - `PartCollection() -> None` — Construct a new PartCollection.
+- `appendList(partList: [Part]) -> None` — Add Parts from a list to the end of this collection.
+
+Method details:
+
+#### `PartCollection() -> None`
+Construct a new PartCollection.
+
+For example:
+
 #### `appendList(partList: [Part]) -> None`
 Add Parts from a list to the end of this collection.
 
@@ -2399,6 +3075,15 @@ Methods:
 
 - `PartPropertyCollection() -> None` — Construct a new PartPropertyCollection.
 - `PartPropertyCollection(collectionType: apex.CollectionType) -> None`
+- `appendList(partreplist: [PartProperty]) -> None` — Add reps from a list to the end of this collection.
+
+Method details:
+
+#### `PartPropertyCollection() -> None`
+Construct a new PartPropertyCollection.
+
+For example:
+
 #### `appendList(partreplist: [PartProperty]) -> None`
 Add reps from a list to the end of this collection.
 
@@ -2414,7 +3099,7 @@ Properties: `calculateProperties`, `cm`, `im`, `ixx`, `ixy`, `iyy`, `iyz`, `izx`
 Methods:
 
 - `getCM() -> apex.attribute.InterfacePoint` — The Interface Point located at the Center of Mass for the Rigid Part Representation.
-- `getCalculateProperties() -> bool` — Returns Boolean of how the mass and inertia of the Rigid Part Representation is calculated. If calculateProperties is True, the mass is automatically calculated based on the volume of the solid geometry in the part and the material assigned to the geometry. If calculateProperties is False, the mass is based on custom entered values.
+- `getCalculateProperties() -> bool` — Returns Boolean of how the mass and inertia of the Rigid Part Representation is calculated.
 - `getIM() -> apex.attribute.InterfacePoint` — The Interface Point located at the Inertia Reference for the Rigid Part Representation.
 - `getIxx() -> float` — The Ixx mass-inertial tensor component expressed in the im reference frame.
 - `getIxy() -> float` — The Ixy mass-inertial tensor component expressed in the im reference frame.
@@ -2423,6 +3108,13 @@ Methods:
 - `getIzx() -> float` — The Izx mass-inertial tensor component expressed in the im reference frame.
 - `getIzz() -> float` — The Izz mass-inertial tensor component expressed in the im reference frame.
 - `getMass() -> float` — Mass of the Rigid Part Representation.
+- `update(mass: float, ixx: float, iyy: float, izz: float, ixy: float, iyz: float, izx: float, calculateProperties: bool, cm: apex.attribute.InterfacePoint, im: apex.attribute.InterfacePoint) -> None` — One or more properties may be updated in each call to update().
+
+Method details:
+
+#### `getCalculateProperties() -> bool`
+Returns Boolean of how the mass and inertia of the Rigid Part Representation is calculated. If calculateProperties is True, the mass is automatically calculated based on the volume of the solid geometry in the part and the material assigned to the geometry. If calculateProperties is False, the mass is based on custom entered values.
+
 #### `update(mass: float, ixx: float, iyy: float, izz: float, ixy: float, iyz: float, izx: float, calculateProperties: bool, cm: apex.attribute.InterfacePoint, im: apex.attribute.InterfacePoint) -> None`
 One or more properties may be updated in each call to update().
 
@@ -2443,6 +3135,15 @@ Properties: `highlighted`, `repProperty`, `repPropertyType`, `targets`
 
 Methods:
 
+- `getRepProperty() -> apex.PartProperty` — returns the part property of this PartRep
+- `getRepPropertyType() -> apex.PartRepPropertyType` — returns Rep property type of this PartRep
+- `getTargets() -> apex.EntityCollection` — returns an EntityCollection of all entities directly composed by this PartRep.
+- `unsetColor() -> None` — unapplies the color of this Part Rep to all its children.
+- `unsetRender() -> None` — unapplies the renderStyle of this Part Rep to all its children.
+- `update(name: str, description: str, targets: apex.EntityCollection, repProperty: apex.PartProperty) -> None` — update a rigid part rep.
+
+Method details:
+
 #### `getRepProperty() -> apex.PartProperty`
 returns the part property of this PartRep
 
@@ -2458,8 +3159,14 @@ returns an EntityCollection of all entities directly composed by this PartRep.
 
 Returns: an EntityCollection.
 
-- `unsetColor() -> None` — unapplies the color of this Part Rep to all its children. This method provides the ability to allow the children of containers to control the color display.
-- `unsetRender() -> None` — unapplies the renderStyle of this Part Rep to all its children.
+#### `unsetColor() -> None`
+unapplies the color of this Part Rep to all its children. This method provides the ability to allow the children of containers to control the color display.
+
+#### `unsetRender() -> None`
+unapplies the renderStyle of this Part Rep to all its children.
+
+This method provides the ability to allow the children of containers to control the render style display.
+
 #### `update(name: str, description: str, targets: apex.EntityCollection, repProperty: apex.PartProperty) -> None`
 update a rigid part rep. One or more properties may be updated in each call to update().
 
@@ -2476,6 +3183,15 @@ Methods:
 
 - `PartRepCollection() -> None` — Construct a new PartRepCollection.
 - `PartRepCollection(collectionType: apex.CollectionType) -> None`
+- `appendList(partreplist: [PartRep]) -> None` — Add reps from a list to the end of this collection.
+
+Method details:
+
+#### `PartRepCollection() -> None`
+Construct a new PartRepCollection.
+
+For example:
+
 #### `appendList(partreplist: [PartRep]) -> None`
 Add reps from a list to the end of this collection.
 
@@ -2489,6 +3205,15 @@ Class used to persist collections of ILocation objects, including Mesh and Geome
 Properties: `centroid`, `target`
 
 Methods:
+
+- `addEntities(entities: apex.ILocationCollection) -> None` — Add entities to this Region.
+- `addEntity(entity: apex.ILocation) -> None` — Add entity to this Region.
+- `getCentroid() -> apex.Coordinate` — returns the centroid of this Region as a Coordinate.
+- `getTarget() -> apex.ILocationCollection` — A collection of ILocation objects that represent this Region.
+- `removeEntities(entities: apex.ILocationCollection) -> None` — Removes entities from this Region.
+- `removeEntity(entity: apex.ILocation) -> None` — Removes an entity from this Region.
+
+Method details:
 
 #### `addEntities(entities: apex.ILocationCollection) -> None`
 Add entities to this Region. Entities in the input that are not supported by Region will be silently ignored. Entities in the input that are already referenced by this Region will be silently ignored.
@@ -2505,7 +3230,9 @@ returns the centroid of this Region as a Coordinate. If the Region references a 
 
 Returns: returns the centroid of this Region as a Coordinate.
 
-- `getTarget() -> apex.ILocationCollection` — A collection of ILocation objects that represent this Region. The following entity types are currently supported, 1. GeometryBody (Solid, Surface, Curve, Point and all specializations thereof) 2. GeometryTopology (Cell, Face, Edge, Vertex) 3. MeshBody (SolidMesh, HexMesh, SurfaceMesh, CurveMesh, PointMesh) 4. Node 5. Element.
+#### `getTarget() -> apex.ILocationCollection`
+A collection of ILocation objects that represent this Region. The following entity types are currently supported, 1. GeometryBody (Solid, Surface, Curve, Point and all specializations thereof) 2. GeometryTopology (Cell, Face, Edge, Vertex) 3. MeshBody (SolidMesh, HexMesh, SurfaceMesh, CurveMesh, PointMesh) 4. Node 5. Element.
+
 #### `removeEntities(entities: apex.ILocationCollection) -> None`
 Removes entities from this Region. Entities in the input that are not supported by Region will be silently ignored Entities in the input that are not referenced by this Region will be silently ignored.
 
@@ -2522,6 +3249,14 @@ Removes an entity from this Region. If the input Entity type is not supported by
 Methods:
 
 - `RegionCollection() -> None` — Construct a new RegionCollection.
+
+Method details:
+
+#### `RegionCollection() -> None`
+Construct a new RegionCollection.
+
+For example:
+
 
 ## `apex.UserAttribute`  (extends `Entity`)
 Object for tagging a string, integer, float, or bool values to Entities.
@@ -2543,4 +3278,12 @@ Iterable collection of UserAttributes, based on EntityCollection.
 Methods:
 
 - `UserAttributeCollection() -> None` — Construct a new UserAttributeCollection.
+
+Method details:
+
+#### `UserAttributeCollection() -> None`
+Construct a new UserAttributeCollection.
+
+For example:
+
 
