@@ -2,7 +2,7 @@
 
 (apex.catalog module) functions for creating/getting attribute.Material and attribute.ShellSection objects.
 
-Apex release: Iberian Lynx FP2. All arguments are keyword-only.
+Apex release: Iberian Lynx FP2. Arguments are documented by name: pass them by keyword.
 
 ## Enumerations
 

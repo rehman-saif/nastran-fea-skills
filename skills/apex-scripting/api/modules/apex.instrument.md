@@ -2,7 +2,7 @@
 
 (apex.instrument module) model Attribute attribute.PointSensor creation functions.
 
-Apex release: Iberian Lynx FP2. All arguments are keyword-only.
+Apex release: Iberian Lynx FP2. Arguments are documented by name: pass them by keyword.
 
 ## Enumerations
 

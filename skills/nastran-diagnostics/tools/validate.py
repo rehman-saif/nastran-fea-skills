@@ -210,6 +210,31 @@ def check_digest_tools():
                 err("deck_checks: glue.bdf with BCONTACT %s has an inactive glue pair, so the loaded "
                     "plate should be reported unconstrained" % label)
             got2 |= set(got3)
+        # BCONTACT = n must be the ID of a BCTABLE, BCTABL1 or BCONECT
+        cc = [("  BCONTACT = 987654", *rest) if t.strip().upper().startswith("BCONTACT") else (t, *rest)
+              for t, *rest in m.deck.case_control]
+        F4, _, _ = run_checks(m, cc, log=quiet)
+        if not any(f["code"] == "MISSING_SET" and "BCONTACT=987654" in f.get("detail", "") for f in F4.items):
+            err("deck_checks: glue.bdf with a BCONTACT ID that no contact table has should raise MISSING_SET")
+        cc = [("  BCONTACT = USER", *rest) if t.strip().upper().startswith("BCONTACT") else (t, *rest)
+              for t, *rest in m.deck.case_control]
+        F6, _, _ = run_checks(m, cc, log=quiet)
+        if not any(f["code"] == "MISSING_SET" and "BCONTACT=USER" in f.get("detail", "") for f in F6.items):
+            err("deck_checks: BCONTACT = USER (not a BCONTACT value) should raise MISSING_SET")
+        # a scalar point is a defined point: an SPC on it is not a missing grid, an SPC on nothing is
+        p = os.path.join(tmp, "spoint.bdf")
+        with open(p, "w") as fh:
+            fh.write("BEGIN BULK\n"
+                     "GRID    1               0.      0.      0.\n"
+                     "SPOINT  500     THRU    502\n"
+                     "SPC1    1       0       501\n"
+                     "SPC1    1       123     777\n"
+                     "ENDDATA\n")
+        m5 = build_model(p, log=quiet)
+        F5, _, _ = run_checks(m5, m5.deck.case_control, log=quiet)
+        gone = sorted(i for f in F5.items if f["code"] == "MISSING_GRID" for i in f.get("ids", []))
+        if gone != [777]:
+            err("deck_checks: MISSING_GRID should name grid 777 only (501 is an SPOINT), got %s" % gone)
         doc = open("references/run-digest.md", encoding="utf-8").read()
         for code in set(ROUTES) | got | got2:
             if code not in ROUTES:

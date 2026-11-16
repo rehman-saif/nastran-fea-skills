@@ -80,8 +80,9 @@ regenerate.
   `{K:V}` for a dict.
 - `= value` marks a default; everything else is effectively optional too, since
   Apex supports optional arguments broadly.
-- **All arguments are keyword-only.** The order shown is documentation order,
-  not a calling order.
+- **Pass arguments by keyword.** The order shown is documentation order, not a
+  calling order. Apex 2024.1 also accepts positional arguments, but nothing
+  documents the order (see `references/runtime-2024.1.md`).
 - A `ZResult*` return means several values come back on one object — check its
   entry in `classes/<module>.md` for the property names.
 

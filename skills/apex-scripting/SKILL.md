@@ -12,7 +12,7 @@ Plugins ("custom tools") add a native-looking tool panel on top of that API
 using a separate .NET/WPF GUI SDK, `apex_sdk`.
 
 This skill bundles a generated, authoritative API reference. **Look the call up
-before writing it.** Apex signatures are large, keyword-only, and full of
+before writing it.** Apex signatures are large, documented by keyword, and full of
 near-miss enum names, so recalled code is usually wrong in a way that only
 fails at runtime.
 
@@ -26,8 +26,8 @@ fails at runtime.
    - a **remote script** — drives Apex from an external interpreter
    - a **fix** to existing code
 2. **Read the conventions.** [references/cheat-sheet.md](references/cheat-sheet.md)
-   before writing any Apex code. Keyword-only arguments, `update()` instead of
-   setters, and `ZResult` returns account for most broken generated scripts.
+   before writing any Apex code. Keyword arguments, `update()` instead of
+   assignment, and `ZResult` returns account for most broken generated scripts.
    [references/scripting-model.md](references/scripting-model.md) is the full
    version, for when a rule needs its explanation.
 3. **Locate the functionality.** Follow the lookup order below. Do not write a
@@ -74,13 +74,17 @@ documentation set is not bundled and must not be searched.
 
 1. `import apex` at the top; it makes every module available.
 2. Set `apex.setScriptUnitSystem(...)` before creating or measuring geometry.
-3. Pass **every** argument by keyword. Apex supports no positional arguments.
-4. Change entity properties with `update()`. Assignment silently does nothing.
+3. Pass **every** argument by keyword. Only the names are documented, and many
+   functions show no parameter order at runtime.
+4. Change entity properties with `update()`. Assignment raises `AttributeError`
+   in Apex 2024.1 and changes nothing.
 5. Build targets as an `apex.EntityCollection` via `appendList`, not as a Python
-   list. Use `.len()`, not `len()`.
+   list.
 6. Treat returns as single values; read multi-value results off the `ZResult*`
    object's properties.
-7. Prefer bulk module functions over per-entity loops.
+7. Prefer bulk module functions over per-entity loops. Never iterate `.elements`
+   or `.nodes` of a mesh or part: on a large model it exhausts Apex's memory. Use
+   the MeshBody arrays (`getElementIDs`, `getNodeIDs`, `getNodeCoordinates`).
 8. Use `recursive=True` when nested assemblies are in scope.
 9. Separate lookup, filtering, mutation and reporting into clear blocks.
 10. Report progress with `apex.session.displayStatusMessage` for slow work.
@@ -151,7 +155,13 @@ release and a signature could differ, say where the signature came from.
 
 Where Apex 2024.1 is known to behave differently from that reference, the
 difference is recorded in `tools/runtime_overrides.json` and stamped into
-`api/` by the generator.
+`api/` by the generator. [references/runtime-2024.1.md](references/runtime-2024.1.md)
+lists what was measured in a running Apex 2024.1: names in other modules or
+missing, calling conventions, expensive properties.
+
+When the Apex MCP server is connected, scripts run in the user's Apex through its
+tools; [references/apex-mcp.md](references/apex-mcp.md) says how they and this
+skill divide the work.
 
 ## References
 
@@ -166,6 +176,8 @@ difference is recorded in `tools/runtime_overrides.json` and stamped into
 - [references/gui-sdk-patterns.md](references/gui-sdk-patterns.md): WPF panel layout recipes
 - [references/remote-and-batch.md](references/remote-and-batch.md): macros, batch scripts, `remoting`, Python environment
 - [references/pitfalls.md](references/pitfalls.md): the mistakes that break generated Apex code
+- [references/runtime-2024.1.md](references/runtime-2024.1.md): where a running Apex 2024.1 differs from `api/`
+- [references/apex-mcp.md](references/apex-mcp.md): running scripts through the Apex MCP server
 - [references/debugging-playbook.md](references/debugging-playbook.md): symptom-driven debugging flow
 - [references/script-quality-checklist.md](references/script-quality-checklist.md): criteria for high-quality Apex scripts
 - [api/README.md](api/README.md): how to search the generated API reference

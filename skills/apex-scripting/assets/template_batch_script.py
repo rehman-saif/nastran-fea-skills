@@ -4,7 +4,7 @@
 # Replace the marked sections; delete what the task does not need.
 #
 # Reminders:
-#   - every Apex argument is keyword-only
+#   - pass every Apex argument by keyword
 #   - change entity properties with update(), never by assignment
 #   - collections are apex.EntityCollection, not Python lists
 

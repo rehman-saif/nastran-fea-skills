@@ -19,7 +19,7 @@ Run through this before delivering any Apex script or custom tool.
 7. Return values are treated as single objects; `ZResult*` values are read
    through their properties.
 8. Collections are built with `EntityCollection` and `appendList`, not as
-   Python lists; `.len()` is used rather than `len()`.
+   Python lists; no loop walks `.elements` / `.nodes` of a mesh or part.
 9. `apex.setScriptUnitSystem(...)` is set before geometry is created or
    measured.
 

@@ -2,7 +2,7 @@
 
 (apex.post module) Post-Processing functions used to visualize results data.
 
-Apex release: Iberian Lynx FP2. All arguments are keyword-only.
+Apex release: Iberian Lynx FP2. Arguments are documented by name: pass them by keyword.
 
 ## Enumerations
 

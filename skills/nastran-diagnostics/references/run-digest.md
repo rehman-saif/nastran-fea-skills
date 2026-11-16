@@ -85,11 +85,11 @@ Severity: **error** means the run will fail or its answer is invalid;
 | `INCLUDE_MISSING` | error | an INCLUDE could not be found; the deck checked is incomplete | a relative path or another directory; rerun with `-I` |
 | `PARSE_PROBLEM` | warn | lines that are not cards, or cards that could not be interpreted | hand edits, tabs, truncated file |
 | `DUPLICATE_ID` | error | same ID defined twice (grids; elements incl. rigid and mass; properties; materials; coords) | merged include files |
-| `MISSING_GRID` | error | element/rigid/mass/SPC/load uses a grid that does not exist | deleted geometry, partial export |
+| `MISSING_GRID` | error | element/rigid/mass/SPC/load uses a grid that does not exist (scalar points from SPOINT/EPOINT count as defined) | deleted geometry, partial export |
 | `MISSING_PROPERTY` | error | element PID not defined | property not exported or deleted |
 | `PROPERTY_TYPE_MISMATCH` | error | e.g. CQUAD4 pointing at a PSOLID | PID collision between parts |
 | `MISSING_MATERIAL` | error | property MID not defined | |
-| `MISSING_SET` | error | LOAD/SPC/MPC in case control or a LOAD combination refers to an undefined set | renamed or deleted load set |
+| `MISSING_SET` | error | LOAD/SPC/MPC in case control or a LOAD combination refers to an undefined set, or `BCONTACT = n` names no BCTABLE, BCTABL1 or BCONECT, or BCONTACT has a value the QRG does not list (`USER`) | renamed or deleted load set; contact table renumbered; Apex 2024.1 writes `BCONTACT = USER` when the value was never set |
 | `CONTACT_INACTIVE` | error (SOL 101/400), warn otherwise | BCONECT/BCTABLE/BCTABL1 present but no subcase has `BCONTACT = n`, or one has `BCONTACT = NONE` in SOL 101/400; every glue/contact pair is ignored | exporter wrote the glue but not the case control (seen from Apex 2024.1) |
 | `UNCONSTRAINED_GROUP` | error | an assembly (parts plus active contact) has no path to any SPC, in a static run without INREL/SUPORT | missing connection or glue; missing SPC |
 | `LOAD_ON_UNATTACHED` | error | a load on a grid with no stiffness | load point left behind after remeshing |
