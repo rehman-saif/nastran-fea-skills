@@ -2,7 +2,7 @@
 
 (apex.environment module) functions for creating/getting Load, Constraint, Force, and Gravity objects.
 
-Apex release: Iberian Lynx FP2. All arguments are keyword-only.
+Apex release: Iberian Lynx FP2. Arguments are documented by name: pass them by keyword.
 
 ## Enumerations
 

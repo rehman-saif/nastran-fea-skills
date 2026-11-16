@@ -8,12 +8,13 @@ model.
 
 ## 1. Positional arguments
 
-The Apex API accepts **no positional arguments**. Every call needs name-value
-pairs. This breaks more generated scripts than anything else.
+Pass every argument by name. The reference documents names, not order, so a
+positional call is a guess; Apex 2024.1 accepted the positional calls tried, but
+where the guess is wrong the value lands in the wrong parameter without an error.
 
 ```python
 apex.mesh.createSurfaceMesh(target=bodies, meshSize=5.0)   # correct
-apex.mesh.createSurfaceMesh(bodies, 5.0)                   # fails
+apex.mesh.createSurfaceMesh(bodies, 5.0)                   # a guess at the order
 ```
 
 Non-`Entity` value types are the exception, because they use normal Python
@@ -21,12 +22,13 @@ construction: `apex.ColorRGB(214, 255, 0)` is fine.
 
 ## 2. Assigning to a property instead of calling `update()`
 
-`Entity`-derived classes have no setters. Assignment silently fails to change
-the model rather than raising.
+`Entity`-derived classes have no setters. In Apex 2024.1 assignment raises
+`AttributeError: ... has no setter`; older documentation describes it as silently
+ignored. Either way the model does not change.
 
 ```python
 my_mesh.update(meshSize=8.0)   # correct
-my_mesh.meshSize = 8.0         # does nothing to the model
+my_mesh.meshSize = 8.0         # AttributeError; the model is unchanged
 ```
 
 ## 3. Invented enum members
@@ -48,11 +50,15 @@ bodies.appendList([...])       # correct
 bodies = [...]                 # not a collection
 ```
 
-`len()` is a method on the collection, not the Python builtin:
+Count a collection with its `len()` method (the builtin also works in Apex
+2024.1). For the elements or nodes of a mesh, do not build the collection at all:
+`entity.nodes` makes one Python object per node, and iterating `part.elements`
+exhausted Apex's memory on a 90k-element model. Use the MeshBody arrays:
 
 ```python
-count = entity.nodes.len()     # correct
-count = len(entity.nodes)      # not supported
+count = targets.len()                                         # a collection you built
+n_nodes = len(mesh.getNodeIDs())                              # no node objects
+n_elements = sum(len(ids) for ids in mesh.getElementIDs().values())
 ```
 
 Use `toList()` when you genuinely need list behaviour like `sorted()`.
@@ -211,13 +217,18 @@ glue is ignored and the parts are disconnected. Nothing in Apex warns about it.
 Set it on every subcase, with the same order as section 19:
 
 ```python
+rep_id = pair.getActiveRep().id          # Apex writes it as the BCONECT id
 cmd = subcase.getCommand(commandName="BCONTACT")
-cmd.setValue("1")
+cmd.setValue(str(rep_id))                # a string: setValue(1) stores nothing
 subcase.setCommand(commandName="BCONTACT", activate=True)
 ```
 
-The value is the ID of the contact set in the deck: `BCONECT` id 1 in the run
-this came from. Check the exported deck. The solver side of this is in
+The value must be a **string**. `setValue(1)` raises nothing, but stores nothing,
+and the deck then reads `BCONTACT = USER`, which is not a BCONTACT value Nastran
+documents. The ID is that of the contact set in the deck: Apex 2024.1 writes the
+glue as `BCONECT` with the ID of the pair's `InteractionRep` (3 in one test, not 1).
+One `BCONTACT` selects one ID, so pairs on several IDs need checking. Check the
+exported deck. The solver side of this is in
 `nastran-reference`'s
 [pre-run-checklist.md](../../nastran-reference/references/pre-run-checklist.md).
 

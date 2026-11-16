@@ -137,11 +137,12 @@ result = apex.mesh.createSurfaceMesh(
 follow the same shape. Each returns a `ZResult*` object, not the mesh itself —
 read the meshes from its properties.
 
-Element counts come from the entity, via `.len()` on the collection:
+Element and node counts come from the mesh's ID arrays, which build no element
+objects (`entity.elements` builds one per element):
 
 ```python
-for entity in apex.selection.getCurrentSelection():
-    print(entity.nodes.len(), entity.elements.len())
+for mesh in part.getMeshes():
+    print(len(mesh.getNodeIDs()), sum(len(ids) for ids in mesh.getElementIDs().values()))
 ```
 
 ## 8. Materials and attribution
@@ -210,6 +211,12 @@ separate steps because that is how they were run. Names and part paths are
 from that model, so replace them with yours. Units are `mm-t-s-N-K`
 throughout. For the traps behind several of these steps, see sections 17–22 of
 [pitfalls.md](pitfalls.md).
+
+Through the Apex MCP server the same steps are already packaged as the `B`
+helpers (`B.create_material`, `B.mesh_solid`, `B.glue`, `B.rbe2`, `B.beam`,
+`B.constrain`, `B.nodal_load`, `B.static_scenario`, ...), each idempotent and
+returning ids and counts: see [apex-mcp.md](apex-mcp.md). Use the blocks below
+to see what they do, or for a script that runs outside the server.
 
 ### 12.1 Helpers used below
 
@@ -385,7 +392,7 @@ for sub, load, title in zip(scn.getSubcases(), loads, titles):   # loads: your l
     sub.setSubtitle(title)
     set_cc(sub, "LOAD", load.id)
     set_cc(sub, "SPC", fixed.id)
-    set_cc(sub, "BCONTACT", "1")  # only if the model has glue or contact
+    set_cc(sub, "BCONTACT", str(glue.getActiveRep().id))  # only with glue or contact: a string, the BCONECT id
 ```
 
 In a **later** script, check that the values stuck:

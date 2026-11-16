@@ -2,7 +2,7 @@
 
 (apex.setting module) provides access to the apex Application Settings.
 
-Apex release: Iberian Lynx FP2. All arguments are keyword-only.
+Apex release: Iberian Lynx FP2. Arguments are documented by name: pass them by keyword.
 
 ## Enumerations
 

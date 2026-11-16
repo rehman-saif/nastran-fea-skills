@@ -71,6 +71,7 @@ MAT_RHO = {"MAT1": 5, "MAT2": 8, "MAT8": 8, "MAT9": 23, "MAT3": 8}
 MAT_E = {"MAT1": 2, "MAT8": 2}
 # solution sequences where BCONTACT defaults to NONE (QRG, BCONTACT Case Control)
 CONTACT_DEFAULT_NONE = {"101", "SESTATIC", "400", "NLSTATIC"}
+CONTACT_TABLES = ("BCTABLE", "BCTABL1", "BCONECT")  # what BCONTACT = n selects by ID
 CONTACT_CARDS = {"BCSURF", "BSURF", "BCPROP", "BCBODY", "BCBODY1", "BCONECT", "BCTABLE",
                  "BCTABL1", "BCONPRG", "BCONPRP", "BGSET", "BCTSET", "BCTPARA", "BCTPARM",
                  "BCPARA", "BGPARM", "BCRPARA", "BCTADD", "BGADD"}
@@ -206,6 +207,7 @@ class Model:
     def __init__(self):
         self.files = []
         self.grids = {}          # gid -> (cp, x, y, z, cd, ps, loc)
+        self.spoints = set()     # SPOINT / EPOINT ids: legal SPC/MPC/element targets that are not grids
         self.coords = {}         # cid -> dict
         self.elems = {}          # eid -> (name, pid, nodes, loc)
         self.rigids = {}         # eid -> (name, indep, dep, dep_comps, loc)  dep_comps: {gid: comps}
@@ -346,6 +348,8 @@ class Model:
                 self.suport.append(c.loc)
             elif n in CONTACT_CARDS:
                 self.contact[n].append(c)
+            elif n in ("SPOINT", "EPOINT"):
+                self.spoints.update(ints_with_thru(f[1:]))
             elif n not in KNOWN_OTHER:
                 self.unknown[n] += 1
         except Exception as e:  # noqa: BLE001 - never raise
@@ -683,26 +687,29 @@ def run_checks(m, cc_lines, sol=None, unit_hint=None, coincident=True, log=print
 
     # ---------------- reference integrity
     grids = m.grids
+
+    def undefined(g):  # a scalar point (SPOINT/EPOINT) is a defined point, not a missing grid
+        return g not in grids and g not in m.spoints
     miss_g = collections.defaultdict(list)
     for eid, (n, pid, nodes, loc, _) in m.elems.items():
         for g in nodes:
-            if g not in grids:
+            if undefined(g):
                 miss_g[g].append(("element", eid, loc))
     for eid, (n, ind, dep, _, loc) in m.rigids.items():
         for g in ind + dep:
-            if g not in grids:
+            if undefined(g):
                 miss_g[g].append(("rigid", eid, loc))
     for eid, (n, g, mass, loc) in m.masses.items():
-        if g not in grids:
+        if undefined(g):
             miss_g[g].append(("mass", eid, loc))
     for sid, lst in m.spcs.items():
         for n, comps, gl, loc in lst:
             for g in gl:
-                if g not in grids:
+                if undefined(g):
                     miss_g[g].append(("spc", sid, loc))
     for sid, lst in m.loads.items():
         for d in lst:
-            if d.get("g") and d["g"] not in grids:
+            if d.get("g") and undefined(d["g"]):
                 miss_g[d["g"]].append(("load", sid, d["loc"]))
     if miss_g:
         F.add("MISSING_GRID", "error", "References to grids that do not exist",
@@ -781,6 +788,15 @@ def run_checks(m, cc_lines, sol=None, unit_hint=None, coincident=True, log=print
                     missing_sets.append("LOAD %s refers to load set %s, which is not defined" % (v, lid))
         if s.get("BCONTACT"):
             bcontact.add(s["BCONTACT"])
+            b = to_int(s["BCONTACT"])
+            # QRG, BCONTACT (Case): n is the ID of a BCTABLE, BCTABL1 or BCONECT, which is required
+            if b is not None and b > 0 and not any(to_int(c.f(1)) == b for name in CONTACT_TABLES
+                                                   for c in m.contact.get(name, [])):
+                missing_sets.append("BCONTACT=%s (subcase %s): no BCTABLE, BCTABL1 or BCONECT has that ID" % (b, sid))
+            word = str(s["BCONTACT"]).strip().upper()
+            if b is None and word not in ("NONE", "ALLBODY") and not word.startswith("AUTO"):
+                missing_sets.append("BCONTACT=%s (subcase %s): not a BCONTACT value (QRG: n, ALLBODY, NONE, AUTO); "
+                                    "Apex 2024.1 writes USER when the value was never set" % (s["BCONTACT"], sid))
     if missing_sets:
         F.add("MISSING_SET", "error", "Case control or LOAD combination points to undefined sets",
               "; ".join(missing_sets[:6]), count=len(missing_sets))
@@ -1200,7 +1216,7 @@ def analyse_contact(m, F, comp_of, elem_size, label, bcontact, have_cc, sol=None
                   "BCONTACT is absent or NONE in every subcase. BCONTACT defaults to NONE in SOL 101 "
                   "and 400, and without BCONTACT=n (n>0) no contact analysis is done in a load case "
                   "(QRG, BCONTACT Case Control). Every glue/contact pair is ignored, so the parts it "
-                  "joins are not connected. Add BCONTACT = <BCONECT/BCTABLE id> to each subcase.")
+                  "joins are not connected. Add BCONTACT = <BCTABLE/BCTABL1/BCONECT id> to each subcase.")
     iglue = {}
     for c in ctab.get("BCONPRG", []):
         toks = [x.upper() for x in c.fields[2:]]

@@ -28,7 +28,8 @@ line.
 
 | Check | Why |
 |---|---|
-| Positional arguments anywhere | the API accepts none |
+| Positional arguments | only names are documented; a wrong order passes a value to the wrong parameter |
+| Assignment to a property | raises `AttributeError` (no setter); use `update()` |
 | Enum member spelling | invented members are common |
 | Function actually exists in that module | the module prefix is easy to get wrong |
 | `import apex` present | nothing resolves without it |

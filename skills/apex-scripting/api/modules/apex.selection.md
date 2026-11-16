@@ -2,7 +2,7 @@
 
 (apex.selection module) provides access to the current selection.
 
-Apex release: Iberian Lynx FP2. All arguments are keyword-only.
+Apex release: Iberian Lynx FP2. Arguments are documented by name: pass them by keyword.
 
 ## Module functions
 

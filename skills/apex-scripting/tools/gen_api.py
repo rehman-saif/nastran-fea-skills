@@ -419,7 +419,7 @@ def main():
         L = [f"# {name}", ""]
         if d["brief"]:
             L += [d["brief"], ""]
-        L += ["Apex release: Iberian Lynx FP2. All arguments are keyword-only.", ""]
+        L += ["Apex release: Iberian Lynx FP2. Arguments are documented by name: pass them by keyword.", ""]
 
         if d["enums"]:
             L += ["## Enumerations", ""]

@@ -48,19 +48,25 @@ are interpreted in this system.
 apex.setScriptUnitSystem(unitSystemName=r"m-kg-s-N")
 ```
 
-## 3. Keyword arguments only
+## 3. Keyword arguments
 
-**The Apex API does not support positional arguments.** Every argument must be
-passed as a name-value pair. This is the single most common cause of broken
-generated scripts.
+**Pass every argument as a name-value pair.** The reference documents arguments
+by name only, and 470 of the 1,297 functions are SWIG wrappers that show no
+parameter order at runtime. Apex 2024.1 accepted positional arguments in every
+call tried ([runtime-2024.1.md](runtime-2024.1.md)), but a positional call is a
+guess at the order: where the guess is wrong, a value lands in the wrong
+parameter.
 
 ```python
 # correct
 apex.mesh.createSurfaceMesh(target=bodies, meshSize=5.0)
 
-# raises — positional arguments are not supported
+# avoid: relies on an order nothing documents
 apex.mesh.createSurfaceMesh(bodies, 5.0)
 ```
+
+An unknown keyword raises at once, before the call does anything
+(`TypeError: ... got an unexpected keyword argument`).
 
 Most arguments are optional. Pass only the ones that matter; the rest take
 documented defaults. These two calls are equivalent:
@@ -110,14 +116,16 @@ size = my_mesh.getMeshSize()
 ## 6. Changing properties: `update()`
 
 **Classes derived from `Entity` have no property setters and no `set*` methods.**
-Assigning to a property does not change the model. Use `update()`, which accepts
-any valid combination of that class's properties in one call.
+Assigning to a property raises `AttributeError: property 'meshSize' of
+'SurfaceMesh' object has no setter` in Apex 2024.1 (older documentation says it
+is silently ignored); either way the model does not change. Use `update()`,
+which accepts any valid combination of that class's properties in one call.
 
 ```python
 # correct
 my_mesh.update(meshSize=8.0, elementMinEdgeLengthRatio=0.2)
 
-# does NOT modify the model
+# raises AttributeError, the model is unchanged
 my_mesh.meshSize = 8.0
 ```
 
@@ -167,11 +175,19 @@ what scripts need:
 Also supported: iteration, slicing, copying, `[]` indexing, and combining with
 `+`.
 
-Note `len()` is a **method**, not the `len()` builtin:
+Count members with the `len()` method; in Apex 2024.1 the builtin works too:
 
 ```python
-count = targets.len()      # correct
-count = len(targets)       # not supported
+count = targets.len()
+count = len(targets)       # same result in Apex 2024.1
+```
+
+Do not build the element or node collection of a mesh just to count or filter
+it: `mesh.elements` makes one object per element. Use the MeshBody arrays:
+
+```python
+n_nodes = len(mesh.getNodeIDs())
+n_elements = sum(len(ids) for ids in mesh.getElementIDs().values())  # {topology: ids}
 ```
 
 Drop to a Python list with `toList()` when you need real list behaviour such as

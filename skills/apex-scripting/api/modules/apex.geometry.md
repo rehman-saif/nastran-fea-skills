@@ -2,7 +2,7 @@
 
 (apex.geometry module) Geometry Editing functions: Drag, Push/Pull, Defeature, Stitch, MidSurface, etc.
 
-Apex release: Iberian Lynx FP2. All arguments are keyword-only.
+Apex release: Iberian Lynx FP2. Arguments are documented by name: pass them by keyword.
 
 ## Enumerations
 

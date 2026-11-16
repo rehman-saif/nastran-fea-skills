@@ -27,7 +27,8 @@ ships as markdown. Regenerating `api/` needs the Apex documentation archive. See
 
 1. **[cheat-sheet.md](cheat-sheet.md)** — API conventions in brief. Read before
    writing any Apex code. [scripting-model.md](scripting-model.md) is the full
-   version.
+   version, and [runtime-2024.1.md](runtime-2024.1.md) says where a running Apex
+   2024.1 differs from `api/`.
 2. **[fe-vocabulary.md](fe-vocabulary.md)** — from an FE term (glue, RBE2, SPC,
    PSOLID, subcase) to the Apex call.
 3. **[module-selection.md](module-selection.md)** — narrow the task to a module.

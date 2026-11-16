@@ -43,6 +43,23 @@ for o in ov["overrides"]:
     if o["name"] not in funcs and o["name"] not in qualified:
         bad.append(("tools/runtime_overrides.json", "OVERRIDE", o["name"]))
 
+# runtime_names: documented names must still be in api/, runtime-only ones must still be missing from
+# it, and references/runtime-2024.1.md must mention every one. Prose may then use the runtime-only names.
+rn = ov.get("runtime_names") or {}
+RUNTIME_DOC = "references/runtime-2024.1.md"
+runtime_doc = open(RUNTIME_DOC, encoding="utf-8").read() if os.path.exists(RUNTIME_DOC) else ""
+documented = list(rn.get("moved", {})) + rn.get("absent", []) + rn.get("absent_methods", [])
+runtime_only = set(rn.get("moved", {}).values()) | set(rn.get("undocumented", []))
+for n in documented:
+    if n not in names and n not in qualified:
+        bad.append(("tools/runtime_overrides.json", "NOT DOCUMENTED ANY MORE", n))
+for n in runtime_only:
+    if n in names or n in qualified:
+        bad.append(("tools/runtime_overrides.json", "DOCUMENTED NOW", n))
+for n in documented + sorted(runtime_only):
+    if "`%s`" % n not in runtime_doc:
+        bad.append((RUNTIME_DOC, "NOT MENTIONED", n))
+
 srcs = []
 for pat in ("*.md", "references/*.md", "assets/**/*.py", "assets/**/*.md"):
     for f in glob.glob(pat, recursive=True):
@@ -58,23 +75,23 @@ for p in srcs:
     s = open(p, encoding="utf-8").read()
     for m in re.finditer(r"\bapex(?:\.\w+)+(?=\()", s):
         n = m.group(0)
-        if n in funcs or n.split(".")[-1] in methods or n in classes:
+        if n in funcs or n.split(".")[-1] in methods or n in classes or n in runtime_only:
             continue
         bad.append((p, "CALL", n))
     for m in re.finditer(r"\bapex\.(?:\w+\.)?[A-Z]\w+\.[A-Z]\w+\b", s):
         n = m.group(0)
         en, mem = n.rsplit(".", 1)
         if en in enums:
-            if mem not in enums[en]:
+            if mem not in enums[en] and n not in runtime_only:
                 bad.append((p, "ENUM MEMBER", n))
-        elif en not in classes:
+        elif en not in classes and en not in runtime_only:
             bad.append((p, "UNKNOWN ENUM", n))
     # Names written without a call: `apex.environment.createGravity`,
     # `apex.studies.LoadCaseItem.getCommand`. A trailing `*` marks a family.
     for m in re.finditer(r"\bapex(?:\.\w+)+(?![\w(*])", s):
         n = m.group(0)
         head, _, last = n.rpartition(".")
-        if (n in names or n in qualified
+        if (n in names or n in qualified or n in runtime_only
                 or (head in enums and last in enums[head])
                 or (head in classes and last in methods)):
             continue
